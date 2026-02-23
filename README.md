@@ -111,7 +111,7 @@ limitations under the License.
 | [Get-TextTranslation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-texttranslation) | translate | &nbsp; |
 | [Get-VectorSimilarity](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-vectorsimilarity) | &nbsp; | Calculates the cosine similarity between two vectors, returning a value between 0 and 1. |
 | [Initialize-LMStudioModel](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#initialize-lmstudiomodel) | initlmstudio | &nbsp; |
-| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | Installs LM Studio application using WinGet package manager. |
+| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Invoke-AIPowershellCommand](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-aipowershellcommand) | hint | &nbsp; |
 | [Invoke-ComfyUIImageGeneration](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-comfyuiimagegeneration) | generateimage | &nbsp; |
 | [Invoke-CommandFromToolCall](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-commandfromtoolcall) | &nbsp; | &nbsp; |
@@ -128,6 +128,7 @@ limitations under the License.
 | [Invoke-LLMTextTransformation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-llmtexttransformation) | spellcheck | &nbsp; |
 | [Invoke-QueryImageContent](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-queryimagecontent) | &nbsp; | &nbsp; |
 | [Invoke-WinMerge](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-winmerge) | &nbsp; | Launches WinMerge to compare two files side by side. |
+| [New-GenXdevMCPToken](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-genxdevmcptoken) | &nbsp; | &nbsp; |
 | [New-LLMAudioChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmaudiochat) | llmaudiochat | &nbsp; |
 | [New-LLMTextChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmtextchat) | llmchat | &nbsp; |
 | [QueueComfyWorkflow](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#queuecomfyworkflow) | &nbsp; | &nbsp; |
@@ -153,7 +154,7 @@ limitations under the License.
 | [Show-GenXdevScriptErrorFixInIde](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#show-genxdevscripterrorfixinide) | letsfixthis | &nbsp; |
 | [Start-AudioTranscription](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-audiotranscription) | transcribe, transcribefile | &nbsp; |
 | [Start-GenXdevMCPServer](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-genxdevmcpserver) | &nbsp; | &nbsp; |
-| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | Starts the LM Studio application if it's not already running. |
+| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Stop-ComfyUI](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#stop-comfyui) | &nbsp; | Terminates all running ComfyUI processes and releases associated resources. |
 | [Test-ComfyUIQueueEmpty](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-comfyuiqueueempty) | &nbsp; | Checks if the ComfyUI processing queue is empty |
 | [Test-DeepLinkImageFile](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-deeplinkimagefile) | &nbsp; | Tests if the specified file path is a valid image file with a supported format. |
@@ -232,7 +233,7 @@ limitations under the License.
 | [Get-TextTranslation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-texttranslation) | translate | &nbsp; |
 | [Get-VectorSimilarity](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-vectorsimilarity) | &nbsp; | Calculates the cosine similarity between two vectors, returning a value between 0 and 1. |
 | [Initialize-LMStudioModel](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#initialize-lmstudiomodel) | initlmstudio | &nbsp; |
-| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | Installs LM Studio application using WinGet package manager. |
+| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Invoke-AIPowershellCommand](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-aipowershellcommand) | hint | &nbsp; |
 | [Invoke-ComfyUIImageGeneration](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-comfyuiimagegeneration) | generateimage | &nbsp; |
 | [Invoke-CommandFromToolCall](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-commandfromtoolcall) | &nbsp; | &nbsp; |
@@ -249,6 +250,7 @@ limitations under the License.
 | [Invoke-LLMTextTransformation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-llmtexttransformation) | spellcheck | &nbsp; |
 | [Invoke-QueryImageContent](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-queryimagecontent) | &nbsp; | &nbsp; |
 | [Invoke-WinMerge](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-winmerge) | &nbsp; | Launches WinMerge to compare two files side by side. |
+| [New-GenXdevMCPToken](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-genxdevmcptoken) | &nbsp; | &nbsp; |
 | [New-LLMAudioChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmaudiochat) | llmaudiochat | &nbsp; |
 | [New-LLMTextChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmtextchat) | llmchat | &nbsp; |
 | [QueueComfyWorkflow](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#queuecomfyworkflow) | &nbsp; | &nbsp; |
@@ -274,7 +276,7 @@ limitations under the License.
 | [Show-GenXdevScriptErrorFixInIde](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#show-genxdevscripterrorfixinide) | letsfixthis | &nbsp; |
 | [Start-AudioTranscription](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-audiotranscription) | transcribe, transcribefile | &nbsp; |
 | [Start-GenXdevMCPServer](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-genxdevmcpserver) | &nbsp; | &nbsp; |
-| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | Starts the LM Studio application if it's not already running. |
+| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Stop-ComfyUI](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#stop-comfyui) | &nbsp; | Terminates all running ComfyUI processes and releases associated resources. |
 | [Test-ComfyUIQueueEmpty](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-comfyuiqueueempty) | &nbsp; | Checks if the ComfyUI processing queue is empty |
 | [Test-DeepLinkImageFile](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-deeplinkimagefile) | &nbsp; | Tests if the specified file path is a valid image file with a supported format. |
@@ -353,7 +355,7 @@ limitations under the License.
 | [Get-TextTranslation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-texttranslation) | translate | &nbsp; |
 | [Get-VectorSimilarity](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-vectorsimilarity) | &nbsp; | Calculates the cosine similarity between two vectors, returning a value between 0 and 1. |
 | [Initialize-LMStudioModel](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#initialize-lmstudiomodel) | initlmstudio | &nbsp; |
-| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | Installs LM Studio application using WinGet package manager. |
+| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Invoke-AIPowershellCommand](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-aipowershellcommand) | hint | &nbsp; |
 | [Invoke-ComfyUIImageGeneration](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-comfyuiimagegeneration) | generateimage | &nbsp; |
 | [Invoke-CommandFromToolCall](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-commandfromtoolcall) | &nbsp; | &nbsp; |
@@ -370,6 +372,7 @@ limitations under the License.
 | [Invoke-LLMTextTransformation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-llmtexttransformation) | spellcheck | &nbsp; |
 | [Invoke-QueryImageContent](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-queryimagecontent) | &nbsp; | &nbsp; |
 | [Invoke-WinMerge](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-winmerge) | &nbsp; | Launches WinMerge to compare two files side by side. |
+| [New-GenXdevMCPToken](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-genxdevmcptoken) | &nbsp; | &nbsp; |
 | [New-LLMAudioChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmaudiochat) | llmaudiochat | &nbsp; |
 | [New-LLMTextChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmtextchat) | llmchat | &nbsp; |
 | [QueueComfyWorkflow](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#queuecomfyworkflow) | &nbsp; | &nbsp; |
@@ -395,7 +398,7 @@ limitations under the License.
 | [Show-GenXdevScriptErrorFixInIde](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#show-genxdevscripterrorfixinide) | letsfixthis | &nbsp; |
 | [Start-AudioTranscription](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-audiotranscription) | transcribe, transcribefile | &nbsp; |
 | [Start-GenXdevMCPServer](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-genxdevmcpserver) | &nbsp; | &nbsp; |
-| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | Starts the LM Studio application if it's not already running. |
+| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Stop-ComfyUI](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#stop-comfyui) | &nbsp; | Terminates all running ComfyUI processes and releases associated resources. |
 | [Test-ComfyUIQueueEmpty](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-comfyuiqueueempty) | &nbsp; | Checks if the ComfyUI processing queue is empty |
 | [Test-DeepLinkImageFile](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-deeplinkimagefile) | &nbsp; | Tests if the specified file path is a valid image file with a supported format. |
@@ -474,7 +477,7 @@ limitations under the License.
 | [Get-TextTranslation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-texttranslation) | translate | &nbsp; |
 | [Get-VectorSimilarity](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-vectorsimilarity) | &nbsp; | Calculates the cosine similarity between two vectors, returning a value between 0 and 1. |
 | [Initialize-LMStudioModel](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#initialize-lmstudiomodel) | initlmstudio | &nbsp; |
-| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | Installs LM Studio application using WinGet package manager. |
+| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Invoke-AIPowershellCommand](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-aipowershellcommand) | hint | &nbsp; |
 | [Invoke-ComfyUIImageGeneration](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-comfyuiimagegeneration) | generateimage | &nbsp; |
 | [Invoke-CommandFromToolCall](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-commandfromtoolcall) | &nbsp; | &nbsp; |
@@ -491,6 +494,7 @@ limitations under the License.
 | [Invoke-LLMTextTransformation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-llmtexttransformation) | spellcheck | &nbsp; |
 | [Invoke-QueryImageContent](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-queryimagecontent) | &nbsp; | &nbsp; |
 | [Invoke-WinMerge](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-winmerge) | &nbsp; | Launches WinMerge to compare two files side by side. |
+| [New-GenXdevMCPToken](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-genxdevmcptoken) | &nbsp; | &nbsp; |
 | [New-LLMAudioChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmaudiochat) | llmaudiochat | &nbsp; |
 | [New-LLMTextChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmtextchat) | llmchat | &nbsp; |
 | [QueueComfyWorkflow](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#queuecomfyworkflow) | &nbsp; | &nbsp; |
@@ -516,7 +520,7 @@ limitations under the License.
 | [Show-GenXdevScriptErrorFixInIde](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#show-genxdevscripterrorfixinide) | letsfixthis | &nbsp; |
 | [Start-AudioTranscription](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-audiotranscription) | transcribe, transcribefile | &nbsp; |
 | [Start-GenXdevMCPServer](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-genxdevmcpserver) | &nbsp; | &nbsp; |
-| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | Starts the LM Studio application if it's not already running. |
+| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Stop-ComfyUI](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#stop-comfyui) | &nbsp; | Terminates all running ComfyUI processes and releases associated resources. |
 | [Test-ComfyUIQueueEmpty](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-comfyuiqueueempty) | &nbsp; | Checks if the ComfyUI processing queue is empty |
 | [Test-DeepLinkImageFile](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-deeplinkimagefile) | &nbsp; | Tests if the specified file path is a valid image file with a supported format. |
@@ -595,7 +599,7 @@ limitations under the License.
 | [Get-TextTranslation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-texttranslation) | translate | &nbsp; |
 | [Get-VectorSimilarity](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-vectorsimilarity) | &nbsp; | Calculates the cosine similarity between two vectors, returning a value between 0 and 1. |
 | [Initialize-LMStudioModel](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#initialize-lmstudiomodel) | initlmstudio | &nbsp; |
-| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | Installs LM Studio application using WinGet package manager. |
+| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Invoke-AIPowershellCommand](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-aipowershellcommand) | hint | &nbsp; |
 | [Invoke-ComfyUIImageGeneration](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-comfyuiimagegeneration) | generateimage | &nbsp; |
 | [Invoke-CommandFromToolCall](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-commandfromtoolcall) | &nbsp; | &nbsp; |
@@ -612,6 +616,7 @@ limitations under the License.
 | [Invoke-LLMTextTransformation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-llmtexttransformation) | spellcheck | &nbsp; |
 | [Invoke-QueryImageContent](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-queryimagecontent) | &nbsp; | &nbsp; |
 | [Invoke-WinMerge](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-winmerge) | &nbsp; | Launches WinMerge to compare two files side by side. |
+| [New-GenXdevMCPToken](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-genxdevmcptoken) | &nbsp; | &nbsp; |
 | [New-LLMAudioChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmaudiochat) | llmaudiochat | &nbsp; |
 | [New-LLMTextChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmtextchat) | llmchat | &nbsp; |
 | [QueueComfyWorkflow](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#queuecomfyworkflow) | &nbsp; | &nbsp; |
@@ -637,7 +642,7 @@ limitations under the License.
 | [Show-GenXdevScriptErrorFixInIde](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#show-genxdevscripterrorfixinide) | letsfixthis | &nbsp; |
 | [Start-AudioTranscription](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-audiotranscription) | transcribe, transcribefile | &nbsp; |
 | [Start-GenXdevMCPServer](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-genxdevmcpserver) | &nbsp; | &nbsp; |
-| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | Starts the LM Studio application if it's not already running. |
+| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Stop-ComfyUI](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#stop-comfyui) | &nbsp; | Terminates all running ComfyUI processes and releases associated resources. |
 | [Test-ComfyUIQueueEmpty](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-comfyuiqueueempty) | &nbsp; | Checks if the ComfyUI processing queue is empty |
 | [Test-DeepLinkImageFile](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-deeplinkimagefile) | &nbsp; | Tests if the specified file path is a valid image file with a supported format. |
@@ -716,7 +721,7 @@ limitations under the License.
 | [Get-TextTranslation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-texttranslation) | translate | &nbsp; |
 | [Get-VectorSimilarity](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#get-vectorsimilarity) | &nbsp; | Calculates the cosine similarity between two vectors, returning a value between 0 and 1. |
 | [Initialize-LMStudioModel](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#initialize-lmstudiomodel) | initlmstudio | &nbsp; |
-| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | Installs LM Studio application using WinGet package manager. |
+| [Install-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#install-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Invoke-AIPowershellCommand](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-aipowershellcommand) | hint | &nbsp; |
 | [Invoke-ComfyUIImageGeneration](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-comfyuiimagegeneration) | generateimage | &nbsp; |
 | [Invoke-CommandFromToolCall](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-commandfromtoolcall) | &nbsp; | &nbsp; |
@@ -733,6 +738,7 @@ limitations under the License.
 | [Invoke-LLMTextTransformation](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-llmtexttransformation) | spellcheck | &nbsp; |
 | [Invoke-QueryImageContent](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-queryimagecontent) | &nbsp; | &nbsp; |
 | [Invoke-WinMerge](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#invoke-winmerge) | &nbsp; | Launches WinMerge to compare two files side by side. |
+| [New-GenXdevMCPToken](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-genxdevmcptoken) | &nbsp; | &nbsp; |
 | [New-LLMAudioChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmaudiochat) | llmaudiochat | &nbsp; |
 | [New-LLMTextChat](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#new-llmtextchat) | llmchat | &nbsp; |
 | [QueueComfyWorkflow](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#queuecomfyworkflow) | &nbsp; | &nbsp; |
@@ -758,7 +764,7 @@ limitations under the License.
 | [Show-GenXdevScriptErrorFixInIde](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#show-genxdevscripterrorfixinide) | letsfixthis | &nbsp; |
 | [Start-AudioTranscription](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-audiotranscription) | transcribe, transcribefile | &nbsp; |
 | [Start-GenXdevMCPServer](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-genxdevmcpserver) | &nbsp; | &nbsp; |
-| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | Starts the LM Studio application if it's not already running. |
+| [Start-LMStudioApplication](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#start-lmstudioapplication) | &nbsp; | &nbsp; |
 | [Stop-ComfyUI](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#stop-comfyui) | &nbsp; | Terminates all running ComfyUI processes and releases associated resources. |
 | [Test-ComfyUIQueueEmpty](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-comfyuiqueueempty) | &nbsp; | Checks if the ComfyUI processing queue is empty |
 | [Test-DeepLinkImageFile](https://github.com/genXdev/GenXdev.AI/tree/main?tab=readme-ov-file#test-deeplinkimagefile) | &nbsp; | Tests if the specified file path is a valid image file with a supported format. |
@@ -782,6 +788,7 @@ limitations under the License.
 
 | Command | Aliases | Description |
 | :--- | :--- | :--- |
+| [Add-ArrayTemplate](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-arraytemplate) | FormatArray | &nbsp; |
 | [Add-FeatureLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-featurelinetoreadme) | feature | Adds a feature line to the README file with a timestamp. |
 | [Add-IdeaLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-idealinetoreadme) | idea | Adds an idea item to the README.md file. |
 | [Add-IssueLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-issuelinetoreadme) | issue | Adds an issue item to the README.md file. |
@@ -822,6 +829,7 @@ limitations under the License.
 | [Open-SourceFileInIde](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#open-sourcefileinide) | editcode | &nbsp; |
 | [PermanentlyDeleteGitFolders](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#permanentlydeletegitfolders) | &nbsp; | Permanently deletes specified folders from all branches in a Git repository. |
 | [ReleaseNotes](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#releasenotes) | &nbsp; | &nbsp; |
+| [Remove-DoubleEmptyLines](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#remove-doubleemptylines) | &nbsp; | &nbsp; |
 | [Remove-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#remove-refactor) | &nbsp; | Removes refactor sets from GenXdev preferences system. |
 | [Search-GenXdevCmdlet](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#search-genxdevcmdlet) | searchcmdlet | Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing. |
 | [Show-GenXdevCmdLetInIde](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#show-genxdevcmdletinide) | cmdlet, editcmdlet | Opens the specified GenXdev cmdlet in Visual Studio Code. |
@@ -844,6 +852,7 @@ limitations under the License.
 
 | Command | Aliases | Description |
 | :--- | :--- | :--- |
+| [Add-ArrayTemplate](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-arraytemplate) | FormatArray | &nbsp; |
 | [Add-FeatureLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-featurelinetoreadme) | feature | Adds a feature line to the README file with a timestamp. |
 | [Add-IdeaLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-idealinetoreadme) | idea | Adds an idea item to the README.md file. |
 | [Add-IssueLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-issuelinetoreadme) | issue | Adds an issue item to the README.md file. |
@@ -884,6 +893,7 @@ limitations under the License.
 | [Open-SourceFileInIde](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#open-sourcefileinide) | editcode | &nbsp; |
 | [PermanentlyDeleteGitFolders](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#permanentlydeletegitfolders) | &nbsp; | Permanently deletes specified folders from all branches in a Git repository. |
 | [ReleaseNotes](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#releasenotes) | &nbsp; | &nbsp; |
+| [Remove-DoubleEmptyLines](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#remove-doubleemptylines) | &nbsp; | &nbsp; |
 | [Remove-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#remove-refactor) | &nbsp; | Removes refactor sets from GenXdev preferences system. |
 | [Search-GenXdevCmdlet](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#search-genxdevcmdlet) | searchcmdlet | Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing. |
 | [Show-GenXdevCmdLetInIde](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#show-genxdevcmdletinide) | cmdlet, editcmdlet | Opens the specified GenXdev cmdlet in Visual Studio Code. |
@@ -906,6 +916,7 @@ limitations under the License.
 
 | Command | Aliases | Description |
 | :--- | :--- | :--- |
+| [Add-ArrayTemplate](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-arraytemplate) | FormatArray | &nbsp; |
 | [Add-FeatureLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-featurelinetoreadme) | feature | Adds a feature line to the README file with a timestamp. |
 | [Add-IdeaLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-idealinetoreadme) | idea | Adds an idea item to the README.md file. |
 | [Add-IssueLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-issuelinetoreadme) | issue | Adds an issue item to the README.md file. |
@@ -946,6 +957,71 @@ limitations under the License.
 | [Open-SourceFileInIde](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#open-sourcefileinide) | editcode | &nbsp; |
 | [PermanentlyDeleteGitFolders](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#permanentlydeletegitfolders) | &nbsp; | Permanently deletes specified folders from all branches in a Git repository. |
 | [ReleaseNotes](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#releasenotes) | &nbsp; | &nbsp; |
+| [Remove-DoubleEmptyLines](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#remove-doubleemptylines) | &nbsp; | &nbsp; |
+| [Remove-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#remove-refactor) | &nbsp; | Removes refactor sets from GenXdev preferences system. |
+| [Search-GenXdevCmdlet](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#search-genxdevcmdlet) | searchcmdlet | Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing. |
+| [Show-GenXdevCmdLetInIde](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#show-genxdevcmdletinide) | cmdlet, editcmdlet | Opens the specified GenXdev cmdlet in Visual Studio Code. |
+| [SplitUpPsm1File](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#splituppsm1file) | &nbsp; | &nbsp; |
+| [Start-NextRefactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#start-nextrefactor) | nextrefactor | &nbsp; |
+| [Test-RefactorLLMSelection](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#test-refactorllmselection) | &nbsp; | Evaluates source files for refactoring eligibility using LLM analysis. |
+| [Todoos](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#todoos) | &nbsp; | &nbsp; |
+| [Update-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#update-refactor) | updaterefactor | &nbsp; |
+| [VSCode](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#vscode) | &nbsp; | &nbsp; |
+
+📖 [Full Documentation](https://github.com/genXdev/GenXdev.Coding/blob/main/README.md) | ↑ [Back to Module Overview](#module-overview)
+
+<br/><hr/><br/>
+
+## GenXdev.Coding.Templating
+
+**A Windows PowerShell module that helps being more productive with coding tasks.**
+
+# Cmdlet Index
+
+| Command | Aliases | Description |
+| :--- | :--- | :--- |
+| [Add-ArrayTemplate](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-arraytemplate) | FormatArray | &nbsp; |
+| [Add-FeatureLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-featurelinetoreadme) | feature | Adds a feature line to the README file with a timestamp. |
+| [Add-IdeaLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-idealinetoreadme) | idea | Adds an idea item to the README.md file. |
+| [Add-IssueLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-issuelinetoreadme) | issue | Adds an issue item to the README.md file. |
+| [Add-LineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-linetoreadme) | &nbsp; | &nbsp; |
+| [Add-MissingGenXdevUnitTests](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-missinggenxdevunittests) | &nbsp; | &nbsp; |
+| [Add-ReleaseNoteLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-releasenotelinetoreadme) | releasenote | Adds a ReleaseNote line to the README file with a timestamp. |
+| [Add-TodoLineToREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#add-todolinetoreadme) | todo | Adds a todo item to the README.md file. |
+| [Assert-GenXdevCmdlet](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#assert-genxdevcmdlet) | improvecmdlet | Improves GenXdev cmdlet documentation and implementation through AI assistance. |
+| [Assert-GenXdevCmdletTests](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#assert-genxdevcmdlettests) | improvecmdlettests | Asserts and improves unit-tests of a specified GenXdev cmdlet. |
+| [Assert-GenXdevDependencyUsage](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#assert-genxdevdependencyusage) | checkgenxdevdependencies | &nbsp; |
+| [Assert-GenXdevTest](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#assert-genxdevtest) | rungenxdevtests | &nbsp; |
+| [Assert-ModuleDefinition](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#assert-moduledefinition) | &nbsp; | &nbsp; |
+| [Assert-RefactorFile](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#assert-refactorfile) | &nbsp; | &nbsp; |
+| [Clear-GenXdevModules](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#clear-genxdevmodules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
+| [Complete-GenXDevREADME](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#complete-genxdevreadme) | &nbsp; | &nbsp; |
+| [EnsureCopilotKeyboardShortCut](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#ensurecopilotkeyboardshortcut) | &nbsp; | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
+| [EnsureDefaultGenXdevRefactors](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#ensuredefaultgenxdevrefactors) | &nbsp; | &nbsp; |
+| [EnsureVSCodeInstallation](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#ensurevscodeinstallation) | &nbsp; | Installs and configures Visual Studio Code with recommended extensions. |
+| [Features](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#features) | &nbsp; | Displays features from a README.md file. |
+| [Get-GenXdevCmdletUsageAnalysis](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevcmdletusageanalysis) | &nbsp; | &nbsp; |
+| [Get-GenXDevModule](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
+| [Get-GenXDevModuleinfo](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmoduleinfo) | &nbsp; | &nbsp; |
+| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevnewmodulesinorderofdependency) | &nbsp; | Retrieves GenXDev modules in dependency order. |
+| [Get-GitChangedFiles](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-gitchangedfiles) | gitchanged | Get the list of changed files in a Git repository. |
+| [Get-ModuleHelpMarkdown](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-modulehelpmarkdown) | &nbsp; | &nbsp; |
+| [Get-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-refactor) | refactors | &nbsp; |
+| [Get-RefactorReport](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-refactorreport) | refactorreport | Generates a detailed report of refactoring operations and their status. |
+| [Ideas](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#ideas) | &nbsp; | &nbsp; |
+| [Invoke-GenXdevPSFormatter](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#invoke-genxdevpsformatter) | &nbsp; | &nbsp; |
+| [Invoke-GenXdevScriptAnalyzer](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#invoke-genxdevscriptanalyzer) | &nbsp; | &nbsp; |
+| [Issues](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#issues) | &nbsp; | &nbsp; |
+| [New-GenXdevCmdlet](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#new-genxdevcmdlet) | newcmd | Creates a new GenXdev PowerShell cmdlet with proper structure and validation. |
+| [New-GenXdevModule](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#new-genxdevmodule) | &nbsp; | &nbsp; |
+| [New-GitCommit](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#new-gitcommit) | commit | Creates and pushes a new git commit with all changes. |
+| [New-PullRequestForGenXdevModuleChanges](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#new-pullrequestforgenxdevmodulechanges) | prgenxdevmodule | Creates a pull request for changes made to a GenXdev module. |
+| [New-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#new-refactor) | newrefactor | &nbsp; |
+| [Open-GenXdevCmdletsContainingClipboardTextInIde](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#open-genxdevcmdletscontainingclipboardtextinide) | vscodesearch | Opens files in IDE that contain clipboard text |
+| [Open-SourceFileInIde](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#open-sourcefileinide) | editcode | &nbsp; |
+| [PermanentlyDeleteGitFolders](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#permanentlydeletegitfolders) | &nbsp; | Permanently deletes specified folders from all branches in a Git repository. |
+| [ReleaseNotes](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#releasenotes) | &nbsp; | &nbsp; |
+| [Remove-DoubleEmptyLines](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#remove-doubleemptylines) | &nbsp; | &nbsp; |
 | [Remove-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#remove-refactor) | &nbsp; | Removes refactor sets from GenXdev preferences system. |
 | [Search-GenXdevCmdlet](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#search-genxdevcmdlet) | searchcmdlet | Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing. |
 | [Show-GenXdevCmdLetInIde](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#show-genxdevcmdletinide) | cmdlet, editcmdlet | Opens the specified GenXdev cmdlet in Visual Studio Code. |
@@ -1621,6 +1697,7 @@ limitations under the License.
 | :--- | :--- | :--- |
 | [EnsureYtdlp](https://github.com/genXdev/GenXdev.Media/tree/main?tab=readme-ov-file#ensureytdlp) | &nbsp; | Ensures yt-dlp is installed and available in the default WSL image. |
 | [Invoke-YTDlpSaveVideo](https://github.com/genXdev/GenXdev.Media/tree/main?tab=readme-ov-file#invoke-ytdlpsavevideo) | savevideo | &nbsp; |
+| [StabilizeVideo](https://github.com/genXdev/GenXdev.Media/tree/main?tab=readme-ov-file#stabilizevideo) | &nbsp; | &nbsp; |
 
 📖 [Full Documentation](https://github.com/genXdev/GenXdev.Media/blob/main/README.md) | ↑ [Back to Module Overview](#module-overview)
 
@@ -1636,6 +1713,7 @@ limitations under the License.
 | :--- | :--- | :--- |
 | [EnsureYtdlp](https://github.com/genXdev/GenXdev.Media/tree/main?tab=readme-ov-file#ensureytdlp) | &nbsp; | Ensures yt-dlp is installed and available in the default WSL image. |
 | [Invoke-YTDlpSaveVideo](https://github.com/genXdev/GenXdev.Media/tree/main?tab=readme-ov-file#invoke-ytdlpsavevideo) | savevideo | &nbsp; |
+| [StabilizeVideo](https://github.com/genXdev/GenXdev.Media/tree/main?tab=readme-ov-file#stabilizevideo) | &nbsp; | &nbsp; |
 
 📖 [Full Documentation](https://github.com/genXdev/GenXdev.Media/blob/main/README.md) | ↑ [Back to Module Overview](#module-overview)
 
@@ -1651,6 +1729,7 @@ limitations under the License.
 | :--- | :--- | :--- |
 | [EnsureYtdlp](https://github.com/genXdev/GenXdev.Media/tree/main?tab=readme-ov-file#ensureytdlp) | &nbsp; | Ensures yt-dlp is installed and available in the default WSL image. |
 | [Invoke-YTDlpSaveVideo](https://github.com/genXdev/GenXdev.Media/tree/main?tab=readme-ov-file#invoke-ytdlpsavevideo) | savevideo | &nbsp; |
+| [StabilizeVideo](https://github.com/genXdev/GenXdev.Media/tree/main?tab=readme-ov-file#stabilizevideo) | &nbsp; | &nbsp; |
 
 📖 [Full Documentation](https://github.com/genXdev/GenXdev.Media/blob/main/README.md) | ↑ [Back to Module Overview](#module-overview)
 
@@ -1687,6 +1766,7 @@ limitations under the License.
 | [Open-GoogleGeminiQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlegeminiquery) | aigg, askgemini | &nbsp; |
 | [Open-GoogleQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlequery) | &nbsp; | &nbsp; |
 | [Open-GoogleSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlesiteinfo) | &nbsp; | Opens Google site information queries in a web browser. |
+| [Open-GrokipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-grokipediaquery) | wiki | &nbsp; |
 | [Open-IMDBQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-imdbquery) | imdb | Opens an IMDB search query in a web browser. |
 | [Open-InstantStreetViewQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-instantstreetviewquery) | isv | &nbsp; |
 | [Open-MovieQuote](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-moviequote) | moviequote | &nbsp; |
@@ -1699,7 +1779,7 @@ limitations under the License.
 | [Open-WebsiteAndPerformQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-websiteandperformquery) | owaq | &nbsp; |
 | [Open-WhoisHostSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-whoishostsiteinfo) | whois | &nbsp; |
 | [Open-WikipediaNLQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipedianlquery) | wikinl | &nbsp; |
-| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wiki | &nbsp; |
+| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wikipedia | &nbsp; |
 | [Open-WolframAlphaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wolframalphaquery) | qalpha | &nbsp; |
 | [Open-XGrokQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-xgrokquery) | aixg, askxgrok | &nbsp; |
 | [Open-Yab](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-yab) | yab | Opens the YAB game in a web browser with configurable settings. |
@@ -1741,6 +1821,7 @@ limitations under the License.
 | [Open-GoogleGeminiQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlegeminiquery) | aigg, askgemini | &nbsp; |
 | [Open-GoogleQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlequery) | &nbsp; | &nbsp; |
 | [Open-GoogleSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlesiteinfo) | &nbsp; | Opens Google site information queries in a web browser. |
+| [Open-GrokipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-grokipediaquery) | wiki | &nbsp; |
 | [Open-IMDBQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-imdbquery) | imdb | Opens an IMDB search query in a web browser. |
 | [Open-InstantStreetViewQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-instantstreetviewquery) | isv | &nbsp; |
 | [Open-MovieQuote](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-moviequote) | moviequote | &nbsp; |
@@ -1753,7 +1834,7 @@ limitations under the License.
 | [Open-WebsiteAndPerformQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-websiteandperformquery) | owaq | &nbsp; |
 | [Open-WhoisHostSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-whoishostsiteinfo) | whois | &nbsp; |
 | [Open-WikipediaNLQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipedianlquery) | wikinl | &nbsp; |
-| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wiki | &nbsp; |
+| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wikipedia | &nbsp; |
 | [Open-WolframAlphaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wolframalphaquery) | qalpha | &nbsp; |
 | [Open-XGrokQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-xgrokquery) | aixg, askxgrok | &nbsp; |
 | [Open-Yab](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-yab) | yab | Opens the YAB game in a web browser with configurable settings. |
@@ -1795,6 +1876,7 @@ limitations under the License.
 | [Open-GoogleGeminiQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlegeminiquery) | aigg, askgemini | &nbsp; |
 | [Open-GoogleQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlequery) | &nbsp; | &nbsp; |
 | [Open-GoogleSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlesiteinfo) | &nbsp; | Opens Google site information queries in a web browser. |
+| [Open-GrokipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-grokipediaquery) | wiki | &nbsp; |
 | [Open-IMDBQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-imdbquery) | imdb | Opens an IMDB search query in a web browser. |
 | [Open-InstantStreetViewQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-instantstreetviewquery) | isv | &nbsp; |
 | [Open-MovieQuote](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-moviequote) | moviequote | &nbsp; |
@@ -1807,7 +1889,7 @@ limitations under the License.
 | [Open-WebsiteAndPerformQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-websiteandperformquery) | owaq | &nbsp; |
 | [Open-WhoisHostSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-whoishostsiteinfo) | whois | &nbsp; |
 | [Open-WikipediaNLQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipedianlquery) | wikinl | &nbsp; |
-| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wiki | &nbsp; |
+| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wikipedia | &nbsp; |
 | [Open-WolframAlphaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wolframalphaquery) | qalpha | &nbsp; |
 | [Open-XGrokQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-xgrokquery) | aixg, askxgrok | &nbsp; |
 | [Open-Yab](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-yab) | yab | Opens the YAB game in a web browser with configurable settings. |
@@ -1849,6 +1931,7 @@ limitations under the License.
 | [Open-GoogleGeminiQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlegeminiquery) | aigg, askgemini | &nbsp; |
 | [Open-GoogleQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlequery) | &nbsp; | &nbsp; |
 | [Open-GoogleSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlesiteinfo) | &nbsp; | Opens Google site information queries in a web browser. |
+| [Open-GrokipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-grokipediaquery) | wiki | &nbsp; |
 | [Open-IMDBQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-imdbquery) | imdb | Opens an IMDB search query in a web browser. |
 | [Open-InstantStreetViewQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-instantstreetviewquery) | isv | &nbsp; |
 | [Open-MovieQuote](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-moviequote) | moviequote | &nbsp; |
@@ -1861,7 +1944,7 @@ limitations under the License.
 | [Open-WebsiteAndPerformQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-websiteandperformquery) | owaq | &nbsp; |
 | [Open-WhoisHostSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-whoishostsiteinfo) | whois | &nbsp; |
 | [Open-WikipediaNLQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipedianlquery) | wikinl | &nbsp; |
-| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wiki | &nbsp; |
+| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wikipedia | &nbsp; |
 | [Open-WolframAlphaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wolframalphaquery) | qalpha | &nbsp; |
 | [Open-XGrokQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-xgrokquery) | aixg, askxgrok | &nbsp; |
 | [Open-Yab](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-yab) | yab | Opens the YAB game in a web browser with configurable settings. |
@@ -1903,6 +1986,7 @@ limitations under the License.
 | [Open-GoogleGeminiQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlegeminiquery) | aigg, askgemini | &nbsp; |
 | [Open-GoogleQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlequery) | &nbsp; | &nbsp; |
 | [Open-GoogleSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-googlesiteinfo) | &nbsp; | Opens Google site information queries in a web browser. |
+| [Open-GrokipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-grokipediaquery) | wiki | &nbsp; |
 | [Open-IMDBQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-imdbquery) | imdb | Opens an IMDB search query in a web browser. |
 | [Open-InstantStreetViewQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-instantstreetviewquery) | isv | &nbsp; |
 | [Open-MovieQuote](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-moviequote) | moviequote | &nbsp; |
@@ -1915,7 +1999,7 @@ limitations under the License.
 | [Open-WebsiteAndPerformQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-websiteandperformquery) | owaq | &nbsp; |
 | [Open-WhoisHostSiteInfo](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-whoishostsiteinfo) | whois | &nbsp; |
 | [Open-WikipediaNLQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipedianlquery) | wikinl | &nbsp; |
-| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wiki | &nbsp; |
+| [Open-WikipediaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wikipediaquery) | wikipedia | &nbsp; |
 | [Open-WolframAlphaQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-wolframalphaquery) | qalpha | &nbsp; |
 | [Open-XGrokQuery](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-xgrokquery) | aixg, askxgrok | &nbsp; |
 | [Open-Yab](https://github.com/genXdev/GenXdev.Queries/tree/main?tab=readme-ov-file#open-yab) | yab | Opens the YAB game in a web browser with configurable settings. |
@@ -1936,9 +2020,9 @@ limitations under the License.
 | :--- | :--- | :--- |
 | [Approve-FirefoxDebugging](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#approve-firefoxdebugging) | &nbsp; | Configures Firefox's debugging and standalone app mode features. |
 | [Clear-WebbrowserTabSiteApplicationData](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#clear-webbrowsertabsiteapplicationdata) | clearsitedata | Clears all browser storage data for the current tab in Edge or Chrome. |
-| [Close-Webbrowser](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#close-webbrowser) | wbc | Closes one or more webbrowser instances selectively. |
+| [Close-Webbrowser](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#close-webbrowser) | wbc | &nbsp; |
 | [Close-WebbrowserTab](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#close-webbrowsertab) | &nbsp; | Closes the currently selected webbrowser tab. |
-| [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#connect-playwrightviadebuggingport) | &nbsp; | Connects to an existing browser instance via debugging port. |
+| [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#connect-playwrightviadebuggingport) | &nbsp; | &nbsp; |
 | [Export-BrowserBookmarks](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#export-browserbookmarks) | &nbsp; | Exports browser bookmarks to a JSON file. |
 | [Find-BrowserBookmark](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#find-browserbookmark) | bookmarks | Finds bookmarks from one or more web browsers. |
 | [Get-BrowserBookmark](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#get-browserbookmark) | gbm | &nbsp; |
@@ -1979,9 +2063,9 @@ limitations under the License.
 | :--- | :--- | :--- |
 | [Approve-FirefoxDebugging](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#approve-firefoxdebugging) | &nbsp; | Configures Firefox's debugging and standalone app mode features. |
 | [Clear-WebbrowserTabSiteApplicationData](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#clear-webbrowsertabsiteapplicationdata) | clearsitedata | Clears all browser storage data for the current tab in Edge or Chrome. |
-| [Close-Webbrowser](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#close-webbrowser) | wbc | Closes one or more webbrowser instances selectively. |
+| [Close-Webbrowser](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#close-webbrowser) | wbc | &nbsp; |
 | [Close-WebbrowserTab](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#close-webbrowsertab) | &nbsp; | Closes the currently selected webbrowser tab. |
-| [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#connect-playwrightviadebuggingport) | &nbsp; | Connects to an existing browser instance via debugging port. |
+| [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#connect-playwrightviadebuggingport) | &nbsp; | &nbsp; |
 | [Export-BrowserBookmarks](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#export-browserbookmarks) | &nbsp; | Exports browser bookmarks to a JSON file. |
 | [Find-BrowserBookmark](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#find-browserbookmark) | bookmarks | Finds bookmarks from one or more web browsers. |
 | [Get-BrowserBookmark](https://github.com/genXdev/GenXdev.Webbrowser/tree/main?tab=readme-ov-file#get-browserbookmark) | gbm | &nbsp; |
@@ -2027,7 +2111,7 @@ limitations under the License.
 | [EnsureWireGuard](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#ensurewireguard) | &nbsp; | &nbsp; |
 | [Get-ActiveUser](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-activeuser) | gusers | Retrieves a list of unique usernames from currently active system processes. |
 | [Get-ChildProcesses](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-childprocesses) | &nbsp; | Retrieves all processes that are descendants of the current PowerShell process. |
-| [Get-ClipboardFiles](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-clipboardfiles) | getclipfiles | Gets files from the Windows clipboard that were set for file operations like copy/paste. |
+| [Get-ClipboardFiles](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-clipboardfiles) | gcbf, getclipfiles | Gets files from the Windows clipboard that were set for file operations like copy/paste. |
 | [Get-CurrentFocusedProcess](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-currentfocusedprocess) | &nbsp; | Retrieves the process object of the window that currently has keyboard focus. |
 | [Get-DesktopScalingFactor](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-desktopscalingfactor) | &nbsp; | Retrieves the Windows display scaling factor (DPI setting) for a specified monitor. |
 | [Get-ForegroundWindow](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-foregroundwindow) | &nbsp; | Gets the handle of the currently active foreground window. |
@@ -2050,7 +2134,7 @@ limitations under the License.
 | [Reset-WireGuardConfiguration](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#reset-wireguardconfiguration) | &nbsp; | &nbsp; |
 | [Save-DesktopScreenShot](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#save-desktopscreenshot) | &nbsp; | Captures a screenshot of the specified monitor and saves it to the specified path. |
 | [Send-Key](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#send-key) | invokekeys, sendkeys | &nbsp; |
-| [Set-ClipboardFiles](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-clipboardfiles) | setclipfiles | Sets files to the Windows clipboard for file operations like copy/paste. |
+| [Set-ClipboardFiles](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-clipboardfiles) | scbf, setclipfiles | Sets files to the Windows clipboard for file operations like copy/paste. |
 | [Set-ForegroundWindow](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-foregroundwindow) | &nbsp; | Brings the specified window to the foreground and makes it the active window. |
 | [Set-KnownFolderPath](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-knownfolderpath) | &nbsp; | Modifies the physical path of a Windows known folder. |
 | [Set-TaskbarAlignment](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-taskbaralignment) | &nbsp; | Configures Windows 11+ taskbar alignment between center and left positions. |
@@ -2079,7 +2163,7 @@ limitations under the License.
 | [EnsureWireGuard](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#ensurewireguard) | &nbsp; | &nbsp; |
 | [Get-ActiveUser](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-activeuser) | gusers | Retrieves a list of unique usernames from currently active system processes. |
 | [Get-ChildProcesses](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-childprocesses) | &nbsp; | Retrieves all processes that are descendants of the current PowerShell process. |
-| [Get-ClipboardFiles](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-clipboardfiles) | getclipfiles | Gets files from the Windows clipboard that were set for file operations like copy/paste. |
+| [Get-ClipboardFiles](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-clipboardfiles) | gcbf, getclipfiles | Gets files from the Windows clipboard that were set for file operations like copy/paste. |
 | [Get-CurrentFocusedProcess](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-currentfocusedprocess) | &nbsp; | Retrieves the process object of the window that currently has keyboard focus. |
 | [Get-DesktopScalingFactor](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-desktopscalingfactor) | &nbsp; | Retrieves the Windows display scaling factor (DPI setting) for a specified monitor. |
 | [Get-ForegroundWindow](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#get-foregroundwindow) | &nbsp; | Gets the handle of the currently active foreground window. |
@@ -2102,7 +2186,7 @@ limitations under the License.
 | [Reset-WireGuardConfiguration](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#reset-wireguardconfiguration) | &nbsp; | &nbsp; |
 | [Save-DesktopScreenShot](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#save-desktopscreenshot) | &nbsp; | Captures a screenshot of the specified monitor and saves it to the specified path. |
 | [Send-Key](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#send-key) | invokekeys, sendkeys | &nbsp; |
-| [Set-ClipboardFiles](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-clipboardfiles) | setclipfiles | Sets files to the Windows clipboard for file operations like copy/paste. |
+| [Set-ClipboardFiles](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-clipboardfiles) | scbf, setclipfiles | Sets files to the Windows clipboard for file operations like copy/paste. |
 | [Set-ForegroundWindow](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-foregroundwindow) | &nbsp; | Brings the specified window to the foreground and makes it the active window. |
 | [Set-KnownFolderPath](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-knownfolderpath) | &nbsp; | Modifies the physical path of a Windows known folder. |
 | [Set-TaskbarAlignment](https://github.com/genXdev/GenXdev.Windows/tree/main?tab=readme-ov-file#set-taskbaralignment) | &nbsp; | Configures Windows 11+ taskbar alignment between center and left positions. |
