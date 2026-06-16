@@ -41,7 +41,6 @@ limitations under the License.
 | [GenXdev.Data](#genxdevdata) | A Windows PowerShell module for enhancing the commandline experience | [📁 GenXdev.Data](https://github.com/genXdev/GenXdev.Data) |
 | [GenXdev.FileSystem](#genxdevfilesystem) | A Windows PowerShell module for basic and advanced file management tasks | [📁 GenXdev.FileSystem](https://github.com/genXdev/GenXdev.FileSystem) |
 | [GenXdev.Helpers](#genxdevhelpers) | A Windows PowerShell module with helpers mostly used by other GenXdev modules | [📁 GenXdev.Helpers](https://github.com/genXdev/GenXdev.Helpers) |
-| [GenXdev.Media](#genxdevmedia) | A Windows PowerShell module that helps with converting media files like pictures and video files | [📁 GenXdev.Media](https://github.com/genXdev/GenXdev.Media) |
 | [GenXdev.Queries](#genxdevqueries) | A Windows PowerShell module for finding resources and information on the internet | [📁 GenXdev.Queries](https://github.com/genXdev/GenXdev.Queries) |
 | [GenXdev.Webbrowser](#genxdevwebbrowser) | A Windows PowerShell module for webbrowser operations | [📁 GenXdev.Webbrowser](https://github.com/genXdev/GenXdev.Webbrowser) |
 | [GenXdev.Windows](#genxdevwindows) | A Windows PowerShell module for windows operations | [📁 GenXdev.Windows](https://github.com/genXdev/GenXdev.Windows) |
@@ -811,7 +810,7 @@ limitations under the License.
 | [Get-GenXdevCmdletUsageAnalysis](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevcmdletusageanalysis) | &nbsp; | &nbsp; |
 | [Get-GenXDevModule](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleinfo](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmoduleinfo) | &nbsp; | &nbsp; |
-| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevnewmodulesinorderofdependency) | &nbsp; | Retrieves GenXDev modules in dependency order. |
+| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevnewmodulesinorderofdependency) | &nbsp; | &nbsp; |
 | [Get-GitChangedFiles](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-gitchangedfiles) | gitchanged | Get the list of changed files in a Git repository. |
 | [Get-ModuleHelpMarkdown](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-modulehelpmarkdown) | &nbsp; | &nbsp; |
 | [Get-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-refactor) | refactors | &nbsp; |
@@ -875,7 +874,7 @@ limitations under the License.
 | [Get-GenXdevCmdletUsageAnalysis](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevcmdletusageanalysis) | &nbsp; | &nbsp; |
 | [Get-GenXDevModule](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleinfo](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmoduleinfo) | &nbsp; | &nbsp; |
-| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevnewmodulesinorderofdependency) | &nbsp; | Retrieves GenXDev modules in dependency order. |
+| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevnewmodulesinorderofdependency) | &nbsp; | &nbsp; |
 | [Get-GitChangedFiles](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-gitchangedfiles) | gitchanged | Get the list of changed files in a Git repository. |
 | [Get-ModuleHelpMarkdown](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-modulehelpmarkdown) | &nbsp; | &nbsp; |
 | [Get-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-refactor) | refactors | &nbsp; |
@@ -939,7 +938,7 @@ limitations under the License.
 | [Get-GenXdevCmdletUsageAnalysis](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevcmdletusageanalysis) | &nbsp; | &nbsp; |
 | [Get-GenXDevModule](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleinfo](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmoduleinfo) | &nbsp; | &nbsp; |
-| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevnewmodulesinorderofdependency) | &nbsp; | Retrieves GenXDev modules in dependency order. |
+| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevnewmodulesinorderofdependency) | &nbsp; | &nbsp; |
 | [Get-GitChangedFiles](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-gitchangedfiles) | gitchanged | Get the list of changed files in a Git repository. |
 | [Get-ModuleHelpMarkdown](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-modulehelpmarkdown) | &nbsp; | &nbsp; |
 | [Get-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-refactor) | refactors | &nbsp; |
@@ -1003,7 +1002,7 @@ limitations under the License.
 | [Get-GenXdevCmdletUsageAnalysis](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevcmdletusageanalysis) | &nbsp; | &nbsp; |
 | [Get-GenXDevModule](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleinfo](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevmoduleinfo) | &nbsp; | &nbsp; |
-| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevnewmodulesinorderofdependency) | &nbsp; | Retrieves GenXDev modules in dependency order. |
+| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-genxdevnewmodulesinorderofdependency) | &nbsp; | &nbsp; |
 | [Get-GitChangedFiles](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-gitchangedfiles) | gitchanged | Get the list of changed files in a Git repository. |
 | [Get-ModuleHelpMarkdown](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-modulehelpmarkdown) | &nbsp; | &nbsp; |
 | [Get-Refactor](https://github.com/genXdev/GenXdev.Coding/tree/main?tab=readme-ov-file#get-refactor) | refactors | &nbsp; |
@@ -1286,7 +1285,7 @@ limitations under the License.
 | [Invoke-SqlServerQuery](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-sqlserverquery) | &nbsp; | &nbsp; |
 | [Invoke-SSMS](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-ssms) | sqlservermanagementstudio, ssms | Launches SQL Server Management Studio (SSMS) after ensuring it is installed. |
 | [New-SQLiteDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlitedatabase) | &nbsp; | &nbsp; |
-| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | Creates a new SQL Server database. |
+| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | &nbsp; |
 | [Remove-GenXdevPreference](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-genxdevpreference) | removePreference | Removes a preference value from the GenXdev preferences store. |
 | [Remove-KeyFromStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyfromstore) | removekey | Removes a key from a key-value store. |
 | [Remove-KeyValueStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyvaluestore) | &nbsp; | Removes a key-value store. |
@@ -1343,7 +1342,7 @@ limitations under the License.
 | [Invoke-SqlServerQuery](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-sqlserverquery) | &nbsp; | &nbsp; |
 | [Invoke-SSMS](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-ssms) | sqlservermanagementstudio, ssms | Launches SQL Server Management Studio (SSMS) after ensuring it is installed. |
 | [New-SQLiteDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlitedatabase) | &nbsp; | &nbsp; |
-| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | Creates a new SQL Server database. |
+| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | &nbsp; |
 | [Remove-GenXdevPreference](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-genxdevpreference) | removePreference | Removes a preference value from the GenXdev preferences store. |
 | [Remove-KeyFromStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyfromstore) | removekey | Removes a key from a key-value store. |
 | [Remove-KeyValueStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyvaluestore) | &nbsp; | Removes a key-value store. |
@@ -1400,7 +1399,7 @@ limitations under the License.
 | [Invoke-SqlServerQuery](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-sqlserverquery) | &nbsp; | &nbsp; |
 | [Invoke-SSMS](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-ssms) | sqlservermanagementstudio, ssms | Launches SQL Server Management Studio (SSMS) after ensuring it is installed. |
 | [New-SQLiteDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlitedatabase) | &nbsp; | &nbsp; |
-| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | Creates a new SQL Server database. |
+| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | &nbsp; |
 | [Remove-GenXdevPreference](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-genxdevpreference) | removePreference | Removes a preference value from the GenXdev preferences store. |
 | [Remove-KeyFromStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyfromstore) | removekey | Removes a key from a key-value store. |
 | [Remove-KeyValueStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyvaluestore) | &nbsp; | Removes a key-value store. |
@@ -1457,7 +1456,7 @@ limitations under the License.
 | [Invoke-SqlServerQuery](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-sqlserverquery) | &nbsp; | &nbsp; |
 | [Invoke-SSMS](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-ssms) | sqlservermanagementstudio, ssms | Launches SQL Server Management Studio (SSMS) after ensuring it is installed. |
 | [New-SQLiteDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlitedatabase) | &nbsp; | &nbsp; |
-| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | Creates a new SQL Server database. |
+| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | &nbsp; |
 | [Remove-GenXdevPreference](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-genxdevpreference) | removePreference | Removes a preference value from the GenXdev preferences store. |
 | [Remove-KeyFromStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyfromstore) | removekey | Removes a key from a key-value store. |
 | [Remove-KeyValueStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyvaluestore) | &nbsp; | Removes a key-value store. |
@@ -1514,7 +1513,7 @@ limitations under the License.
 | [Invoke-SqlServerQuery](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-sqlserverquery) | &nbsp; | &nbsp; |
 | [Invoke-SSMS](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#invoke-ssms) | sqlservermanagementstudio, ssms | Launches SQL Server Management Studio (SSMS) after ensuring it is installed. |
 | [New-SQLiteDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlitedatabase) | &nbsp; | &nbsp; |
-| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | Creates a new SQL Server database. |
+| [New-SQLServerDatabase](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#new-sqlserverdatabase) | nsqldb | &nbsp; |
 | [Remove-GenXdevPreference](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-genxdevpreference) | removePreference | Removes a preference value from the GenXdev preferences store. |
 | [Remove-KeyFromStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyfromstore) | removekey | Removes a key from a key-value store. |
 | [Remove-KeyValueStore](https://github.com/genXdev/GenXdev.Data/tree/main?tab=readme-ov-file#remove-keyvaluestore) | &nbsp; | Removes a key-value store. |
@@ -1537,12 +1536,15 @@ limitations under the License.
 | Command | Aliases | Description |
 | :--- | :--- | :--- |
 | [Confirm-InstallationConsent](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#confirm-installationconsent) | &nbsp; | &nbsp; |
+| [Copy-FilesToDateFolder](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#copy-filestodatefolder) | &nbsp; | &nbsp; |
 | [Copy-IdenticalParamValues](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#copy-identicalparamvalues) | &nbsp; | Copies parameter values from bound parameters to a new hashtable based on another function's possible parameters. |
 | [EnsurePester](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#ensurepester) | &nbsp; | &nbsp; |
 | [Expand-Path](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#expand-path) | ep | Expands any given file reference to a full pathname. |
-| [Find-DuplicateFiles](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#find-duplicatefiles) | fdf | Find duplicate files across multiple directories based on configurable criteria. |
+| [Find-DuplicateFiles](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#find-duplicatefiles) | fdf | &nbsp; |
 | [Find-Item](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#find-item) | l | Fast multi-threaded file and directory search with optional textcontent pattern matching capabilities. |
+| [Get-MediaFileCreationDate](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#get-mediafilecreationdate) | &nbsp; | Extracts the best-effort creation date for media and other files. |
 | [Invoke-Fasti](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#invoke-fasti) | fasti | &nbsp; |
+| [Move-FilesToDateFolder](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#move-filestodatefolder) | &nbsp; | Moves files matching search criteria into date-based subfolders. |
 | [Move-ItemWithTracking](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#move-itemwithtracking) | &nbsp; | Moves files and directories while preserving filesystem links and references. |
 | [Move-ToRecycleBin](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#move-torecyclebin) | &nbsp; | Moves files and directories to the Windows Recycle Bin safely. |
 | [ReadJsonWithRetry](https://github.com/genXdev/GenXdev.FileSystem/tree/main?tab=readme-ov-file#readjsonwithretry) | &nbsp; | Reads JSON file with retry logic and automatic lock cleanup. |
