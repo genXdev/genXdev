@@ -1,0 +1,28 @@
+# Get-ResonantFrequencyByLengthAndSpeed
+
+> **Module:** GenXdev.Helpers.Physics | **Type:** Cmdlet | **Aliases:** —
+
+## Synopsis
+
+> *(No synopsis provided)*
+
+## Syntax
+
+```powershell
+Get-ResonantFrequencyByLengthAndSpeed [-LengthInMeters] <double> [-SpeedInMetersPerSecond] <double> [[-As] <string>] [<CommonParameters>]
+
+Get-ResonantFrequencyByLengthAndSpeed [-LengthInMeters] <double> [-Medium] <string> [[-As] <string>] [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-LengthInMeters` | Double | ✅ | — | 0 | `0` | 미터 단위의 길이 |
+| `-SpeedInMetersPerSecond` | Double | ✅ | — | 1 | `0` | 파동 속도 (m/s) *(Parameter set: )* |
+| `-Medium` | String | ✅ | — | 1 | — | 중간 *(Parameter set: )* |
+| `-As` | String | — | — | 2 | — | Output unit for frequency |
+
+## Related Links
+
+- [Get-ResonantFrequencyByLengthAndSpeed on GitHub](https://github.com/genXdev/genXdev)

@@ -1,0 +1,26 @@
+# Set-GenXdevPreferencesDatabasePath
+
+> **Module:** GenXdev.Data.Preferences | **Type:** Cmdlet | **Aliases:** —
+
+## Synopsis
+
+> *(No synopsis provided)*
+
+## Syntax
+
+```powershell
+Set-GenXdevPreferencesDatabasePath [[-PreferencesDatabasePath] <string>] [-SkipSession] [-SessionOnly] [-ClearSession] [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-PreferencesDatabasePath` | String | — | — | 0 | — | Ein Datenbankpfad, in dem Präferenzdatendateien gespeichert sind |
+| `-SkipSession` | SwitchParameter | — | — | Named | `False` | Verwenden Sie keine alternativen, in der Sitzung gespeicherten Einstellungen für Datenpräferenzen wie Sprache, Datenbankpfade usw. |
+| `-SessionOnly` | SwitchParameter | — | — | Named | `False` | Wenn angegeben, speichert die Einstellung nur in der aktuellen Sitzung (globale Variable), ohne sie in den Einstellungen zu speichern |
+| `-ClearSession` | SwitchParameter | — | — | Named | `False` | Wenn angegeben, löscht nur die Sitzungseinstellung (globale Variable), ohne die dauerhaften Einstellungen zu beeinträchtigen |
+
+## Related Links
+
+- [Set-GenXdevPreferencesDatabasePath on GitHub](https://github.com/genXdev/genXdev)

@@ -1,0 +1,32 @@
+# Invoke-ImageMetadataUpdate
+
+> **Module:** GenXdev.AI.Queries | **Type:** Function | **Aliases:** `imagepropdetection
+
+## Synopsis
+
+> *(No synopsis provided)*
+
+## Syntax
+
+```powershell
+Invoke-ImageMetadataUpdate [[-ImageDirectories] <String[]>] [-ClearSession] [-Force] [-OnlyNew] [-PassThru] [-PreferencesDatabasePath <String>] [-Recurse] [-RetryFailed] [-SessionOnly] [-SkipSession] [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-ImageDirectories` | String[] | — | — | 0 | `@('.\')` | Array de caminhos de diretórios para processar atualizações de metadados de imagem |
+| `-RetryFailed` | SwitchParameter | — | — | Named | — | Tentarei novamente as atualizações de metadados de imagem que falharam anteriormente |
+| `-OnlyNew` | SwitchParameter | — | — | Named | — | Processe apenas imagens que ainda não possuem arquivos de metadados |
+| `-Recurse` | SwitchParameter | — | — | Named | — | Se especificado, processa imagens em subdiretórios recursivamente |
+| `-Force` | SwitchParameter | — | — | Named | — | Força a reconstrução dos metadados mesmo que já existam |
+| `-PassThru` | SwitchParameter | — | — | Named | — | Return structured objects instead of outputting to console |
+| `-SessionOnly` | SwitchParameter | — | — | Named | — | Use configurações alternativas armazenadas na sessão para preferências de IA, como idioma, coleções de imagens, etc. |
+| `-ClearSession` | SwitchParameter | — | — | Named | — | Limpar configurações alternativas armazenadas na sessão para preferências de IA, como Idioma, coleções de Imagens, etc |
+| `-SkipSession` | SwitchParameter | — | — | Named | — | Não use configurações alternativas armazenadas na sessão para preferências de IA como idioma, coleções de imagens, etc. |
+| `-PreferencesDatabasePath` | String | — | — | Named | — | Caminho do banco de dados para arquivos de dados de preferência |
+
+## Related Links
+
+- [Invoke-ImageMetadataUpdate on GitHub](https://github.com/genXdev/genXdev)

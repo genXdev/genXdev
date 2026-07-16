@@ -1,0 +1,31 @@
+# Get-SQLiteTableColumnData
+
+> **Module:** GenXdev.Data.SQLite | **Type:** Function | **Aliases:** —
+
+## Synopsis
+
+> *(No synopsis provided)*
+
+## Syntax
+
+```powershell
+Get-SQLiteTableColumnData -ConnectionString <String> [<CommonParameters>]
+
+Get-SQLiteTableColumnData -DatabaseFilePath <String> [<CommonParameters>]
+
+Get-SQLiteTableColumnData -TableName <String> -ColumnName <String> [[-Count] <Int32>] [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-ConnectionString` | String | ✅ | — | 0 | — | The connection string to the SQLite database *(Parameter set: )* |
+| `-DatabaseFilePath` | String | ✅ | — | 0 | — | The path to the SQLite database file *(Parameter set: )* |
+| `-TableName` | String | ✅ | — | 1 | — | The name of the table to query |
+| `-ColumnName` | String | ✅ | — | 2 | — | The name of the column to retrieve |
+| `-Count` | Int32 | — | — | 3 | `100` | Number of records to return. Default 100. Use -1 for all |
+
+## Related Links
+
+- [Get-SQLiteTableColumnData on GitHub](https://github.com/genXdev/genXdev)
