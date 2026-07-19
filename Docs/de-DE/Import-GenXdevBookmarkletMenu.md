@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Importiert GenXdev JavaScript-Bookmarklets in Browser-Lesezeichensammlungen.
+
+## Description
+
+Diese Funktion durchsucht ein Verzeichnis nach GenXdev-Lesezeichen-Dateien mit der
 
 ## Syntax
 
@@ -21,6 +25,24 @@ Import-GenXdevBookmarkletMenu [[-SnippetsPath] <String>] [[-TargetFolder] <Strin
 | `-Edge` | SwitchParameter | — | — | Named | — | Import bookmarklets into Microsoft Edge browser |
 | `-Chrome` | SwitchParameter | — | — | Named | — | Import bookmarklets into Google Chrome browser |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Import bookmarklets into Mozilla Firefox browser |
+
+## Examples
+
+### Import-GenXdevBookmarkletMenu -Edge
+
+```powershell
+Import-GenXdevBookmarkletMenu -Edge
+```
+
+Importiert alle Bookmarklet-Dateien aus dem Standardverzeichnis für Snippets in den Favoritenordner von Microsoft Edge.
+
+### Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+
+```powershell
+Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+```
+
+Zeigt an, welche Lesezeichen von dem angegebenen Pfad in Google Chrome importiert würden, ohne den Import tatsächlich durchzuführen.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI가 생성한 설명과 키워드로 이미지 메타데이터를 업데이트합니다.
+
+## Description
+
+Invoke-ImageKeywordUpdate 함수는 AI를 사용하여 이미지를 분석하고 설명, 키워드 및 기타 메타데이터를 생성합니다. 각 이미지에 대해 이 정보를 포함하는 동반 JSON 파일을 만듭니다. 이 함수는 새 이미지만 처리하거나 기존 메타데이터를 업데이트할 수 있으며, 재귀적 디렉터리 검색을 지원합니다.
 
 ## Syntax
 
@@ -46,6 +50,20 @@ Invoke-ImageKeywordUpdate [[-ImageDirectories] <String[]>] [[-Instructions] <Str
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 도구 호출에 대한 최대 콜백 길이입니다. |
 | `-PassThru` | SwitchParameter | — | — | Named | — | PassThru를 사용하여 콘솔에 출력하는 대신 구조화된 객체를 반환합니다. |
 | `-AutoUpdateFaces` | SwitchParameter | — | — | Named | — | faces 디렉터리의 변경 사항을 감지하고 필요시 얼굴을 다시 등록합니다 |
+
+## Examples
+
+### Invoke-ImageKeywordUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse -OnlyNew
+
+```powershell
+Invoke-ImageKeywordUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse -OnlyNew
+```
+
+### updateimages @("C:\Photos", "C:\Archive") -Recurse -RetryFailed -Language "Spanish"
+
+```powershell
+updateimages @("C:\Photos", "C:\Archive") -Recurse -RetryFailed -Language "Spanish"
+```
 
 ## Related Links
 

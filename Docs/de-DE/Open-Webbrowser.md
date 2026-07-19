@@ -4,12 +4,29 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Öffnet URLs in einem oder mehreren Browserfenstern mit optionaler Positionierung und Gestaltung.
+
+## Description
+
+Diese Funktion bietet einen erweiterten Wrapper zum Öffnen von Browsern mit umfangreichen Optionen für Fensterpositionierung, Browserauswahl und Verhaltensanpassung. Sie unterstützt mehrere Browser wie Edge, Chrome und Firefox mit Funktionen wie privatem Surfen, Anwendungsmodus und präziser Fensterverwaltung.
+
+Hauptmerkmale:
+- Intelligente Browsererkennung und -auswahl
+- Fensterpositionierung (links, rechts, oben, unten, zentriert, Vollbild)
+- Multi-Monitor-Unterstützung mit automatischer oder manueller Monitorauswahl
+- Unterstützung für privates/Inkognito-Surfen
+- Anwendungsmodus für ablenkungsfreies Surfen
+- Optionen zum Blockieren von Erweiterungen und Pop-ups
+- Fokusverwaltung und Fenstersteuerung
+- Batch-Öffnen von URLs in mehreren Browsern
+- Tastenanschlag-Automatisierung für Browserfenster
+
+Die Funktion kann Systemfähigkeiten automatisch erkennen und das Verhalten entsprechend anpassen. Für nicht installierte Browser werden Operationen stillschweigend ohne Fehler übersprungen.
 
 ## Syntax
 
 ```powershell
-Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-Input <String>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-ConsentToThirdPartySoftwareInstallation] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-Input <String>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,7 +41,7 @@ Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] 
 | `-X` | Int32 | — | — | Named | `-999999` | Die anfängliche X-Position des Webbrowser-Fensters |
 | `-Y` | Int32 | — | — | Named | `-999999` | Die anfängliche Y-Position des Webbrowser-Fensters |
 | `-AcceptLang` | String | — | — | Named | `$null` | Setzen Sie den Accept-Language-HTTP-Header des Browsers |
-| `-Force` | SwitchParameter | — | — | Named | — | Erzwinge das Aktivieren des Debug-Ports, stoppe ggf. vorhandene Browser |
+| `-Force` | SwitchParameter | — | — | Named | — | Vorhandene Browserinstanzen zwangsweise schließen, bevor eine neue geöffnet wird |
 | `-Edge` | SwitchParameter | — | — | Named | — | Wird in Microsoft Edge geöffnet |
 | `-Chrome` | SwitchParameter | — | — | Named | — | Öffnet in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wird in Microsoft Edge oder Google Chrome geöffnet, je nachdem, welcher der Standardbrowser ist |
@@ -57,6 +74,76 @@ Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] 
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | In der Sitzung gespeicherte alternative Einstellungen für KI-Präferenzen löschen |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Nur Einstellungen in dauerhaften Präferenzen speichern, ohne die Sitzung zu beeinflussen |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Verwenden Sie den von Playwright verwalteten Browser anstelle des im Betriebssystem installierten Browsers. |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Öffnet den von Playwright verwalteten WebKit-Browser. Impliziert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Führen Sie den Browser ohne sichtbares Fenster aus |
+| `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Automatisch der Installation von Drittanbieter-Software zustimmen (Playwright-Browser) |
+
+## Examples
+
+### wb -PlayWright https://github.com
+
+```powershell
+wb -PlayWright https://github.com
+```
+
+Öffnet GitHub in einem von Playwright verwalteten Chromium-Browser.
+
+### Open-Webbrowser -Url "https://github.com"
+
+```powershell
+Open-Webbrowser -Url "https://github.com"
+```
+
+Öffnet GitHub im Standardbrowser.
+
+### Open-Webbrowser -Url "https://stackoverflow.com" -Monitor 1 -Left
+
+```powershell
+Open-Webbrowser -Url "https://stackoverflow.com" -Monitor 1 -Left
+```
+
+Öffnet Stack Overflow in der linken Hälfte von Monitor 1.
+
+### wb "https://google.com" -m 0 -fs
+
+```powershell
+wb "https://google.com" -m 0 -fs
+```
+
+Öffnet Google im Vollbildmodus auf dem primären Monitor mithilfe von Aliasen.
+
+### Open-Webbrowser -Chrome -Private -NewWindow
+
+```powershell
+Open-Webbrowser -Chrome -Private -NewWindow
+```
+
+Öffnet ein neues Chrome-Fenster im Inkognito-Modus.
+
+### "https://github.com", "https://stackoverflow.com" | Open-Webbrowser -All
+
+```powershell
+"https://github.com", "https://stackoverflow.com" | Open-Webbrowser -All
+```
+
+Öffnet mehrere URLs in allen installierten Browsern per Pipeline.
+
+### Open-Webbrowser -Monitor 0 -Right
+
+```powershell
+Open-Webbrowser -Monitor 0 -Right
+```
+
+Positioniert ein bereits geöffnetes Browserfenster neu auf der rechten Seite des primären Monitors.
+
+### Open-Webbrowser -ApplicationMode -Url "https://app.example.com"
+
+```powershell
+Open-Webbrowser -ApplicationMode -Url "https://app.example.com"
+```
+
+Öffnet eine Webanwendung im App-Modus ohne Browsersteuerelemente.
 
 ## Related Links
 

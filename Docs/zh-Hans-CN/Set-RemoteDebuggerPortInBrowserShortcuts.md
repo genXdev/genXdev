@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 更新浏览器快捷方式以启用远程调试端口。
+
+## Description
+
+修改Chrome和Edge浏览器快捷方式，使其包含远程调试端口参数。这使得自动化脚本能够通过浏览器的调试接口与之交互。处理用户特定和系统范围的快捷方式。
+
+该函数：
+- 移除任何已有的调试端口参数
+- 为Chrome和Edge添加当前调试端口
+- 更新常见位置的快捷方式（桌面、开始菜单、快速启动）
+- 需要管理员权限才能修改系统范围的快捷方式
 
 ## Syntax
 
@@ -165,6 +175,15 @@
 
             end {
             }
+```
+
+## Examples
+
+### Set-RemoteDebuggerPortInBrowserShortcuts Updates all Chrome and Edge shortcuts with their respective debugging ports.
+
+```powershell
+Set-RemoteDebuggerPortInBrowserShortcuts
+Updates all Chrome and Edge shortcuts with their respective debugging ports.
 ```
 
 ## Related Links

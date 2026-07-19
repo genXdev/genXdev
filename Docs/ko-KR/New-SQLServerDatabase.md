@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 새 SQL Server 데이터베이스를 생성합니다.
+
+## Description
+
+지정된 서버에 지정된 이름의 새 SQL Server 데이터베이스를 생성합니다. 대상 SQL Server 인스턴스에 데이터베이스를 생성할 수 있는 적절한 권한이 필요합니다. 데이터베이스가 이미 존재하는 경우 작업이 건너뜁니다. 명시적인 .mdf/.ldf 경로를 사용한 파일 기반 데이터베이스 생성을 지원합니다.
 
 ## Syntax
 
@@ -28,6 +32,38 @@ New-SQLServerDatabase [-ConsentToThirdPartySoftwareInstallation] [-ForceConsent]
 | `-DataFilePath` | String | — | — | Named | — | 파일 기반 데이터베이스 생성을 위한 선택적 데이터 파일 경로(.mdf) *(Parameter set: )* |
 | `-LogFilePath` | String | — | — | Named | — | 파일 기반 데이터베이스 생성을 위한 선택적 로그 파일 경로(.ldf). *(Parameter set: )* |
 | `-DetachAfterCreation` | SwitchParameter | — | — | Named | — | 생성 후 데이터베이스 분리 (파일 기반 데이터베이스의 경우). *(Parameter set: )* |
+
+## Examples
+
+### New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+```
+
+### New-SQLServerDatabase "MyNewDatabase"
+
+```powershell
+New-SQLServerDatabase "MyNewDatabase"
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+```
+
+### New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

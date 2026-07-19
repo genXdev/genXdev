@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 向兼容OpenAI的大型语言模型聊天补全API发送查询并处理响应。
+
+## Description
+
+该函数向兼容OpenAI的大型语言聊天补全API发送查询并处理响应。支持文本和图像输入，处理工具函数调用，可操作包括文本和音频在内的多种聊天模式。函数提供对LLM交互的全面支持，包括：文本和图像输入处理；工具函数调用与命令执行；交互式聊天模式（文本和音频）；模型初始化与配置；响应格式化与处理；会话管理与缓存；窗口定位与显示控制。
 
 ## Syntax
 
@@ -100,6 +104,40 @@ Invoke-LLMQuery [[-Query] <String>] [[-Instructions] <String>] [[-Attachments] <
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | `100000` | 工具回调输出的最大字符长度。超出此长度的输出将被截断并显示警告消息。默认值为100000个字符。 |
+
+## Examples
+
+### Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+
+```powershell
+Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+```
+
+向 qwen 模型发送一个简单的数学查询，并指定温度参数。
+
+### qllm "What is 2+2?" -Model "qwen"
+
+```powershell
+qllm "What is 2+2?" -Model "qwen"
+```
+
+使用别名发送查询，使用默认参数。
+
+### Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+
+```powershell
+Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+```
+
+发送一条附带图片的查询以便分析。
+
+### llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+
+```powershell
+llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+```
+
+开始与指定模型进行交互式文本聊天会话。
 
 ## Related Links
 

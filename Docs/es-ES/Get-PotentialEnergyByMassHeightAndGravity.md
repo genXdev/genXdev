@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula la energía potencial gravitatoria.
+
+## Description
+
+Usa PE = m g h.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-PotentialEnergyByMassHeightAndGravity [-MassInKilograms] <double> [-HeightIn
 | `-HeightInMeters` | Double | ✅ | — | 1 | `0` | Altura en metros |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 2 | `0` | Gravedad en m/s² (predeterminado: 9.81) |
 | `-As` | String | — | — | 3 | — | Unidad de salida para la energía |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-PotentialEnergyByMassHeightAndGravity -MassInKilograms 10 -HeightInMeters 5 -As "calories"
+```
+
+Calcula la energía potencial gravitatoria para una masa de 10 kg a una altura de 5 metros, mostrando el resultado en calorías.
+
+### Example 2
+
+```powershell
+Get-PotentialEnergyByMassHeightAndGravity 5 10
+```
+
+Demuestra el uso de parámetros posicionales para calcular la energía potencial.
 
 ## Related Links
 

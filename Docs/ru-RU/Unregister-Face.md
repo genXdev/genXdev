@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Удаляет зарегистрированное лицо по его идентификатору из DeepStack.
+
+## Description
+
+Эта функция удаляет лицо из системы распознавания лиц DeepStack, используя его уникальный идентификатор. Она обращается к конечной точке API, чтобы навсегда удалить зарегистрированные данные лица из системы.
 
 ## Syntax
 
@@ -27,6 +31,21 @@ Unregister-Face -Identifier <String> [[-ContainerName] <String>] [[-VolumeName] 
 | `-Force` | SwitchParameter | — | — | Named | — | Принудительная пересборка Docker контейнера и удаление существующих данных |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Используйте версию с GPU-ускорением (требуется NVIDIA GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Показать окно Docker Desktop во время инициализации |
+
+## Examples
+
+### Unregister-Face -Identifier "JohnDoe" -NoDockerInitialize $false `     -ContainerName "deepstack_face_recognition" -ServicePort 5000
+
+```powershell
+Unregister-Face -Identifier "JohnDoe" -NoDockerInitialize $false `
+    -ContainerName "deepstack_face_recognition" -ServicePort 5000
+```
+
+### rface "JohnDoe"
+
+```powershell
+rface "JohnDoe"
+```
 
 ## Outputs
 

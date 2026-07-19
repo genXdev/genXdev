@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 웹 브라우저에서 WaybackMachine 사이트 정보를 엽니다.
+
+## Description
+
+웹 브라우저에서 Waybackmachine 쿼리를 열어 지정된 URL 또는 웹사이트의 과거 버전을 표시합니다. 여러 쿼리와 모니터 선택을 지원합니다. 인터넷 아카이브의 Wayback Machine 서비스를 통해 보관된 웹 콘텐츠에 액세스할 수 있습니다.
 
 ## Syntax
 
 ```powershell
-Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 사용할 모니터, 0 = 기본, -1은 폐기, -2 = 설정된 보조 모니터, 기본값은 -1, 위치 지정 없음 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 전체 화면 모드로 열기 |
@@ -59,6 +66,32 @@ Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | Don't open webbrowser, just return the url |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | 웹 브라우저를 연 후 URL을 반환하세요 |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | 브라우저 창을 PowerShell과 다른 모니터에서 전체 화면으로 배치하거나, 같은 모니터에서 PowerShell과 나란히 배치합니다. |
+
+## Examples
+
+### Open-WaybackMachineSiteInfo -Queries "www.example.com" -Monitor 0
+
+```powershell
+Open-WaybackMachineSiteInfo -Queries "www.example.com" -Monitor 0
+```
+
+기본 모니터에서 example.com의 Wayback Machine 아카이브를 엽니다.
+
+### wayback example.com -mon -1
+
+```powershell
+wayback example.com -mon -1
+```
+
+모니터 위치 지정이 폐기된 별칭을 사용하여 example.com의 Wayback Machine 아카이브를 엽니다.
+
+### Open-WaybackMachineSiteInfo -Queries "microsoft.com" -Chrome -Private
+
+```powershell
+Open-WaybackMachineSiteInfo -Queries "microsoft.com" -Chrome -Private
+```
+
+크롬의 시크릿 모드에서 microsoft.com의 웨이백 머신 아카이브를 엽니다.
 
 ## Related Links
 

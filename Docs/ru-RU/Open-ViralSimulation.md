@@ -4,12 +4,24 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Открывает игру-симулятор эпидемии в веб-браузере с широкими возможностями настройки.
+
+## Description
+
+Открывает игру вирусной симуляции по адресу https://viral.genxdev.net/ в указанном веб-браузере с настраиваемыми параметрами окна, позиционированием и поведением. Поддерживает несколько браузеров, приватный просмотр, режим приложения и расширенные возможности управления окнами.
+
+Функция обеспечивает интерактивный опыт вирусной симуляции с такими возможностями, как:
+- Поддержка нескольких браузеров (Edge, Chrome, Firefox)
+- Управление позиционированием и размером окна
+- Полноэкранный режим и режим приложения
+- Возможности приватного просмотра
+- Поддержка автоматизации клавиатуры
+- Поддержка нескольких мониторов
 
 ## Syntax
 
 ```powershell
-Open-ViralSimulation [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-ViralSimulation [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +35,9 @@ Open-ViralSimulation [[-Language] <String>] [-AcceptLang <String>] [-All] [-Appl
 | `-Chrome` | SwitchParameter | — | — | Named | — | Открывается в Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Открывается в Microsoft Edge или Google Chrome, в зависимости от того, какой браузер установлен по умолчанию |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Открывается в Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Используйте браузер, управляемый Playwright, вместо браузера, установленного в ОС |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Открывает браузер WebKit, управляемый Playwright. Подразумевает -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Запустите браузер без видимого окна |
 | `-All` | SwitchParameter | — | — | Named | — | Открывается во всех зарегистрированных современных браузерах |
 | `-Monitor` | Int32 | — | — | Named | `-2` | Используемый монитор: 0 — по умолчанию, -1 — игнорировать, -2 — настроенный вторичный монитор; по умолчанию $Global:DefaultSecondaryMonitor, или 2, если не найден. |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Открывается в полноэкранном режиме |
@@ -60,6 +75,24 @@ Open-ViralSimulation [[-Language] <String>] [-AcceptLang <String>] [-All] [-Appl
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-ViralSimulation -Chrome -Private -NoFullScreen
+
+```powershell
+Open-ViralSimulation -Chrome -Private -NoFullScreen
+```
+
+Открывает вирусную симуляцию в Google Chrome в режиме приватного просмотра без полноэкранного режима.
+
+### viral -ch -incognito -nfs
+
+```powershell
+viral -ch -incognito -nfs
+```
+
+Открывает вирусную симуляцию, используя псевдонимы, в Chrome, режиме инкогнито и без полноэкранного режима.
 
 ## Related Links
 

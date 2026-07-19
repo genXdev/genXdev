@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Toggles the repeat mode in VLC Media Player.
+
+## Description
+
+This function sends the 'r' key command to VLC Media Player to toggle between
+different repeat modes (no repeat, repeat current, repeat all). The function
+opens VLC if it's not already running and restores focus to the previous
+window after sending the command.
 
 ## Syntax
 
@@ -28,6 +35,20 @@
     end {
 
     }
+```
+
+## Examples
+
+### Switch-VlcMediaPlayerRepeat
+
+```powershell
+Switch-VlcMediaPlayerRepeat
+```
+
+### vlcrepeat
+
+```powershell
+vlcrepeat
 ```
 
 ## Related Links

@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Werk browsersnelkoppelingen bij om poorten voor externe foutopsporing in te schakelen.
+
+## Description
+
+Wijzigt Chrome- en Edge-browsersnelkoppelingen om parameters voor externe foutopsporingspoorten toe te voegen. Dit stelt automatisering scripts in staat om met de browsers te communiceren via hun foutopsporingsinterfaces. Behandelt zowel gebruikersspecifieke als systeembrede snelkoppelingen.
+
+De functie:
+- Verwijdert bestaande foutopsporingspoortparameters
+- Voegt huidige foutopsporingspoorten voor Chrome en Edge toe
+- Werkt snelkoppelingen bij op veelvoorkomende locaties (Bureaublad, Startmenu, Snelstartbalk)
+- Vereist beheerdersrechten voor systeembrede snelkoppelingen
 
 ## Syntax
 
@@ -165,6 +175,15 @@
 
             end {
             }
+```
+
+## Examples
+
+### Set-RemoteDebuggerPortInBrowserShortcuts Updates all Chrome and Edge shortcuts with their respective debugging ports.
+
+```powershell
+Set-RemoteDebuggerPortInBrowserShortcuts
+Updates all Chrome and Edge shortcuts with their respective debugging ports.
 ```
 
 ## Related Links

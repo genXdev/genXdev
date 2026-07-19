@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Returns a string (with altered indentation) of a provided scriptblock string
+
+## Description
+
+Ändert die Einrückung eines Scriptblock-Strings unter Beachtung der ursprünglichen Codeblock-Einrückungen
 
 ## Syntax
 

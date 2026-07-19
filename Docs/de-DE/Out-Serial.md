@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sendet eine Zeichenkette an eine serielle Schnittstelle
+
+## Description
+
+Ermöglicht das Senden einer Zeichenfolge an einen seriellen Kommunikationsanschluss
 
 ## Syntax
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converte texto em fala usando o motor de TTS neural do Microsoft Edge.
+
+## Description
+
+Utiliza o mecanismo TTS neural do Microsoft Edge (via EdgeTTS.DotNet) para converter texto em fala com vozes com som natural. Esta função oferece capacidades flexíveis de conversão de texto em fala com suporte para diferentes vozes, locais, ajustes de prosódia (taxa, volume, tom) e opções de reprodução síncrona/assíncrona. Pode lidar tanto com strings únicas quanto com arrays de texto.
 
 ## Syntax
 
@@ -26,6 +30,26 @@ Start-TextToSpeech [[-VoiceName] <String>] [-Locale <String>] [-PassThru] [-Pitc
 | `-Pitch` | String | — | — | Named | `$null` | Deslocamento de tom, ex.: "+0Hz", "-10Hz", "+20Hz" |
 | `-PassThru` | SwitchParameter | — | — | Named | — | Output the text being spoken to the pipeline |
 | `-Wait` | SwitchParameter | — | — | Named | — | Aguardar a fala terminar antes de continuar |
+
+## Examples
+
+### Start-TextToSpeech -Lines "Hello World" -Locale "en-US" -Wait
+
+```powershell
+Start-TextToSpeech -Lines "Hello World" -Locale "en-US" -Wait
+```
+
+### "Hello World" | say
+
+```powershell
+"Hello World" | say
+```
+
+### say "Hello World" -Rate "+50%" -Pitch "-5Hz"
+
+```powershell
+say "Hello World" -Rate "+50%" -Pitch "-5Hz"
+```
 
 ## Related Links
 

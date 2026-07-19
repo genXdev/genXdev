@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 获取系统上所有 WireGuard VPN 对等体的配置信息。
+
+## Description
+
+此函数用于检索在Docker容器中运行的服务器上配置的所有WireGuard VPN对端的综合信息。它提供详细信息，包括对端名称、公钥、允许的IP地址、连接端点、握手状态、数据传输统计信息以及当前连接状态。该函数可与父函数协同操作，也可独立管理Docker容器的初始化。
 
 ## Syntax
 
@@ -47,6 +51,21 @@ Get-WireGuardPeers [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Servi
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 仅在 Docker 窗口中使用会话 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 在运行之前清除 Docker 窗口的会话 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 跳过 Docker 窗口的会话 |
+
+## Examples
+
+### Get-WireGuardPeers
+
+```powershell
+Get-WireGuardPeers
+```
+
+### Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `                    -ServicePort 55555
+
+```powershell
+Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `
+                   -ServicePort 55555
+```
 
 ## Related Links
 

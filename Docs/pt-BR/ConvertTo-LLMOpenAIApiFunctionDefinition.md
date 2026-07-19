@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converts PowerShell functions to LLM OpenAI API function definitions.
+
+## Description
+
+Pega definições de cmdlet expostas e gera definições de função compatíveis com a API LLM OpenAI,
+incluindo informações de parâmetros e manipuladores de retorno de chamada.
 
 ## Syntax
 
@@ -17,6 +22,15 @@ ConvertTo-LLMOpenAIApiFunctionDefinition [[-ExposedCmdLets] <GenXdev.Helpers.Exp
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-ExposedCmdLets` | GenXdev.Helpers.ExposedCmdletDefinition[] | — | ✅ (ByValue) | 0 | `@()` | Converta comandos do PowerShell em funções de ferramenta |
+
+## Examples
+
+### Get-Command Get-Process | ConvertTo-LLMOpenAIApiFunctionDefinition ##############################################################################
+
+```powershell
+Get-Command Get-Process | ConvertTo-LLMOpenAIApiFunctionDefinition
+##############################################################################
+```
 
 ## Outputs
 

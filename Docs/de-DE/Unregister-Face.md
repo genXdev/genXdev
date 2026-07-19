@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Löscht ein registriertes Gesicht anhand seiner Kennung von DeepStack.
+
+## Description
+
+Diese Funktion löscht ein Gesicht aus dem DeepStack-Gesichtserkennungssystem unter Verwendung seiner eindeutigen Kennung. Sie kommuniziert mit dem API-Endpunkt, um die registrierten Gesichtsdaten dauerhaft aus dem System zu entfernen.
 
 ## Syntax
 
@@ -27,6 +31,21 @@ Unregister-Face -Identifier <String> [[-ContainerName] <String>] [[-VolumeName] 
 | `-Force` | SwitchParameter | — | — | Named | — | Erzwungener Neubau des Docker-Containers und Entfernung vorhandener Daten |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Nutzung der GPU-beschleunigten Version (erfordert NVIDIA-GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Docker Desktop-Fenster während der Initialisierung anzeigen |
+
+## Examples
+
+### Unregister-Face -Identifier "JohnDoe" -NoDockerInitialize $false `     -ContainerName "deepstack_face_recognition" -ServicePort 5000
+
+```powershell
+Unregister-Face -Identifier "JohnDoe" -NoDockerInitialize $false `
+    -ContainerName "deepstack_face_recognition" -ServicePort 5000
+```
+
+### rface "JohnDoe"
+
+```powershell
+rface "JohnDoe"
+```
 
 ## Outputs
 

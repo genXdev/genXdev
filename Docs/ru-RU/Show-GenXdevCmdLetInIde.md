@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Открывает указанный командлет GenXdev в Visual Studio Code.
+
+## Description
+
+Эта функция извлекает файл сценария и номер строки для указанного командлета GenXdev и открывает его в Visual Studio Code. Она может открывать либо основную реализацию функции, либо её сопутствующие модульные тесты, в зависимости от параметра переключателя UnitTests.
 
 ## Syntax
 
@@ -83,6 +87,22 @@ To use it, compile to a DLL, import the module, then run `Get-MyCmdlet -Input "W
 | `-PromptKey` | String | — | — | Named | — | Ключ AI-подсказки для выбора шаблона *(Parameter set: )* |
 | `-Prompt` | String | — | — | Named | `"Create a boilerplate GenXdev cmdlet that does what it's name suggests"` | Custom AI prompt text to use for cmdlet generation |
 | `-EditPrompt` | SwitchParameter | — | — | Named | — | Only edit the AI prompt without creating the cmdlet |
+
+## Examples
+
+### Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo" Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+
+```powershell
+Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo"
+Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+```
+
+### editcmdlet Get-GenXDevModuleInfo -UnitTests Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+
+```powershell
+editcmdlet Get-GenXDevModuleInfo -UnitTests
+Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+```
 
 ## Related Links
 

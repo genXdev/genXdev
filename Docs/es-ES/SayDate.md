@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> The current date is February 25, 2025.
+
+## Description
+
+Convierte la fecha actual a un formato de lenguaje natural y la anuncia usando el motor de texto a voz del sistema. La fecha se dice en el formato: "Hoy es [día de la semana], [mes] [día] [año]"
 
 ## Syntax
 
@@ -32,6 +36,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### SayDate Announces today's date using text-to-speech
+
+```powershell
+SayDate
+Announces today's date using text-to-speech
 ```
 
 ## Related Links

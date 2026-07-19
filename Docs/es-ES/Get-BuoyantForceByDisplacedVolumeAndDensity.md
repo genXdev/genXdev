@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula la fuerza de flotación.
+
+## Description
+
+Se utiliza F = ρ V g.
 
 ## Syntax
 

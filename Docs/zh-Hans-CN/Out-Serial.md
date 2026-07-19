@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 向串口发送字符串
+
+## Description
+
+允许您向串行通信端口发送字符串
 
 ## Syntax
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berekent de eindsnelheid.
+
+## Description
+
+Gebruik v = sqrt(2 m g / (ρ A C)).
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-TerminalVelocityByMassGravityDensityAndArea [-MassInKilograms] <double> [[-G
 | `-AreaInSquareMeters` | Double | ✅ | — | 3 | `0` | Doorsnedeoppervlak in m² |
 | `-DragCoefficient` | Double | — | — | 4 | `0` | Luchtweerstandscoëfficiënt (standaard: 0,5) |
 | `-As` | String | — | — | 5 | — | Output unit for velocity |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-TerminalVelocityByMassGravityDensityAndArea -MassInKilograms 80 -DensityInKilogramsPerCubicMeter 1.225 -AreaInSquareMeters 0.7 -DragCoefficient 1.0 -As "mph"
+```
+
+Berekent de eindsnelheid voor een massa van 80 kg in lucht met een weerstandscoëfficiënt van 1,0, en geeft het resultaat weer in mph.
+
+### Example 2
+
+```powershell
+Get-TerminalVelocityByMassGravityDensityAndArea 70 1.225 0.8 0.8
+```
+
+Gebruikt positionele parameters om de eindsnelheid te berekenen.
 
 ## Related Links
 

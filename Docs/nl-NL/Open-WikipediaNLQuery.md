@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent Nederlandse Wikipedia-zoekopdrachten in een webbrowser.
+
+## Description
+
+Opent een 'Wikipedia - Nederland' zoekopdracht in een webbrowser, met configureerbare weergaveopties. Ondersteunt het zoeken naar meerdere termen en het specificeren van op welke monitor de resultaten moeten worden weergegeven.
 
 ## Syntax
 
 ```powershell
-Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +27,9 @@ Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applic
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opent in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wordt geopend in Microsoft Edge of Google Chrome, afhankelijk van wat de standaardbrowser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Openen in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Gebruik de door Playwright beheerde browser in plaats van de in het besturingssysteem geïnstalleerde browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opent de door Playwright beheerde WebKit-browser. Impliceert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Voer de browser uit zonder een zichtbaar venster |
 | `-All` | SwitchParameter | — | — | Named | — | Opent in alle geregistreerde moderne browsers |
 | `-Monitor` | Int32 | — | — | Named | `-1` | De monitor om te gebruiken, 0 = standaard, -1 = weggooien, -2 = geconfigureerde secundaire monitor, standaard -1, geen positionering |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opent in volledig scherm |
@@ -58,6 +65,20 @@ Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applic
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alleen sessiecookies (geen permanente cookies) |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Browsersessiegegevens wissen voordat u opent |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Vorige browsersessie herstellen overslaan |
+
+## Examples
+
+### Open-WikipediaNLQuery -Queries "Amsterdam" -Monitor 0
+
+```powershell
+Open-WikipediaNLQuery -Queries "Amsterdam" -Monitor 0
+```
+
+### wikinl "Amsterdam" -mon -2
+
+```powershell
+wikinl "Amsterdam" -mon -2
+```
 
 ## Related Links
 

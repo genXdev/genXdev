@@ -4,7 +4,20 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> OpenAI 호환 대규모 언어 채팅 완성 API에 쿼리를 전송하고 응답을 처리합니다.
+
+## Description
+
+이 함수는 OpenAI 호환 대규모 언어 채팅 완성 API에 쿼리를 보내고 응답을 처리합니다. 텍스트 및 이미지 입력을 지원하며, 도구 함수 호출을 처리하고 텍스트 및 오디오를 포함한 다양한 채팅 모드에서 작동할 수 있습니다.
+
+이 함수는 LLM 상호작용에 대한 포괄적인 지원을 제공합니다:
+- 텍스트 및 이미지 입력 처리
+- 도구 함수 호출 및 명령 실행
+- 대화형 채팅 모드(텍스트 및 오디오)
+- 모델 초기화 및 구성
+- 응답 형식 지정 및 처리
+- 세션 관리 및 캐싱
+- 창 위치 지정 및 디스플레이 제어
 
 ## Syntax
 
@@ -69,6 +82,40 @@ Invoke-LLMQuery [[-Query] <String>] [[-Instructions] <String>] [[-Attachments] <
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | `100000` | 도구 콜백 출력의 최대 길이(문자 수). 이 길이를 초과하는 출력은 경고 메시지와 함께 잘립니다. 기본값은 100000자입니다. |
+
+## Examples
+
+### Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+
+```powershell
+Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+```
+
+Sends a simple mathematical query to the qwen model with specified temperature.
+
+### qllm "What is 2+2?" -Model "qwen"
+
+```powershell
+qllm "What is 2+2?" -Model "qwen"
+```
+
+별칭을 사용하여 기본 파라미터로 쿼리를 전송합니다.
+
+### Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+
+```powershell
+Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+```
+
+분석을 위해 이미지 첨부와 함께 쿼리를 전송합니다.
+
+### llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+
+```powershell
+llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+```
+
+지정된 모델과의 대화형 텍스트 채팅 세션을 시작합니다.
 
 ## Related Links
 

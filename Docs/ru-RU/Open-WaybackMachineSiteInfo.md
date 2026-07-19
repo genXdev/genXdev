@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Открывает информацию о сайте Wayback Machine в веб-браузере.
+
+## Description
+
+Открывает запрос Waybackmachine в веб-браузере, отображая исторические версии указанного URL-адреса или веб-сайта. Поддерживает множественные запросы и выбор монитора. Обеспечивает доступ к архивированному веб-контенту через сервис Wayback Machine Интернет-архива.
 
 ## Syntax
 
 ```powershell
-Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-Chrome` | SwitchParameter | — | — | Named | — | Открывается в Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Открывается в Microsoft Edge или Google Chrome, в зависимости от того, какой браузер установлен по умолчанию |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Открывается в Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Используйте браузер, управляемый Playwright, вместо браузера, установленного в ОС |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Открывает браузер WebKit, управляемый Playwright. Подразумевает -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Запустите браузер без видимого окна |
 | `-All` | SwitchParameter | — | — | Named | — | Открывается во всех зарегистрированных современных браузерах |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Используемый монитор: 0 = по умолчанию, -1 = отключить, -2 = настроенный вторичный монитор, по умолчанию -1, без позиционирования |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Открывается в полноэкранном режиме |
@@ -59,6 +66,32 @@ Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | https://example.com |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | После открытия веб-браузера верните URL |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Расположите окно браузера либо на весь экран на другом мониторе, отличном от PowerShell, либо рядом с PowerShell на одном мониторе. |
+
+## Examples
+
+### Open-WaybackMachineSiteInfo -Queries "www.example.com" -Monitor 0
+
+```powershell
+Open-WaybackMachineSiteInfo -Queries "www.example.com" -Monitor 0
+```
+
+Открывает архив Wayback Machine для example.com на мониторе по умолчанию.
+
+### wayback example.com -mon -1
+
+```powershell
+wayback example.com -mon -1
+```
+
+Открывает архив Wayback Machine для example.com, используя псевдонимы с монитором, позиционирование игнорируется.
+
+### Open-WaybackMachineSiteInfo -Queries "microsoft.com" -Chrome -Private
+
+```powershell
+Open-WaybackMachineSiteInfo -Queries "microsoft.com" -Chrome -Private
+```
+
+Открывает архив Wayback Machine для microsoft.com в режиме инкогнито Chrome.
 
 ## Related Links
 

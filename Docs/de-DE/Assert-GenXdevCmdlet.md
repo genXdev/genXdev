@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Verbessert die Dokumentation und Implementierung von GenXdev-Cmdlets durch KI-Unterstützung.
+
+## Description
+
+Diese Funktion verbessert GenXdev-Cmdlets, indem sie deren Code durch KI-Prompts analysiert und optimiert. Sie kann Cmdlets in Module integrieren, Dokumentation aktualisieren und die korrekte Implementierung überprüfen. Die Funktion unterstützt benutzerdefinierte Prompt-Vorlagen und kann Dateien in Visual Studio Code oder Visual Studio öffnen.
 
 ## Syntax
 
@@ -29,6 +33,20 @@ Assert-GenXdevCmdlet [-EditPrompt] [<CommonParameters>]
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | In Visual Studio öffnen |
 | `-EditPrompt` | SwitchParameter | — | — | Named | — | You are a helpful assistant designed to output JSON. *(Parameter set: )* |
 | `-Integrate` | SwitchParameter | — | — | Named | — | Integriere Cmdlet in Modul |
+
+## Examples
+
+### Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+
+```powershell
+Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+```
+
+### improvecmdlet Get-Something CheckDocs -c
+
+```powershell
+improvecmdlet Get-Something CheckDocs -c
+```
 
 ## Related Links
 

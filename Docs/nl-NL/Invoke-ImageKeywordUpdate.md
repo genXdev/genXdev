@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Werk bijhoudt metadata van afbeeldingen bij met AI-gegenereerde beschrijvingen en trefwoorden.
+
+## Description
+
+De functie Invoke-ImageKeywordUpdate analyseert afbeeldingen met behulp van AI om beschrijvingen, trefwoorden en andere metadata te genereren. Het maakt een bijbehorend JSON-bestand aan voor elke afbeelding met deze informatie. De functie kan alleen nieuwe afbeeldingen verwerken of bestaande metadata bijwerken en ondersteunt recursief scannen van mappen.
 
 ## Syntax
 
@@ -43,6 +47,20 @@ Invoke-ImageKeywordUpdate [[-ImageDirectories] <String[]>] [[-Instructions] <Str
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale terugbellen lengte voor tool-aanroepen. |
 | `-PassThru` | SwitchParameter | — | — | Named | — | PassThru om gestructureerde objecten terug te geven in plaats van naar console uit te voeren |
 | `-AutoUpdateFaces` | SwitchParameter | — | — | Named | — | Detecteert wijzigingen in de map met gezichten en registreert gezichten opnieuw indien nodig |
+
+## Examples
+
+### Invoke-ImageKeywordUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse -OnlyNew
+
+```powershell
+Invoke-ImageKeywordUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse -OnlyNew
+```
+
+### updateimages @("C:\Photos", "C:\Archive") -Recurse -RetryFailed -Language "Spanish"
+
+```powershell
+updateimages @("C:\Photos", "C:\Archive") -Recurse -RetryFailed -Language "Spanish"
+```
 
 ## Related Links
 

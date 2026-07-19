@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 指定されたディレクトリ内の画像ファイルに対して、シーン分類メタデータを更新します。
+
+## Description
+
+この関数は、指定されたディレクトリ内の画像を処理して、人工知能を使用してシーンを分類します。シーン分類、信頼度スコア、ラベルを含むJSONメタデータファイルを作成します。この関数は、設定可能な信頼度しきい値でバッチ処理をサポートし、既存のメタデータファイルをスキップするか、以前に失敗した分類を再試行するオプションがあります。
 
 ## Syntax
 
@@ -42,6 +46,40 @@ Invoke-ImageScenesUpdate [[-ImageDirectories] <String[]>] [-ApiKey <String>] [-A
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションに保存されている代替設定を使用して、AIの言語や画像コレクションなどの設定を変更します。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 言語、画像コレクションなどのAI設定用にセッションに保存されている代替設定をクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | AIの設定（言語、画像コレクションなど）にセッションに保存された代替設定を使用しない |
+
+## Examples
+
+### Invoke-ImageScenesUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+C:\Photos と D:\Pictures およびサブディレクトリ内のすべての画像を処理し、シーン分類を行います。
+
+### scenerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+
+```powershell
+scenerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+```
+
+エイリアスを使用して、失敗した分類を再試行し、複数のディレクトリ内の新しい画像のみを処理します。
+
+### Invoke-ImageScenesUpdate -ImageDirectories ".\MyImages" -Force -UseGPU
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories ".\MyImages" -Force -UseGPU
+```
+
+コンテナの再構築を強制し、GPUアクセラレーションを使用して処理を高速化します。
+
+### Invoke-ImageScenesUpdate -ImageDirectories "C:\Photos" -ConfidenceThreshold 0.6 -Recurse
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories "C:\Photos" -ConfidenceThreshold 0.6 -Recurse
+```
+
+すべての画像を再帰的に処理し、信頼度が60%以上のシーン分類のみを保存します。
 
 ## Related Links
 

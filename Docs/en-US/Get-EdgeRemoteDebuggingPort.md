@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Returns the configured remote debugging port for Microsoft Edge browser.
+
+## Description
+
+Retrieves the remote debugging port number used for connecting to Microsoft Edge
+browser's debugging interface. If no custom port is configured via the global
+variable $Global:EdgeDebugPort, returns the default port 9223. The function
+validates any custom port configuration and falls back to the default if invalid.
 
 ## Syntax
 
@@ -54,8 +61,19 @@
     }
 ```
 
+## Examples
+
+### Get-EdgeRemoteDebuggingPort Returns the configured debug port (default 9223 if not configured)
+
+```powershell
+Get-EdgeRemoteDebuggingPort
+Returns the configured debug port (default 9223 if not configured)
+```
+
 ## Outputs
 
+- `Int32
+Returns the port number to use for Edge remote debugging`
 - `Int32`
 
 ## Related Links

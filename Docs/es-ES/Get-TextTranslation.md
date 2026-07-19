@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Traduce texto a otro idioma usando IA.
+
+## Description
+
+Esta función traduce el texto de entrada a un idioma de destino especificado utilizando modelos de IA. Puede recibir entrada directamente a través de parámetros, desde la tubería o desde el portapapeles del sistema. La función conserva el formato y el estilo mientras traduce.
 
 ## Syntax
 
@@ -70,6 +74,20 @@ Let me prepare the response.",
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLM) |
 | `-NoCache` | SwitchParameter | — | — | Named | — | Skip the translation cache; always call the LLM API |
 | `-ClearCache` | SwitchParameter | — | — | Named | — | Clear the entire translation cache for all languages |
+
+## Examples
+
+### Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+
+```powershell
+Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+```
+
+### "Bonjour" | translate -Language "English"
+
+```powershell
+"Bonjour" | translate -Language "English"
+```
 
 ## Outputs
 

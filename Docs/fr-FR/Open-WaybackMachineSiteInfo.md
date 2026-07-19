@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ouvre les informations du site WaybackMachine dans un navigateur web.
+
+## Description
+
+Ouvre une requête Waybackmachine dans un navigateur web, affichant les versions historiques de l'URL ou du site spécifié. Prend en charge plusieurs requêtes et la sélection de monitors. Fournit un accès au contenu web archivé via le service Wayback Machine des Archives Internet.
 
 ## Syntax
 
 ```powershell
-Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-Chrome` | SwitchParameter | — | — | Named | — | S'ouvre dans Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Ouvre dans Microsoft Edge ou Google Chrome, selon le navigateur par défaut |
 | `-Firefox` | SwitchParameter | — | — | Named | — | S'ouvre dans Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utiliser le navigateur géré par Playwright au lieu du navigateur installé sur le système d'exploitation |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Ouvre le navigateur WebKit géré par Playwright. Implique -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Exécutez le navigateur sans fenêtre visible |
 | `-All` | SwitchParameter | — | — | Named | — | S'ouvre dans tous les navigateurs modernes enregistrés |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Le moniteur à utiliser, 0 = par défaut, -1 = supprimer, -2 = moniteur secondaire configuré, par défaut à -1, sans positionnement |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | S'ouvre en mode plein écran |
@@ -59,6 +66,32 @@ Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | Ne pas ouvrir le navigateur web, renvoyer simplement l'URL |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | Après avoir ouvert le navigateur web, retournez l'URL |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Positionner la fenêtre du navigateur soit en plein écran sur un moniteur différent de PowerShell, soit côte à côte avec PowerShell sur le même moniteur. |
+
+## Examples
+
+### Open-WaybackMachineSiteInfo -Queries "www.example.com" -Monitor 0
+
+```powershell
+Open-WaybackMachineSiteInfo -Queries "www.example.com" -Monitor 0
+```
+
+Ouvre l'archive Wayback Machine pour example.com sur le moniteur par défaut.
+
+### wayback example.com -mon -1
+
+```powershell
+wayback example.com -mon -1
+```
+
+Ouvre l'archive Wayback Machine pour example.com en utilisant des alias avec le positionnement du moniteur ignoré.
+
+### Open-WaybackMachineSiteInfo -Queries "microsoft.com" -Chrome -Private
+
+```powershell
+Open-WaybackMachineSiteInfo -Queries "microsoft.com" -Chrome -Private
+```
+
+Ouvre les archives de Wayback Machine pour microsoft.com en mode incognito de Chrome.
 
 ## Related Links
 

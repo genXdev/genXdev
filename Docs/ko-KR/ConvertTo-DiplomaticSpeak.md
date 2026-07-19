@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I would like to respectfully request that you consider rephrasing your comment to be more constructive and respectful in tone.
+
+## Description
+
+이 기능은 사용자 입력을 직설적이거나 직선적인 표현에서 고위급 논의, 협상 또는 공식 커뮤니케이션에 적합한 외교적이고 세련된 언어로 변환합니다. 이 기능은 AI 언어 모델을 사용하여 원래 의도를 유지하면서 어조를 부드럽게 하고 메시지를 보다 외교적이고 전문적으로 만듭니다.
 
 ## Syntax
 
@@ -65,6 +69,21 @@ LLMQuery: "아래 문장을 한국어로 번역해 주세요: Hello, how are you
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | 필터 for markup block types (LLMQuery에 전달됨) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 최대 도구 콜백 길이 (LLM 쿼리에 전달됨) |
+
+## Examples
+
+### ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `     -SetClipboard
+
+```powershell
+ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `
+    -SetClipboard
+```
+
+### diplomatize "Your code is full of bugs"
+
+```powershell
+diplomatize "Your code is full of bugs"
+```
 
 ## Outputs
 

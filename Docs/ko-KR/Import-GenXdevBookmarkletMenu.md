@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev JavaScript 북마클릿을 브라우저 북마크 컬렉션으로 가져옵니다.
+
+## Description
+
+이 함수는 GenXdev 북마클릿 파일이 있는 디렉토리를 스캔합니다.
 
 ## Syntax
 
@@ -21,6 +25,24 @@ Import-GenXdevBookmarkletMenu [[-SnippetsPath] <String>] [[-TargetFolder] <Strin
 | `-Edge` | SwitchParameter | — | — | Named | — | Microsoft Edge 브라우저에 북마클릿 가져오기 |
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome 브라우저에 북마클릿 가져오기 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Mozilla Firefox 브라우저에 북마클릿 가져오기 |
+
+## Examples
+
+### Import-GenXdevBookmarkletMenu -Edge
+
+```powershell
+Import-GenXdevBookmarkletMenu -Edge
+```
+
+기본 스니펫 디렉토리에서 모든 북마클릿 파일을 Microsoft Edge의 북마크 바 폴더로 가져옵니다.
+
+### Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+
+```powershell
+Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+```
+
+지정된 경로에서 Google Chrome으로 가져올 북마클릿을 실제 가져오기 작업을 수행하지 않고 보여줍니다.
 
 ## Related Links
 

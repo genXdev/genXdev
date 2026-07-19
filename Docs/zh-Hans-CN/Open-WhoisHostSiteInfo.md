@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在网页浏览器中打开 Whois 主机信息查询。
+
+## Description
+
+在网页浏览器中打开域名或IP地址的Whois主机信息查询。支持可配置的监视器选择、多次查询，以及广泛的浏览器配置选项，包括窗口定位、浏览器选择和自动化功能。
 
 ## Syntax
 
 ```powershell
-Open-WhoisHostSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WhoisHostSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-WhoisHostSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
 | `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 要使用的显示器，0 = 默认，-1 = 丢弃，-2 = 配置的辅助显示器，默认为 -1，无定位 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 在全屏模式下打开 |
@@ -59,6 +66,32 @@ Open-WhoisHostSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除会话中存储的AI偏好设置（如语言、图像集等）的备选方案。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化首选项中，而不影响会话中的AI偏好（如语言、图像收藏等）。 |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | 将浏览器窗口定位到与PowerShell不同的显示器上全屏显示，或者与PowerShell在同一显示器上并排显示。 |
+
+## Examples
+
+### Open-WhoisHostSiteInfo -Queries "example.com", "example.org" -Monitor 0
+
+```powershell
+Open-WhoisHostSiteInfo -Queries "example.com", "example.org" -Monitor 0
+```
+
+在默认监视器上打开多个域名的 Whois 信息。
+
+### whois example.com -m 1
+
+```powershell
+whois example.com -m 1
+```
+
+whois example.com
+
+### "microsoft.com", "google.com" | Open-WhoisHostSiteInfo -Private -Chrome
+
+```powershell
+"microsoft.com", "google.com" | Open-WhoisHostSiteInfo -Private -Chrome
+```
+
+在Chrome隐私模式下，从管道中打开域名的Whois信息。
 
 ## Related Links
 

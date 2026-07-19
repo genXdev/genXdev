@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Configura tratamento personalizado de comando não encontrado com assistência de IA.
+
+## Description
+
+Configura o PowerShell para lidar com comandos desconhecidos, seja navegando para diretórios ou usando IA para interpretar a intenção do usuário. O manipulador primeiro tenta qualquer manipulador de comando não encontrado existente, depois verifica se o comando é um caminho válido para navegação e, finalmente, oferece assistência de IA para comandos desconhecidos.
 
 ## Syntax
 
@@ -179,6 +183,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

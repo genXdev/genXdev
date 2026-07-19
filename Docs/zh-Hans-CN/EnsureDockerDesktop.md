@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 确保已安装 Docker Desktop 并可用于容器化操作。
+
+## Description
+
+验证Docker Desktop是否已安装并在系统上正确配置。如果未找到，使用WinGet自动安装Docker Desktop并处理完整的安装过程。该函数还管理Docker Desktop服务的启动、守护进程就绪验证，并在必要时处理身份验证要求。该函数包含系统和用户级Docker安装的全面路径管理。
 
 ## Syntax
 
@@ -43,6 +47,26 @@ EnsureDockerDesktop [[-Monitor] <Int32>] [[-Width] <Int32>] [[-Height] <Int32>] 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
 | `-NoDockerInitialization` | SwitchParameter | — | — | Named | — | 跳过Docker初始化并立即返回 |
+
+## Examples
+
+### EnsureDockerDesktop
+
+```powershell
+EnsureDockerDesktop
+```
+
+### EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+```
+
+### EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+```
 
 ## Related Links
 

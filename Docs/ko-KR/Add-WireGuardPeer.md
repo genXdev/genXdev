@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 새로운 WireGuard VPN 피어(클라이언트) 구성을 서버에 추가합니다.
+
+## Description
+
+이 함수는 Docker 컨테이너에서 실행되는 WireGuard VPN 서버에 새 피어를 추가합니다. 고유 IP 주소를 가진 새 클라이언트 구성을 생성하고, 필요한 암호화 키를 만들며, 구성 세부 정보를 반환합니다. 이 함수는 선택적으로 구성을 파일에 저장하거나 모바일 장치 설정을 위한 QR 코드를 생성할 수 있습니다. 함수는 피어 이름을 검증하고, 중복을 확인하며, 다양한 오류 조건을 적절히 처리합니다.
 
 ## Syntax
 
@@ -53,6 +57,25 @@ Add-WireGuardPeer -PeerName <String> [[-AllowedIPs] <String>] [[-DNS] <String>] 
 | `-ShowQRCode` | SwitchParameter | — | — | Named | — | 모바일 간편 설정을 위한 QR 코드 생성 |
 | `-NoDockerInitialize` | SwitchParameter | — | — | Named | — | Docker 초기화 건너뛰기 (상위 함수에서 이미 호출된 경우 사용) |
 | `-Force` | SwitchParameter | — | — | Named | — | Docker 컨테이너를 강제로 재구축하고 기존 데이터를 제거합니다 |
+
+## Examples
+
+### Add-WireGuardPeer -PeerName "MyPhone" -AllowedIPs "0.0.0.0/0, ::/0" `     -DNS "1.1.1.1, 1.0.0.1" -SaveConfig -OutputPath `     "$env:USERPROFILE\WireGuardConfigs" -ShowQRCode -ContainerName "wireguard" `     -VolumeName "wireguard_data" -ServicePort 51839 -HealthCheckTimeout 60 `     -HealthCheckInterval 3 -ImageName "linuxserver/wireguard" -PUID "1000" `     -PGID "1000" -TimeZone "Etc/UTC"
+
+```powershell
+Add-WireGuardPeer -PeerName "MyPhone" -AllowedIPs "0.0.0.0/0, ::/0" `
+    -DNS "1.1.1.1, 1.0.0.1" -SaveConfig -OutputPath `
+    "$env:USERPROFILE\WireGuardConfigs" -ShowQRCode -ContainerName "wireguard" `
+    -VolumeName "wireguard_data" -ServicePort 51839 -HealthCheckTimeout 60 `
+    -HealthCheckInterval 3 -ImageName "linuxserver/wireguard" -PUID "1000" `
+    -PGID "1000" -TimeZone "Etc/UTC"
+```
+
+### Add-WireGuardPeer "MyTablet" -ShowQRCode
+
+```powershell
+Add-WireGuardPeer "MyTablet" -ShowQRCode
+```
 
 ## Related Links
 

@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retourneert de geconfigureerde externe debugpoort voor Google Chrome.
+
+## Description
+
+Haalt de configuratie van de externe foutopsporingsport voor Google Chrome op en beheert deze.
+De functie controleert eerst op een aangepast poortnummer dat is opgeslagen in $Global:ChromeDebugPort.
+Als dit niet wordt gevonden of ongeldig is, wordt standaard poort 9222 gebruikt. Het poortnummer wordt vervolgens globaal
+opgeslagen voor gebruik door andere Chrome-automatiseringsfuncties.
 
 ## Syntax
 
@@ -58,8 +65,26 @@
     }
 ```
 
+## Examples
+
+### $port = Get-ChromeRemoteDebuggingPort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromeRemoteDebuggingPort
+Write-Host "Chrome debug port: $port"
+```
+
+### $port = Get-ChromePort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromePort
+Write-Host "Chrome debug port: $port"
+```
+
 ## Outputs
 
+- `Int32
+Returns the configured Chrome debugging port number.`
 - `Int32`
 
 ## Related Links

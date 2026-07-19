@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 启动具有AI功能的交互式文本聊天会话。
+
+## Description
+
+发起一个具有AI能力的交互式聊天会话，允许用户在对话过程中添加或移除PowerShell函数，并执行PowerShell命令。此功能提供了一个全面的AI驱动对话界面，具有广泛的工具集成和自定义选项。
 
 ## Syntax
 
@@ -81,6 +85,21 @@ New-LLMTextChat [[-Instructions] <String>] [[-Attachments] <String[]>] [[-Temper
 | `-NoContext` | Object | — | — | Named | — | Disable context usage |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | 使用束搜索采样策略 |
 | `-OnlyResponses` | Object | — | — | Named | — | { "type": "json_schema", "json_schema": { "name": "text_transformation_response", "strict": true, "schema": { "required": ["response"], "properties": { "response": { "type": "string", "description": "The transformed text output" } }, "type": "object" } } } |
+
+## Examples
+
+### New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `     -Instructions "You are a helpful AI assistant"
+
+```powershell
+New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `
+    -Instructions "You are a helpful AI assistant"
+```
+
+### llmchat "Tell me a joke" -Speak -IncludeThoughts
+
+```powershell
+llmchat "Tell me a joke" -Speak -IncludeThoughts
+```
 
 ## Related Links
 

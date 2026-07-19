@@ -4,12 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Одновременно открывает URL в нескольких браузерах в мозаичном расположении.
+
+## Description
+
+Эта функция создает мозаичный макет окон браузера, открывая указанный URL в Chrome, Edge, Firefox и в окне приватного просмотра. Браузеры располагаются в сетке 2x2:
+- Chrome: Верхний левый квадрант
+- Edge: Нижний левый квадрант
+- Firefox: Верхний правый квадрант
+- Приватное окно: Нижний правый квадрант
+
+Поддерживаются все параметры из Open-Webbrowser, которые передаются для управления позиционированием, поведением и внешним видом браузера. Функция действует как обертка, применяющая единое позиционирование по квадрантам, позволяя полностью настраивать параметры запуска браузера.
 
 ## Syntax
 
 ```powershell
-Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -30,6 +40,9 @@ Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-Applicat
 | `-Chrome` | SwitchParameter | — | — | Named | — | Открывается в Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Открывается в Microsoft Edge или Google Chrome, в зависимости от того, какой браузер установлен по умолчанию |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Открывается в Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Используйте браузер, управляемый Playwright, вместо браузера, установленного в ОС |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Открывает браузер WebKit, управляемый Playwright. Подразумевает -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Запустите браузер без видимого окна |
 | `-All` | SwitchParameter | — | — | Named | — | Открывается во всех зарегистрированных современных браузерах |
 | `-Left` | SwitchParameter | — | — | Named | — | Разместите окно браузера в левой части экрана |
 | `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen |
@@ -55,6 +68,22 @@ Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-Applicat
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Удалить альтернативные настройки, сохраненные в сессии для предпочтений ИИ. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. |
+
+## Examples
+
+### Show-WebsiteInAllBrowsers -Url "https://www.github.com" Opens github.com in four different browsers arranged in a mosaic layout.
+
+```powershell
+Show-WebsiteInAllBrowsers -Url "https://www.github.com"
+Opens github.com in four different browsers arranged in a mosaic layout.
+```
+
+### "https://www.github.com" | Show-UrlInAllBrowsers Uses the function's alias and pipeline input to achieve the same result.
+
+```powershell
+"https://www.github.com" | Show-UrlInAllBrowsers
+Uses the function's alias and pipeline input to achieve the same result.
+```
 
 ## Related Links
 

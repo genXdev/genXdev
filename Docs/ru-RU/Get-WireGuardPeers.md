@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Получает информацию обо всех настроенных пирах WireGuard VPN в системе.
+
+## Description
+
+Эта функция получает исчерпывающую информацию обо всех пирах WireGuard VPN, настроенных на сервере, работающем в Docker-контейнере. Она предоставляет детальные сведения, включая имена пиров, открытые ключи, разрешённые IP-адреса, конечные точки подключения, статус рукопожатия, статистику передачи данных и текущий статус соединения. Функция может работать совместно с родительскими функциями или независимо управлять инициализацией Docker-контейнера.
 
 ## Syntax
 
@@ -47,6 +51,21 @@ Get-WireGuardPeers [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Servi
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Используйте сессию только для окна Docker |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Очистить сессию для окна Docker перед запуском |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Пропустить сеанс для окна Docker |
+
+## Examples
+
+### Get-WireGuardPeers
+
+```powershell
+Get-WireGuardPeers
+```
+
+### Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `                    -ServicePort 55555
+
+```powershell
+Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `
+                   -ServicePort 55555
+```
 
 ## Related Links
 

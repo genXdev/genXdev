@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 指定された検索条件に一致するブラウザのブックマークを開きます。
+
+## Description
+
+提供された検索クエリに基づいて、Microsoft Edge、Google Chrome、Mozilla Firefoxブラウザ間でブックマークを検索します。一致するブックマークを、設定可能なウィンドウ設定とブラウザモードで選択したブラウザで開きます。
+
+この関数は、高度なフィルタリングと表示オプションを備えたブラウザブックマークの検索と開封のための包括的なインターフェースを提供します。複数の検索条件をサポートしており、インストールされている任意のブラウザで結果を開くことができ、ウィンドウの配置や動作のカスタマイズが可能です。
 
 ## Syntax
 
 ```powershell
-Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -48,6 +54,9 @@ Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <S
 | `-RestoreFocus` | SwitchParameter | — | — | Named | — | PowerShellウィンドウのフォーカスを復元 |
 | `-NewWindow` | SwitchParameter | — | — | Named | — | 既存のブラウザウィンドウを再利用せず、代わりに新しいウィンドウを作成する |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-DisablePopupBlocker` | SwitchParameter | — | — | Named | — | ポップアップブロッカーを無効にする |
 | `-SendKeyEscape` | SwitchParameter | — | — | Named | — | キー送信時の制御文字をエスケープする |
@@ -58,6 +67,32 @@ Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <S
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定はセッションに影響を与えず、永続的な設定のみに保存します。 |
+
+## Examples
+
+### Open-BrowserBookmarks -Queries "github" -Edge -Count 5
+
+```powershell
+Open-BrowserBookmarks -Queries "github" -Edge -Count 5
+```
+
+Microsoft Edgeで「github」を含むブックマークを検索し、最初の5件の結果をデフォルトのブラウザで開きます。
+
+### sites gh -e -c 5
+
+```powershell
+sites gh -e -c 5
+```
+
+上記と同様にエイリアスを使用 - Edgeブックマークで「gh」を検索し、デフォルトブラウザで5件の結果を開きます。
+
+### Open-BrowserBookmarks -Queries "development", "tools" -Chrome -Firefox -Left -Count 10
+
+```powershell
+Open-BrowserBookmarks -Queries "development", "tools" -Chrome -Firefox -Left -Count 10
+```
+
+Chromeのブックマークから「development」と「tools」を検索し、最初の10件の結果をFirefoxで開き、画面の左側に配置する。
 
 ## Related Links
 

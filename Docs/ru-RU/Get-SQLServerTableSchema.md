@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Извлекает информацию о схеме для указанной таблицы SQL Server.
+
+## Description
+
+Эта функция запрашивает базу данных SQL Server для получения подробной информации о схеме указанной таблицы. Она использует представление INFORMATION_SCHEMA.COLUMNS для получения определений столбцов, включая имена, типы, возможность null и значения по умолчанию.
 
 ## Syntax
 
@@ -24,6 +28,22 @@ Get-SQLServerTableSchema -TableName <String> [<CommonParameters>]
 | `-DatabaseName` | String | ✅ | — | 0 | — | Название базы данных SQL Server *(Parameter set: )* |
 | `-Server` | String | — | — | 1 | `'.'` | Имя экземпляра SQL Server *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 2 | — | Название таблицы |
+
+## Examples
+
+### Get-SQLServerTableSchema -DatabaseName "mydb" -Server "localhost" `     -TableName "Users"
+
+```powershell
+Get-SQLServerTableSchema -DatabaseName "mydb" -Server "localhost" `
+    -TableName "Users"
+```
+
+### Get-SQLServerTableSchema -ConnectionString "Server=localhost;Database=mydb;Integrated Security=true" `     -TableName "Products"
+
+```powershell
+Get-SQLServerTableSchema -ConnectionString "Server=localhost;Database=mydb;Integrated Security=true" `
+    -TableName "Products"
+```
 
 ## Related Links
 

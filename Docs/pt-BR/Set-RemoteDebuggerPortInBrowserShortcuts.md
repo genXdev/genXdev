@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Atalhos do navegador atualizados para habilitar portas de depuração remota.
+
+## Description
+
+Modifica os atalhos dos navegadores Chrome e Edge para incluir parâmetros de porta de depuração remota. Isso permite que scripts de automação interajam com os navegadores por meio de suas interfaces de depuração. Gerencia atalhos específicos do usuário e de todo o sistema.
+
+A função:
+- Remove quaisquer parâmetros de porta de depuração existentes
+- Adiciona portas de depuração atuais para Chrome e Edge
+- Atualiza atalhos em locais comuns (Área de Trabalho, Menu Iniciar, Inicialização Rápida)
+- Requer direitos administrativos para atalhos de todo o sistema
 
 ## Syntax
 
@@ -165,6 +175,15 @@
 
             end {
             }
+```
+
+## Examples
+
+### Set-RemoteDebuggerPortInBrowserShortcuts Updates all Chrome and Edge shortcuts with their respective debugging ports.
+
+```powershell
+Set-RemoteDebuggerPortInBrowserShortcuts
+Updates all Chrome and Edge shortcuts with their respective debugging ports.
 ```
 
 ## Related Links

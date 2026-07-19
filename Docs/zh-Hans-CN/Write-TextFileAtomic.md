@@ -8,10 +8,10 @@
 
 ## Description
 
-* 原子写入：使用临时文件 + 重命名策略，确保进程中断时目标文件不会处于损坏状态。
-* 重试逻辑：最多重试 MaxRetries 次，每次尝试间隔 RetryDelayMs 毫秒。
-* 编码支持：接受 System.Text.Encoding 参数控制输出编码，默认 UTF-8。
-* 去抖支持：当 DebounceMs > 0 时，对同一文件的快速连续写入会被合并——仅在文件超过 DebounceMs 毫秒未被修改时写入最后一个内容。
+* 原子写入：采用临时文件+重命名策略，确保进程中断时目标文件不会处于损坏状态。
+* 重试机制：最多重试MaxRetries次，每次间隔RetryDelayMs毫秒。
+* 编码支持：接受System.Text.Encoding参数控制输出编码，默认UTF-8。
+* 防抖支持：当DebounceMs > 0时，对同一文件的连续快速写入会合并——仅在文件超过DebounceMs毫秒未被修改时写入最后一个负载。
 * 目录创建：自动创建不存在的父目录。
 
 ## Syntax
@@ -52,7 +52,7 @@ Get-Content server.log -Tail 50 | ForEach-Object {
 Start-Sleep -Seconds 3
 ```
 
-快速传输50行数据；只有在静默2秒后，最后一行才会被持久化保存。
+管道快速传输50行数据；仅在2秒静默期后持久化最后一行。
 
 ### Example 3
 
@@ -78,7 +78,7 @@ $watcher = Start-ThreadJob -ScriptBlock {
 } -ArgumentList "timestamp.txt"
 ```
 
-一个后台任务每100毫秒写入一次时间戳，但防抖合并后实际上每秒只写入一次磁盘。
+一个后台任务每100毫秒写入一次时间戳，但防抖合并了这些操作——实际每秒只有一次写入落盘。
 
 ## Related Links
 

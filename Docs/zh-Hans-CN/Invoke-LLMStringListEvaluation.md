@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 使用AI分析从输入文本中提取或生成相关字符串列表。
+
+## Description
+
+此函数利用AI模型分析输入文本，提取或生成相关字符串列表。它能够处理文本以识别关键点、提取列表中的项目或生成相关概念。输入可以通过参数直接提供、来自管道或来自系统剪贴板。函数返回字符串数组，并可选择将结果复制到剪贴板。
 
 ## Syntax
 
@@ -98,6 +102,35 @@ Invoke-LLMStringListEvaluation [[-Text] <String>] [[-Instructions] <String>] [[-
   }
 } |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 工具调用的最大回调长度。 |
+
+## Examples
+
+### PS> Invoke-LLMStringListEvaluation -Text ("PowerShell features: object-based " +     "pipeline, integrated scripting environment, backwards compatibility, " +     "and enterprise management.") Returns: @("Object-based pipeline", "Integrated scripting environment",          "Backwards compatibility", "Enterprise management")
+
+```powershell
+PS> Invoke-LLMStringListEvaluation -Text ("PowerShell features: object-based " +
+    "pipeline, integrated scripting environment, backwards compatibility, " +
+    "and enterprise management.")
+Returns: @("Object-based pipeline", "Integrated scripting environment",
+         "Backwards compatibility", "Enterprise management")
+```
+
+### PS> "Make a shopping list with: keyboard, mouse, monitor, headset" |     Invoke-LLMStringListEvaluation Returns: @("Keyboard", "Mouse", "Monitor", "Headset")
+
+```powershell
+PS> "Make a shopping list with: keyboard, mouse, monitor, headset" |
+    Invoke-LLMStringListEvaluation
+Returns: @("Keyboard", "Mouse", "Monitor", "Headset")
+```
+
+### PS> getlist "List common PowerShell commands for file operations" -SetClipboard Returns and copies to clipboard: @("Get-ChildItem", "Copy-Item", "Move-Item",                                   "Remove-Item", "Set-Content", "Get-Content") ##############################################################################
+
+```powershell
+PS> getlist "List common PowerShell commands for file operations" -SetClipboard
+Returns and copies to clipboard: @("Get-ChildItem", "Copy-Item", "Move-Item",
+                                  "Remove-Item", "Set-Content", "Get-Content")
+##############################################################################
+```
 
 ## Outputs
 

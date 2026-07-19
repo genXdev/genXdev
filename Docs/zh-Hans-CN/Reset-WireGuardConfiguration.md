@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 重置 WireGuard VPN 服务器配置，移除所有对等端。
+
+## Description
+
+该函数重置运行在Docker容器中的WireGuard VPN服务器配置，通过移除所有对等端并生成全新的服务器配置。这是不可逆的破坏性操作，会永久删除所有对等端配置。函数将停止WireGuard服务，删除所有对等端目录及配置文件，移除服务器密钥，重启容器，并验证是否生成了新配置。
 
 ## Syntax
 
@@ -27,6 +31,24 @@ Reset-WireGuardConfiguration [[-ContainerName] <String>] [[-VolumeName] <String>
 | `-TimeZone` | String | — | — | 8 | `'Etc/UTC'` | 容器使用的时区 |
 | `-NoDockerInitialize` | SwitchParameter | — | — | Named | — | 跳过 Docker 初始化（当已由父函数调用时使用） |
 | `-Force` | SwitchParameter | — | — | Named | — | 强制重置，无需确认 |
+
+## Examples
+
+### Reset-WireGuardConfiguration
+
+```powershell
+Reset-WireGuardConfiguration
+```
+
+将 WireGuard 配置重置为默认设置，并在继续前请求确认。
+
+### Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+
+```powershell
+Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+```
+
+重置指定自定义容器名称的 WireGuard 配置，无需确认提示。
 
 ## Related Links
 

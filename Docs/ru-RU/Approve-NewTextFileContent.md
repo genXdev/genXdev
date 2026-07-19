@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Интерактивное сравнение содержимого файлов и утверждение с помощью WinMerge.
+
+## Description
+
+Облегчает сравнение и слияние содержимого через WinMerge путем создания временного файла с предложенными изменениями. Пользователь может интерактивно просматривать и изменять изменения перед утверждением. Возвращает статус утверждения и окончательное содержимое.
 
 ## Syntax
 
 ```powershell
-Approve-NewTextFileContent -ContentPath <String> [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Approve-NewTextFileContent -ContentPath <String> [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -28,6 +32,9 @@ Approve-NewTextFileContent -ContentPath <String> [[-Monitor] <Int32>] [-AcceptLa
 | `-Chrome` | SwitchParameter | — | — | Named | — | Открывается в Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Открывается в Microsoft Edge или Google Chrome, в зависимости от того, какой браузер установлен по умолчанию |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Открывается в Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Используйте браузер, управляемый Playwright, вместо браузера, установленного в ОС |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Открывает браузер WebKit, управляемый Playwright. Подразумевает -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Запустите браузер без видимого окна |
 | `-All` | SwitchParameter | — | — | Named | — | Открывается во всех зарегистрированных современных браузерах |
 | `-Left` | SwitchParameter | — | — | Named | — | Разместите окно браузера в левой части экрана |
 | `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen |
@@ -56,6 +63,21 @@ Approve-NewTextFileContent -ContentPath <String> [[-Monitor] <Int32>] [-AcceptLa
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### $result = Approve-NewTextFileContent -ContentPath "C:\temp\myfile.txt" `     -NewContent "New file content"
+
+```powershell
+$result = Approve-NewTextFileContent -ContentPath "C:\temp\myfile.txt" `
+    -NewContent "New file content"
+```
+
+### Approve-NewTextFileContent -ContentPath "C:\temp\myfile.txt" -NewContent "New content" -e -fs
+
+```powershell
+Approve-NewTextFileContent -ContentPath "C:\temp\myfile.txt" -NewContent "New content" -e -fs
+```
 
 ## Related Links
 

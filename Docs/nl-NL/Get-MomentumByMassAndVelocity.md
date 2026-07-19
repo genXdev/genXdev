@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berekenen van lineair momentum.
+
+## Description
+
+Gebruikt p = m v.
 
 ## Syntax
 

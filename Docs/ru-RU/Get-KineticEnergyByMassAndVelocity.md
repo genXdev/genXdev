@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет кинетическую энергию.
+
+## Description
+
+Используется KE = 1/2 m v².
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Get-KineticEnergyByMassAndVelocity [-MassInKilograms] <double> [-VelocityInMeter
 | `-MassInKilograms` | Double | ✅ | — | 0 | `0` | Масса в кг |
 | `-VelocityInMetersPerSecond` | Double | ✅ | — | 1 | `0` | Скорость в м/с |
 | `-As` | String | — | — | 2 | — | Output unit for energy |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-KineticEnergyByMassAndVelocity -MassInKilograms 10 -VelocityInMetersPerSecond 5 -As "calories"
+```
+
+Вычисляет кинетическую энергию для массы 10 кг, движущейся со скоростью 5 м/с, и выводит в калориях.
+
+### Example 2
+
+```powershell
+Get-KineticEnergyByMassAndVelocity 5 10
+```
+
+Вычисляет кинетическую энергию для массы 5 кг, движущейся со скоростью 10 м/с, используя позиционные параметры.
 
 ## Related Links
 

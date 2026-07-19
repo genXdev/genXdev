@@ -4,7 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Gets the LLM settings for AI operations in GenXdev.AI.
+
+## Description
+
+This function retrieves the LLM (Large Language Model) settings used by the
+GenXdev.AI module for various AI operations. Settings are retrieved from
+session variables, persistent preferences, or default settings JSON file, in
+that order of precedence. The function supports automatic configuration
+selection based on available system memory resources.
+
+Memory selection strategy is determined automatically based on the Gpu and Cpu
+parameters provided:
+- If both Gpu and Cpu parameters are specified: Uses combined CPU + GPU memory
+- If only Gpu parameter is specified: Prefers GPU memory (with system RAM fallback)
+- If only Cpu parameter is specified: Uses system RAM only
+- If neither parameter is specified: Uses combined CPU + GPU memory (default)
 
 ## Syntax
 
@@ -27,6 +42,39 @@ Get-AILLMSettings [[-LLMQueryType] <String>] [-ApiEndpoint <String>] [-ApiKey <S
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear the session setting (Global variable) before retrieving |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Database path for preference data files |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Skip session settings and get from preferences or defaults only |
+
+## Examples
+
+### Get-AILLMSettings
+
+```powershell
+Get-AILLMSettings
+```
+
+Gets the LLM settings for SimpleIntelligence query type (default).
+
+### Get-AILLMSettings -LLMQueryType "Coding"
+
+```powershell
+Get-AILLMSettings -LLMQueryType "Coding"
+```
+
+Gets the LLM settings for Coding query type.
+
+### Get-AILLMSettings -SkipSession
+
+```powershell
+Get-AILLMSettings -SkipSession
+```
+
+Gets the LLM settings from preferences or defaults only, ignoring session
+settings.
+
+### Get-AILLMSettings "Knowledge"
+
+```powershell
+Get-AILLMSettings "Knowledge"
+```
 
 ## Outputs
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> This tool uses AI to turn polite, professional business language into clear, straightforward speech.
+
+## Description
+
+이 함수는 외교적이고 기업적인 커뮤니케이션을 더 직접적이고 명확한 언어로 변환하기 위해 입력 텍스트를 처리합니다. 함수는 매개변수, 파이프라인 또는 시스템 클립보드를 통해 직접 입력을 받을 수 있습니다. 이 함수는 AI 모델을 활용하여 원래 의도를 유지하면서 텍스트를 분석하고 다시 표현합니다.
 
 ## Syntax
 
@@ -65,6 +69,21 @@ LLMQuery: "아래 문장을 한국어로 번역해 주세요: Hello, how are you
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | 필터 for markup block types (LLMQuery에 전달됨) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 최대 도구 콜백 길이 (LLM 쿼리에 전달됨) |
+
+## Examples
+
+### ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+
+```powershell
+ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+```
+
+### "We should circle back" | uncorporatize ###############################################################################
+
+```powershell
+"We should circle back" | uncorporatize
+###############################################################################
+```
 
 ## Outputs
 

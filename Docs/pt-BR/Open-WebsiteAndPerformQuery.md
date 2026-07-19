@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre uma página web em um navegador e realiza uma ou mais consultas.
+
+## Description
+
+Esta função abre um site por URL no navegador padrão, insere uma ou mais consultas e as submete. Ela oferece amplas opções de seleção de monitor e posicionamento de janela através da função subjacente Open-Webbrowser.
+
+A função copia automaticamente cada consulta para a área de transferência e a envia para a janela do navegador usando automação de teclado. Ela preserva o conteúdo original da área de transferência e o restaura após todas as consultas serem processadas.
 
 ## Syntax
 
 ```powershell
-Open-WebsiteAndPerformQuery -Url <String> -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WebsiteAndPerformQuery -Url <String> -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -25,6 +31,9 @@ Open-WebsiteAndPerformQuery -Url <String> -Queries <String[]> [[-Language] <Stri
 | `-Chrome` | SwitchParameter | — | — | Named | — | Abre no Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Abre no Microsoft Edge ou Google Chrome, dependendo de qual é o navegador padrão |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Abre no Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use o navegador gerenciado pelo Playwright em vez do navegador instalado no sistema operacional |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre o navegador WebKit gerenciado pelo Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Execute o navegador sem uma janela visível |
 | `-All` | SwitchParameter | — | — | Named | — | Abre em todos os navegadores modernos registrados |
 | `-Monitor` | Int32 | — | — | Named | `-2` | O monitor a ser usado: 0 = padrão, -1 = descartar, -2 = Monitor secundário configurado, o padrão é -1, sem posicionamento |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Abre em modo de tela cheia |
@@ -57,6 +66,24 @@ Open-WebsiteAndPerformQuery -Url <String> -Queries <String[]> [[-Language] <Stri
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Configurações alternativas claras armazenadas na sessão para preferências de IA |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazenar configurações apenas em preferências persistentes sem afetar a sessão |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Posicione a janela do navegador em tela cheia em um monitor diferente do PowerShell, ou lado a lado com o PowerShell no mesmo monitor. |
+
+## Examples
+
+### Open-WebsiteAndPerformQuery -Url "https://www.google.com" -Queries "PowerShell"
+
+```powershell
+Open-WebsiteAndPerformQuery -Url "https://www.google.com" -Queries "PowerShell"
+```
+
+Abre o Google e pesquisa por "PowerShell".
+
+### owaq google.com "PowerShell tutorials" -Monitor 0
+
+```powershell
+owaq google.com "PowerShell tutorials" -Monitor 0
+```
+
+Abre o Google e pesquisa por "tutoriais do PowerShell" no monitor padrão.
 
 ## Related Links
 

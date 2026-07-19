@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berechnet den linearen Impuls.
+
+## Description
+
+Verwendet p = m v.
 
 ## Syntax
 

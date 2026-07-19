@@ -4,7 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 为 Microsoft 的稳健复制 (RoboCopy) 实用程序提供 PowerShell 包装器。
+
+## Description
+
+一个全面的RoboCopy命令行工具封装，提供强大的文件和目录复制功能。此函数通过PowerShell友好的参数暴露了RoboCopy丰富的功能集，同时保留了其大部分强大功能。
+
+主要特点：
+- 带镜像选项的目录同步
+- 支持超长路径名（超过256个字符）
+- 保留安全设置
+- 高级文件属性处理
+- 符号链接和交接点管理
+- 持续同步的监视模式
+- 针对大文件的性能优化
+- 网络压缩支持
+- 针对故障设备的恢复模式
 
 ## Syntax
 
@@ -21,8 +36,8 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Source` | String | ✅ | — | 0 | — | 目录、文件路径或目录+搜索掩码 |
-| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | 用于放置复制文件和目录的目标目录。
-如果此目录尚不存在，则会创建所有缺失的目录。
+| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | 要将复制的文件和目录放入的目标目录。
+如果该目录尚不存在，将创建所有缺失的目录。
 默认值 = "." |
 | `-Files` | String[] | — | — | 2 | `@()` | 用于选择需要复制的文件的可选搜索掩码。
 默认值 = '*' 🌐 *Supports wildcards* |
@@ -70,7 +85,7 @@ touch dir1/subdir1/file1.txt dir1/subdir1/file2.txt dir1/subdir2/file3.txt dir2/
 | `-MultiThreaded` | SwitchParameter | — | — | Named | — | 通过多线程复制优化性能 |
 | `-CompressibleContent` | SwitchParameter | — | — | Named | — | 如果适用，在服务器之间复制文件时使用压缩以节省带宽和时间 |
 | `-ExactTimestamps` | SwitchParameter | — | — | Named | — | 设置后，将使用毫秒时间戳匹配替代默认的2秒容差。 |
-| `-Override` | String | — | — 🌐 Remaining | 3 | — | 覆盖、移除或添加指定的 robocopy 参数。
+| `-Override` | String | — | — 🌐 Remaining | 3 | — | 覆盖、移除或添加任何指定的 robocopy 参数。
 
 用法：
 
@@ -84,9 +99,27 @@ touch dir1/subdir1/file1.txt dir1/subdir1/file2.txt dir1/subdir2/file3.txt dir2/
 
     -Override -/Switch
 
-多个覆盖：
+多重覆盖：
 
     -Override "/ReplaceThisSwitchWithValue:'SomeValue' -/RemoveThisSwitch /AddThisSwitch" |
+
+## Examples
+
+### ########################################################################Mirror a directory with security settings Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `     -Mirror -IncludeSecurity
+
+```powershell
+########################################################################Mirror a directory with security settings
+Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `
+    -Mirror -IncludeSecurity
+```
+
+### ########################################################################Monitor and sync changes every 10 minutes Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `     -MonitorMode -MonitorModeThresholdMinutes 10
+
+```powershell
+########################################################################Monitor and sync changes every 10 minutes
+Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `
+    -MonitorMode -MonitorModeThresholdMinutes 10
+```
 
 ## Related Links
 

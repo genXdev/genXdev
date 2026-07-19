@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Экспортирует закладки браузера в JSON-файл.
+
+## Description
+
+Командлет Export-BrowserBookmarks экспортирует закладки из указанного веб-браузера (Microsoft Edge, Google Chrome или Mozilla Firefox) в JSON-файл. За один раз можно указать только один тип браузера. Закладки экспортируются с полным сохранением их структуры и метаданных.
 
 ## Syntax
 
@@ -22,6 +26,20 @@ Export-BrowserBookmarks [-Firefox] [<CommonParameters>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Экспорт закладок из Google Chrome |
 | `-Edge` | SwitchParameter | — | — | Named | — | Экспорт закладок из Microsoft Edge |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Экспорт закладок из Mozilla Firefox *(Parameter set: )* |
+
+## Examples
+
+### Export-BrowserBookmarks -OutputFile "C:\MyBookmarks.json" -Edge
+
+```powershell
+Export-BrowserBookmarks -OutputFile "C:\MyBookmarks.json" -Edge
+```
+
+### Export-BrowserBookmarks "C:\MyBookmarks.json" -Chrome
+
+```powershell
+Export-BrowserBookmarks "C:\MyBookmarks.json" -Chrome
+```
 
 ## Related Links
 

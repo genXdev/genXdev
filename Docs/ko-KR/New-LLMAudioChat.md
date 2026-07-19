@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> LLM 모델과의 대화형 오디오 채팅 세션을 생성합니다.
+
+## Description
+
+언어 모델과의 음성 기반 대화를 시작하며, 오디오 입력 및 출력을 지원합니다. 이 함수는 오디오 녹음, 전사, 모델 쿼리, 텍스트 음성 변환 응답을 처리합니다. 여러 언어 모델과 창 관리, GPU 가속, 고급 오디오 처리 기능을 포함한 다양한 설정 옵션을 지원합니다.
 
 ## Syntax
 
@@ -81,6 +85,22 @@ New-LLMAudioChat [[-Query] <String>] [[-Instructions] <String>] [[-Attachments] 
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 세션에 저장된 대체 설정을 AI 선호도에 사용 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### New-LLMAudioChat -Query "Tell me about PowerShell" `     -Model "qwen2.5-14b-instruct" `     -Temperature 0.7
+
+```powershell
+New-LLMAudioChat -Query "Tell me about PowerShell" `
+    -Model "qwen2.5-14b-instruct" `
+    -Temperature 0.7
+```
+
+### llmaudiochat "What's the weather?" -DontSpeak
+
+```powershell
+llmaudiochat "What's the weather?" -DontSpeak
+```
 
 ## Related Links
 

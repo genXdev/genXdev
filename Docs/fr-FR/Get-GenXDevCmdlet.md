@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves and lists all GenXdev cmdlets and their details.
+
+## Description
+
+Recherche dans les modules GenXdev installés et les fichiers de script pour trouver les cmdlets, leurs alias et descriptions. Peut filtrer par modèle de nom et nom de module. Prend en charge le filtrage par définitions de cmdlets et offre des options de recherche flexibles à travers les chemins de modules locaux et publiés.
 
 ## Syntax
 
@@ -27,6 +31,26 @@ Get-GenXDevCmdlet [-IncludeScripts] [<CommonParameters>]
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | Inclut le répertoire scripts en plus des modules réguliers *(Parameter set: )* |
 | `-OnlyReturnModuleNames` | SwitchParameter | — | — | Named | — | unique module names |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | Effectuer une correspondance exacte au lieu d'une correspondance générique |
+
+## Examples
+
+### Get-GenXDevCmdlet -CmdletName "Get-*" -ModuleName "Console" -NoLocal
+
+```powershell
+Get-GenXDevCmdlet -CmdletName "Get-*" -ModuleName "Console" -NoLocal
+```
+
+### gcmds Get-*
+
+```powershell
+gcmds Get-*
+```
+
+### Get-GenXDevCmdlet -OnlyReturnModuleNames
+
+```powershell
+Get-GenXDevCmdlet -OnlyReturnModuleNames
+```
 
 ## Outputs
 

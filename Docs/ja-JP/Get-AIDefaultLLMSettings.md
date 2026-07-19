@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev.AI での AI 操作に利用可能なすべてのデフォルト LLM 設定構成を取得します。
+
+## Description
+
+AI 操作に設定されているデフォルトの大規模言語モデル (LLM) 設定の完全なセットを取得します。結果は、クエリタイプ、モデル識別子、API エンドポイント、または API キーでフィルタリングできます。セッションベースおよび永続的なプリファレンスベースの取得をサポートし、セッション状態のクリアや、プリファレンスから直接読み取るために完全にバイパスするオプションも提供します。
 
 ## Syntax
 
@@ -24,6 +28,16 @@ Get-AIDefaultLLMSettings [[-LLMQueryType] <String>] [-ApiEndpoint <String>] [-Ap
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッション設定（グローバル変数）をクリアしてから取得してください |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | 設定データファイルのデータベースパス |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | セッション設定をスキップし、設定またはデフォルトのみから取得する |
+
+## Examples
+
+### Get-AIDefaultLLMSettings -LLMQueryType "Coding"
+
+```powershell
+Get-AIDefaultLLMSettings -LLMQueryType "Coding"
+```
+
+Coding クエリタイプで利用可能なすべてのデフォルト設定を取得します。
 
 ## Outputs
 

@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre consultas de búsqueda de YouTube en un navegador web.
+
+## Description
+
+Abre una o más consultas de búsqueda de YouTube en un navegador web con amplias opciones de posicionamiento y configuración. Admite selección de monitor configurable, ajustes del navegador y automatización de pulsaciones de teclas a través de parámetros dinámicos heredados del cmdlet Open-Webbrowser. Cada consulta se abre en una instancia separada del navegador con control total sobre la posición de la ventana, el tipo de navegador y el idioma de búsqueda.
 
 ## Syntax
 
 ```powershell
-Open-YoutubeQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-YoutubeQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-YoutubeQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Strin
 | `-Chrome` | SwitchParameter | — | — | Named | — | Se abre en Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Se abre en Microsoft Edge o Google Chrome, dependiendo de cuál sea el navegador predeterminado |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Se abre en Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utilizar el navegador gestionado por Playwright en lugar del navegador instalado en el sistema operativo |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre el navegador WebKit gestionado por Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Ejecuta el navegador sin una ventana visible |
 | `-All` | SwitchParameter | — | — | Named | — | Se abre en todos los navegadores modernos registrados |
 | `-Monitor` | Int32 | — | — | Named | `-1` | El monitor a utilizar, 0 = predeterminado, -1 es descartar, -2 = Monitor secundario configurado, valores predeterminados a -1, sin posicionamiento |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Se abre en modo de pantalla completa |
@@ -59,6 +66,24 @@ Open-YoutubeQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Strin
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utiliza configuraciones alternativas almacenadas en la sesión para las preferencias de IA. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. |
+
+## Examples
+
+### Open-YoutubeQuery -Queries "PowerShell tutorial" -Monitor 0
+
+```powershell
+Open-YoutubeQuery -Queries "PowerShell tutorial" -Monitor 0
+```
+
+Opens a YouTube search for "PowerShell tutorial" on the default monitor.
+
+### youtube "how to code" -m -2
+
+```powershell
+youtube "how to code" -m -2
+```
+
+Abre una búsqueda en YouTube de "how to code" en el monitor secundario configurado utilizando el alias de la función.
 
 ## Related Links
 

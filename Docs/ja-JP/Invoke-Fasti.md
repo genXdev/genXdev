@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 現在のディレクトリ内のアーカイブファイルをそれぞれのフォルダに展開し、その後削除します。
+
+## Description
+
+現在のディレクトリにある一般的なアーカイブ形式（zip、7z、tarなど）を自動的に抽出し、各アーカイブの名前を付けた個別のフォルダに格納します。抽出に成功した後、元のアーカイブファイルは削除されます。システムに7-Zipがインストールされている必要があります。
 
 ## Syntax
 
@@ -18,6 +22,20 @@ Invoke-Fasti [[-Password] <String>] [-ExtractOutputToo] [<CommonParameters>]
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Password` | String | — | — | 0 | — | 暗号化アーカイブのパスワードを入力してください |
 | `-ExtractOutputToo` | SwitchParameter | — | — | Named | — | 抽出されたフォルダ内にあるアーカイブを再帰的に抽出する |
+
+## Examples
+
+### PS C:\Downloads> Invoke-Fasti
+
+```powershell
+PS C:\Downloads> Invoke-Fasti
+```
+
+### PS C:\Downloads> fasti
+
+```powershell
+PS C:\Downloads> fasti
+```
 
 ## Related Links
 

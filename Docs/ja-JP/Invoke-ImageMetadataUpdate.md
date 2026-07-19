@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> ディレクトリ内の画像のEXIFメタデータを更新します。
+
+## Description
+
+この関数は、指定されたディレクトリ内の画像のEXIFメタデータを抽出して更新します。各画像を処理し、カメラの詳細、GPS座標、露出設定、その他の技術情報を含む詳細なEXIFメタデータを抽出します。メタデータは、後でインデックス作成や検索機能で使用するために、:EXIF.jsonとして代替NTFSストリームに保存されます。
 
 ## Syntax
 
@@ -26,6 +30,20 @@ Invoke-ImageMetadataUpdate [[-ImageDirectories] <String[]>] [-ClearSession] [-Fo
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 言語、画像コレクションなどのAI設定用にセッションに保存されている代替設定をクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | AI の設定（言語、画像コレクションなど）にセッションに保存された代替設定を使用しないでください |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | 設定データファイルのデータベースパス |
+
+## Examples
+
+### Invoke-ImageMetadataUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Force
+
+```powershell
+Invoke-ImageMetadataUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Force
+```
+
+### Invoke-ImageMetadataUpdate @("C:\Photos", "C:\Archive") -Force -PassThru | Export-Csv -Path metadata-log.csv
+
+```powershell
+Invoke-ImageMetadataUpdate @("C:\Photos", "C:\Archive") -Force -PassThru | Export-Csv -Path metadata-log.csv
+```
 
 ## Related Links
 

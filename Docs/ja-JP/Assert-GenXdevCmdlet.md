@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI支援を通じてGenXDevのコマンドレットのドキュメントと実装を改善します。
+
+## Description
+
+この関数は、GenXdevコマンドレットを強化するために、コードを分析し改善するものです。AIプロンプトを通じて、コマンドレットをモジュールに統合したり、ドキュメントを更新したり、適切な実装を確認したりできます。カスタムプロンプトテンプレートをサポートし、Visual Studio CodeまたはVisual Studioでファイルを開くことができます。
 
 ## Syntax
 
@@ -32,6 +36,20 @@ Assert-GenXdevCmdlet [-EditPrompt] [<CommonParameters>]
 2. 応答は常にパース可能なJSONオブジェクトであること
 3. 厳密なJSON出力ルールに従うこと *(Parameter set: )* |
 | `-Integrate` | SwitchParameter | — | — | Named | — | コマンドレットをモジュールに統合する |
+
+## Examples
+
+### Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+
+```powershell
+Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+```
+
+### improvecmdlet Get-Something CheckDocs -c
+
+```powershell
+improvecmdlet Get-Something CheckDocs -c
+```
 
 ## Related Links
 

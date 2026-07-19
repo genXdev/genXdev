@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Exibe resultados de pesquisa de imagens em uma galeria web com layout de alvenaria.
+
+## Description
+
+Recebe resultados de busca de imagens e os exibe em um layout de alvenaria baseado em navegador. Pode operar em modo interativo com capacidades de edição e exclusão, ou em modo de exibição simples. Aceita objetos de dados de imagem normalmente do Find-Image e os renderiza com dicas de ferramentas ao passar o mouse mostrando metadados como reconhecimento facial, detecção de objetos e dados de classificação de cena.
 
 ## Syntax
 
 ```powershell
-Show-FoundImagesInBrowser [[-InputObject] <Object[]>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-Description <String>] [-DisablePopupBlocker] [-Edge] [-EmbedImages] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-ImageUrlPrefix <String>] [-Interactive] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-OnlyReturnHtml] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowOnlyPictures] [-SideBySide] [-SingleColumnMode] [-SkipSession] [-Title <String>] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Show-FoundImagesInBrowser [[-InputObject] <Object[]>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-Description <String>] [-DisablePopupBlocker] [-Edge] [-EmbedImages] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-ImageUrlPrefix <String>] [-Interactive] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-OnlyReturnHtml] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowOnlyPictures] [-SideBySide] [-SingleColumnMode] [-SkipSession] [-Title <String>] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -27,6 +31,7 @@ Show-FoundImagesInBrowser [[-InputObject] <Object[]>] [-AcceptLang <String>] [-A
 | `-Chrome` | SwitchParameter | — | — | Named | — | Abre no Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Abre no Microsoft Edge ou Google Chrome, dependendo de qual é o navegador padrão |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Abre no Firefox |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Usa o navegador WebKit gerenciado pelo Playwright |
 | `-All` | SwitchParameter | — | — | Named | — | Abre em todos os navegadores modernos registrados |
 | `-Monitor` | Int32 | — | — | Named | `-2` | O monitor a ser usado, 0 = padrão, -1 é descartar, -2 = Monitor secundário configurado, o padrão é Global:DefaultSecondaryMonitor ou 2 se não encontrado |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Abre em modo de tela cheia |
@@ -67,6 +72,29 @@ Show-FoundImagesInBrowser [[-InputObject] <Object[]>] [-AcceptLang <String>] [-A
 | `-AutoAnimateRectangles` | SwitchParameter | — | — | Named | — | Animar retângulos (objetos/faces) no intervalo visível, ciclando a cada 300ms |
 | `-SingleColumnMode` | SwitchParameter | — | — | Named | `$false` | Forçar layout de coluna única (centralizado, 1/3 da largura da tela) |
 | `-ImageUrlPrefix` | String | — | — | Named | `''` | Prefixo a ser adicionado a cada caminho de imagem (ex.: para URLs remotas) |
+
+## Examples
+
+### Show-FoundImagesInBrowser -InputObject $images Displays the image results in a simple web gallery.
+
+```powershell
+Show-FoundImagesInBrowser -InputObject $images
+Displays the image results in a simple web gallery.
+```
+
+### Show-FoundImagesInBrowser -InputObject $images -Interactive -Title "My Photos" Displays images in interactive mode with edit/delete buttons.
+
+```powershell
+Show-FoundImagesInBrowser -InputObject $images -Interactive -Title "My Photos"
+Displays images in interactive mode with edit/delete buttons.
+```
+
+### showfoundimages $images -Private -FullScreen Opens the gallery in private browsing mode in fullscreen.
+
+```powershell
+showfoundimages $images -Private -FullScreen
+Opens the gallery in private browsing mode in fullscreen.
+```
 
 ## Related Links
 

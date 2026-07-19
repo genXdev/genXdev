@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens files in IDE that contain clipboard text
+
+## Description
+
+The text in the clipboard is used to search in all GenXdev scripts and when found opens that file in Code or Visual Studio
+##############################################################################
 
 ## Syntax
 

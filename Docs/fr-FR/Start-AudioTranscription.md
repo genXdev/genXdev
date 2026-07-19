@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Transcribes an audio file, video file, or a recording device to text
+
+## Description
+
+Transcrit un fichier audio, un fichier vidéo ou un dispositif d'enregistrement en texte à l'aide du modèle d'IA Whisper. La fonction peut traiter divers formats audio et vidéo, les convertir au format approprié pour la transcription, et éventuellement traduire la sortie dans une autre langue. Prend en charge la sortie au format de sous-titres SRT et divers paramètres de traitement audio pour affiner la qualité de la transcription.
 
 ## Syntax
 
@@ -64,6 +68,34 @@ Ceci est une démonstration |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Ne pas utiliser les paramètres alternatifs stockés dans la session pour les préférences IA comme la langue, les collections d'images, etc. |
 | `-VOX` | SwitchParameter | — | — | Named | — | Utiliser la détection de silence pour arrêter automatiquement l'enregistrement |
+
+## Examples
+
+### Start-AudioTranscription -Input "C:\path\to\audio.wav" `     -LanguageIn "English" -LanguageOut "French" -SRT
+
+```powershell
+Start-AudioTranscription -Input "C:\path\to\audio.wav" `
+    -LanguageIn "English" -LanguageOut "French" -SRT
+```
+
+### transcribefile "C:\video.mp4" "English"
+
+```powershell
+transcribefile "C:\video.mp4" "English"
+```
+
+### Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+
+```powershell
+Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+```
+
+### Start-AudioTranscription  # Records from microphone when no file specified ##############################################################################
+
+```powershell
+Start-AudioTranscription  # Records from microphone when no file specified
+##############################################################################
+```
 
 ## Related Links
 

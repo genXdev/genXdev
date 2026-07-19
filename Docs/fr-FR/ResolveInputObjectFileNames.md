@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Développe les objets d'entrée en noms de fichiers et de répertoires, prenant en charge divers filtres et options de sortie.
+
+## Description
+
+Cette fonction traite des objets d'entrée (fichiers, répertoires ou collections) et les développe en noms de fichiers et de répertoires. Elle prend en charge le filtrage, la correspondance de motifs et peut afficher les résultats sous forme d'objets. La fonction est conçue pour fonctionner avec des entrées de pipeline et offre des options de récursivité, de flux de données alternatifs, etc.
 
 ## Syntax
 
@@ -30,6 +34,14 @@ ResolveInputObjectFileNames [-Directory] [-FilesAndDirectories] [<CommonParamete
 | `-PassThru` | SwitchParameter | — | — | Named | — | Afficher les éléments correspondants sous forme d'objets |
 | `-IncludeAlternateFileStreams` | SwitchParameter | — | — | Named | — | Inclure les flux de données alternatifs dans les résultats de recherche |
 | `-NoRecurse` | SwitchParameter | — | — | Named | — | N'entrez pas dans les sous-répertoires |
+
+## Examples
+
+### ResolveInputObjectFileNames -Input "C:\Temp" -File
+
+```powershell
+ResolveInputObjectFileNames -Input "C:\Temp" -File
+```
 
 ## Related Links
 

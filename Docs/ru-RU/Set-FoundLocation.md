@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Находит первый совпадающий файл или папку и устанавливает на него местоположение.
+
+## Description
+
+Этот командлет поможет быстро перемещаться между каталогами, используя поисковые запросы для нахождения первой подходящей папки или файла (по желанию) и перехода в этот каталог. Поддерживает расширенную фильтрацию по содержимому, атрибутам файлов, размеру, датам изменения и многим другим критериям.
 
 ## Syntax
 
@@ -55,6 +59,48 @@ Set-FoundLocation [[-Content] <String[]>] [-CaseSensitive] [-Culture <String>] [
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Указывает, что командлет использует простое сопоставление, а не сопоставление с регулярным выражением. При простом сопоставлении Select-String ищет во входных данных текст, указанный в параметре Pattern. Он не интерпретирует значение параметра Pattern как выражение регулярного выражения. *(Parameter set: )* |
 | `-Push` | SwitchParameter | — | — | Named | — | Use Push-Location instead of Set-Location and push the location onto the location stack |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | Если установлено, учитываются только точные совпадения имен. По умолчанию используется подстановочное сопоставление, если только имя не содержит символы подстановки. |
+
+## Examples
+
+### Set-FoundLocation *.Console
+
+```powershell
+Set-FoundLocation *.Console
+```
+
+Changes to the first directory matching the pattern '*.Console'.
+
+### lcd *.Console
+
+```powershell
+lcd *.Console
+```
+
+Changes to the first directory matching the pattern '*.Console' using the alias.
+
+### Set-FoundLocation -Name "*.ps1" -Content "function"
+
+```powershell
+Set-FoundLocation -Name "*.ps1" -Content "function"
+```
+
+Изменения каталога, содержащего первый файл PowerShell, который содержит слово 'function'.
+
+### Set-FoundLocation *test* -File
+
+```powershell
+Set-FoundLocation *test* -File
+```
+
+Изменения в каталоге, содержащем первый файл с 'test' в имени.
+
+### Set-FoundLocation * '1\.\d+\.2025'
+
+```powershell
+Set-FoundLocation * '1\.\d+\.2025'
+```
+
+Изменения в каталоге, содержащем первый файл, содержимое которого соответствует шаблону '1.\d+\.2025'.
 
 ## Related Links
 

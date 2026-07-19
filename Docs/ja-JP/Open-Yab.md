@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 設定可能な設定でウェブブラウザにYABゲームを開きます。
+
+## Description
+
+指定されたブラウザでYABゲームのウェブサイトを開き、さまざまな表示および動作オプションを提供します。観戦モードを含む異なるゲームモードをサポートします。YABゲームはオンラインパズルゲームで、対話的にプレイするか、AIが自動的にプレイする観戦モードで視聴できます。
 
 ## Syntax
 
 ```powershell
-Open-Yab [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-SpectateOnly] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-Yab [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-SpectateOnly] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +27,9 @@ Open-Yab [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-Monitor` | Int32 | — | — | Named | `-2` | 使用するモニター、0=デフォルト、-1=破棄、-2=設定済みセカンダリモニター、デフォルトは-1、位置決めなし |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | フルスクリーンモードで開く |
@@ -62,6 +69,24 @@ Open-Yab [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode]
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションに保存された代替設定をAIの選択肢に使用します。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリアします。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定は永続的なプリファレンスにのみ保存し、セッションには影響を与えないでください。 |
+
+## Examples
+
+### Open-Yab -SpectateOnly -Chrome -NoFullScreen -Language "English"
+
+```powershell
+Open-Yab -SpectateOnly -Chrome -NoFullScreen -Language "English"
+```
+
+Chromeブラウザを使用して、全画面表示ではなく、英語インターフェースでYABゲームを観戦モードで開きます。
+
+### yab -e -Private -Monitor 2
+
+```powershell
+yab -e -Private -Monitor 2
+```
+
+エイリアスを使用して、モニター2でEdgeブラウザのプライベートブラウジングでYABゲームを開きます。
 
 ## Related Links
 

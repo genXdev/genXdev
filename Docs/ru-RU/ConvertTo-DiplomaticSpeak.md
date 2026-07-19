@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I would like to respectfully offer my perspective on this matter, with the hope that we can find a mutually agreeable path forward.
+
+## Description
+
+Эта функция преобразует пользовательский ввод из прямой или резкой формулировки в дипломатичный, тактичный язык, подходящий для обсуждений высокого уровня, переговоров или официальных сообщений. Функция использует языковые модели ИИ для сохранения исходного замысла, смягчая тон и делая сообщение более дипломатичным и профессиональным.
 
 ## Syntax
 
@@ -78,6 +82,21 @@ ConvertTo-DiplomaticSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-Allow
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Максимальная длина обратного вызова инструмента (передается в LLMQuery) |
+
+## Examples
+
+### ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `     -SetClipboard
+
+```powershell
+ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `
+    -SetClipboard
+```
+
+### diplomatize "Your code is full of bugs"
+
+```powershell
+diplomatize "Your code is full of bugs"
+```
 
 ## Outputs
 

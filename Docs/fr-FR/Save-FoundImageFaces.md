@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sauvegarde les images de visages recadrées provenant des résultats de recherche d'images indexées.
+
+## Description
+
+Cette fonction prend les résultats de recherche d'images et extrait/enregistre les régions de visages individuels sous forme de fichiers image séparés. Elle peut rechercher des visages selon divers critères et les enregistrer dans un répertoire de sortie spécifié. La fonction prend en charge la recherche par description, mots-clés, personnes, objets, scènes, type d'image, type de style et ambiance générale. Elle peut également filtrer par nudité et contenu explicite.
 
 ## Syntax
 
@@ -42,6 +46,20 @@ Save-FoundImageFaces [[-Any] <String[]>] [-ClearSession] [-DatabaseFilePath <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utiliser les paramètres alternatifs stockés dans la session pour les préférences IA telles que la langue, les collections d'images, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Ne pas utiliser les paramètres alternatifs stockés dans la session pour les préférences IA comme la langue, les collections d'images, etc. |
+
+## Examples
+
+### Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+
+```powershell
+Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+```
+
+### saveimagefaces -Any "vacation" -SaveUnknownPersons
+
+```powershell
+saveimagefaces -Any "vacation" -SaveUnknownPersons
+```
 
 ## Outputs
 

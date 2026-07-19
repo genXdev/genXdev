@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 디렉토리 내 이미지의 EXIF 메타데이터를 업데이트합니다.
+
+## Description
+
+이 함수는 지정된 디렉토리에 있는 이미지의 EXIF 메타데이터를 추출하고 업데이트합니다. 각 이미지를 처리하여 카메라 세부 정보, GPS 좌표, 노출 설정 및 기타 기술 정보를 포함한 상세한 EXIF 메타데이터를 추출합니다. 메타데이터는 :EXIF.json이라는 대체 NTFS 스트림에 저장되어 인덱싱 및 검색 기능에서 나중에 사용됩니다.
 
 ## Syntax
 
@@ -26,6 +30,20 @@ Invoke-ImageMetadataUpdate [[-ImageDirectories] <String[]>] [-ClearSession] [-Fo
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 지웁니다. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | AI 환경 설정(언어, 이미지 컬렉션 등)에 세션에 저장된 대체 설정을 사용하지 마십시오. |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | 환경 설정 데이터 파일의 데이터베이스 경로 |
+
+## Examples
+
+### Invoke-ImageMetadataUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Force
+
+```powershell
+Invoke-ImageMetadataUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Force
+```
+
+### Invoke-ImageMetadataUpdate @("C:\Photos", "C:\Archive") -Force -PassThru | Export-Csv -Path metadata-log.csv
+
+```powershell
+Invoke-ImageMetadataUpdate @("C:\Photos", "C:\Archive") -Force -PassThru | Export-Csv -Path metadata-log.csv
+```
 
 ## Related Links
 

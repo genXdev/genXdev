@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> SQL Serverデータベースからテーブル名のリストを取得します。
+
+## Description
+
+SQL Serverのシステムテーブルをクエリして、データベース内のすべてのユーザー定義テーブル名を取得します。直接接続文字列またはサーバーパラメータを使用したデータベース名のいずれかを介した接続をサポートします。テーブル名を文字列のコレクションとして返します。
 
 ## Syntax
 
@@ -21,6 +25,23 @@ Get-SQLServerTables -DatabaseName <String> [[-Server] <String>] [<CommonParamete
 | `-ConnectionString` | String | ✅ | — | 0 | — | SQL Server データベースへの接続文字列。 *(Parameter set: )* |
 | `-DatabaseName` | String | ✅ | — | 0 | — | SQL Server データベースの名前。 *(Parameter set: )* |
 | `-Server` | String | — | — | 1 | `'.'` | SQL Server インスタンス名。 *(Parameter set: )* |
+
+## Examples
+
+### Get-SQLServerTables -DatabaseName "Inventory" -Server "localhost" Returns all table names from the specified database
+
+```powershell
+Get-SQLServerTables -DatabaseName "Inventory" -Server "localhost"
+Returns all table names from the specified database
+```
+
+### Get-SQLServerTables -ConnectionString "Server=localhost;Database=Users;Integrated Security=true;" Returns all table names using a custom connection string ##############################################################################
+
+```powershell
+Get-SQLServerTables -ConnectionString "Server=localhost;Database=Users;Integrated Security=true;"
+Returns all table names using a custom connection string
+##############################################################################
+```
 
 ## Related Links
 

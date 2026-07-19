@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Захватывает сообщения об ошибках из различных потоков и использует LLM для предложения исправлений.
+
+## Description
+
+Этот командлет захватывает сообщения об ошибках из различных потоков PowerShell (входные данные конвейера, подробные сообщения, информационные сообщения, ошибки и предупреждения) и формирует структурированный запрос для LLM с целью анализа и предложения исправлений. Затем он выполняет запрос к LLM и возвращает предложенное решение.
 
 ## Syntax
 
@@ -115,6 +119,25 @@ Get-ScriptExecutionErrorFixPrompt -Script <ScriptBlock> [-ApiEndpoint <String>] 
     }
   }
 } |
+
+## Examples
+
+### $errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {     My-ScriptThatFails }
+
+```powershell
+$errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {
+    My-ScriptThatFails
+}
+```
+
+Write-Host $errorInfo
+
+### getfixprompt { Get-ChildItem -NotExistingParameter } ##############################################################################
+
+```powershell
+getfixprompt { Get-ChildItem -NotExistingParameter }
+##############################################################################
+```
 
 ## Outputs
 

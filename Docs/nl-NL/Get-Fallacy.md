@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Analyzes text to identify logical fallacies using AI-powered detection.
+
+## Description
+
+Deze functie analyseert aangeleverde tekst om logische denkfouten te detecteren met behulp van een AI-model dat is getraind op Wikipedia's Lijst van Denkfouten. Het geeft gedetailleerde informatie over elke gevonden denkfout, inclusief het specifieke citaat, de naam van de denkfout, beschrijving, uitleg en formele classificatie. De functie gebruikt een gestructureerd antwoordformaat om een consistente uitvoer te garanderen.
 
 ## Syntax
 
@@ -77,6 +81,36 @@ Get-Fallacy -InputObject <Object> [[-Instructions] <String>] [[-Attachments] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale terugbellen lengte voor tool-aanroepen. |
+
+## Examples
+
+### Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " + "and he was a politician")
+
+```powershell
+Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " +
+"and he was a politician")
+```
+
+U bent een behulpzame assistent die is ontworpen om JSON uit te voeren.
+## Reactieformaat
+
+Antwoord alleen met een JSON-object.
+
+### "This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+
+```powershell
+"This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+```
+
+Gebruikt pijplijninvoer om tekst te analyseren met lage temperatuur voor gerichte analyse.
+
+### dispicetext "Everyone knows this is true"
+
+```powershell
+dispicetext "Everyone knows this is true"
+```
+
+The alias is used to analyze text for logical fallacies.
 
 ## Outputs
 

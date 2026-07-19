@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 查找第一个匹配的文件或文件夹并将其位置设为当前位置。
+
+## Description
+
+此cmdlet可通过搜索短语快速切换目录，它会找到首个匹配的文件夹或文件（可选）并切换到该目录。支持按内容、文件属性、大小、修改日期等高级筛选条件进行过滤。
 
 ## Syntax
 
@@ -55,6 +59,48 @@ Set-FoundLocation [[-Content] <String[]>] [-CaseSensitive] [-Culture <String>] [
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | 指示该 cmdlet 使用简单匹配而非正则表达式匹配。在简单匹配中，Select-String 在输入中搜索 Pattern 参数中的文本，而不会将 Pattern 参数的值解释为正则表达式语句。 *(Parameter set: )* |
 | `-Push` | SwitchParameter | — | — | Named | — | 使用 Push-Location 代替 Set-Location，将位置推送到位置堆栈上 |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | 设置后，仅考虑精确的名称匹配。默认情况下，除非名称中包含通配符，否则使用通配符匹配。 |
+
+## Examples
+
+### Set-FoundLocation *.Console
+
+```powershell
+Set-FoundLocation *.Console
+```
+
+对匹配模式 '*.Console' 的第一个目录所做的更改。
+
+### lcd *.Console
+
+```powershell
+lcd *.Console
+```
+
+Changes to the first directory matching the pattern '*.Console' using the alias.
+
+### Set-FoundLocation -Name "*.ps1" -Content "function"
+
+```powershell
+Set-FoundLocation -Name "*.ps1" -Content "function"
+```
+
+对包含单词 'function' 的第一个 PowerShell 文件所在目录的更改。
+
+### Set-FoundLocation *test* -File
+
+```powershell
+Set-FoundLocation *test* -File
+```
+
+对包含第一个名称中带有 'test' 的文件所在目录所做的更改。
+
+### Set-FoundLocation * '1\.\d+\.2025'
+
+```powershell
+Set-FoundLocation * '1\.\d+\.2025'
+```
+
+对第一个文件中内容匹配模式'1.\d+.2025'的文件所在目录的更改
 
 ## Related Links
 

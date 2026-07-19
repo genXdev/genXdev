@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Немедленно прекращает любое текущее воспроизведение текста в речь.
+
+## Description
+
+Останавливает все активные и поставленные в очередь операции синтеза речи, отменяя как стандартные, так и настраиваемые операции преобразования текста в речь. Это обеспечивает немедленное безмолвие для любых текущих действий озвучивания текста.
 
 ## Syntax
 
@@ -40,6 +44,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### PS C:\> Stop-TextToSpeech Immediately stops any ongoing speech
+
+```powershell
+PS C:\> Stop-TextToSpeech
+Immediately stops any ongoing speech
+```
+
+### PS C:\> say "Hello world"; sst Starts speaking but gets interrupted immediately
+
+```powershell
+PS C:\> say "Hello world"; sst
+Starts speaking but gets interrupted immediately
 ```
 
 ## Related Links

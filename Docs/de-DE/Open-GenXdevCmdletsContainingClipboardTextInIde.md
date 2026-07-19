@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Öffnet Dateien in der IDE, die Zwischenablagetext enthalten
+
+## Description
+
+Der Text in der Zwischenablage wird verwendet, um in allen GenXdev-Skripten zu suchen, und wenn er gefunden wird, wird die Datei in Code oder Visual Studio geöffnet.
 
 ## Syntax
 

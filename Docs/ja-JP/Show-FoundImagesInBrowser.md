@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 画像検索結果をメイソンリー・レイアウトのウェブギャラリーで表示します。
+
+## Description
+
+画像検索結果を取得し、ブラウザベースのメーソンリーレイアウトで表示します。編集・削除機能を備えたインタラクティブモード、またはシンプルな表示モードで動作できます。通常はFind-Imageから画像データオブジェクトを受け取り、ホバーツールチップで顔認識、物体検出、シーン分類データなどのメタデータを表示します。
 
 ## Syntax
 
 ```powershell
-Show-FoundImagesInBrowser [[-InputObject] <Object[]>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-Description <String>] [-DisablePopupBlocker] [-Edge] [-EmbedImages] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-ImageUrlPrefix <String>] [-Interactive] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-OnlyReturnHtml] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowOnlyPictures] [-SideBySide] [-SingleColumnMode] [-SkipSession] [-Title <String>] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Show-FoundImagesInBrowser [[-InputObject] <Object[]>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-Description <String>] [-DisablePopupBlocker] [-Edge] [-EmbedImages] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-ImageUrlPrefix <String>] [-Interactive] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-OnlyReturnHtml] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowOnlyPictures] [-SideBySide] [-SingleColumnMode] [-SkipSession] [-Title <String>] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -27,6 +31,7 @@ Show-FoundImagesInBrowser [[-InputObject] <Object[]>] [-AcceptLang <String>] [-A
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright で管理される WebKit ブラウザを使用します |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-Monitor` | Int32 | — | — | Named | `-2` | 使用するモニター: 0 = デフォルト、-1 = 破棄、-2 = 設定済みのセカンダリモニター。デフォルトは Global:DefaultSecondaryMonitor、見つからない場合は 2。 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | フルスクリーンモードで開く |
@@ -75,6 +80,29 @@ Show-FoundImagesInBrowser [[-InputObject] <Object[]>] [-AcceptLang <String>] [-A
 | `-AutoAnimateRectangles` | SwitchParameter | — | — | Named | — | 可視範囲内の長方形（オブジェクト/面）をアニメーションさせ、300msごとに循環させる |
 | `-SingleColumnMode` | SwitchParameter | — | — | Named | `$false` | Force single column layout (centered, 1/3 screen width) |
 | `-ImageUrlPrefix` | String | — | — | Named | `''` | 各画像パスに付加するプレフィックス（例：リモートURL用） |
+
+## Examples
+
+### Show-FoundImagesInBrowser -InputObject $images Displays the image results in a simple web gallery.
+
+```powershell
+Show-FoundImagesInBrowser -InputObject $images
+Displays the image results in a simple web gallery.
+```
+
+### Show-FoundImagesInBrowser -InputObject $images -Interactive -Title "My Photos" Displays images in interactive mode with edit/delete buttons.
+
+```powershell
+Show-FoundImagesInBrowser -InputObject $images -Interactive -Title "My Photos"
+Displays images in interactive mode with edit/delete buttons.
+```
+
+### showfoundimages $images -Private -FullScreen Opens the gallery in private browsing mode in fullscreen.
+
+```powershell
+showfoundimages $images -Private -FullScreen
+Opens the gallery in private browsing mode in fullscreen.
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 부력을 계산합니다.
+
+## Description
+
+F = ρ V g를 사용합니다.
 
 ## Syntax
 

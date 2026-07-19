@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> デフォルトのセカンドモニター設定を構成します。
+
+## Description
+
+GenXdev ウィンドウを開く際のデフォルトの動作をセカンダリモニターに設定します。
+これは、シングルモニターを使用するユーザーや、ウィンドウを横並びで配置したいユーザーに便利です。
+関連コマンドレット: 'sidebyside' および 'restoredefaultmonitor'
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> secondscreen
+
+```powershell
+PS> secondscreen
+```
+
+GenXdevのウィンドウがセカンダリモニタで開くようにデフォルトを設定します
 
 ## Related Links
 

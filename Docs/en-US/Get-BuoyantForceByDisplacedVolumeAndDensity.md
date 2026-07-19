@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calculates buoyant force.
+
+## Description
+
+Uses F = ρ V g.
 
 ## Syntax
 

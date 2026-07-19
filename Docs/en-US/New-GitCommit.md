@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Creates and pushes a new git commit with all changes.
+
+## Description
+
+Stages all changes in the current git repository, creates a commit with the specified title, and pushes the changes to the remote origin. Automatically sets up upstream tracking if needed.
 
 ## Syntax
 
@@ -17,6 +21,24 @@ New-GitCommit [[-Title] <string>] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Title` | String | — | — | 0 | — | The commit message title to use |
+
+## Examples
+
+### Example 1
+
+```powershell
+New-GitCommit -Title "Added new authentication feature"
+```
+
+Create a commit with a custom message "Added new authentication feature".
+
+### Example 2
+
+```powershell
+commit "Hotfix for login issue"
+```
+
+Create a commit using the 'commit' alias with default message.
 
 ## Related Links
 

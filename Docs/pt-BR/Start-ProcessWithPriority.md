@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Inicia um processo com um nível de prioridade especificado.
+
+## Description
+
+* Inicia um executável com um nível de prioridade personalizável e oferece
+  opções para espera e manipulação do processo.
+* Encapsula o Start-Process com funcionalidades adicionais para controlar a
+  prioridade do processo e o comportamento de execução.
 
 ## Syntax
 
@@ -21,6 +28,24 @@ Start-ProcessWithPriority [-FilePath] <string> [[-ArgumentList] <string[]>] [[-P
 | `-Priority` | String | — | — | 2 | — | Nível de prioridade do processo |
 | `-NoWait` | SwitchParameter | — | — | Named | `False` | Não espere pela conclusão do processo |
 | `-PassThru` | SwitchParameter | — | — | Named | `False` | process |
+
+## Examples
+
+### Example 1
+
+```powershell
+Start-ProcessWithPriority -FilePath "notepad.exe" -Priority "Low" -NoWait
+```
+
+Inicia o Bloco de Notas com prioridade baixa e retorna imediatamente.
+
+### Example 2
+
+```powershell
+nice notepad.exe -Priority High
+```
+
+Usa o alias 'nice' para iniciar um processo com alta prioridade.
 
 ## Related Links
 

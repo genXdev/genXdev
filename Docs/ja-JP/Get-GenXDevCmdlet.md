@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev コマンドレットとその詳細をすべて取得して一覧表示します。
+
+## Description
+
+インストールされているGenXdevモジュールとスクリプトファイルを検索し、コマンドレット、そのエイリアス、説明を検出します。名前パターンとモジュール名でフィルタリングできます。コマンドレット定義によるフィルタリングをサポートし、ローカルおよび公開されたモジュールパス全体で柔軟な検索オプションを提供します。
 
 ## Syntax
 
@@ -27,6 +31,26 @@ Get-GenXDevCmdlet [-IncludeScripts] [<CommonParameters>]
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | 通常のモジュールに加えて、scriptsディレクトリも含まれています。 *(Parameter set: )* |
 | `-OnlyReturnModuleNames` | SwitchParameter | — | — | Named | — | Only return unique module names |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | ワイルドカードマッチングではなく完全一致を実行 |
+
+## Examples
+
+### Get-GenXDevCmdlet -CmdletName "Get-*" -ModuleName "Console" -NoLocal
+
+```powershell
+Get-GenXDevCmdlet -CmdletName "Get-*" -ModuleName "Console" -NoLocal
+```
+
+### gcmds Get-*
+
+```powershell
+gcmds Get-*
+```
+
+### Get-GenXDevCmdlet -OnlyReturnModuleNames
+
+```powershell
+Get-GenXDevCmdlet -OnlyReturnModuleNames
+```
 
 ## Outputs
 

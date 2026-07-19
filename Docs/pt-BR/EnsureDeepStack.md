@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Garante que o serviço de reconhecimento facial DeepStack esteja instalado e em execução.
+
+## Description
+
+Esta função configura e gerencia o serviço de reconhecimento facial DeepStack usando Docker. Ela garante que o Docker Desktop esteja instalado, extrai a imagem Docker do DeepStack e executa o serviço em um contêiner com armazenamento persistente para rostos registrados.
+
+O DeepStack fornece uma API REST simples para detecção, registro e reconhecimento facial, que é bem documentada e ativamente mantida.
 
 ## Syntax
 
@@ -45,6 +51,24 @@ EnsureDeepStack [[-ContainerName] <String>] [[-VolumeName] <String>] [[-ServiceP
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use configurações alternativas armazenadas na sessão para preferências de IA |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Configurações alternativas claras armazenadas na sessão para preferências de IA |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazenar configurações apenas em preferências persistentes sem afetar a sessão |
+
+## Examples
+
+### EnsureDeepStack -ContainerName "deepstack_face_recognition" `                 -VolumeName "deepstack_face_data" `                 -ServicePort 5000 `                 -HealthCheckTimeout 60 `                 -HealthCheckInterval 3
+
+```powershell
+EnsureDeepStack -ContainerName "deepstack_face_recognition" `
+                -VolumeName "deepstack_face_data" `
+                -ServicePort 5000 `
+                -HealthCheckTimeout 60 `
+                -HealthCheckInterval 3
+```
+
+### EnsureDeepStack -Force -UseGPU
+
+```powershell
+EnsureDeepStack -Force -UseGPU
+```
 
 ## Outputs
 

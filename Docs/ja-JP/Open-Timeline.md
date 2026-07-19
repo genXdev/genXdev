@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 現在の時刻、日付、世紀、千年紀を表示するインタラクティブなタイムラインを開きます。
+
+## Description
+
+ウェブベースのインタラクティブなタイムラインを開きます。複数の言語と視覚的なカスタマイズオプションをサポートしています。
 
 ## Syntax
 
 ```powershell
-Open-Timeline [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-BorderDarkColor <String>] [-BorderLightColor <String>] [-BorderWidth <Int32>] [-Bottom] [-BrowserExtensions] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-DragedNodeBackground <String>] [-Edge] [-Firefox] [-FocusedNodeBackground <String>] [-FocusedNodeForeground <String>] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-RotationDelaySeconds <Int32>] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-SpectateOnly] [-Top] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-Timeline [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-BorderDarkColor <String>] [-BorderLightColor <String>] [-BorderWidth <Int32>] [-Bottom] [-BrowserExtensions] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-DragedNodeBackground <String>] [-Edge] [-Firefox] [-FocusedNodeBackground <String>] [-FocusedNodeForeground <String>] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-RotationDelaySeconds <Int32>] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-SpectateOnly] [-Top] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -22,6 +26,9 @@ Open-Timeline [[-Language] <String>] [-AcceptLang <String>] [-All] [-Application
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-Monitor` | Int32 | — | — | Named | `-2` | 使用するモニター: 0 = デフォルト、-1 = 破棄、-2 = 設定済みのセカンダリモニター。デフォルトは Global:DefaultSecondaryMonitor、見つからない場合は 2。 |
 | `-NoFullScreen` | SwitchParameter | — | — | Named | — | フルスクリーンモードで開かないでください |
@@ -71,6 +78,32 @@ Open-Timeline [[-Language] <String>] [-AcceptLang <String>] [-All] [-Application
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定はセッションに影響を与えず、永続的な設定のみに保存します。 |
+
+## Examples
+
+### Open-Timeline -Language "English"
+
+```powershell
+Open-Timeline -Language "English"
+```
+
+英語でゴッホ風のビジュアルを備えたインタラクティブなタイムラインを開きます。
+
+### timeline -mon 2
+
+```powershell
+timeline -mon 2
+```
+
+エイリアスを使用してモニター2でタイムラインを開きます。
+
+### Open-Timeline -Private -Chrome -FullScreen
+
+```powershell
+Open-Timeline -Private -Chrome -FullScreen
+```
+
+Chromeのシークレットモードでタイムラインを全画面で開きます。
 
 ## Related Links
 

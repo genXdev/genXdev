@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Verwaltet Schlüssel-Wert-Paare in einem JSON-Datei-basierten Speicher.
+
+## Description
+
+Bietet persistenten Speicher für Schlüssel-Wert-Paare unter Verwendung von JSON-Dateien. Handhabt sowohl das Einfügen neuer Einträge als auch das Aktualisieren vorhandener. Unterstützt optionale Synchronisierung für nicht-lokale Stores. Diese Funktion implementiert einen Upsert-Vorgang, der entweder neue Schlüssel-Wert-Paare einfügt oder vorhandene basierend auf der Kombination von Synchronisationsschlüssel, Store-Name und Schlüsselname aktualisiert.
 
 ## Syntax
 
@@ -21,6 +25,25 @@ Set-ValueByKeyInStore [-StoreName] <string> [-KeyName] <string> [[-Value] <strin
 | `-Value` | String | — | — | 2 | — | Value to be stored |
 | `-SynchronizationKey` | String | — | — | 3 | — | Schlüssel zur Identifizierung des Synchronisationsbereichs |
 | `-DatabasePath` | String | — | — | Named | — | Datenbankpfad für Key-Value-Speicherdatendateien |
+
+## Examples
+
+### Example 1
+
+```powershell
+Set-ValueByKeyInStore -StoreName "ConfigStore" -KeyName "ApiEndpoint" `
+    -Value "https://api.example.com"
+```
+
+Lege einen API-Endpunkt im ConfigStore fest.
+
+### Example 2
+
+```powershell
+setvalue ConfigStore ApiEndpoint "https://api.example.com"
+```
+
+Verwende den Alias, um einen Wert festzulegen.
 
 ## Related Links
 

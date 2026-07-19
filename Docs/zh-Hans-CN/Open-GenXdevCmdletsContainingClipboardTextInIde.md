@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在IDE中打开包含剪贴板文本的文件
+
+## Description
+
+剪贴板中的文本用于在所有GenXdev脚本中搜索，找到后会在Code或Visual Studio中打开该文件
 
 ## Syntax
 

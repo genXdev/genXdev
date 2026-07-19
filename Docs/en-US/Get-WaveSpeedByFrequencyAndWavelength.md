@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calculates wave speed.
+
+## Description
+
+Uses v = f λ.
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Get-WaveSpeedByFrequencyAndWavelength [-FrequencyInHertz] <double> [-WavelengthI
 | `-FrequencyInHertz` | Double | ✅ | — | 0 | `0` | Frequency in Hz |
 | `-WavelengthInMeters` | Double | ✅ | — | 1 | `0` | Wavelength in meters |
 | `-As` | String | — | — | 2 | — | Output unit for speed |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-WaveSpeedByFrequencyAndWavelength -FrequencyInHertz 440 -WavelengthInMeters 0.78 -As "km/h"
+```
+
+Calculates wave speed using v = f * λ.
+
+### Example 2
+
+```powershell
+Get-WaveSpeedByFrequencyAndWavelength 1000 0.34
+```
+
+Calculates wave speed with positional parameters.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Recupera e lista todos os cmdlets do GenXdev e seus detalhes.
+
+## Description
+
+Pesquisa em módulos e arquivos de script do GenXdev instalados para encontrar cmdlets, seus aliases e descrições. Pode filtrar por padrão de nome e nome do módulo. Suporta filtragem por definições de cmdlet e oferece opções de pesquisa flexíveis em caminhos de módulos locais e publicados.
 
 ## Syntax
 
@@ -27,6 +31,26 @@ Get-GenXDevCmdlet [-IncludeScripts] [<CommonParameters>]
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | Inclui o diretório scripts além dos módulos regulares *(Parameter set: )* |
 | `-OnlyReturnModuleNames` | SwitchParameter | — | — | Named | — | ansible.builtin.copy, ansible.builtin.file, ansible.builtin.service, ansible.builtin.template, ansible.posix.selinux, ansible.utils.update_fact, community.general.cronvar, containers.podman.podman_container, containers.podman.podman_image, containers.podman.podman_network, containers.podman.podman_secret |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | Realizar correspondência exata em vez de correspondência curinga |
+
+## Examples
+
+### Get-GenXDevCmdlet -CmdletName "Get-*" -ModuleName "Console" -NoLocal
+
+```powershell
+Get-GenXDevCmdlet -CmdletName "Get-*" -ModuleName "Console" -NoLocal
+```
+
+### gcmds Get-*
+
+```powershell
+gcmds Get-*
+```
+
+### Get-GenXDevCmdlet -OnlyReturnModuleNames
+
+```powershell
+Get-GenXDevCmdlet -OnlyReturnModuleNames
+```
 
 ## Outputs
 

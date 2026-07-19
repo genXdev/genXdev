@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 分析GenXdev cmdlet使用模式，识别最常调用的函数。
+
+## Description
+
+此脚本使用Get-GenXDevCmdlet扫描所有GenXdev PowerShell模块及其函数，分析哪些cmdlet被其他cmdlet最频繁调用。这有助于确定首先将哪些函数重构为C#，从最常用的函数开始。
 
 ## Syntax
 
@@ -20,6 +24,26 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-Inc
 | `-Top` | Int32 | — | — | 1 | `50` | The `-Top` parameter. |
 | `-IncludeCallChains` | SwitchParameter | — | — | Named | — | The `-IncludeCallChains` parameter. |
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | The `-IncludeScripts` parameter. |
+
+## Examples
+
+### Get-GenXdevCmdletUsageAnalysis
+
+```powershell
+Get-GenXdevCmdletUsageAnalysis
+```
+
+### Get-GenXdevCmdletUsageAnalysis -Top 20 -OutputFormat List
+
+```powershell
+Get-GenXdevCmdletUsageAnalysis -Top 20 -OutputFormat List
+```
+
+### Get-GenXdevCmdletUsageAnalysis -IncludeCallChains -IncludeScripts | Export-Csv -Path "cmdlet-usage.csv"
+
+```powershell
+Get-GenXdevCmdletUsageAnalysis -IncludeCallChains -IncludeScripts | Export-Csv -Path "cmdlet-usage.csv"
+```
 
 ## Related Links
 

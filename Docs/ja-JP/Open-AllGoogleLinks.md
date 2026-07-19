@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 無限に自動でGoogle検索を開く動作を行います。
+
+## Description
+
+Google検索を実行します。
+毎回10個のタブを開き、最初のタブに戻るまで一時停止します。
+最初のタブを閉じて停止します。
 
 ## Syntax
 
@@ -18,6 +24,16 @@ Open-AllGoogleLinks -Queries <String[]> [-Language <String>] [<CommonParameters>
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Queries` | String[] | ✅ | ✅ (ByValue, ByPropertyName) 🌐 Remaining | 0 | — | 実行するクエリ |
 | `-Language` | String | — | — | Named | — | 検索結果の表示言語 |
+
+## Examples
+
+### PS C:\>
+
+```powershell
+PS C:\>
+```
+
+Open-AllGoogleLinks "site:github.com PowerShell module"
 
 ## Related Links
 

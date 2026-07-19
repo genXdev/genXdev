@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 从faces目录中的图像文件更新所有人脸识别配置文件。
+
+## Description
+
+此函数更新人脸识别数据库，处理指定人脸目录中的所有图像。过程包括：
+1. 确保人脸识别服务正在运行
+2. 处理每个人文件夹中的所有图像，以批量操作的方式使用单个标识符（文件夹名称）为该人注册所有人脸
+3. 支持失败注册的重试逻辑
+
+每个人的文件夹可包含多张图像，所有图像将在一次API调用中注册到同一标识符（人名）下，无需使用_1、_2等后缀。
 
 ## Syntax
 
@@ -34,6 +43,30 @@ Register-AllFaces [[-FacesDirectory] <String>] [[-MaxRetries] <Int32>] [[-Contai
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 如果指定，在使用前清除当前会话偏好设置。 |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | 用于已知人脸根路径的首选项数据库路径。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 如果指定，在获取已知人脸根路径时跳过会话逻辑。 |
+
+## Examples
+
+### Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `     -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `     -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+
+```powershell
+Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `
+    -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `
+    -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+```
+
+### Register-AllFaces Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+
+```powershell
+Register-AllFaces
+Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+```
+
+### updatefaces -RenameFailed ##############################################################################
+
+```powershell
+updatefaces -RenameFailed
+##############################################################################
+```
 
 ## Related Links
 

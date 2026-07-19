@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre pesquisas da Wikipédia neerlandesa em um navegador da web.
+
+## Description
+
+Abre uma consulta 'Wikipedia - Países Baixos' em um navegador da web, com opções de exibição configuráveis. Suporta a pesquisa de vários termos e especifica em qual monitor exibir os resultados.
 
 ## Syntax
 
 ```powershell
-Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +27,9 @@ Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applic
 | `-Chrome` | SwitchParameter | — | — | Named | — | Abre no Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Abre no Microsoft Edge ou Google Chrome, dependendo de qual é o navegador padrão |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Abre no Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use o navegador gerenciado pelo Playwright em vez do navegador instalado no sistema operacional |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre o navegador WebKit gerenciado pelo Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Execute o navegador sem uma janela visível |
 | `-All` | SwitchParameter | — | — | Named | — | Abre em todos os navegadores modernos registrados |
 | `-Monitor` | Int32 | — | — | Named | `-1` | O monitor a ser usado: 0 = padrão, -1 = descartar, -2 = Monitor secundário configurado, o padrão é -1, sem posicionamento |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Abre em modo de tela cheia |
@@ -58,6 +65,20 @@ Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applic
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Usar cookies apenas de sessão (sem cookies persistentes) |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Limpe os dados da sessão do navegador antes de abrir |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Pular restauração da sessão anterior do navegador |
+
+## Examples
+
+### Open-WikipediaNLQuery -Queries "Amsterdam" -Monitor 0
+
+```powershell
+Open-WikipediaNLQuery -Queries "Amsterdam" -Monitor 0
+```
+
+### wikinl "Amsterdam" -mon -2
+
+```powershell
+wikinl "Amsterdam" -mon -2
+```
 
 ## Related Links
 

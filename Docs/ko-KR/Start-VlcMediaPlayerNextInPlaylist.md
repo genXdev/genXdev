@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> VLC 미디어 플레이어를 현재 재생 목록의 다음 항목으로 이동합니다.
+
+## Description
+
+이 함수는 현재 로드된 재생 목록에서 다음 트랙이나 미디어 항목으로 건너뛰기 위해 VLC 미디어 플레이어에 'n' 키 입력을 보냅니다. VLC 창에 포커스를 맞추고, 다음 명령을 보낸 후, 포커스를 PowerShell 콘솔로 복원합니다. 이 함수는 필요 시 확인 프롬프트를 위한 ShouldProcess 지원을 포함합니다.
 
 ## Syntax
 
@@ -41,6 +45,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerNextInPlaylist
+
+```powershell
+Start-VlcMediaPlayerNextInPlaylist
+```
+
+### vlcnext
+
+```powershell
+vlcnext
 ```
 
 ## Related Links

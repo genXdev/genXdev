@@ -9,53 +9,24 @@
 ## Description
 
 * Trouver des fichiers avec Find-Item -> l
-        * Recherche multi-threadée rapide : utilise le traitement E/S parallèle et asynchrone
-              avec un degré de parallélisme maximal configurable (par défaut basé sur les cœurs du CPU) pour un balayage efficace des fichiers et répertoires.
-        * Correspondance de motifs avancée : prend en charge les caractères génériques (*, ?), les motifs récursifs
-              comme **, et les structures de chemin complexes pour des requêtes précises sur les fichiers et répertoires.
-              **/nomfichier ne récursera que jusqu'à ce que le nom de fichier soit trouvé. Plusieurs de ces motifs
-              sont autorisés, tant qu'ils sont précédés d'un nom de fichier ou de répertoire à faire correspondre.
-              Cet analyseur de motifs a la puissance de Resolve-Path mais avec des fonctionnalités de récursion,
-              et ne prend en charge que * et ? comme caractères génériques,
-              évitant les bogues avec les chemins contenant des crochets [ ], éliminant
-              le besoin du paramètre -LiteralPath, tout en maintenant l'intégrité
-              pour les sections de chemin sans caractères génériques, contrairement à une correspondance générique sur
-              l'ensemble du chemin complet.
-        * Recherche de contenu améliorée : intégration complète de Select-String
-              avec des motifs d'expression régulière dans le contenu des fichiers en utilisant le
-              paramètre -Content.
-            * Optimisation pour les gros fichiers : gère les fichiers extrêmement volumineux avec des
-                  tampons se chevauchant intelligents et une allocation de tas minimale
-            * Options de correspondances multiples : trouve toutes les correspondances par ligne (-AllMatches) ou
-                  seulement la première correspondance par fichier (-List)
-            * Contrôle de la sensibilité à la casse : correspondance sensible à la casse (-CaseSensitive)
-                  avec des options spécifiques à la culture (-Culture)
-            * Capture de contexte : affiche les lignes avant et après les correspondances (-Context) pour
-                  une meilleure compréhension
+        * Recherche multi-threadée rapide : utilise un traitement E/S parallèle et asynchrone avec un degré maximal de parallélisme configurable (par défaut basé sur les cœurs CPU) pour une analyse efficace des fichiers et répertoires.
+        * Correspondance de motifs avancée : prend en charge les jokers (*, ?), les motifs récursifs comme **, et des structures de chemin complexes pour des requêtes précises de fichiers et répertoires. **/nomfichier ne récursera que jusqu'à ce que le nom de fichier soit trouvé. Plusieurs de ces motifs sont autorisés, à condition qu'ils soient précédés d'un nom de fichier ou de répertoire à trouver. Cet analyseur de motifs a la puissance de Resolve-Path mais avec des fonctionnalités de récursion, et ne prend en charge que * et ? comme jokers, évitant les bogues avec les chemins contenant des crochets [ ], éliminant le besoin du paramètre -LiteralPath, tout en maintenant l'intégrité des sections de chemin sans jokers, contrairement à une correspondance de joker sur le chemin complet entier.
+        * Recherche de contenu améliorée : intégration complète de Select-String avec des motifs d'expression régulière dans le contenu des fichiers en utilisant le paramètre -Content.
+            * Optimisation des grands fichiers : gère les fichiers extrêmement volumineux avec des tampons chevauchants intelligents et une allocation minimale de tas
+            * Options de correspondance multiples : trouve toutes les correspondances par ligne (-AllMatches) ou seulement la première correspondance par fichier (-List)
+            * Contrôle de la sensibilité à la casse : correspondance sensible à la casse (-CaseSensitive) avec des options spécifiques à la culture (-Culture)
+            * Capture de contexte : affiche les lignes avant et après les correspondances (-Context) pour une meilleure compréhension
             * Correspondance inverse : trouve les fichiers qui ne contiennent pas le motif (-NotMatch)
-            * Formats de sortie : sortie de chaîne brute (-Raw), réponse booléenne silencieuse (-Quiet),
-                  ou objets MatchInfo complets
-            * Types de motifs : expressions régulières (par défaut) ou correspondance de chaîne littérale simple
-                  (-SimpleMatch)
-            * Prise en charge de l'encodage : spécifie l'encodage du fichier (-Encoding) pour un traitement
-                  précis du texte
-        * Flexibilité des types de chemin : gère les chemins relatifs, absolus, UNC, racine et
-              les flux de données alternatifs NTFS (ADS) avec recherche de contenu optionnelle dans les flux.
-        * Prise en charge multi-disques : recherche sur tous les disques avec -AllDrives ou des disques
-              spécifiques via -SearchDrives, y compris les disques optiques si spécifié.
-        * Filtrage des répertoires et fichiers : options pour rechercher uniquement les répertoires (-Directory),
-              les fichiers et répertoires (-FilesAndDirectories), ou les fichiers avec correspondance de contenu.
-        * Exclusions et limites : motifs d'exclusion avec -Exclude, définition de la profondeur de récursion maximale
-              (-MaxRecursionDepth), limites de taille de fichier (-MaxFileSize, -MinFileSize) et filtres
-              de date de modification (-ModifiedAfter, -ModifiedBefore).
-        * Personnalisation de la sortie : prend en charge PassThru pour les objets FileInfo/DirectoryInfo,
-              les chemins relatifs, les hyperliens en mode assisté, ou les chemins simples en mode non assisté
-              (utilisez -NoLinks en cas de problèmes pour forcer le mode non assisté).
-        * Optimisations des performances : ignore les fichiers non textuels par défaut pour la recherche de contenu
-              (remplacez avec -IncludeNonTextFileMatching), gère les chemins longs (>260 caractères),
-              et suit les liens symboliques/jonctions.
-        * Fonctionnalités de sécurité : prise en charge du délai d'expiration (-TimeoutSeconds), ignore les éléments
-              inaccessibles, ignore les attributs système par défaut et empêche les boucles infinies avec le suivi des nœuds visités.
+            * Formats de sortie : sortie brute de chaîne (-Raw), réponse booléenne silencieuse (-Quiet), ou objets MatchInfo complets
+            * Types de motifs : expressions régulières (par défaut) ou correspondance de chaîne littérale simple (-SimpleMatch)
+            * Prise en charge de l'encodage : spécifiez l'encodage du fichier (-Encoding) pour un traitement précis du texte
+        * Flexibilité du type de chemin : gère les chemins relatifs, absolus, UNC, racines, et les flux de données alternatifs NTFS (ADS) avec recherche de contenu optionnelle dans les flux.
+        * Prise en charge multi-disques : recherche sur tous les disques avec -AllDrives ou des disques spécifiques via -SearchDrives, y compris les disques optiques si spécifié.
+        * Filtrage de répertoires et fichiers : options pour rechercher uniquement les répertoires (-Directory), les fichiers et répertoires (-FilesAndDirectories), ou les fichiers avec correspondance de contenu.
+        * Exclusions et limites : motifs d'exclusion avec -Exclude, définir la profondeur maximale de récursion (-MaxRecursionDepth), limites de taille de fichier (-MaxFileSize, -MinFileSize), et filtres de date de modification (-ModifiedAfter, -ModifiedBefore).
+        * Personnalisation de la sortie : prend en charge PassThru pour les objets FileInfo/DirectoryInfo, les chemins relatifs, les hyperliens en mode assisté, ou les chemins simples en mode non assisté (utilisez -NoLinks en cas d'incidents pour forcer le mode non assisté).
+        * Optimisations de performance : ignore les fichiers non textuels par défaut pour la recherche de contenu (remplacez avec -IncludeNonTextFileMatching), gère les chemins longs (>260 caractères), et suit les liens symboliques/jonctions.
+        * Fonctionnalités de sécurité : prise en charge du délai d'attente (-TimeoutSeconds), ignore les éléments inaccessibles, ignore les attributs système par défaut, et empêche les boucles infinies avec le suivi des nœuds visités.
 
 ## Syntax
 
@@ -123,7 +94,8 @@ Find-Item -Content "translation"
 l -mc translation
 ```
 
-grep -r "translation" .
+Rechercher les fichiers contenant un mot spécifique
+Rechercher tous les fichiers dans le répertoire actuel et ses sous-répertoires qui contiennent le mot "translation".
 
 ### Example 2
 
@@ -134,7 +106,8 @@ Find-Item "*.js" "Version == `"\d\d?\.\d\d?\.\d\d?`""
 l *.js "Version == `"\d\d?\.\d\d?\.\d\d?`""
 ```
 
-Recherchez des fichiers JavaScript contenant une chaîne de version au format "Version == `x.y.z`".
+Rechercher des fichiers JavaScript contenant une chaîne de version
+Rechercher des fichiers JavaScript contenant une chaîne de version au format "Version == `x.y.z`".
 
 ### Example 3
 
@@ -145,8 +118,8 @@ Find-Item -Directory
 l -dir
 ```
 
-List all directories
-Find all directories in the current directory and its subdirectories.
+Listez tous les répertoires
+Trouvez tous les répertoires dans le répertoire courant et ses sous-répertoires.
 
 ### Example 4
 
@@ -157,8 +130,8 @@ Find-Item ".\*.xml" -PassThru | % FullName
 l *.xml -pt | % FullName
 ```
 
-Rechercher les fichiers XML et passer les objets
-Recherchez tous les fichiers .xml et passez les résultats en tant qu'objets dans le pipeline.
+Rechercher des fichiers XML et passer les objets
+Recherchez tous les fichiers .xml et transmettez les résultats en tant qu'objets via le pipeline.
 
 ### Example 5
 
@@ -170,7 +143,7 @@ l -ads
 ```
 
 Inclure les flux de données alternatifs
-Rechercher tous les fichiers et inclure leurs flux de données alternatifs dans les résultats.
+Recherchez tous les fichiers et incluez leurs flux de données alternatifs dans les résultats.
 
 ### Example 6
 
@@ -181,8 +154,8 @@ Find-Item "*.pdf" -AllDrives
 l *.pdf -alldrives
 ```
 
-Rechercher sur tous les disques
-Rechercher tous les fichiers PDF sur tous les disques disponibles.
+Rechercher dans tous les disques
+Rechercher tous les fichiers PDF dans tous les disques disponibles.
 
 ### Example 7
 
@@ -193,7 +166,7 @@ Find-Item "*.log" -TimeoutSeconds 300 -MaxDegreeOfParallelism 4
 l *.log -maxseconds 300 -threads 4
 ```
 
-Délai d'attente personnalisé et parallélisme
+Délai d'attente personnalisé et parallélisme limité
 Rechercher des fichiers journaux avec un délai d'attente de 5 minutes et un parallélisme limité.
 
 ### Example 8
@@ -205,8 +178,8 @@ Get-ChildItem -Path "C:\Logs" | Find-Item -Content "error"
 ls C:\Logs | l -matchcontent "error"
 ```
 
-Entrée du pipeline
-Transmettez les chemins de fichiers de Get-ChildItem pour rechercher les fichiers contenant « error ».
+Pipeline input
+Passer les chemins de fichiers de Get-ChildItem pour rechercher les fichiers contenant "error".
 
 ### Example 9
 
@@ -217,8 +190,8 @@ Find-Item "*.txt" -MaxRecursionDepth 2
 l *.txt -maxdepth 2
 ```
 
-Limitez la profondeur de récursion
-Recherchez des fichiers texte mais limitez la récursion à 2 niveaux de répertoires.
+Limiter la profondeur de récursion
+Rechercher des fichiers texte mais limiter la récursion à 2 niveaux de répertoires.
 
 ### Example 10
 
@@ -242,7 +215,7 @@ l -after "2025-01-01"
 ```
 
 Filtrer par date de modification
-Rechercher les fichiers modifiés après le 1er janvier 2025.
+Trouver les fichiers modifiés après le 1er janvier 2025.
 
 ### Example 12
 
@@ -265,8 +238,8 @@ Find-Item "*.docx" -SearchDrives "C:\", "D:\"
 l *.docx -drives C:\, D:\
 ```
 
-Search specific drives
-Search for .docx files on C: and D: drives only.
+Rechercher des lecteurs spécifiques
+Rechercher des fichiers .docx uniquement sur les lecteurs C: et D:.
 
 ### Example 14
 
@@ -277,7 +250,7 @@ Find-Item -Content "Error" -CaseSensitive
 l -mc "Error" -CaseSensitive
 ```
 
-Recherche de contenu sensible à la casse
+Recherche sensible à la casse dans le contenu
 Rechercher les fichiers contenant "Error" (sensible à la casse) dans leur contenu.
 
 ### Example 15
@@ -289,7 +262,8 @@ Find-Item -IncludeAlternateFileStreams -SearchADSContent -Content "secret"
 l -ads -sads -mc "secret"
 ```
 
-Rechercher du contenu de flux de données alternatifs
+Rechercher le contenu des flux de données alternatifs
+Rechercher les fichiers avec des flux de données alternatifs contenant "secret".
 
 ### Example 16
 
@@ -300,8 +274,8 @@ Find-Item "*.ps1" -Content "function" -AllMatches
 l *.ps1 -mc "function" -AllMatches
 ```
 
-Find all matches per line
-Search for all occurrences of "function" in each line, not just the first match.
+Trouvez toutes les correspondances par ligne
+Recherchez toutes les occurrences de "function" dans chaque ligne, pas seulement la première correspondance.
 
 ### Example 17
 
@@ -313,7 +287,7 @@ l *.log -mc "error" -Context 2,3
 ```
 
 Afficher le contexte autour des correspondances
-Affiche 2 lignes avant et 3 lignes après chaque correspondance pour une meilleure compréhension.
+Afficher 2 lignes avant et 3 lignes après chaque correspondance pour une meilleure compréhension.
 
 ### Example 18
 
@@ -324,8 +298,8 @@ Find-Item "*.txt" -Content "TODO:.*" -Raw
 l *.txt -mc "TODO:.*" -Raw
 ```
 
-Get only matching strings
-Return just the matching text strings instead of full match objects.
+Obtenir uniquement les chaînes correspondantes
+Renvoie uniquement les chaînes de texte correspondantes au lieu des objets de correspondance complets.
 
 ### Example 19
 
@@ -337,7 +311,7 @@ l *.config -mc "database" -Quiet
 ```
 
 Vérification booléenne simple
-Retournez vrai/faux au lieu des détails de correspondance pour vérifier si le motif existe.
+Retourne vrai/faux au lieu des détails de correspondance pour vérifier si un motif existe.
 
 ### Example 20
 
@@ -348,8 +322,8 @@ Find-Item "*.cs" -Content "class.*Controller" -List
 l *.cs -mc "class.*Controller" -List
 ```
 
-Trouver uniquement la première correspondance par fichier
-Arrêter à la première correspondance dans chaque fichier pour un listage efficace des fichiers.
+Ne trouver que la première correspondance par fichier
+Arrêtez-vous à la première correspondance dans chaque fichier pour un listing efficace des fichiers.
 
 ### Example 21
 
@@ -360,8 +334,8 @@ Find-Item "*.txt" -Content "$variable[0]" -SimpleMatch
 l *.txt -mc "$variable[0]" -SimpleMatch
 ```
 
-Correspondance textuelle exacte
-Recherchez un texte exact sans interprétation d'expression régulière en utilisant SimpleMatch.
+Correspondance de chaîne littérale
+Recherchez du texte exact sans interprétation regex en utilisant SimpleMatch.
 
 ### Example 22
 
@@ -372,8 +346,8 @@ Find-Item "*.js" -Content "console\.log" -NotMatch
 l *.js -mc "console\.log" -NotMatch
 ```
 
-Trouver des fichiers NE contenant PAS un motif
-Utilisez NotMatch pour trouver des fichiers qui ne contiennent pas le motif spécifié.
+Recherche de fichiers ne contenant pas un motif
+Utiliser NotMatch pour trouver les fichiers qui ne contiennent pas le motif spécifié.
 
 ### Example 23
 
@@ -384,8 +358,8 @@ Find-Item "*.txt" -Content "café" -Encoding UTF8
 l *.txt -mc "café" -Encoding UTF8
 ```
 
-Spécifier l'encodage du fichier
-Rechercher des fichiers avec un encodage spécifique pour un traitement précis du texte.
+Spécifiez l'encodage des fichiers
+Recherchez les fichiers avec un encodage spécifique pour un traitement précis du texte.
 
 ### Example 24
 

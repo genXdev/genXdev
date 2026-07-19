@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Speaks the current date using text-to-speech synthesis.
+
+## Description
+
+Convertit la date actuelle en un format en langage naturel et l'annonce en utilisant le moteur de synthèse vocale du système. La date est énoncée au format : « Nous sommes le [jour de la semaine] [mois] [jour] [année] ».
 
 ## Syntax
 
@@ -32,6 +36,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### SayDate Announces today's date using text-to-speech
+
+```powershell
+SayDate
+Announces today's date using text-to-speech
 ```
 
 ## Related Links

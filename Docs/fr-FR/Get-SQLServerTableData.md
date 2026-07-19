@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Récupère les données d'une table de base de données SQL avec une limitation optionnelle des enregistrements.
+
+## Description
+
+Cette fonction interroge les données d'une table de base de données SQL en utilisant soit une chaîne de connexion, soit un chemin de fichier de base de données. Elle offre une flexibilité dans la connexion à la base de données et le contrôle de la quantité de données récupérées via le paramètre Count.
 
 ## Syntax
 
@@ -25,6 +29,20 @@ Get-SQLServerTableData -TableName <String> [[-Count] <Int32>] [<CommonParameters
 | `-Server` | String | — | — | 1 | `'localhost'` | Le nom de l'instance SQL Server. *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 2 | — | Le nom de la table à partir de laquelle interroger les données. |
 | `-Count` | Int32 | — | — | 3 | `100` | Le nombre maximum d'enregistrements à retourner. -1 pour tous. |
+
+## Examples
+
+### Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+
+```powershell
+Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+```
+
+### Get-SQLServerTableData "C:\data\users.db" "Employees"
+
+```powershell
+Get-SQLServerTableData "C:\data\users.db" "Employees"
+```
 
 ## Related Links
 

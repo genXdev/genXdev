@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 선형 운동량을 계산합니다.
+
+## Description
+
+p = m v를 사용합니다.
 
 ## Syntax
 

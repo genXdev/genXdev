@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 浮力を計算します。
+
+## Description
+
+F = ρ V g を使用する。
 
 ## Syntax
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berekent impactsnelheid van hoogte.
+
+## Description
+
+Gebruik v = sqrt(2 g h) waarbij luchtweerstand wordt genegeerd.
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Get-ImpactVelocityByHeightAndGravity [-HeightInMeters] <double> [[-GravityInMete
 | `-HeightInMeters` | Double | ✅ | — | 0 | `0` | Hoogte in meters |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 1 | `0` | Zwaartekracht in m/s². Standaard 9,81. |
 | `-As` | String | — | — | 2 | — | Output unit for velocity. Default 'm/s'. |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ImpactVelocityByHeightAndGravity -HeightInMeters 100 -As "km/h"
+```
+
+Berekent de impactsnelheid voor een val van 100 meter en geeft deze weer in km/u.
+
+### Example 2
+
+```powershell
+Get-ImpactVelocityByHeightAndGravity 50
+```
+
+Berekent impactsnelheid voor een val van 50 meter met standaard eenheden.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 오디오 파일, 비디오 파일 또는 녹음 장치의 내용을 텍스트로 변환합니다.
+
+## Description
+
+Whisper AI 모델을 사용하여 오디오 파일, 비디오 파일 또는 녹음 장치의 내용을 텍스트로 변환합니다. 이 함수는 다양한 오디오 및 비디오 포맷을 처리하고, 적절한 포맷으로 변환하여 전사할 수 있으며, 선택적으로 출력을 다른 언어로 번역할 수 있습니다. SRT 자막 포맷 출력과 전사 품질을 미세 조정하기 위한 다양한 오디오 처리 매개변수를 지원합니다.
 
 ## Syntax
 
@@ -68,6 +72,34 @@ Start-AudioTranscription [[-Input] <Object>] [[-LanguageIn] <String>] [[-Languag
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 지웁니다. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 사용하지 마세요 |
 | `-VOX` | SwitchParameter | — | — | Named | — | 무음 감지를 사용하여 자동으로 녹음 중지 |
+
+## Examples
+
+### Start-AudioTranscription -Input "C:\path\to\audio.wav" `     -LanguageIn "English" -LanguageOut "French" -SRT
+
+```powershell
+Start-AudioTranscription -Input "C:\path\to\audio.wav" `
+    -LanguageIn "English" -LanguageOut "French" -SRT
+```
+
+### transcribefile "C:\video.mp4" "English"
+
+```powershell
+transcribefile "C:\video.mp4" "English"
+```
+
+### Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+
+```powershell
+Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+```
+
+### Start-AudioTranscription  # Records from microphone when no file specified ##############################################################################
+
+```powershell
+Start-AudioTranscription  # Records from microphone when no file specified
+##############################################################################
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calculates Doppler shifted frequency.
+
+## Description
+
+Uses f' = f * (v + vo) / (v - vs), speeds positive towards each other.
 
 ## Syntax
 
@@ -24,6 +28,24 @@ Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed [-OriginalFrequencyInHert
 | `-SpeedOfSoundInMetersPerSecond` | Double | — | — | 3 | `0` | Speed of sound in m/s (default: 343) *(Parameter set: )* |
 | `-Medium` | String | ✅ | — | 3 | — | The medium *(Parameter set: )* |
 | `-As` | String | — | — | 4 | — | Output unit for frequency |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed -OriginalFrequencyInHertz 440 -SourceSpeedInMetersPerSecond 10 -ObserverSpeedInMetersPerSecond 5 -Medium "water" -As "kilohertz"
+```
+
+Calculates the Doppler shifted frequency for a 440 Hz tone with source moving at 10 m/s towards observer, observer moving at 5 m/s towards source, in water medium, output in kilohertz.
+
+### Example 2
+
+```powershell
+Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed 440 10 0 -SpeedOfSoundInMetersPerSecond 1480
+```
+
+Calculates the Doppler shifted frequency for a 440 Hz tone with source moving at 10 m/s, observer stationary, speed of sound 1480 m/s.
 
 ## Related Links
 

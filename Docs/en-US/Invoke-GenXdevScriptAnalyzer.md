@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Invokes PowerShell Script Analyzer to analyze PowerShell scripts for compliance
+and best practices.
+
+## Description
+
+This function provides a wrapper around PSScriptAnalyzer to analyze PowerShell
+scripts for compliance issues, best practices violations, and potential bugs.
+It supports both file-based analysis and string-based script analysis with
+customizable rules and settings.
 
 ## Syntax
 
@@ -26,6 +34,26 @@ Invoke-GenXdevScriptAnalyzer [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<
 | `-Fix` | SwitchParameter | — | — | Named | — | Enables automatic fixing of violations. |
 | `-Recurse` | SwitchParameter | — | — | Named | — | Recursively process files. |
 | `-ReportSummary` | SwitchParameter | — | — | Named | — | Reports a summary after analysis. |
+
+## Examples
+
+### Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\MyScript.ps1"
+
+```powershell
+Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\MyScript.ps1"
+```
+
+### Invoke-GenXdevScriptAnalyzer -ScriptDefinition "Get-Process | Where-Object {$_.Name -eq 'notepad'}"
+
+```powershell
+Invoke-GenXdevScriptAnalyzer -ScriptDefinition "Get-Process | Where-Object {$_.Name -eq 'notepad'}"
+```
+
+### Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\" -Recurse -Fix
+
+```powershell
+Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\" -Recurse -Fix
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Setzt eine Code-Refactoring-Sitzung fort oder startet sie neu.
+
+## Description
+
+Verwaltet Code-Refactoring-Operationen durch Verarbeitung von Refactoring-Definitionen in Prioritätsreihenfolge. Behandelt Dateiauswahl, Fortschrittsverfolgung, Fehlerbehandlung und bietet interaktive Benutzersteuerung über den Refactoring-Prozess.
 
 ## Syntax
 
@@ -19,7 +23,7 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <IO.FileInfo[]>] [[-Files
 | `-Name` | String[] | — | ✅ (ByValue, ByPropertyName) | 0 | `@('*')` | Der Name des Refactorings, akzeptiert Platzhalter 🌐 *Supports wildcards* |
 | `-FilesToAdd` | IO.FileInfo[] | — | — | 1 | `@()` | Hinzuzufügende Dateinamen |
 | `-FilesToRemove` | IO.FileInfo[] | — | — | 2 | `@()` | Zu entfernende Dateinamen |
-| `-CleanUpDeletedFiles` | SwitchParameter | — | — | 3 | — | Bereinigen Sie gelöschte Dateien |
+| `-CleanUpDeletedFiles` | SwitchParameter | — | — | Named | — | Bereinigen Sie gelöschte Dateien |
 | `-Reset` | SwitchParameter | — | — | Named | — | From the beginning of the refactor set |
 | `-ResetLMSelections` | SwitchParameter | — | — | Named | — | Alle LLM-Auswahlen neu starten |
 | `-MarkAllCompleted` | SwitchParameter | — | — | Named | — | Mark all files as refactored |
@@ -33,6 +37,22 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <IO.FileInfo[]>] [[-Files
 5. Updating tests to reflect the new token-based flow.
 
 Estimated effort: 8 hours. |
+
+## Examples
+
+### Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles Restarts refactoring for "RefactorProject" and removes deleted files.
+
+```powershell
+Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles
+Restarts refactoring for "RefactorProject" and removes deleted files.
+```
+
+### nextrefactor -Name "*Test*" -Speak Processes all refactor sets matching "*Test*" pattern with speech enabled.
+
+```powershell
+nextrefactor -Name "*Test*" -Speak
+Processes all refactor sets matching "*Test*" pattern with speech enabled.
+```
 
 ## Related Links
 

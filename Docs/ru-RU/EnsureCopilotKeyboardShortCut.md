@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Настраивает сочетания клавиш GitHub Copilot Chat в Visual Studio Code.
+
+## Description
+
+Эта функция гарантирует, что функция прикрепления файлов GitHub Copilot Chat имеет правильное сочетание клавиш (Ctrl+Shift+Alt+F12), настроенное в Visual Studio Code.
+
+Она удалит все существующие сочетания клавиш Copilot для прикрепления и заменит их на текущую правильную команду (github.copilot.chat.attachFile).
+
+Также добавляет сочетание клавиш Alt+` (обратный апостроф) для переключения развернутой панели.
 
 ## Syntax
 
@@ -108,6 +116,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureCopilotKeyboardShortCut
+
+```powershell
+EnsureCopilotKeyboardShortCut
 ```
 
 ## Related Links

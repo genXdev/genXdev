@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> VLC 미디어 플레이어 재생 목록에서 이전 항목으로 이동합니다.
+
+## Description
+
+이 함수는 VLC 미디어 플레이어에 'p' 키 명령을 전송하여 현재 재생 목록의 이전 항목으로 이동합니다. 이 함수는 WhatIf 작업을 지원하며 명령을 전송한 후 포커스를 복원합니다.
 
 ## Syntax
 
@@ -33,6 +37,26 @@
     end {
 
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerPreviousInPlaylist
+
+```powershell
+Start-VlcMediaPlayerPreviousInPlaylist
+```
+
+### vlcprev
+
+```powershell
+vlcprev
+```
+
+### vlcback
+
+```powershell
+vlcback
 ```
 
 ## Related Links

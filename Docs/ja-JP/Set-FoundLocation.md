@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 最初に一致するファイルまたはフォルダを見つけ、ロケーションをそれに設定します。
+
+## Description
+
+このコマンドレットは、検索フレーズを使用して最初に一致するフォルダーまたはファイル（オプション）を検索し、そのディレクトリに移動することで、ディレクトリをすばやく変更するのに役立ちます。コンテンツ、ファイル属性、サイズ、変更日、その他多くの条件による高度なフィルタリングをサポートします。
 
 ## Syntax
 
@@ -55,6 +59,48 @@ Set-FoundLocation [[-Content] <String[]>] [-CaseSensitive] [-Culture <String>] [
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | このコマンドレットは、正規表現の一致ではなく簡易一致を使用することを示します。簡易一致では、Select-String は Pattern パラメーターのテキストを入力内で検索します。Pattern パラメーターの値を正規表現ステートメントとして解釈しません。 *(Parameter set: )* |
 | `-Push` | SwitchParameter | — | — | Named | — | Set-Locationの代わりにPush-Locationを使用して、場所を場所スタックにプッシュします。 |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | 設定すると、名前が完全一致する場合のみ考慮されます。デフォルトでは、名前にワイルドカード文字が含まれていない限り、ワイルドカードマッチングが使用されます。 |
+
+## Examples
+
+### Set-FoundLocation *.Console
+
+```powershell
+Set-FoundLocation *.Console
+```
+
+パターン '*.Console' に一致する最初のディレクトリへの変更。
+
+### lcd *.Console
+
+```powershell
+lcd *.Console
+```
+
+エイリアスを使用して、パターン '*.Console' に一致する最初のディレクトリへの変更。
+
+### Set-FoundLocation -Name "*.ps1" -Content "function"
+
+```powershell
+Set-FoundLocation -Name "*.ps1" -Content "function"
+```
+
+'function' という単語を含む最初の PowerShell ファイルがあるディレクトリに変更します。
+
+### Set-FoundLocation *test* -File
+
+```powershell
+Set-FoundLocation *test* -File
+```
+
+名前に'test'を含む最初のファイルが含まれているディレクトリへの変更。
+
+### Set-FoundLocation * '1\.\d+\.2025'
+
+```powershell
+Set-FoundLocation * '1\.\d+\.2025'
+```
+
+コンテンツがパターン「1.\d+\.2025」に一致する最初のファイルを含むディレクトリへの変更。
 
 ## Related Links
 

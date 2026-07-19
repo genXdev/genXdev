@@ -4,12 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 웹 브라우저에서 GenXdev 프로그레시브 웹 앱 카탈로그를 엽니다.
+
+## Description
+
+웹 브라우저에서 게시된 GenXdev 프로그레시브 웹 앱이 포함된 카탈로그를 엽니다.
+카탈로그를 최적으로 보기 위해 기본적으로 전체 화면이 활성화된 애플리케이션 모드로 열립니다.
+모니터 배치, 창 크기 조정 및 언어 설정을 포함한 모든 표준 웹 브라우저 구성 옵션을 지원합니다.
+
+이 함수는 최상의 카탈로그 보기 경험을 위해 브라우저를 자동으로 구성하며,
+동시에 여러 브라우저 인스턴스를 열 수 있습니다.
+포괄적인 언어 지원을 제공하며 브라우저 선택 및 위치 지정에 대한 사용자 선호도를 존중합니다.
 
 ## Syntax
 
 ```powershell
-Open-GenXdevAppCatalog [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GenXdevAppCatalog [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +33,9 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-AcceptLang <String>] [-All] [-Ap
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-Monitor` | Int32 | — | — | Named | `-2` | 사용할 모니터, 0 = 기본, -1은 폐기, -2 = 설정된 보조 모니터, 기본값은 -1, 위치 지정 없음 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 전체 화면 모드로 열기 |
@@ -61,6 +74,24 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-AcceptLang <String>] [-All] [-Ap
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | AI 기본 설정을 위해 세션에 저장된 대체 설정을 사용합니다. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정 대안을 삭제합니다. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 설정 변경 사항은 세션에 영향을 주지 않고 영구 설정에만 저장하십시오. |
+
+## Examples
+
+### Open-GenXdevAppCatalog -Monitor 1 -ApplicationMode -FullScreen
+
+```powershell
+Open-GenXdevAppCatalog -Monitor 1 -ApplicationMode -FullScreen
+```
+
+전체 화면 모드로 애플리케이션 모드에서 모니터 1에 GenXdev 앱 카탈로그를 엽니다.
+
+### appcatalog -mon 1
+
+```powershell
+appcatalog -mon 1
+```
+
+Opens the GenXdev app catalog on monitor 1 using the alias command.
 
 ## Related Links
 

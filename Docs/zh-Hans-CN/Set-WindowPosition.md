@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 当提供明确的定位参数时，对窗口进行定位和调整大小。
+
+## Description
+
+当指定定位参数时，提供对窗口位置和大小的精确控制。支持多显示器、边框移除以及各种预设位置，如左/右分屏、上/下分屏和居中放置。窗口可以通过坐标或预定义布局进行定位。如果未提供定位参数，该函数不对窗口执行任何操作。
 
 ## Syntax
 
@@ -54,6 +58,44 @@ Set-WindowPosition [-Bottom] [-Centered] [-ClearSession] [-FocusWindow] [-Fullsc
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
 | `-OnlyOutputCoords` | SwitchParameter | — | — | Named | — | Only output the calculated coordinates and size without actually positioning the window |
+
+## Examples
+
+### Set-WindowPosition -Centered -Monitor 0 -NoBorders Position PowerShell window centered on primary monitor with no borders
+
+```powershell
+Set-WindowPosition -Centered -Monitor 0 -NoBorders
+Position PowerShell window centered on primary monitor with no borders
+```
+
+### Get-Process notepad,calc | wp -m 1 -l,-r Split notepad and calc side by side on second monitor using aliases
+
+```powershell
+Get-Process notepad,calc | wp -m 1 -l,-r
+Split notepad and calc side by side on second monitor using aliases
+```
+
+### Set-WindowPosition -ProcessName notepad Does nothing - no positioning parameters specified
+
+```powershell
+Set-WindowPosition -ProcessName notepad
+Does nothing - no positioning parameters specified
+```
+
+### Set-WindowPosition -ProcessName notepad -KeysToSend "Hello World" Sends keystrokes to notepad window without repositioning it
+
+```powershell
+Set-WindowPosition -ProcessName notepad -KeysToSend "Hello World"
+Sends keystrokes to notepad window without repositioning it
+```
+
+### Set-WindowPosition -ProcessName notepad -Left -Monitor 1 -OnlyOutputCoords Returns the calculated coordinates where notepad would be placed on the left side of monitor 1 without actually moving the window
+
+```powershell
+Set-WindowPosition -ProcessName notepad -Left -Monitor 1 -OnlyOutputCoords
+Returns the calculated coordinates where notepad would be placed on the left
+side of monitor 1 without actually moving the window
+```
 
 ## Related Links
 

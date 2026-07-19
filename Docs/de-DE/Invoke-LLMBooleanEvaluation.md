@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Bewertet eine Aussage mit KI, um festzustellen, ob sie wahr oder falsch ist.
+
+## Description
+
+Diese Funktion nutzt KI-Modelle, um Aussagen zu bewerten und ihren Wahrheitswert zu bestimmen. Sie kann Eingaben direkt über Parameter, aus der Pipeline oder aus der Systemzwischenablage entgegennehmen. Die Funktion gibt ein boolesches Ergebnis sowie das Konfidenzniveau und die Begründung des KI-Modells zurück.
 
 ## Syntax
 
@@ -97,6 +101,27 @@ Invoke-LLMBooleanEvaluation [[-Text] <String>] [[-Instructions] <String>] [[-Att
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | — | Verwenden Sie die Beam-Suchabtaststrategie |
 | `-OnlyResponses` | SwitchParameter | — | — | Named | — | I'm sorry, but I cannot provide a translation as the original text was not included in your request. If you provide the English text you'd like translated to German, I'll be happy to help. |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | The `-MaxToolcallBackLength` parameter. |
+
+## Examples
+
+### Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+
+```powershell
+Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+```
+
+### "Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+
+```powershell
+"Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+```
+
+### equalstrue "2 + 2 = 4" ##############################################################################
+
+```powershell
+equalstrue "2 + 2 = 4"
+##############################################################################
+```
 
 ## Outputs
 

@@ -1,10 +1,14 @@
 # Receive-RealTimeSpeechToText
 
-> **Module:** GenXdev.Helpers | **Type:** Cmdlet | **Aliases:** —
+> **Module:** GenXdev.AI | **Type:** Cmdlet | **Aliases:** —
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> リアルタイムの音声入力をWhisper AIモデルを使用してテキストに変換します。
+
+## Description
+
+このコマンドレットは、マイクまたはデスクトップからオーディオをキャプチャし、Whisper AI モデルを使用してリアルタイムでテキストに文字起こしを行います。さまざまなオーディオソース、サイレンス検出、音声認識のための複数の設定オプションをサポートしています。
 
 ## Syntax
 
@@ -52,6 +56,40 @@ Receive-RealTimeSpeechToText [-ModelFileDirectoryPath <string>] [-UseDesktopAudi
 | `-NoContext` | SwitchParameter | — | — | Named | `False` | コンテキストを使用しないでください |
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | `False` | ビームサーチサンプリング戦略を使用する |
 | `-ModelType` | Whisper.net.Ggml.GgmlType | — | — | Named | `Tiny` | 使用するWhisperモデルの種類。デフォルトはSmallです。 |
+
+## Examples
+
+### Example 1
+
+```powershell
+Receive-RealTimeSpeechToText
+```
+
+マイクを使用した基本操作。
+
+### Example 2
+
+```powershell
+Receive-RealTimeSpeechToText -UseDesktopAudioCapture
+```
+
+デスクトップの音声キャプチャを使用しています。
+
+### Example 3
+
+```powershell
+Receive-RealTimeSpeechToText -AudioDevice "Microphone*"
+```
+
+特定のオーディオデバイスを使用しています。
+
+### Example 4
+
+```powershell
+Receive-RealTimeSpeechToText -MaxDurationOfSilence "00:00:05"
+```
+
+無音検出機能付き。
 
 ## Related Links
 

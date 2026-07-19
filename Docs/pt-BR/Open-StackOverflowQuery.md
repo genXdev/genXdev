@@ -4,12 +4,31 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre consultas de pesquisa do Stack Overflow em um navegador da web.
+
+## Description
+
+Abre uma ou mais consultas de pesquisa do Stack Overflow em um navegador web, com opções abrangentes de configuração do navegador e exibição. Esta função fornece um wrapper avançado em torno da funcionalidade de pesquisa do Stack Overflow com extensas opções para posicionamento de janelas, seleção de navegador e personalização de comportamento.
+
+Principais recursos:
+- Suporte a múltiplas consultas de pesquisa com entrada por pipeline
+- Detecção e seleção inteligentes de navegador (Edge, Chrome, Firefox, todos os navegadores)
+- Posicionamento avançado de janelas (esquerda, direita, topo, base, centralizado, tela cheia)
+- Suporte a múltiplos monitores com seleção automática ou manual
+- Modo de navegação privada/anonimato
+- Modo aplicativo para navegação sem distrações
+- Suporte a localização de idioma para resultados de pesquisa internacionais
+- Opções de bloqueio de extensões e pop-ups
+- Gerenciamento de foco e manipulação de janelas
+- Automação de pressionamento de teclas para janelas do navegador
+- Opções de retorno de URL para fluxos de trabalho de automação
+
+A função detecta automaticamente as capacidades do sistema e ajusta o comportamento de acordo. Para navegadores não instalados no sistema, as operações são silenciosamente ignoradas sem erros.
 
 ## Syntax
 
 ```powershell
-Open-StackOverflowQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-StackOverflowQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -31,6 +50,9 @@ Open-StackOverflowQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-Chrome` | SwitchParameter | — | — | Named | — | Abre no Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Abre no Microsoft Edge ou Google Chrome, dependendo de qual é o navegador padrão |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Abre no Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use o navegador gerenciado pelo Playwright em vez do navegador instalado no sistema operacional |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre o navegador WebKit gerenciado pelo Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Execute o navegador sem uma janela visível |
 | `-All` | SwitchParameter | — | — | Named | — | Abre em todos os navegadores modernos registrados |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Abre em modo de tela cheia |
 | `-Left` | SwitchParameter | — | — | Named | — | Colocar janela do navegador no lado esquerdo da tela |
@@ -59,6 +81,40 @@ Open-StackOverflowQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Limpar configurações alternativas armazenadas na sessão para preferências de pesquisa do Stack Overflow |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazene as configurações apenas nas preferências persistentes sem afetar a sessão para a pesquisa Stack Overflow |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Posicione a janela do navegador em tela cheia em um monitor diferente do PowerShell, ou lado a lado com o PowerShell no mesmo monitor. |
+
+## Examples
+
+### Open-StackOverflowQuery -Queries "powershell array" -Monitor 0
+
+```powershell
+Open-StackOverflowQuery -Queries "powershell array" -Monitor 0
+```
+
+Abre uma pesquisa no Stack Overflow por "powershell array" no monitor primário.
+
+### qso "powershell array" -mon 0
+
+```powershell
+qso "powershell array" -mon 0
+```
+
+Abre uma pesquisa no Stack Overflow usando o alias com posicionamento do monitor.
+
+### "powershell", "array manipulation" | Open-StackOverflowQuery -Language "English" -Chrome
+
+```powershell
+"powershell", "array manipulation" | Open-StackOverflowQuery -Language "English" -Chrome
+```
+
+Abre várias pesquisas do Stack Overflow no Chrome com preferência de idioma inglês.
+
+### Open-StackOverflowQuery -Queries "c# linq" -ReturnURL
+
+```powershell
+Open-StackOverflowQuery -Queries "c# linq" -ReturnURL
+```
+
+Retorna a URL de busca do Stack Overflow sem abrir um navegador.
 
 ## Related Links
 

@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves data from a specific column in a SQL database table.
+
+## Description
+
+This function provides a convenient way to extract data from a single column in a
+SQL database table. It supports two connection methods: direct database file
+path or connection string. The function includes options to limit the number of
+returned records and uses proper SQL query construction for optimal
+performance.
 
 ## Syntax
 
@@ -26,6 +34,23 @@ Get-SQLServerTableColumnData -TableName <String> -ColumnName <String> [[-Count] 
 | `-TableName` | String | ✅ | — | 2 | — | The name of the table to query |
 | `-ColumnName` | String | ✅ | — | 3 | — | The name of the column to retrieve |
 | `-Count` | Int32 | — | — | 4 | `100` | Number of records to return. Default 100. Use -1 for all |
+
+## Examples
+
+### Get-SQLServerTableColumnData -DatabaseFilePath "C:\MyDb.sqlite" `     -TableName "Employees" `     -ColumnName "Email" `     -Count 10
+
+```powershell
+Get-SQLServerTableColumnData -DatabaseFilePath "C:\MyDb.sqlite" `
+    -TableName "Employees" `
+    -ColumnName "Email" `
+    -Count 10
+```
+
+### Get-SQLServerTableColumnData "C:\MyDb.sqlite" "Employees" "Email"
+
+```powershell
+Get-SQLServerTableColumnData "C:\MyDb.sqlite" "Employees" "Email"
+```
 
 ## Related Links
 

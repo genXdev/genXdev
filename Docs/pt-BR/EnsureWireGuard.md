@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Garante que o serviço VPN WireGuard esteja instalado e em execução via contêiner Docker.
+
+## Description
+
+Esta função configura e gerencia o serviço de VPN WireGuard usando o Docker Desktop. Ela garante automaticamente que o Docker Desktop esteja em execução, baixa a imagem mais recente do Docker WireGuard, cria volumes de armazenamento persistentes e gerencia o ciclo de vida do contêiner, incluindo monitoramento de integridade e capacidade de reinicialização.
+
+WireGuard é uma VPN simples, rápida e moderna que utiliza criptografia de ponta. Ela oferece desempenho superior e simplicidade em comparação com soluções tradicionais de VPN como OpenVPN, com sobrecarga de configuração mínima e excelente suporte entre plataformas.
 
 ## Syntax
 
@@ -46,6 +52,38 @@ EnsureWireGuard [[-ContainerName] <String>] [[-VolumeName] <String>] [[-ServiceP
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Configurações alternativas claras armazenadas na sessão para preferências de IA |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazenar configurações apenas em preferências persistentes sem afetar a sessão |
 | `-Force` | SwitchParameter | — | — | Named | — | Reconstrução forçada do contêiner Docker e remoção dos dados existentes |
+
+## Examples
+
+### EnsureWireGuard
+
+```powershell
+EnsureWireGuard
+```
+
+### EnsureWireGuard -ContainerName "my_wireguard" -ServicePort 51821
+
+```powershell
+EnsureWireGuard -ContainerName "my_wireguard" -ServicePort 51821
+```
+
+### EnsureWireGuard -VolumeName "custom_vpn_data" -HealthCheckTimeout 120
+
+```powershell
+EnsureWireGuard -VolumeName "custom_vpn_data" -HealthCheckTimeout 120
+```
+
+### EnsureWireGuard -PUID 1001 -PGID 1001 -TimeZone "America/New_York"
+
+```powershell
+EnsureWireGuard -PUID 1001 -PGID 1001 -TimeZone "America/New_York"
+```
+
+### EnsureWireGuard -Force
+
+```powershell
+EnsureWireGuard -Force
+```
 
 ## Outputs
 

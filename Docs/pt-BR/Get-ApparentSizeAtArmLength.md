@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula o tamanho aparente de um objeto à distância do braço.
+
+## Description
+
+Calcula o tamanho aparente usando a aproximação de pequeno ângulo.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-ApparentSizeAtArmLength [-DistanceInMeters] <double> [-SizeInMeters] <double
 | `-SizeInMeters` | Double | ✅ | — | 1 | `0` | O tamanho real do objeto em metros |
 | `-ArmLengthInMeters` | Double | — | — | 2 | `0` | O comprimento do braço em metros (padrão: 0,7) |
 | `-As` | String | — | — | 3 | — | A unidade para o tamanho da saída |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ApparentSizeAtArmLength -DistanceInMeters 10 -SizeInMeters 1 -As "centimeters"
+```
+
+Calcula o tamanho aparente de um objeto de 1 metro a uma distância de 10 metros.
+
+### Example 2
+
+```powershell
+Get-ApparentSizeAtArmLength 10 1
+```
+
+Calcula o tamanho aparente usando parâmetros posicionais.
 
 ## Related Links
 

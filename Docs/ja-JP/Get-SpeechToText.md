@@ -1,10 +1,14 @@
 # Get-SpeechToText
 
-> **Module:** GenXdev.Helpers | **Type:** Cmdlet | **Aliases:** —
+> **Module:** GenXdev.AI | **Type:** Cmdlet | **Aliases:** —
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> OpenAIのWhisper音声認識モデルを使用して、音声ファイルをテキストに変換します。
+
+## Description
+
+Whisper.NETライブラリを使用して音声ファイルを処理し、音声をテキストに変換します。このライブラリはOpenAIのWhisper自動音声認識（ASR）システムを実装しており、複数の言語、翻訳機能、およびさまざまな文字起こし品質設定をサポートしています。
 
 ## Syntax
 
@@ -47,6 +51,40 @@ Get-SpeechToText [-Input] <Object> [-ModelFileDirectoryPath <string>] [-Language
 | `-PrintSpecialTokens` | SwitchParameter | — | — | Named | `False` | 特殊トークンを印刷するかどうか |
 | `-NoContext` | SwitchParameter | — | — | Named | `False` | コンテキストを使用しないでください |
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | `False` | ビームサーチサンプリング戦略を使用する |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-SpeechToText -Input "C:\audio\recording.wav"
+```
+
+デフォルト設定を使用して音声ファイルをテキストに書き起こします。
+
+### Example 2
+
+```powershell
+Get-ChildItem "C:\audio\*.wav" | Get-SpeechToText
+```
+
+ディレクトリ内のすべてのWAVファイルを書き起こします。
+
+### Example 3
+
+```powershell
+Get-SpeechToText -Input "audio.mp3" -LanguageIn "es" -WithTranslate
+```
+
+スペイン語の音声を書き起こし、英語に翻訳します。
+
+### Example 4
+
+```powershell
+Get-SpeechToText -Input "recording.wav" -Passthru -WithTokenTimestamps
+```
+
+精密なタイミング情報を含むSegmentDataオブジェクトを返します。
 
 ## Outputs
 

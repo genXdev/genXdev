@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ruft alle GenXDev-Module aus einem angegebenen Pfad ab.
+
+## Description
+
+Diese Funktion durchsucht eine Verzeichnisstruktur nach GenXdev-Modulen, wobei alle mit '.local' im Namen ausgeschlossen werden. Für jedes gefundene gültige Modul wird der neueste Versionsordner (1.x) zurückgegeben, der eine gültige Modulmanifestdatei (.psd1) enthält.
 
 ## Syntax
 
@@ -18,6 +22,20 @@ Get-GenXDevModule [[-Path] <String>] [-IncludeLocal] [<CommonParameters>]
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Path` | String | — | — | 0 | — | Der Stammpfad zum Suchen nach GenXdev-Modulen |
 | `-IncludeLocal` | SwitchParameter | — | — | Named | — | The `-IncludeLocal` parameter. |
+
+## Examples
+
+### Get-GenXDevModule -Path "C:\PowerShell\Modules"
+
+```powershell
+Get-GenXDevModule -Path "C:\PowerShell\Modules"
+```
+
+### Get-GenXDevModule "C:\PowerShell\Modules"
+
+```powershell
+Get-GenXDevModule "C:\PowerShell\Modules"
+```
 
 ## Related Links
 

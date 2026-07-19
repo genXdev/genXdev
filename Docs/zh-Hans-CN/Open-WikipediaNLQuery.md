@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在网页浏览器中打开荷兰语维基百科搜索。
+
+## Description
+
+在浏览器中打开'Wikipedia - The Netherlands'查询，具有可配置的显示选项。支持搜索多个术语，并指定结果显示在哪个显示器上。
 
 ## Syntax
 
 ```powershell
-Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +27,9 @@ Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applic
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
 | `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 要使用的显示器，0 = 默认，-1 = 丢弃，-2 = 配置的辅助显示器，默认为 -1，无定位 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 在全屏模式下打开 |
@@ -58,6 +65,20 @@ Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applic
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 使用仅会话Cookie（无持久Cookie） |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 在打开之前清除浏览器会话数据 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 跳过恢复上一个浏览器会话 |
+
+## Examples
+
+### Open-WikipediaNLQuery -Queries "Amsterdam" -Monitor 0
+
+```powershell
+Open-WikipediaNLQuery -Queries "Amsterdam" -Monitor 0
+```
+
+### wikinl "Amsterdam" -mon -2
+
+```powershell
+wikinl "Amsterdam" -mon -2
+```
 
 ## Related Links
 

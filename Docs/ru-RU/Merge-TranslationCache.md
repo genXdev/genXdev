@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Управляет постоянным кэшем переводов с групповой записью на диск для каждого языка.
+
+## Description
+
+Поддерживает кэш переводов в памяти на уровне модуля для Get-TextTranslation. Кэш разбит на файлы JSON на каждый язык в каталоге $env:LOCALAPPDATA\GenXdev.PowerShell\. Вызовы для добавления записей группируются — запись на диск происходит только после каждых 100 изменений на язык или при вызове -PersistNow. -PersistNow также очищает кэш в памяти, чтобы предотвратить неограниченный рост в процессе обработки пакетов.
 
 ## Syntax
 
@@ -31,6 +35,32 @@ Merge-TranslationCache -PurgeFromCache [<CommonParameters>]
 | `-PersistNow` | SwitchParameter | ✅ | — | Named | — | Write all dirty caches to disk and clear memory *(Parameter set: )* |
 | `-ClearCache` | SwitchParameter | ✅ | — | Named | — | Очистить кэш в памяти и удалить все файлы на диске *(Parameter set: )* |
 | `-PurgeFromCache` | SwitchParameter | ✅ | — | Named | — | Удалить непереведенные записи из всех языковых кэшей на диске *(Parameter set: )* |
+
+## Examples
+
+### $cache = Merge-TranslationCache -GetCache
+
+```powershell
+$cache = Merge-TranslationCache -GetCache
+```
+
+### Merge-TranslationCache -Language 'nl-NL' -Key 'Hello' -Value 'Hallo'
+
+```powershell
+Merge-TranslationCache -Language 'nl-NL' -Key 'Hello' -Value 'Hallo'
+```
+
+### Merge-TranslationCache -PersistNow
+
+```powershell
+Merge-TranslationCache -PersistNow
+```
+
+### Merge-TranslationCache -PurgeFromCache
+
+```powershell
+Merge-TranslationCache -PurgeFromCache
+```
 
 ## Outputs
 

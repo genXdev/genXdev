@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 모든 GenXdev cmdlet과 해당 세부 정보를 검색하여 나열합니다.
+
+## Description
+
+설치된 GenXdev 모듈 및 스크립트 파일을 검색하여 cmdlet, 별칭 및 설명을 찾습니다. 이름 패턴과 모듈 이름으로 필터링할 수 있습니다. cmdlet 정의로 필터링을 지원하며 로컬 및 게시된 모듈 경로 모두에서 유연한 검색 옵션을 제공합니다.
 
 ## Syntax
 
@@ -27,6 +31,26 @@ Get-GenXDevCmdlet [-IncludeScripts] [<CommonParameters>]
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | 일반 모듈 외에 scripts 디렉토리를 포함합니다 *(Parameter set: )* |
 | `-OnlyReturnModuleNames` | SwitchParameter | — | — | Named | — | The `-OnlyReturnModuleNames` parameter. |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | 와일드카드 일치 대신 정확히 일치 수행 |
+
+## Examples
+
+### Get-GenXDevCmdlet -CmdletName "Get-*" -ModuleName "Console" -NoLocal
+
+```powershell
+Get-GenXDevCmdlet -CmdletName "Get-*" -ModuleName "Console" -NoLocal
+```
+
+### gcmds Get-*
+
+```powershell
+gcmds Get-*
+```
+
+### Get-GenXDevCmdlet -OnlyReturnModuleNames
+
+```powershell
+Get-GenXDevCmdlet -OnlyReturnModuleNames
+```
 
 ## Outputs
 

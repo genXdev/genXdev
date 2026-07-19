@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Сравнивает лица на двух разных изображениях и возвращает их сходство с помощью DeepStack.
+
+## Description
+
+Эта функция сравнивает лица на двух изображениях для определения степени сходства. Она использует локальный API распознавания лиц DeepStack, работающий на настраиваемом порту, и возвращает оценку сходства от 0.0 до 1.0. Обычно это используется для сопоставления удостоверяющих документов с фотографиями человека или проверки того, что два снимка изображают одного человека.
 
 ## Syntax
 
@@ -28,6 +32,25 @@ Compare-ImageFaces -ImagePath1 <String> -ImagePath2 <String> [[-ContainerName] <
 | `-Force` | SwitchParameter | — | — | Named | — | Принудительная пересборка Docker контейнера и удаление существующих данных |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Используйте версию с GPU-ускорением (требуется NVIDIA GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Показать окно Docker Desktop во время инициализации |
+
+## Examples
+
+### Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `                    -ImagePath2 "C:\Users\YourName\photo2.jpg"
+
+```powershell
+Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `
+                   -ImagePath2 "C:\Users\YourName\photo2.jpg"
+```
+
+Сравнивает лица на двух изображениях с использованием настроек по умолчанию.
+
+### comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+
+```powershell
+comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+```
+
+Сравнивает лица с использованием ускорения GPU для проверки личности с алиасом и позиционными параметрами.
 
 ## Outputs
 

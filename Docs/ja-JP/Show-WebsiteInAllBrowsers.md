@@ -4,12 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> URLをモザイクレイアウトで複数ブラウザに同時に開きます。
+
+## Description
+
+この関数は、指定されたURLをChrome、Edge、Firefox、およびプライベートブラウジングウィンドウで開くことで、ブラウザウィンドウのモザイクレイアウトを作成します。ブラウザは2x2のグリッドパターンで配置されます：
+- Chrome：左上の象限
+- Edge：左下の象限
+- Firefox：右上の象限
+- プライベートウィンドウ：右下の象限
+
+Open-Webbrowserのすべてのパラメータがサポートされており、ブラウザの位置、動作、外観を制御するために渡されます。この関数は、ブラウザ起動パラメータの完全なカスタマイズを可能にしながら、一貫した象限配置を適用するラッパーとして機能します。
 
 ## Syntax
 
 ```powershell
-Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -30,6 +40,9 @@ Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-Applicat
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-Left` | SwitchParameter | — | — | Named | — | ブラウザウィンドウを画面の左側に配置 |
 | `-Right` | SwitchParameter | — | — | Named | — | ブラウザウィンドウを画面の右側に配置します |
@@ -55,6 +68,22 @@ Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-Applicat
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションに保存された代替設定をAIの選択肢に使用します。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリアします。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定は永続的なプリファレンスにのみ保存し、セッションには影響を与えないでください。 |
+
+## Examples
+
+### Show-WebsiteInAllBrowsers -Url "https://www.github.com" Opens github.com in four different browsers arranged in a mosaic layout.
+
+```powershell
+Show-WebsiteInAllBrowsers -Url "https://www.github.com"
+Opens github.com in four different browsers arranged in a mosaic layout.
+```
+
+### "https://www.github.com" | Show-UrlInAllBrowsers Uses the function's alias and pipeline input to achieve the same result.
+
+```powershell
+"https://www.github.com" | Show-UrlInAllBrowsers
+Uses the function's alias and pipeline input to achieve the same result.
+```
 
 ## Related Links
 

@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> キーボードショートカットでブラウザウィンドウでYouTube動画を開いて操作します。
+
+## Description
+
+ブラウザウィンドウで、検索語に一致するYouTube動画やさまざまなYouTubeセクションの動画を開きます。インタラクティブインターフェースを通じて、動画再生とナビゲーションのためのキーボードコントロールを提供します。複数のブラウザと、検索結果、登録チャンネル、後で見る、おすすめ動画、急上昇コンテンツなど、さまざまなYouTubeコンテンツタイプに対応しています。
 
 ## Syntax
 
 ```powershell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-AcceptLang <String>] [-ApplicationMode] [-Chrome] [-Edge] [-NoFullScreen] [-Private] [-Recommended] [-Subscriptions] [-Trending] [-WatchLater] [<CommonParameters>]
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-AcceptLang <String>] [-ApplicationMode] [-Chrome] [-Chromium] [-Edge] [-Firefox] [-NoFullScreen] [-Private] [-Recommended] [-Subscriptions] [-Trending] [-WatchLater] [-Webkit] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,9 +28,26 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-AcceptLang <String>] [-Applicati
 | `-Private` | SwitchParameter | — | — | Named | — | シークレットモードで開く |
 | `-Edge` | SwitchParameter | — | — | Named | — | Microsoft Edge で開く |
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
+| `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
+| `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright で管理される WebKit ブラウザを使用します |
 | `-NoFullScreen` | SwitchParameter | — | — | Named | — | フルスクリーンモードでの起動を防ぎます |
 | `-ApplicationMode` | SwitchParameter | — | — | Named | — | ブラウザコントロールを非表示にする |
 | `-AcceptLang` | String | — | — | Named | `$null` | ブラウザのaccept-lang HTTPヘッダーを設定する |
+
+## Examples
+
+### Open-AllYoutubeVideos -Queries "PowerShell tutorial","vscode tips" -Edge
+
+```powershell
+Open-AllYoutubeVideos -Queries "PowerShell tutorial","vscode tips" -Edge
+```
+
+### qvideos "PowerShell tutorial" -e
+
+```powershell
+qvideos "PowerShell tutorial" -e
+```
 
 ## Related Links
 

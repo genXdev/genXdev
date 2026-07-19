@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI를 사용하여 명제를 평가해 그것이 참인지 거짓인지 판단합니다.
+
+## Description
+
+이 함수는 AI 모델을 사용하여 진술을 평가하고 진위 여부를 판단합니다. 매개변수를 통해 직접 입력을 받거나, 파이프라인에서, 또는 시스템 클립보드에서 입력을 받을 수 있습니다. 함수는 AI 모델의 신뢰 수준과 추론과 함께 불리언 결과를 반환합니다.
 
 ## Syntax
 
@@ -82,6 +86,27 @@ Invoke-LLMBooleanEvaluation [[-Text] <String>] [[-Instructions] <String>] [[-Att
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | — | 빔 검색 샘플링 전략 사용 |
 | `-OnlyResponses` | SwitchParameter | — | — | Named | — | 죄송합니다. 아직 이 질문에 대한 답변을 배우지 못했습니다. 다른 질문이 있으시면 기꺼이 도와드리겠습니다. |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | The `-MaxToolcallBackLength` parameter. |
+
+## Examples
+
+### Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+
+```powershell
+Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+```
+
+### "Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+
+```powershell
+"Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+```
+
+### equalstrue "2 + 2 = 4" ##############################################################################
+
+```powershell
+equalstrue "2 + 2 = 4"
+##############################################################################
+```
 
 ## Outputs
 

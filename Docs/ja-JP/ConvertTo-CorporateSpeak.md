@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I hope this message finds you well. With the utmost respect, I would like to bring a matter to your attention that, if left unaddressed, could present opportunities for improvement. I kindly request your assistance in exploring a mutually beneficial resolution.
+
+## Description
+
+この関数は、入力テキストを処理して、直接的または過激な表現を外交的でプロフェッショナルな企業コミュニケーションに変換します。パラメータ、パイプライン、システムクリップボードから直接入力を受け付けることができます。この関数はAIモデルを活用してテキストを分析・言い換え、元の意図を保持します。
 
 ## Syntax
 
@@ -65,6 +69,20 @@ ConvertTo-CorporateSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-AllowD
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | フィルター用マークアップブロックタイプ（LLMQueryに渡される） |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 最大ツールコールバック長（LLMQueryに渡される） |
+
+## Examples
+
+### ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+
+```powershell
+ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+```
+
+### "This makes no sense" | corporatize
+
+```powershell
+"This makes no sense" | corporatize
+```
 
 ## Outputs
 

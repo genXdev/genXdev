@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Startet eine interaktive Textchat-Sitzung mit KI-Funktionen.
+
+## Description
+
+Initiiert eine interaktive Chat-Sitzung mit KI-Funktionen, die es Benutzern ermöglicht, während des Gesprächs PowerShell-Funktionen hinzuzufügen oder zu entfernen und PowerShell-Befehle auszuführen. Diese Funktion bietet eine umfassende Schnittstelle für KI-gestützte Konversationen mit umfangreicher Tool-Integration und Anpassungsmöglichkeiten.
 
 ## Syntax
 
@@ -99,6 +103,21 @@ New-LLMTextChat [[-Instructions] <String>] [[-Attachments] <String[]>] [[-Temper
 | `-NoContext` | Object | — | — | Named | — | Disable context usage |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | Verwenden Sie die Beam-Suchabtaststrategie |
 | `-OnlyResponses` | Object | — | — | Named | — | Antworten Sie nur mit Antworten |
+
+## Examples
+
+### New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `     -Instructions "You are a helpful AI assistant"
+
+```powershell
+New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `
+    -Instructions "You are a helpful AI assistant"
+```
+
+### llmchat "Tell me a joke" -Speak -IncludeThoughts
+
+```powershell
+llmchat "Tell me a joke" -Speak -IncludeThoughts
+```
 
 ## Related Links
 

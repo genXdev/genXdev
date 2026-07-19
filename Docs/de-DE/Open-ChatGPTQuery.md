@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Öffnet eine ChatGPT-Abfrage in einem Webbrowser.
+
+## Description
+
+Öffnet ChatGPT in einem Webbrowser, gibt automatisch die angegebene Abfrage ein und sendet sie ab. Unterstützt mehrere Abfragen, die mit der zugrunde liegenden Open-WebsiteAndPerformQuery-Funktion ausgeführt werden. Diese Funktion bietet eine bequeme Möglichkeit, von PowerShell aus mit umfangreichen Browser-Konfigurationsoptionen mit OpenAIs ChatGPT zu interagieren.
 
 ## Syntax
 
 ```powershell
-Open-ChatGPTQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-ChatGPTQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-ChatGPTQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Strin
 | `-Chrome` | SwitchParameter | — | — | Named | — | Öffnet in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wird in Microsoft Edge oder Google Chrome geöffnet, je nachdem, welcher der Standardbrowser ist |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Öffnet in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Verwenden Sie den von Playwright verwalteten Browser anstelle des im Betriebssystem installierten Browsers. |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Öffnet den von Playwright verwalteten WebKit-Browser. Impliziert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Führen Sie den Browser ohne sichtbares Fenster aus |
 | `-All` | SwitchParameter | — | — | Named | — | Öffnet in allen registrierten modernen Browsern |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Der zu verwendende Monitor: 0 = Standard, -1 = Verwerfen, -2 = Konfigurierter sekundärer Monitor, Standard ist -1, keine Positionierung |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Zeigen Sie das Browserfenster an. |
@@ -57,6 +64,42 @@ Open-ChatGPTQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Strin
 | `-ClearSession` | SwitchParameter | — | — | Named | — | In der Sitzung gespeicherte alternative Einstellungen für KI-Präferenzen löschen |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Nur Einstellungen in dauerhaften Präferenzen speichern, ohne die Sitzung zu beeinflussen |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Positionieren Sie das Browserfenster entweder im Vollbildmodus auf einem anderen Monitor als PowerShell oder nebeneinander mit PowerShell auf demselben Monitor. |
+
+## Examples
+
+### Open-ChatGPTQuery -Queries "What is PowerShell?", "How do I use functions?"
+
+```powershell
+Open-ChatGPTQuery -Queries "What is PowerShell?", "How do I use functions?"
+```
+
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "text_transformation_response",
+    "strict": true,
+    "schema": {
+      "required": [
+        "response"
+      ],
+      "properties": {
+        "response": {
+          "type": "string",
+          "description": "The transformed text output"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
+
+### "What is PowerShell?" | aicgpt
+
+```powershell
+"What is PowerShell?" | aicgpt
+```
+
+Submit a query using alias and pipeline.
 
 ## Related Links
 

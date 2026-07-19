@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 计算闭管共振频率。
+
+## Description
+
+使用 f = v / (4 L) 计算基频。
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-ResonantFrequencyByLengthAndSpeed [-LengthInMeters] <double> [-Medium] <stri
 | `-SpeedInMetersPerSecond` | Double | ✅ | — | 1 | `0` | 波速（米/秒） *(Parameter set: )* |
 | `-Medium` | String | ✅ | — | 1 | — | 媒介 *(Parameter set: )* |
 | `-As` | String | — | — | 2 | — | 赫兹 (Hz) |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ResonantFrequencyByLengthAndSpeed -LengthInMeters 0.5 -Medium "air" -As "kilohertz"
+```
+
+0.343 kHz
+
+### Example 2
+
+```powershell
+Get-ResonantFrequencyByLengthAndSpeed 1 -SpeedInMetersPerSecond 343
+```
+
+计算长度为1米、声速为343米/秒的管道的共振频率。
 
 ## Related Links
 

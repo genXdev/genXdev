@@ -8,11 +8,11 @@
 
 ## Description
 
-* Atomisch schrijven: gebruikt een strategie met tijdelijk bestand + hernoemen om ervoor te zorgen dat het doelbestand nooit in een beschadigde staat achterblijft als het proces wordt onderbroken.
-* Opnieuw proberen: probeert het schrijven tot MaxRetries keer opnieuw met een vertraging van RetryDelayMs milliseconden tussen pogingen.
-* Objectondersteuning: accepteert elk object, niet alleen Hashtable. Serialiseert via System.Text.Json met terugval naar ConvertTo-Json voor complexe .NET-typen die niet native kunnen worden geserialiseerd.
-* Debounce-ondersteuning: wanneer DebounceMs > 0, worden snelle opeenvolgende schrijfbewerkingen naar hetzelfde bestand samengevoegd — alleen de laatste payload wordt geschreven zodra het bestand gedurende DebounceMs ms niet is aangeraakt.
-* Directory aanmaken: maakt automatisch bovenliggende mappen aan als ze nog niet bestaan.
+* Atomisch schrijven: gebruikt een tijdelijke bestand + hernoemstrategie om te voorkomen dat het doelbestand in een beschadigde toestand achterblijft als het proces wordt onderbroken.
+* Herhaallogica: probeert het schrijven tot MaxRetries keer met een vertraging van RetryDelayMs milliseconden tussen pogingen.
+* Objectondersteuning: accepteert elk object, niet alleen Hashtable. Serialiseert via System.Text.Json met terugval naar ConvertTo-Json voor complexe .NET-types die niet native kunnen worden geserialiseerd.
+* Antibonsondersteuning: wanneer DebounceMs > 0, worden snelle opeenvolgende schrijfbewerkingen naar hetzelfde bestand samengevoegd — alleen de laatste payload wordt geschreven zodra het bestand gedurende DebounceMs ms niet is aangeraakt.
+* Directorycreatie: maakt automatisch bovenliggende mappen aan als deze niet bestaan.
 
 ## Syntax
 

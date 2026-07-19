@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Перемещает VLC Media Player к следующему элементу в текущем списке воспроизведения.
+
+## Description
+
+Эта функция отправляет нажатие клавиши 'n' медиаплееру VLC для перехода к следующему треку или элементу медиа в текущем загруженном плейлисте. Она фокусирует окно VLC, отправляет команду перехода к следующему и восстанавливает фокус на консоль PowerShell. Функция включает поддержку ShouldProcess для вывода запросов подтверждения при необходимости.
 
 ## Syntax
 
@@ -41,6 +45,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerNextInPlaylist
+
+```powershell
+Start-VlcMediaPlayerNextInPlaylist
+```
+
+### vlcnext
+
+```powershell
+vlcnext
 ```
 
 ## Related Links

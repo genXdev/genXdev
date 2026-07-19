@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Met à jour les raccourcis du navigateur pour activer les ports de débogage à distance.
+
+## Description
+
+Modifie les raccourcis des navigateurs Chrome et Edge pour inclure les paramètres de port de débogage à distance. Cela permet aux scripts d'automatisation d'interagir avec les navigateurs via leurs interfaces de débogage. Gère à la fois les raccourcis spécifiques à l'utilisateur et ceux à l'échelle du système.
+
+La fonction :
+- Supprime tous les paramètres de port de débogage existants
+- Ajoute les ports de débogage actuels pour Chrome et Edge
+- Met à jour les raccourcis dans les emplacements courants (Bureau, Menu Démarrer, Lancement rapide)
+- Nécessite des droits d'administration pour les raccourcis à l'échelle du système
 
 ## Syntax
 
@@ -165,6 +175,15 @@
 
             end {
             }
+```
+
+## Examples
+
+### Set-RemoteDebuggerPortInBrowserShortcuts Updates all Chrome and Edge shortcuts with their respective debugging ports.
+
+```powershell
+Set-RemoteDebuggerPortInBrowserShortcuts
+Updates all Chrome and Edge shortcuts with their respective debugging ports.
 ```
 
 ## Related Links

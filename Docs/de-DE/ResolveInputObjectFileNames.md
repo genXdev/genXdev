@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Erweitert Eingabeobjekte zu Datei- und Verzeichnisnamen und unterstützt verschiedene Filter- und Ausgabeoptionen.
+
+## Description
+
+Diese Funktion verarbeitet Eingabeobjekte (Dateien, Verzeichnisse oder Sammlungen) und erweitert sie zu Datei- und Verzeichnisnamen. Sie unterstützt Filterung, Mustervergleich und kann Ergebnisse als Objekte ausgeben. Die Funktion ist für die Verwendung mit Pipeline-Eingabe ausgelegt und bietet Optionen für Rekursion, alternative Datenströme und mehr.
 
 ## Syntax
 
@@ -30,6 +34,14 @@ ResolveInputObjectFileNames [-Directory] [-FilesAndDirectories] [<CommonParamete
 | `-PassThru` | SwitchParameter | — | — | Named | — | Entferne alle Leerzeichen aus dieser Zeichenkette |
 | `-IncludeAlternateFileStreams` | SwitchParameter | — | — | Named | — | Alternate-Datenströme in Suchergebnisse einbeziehen |
 | `-NoRecurse` | SwitchParameter | — | — | Named | — | Nicht in Unterverzeichnisse absteigen |
+
+## Examples
+
+### ResolveInputObjectFileNames -Input "C:\Temp" -File
+
+```powershell
+ResolveInputObjectFileNames -Input "C:\Temp" -File
+```
 
 ## Related Links
 

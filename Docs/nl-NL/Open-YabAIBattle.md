@@ -4,12 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent het YabAI Battle-spel in een webbrowser.
+
+## Description
+
+Deze functie start het YabAI Battle-spel in een webbrowser met uitgebreide aanpassingsopties voor vensterplaatsing, browserselectie en weergavemodus. Het biedt een wrapper rond de GenXdev\Open-Webbrowser-functie met spel-specifieke URL-constructie en parameterafhandeling.
+
+De functie ondersteunt twee spelmodi:
+- Battlestand: Start een nieuwe AI vs AI-veldslag
+- Spectatorstand: Bekijk bestaande AI-veldslagen
+
+Browserpositioneringsopties omvatten links, rechts, boven, onder, gecentreerd en volledige schermmodi met ondersteuning voor meerdere schermen. De functie verwerkt automatisch de applicatiemodusinstellingen en browserextensiebeheer voor een optimale speelervaring.
 
 ## Syntax
 
 ```powershell
-Open-YabAIBattle [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-SpectateOnly] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-YabAIBattle [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-SpectateOnly] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +34,9 @@ Open-YabAIBattle [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicat
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opent in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wordt geopend in Microsoft Edge of Google Chrome, afhankelijk van wat de standaardbrowser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Openen in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Gebruik de door Playwright beheerde browser in plaats van de in het besturingssysteem geïnstalleerde browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opent de door Playwright beheerde WebKit-browser. Impliceert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Voer de browser uit zonder een zichtbaar venster |
 | `-All` | SwitchParameter | — | — | Named | — | Opent in alle geregistreerde moderne browsers |
 | `-Monitor` | Int32 | — | — | Named | `-2` | De monitor die gebruikt moet worden, 0 = standaard, -1 is negeren, -2 = geconfigureerde secundaire monitor, standaard ingesteld op $Global:DefaultSecondaryMonitor of 2 indien niet gevonden |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Opent in volledig scherm |
@@ -61,6 +74,40 @@ Open-YabAIBattle [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicat
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen die in de sessie zijn opgeslagen voor AI-voorkeuren. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wissen Sie, dass alternative Einstellungen, die in der Sitzung gespeichert sind, für KI-Präferenzen gelöscht wurden. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. |
+
+## Examples
+
+### Open-YabAIBattle -Edge -Private -NoFullScreen
+
+```powershell
+Open-YabAIBattle -Edge -Private -NoFullScreen
+```
+
+Opent het YabAI Battle-spel in Microsoft Edge met privé-browsermodus zonder volledig scherm.
+
+### yabbattle -e -incognito -nfs
+
+```powershell
+yabbattle -e -incognito -nfs
+```
+
+Opent het spel met aliassen voor Edge, incognitomodus en zonder volledig scherm.
+
+### Open-YabAIBattle -SpectateOnly -Chrome
+
+```powershell
+Open-YabAIBattle -SpectateOnly -Chrome
+```
+
+Opent het spel in spectatormodus met Google Chrome om AI-gevechten te bekijken.
+
+### Open-YabAIBattle -Language "Spanish" -Monitor 1 -Left
+
+```powershell
+Open-YabAIBattle -Language "Spanish" -Monitor 1 -Left
+```
+
+Opent het spel met de Spaanse taalinterface aan de linkerkant van monitor 1.
 
 ## Related Links
 

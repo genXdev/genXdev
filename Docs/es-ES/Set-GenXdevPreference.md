@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Establece un valor de preferencia en el almacén de preferencias de GenXdev.
+
+## Description
+
+* Gestiona las preferencias en el almacén local de GenXdev.
+* Puede establecer nuevas preferencias, actualizar las existentes o eliminarlas cuando se proporciona un valor nulo/vacío.
+* Las preferencias se almacenan con la sincronización configurada en "Local".
 
 ## Syntax
 
@@ -22,6 +28,24 @@ Set-GenXdevPreference [-Name] <string> [[-Value] <string>] [-SessionOnly] [-Clea
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Clear the session setting (Global variable) before retrieving |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Ruta de base de datos para archivos de datos de preferencias |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | No utilice configuraciones alternativas almacenadas en sesión para las preferencias de datos como idioma, rutas de base de datos, etc. |
+
+## Examples
+
+### Example 1
+
+```powershell
+Set-GenXdevPreference -Name "Theme" -Value "Dark"
+```
+
+Establece la preferencia "Tema" a "Oscuro" en el almacenamiento local.
+
+### Example 2
+
+```powershell
+setPreference Theme Light
+```
+
+Utiliza el alias y los parámetros posicionales para establecer la preferencia de tema.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Haalt gegevens op uit een SQL-databasetabel met optionele recordbeperking.
+
+## Description
+
+Deze functie vraagt gegevens op uit een SQL-databasetabel met behulp van een verbindingsreeks of databasebestandspad. Het biedt flexibiliteit bij het verbinden met de database en het beheren van de hoeveelheid opgehaalde gegevens via de Count-parameter.
 
 ## Syntax
 
@@ -25,6 +29,20 @@ Get-SQLServerTableData -TableName <String> [[-Count] <Int32>] [<CommonParameters
 | `-Server` | String | — | — | 1 | `'localhost'` | De naam van de SQL Server-instantie. *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 2 | — | De naam van de tabel waaruit gegevens worden opgevraagd. |
 | `-Count` | Int32 | — | — | 3 | `100` | Het maximale aantal records dat moet worden teruggegeven. -1 voor alle. |
+
+## Examples
+
+### Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+
+```powershell
+Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+```
+
+### Get-SQLServerTableData "C:\data\users.db" "Employees"
+
+```powershell
+Get-SQLServerTableData "C:\data\users.db" "Employees"
+```
 
 ## Related Links
 

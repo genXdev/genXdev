@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre consultas del sitio web BuiltWith en un navegador web.
+
+## Description
+
+Abre una consulta de BuiltWith en un navegador web, con ajustes de monitor configurables y opciones de comportamiento del navegador. La función analiza las pilas tecnológicas de sitios web consultando el servicio de perfilado tecnológico de BuiltWith.com, que proporciona información detallada sobre tecnologías web, frameworks y servicios utilizados por los sitios web.
+
+BuiltWith.com es un servicio integral de búsqueda tecnológica que identifica tecnologías web, frameworks, sistemas de gestión de contenidos, herramientas de análisis, proveedores de alojamiento y otros componentes de software utilizados por cualquier sitio web. Esta función proporciona una interfaz de PowerShell para analizar rápidamente las pilas tecnológicas sin tener que navegar manualmente al sitio web de BuiltWith.
 
 ## Syntax
 
 ```powershell
-Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -32,6 +38,9 @@ Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <I
 | `-Chrome` | SwitchParameter | — | — | Named | — | Se abre en Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Se abre en Microsoft Edge o Google Chrome, dependiendo de cuál sea el navegador predeterminado |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Se abre en Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utilizar el navegador gestionado por Playwright en lugar del navegador instalado en el sistema operativo |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre el navegador WebKit gestionado por Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Ejecuta el navegador sin una ventana visible |
 | `-All` | SwitchParameter | — | — | Named | — | Se abre en todos los navegadores modernos registrados |
 | `-Left` | SwitchParameter | — | — | Named | — | Colocar la ventana del navegador en el lado izquierdo de la pantalla |
 | `-Right` | SwitchParameter | — | — | Named | — | Coloca la ventana del navegador en el lado derecho de la pantalla |
@@ -59,6 +68,24 @@ Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <I
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utilice ajustes alternativos almacenados en la sesión para las preferencias de IA |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-BuiltWithSiteInfo -Queries "microsoft.com" -Monitor 0
+
+```powershell
+Open-BuiltWithSiteInfo -Queries "microsoft.com" -Monitor 0
+```
+
+Abre un análisis de BuiltWith para Microsoft.com en el monitor predeterminado.
+
+### "microsoft.com" | Open-BuiltWithSiteInfo -m -1
+
+```powershell
+"microsoft.com" | Open-BuiltWithSiteInfo -m -1
+```
+
+Analiza Microsoft.com utilizando entrada de tubería con posicionamiento del monitor descartado.
 
 ## Related Links
 

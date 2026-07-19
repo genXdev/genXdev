@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> WireGuard VPNサーバーの詳細なステータス情報を取得します。
+
+## Description
+
+この関数は、Dockerコンテナで実行されているWireGuard VPNサーバーの詳細なステータス情報（インターフェースの詳細、リスニングポート、接続中のピア、サーバーの健全性など）を取得します。サーバーステータス、ピア数、稼働時間、ネットワーク設定の詳細など、WireGuardサービスに関する包括的な情報を提供します。
 
 ## Syntax
 
@@ -47,6 +51,24 @@ Get-WireGuardStatus [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションのみのモード（パススルー） |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションデータのクリア（パススルー） |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | セッション初期化をスキップ（通過） |
+
+## Examples
+
+### Get-WireGuardStatus
+
+```powershell
+Get-WireGuardStatus
+```
+
+デフォルト設定のWireGuardサーバーのステータスを返します。
+
+### Get-WireGuardStatus -NoDockerInitialize -ContainerName "custom_wireguard"
+
+```powershell
+Get-WireGuardStatus -NoDockerInitialize -ContainerName "custom_wireguard"
+```
+
+Dockerを初期化せずにカスタムコンテナのステータスを取得します。
 
 ## Related Links
 

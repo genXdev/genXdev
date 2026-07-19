@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre y reproduce archivos multimedia usando VLC media player con opciones avanzadas de filtrado y configuración.
+
+## Description
+
+Esta función escanea archivos multimedia según patrones de búsqueda, crea una lista de reproducción y lanza el reproductor multimedia VLC con opciones de configuración completas. Soporta videos, archivos de audio e imágenes con instalación automática de VLC si es necesario. La función proporciona un control extenso sobre el comportamiento de reproducción, posicionamiento de ventanas, configuración de audio/video y manejo de subtítulos.
 
 ## Syntax
 
@@ -111,6 +115,32 @@ Open-MediaFile [[-Name] <String[]>] [[-Width] <Int32>] [[-Height] <Int32>] [[-X]
 | `-PassThru` | SwitchParameter | — | — | Named | — | Devuelve los archivos encontrados por la búsqueda |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | Devuelve los archivos encontrados por la búsqueda sin abrir VLC |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | Devuelve el ayudante de ventana para cada proceso |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+Abre todos los archivos multimedia en el directorio actual usando la configuración predeterminada de VLC.
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+Abre solo archivos de imagen de la carpeta Imágenes en modo pantalla completa usando el alias 'vlcmedia'.
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+Abre archivos de video con bucle habilitado usando el alias 'media'.
 
 ## Related Links
 

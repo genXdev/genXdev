@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I appreciate your sharing that perspective. I respectfully see things a bit differently, and I'd like to suggest an alternative viewpoint for consideration.
+
+## Description
+
+Эта функция обрабатывает входящий текст, преобразуя прямые или потенциально резкие высказывания в дипломатичные, профессиональные корпоративные сообщения. Она может принимать ввод напрямую через параметры, из конвейера или из системного буфера обмена. Функция использует модели искусственного интеллекта для анализа и перефразирования текста с сохранением исходного смысла.
 
 ## Syntax
 
@@ -78,6 +82,20 @@ ConvertTo-CorporateSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-AllowD
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Максимальная длина обратного вызова инструмента (передается в LLMQuery) |
+
+## Examples
+
+### ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+
+```powershell
+ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+```
+
+### "This makes no sense" | corporatize
+
+```powershell
+"This makes no sense" | corporatize
+```
 
 ## Outputs
 

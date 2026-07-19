@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre los marcadores del navegador que coinciden con los criterios de búsqueda especificados.
+
+## Description
+
+Busca marcadores en Microsoft Edge, Google Chrome y Mozilla Firefox según las consultas de búsqueda proporcionadas. Abre los marcadores coincidentes en el navegador seleccionado con configuraciones de ventana y modos de navegador ajustables.
+
+Esta función proporciona una interfaz completa para buscar y abrir marcadores del navegador con opciones avanzadas de filtrado y visualización. Admite múltiples criterios de búsqueda y puede abrir resultados en cualquier navegador instalado con una personalización extensa de posición y comportamiento de la ventana.
 
 ## Syntax
 
 ```powershell
-Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -48,6 +54,9 @@ Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <S
 | `-RestoreFocus` | SwitchParameter | — | — | Named | — | Restaurar el foco de la ventana de PowerShell |
 | `-NewWindow` | SwitchParameter | — | — | Named | — | No reutilices la ventana del navegador existente; en su lugar, crea una nueva. |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Se abre en Microsoft Edge o Google Chrome, dependiendo de cuál sea el navegador predeterminado |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utilizar el navegador gestionado por Playwright en lugar del navegador instalado en el sistema operativo |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre el navegador WebKit gestionado por Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Ejecuta el navegador sin una ventana visible |
 | `-All` | SwitchParameter | — | — | Named | — | Se abre en todos los navegadores modernos registrados |
 | `-DisablePopupBlocker` | SwitchParameter | — | — | Named | — | Desactivar el bloqueador de ventanas emergentes |
 | `-SendKeyEscape` | SwitchParameter | — | — | Named | — | Escapar caracteres de control al enviar teclas |
@@ -58,6 +67,32 @@ Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <S
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utilice ajustes alternativos almacenados en la sesión para las preferencias de IA |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-BrowserBookmarks -Queries "github" -Edge -Count 5
+
+```powershell
+Open-BrowserBookmarks -Queries "github" -Edge -Count 5
+```
+
+Busca marcadores que contengan "github" en Microsoft Edge y abre los primeros 5 resultados en el navegador predeterminado.
+
+### sites gh -e -c 5
+
+```powershell
+sites gh -e -c 5
+```
+
+Lo mismo usando alias: busca en los marcadores de Edge "gh" y abre 5 resultados en el navegador predeterminado.
+
+### Open-BrowserBookmarks -Queries "development", "tools" -Chrome -Firefox -Left -Count 10
+
+```powershell
+Open-BrowserBookmarks -Queries "development", "tools" -Chrome -Firefox -Left -Count 10
+```
+
+Busca en los marcadores de Chrome "development" y "tools", abre los primeros 10 resultados en Firefox posicionados en el lado izquierdo de la pantalla.
 
 ## Related Links
 

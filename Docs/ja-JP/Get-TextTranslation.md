@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AIを使用してテキストを別の言語に翻訳します。
+
+## Description
+
+この関数は、AIモデルを使用して入力テキストを指定されたターゲット言語に翻訳します。パラメータを介して直接、パイプラインから、またはシステムクリップボードから入力を受け付けることができます。この関数は、翻訳中に書式とスタイルを保持します。
 
 ## Syntax
 
@@ -61,6 +65,20 @@ Get-TextTranslation [[-Text] <String>] [[-Instructions] <String>] [[-Attachments
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | LLMに渡すためのマークアップブロックタイプのフィルター |
 | `-NoCache` | SwitchParameter | — | — | Named | — | 翻訳キャッシュをスキップし、常にLLM APIを呼び出す |
 | `-ClearCache` | SwitchParameter | — | — | Named | — | すべての言語の翻訳キャッシュ全体を消去する |
+
+## Examples
+
+### Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+
+```powershell
+Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+```
+
+### "Bonjour" | translate -Language "English"
+
+```powershell
+"Bonjour" | translate -Language "English"
+```
 
 ## Outputs
 

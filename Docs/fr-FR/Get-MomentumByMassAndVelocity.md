@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcule la quantité de mouvement linéaire.
+
+## Description
+
+Utilise p = m v.
 
 ## Syntax
 

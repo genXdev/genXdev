@@ -4,12 +4,30 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens an IMDB search query in a web browser.
+
+## Description
+
+Opens a "Internet Movie Database" query in a web browser with extensive
+configuration options. This function provides a convenient wrapper around
+the IMDB search functionality, allowing users to search for movies, TV shows,
+actors, and other entertainment content directly from PowerShell.
+
+The function accepts search terms and constructs proper IMDB search URLs,
+then opens them in the specified web browser with customizable window
+positioning, browser selection, and display options. It supports all major
+browsers including Edge, Chrome, and Firefox, with options for private
+browsing, fullscreen mode, and window management.
+
+Key features include multi-monitor support, language localization, keyboard
+automation, and comprehensive browser configuration options. The function
+can handle multiple search queries simultaneously and provides options for
+both interactive use and automated workflows.
 
 ## Syntax
 
 ```powershell
-Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -31,6 +49,9 @@ Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opens in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge or Google Chrome, depending on what the default browser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Opens in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use Playwright-managed browser instead of the OS-installed browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opens the Playwright-managed WebKit browser. Implies -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Run the browser without a visible window |
 | `-All` | SwitchParameter | — | — | Named | — | Opens in all registered modern browsers |
 | `-Left` | SwitchParameter | — | — | Named | — | Place browser window on the left side of the screen |
 | `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen |
@@ -59,6 +80,41 @@ Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Open browser windows side by side |
+
+## Examples
+
+### Open-IMDBQuery -Queries "The Matrix" -Monitor 0
+
+```powershell
+Open-IMDBQuery -Queries "The Matrix" -Monitor 0
+```
+
+Opens an IMDB search for "The Matrix" on the default monitor.
+
+### imdb "The Matrix" -m 0
+
+```powershell
+imdb "The Matrix" -m 0
+```
+
+Opens an IMDB search for "The Matrix" using the alias and shorthand parameters.
+
+### "Inception", "Interstellar" | Open-IMDBQuery -Language "French" -Chrome
+
+```powershell
+"Inception", "Interstellar" | Open-IMDBQuery -Language "French" -Chrome
+```
+
+Searches for multiple movies on IMDB with French language results in Chrome.
+
+### Open-IMDBQuery -Queries "Tom Hanks" -FullScreen -RestoreFocus
+
+```powershell
+Open-IMDBQuery -Queries "Tom Hanks" -FullScreen -RestoreFocus
+```
+
+Searches for Tom Hanks on IMDB in fullscreen mode, then returns focus to
+PowerShell.
 
 ## Related Links
 

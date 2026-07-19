@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Your blunt text was not provided. Please share the text you'd like rephrased diplomatically.
+
+## Description
+
+Esta função transforma a entrada do usuário de redação direta ou brusca em linguagem diplomática e cortês, adequada para discussões de alto nível, negociações ou comunicações formais. A função utiliza modelos de linguagem de IA para manter a intenção original, suavizando o tom e tornando a mensagem mais diplomática e profissional.
 
 ## Syntax
 
@@ -78,6 +82,21 @@ ConvertTo-DiplomaticSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-Allow
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | {(llmquery "Translate the following text into pt-BR: Output only markup blocks")} |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filtro para tipos de bloco de marcação (passado para LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Comprimento máximo do callback de ferramenta (passado para LLMQuery) |
+
+## Examples
+
+### ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `     -SetClipboard
+
+```powershell
+ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `
+    -SetClipboard
+```
+
+### diplomatize "Your code is full of bugs"
+
+```powershell
+diplomatize "Your code is full of bugs"
+```
 
 ## Outputs
 

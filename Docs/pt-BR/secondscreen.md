@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Define a configuração padrão do segundo monitor.
+
+## Description
+
+Define o comportamento padrão para a abertura de janelas do GenXdev no monitor secundário.
+Isso é útil para usuários com um único monitor ou que preferem layouts de janelas lado a lado.
+Consulte também o cmdlet 'sidebyside' e 'restoredefaultmonitor'
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> secondscreen
+
+```powershell
+PS> secondscreen
+```
+
+Define as aberturas de janela padrão do GenXdev para que fiquem no monitor secundário
 
 ## Related Links
 

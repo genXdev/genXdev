@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Öffnet eine Suchanfrage in der angegebenen Suchmaschine mit einem Webbrowser.
+
+## Description
+
+Diese Funktion bietet eine einheitliche Schnittstelle zur Suche über mehrere Suchmaschinen hinweg, darunter Google, Bing, GitHub, Wikipedia, YouTube und andere. Sie unterstützt umfangreiche Browserkonfigurationsoptionen wie Fensterpositionierung, Größe, Browserauswahl und Spracheinstellungen. Die Funktion leitet Abfragen dynamisch an die entsprechenden suchmaschinenspezifischen Funktionen weiter.
 
 ## Syntax
 
 ```powershell
-Open-SearchEngine -Queries <String[]> [[-EndPoint] <String>] [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SetForeground] [-SetRestored] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-SearchEngine -Queries <String[]> [[-EndPoint] <String>] [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SetForeground] [-SetRestored] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -32,6 +36,9 @@ Open-SearchEngine -Queries <String[]> [[-EndPoint] <String>] [[-Language] <Strin
 | `-Chrome` | SwitchParameter | — | — | Named | — | Öffnet in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wird in Microsoft Edge oder Google Chrome geöffnet, je nachdem, welcher der Standardbrowser ist |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Öffnet in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Verwenden Sie den von Playwright verwalteten Browser anstelle des im Betriebssystem installierten Browsers. |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Öffnet den von Playwright verwalteten WebKit-Browser. Impliziert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Führen Sie den Browser ohne sichtbares Fenster aus |
 | `-All` | SwitchParameter | — | — | Named | — | Öffnet in allen registrierten modernen Browsern |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Öffnet im Vollbildmodus |
 | `-Left` | SwitchParameter | — | — | Named | — | Place browser window on the left side of the screen |
@@ -50,6 +57,24 @@ Open-SearchEngine -Queries <String[]> [[-EndPoint] <String>] [[-Language] <Strin
 | `-PassThru` | SwitchParameter | — | — | Named | — | Gibt ein [System.Diagnostics.Process]-Objekt des Browserprozesses zurück |
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | https://www.example.com |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | Nach dem Öffnen des Webbrowsers geben Sie die URL zurück |
+
+## Examples
+
+### Open-SearchEngine -Queries "PowerShell cmdlets" -EndPoint "Google" -Language "English"
+
+```powershell
+Open-SearchEngine -Queries "PowerShell cmdlets" -EndPoint "Google" -Language "English"
+```
+
+Suche nach "PowerShell-Cmdlets" bei Google mit englischen Suchergebnissen.
+
+### q "GitHub PowerShell" Bing -Chrome -Private
+
+```powershell
+q "GitHub PowerShell" Bing -Chrome -Private
+```
+
+Verwendet den Alias 'q', um mit Chrome im Inkognito-Modus bei Bing nach "GitHub PowerShell" zu suchen.
 
 ## Related Links
 

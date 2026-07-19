@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет расстояние падения при свободном падении за заданный промежуток времени.
+
+## Description
+
+Вычисляет расстояние падения при свободном падении с использованием численного метода, учитывающего сопротивление воздуха и предельную скорость.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-FreeFallDistance [-DurationInSeconds] <double> [[-TerminalVelocityInMetersPe
 | `-TerminalVelocityInMetersPerSecond` | Double | — | — | 1 | `0` | Конечная скорость в метрах в секунду (по умолчанию: 53) |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 2 | `0` | Ускорение свободного падения в м/с² (по умолчанию: 9,81) |
 | `-As` | String | — | — | 3 | — | Единица измерения выходного расстояния |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-FreeFallDistance -DurationInSeconds 10 -TerminalVelocityInMetersPerSecond 53 -As "feet"
+```
+
+Вычисляет расстояние падения за 10 секунд в футах.
+
+### Example 2
+
+```powershell
+Get-FreeFallDistance 5
+```
+
+Вычисляет расстояние за 5 секунд в метрах.
 
 ## Related Links
 

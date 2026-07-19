@@ -4,7 +4,20 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Envía consultas a una API de finalización de chat de lenguaje grande compatible con OpenAI y procesa las respuestas.
+
+## Description
+
+Esta función envía consultas a una API de finalización de chat de modelos de lenguaje grandes compatible con OpenAI y procesa las respuestas. Admite entradas de texto e imágenes, maneja llamadas a funciones de herramientas y puede operar en varios modos de chat, incluyendo texto y audio.
+
+La función proporciona soporte integral para la interacción con LLM, incluyendo:
+- Procesamiento de entrada de texto e imagen
+- Llamada a funciones de herramientas y ejecución de comandos
+- Modos de chat interactivos (texto y audio)
+- Inicialización y configuración del modelo
+- Formateo y procesamiento de respuestas
+- Gestión de sesiones y almacenamiento en caché
+- Posicionamiento de ventanas y control de visualización
 
 ## Syntax
 
@@ -93,6 +106,40 @@ Let me prepare the response.",
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | `100000` | Longitud máxima de la salida de la devolución de llamada de la herramienta en caracteres. La salida que exceda esta longitud será truncada con un mensaje de advertencia. El valor predeterminado es 100000 caracteres. |
+
+## Examples
+
+### Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+
+```powershell
+Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+```
+
+Sends a simple mathematical query to the qwen model with specified temperature.
+
+### qllm "What is 2+2?" -Model "qwen"
+
+```powershell
+qllm "What is 2+2?" -Model "qwen"
+```
+
+Usa el alias para enviar una consulta con parámetros predeterminados.
+
+### Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+
+```powershell
+Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+```
+
+Envía una consulta con un archivo adjunto de imagen para su análisis.
+
+### llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+
+```powershell
+llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+```
+
+Inicia una sesión de chat de texto interactiva con el modelo especificado.
 
 ## Related Links
 

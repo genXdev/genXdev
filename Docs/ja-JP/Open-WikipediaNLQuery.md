@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> オランダ語版ウィキペディアの検索をウェブブラウザで開きます。
+
+## Description
+
+ウェブブラウザで「Wikipedia - オランダ」クエリを開き、表示オプションを設定可能です。複数の用語を検索したり、結果を表示するモニターを指定できます。
 
 ## Syntax
 
 ```powershell
-Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +27,9 @@ Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applic
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 使用するモニター、0=デフォルト、-1=破棄、-2=設定済みセカンダリモニター、デフォルトは-1、位置決めなし |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | フルスクリーンモードで開く |
@@ -58,6 +65,20 @@ Open-WikipediaNLQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applic
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションのみのCookieを使用（永続Cookieは使用しない） |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | ブラウザのセッションデータを開く前にクリアする |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 前回のブラウザセッションを復元しない |
+
+## Examples
+
+### Open-WikipediaNLQuery -Queries "Amsterdam" -Monitor 0
+
+```powershell
+Open-WikipediaNLQuery -Queries "Amsterdam" -Monitor 0
+```
+
+### wikinl "Amsterdam" -mon -2
+
+```powershell
+wikinl "Amsterdam" -mon -2
+```
 
 ## Related Links
 

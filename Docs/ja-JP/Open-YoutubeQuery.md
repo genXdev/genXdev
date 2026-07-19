@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> YouTubeの検索クエリをウェブブラウザで開きます。
+
+## Description
+
+1つ以上のYouTube検索クエリを、豊富な配置と設定オプションを備えたWebブラウザで開きます。構成可能なモニター選択、ブラウザ設定、およびOpen-Webbrowserコマンドレットから継承された動的パラメータによるキーストローク自動化をサポートします。各クエリは、ウィンドウの配置、ブラウザの種類、検索言語を完全に制御して、個別のブラウザインスタンスで開かれます。
 
 ## Syntax
 
 ```powershell
-Open-YoutubeQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-YoutubeQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-YoutubeQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Strin
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 使用するモニター、0=デフォルト、-1=破棄、-2=設定済みセカンダリモニター、デフォルトは-1、位置決めなし |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | フルスクリーンモードで開く |
@@ -59,6 +66,24 @@ Open-YoutubeQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Strin
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションに保存された代替設定をAIの選択肢に使用します。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリアします。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定は永続的なプリファレンスにのみ保存し、セッションには影響を与えないでください。 |
+
+## Examples
+
+### Open-YoutubeQuery -Queries "PowerShell tutorial" -Monitor 0
+
+```powershell
+Open-YoutubeQuery -Queries "PowerShell tutorial" -Monitor 0
+```
+
+デフォルトのモニターで「PowerShellチュートリアル」のYouTube検索を開きます。
+
+### youtube "how to code" -m -2
+
+```powershell
+youtube "how to code" -m -2
+```
+
+設定済みのセカンダリモニターで「how to code」のYouTube検索を開く。関数エイリアスを使用。
 
 ## Related Links
 

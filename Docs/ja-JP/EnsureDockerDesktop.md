@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Docker Desktopがインストールされ、コンテナ化操作に利用可能であることを確認します。
+
+## Description
+
+Docker Desktop がシステムにインストールされ、適切に構成されているかを確認します。
+見つからない場合は、WinGet を使用して Docker Desktop をインストールし、インストールプロセス全体を自動的に処理します。この関数は、Docker Desktop サービスの起動、デーモンの準備完了確認、および必要に応じた認証要件の処理も管理します。関数には、システムレベルおよびユーザーレベルの Docker インストールの両方に対する包括的なパス管理が含まれています。
 
 ## Syntax
 
@@ -43,6 +48,26 @@ EnsureDockerDesktop [[-Monitor] <Int32>] [[-Width] <Int32>] [[-Height] <Int32>] 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定はセッションに影響を与えず、永続的な設定のみに保存します。 |
 | `-NoDockerInitialization` | SwitchParameter | — | — | Named | — | Dockerの初期化をスキップしてすぐに戻る |
+
+## Examples
+
+### EnsureDockerDesktop
+
+```powershell
+EnsureDockerDesktop
+```
+
+### EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+```
+
+### EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+```
 
 ## Related Links
 

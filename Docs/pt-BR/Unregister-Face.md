@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Remove um rosto registrado pelo seu identificador do DeepStack.
+
+## Description
+
+Esta função exclui um rosto do sistema de reconhecimento facial DeepStack usando seu identificador único. Ela se comunica com o endpoint da API para remover permanentemente os dados faciais registrados do sistema.
 
 ## Syntax
 
@@ -27,6 +31,21 @@ Unregister-Face -Identifier <String> [[-ContainerName] <String>] [[-VolumeName] 
 | `-Force` | SwitchParameter | — | — | Named | — | Reconstrução forçada do contêiner Docker e remoção dos dados existentes |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Use a versão acelerada por GPU (requer placa de vídeo NVIDIA) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Mostrar a janela do Docker Desktop durante a inicialização |
+
+## Examples
+
+### Unregister-Face -Identifier "JohnDoe" -NoDockerInitialize $false `     -ContainerName "deepstack_face_recognition" -ServicePort 5000
+
+```powershell
+Unregister-Face -Identifier "JohnDoe" -NoDockerInitialize $false `
+    -ContainerName "deepstack_face_recognition" -ServicePort 5000
+```
+
+### rface "JohnDoe"
+
+```powershell
+rface "JohnDoe"
+```
 
 ## Outputs
 

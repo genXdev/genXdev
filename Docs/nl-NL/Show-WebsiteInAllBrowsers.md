@@ -4,12 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent een URL in meerdere browsers tegelijk in een mozaïeklayout.
+
+## Description
+
+Deze functie maakt een mozaïeklay-out van browservensters door de opgegeven URL te openen in Chrome, Edge, Firefox en een privévenster. De browsers zijn gerangschikt in een 2x2 rasterpatroon:
+- Chrome: Linkerbovenkwadrant
+- Edge: Linkeronderkwadrant
+- Firefox: Rechterbovenkwadrant
+- Privévenster: Rechteronderkwadrant
+
+Alle parameters van Open-Webbrowser worden ondersteund en doorgegeven om de browserpositionering, het gedrag en het uiterlijk te beheren. De functie fungeert als een wrapper die consistente kwadrantpositionering toepast, terwijl volledige aanpassing van de browserstartparameters mogelijk is.
 
 ## Syntax
 
 ```powershell
-Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -30,6 +40,9 @@ Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-Applicat
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opent in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wordt geopend in Microsoft Edge of Google Chrome, afhankelijk van wat de standaardbrowser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Openen in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Gebruik de door Playwright beheerde browser in plaats van de in het besturingssysteem geïnstalleerde browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opent de door Playwright beheerde WebKit-browser. Impliceert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Voer de browser uit zonder een zichtbaar venster |
 | `-All` | SwitchParameter | — | — | Named | — | Opent in alle geregistreerde moderne browsers |
 | `-Left` | SwitchParameter | — | — | Named | — | Plaats het browser venster aan de linkerkant van het scherm |
 | `-Right` | SwitchParameter | — | — | Named | — | Plaats het browservenster aan de rechterkant van het scherm |
@@ -55,6 +68,22 @@ Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-Applicat
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen die in de sessie zijn opgeslagen voor AI-voorkeuren. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wissen Sie, dass alternative Einstellungen, die in der Sitzung gespeichert sind, für KI-Präferenzen gelöscht wurden. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. |
+
+## Examples
+
+### Show-WebsiteInAllBrowsers -Url "https://www.github.com" Opens github.com in four different browsers arranged in a mosaic layout.
+
+```powershell
+Show-WebsiteInAllBrowsers -Url "https://www.github.com"
+Opens github.com in four different browsers arranged in a mosaic layout.
+```
+
+### "https://www.github.com" | Show-UrlInAllBrowsers Uses the function's alias and pipeline input to achieve the same result.
+
+```powershell
+"https://www.github.com" | Show-UrlInAllBrowsers
+Uses the function's alias and pipeline input to achieve the same result.
+```
 
 ## Related Links
 

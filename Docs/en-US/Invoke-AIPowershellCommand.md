@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Generates and executes PowerShell commands using AI assistance.
+
+## Description
+
+Uses AI models to generate PowerShell commands based on
+natural language queries. The function can either send commands directly to
+the PowerShell window or copy them to the clipboard. It leverages AI models
+to interpret natural language and convert it into executable PowerShell
+commands with comprehensive parameter support for various AI backends.
 
 ## Syntax
 
@@ -60,6 +68,32 @@ Invoke-AIPowershellCommand -Query <String> [[-Attachments] <String[]>] [-AllowDe
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximum tool callback length (passed to LLMQuery) |
+
+## Examples
+
+### Invoke-AIPowershellCommand -Query "list all running processes"
+
+```powershell
+Invoke-AIPowershellCommand -Query "list all running processes"
+```
+
+Generates a PowerShell command to list running processes
+
+### hint "list files modified today"
+
+```powershell
+hint "list files modified today"
+```
+
+Uses the alias to generate a command for finding files modified today.
+
+### Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+
+```powershell
+Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+```
+
+Generates a command to stop a service and copies it to clipboard.
 
 ## Outputs
 

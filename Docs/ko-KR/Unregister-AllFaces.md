@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> DeepStack 얼굴 인식 시스템에서 등록된 모든 얼굴을 제거합니다.
+
+## Description
+
+이 함수는 데이터 저장소 디렉토리에서 모든 얼굴 파일을 제거하고 서비스를 다시 시작하여 빈 얼굴 레지스트리를 다시 로드함으로써 DeepStack 얼굴 인식 데이터베이스에서 등록된 모든 얼굴을 지웁니다. 이는 되돌릴 수 없는 파괴적인 작업이며 등록된 모든 얼굴 데이터를 영구적으로 제거합니다.
 
 ## Syntax
 
@@ -27,6 +31,32 @@ Unregister-AllFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | 헬스 체크 시도 간격 (초 단위) |
 | `-ImageName` | String | — | — | 5 | — | 사용할 사용자 정의 Docker 이미지 이름 |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 초기화 중에 Docker Desktop 창 표시 |
+
+## Examples
+
+### Unregister-AllFaces
+
+```powershell
+Unregister-AllFaces
+```
+
+확인 메시지와 함께 등록된 모든 얼굴을 제거합니다.
+
+### Unregister-AllFaces -Force
+
+```powershell
+Unregister-AllFaces -Force
+```
+
+확인 프롬프트 없이 등록된 모든 얼굴을 제거합니다.
+
+### unregall -Force
+
+```powershell
+unregall -Force
+```
+
+별칭을 사용하여 확인 없이 모든 얼굴을 제거합니다.
 
 ## Related Links
 

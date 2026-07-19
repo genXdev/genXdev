@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Développe toute référence de fichier donnée en un chemin d'accès complet.
+
+## Description
+
+Développe toute référence de fichier donnée en un chemin d'accès complet, par rapport au répertoire courant de l'utilisateur. Peut éventuellement garantir que les répertoires ou fichiers existent.
 
 ## Syntax
 
@@ -23,6 +27,20 @@ Expand-Path -FilePath <String> [-CreateDirectory] [-CreateFile] [-DeleteExisting
 | `-ForceDrive` | Char | — | — | Named | `'*'` | Forcera l'utilisation d'un lecteur spécifique |
 | `-FileMustExist` | SwitchParameter | — | — | Named | — | Lève une exception si le fichier n'existe pas. |
 | `-DirectoryMustExist` | SwitchParameter | — | — | Named | — | Lèvera une erreur si le répertoire n'existe pas |
+
+## Examples
+
+### Expand-Path -FilePath ".\myfile.txt" -CreateFile
+
+```powershell
+Expand-Path -FilePath ".\myfile.txt" -CreateFile
+```
+
+### ep ~\documents\test.txt -CreateFile
+
+```powershell
+ep ~\documents\test.txt -CreateFile
+```
 
 ## Related Links
 

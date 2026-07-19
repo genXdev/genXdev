@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Werk EXIF-metadata bij voor afbeeldingen in een map.
+
+## Description
+
+Deze functie extraheert en werkt EXIF-metadata bij voor afbeeldingen in opgegeven mappen.
+Het verwerkt elke afbeelding om gedetailleerde EXIF-metadata te extraheren, inclusief cameragegevens,
+GPS-coördinaten, belichtingsinstellingen en andere technische informatie. De metadata
+wordt opgeslagen in alternatieve NTFS-streams als :EXIF.json voor later gebruik door
+indexerings- en zoekfuncties.
 
 ## Syntax
 
@@ -26,6 +34,20 @@ Invoke-ImageMetadataUpdate [[-ImageDirectories] <String[]>] [-ClearSession] [-Fo
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Gebruik geen alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Databasepad voor voorkeursgegevensbestanden |
+
+## Examples
+
+### Invoke-ImageMetadataUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Force
+
+```powershell
+Invoke-ImageMetadataUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Force
+```
+
+### Invoke-ImageMetadataUpdate @("C:\Photos", "C:\Archive") -Force -PassThru | Export-Csv -Path metadata-log.csv
+
+```powershell
+Invoke-ImageMetadataUpdate @("C:\Photos", "C:\Archive") -Force -PassThru | Export-Csv -Path metadata-log.csv
+```
 
 ## Related Links
 

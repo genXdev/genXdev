@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Aktualisiert Browser-Verknüpfungen, um Remote-Debugging-Ports zu aktivieren.
+
+## Description
+
+Modifiziert Verknüpfungen von Chrome und Edge, um Remote-Debugging-Port-Parameter einzuschließen. Dies ermöglicht Automatisierungsskripten, über deren Debugging-Schnittstellen mit den Browsern zu interagieren. Behandelt sowohl benutzerspezifische als auch systemweite Verknüpfungen.
+
+Die Funktion:
+- Entfernt vorhandene Debugging-Port-Parameter
+- Fügt aktuelle Debugging-Ports für Chrome und Edge hinzu
+- Aktualisiert Verknüpfungen an gängigen Speicherorten (Desktop, Startmenü, Schnellstart)
+- Erfordert Administratorrechte für systemweite Verknüpfungen
 
 ## Syntax
 
@@ -165,6 +175,15 @@
 
             end {
             }
+```
+
+## Examples
+
+### Set-RemoteDebuggerPortInBrowserShortcuts Updates all Chrome and Edge shortcuts with their respective debugging ports.
+
+```powershell
+Set-RemoteDebuggerPortInBrowserShortcuts
+Updates all Chrome and Edge shortcuts with their respective debugging ports.
 ```
 
 ## Related Links

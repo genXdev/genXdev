@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Executa consultas ao banco de dados SQL Server com suporte a parâmetros e transações.
+
+## Description
+
+Provides a PowerShell interface for executing SQL Server queries with support for:
+- Connection via connection string or database name with server
+- Parameterized queries to prevent SQL injection
+- Transaction isolation level control
+- Multiple query execution in a single transaction
+- Pipeline input for queries and parameters
 
 ## Syntax
 
@@ -37,6 +46,23 @@
 
         & $searchPath
     }
+```
+
+## Examples
+
+### Invoke-SSMS `     -DatabaseName "users" -Server "localhost" `     -Queries "SELECT * FROM Users WHERE active = @status" `     -SqlParameters @{"status" = 1}
+
+```powershell
+Invoke-SSMS `
+    -DatabaseName "users" -Server "localhost" `
+    -Queries "SELECT * FROM Users WHERE active = @status" `
+    -SqlParameters @{"status" = 1}
+```
+
+### "SELECT * FROM Users" | Invoke-SSMS -DatabaseName "users"
+
+```powershell
+"SELECT * FROM Users" | Invoke-SSMS -DatabaseName "users"
 ```
 
 ## Related Links

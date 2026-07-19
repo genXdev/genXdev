@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 从各种流中捕获错误消息，并使用LLM建议修复方法。
+
+## Description
+
+此cmdlet从PowerShell的各种流（管道输入、详细信息、信息、错误和警告）中捕获错误消息，并构建一个结构化提示供LLM分析并建议修复。然后调用LLM查询并返回建议的解决方案。
 
 ## Syntax
 
@@ -105,6 +109,25 @@ Your response must be parseable json that conforms EXACTLY to this schema:
 
 Example response format: {"response":"your actual response here"}
 ===== END REQUIREMENT ===== |
+
+## Examples
+
+### $errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {     My-ScriptThatFails }
+
+```powershell
+$errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {
+    My-ScriptThatFails
+}
+```
+
+输出错误信息：$errorInfo
+
+### getfixprompt { Get-ChildItem -NotExistingParameter } ##############################################################################
+
+```powershell
+getfixprompt { Get-ChildItem -NotExistingParameter }
+##############################################################################
+```
 
 ## Outputs
 

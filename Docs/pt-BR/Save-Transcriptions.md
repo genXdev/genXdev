@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Gera arquivos de legenda para arquivos de áudio e vídeo usando OpenAI Whisper.
+
+## Description
+
+Busca recursivamente por arquivos de mídia no diretório especificado e usa um modelo local OpenAI Whisper para gerar arquivos de legenda no formato SRT. A função suporta múltiplos formatos de áudio/vídeo e pode opcionalmente traduzir legendas para um idioma diferente usando uma consulta LLM. A nomenclatura dos arquivos segue um padrão padronizado com códigos de idioma (ex.: video.mp4.en.srt).
 
 ## Syntax
 
@@ -54,6 +58,20 @@ Save-Transcriptions [[-DirectoryPath] <String>] [[-LanguageIn] <String>] [[-Lang
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use configurações alternativas armazenadas na sessão para preferências de IA, como idioma, coleções de imagens, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Limpar configurações alternativas armazenadas na sessão para preferências de IA, como Idioma, coleções de Imagens, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Não use configurações alternativas armazenadas na sessão para preferências de IA, como idioma, coleções de imagens, etc. |
+
+## Examples
+
+### Save-Transcriptions -DirectoryPath "C:\Videos" -LanguageIn "English"
+
+```powershell
+Save-Transcriptions -DirectoryPath "C:\Videos" -LanguageIn "English"
+```
+
+### Save-Transcriptions "C:\Media" "Japanese" "English"
+
+```powershell
+Save-Transcriptions "C:\Media" "Japanese" "English"
+```
 
 ## Related Links
 

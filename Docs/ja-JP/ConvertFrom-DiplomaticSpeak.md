@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 外交的または婉曲的な表現を、直接的で明確かつ率直な表現に変換します。
+
+## Description
+
+この関数は、外交的な言葉遣いを受け取り、その背後にある真意を明らかにするために翻訳します。婉曲表現を直接的な表現に変換し、コミュニケーションを明確で理解しやすくするためにAI言語モデルを使用します。この関数は特に、政治的な発言、ビジネスコミュニケーション、または外交的な言葉で真意が隠されている可能性のあるテキストを分析するのに役立ちます。
 
 ## Syntax
 
@@ -77,6 +81,28 @@ ConvertFrom-DiplomaticSpeak [[-Text] <String>] [[-Instructions] <String>] [-Allo
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | AIからのマークアップブロックのみを出力してください。 |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | AI出力におけるマークアップブロックタイプのフィルタリング。 |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | ツールコールの最大コールバック長。 |
+
+## Examples
+
+### ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your approach"
+
+```powershell
+ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your
+approach"
+```
+
+### undiplomatize "Your proposal has merit but requires further consideration"
+
+```powershell
+undiplomatize "Your proposal has merit but requires further consideration"
+```
+
+### "We're putting you on timeout" |     ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+
+```powershell
+"We're putting you on timeout" |
+    ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+```
 
 ## Outputs
 

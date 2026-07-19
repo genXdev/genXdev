@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Запускает интерактивный текстовый чат с возможностями ИИ.
+
+## Description
+
+Инициирует интерактивный чат с возможностями ИИ, позволяя пользователям добавлять или удалять функции PowerShell во время разговора и выполнять команды PowerShell. Эта функция предоставляет комплексный интерфейс для бесед с поддержкой ИИ, обширной интеграцией инструментов и настройкой.
 
 ## Syntax
 
@@ -117,6 +121,21 @@ New-LLMTextChat [[-Instructions] <String>] [[-Attachments] <String[]>] [[-Temper
     }
   }
 } |
+
+## Examples
+
+### New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `     -Instructions "You are a helpful AI assistant"
+
+```powershell
+New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `
+    -Instructions "You are a helpful AI assistant"
+```
+
+### llmchat "Tell me a joke" -Speak -IncludeThoughts
+
+```powershell
+llmchat "Tell me a joke" -Speak -IncludeThoughts
+```
 
 ## Related Links
 

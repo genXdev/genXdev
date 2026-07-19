@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Analyse le contenu des images en utilisant les capacités de vision IA
+
+## Description
+
+Traite des images à l'aide des capacités de vision par IA pour analyser le contenu et répondre aux questions sur l'image. La fonction prend en charge divers paramètres d'analyse, notamment le contrôle de la température pour la randomisation des réponses et les limites de jetons pour la longueur de la sortie.
 
 ## Syntax
 
@@ -101,6 +105,33 @@ Exemple de format de réponse : {"response":"votre réponse réelle ici"}
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longueur maximale de rappel pour les appels d'outils. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | Force a consent prompt even if preference is set for ImageSharp package installation. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Consentir automatiquement à l'installation de logiciels tiers et définir le drapeau persistant pour les paquets ImageSharp. |
+
+## Examples
+
+### Invoke-QueryImageContent `     -Query "What objects are in this image?" `     -ImagePath "C:\Images\sample.jpg" `     -Temperature 0.01
+
+```powershell
+Invoke-QueryImageContent `
+    -Query "What objects are in this image?" `
+    -ImagePath "C:\Images\sample.jpg" `
+    -Temperature 0.01
+```
+
+Analyser une image avec des limites de température et de jetons spécifiques.
+
+### Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+```
+
+### Query-Image "Describe this image" "C:\Images\photo.jpg"
+
+```powershell
+Query-Image "Describe this image" "C:\Images\photo.jpg"
+```
+
+Analyse d'image simple utilisant un alias et des paramètres positionnels.
 
 ## Related Links
 

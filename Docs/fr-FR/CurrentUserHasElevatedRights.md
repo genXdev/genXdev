@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Vérifie si l'utilisateur actuel dispose de droits élevés.
+
+## Description
+
+Détermine si l'utilisateur Windows actuel possède des privilèges d'administrateur ou d'opérateur de sauvegarde en vérifiant leurs rôles de principal de sécurité. Renvoie true si l'utilisateur dispose de droits élevés, false sinon. Implémente une gestion robuste des erreurs pour les problèmes de sécurité et d'accès.
 
 ## Syntax
 
@@ -89,8 +93,19 @@
     }
 ```
 
+## Examples
+
+### $hasRights = CurrentUserHasElevatedRights ##############################################################################
+
+```powershell
+$hasRights = CurrentUserHasElevatedRights
+##############################################################################
+```
+
 ## Outputs
 
+- `Boolean
+Returns true if user has admin or backup operator rights, false otherwise.`
 - `Boolean`
 
 ## Related Links

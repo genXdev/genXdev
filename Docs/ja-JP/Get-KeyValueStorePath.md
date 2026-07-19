@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> キーバリューストアのファイルパスを取得します。
+
+## Description
+
+同期キー、ストア名、ベースディレクトリに基づいてキーバリューストアのファイルパスを構築します。
 
 ## Syntax
 
@@ -19,6 +23,16 @@ Get-KeyValueStorePath [-SynchronizationKey] <string> [-StoreName] <string> [-Bas
 | `-SynchronizationKey` | String | ✅ | — | 0 | — | ストアを識別するために使用される同期キー |
 | `-StoreName` | String | ✅ | — | 1 | — | キーバリューストアの名前 |
 | `-BasePath` | String | — | — | Named | — | ストアファイルのベースディレクトリパス |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-KeyValueStorePath -SynchronizationKey "Local" -StoreName "MyStore"
+```
+
+ローカルキーバリューストアのパスを取得します。
 
 ## Related Links
 

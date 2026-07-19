@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Konvertiert diplomatische oder taktvolle Sprache in direkte, klare und unverblümte Ausdrucksweise.
+
+## Description
+
+Diese Funktion nimmt diplomatische Ausdrucksweisen und übersetzt sie, um die wahre Bedeutung hinter höflicher oder politisch korrekter Sprache zu enthüllen. Sie nutzt KI-Sprachmodelle, um beschönigende Formulierungen in direkte Aussagen zu verwandeln, wodurch Kommunikation eindeutig und leicht verständlich wird. Die Funktion ist besonders nützlich für die Analyse von politischen Aussagen, Geschäftskommunikation oder jeglichen Texten, bei denen die wahre Bedeutung hinter diplomatischer Sprache verborgen sein könnte.
 
 ## Syntax
 
@@ -59,6 +63,28 @@ ConvertFrom-DiplomaticSpeak [[-Text] <String>] [[-Instructions] <String>] [-Allo
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | The `-OutputMarkdownBlocksOnly` parameter. |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types in AI output. |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale Rückruflänge für Tool-Aufrufe. |
+
+## Examples
+
+### ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your approach"
+
+```powershell
+ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your
+approach"
+```
+
+### undiplomatize "Your proposal has merit but requires further consideration"
+
+```powershell
+undiplomatize "Your proposal has merit but requires further consideration"
+```
+
+### "We're putting you on timeout" |     ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+
+```powershell
+"We're putting you on timeout" |
+    ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+```
 
 ## Outputs
 

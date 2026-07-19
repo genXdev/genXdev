@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Öffnet eine Bing-CoPilot-Abfrage in einem Webbrowser
+
+## Description
+
+Öffnet eine Bing CoPilot-Abfrage im Webbrowser. Die Funktion gibt die Abfrage automatisch ein und sendet sie mithilfe der zugrunde liegenden Open-WebsiteAndPerformQuery-Funktion ab. Dies bietet eine bequeme Möglichkeit, über PowerShell mit Microsoft Copilot zu interagieren.
 
 ## Syntax
 
 ```powershell
-Open-BingCopilotQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BingCopilotQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-BingCopilotQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <S
 | `-Chrome` | SwitchParameter | — | — | Named | — | Öffnet in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wird in Microsoft Edge oder Google Chrome geöffnet, je nachdem, welcher der Standardbrowser ist |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Öffnet in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Verwenden Sie den von Playwright verwalteten Browser anstelle des im Betriebssystem installierten Browsers. |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Öffnet den von Playwright verwalteten WebKit-Browser. Impliziert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Führen Sie den Browser ohne sichtbares Fenster aus |
 | `-All` | SwitchParameter | — | — | Named | — | Öffnet in allen registrierten modernen Browsern |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Der zu verwendende Monitor: 0 = Standard, -1 = Verwerfen, -2 = Konfigurierter sekundärer Monitor, Standard ist -1, keine Positionierung |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Öffnet im Vollbildmodus |
@@ -57,6 +64,20 @@ Open-BingCopilotQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <S
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Browsersitzung/-profil vor dem Öffnen löschen. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Laden des Browser-Sitzungs-/Profil-Ladens überspringen. |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Positionieren Sie das Browserfenster entweder im Vollbildmodus auf einem anderen Monitor als PowerShell oder nebeneinander mit PowerShell auf demselben Monitor. |
+
+## Examples
+
+### Open-BingCopilotQuery -Queries "How to write better PowerShell functions?"
+
+```powershell
+Open-BingCopilotQuery -Queries "How to write better PowerShell functions?"
+```
+
+### aibc "What is the capital of France?"
+
+```powershell
+aibc "What is the capital of France?"
+```
 
 ## Related Links
 

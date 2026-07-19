@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berekent de resonantiefrequentie voor een gesloten pijp.
+
+## Description
+
+Gebruikt f = v / (4 L) voor de grondfrequentie.
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-ResonantFrequencyByLengthAndSpeed [-LengthInMeters] <double> [-Medium] <stri
 | `-SpeedInMetersPerSecond` | Double | ✅ | — | 1 | `0` | Golfsnelheid in m/s *(Parameter set: )* |
 | `-Medium` | String | ✅ | — | 1 | — | Het medium *(Parameter set: )* |
 | `-As` | String | — | — | 2 | — | Eenheid voor frequentie |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ResonantFrequencyByLengthAndSpeed -LengthInMeters 0.5 -Medium "air" -As "kilohertz"
+```
+
+Berekent de resonantiefrequentie voor een pijp van 0,5 meter in lucht, uitvoer in kilohertz.
+
+### Example 2
+
+```powershell
+Get-ResonantFrequencyByLengthAndSpeed 1 -SpeedInMetersPerSecond 343
+```
+
+Berekent de resonantiefrequentie voor een 1 meter lange buis met een geluidssnelheid van 343 m/s.
 
 ## Related Links
 

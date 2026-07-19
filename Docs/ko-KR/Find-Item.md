@@ -8,27 +8,29 @@
 
 ## Description
 
-• Find-Item을 사용하여 파일 찾기 -> l
-        • 빠른 멀티스레드 검색: 구성 가능한 최대 병렬 처리 수준(기본값은 CPU 코어 기준)으로 병렬 및 비동기 I/O 처리를 활용하여 효율적인 파일 및 디렉터리 스캔.
-        • 고급 패턴 매칭: 와일드카드(*, ?), 재귀 패턴(예: **) 및 복잡한 경로 구조를 지원하여 정밀한 파일 및 디렉터리 쿼리 수행.
-              **/filename은 filename이 일치할 때까지만 재귀합니다. 이러한 패턴은 filename 또는 directoryname이 앞에 오는 한 여러 개 허용됩니다.
-              이 패턴 파서는 Resolve-Path의 기능을 가지면서도 재귀 기능이 있으며, 와일드카드로 *와 ?만 지원하므로 [ ] 대괄호가 포함된 경로에서 발생하는 버그를 방지하고, 전체 경로에 대한 와일드카드 매칭과 달리 와일드카드가 없는 경로 섹션의 무결성을 유지합니다.
-        • 향상된 콘텐츠 검색: -Content 매개변수를 사용한 파일 내용 내 정규식 패턴에 대한 포괄적인 Select-String 통합.
-            • 대용량 파일 최적화: 스마트 중첩 버퍼와 최소 힙 할당으로 매우 큰 파일 처리.
-            • 다중 일치 옵션: 줄당 모든 일치 항목 찾기(-AllMatches) 또는 파일당 첫 번째 일치 항목만 찾기(-List).
-            • 대소문자 구분 제어: 문화권별 옵션(-Culture)을 사용한 대소문자 구분 매칭(-CaseSensitive).
-            • 컨텍스트 캡처: 일치 항목 앞뒤 줄 표시(-Context)로 이해도 향상.
-            • 역방향 매칭: 패턴을 포함하지 않는 파일 찾기(-NotMatch).
-            • 출력 형식: 원시 문자열 출력(-Raw), 부울 응답(-Quiet), 또는 전체 MatchInfo 개체.
-            • 패턴 유형: 정규식(기본값) 또는 단순 리터럴 문자열 매칭(-SimpleMatch).
-            • 인코딩 지원: 정확한 텍스트 처리를 위한 파일 인코딩 지정(-Encoding).
-        • 경로 유형 유연성: 상대 경로, 절대 경로, UNC 경로, 루트 경로 및 NTFS 대체 데이터 스트림(ADS) 처리, 스트림 내 선택적 콘텐츠 검색.
-        • 다중 드라이브 지원: -AllDrives로 모든 드라이브 검색 또는 -SearchDrives로 특정 드라이브 검색(지정된 경우 광 디스크 포함).
-        • 디렉터리 및 파일 필터링: 디렉터리만 검색(-Directory), 파일과 디렉터리 모두 검색(-FilesAndDirectories), 또는 콘텐츠 일치 파일 검색 옵션.
-        • 제외 및 제한: -Exclude로 패턴 제외, 최대 재귀 깊이 설정(-MaxRecursionDepth), 파일 크기 제한(-MaxFileSize, -MinFileSize), 수정 날짜 필터(-ModifiedAfter, -ModifiedBefore).
-        • 출력 사용자 정의: PassThru를 통한 FileInfo/DirectoryInfo 개체, 상대 경로, 대화형 모드의 하이퍼링크, 비대화형 모드의 일반 경로 지원(문제 발생 시 -NoLinks 사용하여 비대화형 모드 강제).
-        • 성능 최적화: 콘텐츠 검색 시 기본적으로 비텍스트 파일 건너뜀(-IncludeNonTextFileMatching으로 재정의), 긴 경로(>260자) 처리, 심볼 링크/정션 따라가기.
-        • 안전 기능: 시간 제한 지원(-TimeoutSeconds), 액세스 불가 항목 무시, 기본적으로 시스템 특성 건너뜀, 방문 노드 추적으로 무한 루프 방지.
+* Find-Item을 사용하여 파일 찾기 -> l
+        * 빠른 멀티스레드 검색: 병렬 및 비동기 I/O 처리를 활용하며, 파일 및 디렉터리 스캔을 위한 최대 병렬 처리 수준(기본값은 CPU 코어 기반)을 구성할 수 있습니다.
+        * 고급 패턴 일치: 와일드카드(*, ?), **와 같은 재귀 패턴, 정확한 파일 및 디렉터리 쿼리를 위한 복잡한 경로 구조를 지원합니다.
+          **/filename은 filename이 일치할 때까지 재귀합니다. 이러한 패턴은 파일 이름이나 디렉터리 이름 앞에 오는 한 여러 개 허용됩니다.
+          이 패턴 파서는 Resolve-Path의 기능을 가지지만 재귀 기능이 있으며 와일드카드로 *와 ?만 지원하여,
+          경로에 [ ] 대괄호가 있는 경우 버그를 방지하고, -LiteralPath 매개변수의 필요성을 없애며,
+          전체 경로에 대한 와일드카드 일치와 달리 와일드카드가 없는 경로 부분의 무결성을 유지합니다.
+        * 향상된 콘텐츠 검색: -Content 매개변수를 사용하여 파일 내용 내에서 정규식 패턴을 통한 포괄적인 Select-String 통합.
+            * 대용량 파일 최적화: 스마트 중첩 버퍼와 최소 힙 할당으로 매우 큰 파일을 처리합니다.
+            * 여러 일치 옵션: 줄당 모든 일치 항목 찾기(-AllMatches) 또는 파일당 첫 번째 일치 항목만 찾기(-List)
+            * 대소문자 구분 제어: 문화권별 옵션(-Culture)을 포함한 대소문자 구분 일치(-CaseSensitive)
+            * 컨텍스트 캡처: 더 나은 이해를 위해 일치 항목 전후의 줄 표시(-Context)
+            *역방향 일치: 패턴을 포함하지 않는 파일 찾기(-NotMatch)
+            * 출력 형식: 원시 문자열 출력(-Raw), 조용한 부울 응답(-Quiet), 또는 전체 MatchInfo 개체
+            * 패턴 유형: 정규식(기본값) 또는 단순 리터럴 문자열 일치(-SimpleMatch)
+            * 인코딩 지원: 정확한 텍스트 처리를 위한 파일 인코딩 지정(-Encoding)
+        * 경로 유형 유연성: 상대 경로, 절대 경로, UNC, 루팅 경로 및 NTFS 대체 데이터 스트림(ADS)을 처리하며 스트림에서 선택적 콘텐츠 검색을 지원합니다.
+        * 멀티 드라이브 지원: -AllDrives로 모든 드라이브를 검색하거나 -SearchDrives를 통해 특정 드라이브를 검색하며, 지정된 경우 광 디스크도 포함합니다.
+        * 디렉터리 및 파일 필터링: 디렉터리만 검색(-Directory), 파일과 디렉터리 모두 검색(-FilesAndDirectories), 또는 콘텐츠 일치가 있는 파일 검색 옵션.
+        * 제외 및 제한: -Exclude로 패턴 제외, 최대 재귀 깊이 설정(-MaxRecursionDepth), 파일 크기 제한(-MaxFileSize, -MinFileSize), 수정 날짜 필터(-ModifiedAfter, -ModifiedBefore).
+        * 출력 사용자 지정: FileInfo/DirectoryInfo 개체, 상대 경로, 대화형 모드의 하이퍼링크, 비대화형 모드의 일반 경로에 대한 PassThru 지원(문제 발생 시 -NoLinks를 사용하여 비대화형 모드 적용).
+        * 성능 최적화: 콘텐츠 검색 시 기본적으로 비텍스트 파일 건너뛰기(-IncludeNonTextFileMatching으로 재정의), 긴 경로(260자 초과) 처리, 심볼릭 링크/정션 따르기.
+        * 안전 기능: 시간 초과 지원(-TimeoutSeconds), 접근 불가능한 항목 무시, 기본적으로 시스템 특성 건너뛰기, 방문 노드 추적으로 무한 루프 방지.
 
 ## Syntax
 
@@ -138,8 +140,8 @@ Find-Item -Directory
 l -dir
 ```
 
-모든 디렉터리 나열
-현재 디렉터리와 그 하위 디렉터리에 있는 모든 디렉터리를 찾습니다.
+모든 디렉토리 나열
+현재 디렉토리와 그 하위 디렉토리에 있는 모든 디렉토리를 찾습니다.
 
 ### Example 4
 
@@ -150,8 +152,8 @@ Find-Item ".\*.xml" -PassThru | % FullName
 l *.xml -pt | % FullName
 ```
 
-Find XML files and pass objects
-Search for all .xml files and pass the results as objects through the pipeline.
+XML 파일을 찾고 객체 전달
+모든 .xml 파일을 검색하고 결과를 객체로 파이프라인을 통해 전달합니다.
 
 ### Example 5
 
@@ -163,7 +165,7 @@ l -ads
 ```
 
 대체 데이터 스트림 포함
-모든 파일을 검색하고 결과에 대체 데이터 스트림을 포함합니다.
+모든 파일을 검색하고 결과에 대체 데이터 스트림을 포함시킵니다.
 
 ### Example 6
 
@@ -186,8 +188,8 @@ Find-Item "*.log" -TimeoutSeconds 300 -MaxDegreeOfParallelism 4
 l *.log -maxseconds 300 -threads 4
 ```
 
-사용자 정의 타임아웃 및 병렬 처리
-5분 타임아웃과 제한된 병렬 처리로 로그 파일을 검색합니다.
+사용자 지정 시간 초과 및 병렬 처리
+5분 시간 초과와 제한된 병렬 처리로 로그 파일을 검색합니다.
 
 ### Example 8
 
@@ -199,7 +201,7 @@ ls C:\Logs | l -matchcontent "error"
 ```
 
 파이프라인 입력
-Get-ChildItem에서 파일 경로를 전달하여 "error"가 포함된 파일을 검색합니다.
+Get-ChildItem에서 파일 경로를 전달하여 "error"를 포함하는 파일을 검색합니다.
 
 ### Example 9
 
@@ -211,7 +213,7 @@ l *.txt -maxdepth 2
 ```
 
 재귀 깊이 제한
-텍스트 파일을 검색하되 재귀를 디렉터리 2단계로 제한합니다.
+텍스트 파일을 검색하되 디렉터리 수준을 2단계로 제한합니다.
 
 ### Example 10
 
@@ -222,8 +224,8 @@ Find-Item -MinFileSize 1048576 -MaxFileSize 10485760
 l -minsize 1048576 -maxsize 10485760
 ```
 
-파일 크기 기준으로 필터링
-1MB보다 크고 10MB보다 작은 파일 찾기.
+파일 크기로 필터링
+1MB보다 크고 10MB보다 작은 파일을 찾습니다.
 
 ### Example 11
 
@@ -235,7 +237,7 @@ l -after "2025-01-01"
 ```
 
 수정 날짜로 필터링
-2025년 1월 1일 이후에 수정된 파일을 찾습니다.
+2025년 1월 1일 이후에 수정된 파일 찾기.
 
 ### Example 12
 
@@ -247,7 +249,7 @@ l -skiplike "*.tmp", "*\bin\*"
 ```
 
 특정 패턴 제외
-임시 파일과 bin 디렉터리를 제외하고 모든 파일 검색
+모든 파일을 검색하되 임시 파일과 bin 디렉터리는 제외합니다.
 
 ### Example 13
 
@@ -259,7 +261,7 @@ l *.docx -drives C:\, D:\
 ```
 
 특정 드라이브 검색
-C: 및 D: 드라이브에서만 .docx 파일 검색
+C: 및 D: 드라이브에서 .docx 파일만 검색합니다.
 
 ### Example 14
 
@@ -271,7 +273,7 @@ l -mc "Error" -CaseSensitive
 ```
 
 대소문자 구분 콘텐츠 검색
-파일 내용에서 "Error"(대소문자 구분)를 검색합니다.
+내용에 "Error"(대소문자 구분)가 포함된 파일 검색
 
 ### Example 15
 
@@ -283,7 +285,7 @@ l -ads -sads -mc "secret"
 ```
 
 대체 데이터 스트림 내용 검색
-"secret"이 포함된 대체 데이터 스트림을 가진 파일 검색
+'secret'을 포함하는 대체 데이터 스트림이 있는 파일 검색
 
 ### Example 16
 
@@ -294,8 +296,8 @@ Find-Item "*.ps1" -Content "function" -AllMatches
 l *.ps1 -mc "function" -AllMatches
 ```
 
-모든 줄에서 일치 항목 찾기
-각 줄에서 "function"의 모든 발생을 검색하며, 첫 번째 일치만 검색하지 않습니다.
+각 줄에서 모든 일치 항목 찾기
+각 줄에서 "function"의 모든 항목을 검색하며, 첫 번째 일치 항목만이 아닌 모든 항목을 찾습니다.
 
 ### Example 17
 
@@ -306,8 +308,8 @@ Find-Item "*.log" -Content "error" -Context 2,3
 l *.log -mc "error" -Context 2,3
 ```
 
-매칭 결과 주변 내용 표시
-각 일치 항목 앞 2줄, 뒤 3줄을 표시하여 더 나은 이해를 돕습니다.
+일치 항목 주변 컨텍스트 표시
+각 일치 항목 앞에 2줄, 뒤에 3줄을 표시하여 더 잘 이해할 수 있도록 합니다.
 
 ### Example 18
 
@@ -318,7 +320,7 @@ Find-Item "*.txt" -Content "TODO:.*" -Raw
 l *.txt -mc "TODO:.*" -Raw
 ```
 
-일치하는 문자열만 반환
+일치하는 문자열만 가져오기
 전체 일치 객체 대신 일치하는 텍스트 문자열만 반환합니다.
 
 ### Example 19
@@ -330,8 +332,8 @@ Find-Item "*.config" -Content "database" -Quiet
 l *.config -mc "database" -Quiet
 ```
 
-간단한 불리언 검사
-패턴 존재 여부 확인 시 일치 상세 대신 true/false 반환
+단순 불리언 확인
+패턴 존재 여부를 확인하기 위해 일치 세부정보 대신 true/false 반환.
 
 ### Example 20
 
@@ -342,8 +344,8 @@ Find-Item "*.cs" -Content "class.*Controller" -List
 l *.cs -mc "class.*Controller" -List
 ```
 
-파일당 첫 번째 일치 항목만 찾기
-효율적인 파일 목록을 위해 각 파일의 첫 번째 일치 항목에서 중단합니다.
+파일별 첫 번째 일치 항목만 찾기
+각 파일의 첫 번째 일치에서 중단하여 효율적인 파일 목록화를 수행합니다.
 
 ### Example 21
 
@@ -354,8 +356,8 @@ Find-Item "*.txt" -Content "$variable[0]" -SimpleMatch
 l *.txt -mc "$variable[0]" -SimpleMatch
 ```
 
-리터럴 문자열 매칭
-SimpleMatch를 사용하여 정규식 해석 없이 정확한 텍스트 검색
+리터럴 문자열 일치
+SimpleMatch를 사용하여 정규식 해석 없이 정확한 텍스트 검색합니다.
 
 ### Example 22
 
@@ -366,8 +368,8 @@ Find-Item "*.js" -Content "console\.log" -NotMatch
 l *.js -mc "console\.log" -NotMatch
 ```
 
-패턴이 포함되지 않은 파일 찾기
-NotMatch를 사용하여 지정된 패턴이 포함되지 않은 파일을 찾습니다.
+패턴을 포함하지 않는 파일 찾기
+NotMatch를 사용하여 지정된 패턴을 포함하지 않는 파일을 찾습니다.
 
 ### Example 23
 
@@ -378,8 +380,8 @@ Find-Item "*.txt" -Content "café" -Encoding UTF8
 l *.txt -mc "café" -Encoding UTF8
 ```
 
-Specify file encoding
-Search files with specific encoding for accurate text processing.
+파일 인코딩 지정
+정확한 텍스트 처리를 위해 특정 인코딩으로 파일 검색.
 
 ### Example 24
 
@@ -391,7 +393,7 @@ l *.txt -mc "Müller" -SimpleMatch -Culture "de-DE"
 ```
 
 문화 텍스트 비교
-SimpleMatch을 사용하여 국제 텍스트에 문화별 매칭을 적용합니다.
+국제 텍스트에 대해 SimpleMatch를 사용한 문화별 매칭 사용
 
 ### Example 25
 
@@ -402,7 +404,7 @@ Find-Item "*.log" -Content "exception" -MinFileSize 1024 -ModifiedAfter "2025-01
 l *.log -mc "exception" -minsize 1024 -after "2025-01-01" -maxdepth 3
 ```
 
-파일 필터를 사용한 복잡한 콘텐츠 검색
+복합 콘텐츠 검색 (파일 필터 포함)
 파일 크기, 날짜 및 콘텐츠 필터를 결합하여 정밀한 검색을 수행합니다.
 
 ## Related Links

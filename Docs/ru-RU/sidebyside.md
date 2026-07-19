@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Устанавливает конфигурацию параллельного просмотра по умолчанию.
+
+## Description
+
+Устанавливает поведение по умолчанию для открытия окон GenXdev в режиме "рядом с PowerShell".
+Это полезно для пользователей с одним монитором или тех, кто предпочитает расположение окон рядом.
+См. также командлеты 'secondscreen' и 'restoredefaultmonitor'
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> sidebyside
+
+```powershell
+PS> sidebyside
+```
+
+Устанавливает для окон GenXdev режим бок о бок с PowerShell по умолчанию
 
 ## Related Links
 

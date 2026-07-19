@@ -4,19 +4,27 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Generates a responsive masonry layout HTML gallery from image data.
+
+## Description
+
+이미지를 표시하는 반응형 메이슨리 그리드 레이아웃을 갖춘 대화형 HTML 갤러리를 생성합니다. 기능은 다음과 같습니다:
+- 화면 크기에 맞게 조정되는 반응형 그리드 레이아웃
+- 설명과 키워드를 보여주는 이미지 툴팁
+- 이미지 경로를 클릭하여 복사하는 기능
+- 호버 효과가 있는 깔끔하고 현대적인 스타일링
 
 ## Syntax
 
 ```powershell
-GenerateMasonryLayoutHtml -Images <IEnumerable`1[[GenXdev.Helpers.ImageSearchResult, GenXdev, Version=3.26.2026.0, Culture=neutral, PublicKeyToken=null]]> [[-FilePath] <String>] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-CanDelete] [-CanEdit] [-Description <String>] [-EmbedImages] [-ImageUrlPrefix <String>] [-MaxPrintImages <Int32>] [-PageSize <Int32>] [-RootMargin <String>] [-ShowOnlyPictures] [-SingleColumnMode] [-Threshold <Double>] [-Title <String>] [<CommonParameters>]
+GenerateMasonryLayoutHtml -Images <Object> [[-FilePath] <String>] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-CanDelete] [-CanEdit] [-Description <String>] [-EmbedImages] [-ImageUrlPrefix <String>] [-MaxPrintImages <Int32>] [-PageSize <Int32>] [-RootMargin <String>] [-ShowOnlyPictures] [-SingleColumnMode] [-Threshold <Double>] [-Title <String>] [<CommonParameters>]
 ```
 
 ## Parameters
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Images` | IEnumerable`1[[GenXdev.Helpers.ImageSearchResult, GenXdev, Version=3.26.2026.0, Culture=neutral, PublicKeyToken=null]] | ✅ | ✅ (ByValue) | 0 | — | 이미지 객체의 배열로, 각 객체는 경로, 키워드 및 설명을 포함합니다. |
+| `-Images` | Object | ✅ | — | 0 | — | 이미지 객체의 배열로, 각 객체는 경로, 키워드 및 설명을 포함합니다. |
 | `-FilePath` | String | — | — | 1 | `$null` | 생성된 HTML 파일의 출력 경로 |
 | `-Title` | String | — | — | Named | `'Photo Gallery'` | 갤러리 제목 |
 | `-Description` | String | — | — | Named | `'Hover over images to see face recognition, object detection, and scene classification data'` | 갤러리 설명 |
@@ -32,6 +40,32 @@ GenerateMasonryLayoutHtml -Images <IEnumerable`1[[GenXdev.Helpers.ImageSearchRes
 | `-MaxPrintImages` | Int32 | — | — | Named | `50` | 인쇄 모드에 로드할 최대 이미지 수 |
 | `-RootMargin` | String | — | — | Named | `'1200px'` | IntersectionObserver rootMargin for infinite scroll trigger (e.g. "1200px") |
 | `-Threshold` | Double | — | — | Named | `0.1` | IntersectionObserver 무한 스크롤 트리거를 위한 임계값 |
+
+## Examples
+
+### Create gallery from image array and save to file $images = @(     @{         path = "C:\photos\sunset.jpg"         keywords = @("nature", "sunset", "landscape")         description = @{             short_description = "Mountain sunset"             long_description = "Beautiful sunset over mountain range"         }     } ) GenerateMasonryLayoutHtml -Images $images -FilePath "C:\output\gallery.html"
+
+```powershell
+Create gallery from image array and save to file
+$images = @(
+    @{
+        path = "C:\photos\sunset.jpg"
+        keywords = @("nature", "sunset", "landscape")
+        description = @{
+            short_description = "Mountain sunset"
+            long_description = "Beautiful sunset over mountain range"
+        }
+    }
+)
+GenerateMasonryLayoutHtml -Images $images -FilePath "C:\output\gallery.html"
+```
+
+### Generate HTML string without saving $html = GenerateMasonryLayoutHtml $images
+
+```powershell
+Generate HTML string without saving
+$html = GenerateMasonryLayoutHtml $images
+```
 
 ## Outputs
 

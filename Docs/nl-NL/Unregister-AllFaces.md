@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Verwijdert alle geregistreerde gezichten uit het DeepStack gezichtsherkenningssysteem.
+
+## Description
+
+Deze functie wist alle geregistreerde gezichten uit de DeepStack-gezichtsherkenningsdatabase door alle gezichtsbestanden uit de datastore-map te verwijderen en de service opnieuw te starten om een lege gezichtsregistratie te laden. Dit is een destructieve bewerking die niet ongedaan kan worden gemaakt en die permanent alle geregistreerde gezichtsgegevens verwijdert.
 
 ## Syntax
 
@@ -27,6 +31,32 @@ Unregister-AllFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | Interval in seconden tussen health check pogingen |
 | `-ImageName` | String | — | — | 5 | — | Aangepaste Docker-afbeeldingsnaam om te gebruiken |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Toon Docker Desktop-venster tijdens initialisatie |
+
+## Examples
+
+### Unregister-AllFaces
+
+```powershell
+Unregister-AllFaces
+```
+
+Verwijdert alle geregistreerde gezichten met bevestigingsprompt.
+
+### Unregister-AllFaces -Force
+
+```powershell
+Unregister-AllFaces -Force
+```
+
+Verwijdert alle geregistreerde gezichten zonder bevestigingsvenster.
+
+### unregall -Force
+
+```powershell
+unregall -Force
+```
+
+Gebruik alias om alle gezichten te verwijderen zonder bevestiging.
 
 ## Related Links
 

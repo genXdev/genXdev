@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> SQLite 데이터베이스 테이블에서 데이터를 검색하며, 선택적으로 레코드 수를 제한합니다.
+
+## Description
+
+이 함수는 연결 문자열 또는 데이터베이스 파일 경로를 사용하여 SQLite 데이터베이스 테이블에서 데이터를 조회합니다. Count 매개변수를 통해 데이터베이스 연결 및 검색되는 데이터 양을 제어할 수 있는 유연성을 제공합니다.
 
 ## Syntax
 
@@ -24,6 +28,20 @@ Get-SQLiteTableData -TableName <String> [[-Count] <Int32>] [<CommonParameters>]
 | `-DatabaseFilePath` | String | ✅ | — | 0 | — | SQLite 데이터베이스 파일의 경로입니다. *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 1 | — | 데이터를 조회할 테이블의 이름입니다. |
 | `-Count` | Int32 | — | — | 2 | `100` | 반환할 최대 레코드 수입니다. 모든 레코드를 반환하려면 -1을 입력합니다. |
+
+## Examples
+
+### Get-SQLiteTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+
+```powershell
+Get-SQLiteTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+```
+
+### Get-SQLiteTableData "C:\data\users.db" "Employees"
+
+```powershell
+Get-SQLiteTableData "C:\data\users.db" "Employees"
+```
 
 ## Related Links
 

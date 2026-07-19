@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Récupère une valeur à partir d'un stockage clé-valeur basé sur JSON.
+
+## Description
+
+* Récupère une valeur pour une clé spécifiée à partir d'un magasin de paires clé-valeur basé sur un fichier JSON.
+* Prend en charge les valeurs par défaut optionnelles et la synchronisation entre différentes portées.
+* Fournit une initialisation automatique des répertoires et une synchronisation.
 
 ## Syntax
 
@@ -21,6 +27,24 @@ Get-ValueByKeyFromStore [-StoreName] <string> [-KeyName] <string> [[-DefaultValu
 | `-DefaultValue` | String | — | — | 2 | — | Une valeur par défaut optionnelle |
 | `-SynchronizationKey` | String | — | — | 3 | — | Clé pour identifier la portée de synchronisation |
 | `-DatabasePath` | String | — | — | Named | — | Chemin de la base de données pour les fichiers de données du magasin clé-valeur |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ValueByKeyFromStore -StoreName "AppSettings" -KeyName "Theme" -DefaultValue "Dark"
+```
+
+Récupère la valeur "Theme" de "AppSettings", renvoyant "Dark" si introuvable.
+
+### Example 2
+
+```powershell
+getvalue AppSettings Theme
+```
+
+Utilise l'alias 'getvalue' pour récupérer une valeur.
 
 ## Related Links
 

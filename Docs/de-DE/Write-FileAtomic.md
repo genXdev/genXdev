@@ -8,10 +8,10 @@
 
 ## Description
 
-* Atomisches Schreiben: verwendet eine Temp-Datei + Umbenennungsstrategie, um sicherzustellen, dass die Zieldatei bei Unterbrechung des Prozesses nie in einem korrupten Zustand verbleibt.
-* Wiederholungslogik: wiederholt das Schreiben bis zu MaxRetries Mal mit einer Verzögerung von RetryDelayMs Millisekunden zwischen den Versuchen.
-* Entprellungsunterstützung: wenn DebounceMs > 0, werden schnelle aufeinanderfolgende Schreibvorgänge in dieselbe Datei zusammengefasst – nur die letzte Nutzlast wird geschrieben, sobald die Datei für DebounceMs ms nicht berührt wurde.
-* Verzeichniserstellung: erstellt übergeordnete Verzeichnisse automatisch, falls sie nicht existieren.
+* Atomisches Schreiben: Verwendet eine Temp-Datei + Umbenennungsstrategie, um sicherzustellen, dass die Zieldatei nie in einem korrupten Zustand hinterlassen wird, falls der Prozess unterbrochen wird.
+* Wiederholungslogik: Wiederholt das Schreiben bis zu MaxRetries Mal mit einer Verzögerung von RetryDelayMs Millisekunden zwischen den Versuchen.
+* Entprellungsunterstützung: Wenn DebounceMs > 0, werden schnelle aufeinanderfolgende Schreibvorgänge in dieselbe Datei zusammengefasst – nur das letzte Nutzlast wird geschrieben, sobald die Datei für DebounceMs ms nicht berührt wurde.
+* Verzeichniserstellung: Erstellt übergeordnete Verzeichnisse automatisch, falls sie nicht existieren.
 
 ## Syntax
 
@@ -50,7 +50,7 @@ Schreibt ein Byte-Array atomar mit Standard-Wiederholungseinstellungen in data.b
 Start-Sleep -Seconds 6
 ```
 
-Writes rapidly 100 times but only the final payload (100) is persisted to disk after a 5-second quiet period.
+Schreibt schnell 100 Mal, aber nur die endgültige Nutzlast (100) wird nach einer 5-sekündigen Ruhephase auf die Festplatte geschrieben.
 
 ### Example 3
 

@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> WinMergeがインストールされ、ファイル比較操作に利用可能であることを確認します。
+
+## Description
+
+WinMergeがシステムのPATHにインストールされ、適切に設定されているか確認します。
+見つからない場合は、WinGetを使用してWinMergeをインストールし、ユーザーのPATHに追加します。
+インストールと設定のプロセスを自動的に完了します。
 
 ## Syntax
 
@@ -156,6 +162,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureWinMergeInstalled Ensures WinMerge is installed and properly configured.
+
+```powershell
+EnsureWinMergeInstalled
+Ensures WinMerge is installed and properly configured.
 ```
 
 ## Related Links

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Elimina archivos de metadatos de imágenes de los directorios de imágenes.
+
+## Description
+
+La función Remove-ImageMetaData elimina los archivos de metadatos JSON complementarios que están asociados con imágenes. Puede eliminar de forma selectiva solo palabras clave (description.json), datos de personas (people.json), datos de objetos (objects.json) o datos de escenas (scenes.json), o eliminar todos los archivos de metadatos si no se proporciona ningún modificador específico. Los archivos de metadatos específicos de un idioma se pueden eliminar especificando el parámetro Language, y todas las variantes de idioma se pueden eliminar mediante el modificador AllLanguages.
 
 ## Syntax
 
@@ -28,6 +32,48 @@ Remove-ImageMetaData [[-ImageDirectories] <String[]>] [[-Language] <String>] [[-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Usa configuraciones alternativas guardadas en la sesión para preferencias de IA como idioma, colecciones de imágenes, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | No uses configuraciones alternativas almacenadas en la sesión para preferencias de IA como Idioma, colecciones de imágenes, etc. |
+
+## Examples
+
+### Remove-ImageMetaData -ImageDirectories @("C:\Photos", "D:\MyImages") -Recurse
+
+```powershell
+Remove-ImageMetaData -ImageDirectories @("C:\Photos", "D:\MyImages") -Recurse
+```
+
+Elimina todos los archivos de metadatos de imágenes en múltiples directorios y todos los subdirectorios.
+
+### Remove-ImageMetaData -Recurse -OnlyKeywords
+
+```powershell
+Remove-ImageMetaData -Recurse -OnlyKeywords
+```
+
+Elimina únicamente los archivos description.json de los directorios y subdirectorios predeterminados del sistema.
+
+### Remove-ImageMetaData -OnlyPeople -ImageDirectories @(".\MyPhotos")
+
+```powershell
+Remove-ImageMetaData -OnlyPeople -ImageDirectories @(".\MyPhotos")
+```
+
+Elimina solo los archivos people.json del directorio MyPhotos.
+
+### Remove-ImageMetaData -Language "Spanish" -OnlyKeywords -Recurse
+
+```powershell
+Remove-ImageMetaData -Language "Spanish" -OnlyKeywords -Recurse
+```
+
+Elimina recursivamente los archivos de descripción en inglés y español de los directorios predeterminados.
+
+### removeimagedata -AllLanguages -OnlyKeywords
+
+```powershell
+removeimagedata -AllLanguages -OnlyKeywords
+```
+
+Utiliza alias para eliminar archivos de palabras clave de todos los idiomas compatibles.
 
 ## Related Links
 

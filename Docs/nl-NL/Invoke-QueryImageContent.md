@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Analyseert de inhoud van afbeeldingen met behulp van AI-visuele mogelijkheden
+
+## Description
+
+Verwerkt afbeeldingen met behulp van AI-visuele mogelijkheden om inhoud te analyseren en vragen over de afbeelding te beantwoorden. De functie ondersteunt verschillende analyseparameters, waaronder temperatuurregeling voor willekeurigheid van reacties en tokenlimieten voor uitvoerlengte.
 
 ## Syntax
 
@@ -64,6 +68,33 @@ Invoke-QueryImageContent -Query <String> -ImagePath <String> [[-Instructions] <S
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale terugbellen lengte voor tool-aanroepen. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | Dwing een toestemmingsprompt af, zelfs als er een voorkeur is ingesteld voor de installatie van het ImageSharp-pakket. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Automatisch toestemming geven voor installatie van software van derden en persistente vlag instellen voor ImageSharp-pakketten. |
+
+## Examples
+
+### Invoke-QueryImageContent `     -Query "What objects are in this image?" `     -ImagePath "C:\Images\sample.jpg" `     -Temperature 0.01
+
+```powershell
+Invoke-QueryImageContent `
+    -Query "What objects are in this image?" `
+    -ImagePath "C:\Images\sample.jpg" `
+    -Temperature 0.01
+```
+
+Analyzes an image with specific temperature and token limits.
+
+### Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+```
+
+### Query-Image "Describe this image" "C:\Images\photo.jpg"
+
+```powershell
+Query-Image "Describe this image" "C:\Images\photo.jpg"
+```
+
+Eenvoudige beeldanalyse met behulp van alias en positionele parameters.
 
 ## Related Links
 

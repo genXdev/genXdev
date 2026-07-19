@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sets up custom command not found handling with AI assistance.
+
+## Description
+
+Configures PowerShell to handle unknown commands by either navigating to
+directories or using AI to interpret user intent. The handler first tries any
+existing command not found handler, then checks if the command is a valid path
+for navigation, and finally offers AI assistance for unknown commands.
 
 ## Syntax
 
@@ -179,6 +186,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

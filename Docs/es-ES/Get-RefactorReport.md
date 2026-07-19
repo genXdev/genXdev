@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Genera un informe detallado de las operaciones de refactorización y su estado.
+
+## Description
+
+Analiza e informa sobre el progreso de las operaciones de refactorización examinando su estado actual, estado de finalización y funciones afectadas. Proporciona salida en formato de tabla hash estructurada o columnas de texto alineadas legibles para humanos. El informe incluye nombre de refactorización, clave de prompt, prioridad, estado, número de funciones y porcentaje de finalización.
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-RefactorReport [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-Se
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Si se establece, limpia la caché de sesión antes de ejecutar. |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Si está configurado, omitir la carga de la caché de sesión. |
 | `-AsText` | SwitchParameter | — | — | Named | `False` | Output report in text format instead of Hashtable |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-RefactorReport -Name "DatabaseRefactor" -AsText
+```
+
+Genera un informe de texto para las refactorizaciones que coinciden con "DatabaseRefactor".
+
+### Example 2
+
+```powershell
+refactorreport "*"
+```
+
+Genera un informe de tabla hash para todas las refactorizaciones que usan alias.
 
 ## Outputs
 

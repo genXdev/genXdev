@@ -8,11 +8,11 @@
 
 ## Description
 
-* Atomisches Schreiben: Verwendet eine temporäre Datei + Umbenennungsstrategie, um sicherzustellen, dass die Zieldatei nie in einem korrupten Zustand zurückbleibt, falls der Prozess unterbrochen wird.
-* Wiederholungslogik: Wiederholt den Schreibvorgang bis zu MaxRetries-mal mit einer Verzögerung von RetryDelayMs Millisekunden zwischen den Versuchen.
-* Kodierungsunterstützung: Akzeptiert einen System.Text.Encoding-Parameter zur Steuerung der Ausgabekodierung. Standardmäßig UTF-8.
-* Entprellungsunterstützung: Wenn DebounceMs > 0, werden schnelle aufeinanderfolgende Schreibvorgänge in dieselbe Datei zusammengefasst – nur die letzte Nutzlast wird geschrieben, sobald die Datei für DebounceMs ms nicht mehr berührt wurde.
-* Verzeichniserstellung: Erstellt übergeordnete Verzeichnisse automatisch, falls sie nicht existieren.
+* Atomares Schreiben: Verwendet eine Temp-Datei + Umbenennungsstrategie, um sicherzustellen, dass die Zieldatei nie in einem korrupten Zustand bleibt, wenn der Prozess unterbrochen wird.
+* Wiederholungslogik: Wiederholt den Schreibvorgang bis zu MaxRetries Mal mit einer Verzögerung von RetryDelayMs Millisekunden zwischen den Versuchen.
+* Kodierungsunterstützung: Akzeptiert einen System.Text.Encoding-Parameter zur Steuerung der Ausgabekodierung. Standard ist UTF-8.
+* Entprellung: Wenn DebounceMs > 0 ist, werden aufeinanderfolgende schnelle Schreibvorgänge in dieselbe Datei zusammengefasst – nur die letzte Nutzlast wird geschrieben, sobald die Datei für DebounceMs ms nicht mehr berührt wurde.
+* Verzeichniserstellung: Erstellt automatisch übergeordnete Verzeichnisse, falls sie nicht existieren.
 
 ## Syntax
 
@@ -52,7 +52,8 @@ Get-Content server.log -Tail 50 | ForEach-Object {
 Start-Sleep -Seconds 3
 ```
 
-Leitet 50 Zeilen schnell weiter; nur die letzte Zeile wird nach einer 2-sekündigen Ruhephase gespeichert.
+Leitet 50 Zeilen schnell weiter; nur die letzte Zeile wird nach einer
+2-sekündigen Ruhephase gespeichert.
 
 ### Example 3
 
@@ -78,7 +79,7 @@ $watcher = Start-ThreadJob -ScriptBlock {
 } -ArgumentList "timestamp.txt"
 ```
 
-Ein Hintergrundjob schreibt alle 100 ms Zeitstempel, aber das Entprellen fasst sie zusammen – nur ein Schreibvorgang pro Sekunde erreicht tatsächlich die Festplatte.
+Ein Hintergrundjob schreibt alle 100ms Zeitstempel, aber Debounce fasst sie zusammen – nur ein Schreibvorgang pro Sekunde erreicht tatsächlich die Festplatte.
 
 ## Related Links
 

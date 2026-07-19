@@ -4,12 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens Google site information queries in a web browser.
+
+## Description
+
+Opens multiple Google search queries related to site information (site:, link:,
+related:) in a web browser for the specified domain(s).
 
 ## Syntax
 
 ```powershell
-Open-GoogleSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GoogleSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +29,9 @@ Open-GoogleSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <Str
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opens in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge or Google Chrome, depending on what the default browser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Opens in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use Playwright-managed browser instead of the OS-installed browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opens the Playwright-managed WebKit browser. Implies -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Run the browser without a visible window |
 | `-All` | SwitchParameter | — | — | Named | — | Opens in all registered modern browsers |
 | `-Monitor` | Int32 | — | — | Named | `-1` | The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to -1, no positioning |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opens in fullscreen mode |
@@ -59,6 +67,20 @@ Open-GoogleSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <Str
 | `-PassThru` | SwitchParameter | — | — | Named | — | Returns a [System.Diagnostics.Process] object of the browserprocess |
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | Don't open webbrowser, just return the url |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | After opening webbrowser, return the url |
+
+## Examples
+
+### Open-GoogleSiteInfo -Queries "example.com" -Monitor 0
+
+```powershell
+Open-GoogleSiteInfo -Queries "example.com" -Monitor 0
+```
+
+### "example.com" | Open-GoogleSiteInfo -mon -1
+
+```powershell
+"example.com" | Open-GoogleSiteInfo -mon -1
+```
 
 ## Related Links
 

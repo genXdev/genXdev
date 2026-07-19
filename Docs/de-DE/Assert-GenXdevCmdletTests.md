@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Bestätigt und verbessert Unit-Tests eines bestimmten GenXdev-Cmdlets.
+
+## Description
+
+Diese Funktion hilft, Komponententests für GenXdev-Cmdlets zu pflegen und zu verbessern, indem:
+1. Testdateien erstellt werden, falls sie nicht existieren
+2. Das Cmdlet in VS Code geöffnet wird
+3. KI-Prompts für die Generierung/Verbesserung von Tests vorbereitet und angewendet werden
+4. Der Arbeitsablauf der Testausführung verwaltet wird
 
 ## Syntax
 
@@ -23,6 +31,21 @@ Assert-GenXdevCmdletTests -CmdletName <String> [[-Prompt] <String>] [[-PromptKey
 | `-AssertFailedTest` | SwitchParameter | — | — | Named | — | Weist darauf hin, einen fehlgeschlagenen Test zu behaupten |
 | `-FromScripts` | SwitchParameter | — | — | Named | — | In Skriptdateien statt in Modulen suchen |
 | `-ContinuationHandled` | SwitchParameter | — | — | Named | — | The `-ContinuationHandled` parameter. |
+
+## Examples
+
+### Assert-GenXdevCmdletTests -CmdletName "Get-GenXDevModuleInfo" -EditPrompt
+
+```powershell
+Assert-GenXdevCmdletTests -CmdletName "Get-GenXDevModuleInfo" -EditPrompt
+```
+
+### improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest ##############################################################################
+
+```powershell
+improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest
+##############################################################################
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Actualiza los metadatos de clasificación de escenas para archivos de imagen en un directorio especificado.
+
+## Description
+
+Esta función procesa imágenes en un directorio especificado para clasificar escenas usando inteligencia artificial. Crea archivos de metadatos JSON con clasificaciones de escenas, puntuaciones de confianza y etiquetas. La función admite procesamiento por lotes con umbrales de confianza configurables y puede omitir opcionalmente archivos de metadatos existentes o reintentar clasificaciones fallidas anteriores.
 
 ## Syntax
 
@@ -42,6 +46,40 @@ Invoke-ImageScenesUpdate [[-ImageDirectories] <String[]>] [-ApiKey <String>] [-A
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Usa configuraciones alternativas guardadas en la sesión para preferencias de IA como idioma, colecciones de imágenes, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | No uses configuraciones alternativas almacenadas en la sesión para preferencias de IA como Idioma, colecciones de imágenes, etc. |
+
+## Examples
+
+### Invoke-ImageScenesUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+Procesa todas las imágenes en C:\Fotos y D:\Imágenes y subdirectorios para clasificación de escenas.
+
+### scenerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+
+```powershell
+scenerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+```
+
+Utiliza alias para reintentar clasificaciones fallidas y solo procesar nuevas imágenes en múltiples directorios.
+
+### Invoke-ImageScenesUpdate -ImageDirectories ".\MyImages" -Force -UseGPU
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories ".\MyImages" -Force -UseGPU
+```
+
+Reconstruye el contenedor forzosamente y utiliza aceleración por GPU para un procesamiento más rápido.
+
+### Invoke-ImageScenesUpdate -ImageDirectories "C:\Photos" -ConfidenceThreshold 0.6 -Recurse
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories "C:\Photos" -ConfidenceThreshold 0.6 -Recurse
+```
+
+Processes all images recursively and only stores scene classifications with confidence >= 60%.
 
 ## Related Links
 

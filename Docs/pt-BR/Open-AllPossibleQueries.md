@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre todos os tipos de consulta possíveis para os termos de pesquisa ou URLs fornecidos.
+
+## Description
+
+Executa todos os cmdlets que lidam com consultas de páginas da web, processando tanto URLs quanto termos de pesquisa. Para URLs, realiza consultas específicas do site e, para termos de pesquisa, executa consultas gerais na web. Esta função descobre e executa dinamicamente todos os cmdlets de consulta disponíveis da família de módulos GenXdev.Queries.
 
 ## Syntax
 
 ```powershell
-Open-AllPossibleQueries -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-AllPossibleQueries -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-AllPossibleQueries -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-Chrome` | SwitchParameter | — | — | Named | — | Abre no Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Abre no Microsoft Edge ou Google Chrome, dependendo de qual é o navegador padrão |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Abre no Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use o navegador gerenciado pelo Playwright em vez do navegador instalado no sistema operacional |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre o navegador WebKit gerenciado pelo Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Execute o navegador sem uma janela visível |
 | `-All` | SwitchParameter | — | — | Named | — | Abre em todos os navegadores modernos registrados |
 | `-Monitor` | Int32 | — | — | Named | `-1` | O monitor a ser usado: 0 = padrão, -1 = descartar, -2 = Monitor secundário configurado, o padrão é -1, sem posicionamento |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Abre em modo de tela cheia |
@@ -59,6 +66,24 @@ Open-AllPossibleQueries -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Limpe a sessão do navegador antes de abrir. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Pular restauração de sessão do navegador. |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Posicione a janela do navegador em tela cheia em um monitor diferente do PowerShell, ou lado a lado com o PowerShell no mesmo monitor. |
+
+## Examples
+
+### Open-AllPossibleQueries -Queries "powershell scripting" -Monitor 0
+
+```powershell
+Open-AllPossibleQueries -Queries "powershell scripting" -Monitor 0
+```
+
+Abre todos os tipos de consulta possíveis para "scripting do PowerShell" no monitor padrão.
+
+### qq "https://github.com" -m -1
+
+```powershell
+qq "https://github.com" -m -1
+```
+
+Abre todos os tipos de consulta possíveis para a URL do GitHub usando alias e parâmetros curtos.
 
 ## Related Links
 

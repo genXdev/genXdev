@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Selecciona una pestaña del navegador de los navegadores gestionados por Playwright en ejecución.
+
+## Description
+
+Enumera y selecciona pestañas del navegador de todas las instancias de Playwright en ejecución. Cuando se invoca sin criterios de selección, muestra una tabla de todas las pestañas disponibles en todos los tipos de navegador. Admite selección por índice numérico, patrón de URL o referencia directa a la página.
+
+Cuando se selecciona una pestaña, establece $Global:chromeController y $Global:chromeSession para compatibilidad con otros cmdlets de Webbrowser.
 
 ## Syntax
 
@@ -13,55 +19,59 @@ Select-WebbrowserTab [[-Id] <Int32>] [<CommonParameters>]
 
 Select-WebbrowserTab -Name <String> [<CommonParameters>]
 
-Select-WebbrowserTab -ByReference <PSObject> [<CommonParameters>]
+Select-WebbrowserTab -ByReference <Object> [<CommonParameters>]
 
-Select-WebbrowserTab [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SetForeground] [-SetRestored] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Select-WebbrowserTab [-All] [-Chrome] [-Chromium] [-Edge] [-Firefox] [-Force] [-PlayWright] [-Webkit] [<CommonParameters>]
 ```
 
 ## Parameters
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Id` | Int32 | — | — | 0 | `-1` | This is a sample response that follows the JSON schema. *(Parameter set: )* |
-| `-Name` | String | ✅ | — | 0 | — | Selects first tab containing this name in URL *(Parameter set: )* 🌐 *Supports wildcards* |
-| `-ByReference` | PSObject | ✅ | — | Named | — | Select tab using reference from Get-ChromiumSessionReference *(Parameter set: )* |
-| `-Monitor` | Int32 | — | — | Named | `-1` | El monitor a utilizar, 0 = predeterminado, -1 es descartar, -2 = Monitor secundario configurado, por defecto $Global:DefaultSecondaryMonitor o 2 si no se encuentra |
-| `-Width` | Int32 | — | — | Named | `-1` | El ancho inicial de la ventana del navegador web |
-| `-Height` | Int32 | — | — | Named | `-1` | La altura inicial de la ventana del navegador web |
-| `-X` | Int32 | — | — | Named | `-999999` | La posición inicial X de la ventana del navegador web |
-| `-Y` | Int32 | — | — | Named | `-999999` | La posición Y inicial de la ventana del navegador web |
-| `-AcceptLang` | String | — | — | Named | — | Set browser accept-lang http header |
-| `-FullScreen` | SwitchParameter | — | — | Named | — | Se abre en modo de pantalla completa |
-| `-Private` | SwitchParameter | — | — | Named | — | Se abre en modo de incógnito/navegación privada |
-| `-Chromium` | SwitchParameter | — | — | Named | — | Se abre en Microsoft Edge o Google Chrome, dependiendo de cuál sea el navegador predeterminado |
-| `-Firefox` | SwitchParameter | — | — | Named | — | Se abre en Firefox |
-| `-All` | SwitchParameter | — | — | Named | — | Se abre en todos los navegadores modernos registrados |
-| `-Left` | SwitchParameter | — | — | Named | — | Colocar la ventana del navegador en el lado izquierdo de la pantalla |
-| `-Right` | SwitchParameter | — | — | Named | — | Coloca la ventana del navegador en el lado derecho de la pantalla |
-| `-Top` | SwitchParameter | — | — | Named | — | Coloca la ventana del navegador en la parte superior de la pantalla |
-| `-Bottom` | SwitchParameter | — | — | Named | — | Colocar la ventana del navegador en la parte inferior de la pantalla |
-| `-Centered` | SwitchParameter | — | — | Named | — | Coloca la ventana del navegador en el centro de la pantalla |
-| `-ApplicationMode` | SwitchParameter | — | — | Named | — | Ocultar los controles del navegador |
-| `-NoBrowserExtensions` | SwitchParameter | — | — | Named | — | Prevenir la carga de extensiones del navegador |
-| `-DisablePopupBlocker` | SwitchParameter | — | — | Named | — | Desactivar el bloqueador de ventanas emergentes |
-| `-RestoreFocus` | SwitchParameter | — | — | Named | — | Restaurar el foco de la ventana de PowerShell |
-| `-NewWindow` | SwitchParameter | — | — | Named | — | No reutilices la ventana del navegador existente; en su lugar, crea una nueva. |
-| `-FocusWindow` | SwitchParameter | — | — | Named | — | Enfocar la ventana del navegador después de abrirla |
-| `-SetForeground` | SwitchParameter | — | — | Named | — | Abrir la ventana del navegador en primer plano después de abrir |
-| `-Maximize` | SwitchParameter | — | — | Named | — | Maximizar la ventana después de posicionarla |
-| `-SetRestored` | SwitchParameter | — | — | Named | — | Restaurar la ventana a su estado normal después de posicionar |
-| `-KeysToSend` | String[] | — | — | Named | — | Keystrokes to send to the Browser window, see documentation for cmdlet GenXdev\Send-Key |
-| `-SendKeyEscape` | SwitchParameter | — | — | Named | — | Escapar caracteres de control al enviar teclas |
-| `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | Evitar devolver el foco del teclado a PowerShell después de enviar teclas |
-| `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Send Shift+Enter instead of regular Enter for line breaks |
-| `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | Retraso entre el envío de diferentes secuencias de teclas en milisegundos |
-| `-Edge` | SwitchParameter | — | — | Named | — | Se abre en Microsoft Edge |
-| `-Chrome` | SwitchParameter | — | — | Named | — | Se abre en Google Chrome |
-| `-Force` | SwitchParameter | — | — | Named | — | Forces browser restart if needed |
+| `-Id` | Int32 | — | — | 0 | `-1` | Índice de pestañas de la lista mostrada *(Parameter set: )* |
+| `-Name` | String | ✅ | — | 0 | — | Selecciona la primera pestaña que contenga este texto en su URL *(Parameter set: )* 🌐 *Supports wildcards* |
+| `-ByReference` | Object | ✅ | — | Named | — | Referencia directa a página desde un estado del navegador Playwright *(Parameter set: )* |
+| `-Edge` | SwitchParameter | — | — | Named | — | Filtrar pestañas a instancias del navegador Microsoft Edge |
+| `-Chrome` | SwitchParameter | — | — | Named | — | Filtrar pestañas a instancias del navegador Google Chrome |
+| `-Chromium` | SwitchParameter | — | — | Named | — | Filtrar pestañas a instancias de navegador basadas en Chromium (Edge o Chrome) |
+| `-Firefox` | SwitchParameter | — | — | Named | — | Filtrar pestañas a instancias del navegador Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Filtra las pestañas a todos los tipos de navegador administrados por Playwright |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Filtrar pestañas a instancias del navegador WebKit |
+| `-All` | SwitchParameter | — | — | Named | — | Mostrar pestañas de todos los tipos de navegador (sin filtro) |
+| `-Force` | SwitchParameter | — | — | Named | — | Omitir confirmación y seleccionar la primera pestaña coincidente |
+
+## Examples
+
+### Select-WebbrowserTab Lists all open tabs across all Playwright browser types.
+
+```powershell
+Select-WebbrowserTab
+Lists all open tabs across all Playwright browser types.
+```
+
+### Select-WebbrowserTab -Id 2 Selects the tab at index 2 from the list.
+
+```powershell
+Select-WebbrowserTab -Id 2
+Selects the tab at index 2 from the list.
+```
+
+### st -Name "github.com" Selects the first tab whose URL contains "github.com".
+
+```powershell
+st -Name "github.com"
+Selects the first tab whose URL contains "github.com".
+```
+
+### st -Firefox -Id 0 Selects the first tab from the Firefox browser.
+
+```powershell
+st -Firefox -Id 0
+Selects the first tab from the Firefox browser.
+```
 
 ## Outputs
 
-- `String`
 - `PSObject`
 
 ## Related Links

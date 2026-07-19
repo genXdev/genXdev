@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> OpenAI Whisper를 사용하여 오디오 및 비디오 파일의 자막 파일을 생성합니다.
+
+## Description
+
+지정된 디렉터리에서 미디어 파일을 재귀적으로 검색하고 로컬 OpenAI Whisper 모델을 사용하여 SRT 형식의 자막 파일을 생성합니다. 이 함수는 여러 오디오/비디오 형식을 지원하며 LLM Query를 사용하여 자막을 다른 언어로 선택적으로 번역할 수 있습니다. 파일 이름은 언어 코드(예: video.mp4.en.srt)와 함께 표준화된 패턴을 따릅니다.
 
 ## Syntax
 
@@ -54,6 +58,20 @@ Save-Transcriptions [[-DirectoryPath] <String>] [[-LanguageIn] <String>] [[-Lang
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | AI 기본 설정(예: 언어, 이미지 컬렉션 등)을 세션에 저장된 대체 설정으로 사용합니다. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 지웁니다. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 사용하지 마세요 |
+
+## Examples
+
+### Save-Transcriptions -DirectoryPath "C:\Videos" -LanguageIn "English"
+
+```powershell
+Save-Transcriptions -DirectoryPath "C:\Videos" -LanguageIn "English"
+```
+
+### Save-Transcriptions "C:\Media" "Japanese" "English"
+
+```powershell
+Save-Transcriptions "C:\Media" "Japanese" "English"
+```
 
 ## Related Links
 

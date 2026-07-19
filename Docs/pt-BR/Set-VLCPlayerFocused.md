@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Define o foco para a janela do VLC media player.
+
+## Description
+
+Localiza uma instância em execução do VLC media player e traz sua janela para o primeiro plano, tornando-a a janela ativa. Se o VLC não estiver em execução, continua silenciosamente sem erro. Usa chamadas da API do Windows para manipular o foco da janela.
 
 ## Syntax
 
@@ -44,6 +48,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### Set-VLCPlayerFocused Brings the VLC player window to front and gives it focus
+
+```powershell
+Set-VLCPlayerFocused
+Brings the VLC player window to front and gives it focus
+```
+
+### vlcf Same operation using the short alias
+
+```powershell
+vlcf
+Same operation using the short alias
 ```
 
 ## Related Links

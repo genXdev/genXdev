@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Öffnet eine Quelldatei in der bevorzugten IDE (Visual Studio Code oder Visual Studio).
+
+## Description
+
+Diese Funktion öffnet eine angegebene Quelldatei entweder in Visual Studio Code oder Visual Studio. Sie kann direkt zu einer bestimmten Zeilennummer navigieren und optional Tastatureingaben an die IDE senden, nachdem die Datei geöffnet wurde. Die Funktion versucht zu ermitteln, welche IDE basierend auf dem aktuellen Hostprozess, laufenden Anwendungen oder der Benutzerauswahl verwendet werden soll.
 
 ## Syntax
 
@@ -25,6 +29,20 @@ Open-SourceFileInIde -Path <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]
 | `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | Tastaturfokus auf Zielfenster halten |
 | `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Use Shift+Enter instead of Enter |
 | `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | Verzögerung zwischen verschiedenen Eingabe-Strings in Millisekunden |
+
+## Examples
+
+### Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+
+```powershell
+Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+```
+
+### editcode "C:\Projects\MyScript.ps1" 25
+
+```powershell
+editcode "C:\Projects\MyScript.ps1" 25
+```
 
 ## Related Links
 

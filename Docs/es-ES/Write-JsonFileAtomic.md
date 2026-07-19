@@ -8,11 +8,11 @@
 
 ## Description
 
-* Escritura atómica: utiliza una estrategia de archivo temporal + renombrado para garantizar que el archivo de destino nunca quede en un estado corrupto si el proceso se interrumpe.
-* Lógica de reintento: reintenta la escritura hasta un máximo de MaxRetries veces con un retardo de RetryDelayMs milisegundos entre intentos.
-* Soporte de objetos: acepta cualquier objeto, no solo Hashtable. Serializa mediante System.Text.Json con respaldo a ConvertTo-Json para tipos .NET complejos que no se pueden serializar de forma nativa.
-* Soporte de debounce: cuando DebounceMs > 0, las escrituras consecutivas rápidas al mismo archivo se fusionan; solo se escribe la última carga útil una vez que el archivo no ha sido tocado durante DebounceMs ms.
-* Creación de directorios: crea directorios padres automáticamente si no existen.
+* Escritura atómica: utiliza una estrategia de archivo temporal + renombrado para asegurar que el archivo de destino nunca quede en un estado corrupto si el proceso se interrumpe.
+* Lógica de reintento: reintenta la escritura hasta MaxRetries veces con un retardo de RetryDelayMs milisegundos entre intentos.
+* Soporte para objetos: acepta cualquier objeto, no solo Hashtable. Serializa a través de System.Text.Json con recurso a ConvertTo-Json para tipos complejos de .NET que no pueden serializarse de forma nativa.
+* Soporte para debounce: cuando DebounceMs > 0, las escrituras consecutivas rápidas al mismo archivo se fusionan — solo se escribe la última carga útil una vez que el archivo no ha sido tocado durante DebounceMs ms.
+* Creación de directorios: crea los directorios padre automáticamente si no existen.
 
 ## Syntax
 

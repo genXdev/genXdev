@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent een Wikipedia-query in een webbrowser.
+
+## Description
+
+Opent een of meerdere Wikipedia-zoekopdrachten in een webbrowser met uitgebreide configuratiemogelijkheden. Ondersteunt configureerbaar browser gedrag, monitorselectie en vensterpositionering. Zoekopdrachten worden URL-gecodeerd en geopend met het Wikipedia-domein van de opgegeven taal, met volledige lokalisatieondersteuning.
+
+De functie biedt uitgebreide browsercontrole, inclusief privé-browsermodi, vensterpositionering, toetsenbordautomatisering en ondersteuning voor meerdere schermen. Het verwerkt automatisch URL-codering en taalcodetoewijzing voor internationale Wikipedia-domeinen.
 
 ## Syntax
 
 ```powershell
-Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +30,9 @@ Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Str
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opent in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wordt geopend in Microsoft Edge of Google Chrome, afhankelijk van wat de standaardbrowser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Openen in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Gebruik de door Playwright beheerde browser in plaats van de in het besturingssysteem geïnstalleerde browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opent de door Playwright beheerde WebKit-browser. Impliceert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Voer de browser uit zonder een zichtbaar venster |
 | `-All` | SwitchParameter | — | — | Named | — | Opent in alle geregistreerde moderne browsers |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Te gebruiken monitor, 0 = standaard, -1 = negeren, -2 = geconfigureerd secundair scherm |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opent in volledig scherm |
@@ -59,6 +68,32 @@ Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen die in de sessie zijn opgeslagen voor AI-voorkeuren. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wissen Sie, dass alternative Einstellungen, die in der Sitzung gespeichert sind, für KI-Präferenzen gelöscht wurden. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. |
+
+## Examples
+
+### Open-WikipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+
+```powershell
+Open-WikipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+```
+
+Opent een Wikipedia-zoekopdracht voor "PowerShell" in het Engels op het standaardmonitor.
+
+### wiki "PowerShell" -mon 0
+
+```powershell
+wiki "PowerShell" -mon 0
+```
+
+Open een Wikipedia-zoekopdracht met het alias en positionele parameters.
+
+### "PowerShell", "Windows" | Open-WikipediaQuery -Language "German" -Private
+
+```powershell
+"PowerShell", "Windows" | Open-WikipediaQuery -Language "German" -Private
+```
+
+Searches for multiple terms in German Wikipedia using private browsing mode.
 
 ## Related Links
 

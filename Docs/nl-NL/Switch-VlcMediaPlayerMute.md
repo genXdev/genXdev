@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Schakelt de demping van de VLC Media Player in of uit.
+
+## Description
+
+Deze functie stuurt de toets 'm' naar VLC Media Player om te schakelen tussen gedempte en niet-gedempte audiostreamen. De functie focust VLC, verzendt het dempen/niet-dempen commando en herstelt daarna de focus naar het eerder actieve venster.
 
 ## Syntax
 
@@ -29,6 +33,24 @@
 
     }
 ```
+
+## Examples
+
+### Switch-VlcMediaPlayerMute
+
+```powershell
+Switch-VlcMediaPlayerMute
+```
+
+Schakelt de dempstatus van VLC Media Player om met de volledige functienaam.
+
+### vlcmute
+
+```powershell
+vlcmute
+```
+
+Schakelt de dempstatus van VLC Media Player om met behulp van de korte alias.
 
 ## Related Links
 

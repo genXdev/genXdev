@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 通过使用DeepStack将上传图像中的人脸与已知人脸进行比较，识别出图像中的人脸。
+
+## Description
+
+此函数通过对比图像文件与数据库中已知人脸进行人脸识别分析。它利用在可配置端口上运行的本地DeepStack人脸识别API，返回带置信度分数的人脸匹配结果。该函数支持GPU加速、自定义置信度阈值及Docker容器管理。
 
 ## Syntax
 
@@ -28,6 +32,35 @@ Get-ImageDetectedFaces -ImagePath <String> [-ConfidenceThreshold <Double>] [-Con
 | `-Force` | SwitchParameter | — | — | Named | — | 强制重建 Docker 容器并移除现有数据 |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | 使用GPU加速版本（需要NVIDIA GPU） |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 在初始化期间显示 Docker Desktop 窗口 |
+
+## Examples
+
+### Get-ImageDetectedFaces -ImagePath "C:\Users\YourName\test.jpg" `                        -ConfidenceThreshold 0.5 `                        -ContainerName "deepstack_face_recognition" `                        -VolumeName "deepstack_face_data" `                        -ServicePort 5000 `                        -HealthCheckTimeout 60 `                        -HealthCheckInterval 3 Recognizes faces in the specified image using full parameter names.
+
+```powershell
+Get-ImageDetectedFaces -ImagePath "C:\Users\YourName\test.jpg" `
+                       -ConfidenceThreshold 0.5 `
+                       -ContainerName "deepstack_face_recognition" `
+                       -VolumeName "deepstack_face_data" `
+                       -ServicePort 5000 `
+                       -HealthCheckTimeout 60 `
+                       -HealthCheckInterval 3
+Recognizes faces in the specified image using full parameter names.
+```
+
+### Get-ImageDetectedFaces "C:\photos\family.jpg" -Force -UseGPU Recognizes faces using positional parameter and aliases.
+
+```powershell
+Get-ImageDetectedFaces "C:\photos\family.jpg" -Force -UseGPU
+Recognizes faces using positional parameter and aliases.
+```
+
+### "C:\Users\YourName\test.jpg" | Get-ImageDetectedFaces Recognizes faces using pipeline input.
+
+```powershell
+"C:\Users\YourName\test.jpg" | Get-ImageDetectedFaces
+Recognizes faces using pipeline input.
+```
 
 ## Related Links
 

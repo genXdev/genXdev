@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет доплеровски сдвинутую частоту.
+
+## Description
+
+Использует f' = f * (v + vo) / (v - vs), скорости положительны при движении навстречу.
 
 ## Syntax
 
@@ -24,6 +28,24 @@ Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed [-OriginalFrequencyInHert
 | `-SpeedOfSoundInMetersPerSecond` | Double | — | — | 3 | `0` | Скорость звука в м/с (по умолчанию: 343) *(Parameter set: )* |
 | `-Medium` | String | ✅ | — | 3 | — | Среда *(Parameter set: )* |
 | `-As` | String | — | — | 4 | — | Output unit for frequency |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed -OriginalFrequencyInHertz 440 -SourceSpeedInMetersPerSecond 10 -ObserverSpeedInMetersPerSecond 5 -Medium "water" -As "kilohertz"
+```
+
+Вычисляет доплеровскую сдвинутую частоту для тона 440 Гц при движении источника к наблюдателю со скоростью 10 м/с, наблюдателя к источнику со скоростью 5 м/с, в водной среде, вывод в килогерцах.
+
+### Example 2
+
+```powershell
+Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed 440 10 0 -SpeedOfSoundInMetersPerSecond 1480
+```
+
+Вычисляет доплеровский сдвиг частоты для тона 440 Гц при движении источника со скоростью 10 м/с, неподвижном наблюдателе и скорости звука 1480 м/с.
 
 ## Related Links
 

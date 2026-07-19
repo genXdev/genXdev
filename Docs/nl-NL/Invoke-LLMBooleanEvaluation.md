@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Evaluates a statement using AI to determine if it's true or false.
+
+## Description
+
+Deze functie gebruikt AI-modellen om uitspraken te evalueren en hun waarheidswaarde te bepalen. Het kan invoer accepteren via parameters, van de pijplijn, of van het systeemklembord. De functie retourneert een booleaanse waarde samen met het vertrouwensniveau en de redenering van het AI-model.
 
 ## Syntax
 
@@ -79,6 +83,27 @@ Invoke-LLMBooleanEvaluation [[-Text] <String>] [[-Instructions] <String>] [[-Att
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | — | Gebruik beam search samplingstrategie |
 | `-OnlyResponses` | SwitchParameter | — | — | Named | — | {'response': 'Hier is uw geformatteerde tekstuitvoer.'} |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | The `-MaxToolcallBackLength` parameter. |
+
+## Examples
+
+### Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+
+```powershell
+Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+```
+
+### "Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+
+```powershell
+"Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+```
+
+### equalstrue "2 + 2 = 4" ##############################################################################
+
+```powershell
+equalstrue "2 + 2 = 4"
+##############################################################################
+```
 
 ## Outputs
 

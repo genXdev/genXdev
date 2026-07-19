@@ -4,12 +4,33 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在网络浏览器中打开 GitHub 仓库搜索查询，或针对 GitHub REST API 执行高级搜索，支持所有可用的限定符和搜索类别（仓库、代码、议题、用户、提交、讨论、主题、Wiki）。
+
+## Description
+
+在Web浏览器中打开GitHub仓库搜索查询，具有丰富的自定义选项，或执行高级API搜索。该函数提供了一个强大的界面，用于从PowerShell快速访问GitHub仓库，支持多种浏览器、窗口定位、语言过滤和键盘自动化，或通过API检索结构化数据。
+
+主要功能：
+- 支持通过管道输入多个搜索查询
+- 语言特定过滤，自动本地化
+- 多浏览器支持（Edge、Chrome、Firefox）
+- 高级窗口定位和显示器选择
+- 隐私/无痕浏览模式
+- 专注浏览的应用模式
+- 键盘自动化和焦点管理
+- 提供URL返回选项以便编程使用
+- 高级API搜索，支持限定符、排序、分页
+- 支持所有GitHub搜索类型
+- 使用个人访问令牌进行身份验证
+- API搜索的异步任务执行
+- 输出原始JSON或结构化对象
+
+该函数自动构建Web模式的GitHub搜索URL或API模式的API端点，并将所有浏览器相关参数传递给底层的Open-Webbrowser函数以确保行为一致。
 
 ## Syntax
 
 ```powershell
-Open-GithubQuery -Query <String[]> [-AcceptLang <String>] [-CaseSensitive] [-In <String[]>] [-Language <String>] [-Order <String>] [-Org <String>] [-Page <Int32>] [-PassThru] [-PerPage <Int32>] [-Repo <String>] [-Size <String>] [-SortBy <String>] [-Type <String>] [-User <String>] [<CommonParameters>]
+Open-GithubQuery -Query <String[]> [-AcceptLang <String>] [-All] [-CaseSensitive] [-Headless] [-In <String[]>] [-Language <String>] [-Order <String>] [-Org <String>] [-Page <Int32>] [-PassThru] [-PerPage <Int32>] [-PlayWright] [-Repo <String>] [-Size <String>] [-SortBy <String>] [-Type <String>] [-User <String>] [-Webkit] [<CommonParameters>]
 
 Open-GithubQuery [-Extension <String>] [-Filename <String>] [-Path <String>] [<CommonParameters>]
 
@@ -17,7 +38,7 @@ Open-GithubQuery [-Assignee <String>] [-Author <String>] [-Labels <String[]>] [-
 
 Open-GithubQuery [-Api] [-AsJob] [-RawResponse] [-Token <String>] [<CommonParameters>]
 
-Open-GithubQuery [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GithubQuery [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -79,7 +100,10 @@ Open-GithubQuery [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chr
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌Chrome浏览器中打开搜索结果。 *(Parameter set: )* |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器的不同，在Microsoft Edge或Google Chrome中打开搜索结果。 *(Parameter set: )* |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Mozilla Firefox 浏览器中打开搜索结果。 *(Parameter set: )* |
-| `-All` | SwitchParameter | — | — | Named | — | 在所有已注册的现代浏览器中打开搜索结果。 *(Parameter set: )* |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
+| `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 以全屏模式打开浏览器。 *(Parameter set: )* |
 | `-Left` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕左侧。 *(Parameter set: )* |
 | `-Right` | SwitchParameter | — | — | Named | — | 将浏览器窗口置于屏幕右侧。 *(Parameter set: )* |
@@ -105,6 +129,53 @@ Open-GithubQuery [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chr
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 使用存储在会话中的替代设置来设置偏好。 *(Parameter set: )* |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的偏好设置备选方案。 *(Parameter set: )* |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. *(Parameter set: )* |
+
+## Examples
+
+### Open-GithubQuery -Query "powershell module" -Language "PowerShell" Opens a search for PowerShell modules in Github with language filtering.
+
+```powershell
+Open-GithubQuery -Query "powershell module" -Language "PowerShell"
+Opens a search for PowerShell modules in Github with language filtering.
+```
+
+### qgithub "azure functions" -Monitor 0 Opens a search for Azure Functions on the primary monitor using the alias.
+
+```powershell
+qgithub "azure functions" -Monitor 0
+Opens a search for Azure Functions on the primary monitor using the alias.
+```
+
+### Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc -PerPage 1 Repository search: Find top-starred PowerShell repo in GitHub
+
+```powershell
+Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc
+-PerPage 1
+Repository search: Find top-starred PowerShell repo in GitHub
+```
+
+### Open-GithubQuery -Type Code -Query "def " -Language python -In File Code search for function definitions in Python
+
+```powershell
+Open-GithubQuery -Type Code -Query "def " -Language python -In File
+Code search for function definitions in Python
+```
+
+### Open-GithubQuery -Type Issue -Query security -Repo microsoft/vscode -Labels bug -State open Issue search: All open bugs mentioning 'security' in microsoft/vscode
+
+```powershell
+Open-GithubQuery -Type Issue -Query security -Repo microsoft/vscode -Labels
+bug -State open
+Issue search: All open bugs mentioning 'security' in microsoft/vscode
+```
+
+### Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc -PerPage 1 -Api API mode for repository search.
+
+```powershell
+Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc
+-PerPage 1 -Api
+API mode for repository search.
+```
 
 ## Outputs
 

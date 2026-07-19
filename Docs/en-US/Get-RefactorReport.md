@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Generates a detailed report of refactoring operations and their status.
+
+## Description
+
+Analyzes and reports on the progress of refactoring operations by examining their current state, completion status, and affected functions. Provides output in either structured hashtable format or human-readable aligned text columns. The report includes refactor name, prompt key, priority, status, function count and completion percentage.
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-RefactorReport [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-Se
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | If set, clear the session cache before running. |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | If set, skip loading session cache. |
 | `-AsText` | SwitchParameter | — | — | Named | `False` | Output report in text format instead of Hashtable |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-RefactorReport -Name "DatabaseRefactor" -AsText
+```
+
+Generates a text report for refactors matching "DatabaseRefactor".
+
+### Example 2
+
+```powershell
+refactorreport "*"
+```
+
+Generates hashtable report for all refactors using alias.
 
 ## Outputs
 

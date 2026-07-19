@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Reconnaît les visages dans une image téléchargée en les comparant à des visages connus via DeepStack.
+
+## Description
+
+Cette fonction analyse un fichier image pour identifier des visages en les comparant aux visages connus dans la base de données. Elle utilise une API locale de reconnaissance faciale DeepStack fonctionnant sur un port configurable et renvoie les correspondances de visages avec leurs scores de confiance. La fonction prend en charge l'accélération GPU, les seuils de confiance personnalisés et la gestion des conteneurs Docker.
 
 ## Syntax
 
@@ -28,6 +32,35 @@ Get-ImageDetectedFaces -ImagePath <String> [-ConfidenceThreshold <Double>] [-Con
 | `-Force` | SwitchParameter | — | — | Named | — | Force rebuild of Docker container and remove existing data |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Version accélérée par GPU (nécessite un GPU NVIDIA) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Afficher la fenêtre de Docker Desktop pendant l'initialisation |
+
+## Examples
+
+### Get-ImageDetectedFaces -ImagePath "C:\Users\YourName\test.jpg" `                        -ConfidenceThreshold 0.5 `                        -ContainerName "deepstack_face_recognition" `                        -VolumeName "deepstack_face_data" `                        -ServicePort 5000 `                        -HealthCheckTimeout 60 `                        -HealthCheckInterval 3 Recognizes faces in the specified image using full parameter names.
+
+```powershell
+Get-ImageDetectedFaces -ImagePath "C:\Users\YourName\test.jpg" `
+                       -ConfidenceThreshold 0.5 `
+                       -ContainerName "deepstack_face_recognition" `
+                       -VolumeName "deepstack_face_data" `
+                       -ServicePort 5000 `
+                       -HealthCheckTimeout 60 `
+                       -HealthCheckInterval 3
+Recognizes faces in the specified image using full parameter names.
+```
+
+### Get-ImageDetectedFaces "C:\photos\family.jpg" -Force -UseGPU Recognizes faces using positional parameter and aliases.
+
+```powershell
+Get-ImageDetectedFaces "C:\photos\family.jpg" -Force -UseGPU
+Recognizes faces using positional parameter and aliases.
+```
+
+### "C:\Users\YourName\test.jpg" | Get-ImageDetectedFaces Recognizes faces using pipeline input.
+
+```powershell
+"C:\Users\YourName\test.jpg" | Get-ImageDetectedFaces
+Recognizes faces using pipeline input.
+```
 
 ## Related Links
 

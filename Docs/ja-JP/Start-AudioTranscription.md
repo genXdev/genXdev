@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 音声ファイル、動画ファイル、または録音デバイスをテキストに書き起こします
+
+## Description
+
+Whisper AIモデルを使用して、音声ファイル、動画ファイル、または録音デバイスからテキストに文字起こしします。この関数は様々な音声および動画形式を処理し、文字起こしに適した形式に変換し、必要に応じて出力を別の言語に翻訳することもできます。SRT字幕形式の出力や、文字起こしの品質を微調整するための様々な音声処理パラメータをサポートしています。
 
 ## Syntax
 
@@ -72,6 +76,34 @@ Start-AudioTranscription [[-Input] <Object>] [[-LanguageIn] <String>] [[-Languag
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 言語、画像コレクションなどのAI設定用にセッションに保存されている代替設定をクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | AIの設定（言語、画像コレクションなど）にセッションに保存された代替設定を使用しない |
 | `-VOX` | SwitchParameter | — | — | Named | — | 無音検出を使用して録音を自動停止する |
+
+## Examples
+
+### Start-AudioTranscription -Input "C:\path\to\audio.wav" `     -LanguageIn "English" -LanguageOut "French" -SRT
+
+```powershell
+Start-AudioTranscription -Input "C:\path\to\audio.wav" `
+    -LanguageIn "English" -LanguageOut "French" -SRT
+```
+
+### transcribefile "C:\video.mp4" "English"
+
+```powershell
+transcribefile "C:\video.mp4" "English"
+```
+
+### Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+
+```powershell
+Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+```
+
+### Start-AudioTranscription  # Records from microphone when no file specified ##############################################################################
+
+```powershell
+Start-AudioTranscription  # Records from microphone when no file specified
+##############################################################################
+```
 
 ## Related Links
 

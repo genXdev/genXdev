@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Executa testes de unidade para módulos, submódulos ou cmdlets do GenXdev
+com depuração inteligente e resolução de erros com IA.
+
+## Description
+
+Esta função fornece uma estrutura de teste para módulos GenXdev,
+ofertando execução de testes em vários níveis, desde módulos inteiros até
+cmdlets individuais. Ela integra PSScriptAnalyzer para análise de código estática, Pester para
+teste de unidade e PSScriptAnalyzer para análise de código estática. A
+função inclui tratamento inteligente de erros com capacidades de resolução
+baseadas em IA e relatórios detalhados de progresso para fluxos de trabalho de desenvolvimento.
 
 ## Syntax
 
@@ -34,6 +44,40 @@ Assert-GenXdevTest [-IncludeScripts] [-SkipModuleImports] [<CommonParameters>]
 | `-SkipModuleImports` | SwitchParameter | — | — | Named | — | Pula a importação de módulos GenXdev antes de testar *(Parameter set: )* |
 | `-SkipPSAnalyzerTests` | SwitchParameter | — | — | Named | — | Pula a execução dos testes do PSAnalyzer |
 | `-SkipPesterTests` | SwitchParameter | — | — | Named | — | Ignora a execução de testes Pester |
+
+## Examples
+
+### Assert-GenXdevTest -ModuleName "GenXdev.AI" Executes all tests for the GenXdev.AI module including PSScriptAnalyzer and Pester tests.
+
+```powershell
+Assert-GenXdevTest -ModuleName "GenXdev.AI"
+Executes all tests for the GenXdev.AI module including PSScriptAnalyzer and
+Pester tests.
+```
+
+### Assert-GenXdevTest -SubModuleName "GenXdev.Coding.PowerShell.Modules" `     -TestFailedAction SolveWithAI Tests the specified sub-module and uses AI to automatically resolve any failures encountered during testing.
+
+```powershell
+Assert-GenXdevTest -SubModuleName "GenXdev.Coding.PowerShell.Modules" `
+    -TestFailedAction SolveWithAI
+Tests the specified sub-module and uses AI to automatically resolve any
+failures encountered during testing.
+```
+
+### Assert-GenXdevTest -CmdletName "Get-GenXDevCmdlet" -Verbosity Detailed Tests the specific cmdlet with detailed output showing all test operations and results.
+
+```powershell
+Assert-GenXdevTest -CmdletName "Get-GenXDevCmdlet" -Verbosity Detailed
+Tests the specific cmdlet with detailed output showing all test operations
+and results.
+```
+
+### testcmdlet Assert-GenXdevTest Uses the alias to test the current cmdlet with default settings.
+
+```powershell
+testcmdlet Assert-GenXdevTest
+Uses the alias to test the current cmdlet with default settings.
+```
 
 ## Related Links
 

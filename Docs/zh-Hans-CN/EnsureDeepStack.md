@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 确保 DeepStack 面部识别服务已安装并正在运行。
+
+## Description
+
+此函数使用Docker设置和管理DeepStack人脸识别服务。它确保Docker Desktop已安装，拉取DeepStack Docker镜像，并在容器中运行服务，同时为已注册人脸提供持久化存储。
+
+DeepStack提供了一个简单的REST API，用于人脸检测、注册和识别，该API文档齐全且维护活跃。
 
 ## Syntax
 
@@ -45,6 +51,24 @@ EnsureDeepStack [[-ContainerName] <String>] [[-VolumeName] <String>] [[-ServiceP
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
+
+## Examples
+
+### EnsureDeepStack -ContainerName "deepstack_face_recognition" `                 -VolumeName "deepstack_face_data" `                 -ServicePort 5000 `                 -HealthCheckTimeout 60 `                 -HealthCheckInterval 3
+
+```powershell
+EnsureDeepStack -ContainerName "deepstack_face_recognition" `
+                -VolumeName "deepstack_face_data" `
+                -ServicePort 5000 `
+                -HealthCheckTimeout 60 `
+                -HealthCheckInterval 3
+```
+
+### EnsureDeepStack -Force -UseGPU
+
+```powershell
+EnsureDeepStack -Force -UseGPU
+```
 
 ## Outputs
 

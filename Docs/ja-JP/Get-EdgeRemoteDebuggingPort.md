@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Microsoft Edge ブラウザ用に構成されたリモートデバッグポートを返します。
+
+## Description
+
+Microsoft Edge ブラウザのデバッグインターフェースに接続するために使用されるリモートデバッグポート番号を取得します。グローバル変数 $Global:EdgeDebugPort でカスタムポートが設定されていない場合は、デフォルトのポート 9223 を返します。この関数はカスタムポート設定を検証し、無効な場合はデフォルトにフォールバックします。
 
 ## Syntax
 
@@ -54,8 +58,19 @@
     }
 ```
 
+## Examples
+
+### Get-EdgeRemoteDebuggingPort Returns the configured debug port (default 9223 if not configured)
+
+```powershell
+Get-EdgeRemoteDebuggingPort
+Returns the configured debug port (default 9223 if not configured)
+```
+
 ## Outputs
 
+- `Int32
+Returns the port number to use for Edge remote debugging`
 - `Int32`
 
 ## Related Links

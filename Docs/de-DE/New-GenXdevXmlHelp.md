@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Generiert MAML-XML-Hilfedateien für jedes PowerShell-Modul.
+
+## Description
+
+Generiert MAML-XML-Hilfedateien für jedes PowerShell-Modul, indem Metadaten aus allen Cmdlets eines Moduls mithilfe von Get-CmdletMetaData extrahiert werden und sowohl ModuleName.dll-Help.xml (für C#-Cmdlets) als auch ModuleName-help.xml (für
 
 ## Syntax
 
@@ -37,6 +41,32 @@ New-GenXdevXmlHelp -ModuleName <String> [-Force] [-Language <String>] [-SkipTran
   },
   "type": "json_schema"
 } |
+
+## Examples
+
+### New-GenXdevXmlHelp -ModuleName 'Pester'
+
+```powershell
+New-GenXdevXmlHelp -ModuleName 'Pester'
+```
+
+Generiert englische Hilfe-XML für das Pester-Modul in en-US.
+
+### New-GenXdevXmlHelp -ModuleName 'GenXdev' -Language 'nl-NL' -Force
+
+```powershell
+New-GenXdevXmlHelp -ModuleName 'GenXdev' -Language 'nl-NL' -Force
+```
+
+Generiert niederländische Hilfe-XML für GenXdev und überschreibt vorhandene Dateien.
+
+### New-GenXdevXmlHelp -ModuleName 'PSReadLine' -WhatIf
+
+```powershell
+New-GenXdevXmlHelp -ModuleName 'PSReadLine' -WhatIf
+```
+
+Zeigt an, welche Dateien erstellt würden, ohne sie tatsächlich zu schreiben.
 
 ## Outputs
 

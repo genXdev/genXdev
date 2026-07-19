@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> SQLiteデータベースからテーブル名のリストを取得します。
+
+## Description
+
+sqlite_masterシステムテーブルをクエリして、SQLiteデータベースからすべてのユーザー定義テーブル名を取得します。直接接続文字列またはデータベースファイルパスのいずれかを介して接続できます。テーブル名を文字列のコレクションとして返します。
 
 ## Syntax
 
@@ -20,6 +24,23 @@ Get-SQLiteTables -DatabaseFilePath <String> [<CommonParameters>]
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-ConnectionString` | String | ✅ | — | 0 | — | SQLiteデータベースへの接続文字列。 *(Parameter set: )* |
 | `-DatabaseFilePath` | String | ✅ | — | 0 | — | SQLite データベースファイルへのパス。 *(Parameter set: )* |
+
+## Examples
+
+### Get-SQLiteTables -DatabaseFilePath "C:\Databases\Inventory.sqlite" Returns all table names from the specified database file
+
+```powershell
+Get-SQLiteTables -DatabaseFilePath "C:\Databases\Inventory.sqlite"
+Returns all table names from the specified database file
+```
+
+### Get-SQLiteTables -ConnectionString "Data Source=C:\DB\Users.sqlite;Version=3;" Returns all table names using a custom connection string ##############################################################################
+
+```powershell
+Get-SQLiteTables -ConnectionString "Data Source=C:\DB\Users.sqlite;Version=3;"
+Returns all table names using a custom connection string
+##############################################################################
+```
 
 ## Related Links
 

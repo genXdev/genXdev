@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Adds a new WireGuard VPN peer (client) configuration to the server.
+
+## Description
+
+This function adds a new peer to the WireGuard VPN server running in a Docker
+container. It generates a new client configuration with a unique IP address,
+creates necessary cryptographic keys, and returns the configuration details.
+The function can optionally save the configuration to a file or generate a QR
+code for easy mobile device setup. The function validates peer names, checks
+for duplicates, and handles various error conditions gracefully.
 
 ## Syntax
 
@@ -53,6 +62,25 @@ Add-WireGuardPeer -PeerName <String> [[-AllowedIPs] <String>] [[-DNS] <String>] 
 | `-ShowQRCode` | SwitchParameter | — | — | Named | — | Generate QR code for easy mobile setup |
 | `-NoDockerInitialize` | SwitchParameter | — | — | Named | — | Skip Docker initialization (used when already called by parent function) |
 | `-Force` | SwitchParameter | — | — | Named | — | Force rebuild of Docker container and remove existing data |
+
+## Examples
+
+### Add-WireGuardPeer -PeerName "MyPhone" -AllowedIPs "0.0.0.0/0, ::/0" `     -DNS "1.1.1.1, 1.0.0.1" -SaveConfig -OutputPath `     "$env:USERPROFILE\WireGuardConfigs" -ShowQRCode -ContainerName "wireguard" `     -VolumeName "wireguard_data" -ServicePort 51839 -HealthCheckTimeout 60 `     -HealthCheckInterval 3 -ImageName "linuxserver/wireguard" -PUID "1000" `     -PGID "1000" -TimeZone "Etc/UTC"
+
+```powershell
+Add-WireGuardPeer -PeerName "MyPhone" -AllowedIPs "0.0.0.0/0, ::/0" `
+    -DNS "1.1.1.1, 1.0.0.1" -SaveConfig -OutputPath `
+    "$env:USERPROFILE\WireGuardConfigs" -ShowQRCode -ContainerName "wireguard" `
+    -VolumeName "wireguard_data" -ServicePort 51839 -HealthCheckTimeout 60 `
+    -HealthCheckInterval 3 -ImageName "linuxserver/wireguard" -PUID "1000" `
+    -PGID "1000" -TimeZone "Etc/UTC"
+```
+
+### Add-WireGuardPeer "MyTablet" -ShowQRCode
+
+```powershell
+Add-WireGuardPeer "MyTablet" -ShowQRCode
+```
 
 ## Related Links
 

@@ -4,12 +4,20 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens a X Grok query in a webbrowser
+
+## Description
+
+Opens a X Grok query in the webbrowser, types in the query and presses enter to
+execute the search. This function provides a convenient way to interact with
+X's Grok AI assistant through automated browser control. The function supports
+extensive browser control including monitor selection, window positioning, and
+keyboard automation features.
 
 ## Syntax
 
 ```powershell
-Open-XGrokQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-XGrokQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +32,9 @@ Open-XGrokQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opens in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge or Google Chrome, depending on what the default browser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Opens in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use Playwright-managed browser instead of the OS-installed browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opens the Playwright-managed WebKit browser. Implies -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Run the browser without a visible window |
 | `-All` | SwitchParameter | — | — | Named | — | Opens in all registered modern browsers |
 | `-Monitor` | Int32 | — | — | Named | `-1` | The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to -1, no positioning |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opens in fullscreen mode |
@@ -58,6 +69,20 @@ Open-XGrokQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor. |
+
+## Examples
+
+### Open-XGrokQuery -Queries "powershell function"
+
+```powershell
+Open-XGrokQuery -Queries "powershell function"
+```
+
+### aixg "powershell function"
+
+```powershell
+aixg "powershell function"
+```
 
 ## Related Links
 

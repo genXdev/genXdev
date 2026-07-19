@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 検索条件に一致するファイルを日付ベースのサブフォルダに移動します。
+
+## Description
+
+`Find-Item`と同じパラメーターセットを使用してファイルを検索し、一致した各ファイルを、そのファイルの作成日またはメディア日付に基づいて`TargetFolder`のサブフォルダーに移動します。このコマンドレットは、コンテンツマッチング、ドライブ全体の検索、多数のフィルターをサポートしています。移動後、空になったソースフォルダーを必要に応じて削除することもできます。
+
+指定されたファイルの正確な作成日付またはキャプチャ日付を判別するために、複数の戦略を試みます。戦略には、画像のEXIFメタデータの読み取り、ファイル名からの日付/時刻情報の解析、および他の信頼できる情報がない場合のファイルの最終更新日時の使用が含まれます。
 
 ## Syntax
 
@@ -80,6 +86,38 @@ Move-FilesToDateFolder [[-Content] <String[]>] [-AllMatches] [-CaseSensitive] [-
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Use simple string matching instead of regex *(Parameter set: )* |
 | `-DeleteEmptyDirs` | SwitchParameter | — | — | Named | — | ファイル移動後に空のソースディレクトリを削除する |
 | `-TargetFolderNameDateSyntax` | String | — | — | Named | `'Year + Month'` | ターゲットフォルダ名の日付構文 |
+
+## Examples
+
+### Move all pictures and videos to the corresponsing Android Onedrive App Image backup folders     Move-FilesToDateFolder -TargetFolder "~\onedrive\Pictures\Camera Roll" `                            -SourceFolder ~\Pictures\*, ~\onedrive\*, ~\desktop\* `                            -FollowSymlinkAndJunctions `                            -DeleteEmptyDirs `                            -Category 'Pictures', 'Videos' `                            -Confirm:$false
+
+```powershell
+Move all pictures and videos to the corresponsing Android Onedrive App Image backup folders
+    Move-FilesToDateFolder -TargetFolder "~\onedrive\Pictures\Camera Roll" `
+                           -SourceFolder ~\Pictures\*, ~\onedrive\*, ~\desktop\* `
+                           -FollowSymlinkAndJunctions `
+                           -DeleteEmptyDirs `
+                           -Category 'Pictures', 'Videos' `
+                           -Confirm:$false
+```
+
+### Move all jpg files from the current directory into date folders under `D:\Archive` (dry run):
+
+```powershell
+Move all jpg files from the current directory into date folders under
+`D:\Archive` (dry run):
+```
+
+Move-FilesToDateFolder -TargetFolder 'D:\Archive' -Name '*.jpg' -WhatIf
+
+### Move all files across drives matching `*.mp4` into monthly folders and delete empty source folders:
+
+```powershell
+Move all files across drives matching `*.mp4` into monthly folders and delete
+empty source folders:
+```
+
+Move-FilesToDateFolder -TargetFolder 'E:\Media\Videos' -Name '.\*.mp4' -DeleteEmptyDirs
 
 ## Related Links
 

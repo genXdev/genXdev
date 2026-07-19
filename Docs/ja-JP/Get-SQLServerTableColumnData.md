@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> SQLデータベーステーブルの特定のカラムからデータを取得します。
+
+## Description
+
+この関数は、SQLデータベーステーブルの単一カラムからデータを抽出する便利な方法を提供します。データベースファイルの直接パスまたは接続文字列の2つの接続方法をサポートしています。返されるレコード数を制限するオプションを含み、最適なパフォーマンスのために適切なSQLクエリ構築を使用します。
 
 ## Syntax
 
@@ -26,6 +30,23 @@ Get-SQLServerTableColumnData -TableName <String> -ColumnName <String> [[-Count] 
 | `-TableName` | String | ✅ | — | 2 | — | クエリするテーブルの名前 |
 | `-ColumnName` | String | ✅ | — | 3 | — | 取得する列の名前 |
 | `-Count` | Int32 | — | — | 4 | `100` | 返却するレコード数。デフォルトは100。すべての場合は-1を使用。 |
+
+## Examples
+
+### Get-SQLServerTableColumnData -DatabaseFilePath "C:\MyDb.sqlite" `     -TableName "Employees" `     -ColumnName "Email" `     -Count 10
+
+```powershell
+Get-SQLServerTableColumnData -DatabaseFilePath "C:\MyDb.sqlite" `
+    -TableName "Employees" `
+    -ColumnName "Email" `
+    -Count 10
+```
+
+### Get-SQLServerTableColumnData "C:\MyDb.sqlite" "Employees" "Email"
+
+```powershell
+Get-SQLServerTableColumnData "C:\MyDb.sqlite" "Employees" "Email"
+```
 
 ## Related Links
 

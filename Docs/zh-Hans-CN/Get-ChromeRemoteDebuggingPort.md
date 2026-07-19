@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 返回Google Chrome配置的远程调试端口。
+
+## Description
+
+检索并管理Google Chrome的远程调试端口配置。
+函数首先检查存储在$Global:ChromeDebugPort中的自定义端口号。
+如果未找到或无效，则默认使用端口9222。该端口号随后被全局存储，
+以供其他Chrome自动化函数使用。
 
 ## Syntax
 
@@ -58,8 +65,26 @@
     }
 ```
 
+## Examples
+
+### $port = Get-ChromeRemoteDebuggingPort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromeRemoteDebuggingPort
+Write-Host "Chrome debug port: $port"
+```
+
+### $port = Get-ChromePort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromePort
+Write-Host "Chrome debug port: $port"
+```
+
 ## Outputs
 
+- `Int32
+Returns the configured Chrome debugging port number.`
 - `Int32`
 
 ## Related Links

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Transcribes an audio file, video file, or a recording device to text
+
+## Description
+
+Transkribiert eine Audiodatei, Videodatei oder ein Aufnahmegerät mithilfe des Whisper-KI-Modells in Text. Die Funktion kann verschiedene Audio- und Videoformate verarbeiten, sie in das geeignete Format für die Transkription konvertieren und optional die Ausgabe in eine andere Sprache übersetzen. Unterstützt die SRT-Untertitelformatausgabe und verschiedene Audioverarbeitungsparameter zur Feinabstimmung der Transkriptionsqualität.
 
 ## Syntax
 
@@ -64,6 +68,34 @@ Dies ist ein weiterer Satz im SRT-Format. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Deutliche Alternativ-Einstellungen, die in der Sitzung gespeichert sind, für KI-Präferenzen wie Sprache, Bildersammlungen usw. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Verwenden Sie keine alternativen in der Sitzung gespeicherten Einstellungen für KI-Präferenzen wie Sprache, Bildsammlungen usw. |
 | `-VOX` | SwitchParameter | — | — | Named | — | Use silence detection to automatically stop recording |
+
+## Examples
+
+### Start-AudioTranscription -Input "C:\path\to\audio.wav" `     -LanguageIn "English" -LanguageOut "French" -SRT
+
+```powershell
+Start-AudioTranscription -Input "C:\path\to\audio.wav" `
+    -LanguageIn "English" -LanguageOut "French" -SRT
+```
+
+### transcribefile "C:\video.mp4" "English"
+
+```powershell
+transcribefile "C:\video.mp4" "English"
+```
+
+### Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+
+```powershell
+Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+```
+
+### Start-AudioTranscription  # Records from microphone when no file specified ##############################################################################
+
+```powershell
+Start-AudioTranscription  # Records from microphone when no file specified
+##############################################################################
+```
 
 ## Related Links
 

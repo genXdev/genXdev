@@ -4,12 +4,20 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在网页浏览器中打开IMDB搜索查询。
+
+## Description
+
+在网页浏览器中打开“互联网电影数据库”查询，提供丰富的配置选项。此函数是对IMDB搜索功能的便捷包装，允许用户直接从PowerShell搜索电影、电视剧、演员及其他娱乐内容。
+
+该函数接受搜索词并构建正确的IMDB搜索URL，然后在指定的网页浏览器中打开，并支持自定义窗口位置、浏览器选择和显示选项。它支持所有主流浏览器，包括Edge、Chrome和Firefox，并提供隐私浏览、全屏模式和窗口管理等选项。
+
+主要功能包括多显示器支持、语言本地化、键盘自动化和全面的浏览器配置选项。该函数可同时处理多个搜索查询，并提供交互式使用和自动化工作流程的选项。
 
 ## Syntax
 
 ```powershell
-Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -31,6 +39,9 @@ Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
 | `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-Left` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕左侧 |
 | `-Right` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕右侧 |
@@ -59,6 +70,40 @@ Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | 并排打开浏览器窗口 |
+
+## Examples
+
+### Open-IMDBQuery -Queries "The Matrix" -Monitor 0
+
+```powershell
+Open-IMDBQuery -Queries "The Matrix" -Monitor 0
+```
+
+Opens an IMDB search for "The Matrix" on the default monitor.
+
+### imdb "The Matrix" -m 0
+
+```powershell
+imdb "The Matrix" -m 0
+```
+
+Opens an IMDB search for "The Matrix" using the alias and shorthand parameters.
+
+### "Inception", "Interstellar" | Open-IMDBQuery -Language "French" -Chrome
+
+```powershell
+"Inception", "Interstellar" | Open-IMDBQuery -Language "French" -Chrome
+```
+
+Searches for multiple movies on IMDB with French language results in Chrome.
+
+### Open-IMDBQuery -Queries "Tom Hanks" -FullScreen -RestoreFocus
+
+```powershell
+Open-IMDBQuery -Queries "Tom Hanks" -FullScreen -RestoreFocus
+```
+
+在全屏模式下在IMDB上搜索汤姆·汉克斯，然后将焦点返回到PowerShell。
 
 ## Related Links
 

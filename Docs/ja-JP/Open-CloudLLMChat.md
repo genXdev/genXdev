@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AIクエリ用のクラウドLLMチャットインターフェースを開きます。
+
+## Description
+
+この関数は、さまざまなクラウドベースのAIチャットサービスをウェブブラウザで開くための統一されたインターフェースを提供します。ChatGPT、BingCopilot、Google Gemini、X Grok、DeepSearch、GitHub Copilotを含む複数のAIプラットフォームをサポートしています。関数は自動的に適切なエンドポイント固有の関数を選択し、ブラウザ設定とウィンドウ位置指定に関するすべての関連パラメータを透過的に渡します。
 
 ## Syntax
 
 ```powershell
-Open-CloudLLMChat -Queries <String[]> [[-EndPoint] <String>] [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-CloudLLMChat -Queries <String[]> [[-EndPoint] <String>] [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -25,6 +29,9 @@ Open-CloudLLMChat -Queries <String[]> [[-EndPoint] <String>] [[-Language] <Strin
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 使用するモニター、0=デフォルト、-1=破棄、-2=設定済みセカンダリモニター、デフォルトは-1、位置決めなし |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | ウィンドウをPowerShellとは別のモニターで全画面表示にするか、同じモニターでPowerShellと並べて表示するかのどちらかになります。 |
@@ -58,6 +65,32 @@ Open-CloudLLMChat -Queries <String[]> [[-EndPoint] <String>] [[-Language] <Strin
 | `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | キー送信後、PowerShellにキーボードフォーカスが戻らないようにする |
 | `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | 改行のために通常のEnterではなくShift+Enterを送信する |
 | `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | 異なるキーシーケンスを送信する間の遅延（ミリ秒単位） |
+
+## Examples
+
+### Open-CloudLLMChat -Queries "How to write better PowerShell functions?" -EndPoint "ChatGPT"
+
+```powershell
+Open-CloudLLMChat -Queries "How to write better PowerShell functions?" -EndPoint "ChatGPT"
+```
+
+ChatGPTを開き、PowerShell関数に関するクエリを送信します。
+
+### ask "What is machine learning?" -EndPoint "GoogleGemini"
+
+```powershell
+ask "What is machine learning?" -EndPoint "GoogleGemini"
+```
+
+エイリアスを使用して、Google Geminiに機械学習について質問する。
+
+### "PowerShell", "Python", "JavaScript" | Open-CloudLLMChat -EndPoint "XGrok" -Monitor 0
+
+```powershell
+"PowerShell", "Python", "JavaScript" | Open-CloudLLMChat -EndPoint "XGrok" -Monitor 0
+```
+
+既定のモニターで X Grok を通じて複数のクエリを処理します。
 
 ## Related Links
 

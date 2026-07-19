@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 新しい顔をDeepStack顔認識APIに登録します。
+
+## Description
+
+この関数は、DeepStackの顔認識APIに顔画像を登録するもので、画像をローカルのAPIエンドポイントにアップロードします。DeepStackサービスが実行中であることを確認し、アップロード前に画像ファイルを検証します。この関数には、リトライロジック、エラーハンドリング、および障害時のクリーンアップが含まれています。
 
 ## Syntax
 
@@ -28,6 +32,26 @@ Register-Face -Identifier <String> -ImagePath <String[]> [-ContainerName <String
 | `-Force` | SwitchParameter | — | — | Named | — | Dockerコンテナを強制再構築し、既存データを削除 |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | GPUアクセラレーション版を使用（NVIDIA GPUが必要） |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 初期化中にDocker Desktopウィンドウを表示する |
+
+## Examples
+
+### Register-Face -Identifier "JohnDoe" -ImagePath @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+
+```powershell
+Register-Face -Identifier "JohnDoe" -ImagePath @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+```
+
+### Register-Face "JohnDoe" @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+
+```powershell
+Register-Face "JohnDoe" @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+```
+
+### Register-Face -Identifier "JohnDoe" -ImagePath "C:\Users\YourName\faces\john.jpg"
+
+```powershell
+Register-Face -Identifier "JohnDoe" -ImagePath "C:\Users\YourName\faces\john.jpg"
+```
 
 ## Related Links
 

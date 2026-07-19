@@ -4,12 +4,29 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在一个或多个浏览器窗口中打开URL，可设置位置和样式。
+
+## Description
+
+该函数为浏览器启动提供了一个高级封装，支持窗口定位、浏览器选择和行为的广泛自定义。它支持包括Edge、Chrome和Firefox在内的多种浏览器，具备隐私浏览、应用模式以及精确窗口管理等功能。
+
+主要特性：
+- 智能浏览器检测与选择
+- 窗口定位（左、右、上、下、居中、全屏）
+- 多显示器支持（自动或手动选择显示器）
+- 隐私/无痕浏览模式支持
+- 应用模式（免打扰浏览）
+- 扩展和弹窗拦截选项
+- 焦点管理与窗口操作
+- 跨浏览器批量打开URL
+- 向浏览器窗口发送按键自动化
+
+该函数能自动检测系统能力并相应调整行为。对于系统中未安装的浏览器，操作会被静默跳过而不报错。
 
 ## Syntax
 
 ```powershell
-Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-Input <String>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-ConsentToThirdPartySoftwareInstallation] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-Input <String>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,7 +41,7 @@ Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] 
 | `-X` | Int32 | — | — | Named | `-999999` | 网络浏览器窗口的初始X位置 |
 | `-Y` | Int32 | — | — | Named | `-999999` | Web浏览器窗口的初始Y坐标 |
 | `-AcceptLang` | String | — | — | Named | `$null` | 设置浏览器接受语言 HTTP 头 |
-| `-Force` | SwitchParameter | — | — | Named | — | 强制启用调试端口，必要时停止现有浏览器 |
+| `-Force` | SwitchParameter | — | — | Named | — | 在打开新浏览器实例前，强制关闭现有实例 |
 | `-Edge` | SwitchParameter | — | — | Named | — | 在 Microsoft Edge 中打开 |
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
@@ -57,6 +74,76 @@ Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] 
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
+| `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | 自动同意第三方软件安装（Playwright 浏览器） |
+
+## Examples
+
+### wb -PlayWright https://github.com
+
+```powershell
+wb -PlayWright https://github.com
+```
+
+在 Playwright 管理的 Chromium 浏览器中打开 GitHub。
+
+### Open-Webbrowser -Url "https://github.com"
+
+```powershell
+Open-Webbrowser -Url "https://github.com"
+```
+
+在默认浏览器中打开 GitHub。
+
+### Open-Webbrowser -Url "https://stackoverflow.com" -Monitor 1 -Left
+
+```powershell
+Open-Webbrowser -Url "https://stackoverflow.com" -Monitor 1 -Left
+```
+
+在显示器1的左半部分打开Stack Overflow。
+
+### wb "https://google.com" -m 0 -fs
+
+```powershell
+wb "https://google.com" -m 0 -fs
+```
+
+主要显示器上以全屏模式使用别名打开谷歌。
+
+### Open-Webbrowser -Chrome -Private -NewWindow
+
+```powershell
+Open-Webbrowser -Chrome -Private -NewWindow
+```
+
+以无痕模式打开一个新的 Chrome 窗口。
+
+### "https://github.com", "https://stackoverflow.com" | Open-Webbrowser -All
+
+```powershell
+"https://github.com", "https://stackoverflow.com" | Open-Webbrowser -All
+```
+
+通过管道在所有已安装的浏览器中打开多个URL。
+
+### Open-Webbrowser -Monitor 0 -Right
+
+```powershell
+Open-Webbrowser -Monitor 0 -Right
+```
+
+将已打开的浏览器窗口重新定位到主显示器的右侧。
+
+### Open-Webbrowser -ApplicationMode -Url "https://app.example.com"
+
+```powershell
+Open-Webbrowser -ApplicationMode -Url "https://app.example.com"
+```
+
+以无浏览器控件的应用模式打开 Web 应用程序。
 
 ## Related Links
 

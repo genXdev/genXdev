@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sets a default preference value in the GenXdev preferences store.
+
+## Description
+
+* Manages default preferences in the GenXdev preference system.
+* Handles storing values, removing preferences when values are empty, and
+  ensures changes are synchronized across the system.
+* Supports null values by removing the preference entirely in such cases.
 
 ## Syntax
 
@@ -22,6 +29,24 @@ Set-GenXdevDefaultPreference [-Name] <string> [[-Value] <string>] [[-Preferences
 | `-SessionOnly` | SwitchParameter | — | — | Named | `False` | Use alternative settings stored in session for Data preferences like Language, Database paths, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Clear the session setting (Global variable) before retrieving |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc |
+
+## Examples
+
+### Example 1
+
+```powershell
+Set-GenXdevDefaultPreference -Name "Theme" -Value "Dark"
+```
+
+Sets the default theme preference to "Dark".
+
+### Example 2
+
+```powershell
+setPreferenceDefault "EmailNotifications" "Disabled"
+```
+
+Uses the alias to disable email notifications in defaults.
 
 ## Related Links
 

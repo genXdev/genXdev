@@ -4,12 +4,29 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens a viral simulation game in a web browser with extensive configuration
+options.
+
+## Description
+
+Opens the viral simulation game at https://viral.genxdev.net/ in a specified
+web browser with configurable window settings, positioning, and behavior
+options. Supports multiple browsers, private browsing, application mode, and
+comprehensive window management features.
+
+The function provides an interactive viral simulation experience with features
+like:
+- Multiple browser support (Edge, Chrome, Firefox)
+- Window positioning and sizing controls
+- Full-screen and application mode options
+- Private browsing capabilities
+- Keyboard automation support
+- Multi-monitor support
 
 ## Syntax
 
 ```powershell
-Open-ViralSimulation [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-ViralSimulation [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +40,9 @@ Open-ViralSimulation [[-Language] <String>] [-AcceptLang <String>] [-All] [-Appl
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opens in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge or Google Chrome, depending on what the default browser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Opens in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use Playwright-managed browser instead of the OS-installed browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opens the Playwright-managed WebKit browser. Implies -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Run the browser without a visible window |
 | `-All` | SwitchParameter | — | — | Named | — | Opens in all registered modern browsers |
 | `-Monitor` | Int32 | — | — | Named | `-2` | The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to $Global:DefaultSecondaryMonitor or 2 if not found |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opens in fullscreen mode |
@@ -60,6 +80,26 @@ Open-ViralSimulation [[-Language] <String>] [-AcceptLang <String>] [-All] [-Appl
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-ViralSimulation -Chrome -Private -NoFullScreen
+
+```powershell
+Open-ViralSimulation -Chrome -Private -NoFullScreen
+```
+
+Opens viral simulation in Google Chrome with private browsing mode and no
+fullscreen.
+
+### viral -ch -incognito -nfs
+
+```powershell
+viral -ch -incognito -nfs
+```
+
+Opens viral simulation using aliases with Chrome, incognito mode, and no
+fullscreen.
 
 ## Related Links
 

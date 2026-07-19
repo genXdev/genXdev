@@ -8,11 +8,11 @@
 
 ## Description
 
-* Atomic write: gebruikt een tijdelijk bestand + hernoemstrategie om ervoor te zorgen dat het doelbestand nooit in een beschadigde staat achterblijft als het proces wordt onderbroken.
-* Retry-logica: probeert het schrijven maximaal MaxRetries keer, met een vertraging van RetryDelayMs milliseconden tussen pogingen.
-* Codering ondersteuning: accepteert een System.Text.Encoding parameter om de uitvoercodering te beheren. Standaard wordt UTF-8 gebruikt.
-* Debounce-ondersteuning: wanneer DebounceMs > 0, worden snelle opeenvolgende schrijfbewerkingen naar hetzelfde bestand samengevoegd — alleen de laatste payload wordt geschreven zodra het bestand gedurende DebounceMs ms niet is aangeraakt.
-* Aanmaken van mappen: maakt automatisch bovenliggende mappen aan als ze niet bestaan.
+* Atomisch schrijven: gebruikt een tijdelijk bestand + hernoemstrategie om te voorkomen dat het doelbestand in een beschadigde staat achterblijft als het proces wordt onderbroken.
+* Opnieuw proberen: probeert het schrijven maximaal MaxRetries keer opnieuw met een vertraging van RetryDelayMs milliseconden tussen pogingen.
+* Codering ondersteuning: accepteert een System.Text.Encoding parameter om de uitvoercodering te beheren. Standaard UTF-8.
+* Debounce ondersteuning: wanneer DebounceMs > 0, worden snelle opeenvolgende schrijfbewerkingen naar hetzelfde bestand samengevoegd — alleen de laatste payload wordt weggeschreven zodra het bestand nog niet is aangeraakt gedurende DebounceMs ms.
+* Directory aanmaken: maakt automatisch bovenliggende mappen aan als deze niet bestaan.
 
 ## Syntax
 
@@ -52,7 +52,7 @@ Get-Content server.log -Tail 50 | ForEach-Object {
 Start-Sleep -Seconds 3
 ```
 
-Pipes 50 lines snel; alleen de laatste regel wordt bewaard na een stille periode van 2 seconden.
+Pijpt 50 regels snel; alleen de laatste regel wordt na een pauze van 2 seconden bewaard.
 
 ### Example 3
 
@@ -78,7 +78,7 @@ $watcher = Start-ThreadJob -ScriptBlock {
 } -ArgumentList "timestamp.txt"
 ```
 
-Een achtergrondtaak schrijft elke 100ms tijdstempels, maar debounce voegt ze samen — slechts één schrijfactie per seconde bereikt daadwerkelijk de schijf.
+Een achtergrondtaak schrijft elke 100ms tijdstempels, maar debounce bundelt ze — slechts één schrijfactie per seconde bereikt daadwerkelijk de schijf.
 
 ## Related Links
 

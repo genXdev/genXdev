@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sends simulated keystrokes to a window or process.
+
+## Description
+
+Deze functie verzendt toetsenbordinvoer naar een doelvenster of -proces met behulp van het
+Windows Script Host Shell-object. Het kan vensters targeten op procesnaam,
+proces-ID of vensterhandle. De functie ondersteunt speciale toetsenreeksen,
+escape-tekens en verschillende timingopties voor betrouwbare toetsaflevering.
 
 ## Syntax
 
@@ -30,6 +37,29 @@ Send-Key [-WindowHandle <Int64>] [<CommonParameters>]
 | `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | Toetsenbordfocus behouden op doelvenster na het verzenden van toetsen |
 | `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Use Shift+Enter instead of Enter for newlines |
 | `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | `10` | Vertraging tussen verschillende invoerstrings in milliseconden |
+
+## Examples
+
+### Send-Key -KeysToSend "Hello World{ENTER}" -ProcessName "notepad" Sends text to Notepad followed by Enter key using process name targeting.
+
+```powershell
+Send-Key -KeysToSend "Hello World{ENTER}" -ProcessName "notepad"
+Sends text to Notepad followed by Enter key using process name targeting.
+```
+
+### Send-Key "Special {F11} key" -SendKeyEscape -ProcessId 1234 Sends literal "{F11}" text rather than F11 key using process ID targeting.
+
+```powershell
+Send-Key "Special {F11} key" -SendKeyEscape -ProcessId 1234
+Sends literal "{F11}" text rather than F11 key using process ID targeting.
+```
+
+### sendkeys "Line 1{ENTER}Line 2" -WindowHandle 123456 -SendKeyDelayMilliSeconds 50 Sends multi-line text with custom delay using window handle targeting.
+
+```powershell
+sendkeys "Line 1{ENTER}Line 2" -WindowHandle 123456 -SendKeyDelayMilliSeconds 50
+Sends multi-line text with custom delay using window handle targeting.
+```
 
 ## Related Links
 

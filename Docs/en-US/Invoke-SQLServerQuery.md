@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Executes one or more SQL queries against a SQL Server database with transaction support.
+
+## Description
+
+Executes SQL queries against a SQL Server database with parameter support and
+configurable transaction isolation. Can use an external transaction for batch
+operations or create its own internal transaction. When using an external
+transaction, the caller is responsible for committing/rolling back.
+Connection priority: Transaction > ConnectionString > DatabaseName (requires Server).
 
 ## Syntax
 
@@ -25,6 +33,43 @@ Invoke-SQLServerQuery [[-Queries] <String[]>] [[-DatabaseName] <String>] [[-Serv
 | `-IsolationLevel` | String | — | — | Named | `"ReadCommitted"` | The isolation level to use. default is ReadCommitted. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | Force a consent prompt even if preference is set for SQL Server package installation. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Automatically consent to third-party software installation and set persistent flag for SQL Server package. |
+
+## Examples
+
+### Invoke-SQLServerQuery -Server "localhost" -DatabaseName "MyDB" -Queries "SELECT * FROM Users"
+
+```powershell
+Invoke-SQLServerQuery -Server "localhost" -DatabaseName "MyDB" -Queries "SELECT * FROM Users"
+```
+
+### "SELECT * FROM Users" | Invoke-SQLServerQuery -ConnectionString "Server=localhost;Database=MyDB;Integrated Security=true" -SqlParameters @{"UserId"=1}
+
+```powershell
+"SELECT * FROM Users" | Invoke-SQLServerQuery -ConnectionString "Server=localhost;Database=MyDB;Integrated Security=true" -SqlParameters @{"UserId"=1}
+```
+
+### Batch operations using external transaction $tx = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDB" try {     Invoke-SQLServerQuery -Transaction $tx -Queries "INSERT INTO Users VALUES (@name)" -SqlParameters @{"name"="John"}     Invoke-SQLServerQuery -Transaction $tx -Queries "UPDATE Users SET active=1 WHERE name=@name" -SqlParameters @{"name"="John"}     $tx.Commit() } catch {     $tx.Rollback()     throw } finally {     $tx.Connection.Close() }
+
+```powershell
+Batch operations using external transaction
+$tx = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDB"
+try {
+    Invoke-SQLServerQuery -Transaction $tx -Queries "INSERT INTO Users VALUES (@name)" -SqlParameters @{"name"="John"}
+    Invoke-SQLServerQuery -Transaction $tx -Queries "UPDATE Users SET active=1 WHERE name=@name" -SqlParameters @{"name"="John"}
+    $tx.Commit()
+} catch {
+    $tx.Rollback()
+    throw
+} finally {
+    $tx.Connection.Close()
+}
+```
+
+### Invoke-SQLServerQuery -Server "localhost" -DatabaseName "MyDB" -Queries "SELECT * FROM Users" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+Invoke-SQLServerQuery -Server "localhost" -DatabaseName "MyDB" -Queries "SELECT * FROM Users" -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

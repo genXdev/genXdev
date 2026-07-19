@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev の設定から、名前パターンに基づいてリファクタリング定義を取得します。
+
+## Description
+
+GenXdevの設定に保存されたリファクタリング定義セットを検索して読み込みます。各リファクタリングセットは、'refactor_set_'で始まる名前の設定にJSON文字列として保存されています。この関数は、一致するセットをオブジェクトにデシリアライズします。
 
 ## Syntax
 
@@ -22,6 +26,22 @@ Get-Refactor [[-Name] <String[]>] [-ClearSession] [-DefaultValue <String>] [-Pre
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションに保存された代替設定を、言語やデータベースパスなどのデータ設定に使用します。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッション設定（グローバル変数）をクリアしてから取得してください |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | データの設定（言語、データベースパスなど）に対して、セッションに保存された代替設定を使用しないでください。 |
+
+## Examples
+
+### Get-Refactor -Name "CodeStyle*" Returns refactor definitions matching pattern "CodeStyle*"
+
+```powershell
+Get-Refactor -Name "CodeStyle*"
+Returns refactor definitions matching pattern "CodeStyle*"
+```
+
+### refactor "UnitTest" Uses alias to find refactor definitions containing "UnitTest"
+
+```powershell
+refactor "UnitTest"
+Uses alias to find refactor definitions containing "UnitTest"
+```
 
 ## Outputs
 

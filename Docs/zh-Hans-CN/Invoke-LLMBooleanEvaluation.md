@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 使用AI评估一条陈述，判断其真假。
+
+## Description
+
+此函数使用AI模型评估陈述并判断其真实性。它可以直接通过参数、管道或系统剪贴板接受输入。该函数返回布尔结果以及来自AI模型的置信度和推理。
 
 ## Syntax
 
@@ -61,6 +65,27 @@ Invoke-LLMBooleanEvaluation [[-Text] <String>] [[-Instructions] <String>] [[-Att
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | — | 使用束搜索采样策略 |
 | `-OnlyResponses` | SwitchParameter | — | — | Named | — | 仅返回来自模型的响应 |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | The `-MaxToolcallBackLength` parameter. |
+
+## Examples
+
+### Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+
+```powershell
+Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+```
+
+### "Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+
+```powershell
+"Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+```
+
+### equalstrue "2 + 2 = 4" ##############################################################################
+
+```powershell
+equalstrue "2 + 2 = 4"
+##############################################################################
+```
 
 ## Outputs
 

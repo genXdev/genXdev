@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Extracts or generates a list of relevant strings from input text using AI
+analysis.
+
+## Description
+
+This function uses AI models to analyze input text and extract or generate a
+list of relevant strings. It can process text to identify key points, extract
+items from lists, or generate related concepts. Input can be provided directly
+through parameters, from the pipeline, or from the system clipboard. The
+function returns a string array and optionally copies results to clipboard.
 
 ## Syntax
 
@@ -62,6 +71,35 @@ Invoke-LLMStringListEvaluation [[-Text] <String>] [[-Instructions] <String>] [[-
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | — | Use beam search sampling strategy. |
 | `-OnlyResponses` | SwitchParameter | — | — | Named | — | Return only responses. |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximum callback length for tool calls. |
+
+## Examples
+
+### PS> Invoke-LLMStringListEvaluation -Text ("PowerShell features: object-based " +     "pipeline, integrated scripting environment, backwards compatibility, " +     "and enterprise management.") Returns: @("Object-based pipeline", "Integrated scripting environment",          "Backwards compatibility", "Enterprise management")
+
+```powershell
+PS> Invoke-LLMStringListEvaluation -Text ("PowerShell features: object-based " +
+    "pipeline, integrated scripting environment, backwards compatibility, " +
+    "and enterprise management.")
+Returns: @("Object-based pipeline", "Integrated scripting environment",
+         "Backwards compatibility", "Enterprise management")
+```
+
+### PS> "Make a shopping list with: keyboard, mouse, monitor, headset" |     Invoke-LLMStringListEvaluation Returns: @("Keyboard", "Mouse", "Monitor", "Headset")
+
+```powershell
+PS> "Make a shopping list with: keyboard, mouse, monitor, headset" |
+    Invoke-LLMStringListEvaluation
+Returns: @("Keyboard", "Mouse", "Monitor", "Headset")
+```
+
+### PS> getlist "List common PowerShell commands for file operations" -SetClipboard Returns and copies to clipboard: @("Get-ChildItem", "Copy-Item", "Move-Item",                                   "Remove-Item", "Set-Content", "Get-Content") ##############################################################################
+
+```powershell
+PS> getlist "List common PowerShell commands for file operations" -SetClipboard
+Returns and copies to clipboard: @("Get-ChildItem", "Copy-Item", "Move-Item",
+                                  "Remove-Item", "Set-Content", "Get-Content")
+##############################################################################
+```
 
 ## Outputs
 

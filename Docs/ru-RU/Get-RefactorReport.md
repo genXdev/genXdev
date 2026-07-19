@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Генерирует подробный отчет о рефакторинговых операциях и их статусе.
+
+## Description
+
+Анализирует и сообщает о прогрессе операций рефакторинга, проверяя их текущее состояние, статус завершения и затронутые функции. Предоставляет вывод в структурированном формате хеш-таблицы или удобочитаемых выровненных текстовых столбцов. Отчет включает имя рефакторинга, ключ подсказки, приоритет, статус, количество функций и процент завершения.
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-RefactorReport [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-Se
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Если установлено, очистить кеш сеанса перед запуском. |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Если установлено, пропустить загрузку кэша сессии. |
 | `-AsText` | SwitchParameter | — | — | Named | `False` | Output report in text format instead of Hashtable |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-RefactorReport -Name "DatabaseRefactor" -AsText
+```
+
+Генерирует текстовый отчет для рефакторов, соответствующих "DatabaseRefactor".
+
+### Example 2
+
+```powershell
+refactorreport "*"
+```
+
+Генерирует отчет хэш-таблицы для всех рефакторов с использованием псевдонима.
 
 ## Outputs
 

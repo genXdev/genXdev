@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Obtiene la fecha y hora actuales UTC (Tiempo Universal Coordinado).
+
+## Description
+
+Devuelve la fecha y hora UTC actuales como un objeto System.DateTime. Esta función proporciona una forma estandarizada de recuperar la hora UTC en diferentes sistemas y zonas horarias. El objeto DateTime devuelto se puede utilizar para la sincronización de marcas de tiempo, el registro y las operaciones entre zonas horarias.
 
 ## Syntax
 
@@ -29,6 +33,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### $currentUtc = UtcNow Returns the current UTC time as a DateTime object.
+
+```powershell
+$currentUtc = UtcNow
+Returns the current UTC time as a DateTime object.
+```
+
+### $timestamp = (UtcNow).ToString("yyyy-MM-dd HH:mm:ss") Gets the current UTC time and formats it as a string.
+
+```powershell
+$timestamp = (UtcNow).ToString("yyyy-MM-dd HH:mm:ss")
+Gets the current UTC time and formats it as a string.
 ```
 
 ## Outputs

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berechnet die Vergrößerung einer Linse.
+
+## Description
+
+Verwendet m = - (Bildweite / Gegenstandsweite).
 
 ## Syntax
 
@@ -18,6 +22,24 @@ Get-MagnificationByObjectDistanceAndImageDistance [-ObjectDistanceInMeters] <dou
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-ObjectDistanceInMeters` | Double | ✅ | — | 0 | `0` | Objektentfernung in Metern |
 | `-ImageDistanceInMeters` | Double | ✅ | — | 1 | `0` | Bildabstand in Metern |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-MagnificationByObjectDistanceAndImageDistance -ObjectDistanceInMeters 0.5 -ImageDistanceInMeters 1
+```
+
+Berechnet die Vergrößerung mit Objektabstand 0,5 m und Bildabstand 1 m.
+
+### Example 2
+
+```powershell
+Get-MagnificationByObjectDistanceAndImageDistance 0.3 0.6
+```
+
+Berechnet die Vergrößerung mithilfe von Positionsparametern.
 
 ## Related Links
 

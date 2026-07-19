@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Recupera la información de esquema de una tabla especificada de SQL Server.
+
+## Description
+
+Esta función consulta la base de datos SQL Server para obtener información detallada del esquema de una tabla especificada. Utiliza la vista INFORMATION_SCHEMA.COLUMNS de SQL Server para devolver definiciones de columnas, incluidos nombres, tipos, estado de nulabilidad y valores predeterminados.
 
 ## Syntax
 
@@ -24,6 +28,22 @@ Get-SQLServerTableSchema -TableName <String> [<CommonParameters>]
 | `-DatabaseName` | String | ✅ | — | 0 | — | El nombre de la base de datos de SQL Server *(Parameter set: )* |
 | `-Server` | String | — | — | 1 | `'.'` | El nombre de la instancia de SQL Server *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 2 | — | El nombre de la tabla |
+
+## Examples
+
+### Get-SQLServerTableSchema -DatabaseName "mydb" -Server "localhost" `     -TableName "Users"
+
+```powershell
+Get-SQLServerTableSchema -DatabaseName "mydb" -Server "localhost" `
+    -TableName "Users"
+```
+
+### Get-SQLServerTableSchema -ConnectionString "Server=localhost;Database=mydb;Integrated Security=true" `     -TableName "Products"
+
+```powershell
+Get-SQLServerTableSchema -ConnectionString "Server=localhost;Database=mydb;Integrated Security=true" `
+    -TableName "Products"
+```
 
 ## Related Links
 

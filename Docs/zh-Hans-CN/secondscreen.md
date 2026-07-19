@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 设置默认的第二显示器配置。
+
+## Description
+
+设置GenXdev窗口默认在副显示器上打开。这对于只有一台显示器的用户或偏好并排窗口布局的用户非常有用。另请参阅 cmdlet 'sidebyside' 和 'restoredefaultmonitor'。
 
 ## Syntax
 
@@ -41,6 +45,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> secondscreen
+
+```powershell
+PS> secondscreen
+```
+
+将 GenXdev 窗口打开的默认位置设置为辅助显示器
 
 ## Related Links
 

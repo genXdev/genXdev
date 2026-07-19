@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 比较两张不同图片中的人脸，并使用DeepStack返回它们的相似度。
+
+## Description
+
+此函数比较两张图像中的人脸以确定相似度。它使用本地DeepStack人脸匹配API（运行于可配置端口）并返回0.0到1.0之间的相似度分数。通常用于将身份证件与人物照片进行匹配，或验证两张照片是否显示同一个人。
 
 ## Syntax
 
@@ -28,6 +32,25 @@ Compare-ImageFaces -ImagePath1 <String> -ImagePath2 <String> [[-ContainerName] <
 | `-Force` | SwitchParameter | — | — | Named | — | 强制重建 Docker 容器并移除现有数据 |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | 使用GPU加速版本（需要NVIDIA GPU） |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 在初始化期间显示 Docker Desktop 窗口 |
+
+## Examples
+
+### Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `                    -ImagePath2 "C:\Users\YourName\photo2.jpg"
+
+```powershell
+Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `
+                   -ImagePath2 "C:\Users\YourName\photo2.jpg"
+```
+
+使用默认设置比较两张图像中的人脸。
+
+### comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+
+```powershell
+comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+```
+
+利用GPU加速进行人脸比对，通过别名和位置参数进行身份验证。
 
 ## Outputs
 

@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Извлекает значение из хранилища ключ-значение на основе JSON.
+
+## Description
+
+* Извлекает значение для указанного ключа из хранилища ключ-значение на основе JSON-файла.
+* Поддерживает опциональные значения по умолчанию и синхронизацию между различными областями видимости.
+* Обеспечивает автоматическую инициализацию директории и синхронизацию.
 
 ## Syntax
 
@@ -21,6 +27,24 @@ Get-ValueByKeyFromStore [-StoreName] <string> [-KeyName] <string> [[-DefaultValu
 | `-DefaultValue` | String | — | — | 2 | — | A optional default value |
 | `-SynchronizationKey` | String | — | — | 3 | — | Ключ для идентификации области синхронизации |
 | `-DatabasePath` | String | — | — | Named | — | Путь к базе данных для файлов данных хранилища ключ-значение |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ValueByKeyFromStore -StoreName "AppSettings" -KeyName "Theme" -DefaultValue "Dark"
+```
+
+Извлекает значение "Theme" из "AppSettings", возвращая "Dark", если не найдено.
+
+### Example 2
+
+```powershell
+getvalue AppSettings Theme
+```
+
+Использует псевдоним 'getvalue' для извлечения значения.
 
 ## Related Links
 

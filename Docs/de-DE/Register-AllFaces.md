@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Aktualisiert alle Gesichtserkennungsprofile aus Bilddateien im faces-Verzeichnis.
+
+## Description
+
+Diese Funktion aktualisiert die Gesichtserkennungsdatenbank mit allen Bildern, die im angegebenen Gesichterverzeichnis gefunden werden. Der Prozess umfasst:
+1. Sicherstellen, dass der Gesichtserkennungsdienst läuft
+2. Verarbeiten aller Bilder in jedem Personenordner, Registrieren aller Gesichter für diese Person mit einem einzigen Identifikator (dem Ordnernamen) in einem Batch-Vorgang
+3. Unterstützen einer Wiederholungslogik für fehlgeschlagene Registrierungen
+
+Jeder Personenordner kann mehrere Bilder enthalten, und alle Bilder werden unter demselben Identifikator (Personenname) in einem einzigen API-Aufruf registriert, wodurch die Notwendigkeit von _1, _2 usw. Suffixen entfällt.
 
 ## Syntax
 
@@ -34,6 +43,30 @@ Register-AllFaces [[-FacesDirectory] <String>] [[-MaxRetries] <Int32>] [[-Contai
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Falls angegeben, löschen Sie die aktuellen Sitzungseinstellungen vor der Verwendung. |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Pfad zur Präferenzdatenbank, die für den Stammpfad bekannter Gesichter verwendet werden soll. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Wenn angegeben, wird die Sitzungslogik beim Abrufen des Stammpfads bekannter Gesichter übersprungen. |
+
+## Examples
+
+### Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `     -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `     -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+
+```powershell
+Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `
+    -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `
+    -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+```
+
+### Register-AllFaces Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+
+```powershell
+Register-AllFaces
+Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+```
+
+### updatefaces -RenameFailed ##############################################################################
+
+```powershell
+updatefaces -RenameFailed
+##############################################################################
+```
 
 ## Related Links
 

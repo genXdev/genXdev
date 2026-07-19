@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 向服务器添加一个新的 WireGuard VPN 对等体（客户端）配置。
+
+## Description
+
+此函数用于向运行在 Docker 容器中的 WireGuard VPN 服务器添加新客户端。它会生成一个带有唯一 IP 地址的新客户端配置，创建必要的加密密钥，并返回配置详情。该函数可选择将配置保存到文件或生成二维码，方便移动设备设置。函数验证客户端名称，检查重复项，并优雅地处理各种错误情况。
 
 ## Syntax
 
@@ -53,6 +57,25 @@ Add-WireGuardPeer -PeerName <String> [[-AllowedIPs] <String>] [[-DNS] <String>] 
 | `-ShowQRCode` | SwitchParameter | — | — | Named | — | 为便捷移动设置生成二维码 |
 | `-NoDockerInitialize` | SwitchParameter | — | — | Named | — | 跳过 Docker 初始化（当已由父函数调用时使用） |
 | `-Force` | SwitchParameter | — | — | Named | — | 强制重建 Docker 容器并移除现有数据 |
+
+## Examples
+
+### Add-WireGuardPeer -PeerName "MyPhone" -AllowedIPs "0.0.0.0/0, ::/0" `     -DNS "1.1.1.1, 1.0.0.1" -SaveConfig -OutputPath `     "$env:USERPROFILE\WireGuardConfigs" -ShowQRCode -ContainerName "wireguard" `     -VolumeName "wireguard_data" -ServicePort 51839 -HealthCheckTimeout 60 `     -HealthCheckInterval 3 -ImageName "linuxserver/wireguard" -PUID "1000" `     -PGID "1000" -TimeZone "Etc/UTC"
+
+```powershell
+Add-WireGuardPeer -PeerName "MyPhone" -AllowedIPs "0.0.0.0/0, ::/0" `
+    -DNS "1.1.1.1, 1.0.0.1" -SaveConfig -OutputPath `
+    "$env:USERPROFILE\WireGuardConfigs" -ShowQRCode -ContainerName "wireguard" `
+    -VolumeName "wireguard_data" -ServicePort 51839 -HealthCheckTimeout 60 `
+    -HealthCheckInterval 3 -ImageName "linuxserver/wireguard" -PUID "1000" `
+    -PGID "1000" -TimeZone "Etc/UTC"
+```
+
+### Add-WireGuardPeer "MyTablet" -ShowQRCode
+
+```powershell
+Add-WireGuardPeer "MyTablet" -ShowQRCode
+```
 
 ## Related Links
 

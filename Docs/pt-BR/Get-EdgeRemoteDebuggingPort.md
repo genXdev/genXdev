@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retorna a porta de depuração remota configurada para o navegador Microsoft Edge.
+
+## Description
+
+Recupera o número da porta de depuração remota usada para se conectar à interface de depuração do navegador Microsoft Edge. Se nenhuma porta personalizada estiver configurada por meio da variável global $Global:EdgeDebugPort, retorna a porta padrão 9223. A função valida qualquer configuração de porta personalizada e usa a padrão se for inválida.
 
 ## Syntax
 
@@ -54,8 +58,19 @@
     }
 ```
 
+## Examples
+
+### Get-EdgeRemoteDebuggingPort Returns the configured debug port (default 9223 if not configured)
+
+```powershell
+Get-EdgeRemoteDebuggingPort
+Returns the configured debug port (default 9223 if not configured)
+```
+
 ## Outputs
 
+- `Int32
+Returns the port number to use for Edge remote debugging`
 - `Int32`
 
 ## Related Links

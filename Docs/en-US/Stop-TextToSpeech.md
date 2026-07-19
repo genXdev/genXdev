@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Immediately stops any ongoing text-to-speech output.
+
+## Description
+
+Halts all active and queued speech synthesis by canceling both standard and
+customized speech operations. This provides an immediate silence for any ongoing
+text-to-speech activities.
 
 ## Syntax
 
@@ -40,6 +46,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### PS C:\> Stop-TextToSpeech Immediately stops any ongoing speech
+
+```powershell
+PS C:\> Stop-TextToSpeech
+Immediately stops any ongoing speech
+```
+
+### PS C:\> say "Hello world"; sst Starts speaking but gets interrupted immediately
+
+```powershell
+PS C:\> say "Hello world"; sst
+Starts speaking but gets interrupted immediately
 ```
 
 ## Related Links

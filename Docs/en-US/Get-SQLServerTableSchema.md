@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves the schema information for a specified SQL Server table.
+
+## Description
+
+This function queries the SQL Server database to get detailed schema information for
+a specified table. It uses the SQL Server INFORMATION_SCHEMA.COLUMNS view to return
+column definitions including names, types, nullable status, and default values.
 
 ## Syntax
 
@@ -24,6 +30,22 @@ Get-SQLServerTableSchema -TableName <String> [<CommonParameters>]
 | `-DatabaseName` | String | ✅ | — | 0 | — | The name of the SQL Server database *(Parameter set: )* |
 | `-Server` | String | — | — | 1 | `'.'` | The SQL Server instance name *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 2 | — | The name of the table |
+
+## Examples
+
+### Get-SQLServerTableSchema -DatabaseName "mydb" -Server "localhost" `     -TableName "Users"
+
+```powershell
+Get-SQLServerTableSchema -DatabaseName "mydb" -Server "localhost" `
+    -TableName "Users"
+```
+
+### Get-SQLServerTableSchema -ConnectionString "Server=localhost;Database=mydb;Integrated Security=true" `     -TableName "Products"
+
+```powershell
+Get-SQLServerTableSchema -ConnectionString "Server=localhost;Database=mydb;Integrated Security=true" `
+    -TableName "Products"
+```
 
 ## Related Links
 

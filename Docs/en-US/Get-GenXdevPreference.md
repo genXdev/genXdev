@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves a preference value from the GenXdev preferences store.
+
+## Description
+
+* Implements a two-tier preference retrieval system.
+* First checks the local store for a preference value.
+* If not found, falls back to the default store.
+* If still not found, returns the provided default value.
 
 ## Syntax
 
@@ -22,6 +29,24 @@ Get-GenXdevPreference [-Name] <string> [[-DefaultValue] <string>] [-PreferencesD
 | `-SessionOnly` | SwitchParameter | — | — | Named | `False` | Use alternative settings stored in session for Data preferences like Language, Database paths, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Clear the session setting (Global variable) before retrieving |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-GenXdevPreference -Name "Theme" -DefaultValue "Dark"
+```
+
+Retrieves the "Theme" preference with fallback to default "Dark".
+
+### Example 2
+
+```powershell
+getPreference "Theme" "Dark"
+```
+
+Uses the alias and positional parameters.
 
 ## Related Links
 

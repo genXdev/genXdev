@@ -4,7 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Microsoft의 Robust Copy(RoboCopy) 유틸리티용 PowerShell 래퍼를 제공합니다.
+
+## Description
+
+RoboCopy 명령줄 유틸리티를 위한 포괄적인 래퍼로, 강력한 파일 및 디렉터리 복사 기능을 제공합니다. 이 함수는 RoboCopy의 광범위한 기능 집합을 PowerShell 친화적인 매개변수를 통해 노출하면서도 주요 강력한 기능을 유지합니다.
+
+주요 기능:
+- 미러 옵션을 통한 디렉터리 동기화
+- 초장 경로명(>256자) 지원
+- 보안 설정 보존
+- 고급 파일 특성 처리
+- 심볼릭 링크 및 접합점 관리
+- 연속 동기화를 위한 모니터 모드
+- 큰 파일을 위한 성능 최적화
+- 네트워크 압축 지원
+- 오류 장치를 위한 복구 모드
 
 ## Syntax
 
@@ -21,11 +36,14 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Source` | String | ✅ | — | 0 | — | 디렉터리, 파일 경로 또는 디렉터리+검색 마스크 |
-| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | 복사된 파일과 디렉토리를 배치할 대상 디렉토리입니다.
-            이 디렉토리가 아직 존재하지 않는 경우, 누락된 모든 디렉토리가 생성됩니다.
-            기본값 = ".\" |
-| `-Files` | String[] | — | — | 2 | `@()` | 복사해야 할 파일을 선택하기 위한 선택적 검색 마스크입니다.
-기본값 = '*' 🌐 *Supports wildcards* |
+| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | 복사된 파일과 디렉터리가 배치될 대상 디렉터리입니다.
+            이 디렉터리가 아직 존재하지 않으면, 누락된 모든 디렉터리가 생성됩니다.
+            기본값 = ".\"
+
+            // 중요: 제공된 지시사항을 따르고 번역된 텍스트만 반환하세요.
+            // 추가 설명, 래퍼, 프롬프트를 포함하지 마세요. |
+| `-Files` | String[] | — | — | 2 | `@()` | 복사할 파일을 선택하기 위한 선택적 검색 마스크입니다.
+            기본값 = '*' 🌐 *Supports wildcards* |
 | `-Mirror` | SwitchParameter | — | — | Named | — | 지정된 디렉터리의 콘텐츠를 동기화하며, 대상에 있는 파일 및 디렉터리 중 소스에 없는 것은 삭제합니다 |
 | `-Move` | SwitchParameter | — | — | Named | — | Will move instead of copy all files from source to destination |
 | `-IncludeSecurity` | SwitchParameter | — | — | Named | — | 파일과 디렉터리의 소유권, 보안 설명자 및 감사 정보도 복사합니다. |
@@ -106,7 +124,7 @@ touch project/requirements.txt
 
 사용법:
 
-매개변수 추가 또는 교체:
+매개변수 추가 또는 대체:
 
     -Override /SwitchWithValue:'SomeValue'
 
@@ -119,6 +137,24 @@ touch project/requirements.txt
 여러 재정의:
 
     -Override "/ReplaceThisSwitchWithValue:'SomeValue' -/RemoveThisSwitch /AddThisSwitch" |
+
+## Examples
+
+### ########################################################################Mirror a directory with security settings Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `     -Mirror -IncludeSecurity
+
+```powershell
+########################################################################Mirror a directory with security settings
+Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `
+    -Mirror -IncludeSecurity
+```
+
+### ########################################################################Monitor and sync changes every 10 minutes Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `     -MonitorMode -MonitorModeThresholdMinutes 10
+
+```powershell
+########################################################################Monitor and sync changes every 10 minutes
+Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `
+    -MonitorMode -MonitorModeThresholdMinutes 10
+```
 
 ## Related Links
 

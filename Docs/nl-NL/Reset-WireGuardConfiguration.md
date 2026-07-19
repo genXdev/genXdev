@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stelt de WireGuard VPN-serverconfiguratie terug naar de standaardinstellingen, waarbij alle peers worden verwijderd.
+
+## Description
+
+Deze functie reset de WireGuard VPN-serverconfiguratie die in een Docker-container draait door alle peers te verwijderen en een nieuwe serverconfiguratie te genereren. Dit is een destructieve bewerking die niet ongedaan kan worden gemaakt en zal permanent alle peerconfiguraties verwijderen. De functie stopt de WireGuard-service, verwijdert alle peer-directories en configuratiebestanden, verwijdert serversleutels, herstart de container en controleert of een nieuwe configuratie is gegenereerd.
 
 ## Syntax
 
@@ -27,6 +31,24 @@ Reset-WireGuardConfiguration [[-ContainerName] <String>] [[-VolumeName] <String>
 | `-TimeZone` | String | — | — | 8 | `'Etc/UTC'` | Tijdzone voor de container |
 | `-NoDockerInitialize` | SwitchParameter | — | — | Named | — | Docker-initialisatie overslaan (gebruikt wanneer al aangeroepen door bovenliggende functie) |
 | `-Force` | SwitchParameter | — | — | Named | — | Forceer reset zonder bevestiging |
+
+## Examples
+
+### Reset-WireGuardConfiguration
+
+```powershell
+Reset-WireGuardConfiguration
+```
+
+Herstelt de WireGuard-configuratie naar de standaardinstellingen en vraagt om bevestiging voordat wordt doorgegaan.
+
+### Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+
+```powershell
+Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+```
+
+Reset de WireGuard-configuratie voor een aangepaste containernaam zonder bevestigingsprompts.
 
 ## Related Links
 

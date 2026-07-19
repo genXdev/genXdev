@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 設定されたWindowsスクリーンセーバーを起動します。
+
+## Description
+
+デフォルトのスクリーンセーバー実行可能ファイル（scrnsave.scr）を /s スイッチ付きで実行して、Windowsシステムのスクリーンセーバーを即座に起動します。
 
 ## Syntax
 
@@ -26,6 +30,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### Enable-Screensaver
+
+```powershell
+Enable-Screensaver
 ```
 
 ## Related Links

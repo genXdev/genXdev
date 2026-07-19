@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 여러 디렉터리에 걸쳐 구성 가능한 기준에 따라 중복 파일을 찾습니다.
+
+## Description
+
+지정된 디렉토리에서 중복 파일을 재귀적으로 검색합니다. 파일은 내용이 정확히 동일하거나 동일한 내용으로 시작하는 경우(-ComparePartial 스위치를 사용한 부분 비교의 경우) 중복된 것으로 간주됩니다. 이 cmdlet은 전체 내용 비교를 수행하기 전에 효율적인 그룹화를 위해 파일의 초기 바이트에 대한 빠른 해시를 사용합니다. 이 빠른 해시의 크기는 -CompareByteLength 매개변수로 구성할 수 있어 중복 탐지의 성능과 정확성 사이의 균형을 조정할 수 있으며, 이 CompareByteLength 값 이상의 최소 길이를 가진 파일만 중복 탐지 대상으로 간주되며, 더 작은 파일은 파일 이름만으로 그룹화됩니다.
 
 ## Syntax
 
@@ -79,6 +83,22 @@ Find-DuplicateFiles [[-Content] <String[]>] [-AllMatches] [-CaseSensitive] [-Con
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | 간단한 문자열 매칭을 사용하고 정규식은 사용하지 마세요 *(Parameter set: )* |
 | `-ComparePartial` | SwitchParameter | — | — | Named | — | 동일한 파일명과 내용으로 시작하는 한 다양한 크기의 파일을 반환하며, 이를 통해 손상된 다운로드/복사 작업을 감지합니다. |
 | `-CompareByteLength` | Int32 | — | — | Named | `65536` | 파일의 바이트 길이를 빠르게 비교하여 빠른 인덱싱 및 중복 검색에 사용됩니다. 파일의 내용을 비교하지 않습니다. |
+
+## Examples
+
+### Find duplicate text files in the Documents folder based on exact content: Find-DuplicateFiles ~\Documents\*.doc* -ComparePartial
+
+```powershell
+Find duplicate text files in the Documents folder based on exact content:
+Find-DuplicateFiles ~\Documents\*.doc* -ComparePartial
+```
+
+### Removes all duplicate media files in the Pictures and Videos folders, keeping only one copy of each duplicate set: (Find-DuplicateFiles ~\Pictures\*, ~\Videos\* -Category Pictures, Videos -ComparePartial).Duplicates.FullName | Remove-Item -Force -Verbose
+
+```powershell
+Removes all duplicate media files in the Pictures and Videos folders, keeping only one copy of each duplicate set:
+(Find-DuplicateFiles ~\Pictures\*, ~\Videos\* -Category Pictures, Videos -ComparePartial).Duplicates.FullName | Remove-Item -Force -Verbose
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> We appreciate your willingness to communicate your ideas. However, to maintain a constructive and respectful dialogue, we kindly request that you express your thoughts in a more professional and considerate manner.
+
+## Description
+
+Deze functie verwerkt invoertekst om directe of mogelijk harde taal om te zetten in diplomatieke, professionele zakelijke communicatie. Het kan invoer rechtstreeks via parameters, van de pipeline of van het systeemklembord accepteren. De functie maakt gebruik van AI-modellen om tekst te analyseren en te herformuleren, terwijl de oorspronkelijke intentie behouden blijft.
 
 ## Syntax
 
@@ -87,6 +91,20 @@ This is a sample block that could be passed to an LLMQuery.
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter voor markup-bloktypen (doorgegeven aan LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale toolcallback-lengte (doorgegeven aan LLMQuery) |
+
+## Examples
+
+### ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+
+```powershell
+ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+```
+
+### "This makes no sense" | corporatize
+
+```powershell
+"This makes no sense" | corporatize
+```
 
 ## Outputs
 

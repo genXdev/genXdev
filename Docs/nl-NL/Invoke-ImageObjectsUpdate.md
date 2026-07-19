@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Werk de metadata van objectdetectie bij voor afbeeldingsbestanden in een opgegeven map.
+
+## Description
+
+Deze functie verwerkt afbeeldingen in een opgegeven map om objecten te detecteren met behulp van kunstmatige intelligentie. Het maakt JSON-metadatabestanden aan die gedetecteerde objecten, hun posities, betrouwbaarheidsscores en labels bevatten. De functie ondersteunt batchverwerking met configureerbare betrouwbaarheidsdrempels en kan optioneel bestaande metadatabestanden overslaan of eerder mislukte detecties opnieuw proberen.
 
 ## Syntax
 
@@ -28,6 +32,33 @@ Invoke-ImageObjectsUpdate [[-ImageDirectories] <String[]>] [-ClearSession] [-Lan
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
+
+## Examples
+
+### Invoke-ImageObjectsUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageObjectsUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+Dit voorbeeld verwerkt alle afbeeldingen in C:\Photos en D:\Pictures en alle submappen met standaardinstellingen en een drempelwaarde van 0,5 voor vertrouwen.
+
+### Invoke-ImageObjectsUpdate @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+
+```powershell
+Invoke-ImageObjectsUpdate @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+```
+
+Dit voorbeeld verwerkt alleen nieuwe afbeeldingen en probeert eerder mislukte opnieuw in meerdere mappen met behulp van positionele parametersyntaxis.
+
+### Invoke-ImageObjectsUpdate -ImageDirectories "C:\Photos" -UseGPU `     -ConfidenceThreshold 0.7
+
+```powershell
+Invoke-ImageObjectsUpdate -ImageDirectories "C:\Photos" -UseGPU `
+    -ConfidenceThreshold 0.7
+```
+
+Dit voorbeeld gebruikt GPU-versnelling met een hogere betrouwbaarheidsdrempel van 0,7 voor nauwkeurigere maar minder objectdetecties.
 
 ## Related Links
 

@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converts direct or blunt text into polite, tactful diplomatic language.
+
+## Description
+
+This function transforms user input from direct or blunt phrasing into
+diplomatic, tactful language suitable for high-level discussions, negotiations,
+or formal communications. The function uses AI language models to maintain
+the original intent while softening the tone and making the message more
+diplomatic and professional.
 
 ## Syntax
 
@@ -60,6 +68,21 @@ ConvertTo-DiplomaticSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-Allow
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximum tool callback length (passed to LLMQuery) |
+
+## Examples
+
+### ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `     -SetClipboard
+
+```powershell
+ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `
+    -SetClipboard
+```
+
+### diplomatize "Your code is full of bugs"
+
+```powershell
+diplomatize "Your code is full of bugs"
+```
 
 ## Outputs
 

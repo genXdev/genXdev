@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre e reproduz arquivos de mídia usando o VLC media player com opções avançadas de filtragem e configuração.
+
+## Description
+
+Esta função busca arquivos de mídia com base em padrões de pesquisa, cria uma playlist e inicia o VLC media player com opções abrangentes de configuração. Ela suporta vídeos, arquivos de áudio e imagens, com instalação automática do VLC, se necessário. A função oferece controle extenso sobre o comportamento de reprodução, posicionamento da janela, configurações de áudio/vídeo e gerenciamento de legendas.
 
 ## Syntax
 
@@ -121,6 +125,32 @@ Reply with JSON object ONLY. |
 | `-PassThru` | SwitchParameter | — | — | Named | — | Retorna os arquivos encontrados pela pesquisa |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | Retorna os arquivos encontrados pela busca sem abrir o VLC |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | Retorna o helper da janela para cada processo |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+Abre todos os arquivos de mídia no diretório atual usando as configurações padrão do VLC.
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+Abre apenas arquivos de imagem da pasta Imagens em modo de tela cheia usando o alias 'vlcmedia'.
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+Abre arquivos de vídeo com repetição ativada usando o alias 'media'.
 
 ## Related Links
 

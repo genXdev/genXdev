@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Verwijdert metadata-bestanden van afbeeldingen uit afbeeldingsmappen.
+
+## Description
+
+De functie Remove-ImageMetaData verwijdert bijbehorende JSON-metagegevensbestanden die zijn gekoppeld aan afbeeldingen. Het kan selectief alleen trefwoorden (description.json), persoonsgegevens (people.json), objectgegevens (objects.json) of scènegegevens (scenes.json) verwijderen, of alle metagegevensbestanden verwijderen als er geen specifieke schakelaar wordt opgegeven. Taalspecifieke metagegevensbestanden kunnen worden verwijderd door de parameter Language op te geven, en alle taalvarianten kunnen worden verwijderd met de schakelaar AllLanguages.
 
 ## Syntax
 
@@ -28,6 +32,48 @@ Remove-ImageMetaData [[-ImageDirectories] <String[]>] [[-Language] <String>] [[-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in de sessie voor AI-voorkeuren zoals taal, afbeeldingsverzamelingen, enz. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Gebruik geen alternatieve instellingen die zijn opgeslagen in de sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
+
+## Examples
+
+### Remove-ImageMetaData -ImageDirectories @("C:\Photos", "D:\MyImages") -Recurse
+
+```powershell
+Remove-ImageMetaData -ImageDirectories @("C:\Photos", "D:\MyImages") -Recurse
+```
+
+Verwijdert alle metadatabestanden voor afbeeldingen in meerdere mappen en alle submappen.
+
+### Remove-ImageMetaData -Recurse -OnlyKeywords
+
+```powershell
+Remove-ImageMetaData -Recurse -OnlyKeywords
+```
+
+Verwijdert alleen description.json-bestanden uit standaard systeemmappen en submappen.
+
+### Remove-ImageMetaData -OnlyPeople -ImageDirectories @(".\MyPhotos")
+
+```powershell
+Remove-ImageMetaData -OnlyPeople -ImageDirectories @(".\MyPhotos")
+```
+
+Verwijdert alleen people.json-bestanden uit de map MyPhotos.
+
+### Remove-ImageMetaData -Language "Spanish" -OnlyKeywords -Recurse
+
+```powershell
+Remove-ImageMetaData -Language "Spanish" -OnlyKeywords -Recurse
+```
+
+Verwijdert zowel Engelse als Spaanse beschrijvingsbestanden recursief uit standaardmappen.
+
+### removeimagedata -AllLanguages -OnlyKeywords
+
+```powershell
+removeimagedata -AllLanguages -OnlyKeywords
+```
+
+Gebruikt alias om trefwoordbestanden voor alle ondersteunde talen te verwijderen.
 
 ## Related Links
 

@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ouvre une requête d'informations sur l'hôte Whois dans un navigateur Web.
+
+## Description
+
+Ouvre les requêtes d'informations sur l'hôte Whois dans un navigateur web pour les noms de domaine ou les adresses IP. Prend en charge la sélection de moniteur configurable et plusieurs requêtes avec des options de configuration de navigateur étendues, y compris le positionnement des fenêtres, la sélection du navigateur et les fonctionnalités d'automatisation.
 
 ## Syntax
 
 ```powershell
-Open-WhoisHostSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WhoisHostSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-WhoisHostSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <
 | `-Chrome` | SwitchParameter | — | — | Named | — | S'ouvre dans Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Ouvre dans Microsoft Edge ou Google Chrome, selon le navigateur par défaut |
 | `-Firefox` | SwitchParameter | — | — | Named | — | S'ouvre dans Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utiliser le navigateur géré par Playwright au lieu du navigateur installé sur le système d'exploitation |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Ouvre le navigateur WebKit géré par Playwright. Implique -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Exécutez le navigateur sans fenêtre visible |
 | `-All` | SwitchParameter | — | — | Named | — | S'ouvre dans tous les navigateurs modernes enregistrés |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Le moniteur à utiliser, 0 = par défaut, -1 = supprimer, -2 = moniteur secondaire configuré, par défaut à -1, sans positionnement |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | S'ouvre en mode plein écran |
@@ -59,6 +66,32 @@ Open-WhoisHostSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Les paramètres alternatifs clairs stockés dans la session pour les préférences AI tels que la langue, les collections d'images, etc. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session for AI preferences like Language, Image collections, etc. |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Positionner la fenêtre du navigateur soit en plein écran sur un moniteur différent de PowerShell, soit côte à côte avec PowerShell sur le même moniteur. |
+
+## Examples
+
+### Open-WhoisHostSiteInfo -Queries "example.com", "example.org" -Monitor 0
+
+```powershell
+Open-WhoisHostSiteInfo -Queries "example.com", "example.org" -Monitor 0
+```
+
+Affiche les informations Whois pour plusieurs domaines sur le moniteur par défaut.
+
+### whois example.com -m 1
+
+```powershell
+whois example.com -m 1
+```
+
+Ouvre les informations Whois pour example.com en utilisant des alias et des paramètres positionnels.
+
+### "microsoft.com", "google.com" | Open-WhoisHostSiteInfo -Private -Chrome
+
+```powershell
+"microsoft.com", "google.com" | Open-WhoisHostSiteInfo -Private -Chrome
+```
+
+Ouvre les informations Whois des domaines du pipeline en mode privé Chrome.
 
 ## Related Links
 

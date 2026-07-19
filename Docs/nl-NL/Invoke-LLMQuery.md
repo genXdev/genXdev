@@ -4,7 +4,20 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stuurt queries naar een OpenAI-compatibele Large Language Chat completion API en verwerkt reacties.
+
+## Description
+
+Deze functie stuurt query's naar een OpenAI-compatibele API voor Large Language Chat-completie en verwerkt reacties. Het ondersteunt tekst- en afbeeldingsinvoer, verwerkt tool-functieaanroepen en kan werken in verschillende chatmodi, waaronder tekst en audio.
+
+De functie biedt uitgebreide ondersteuning voor LLM-interactie, waaronder:
+- Verwerking van tekst- en afbeeldingsinvoer
+- Aanroepen van tool-functies en uitvoeren van opdrachten
+- Interactieve chatmodi (tekst en audio)
+- Initialisatie en configuratie van modellen
+- Opmaak en verwerking van reacties
+- Sessiebeheer en caching
+- Positie van vensters en weergavebeheer
 
 ## Syntax
 
@@ -84,6 +97,40 @@ Invoke-LLMQuery [[-Query] <String>] [[-Instructions] <String>] [[-Attachments] <
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | `100000` | Maximum lengte van tool callback-uitvoer in tekens. Uitvoer die deze lengte overschrijdt, wordt afgekapt met een waarschuwingsbericht. Standaard is 100000 tekens. |
+
+## Examples
+
+### Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+
+```powershell
+Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+```
+
+Stuurt een eenvoudige wiskundige vraag naar het qwen-model met gespecificeerde temperatuur.
+
+### qllm "What is 2+2?" -Model "qwen"
+
+```powershell
+qllm "What is 2+2?" -Model "qwen"
+```
+
+Gebruikt het alias om een query met standaardparameters te verzenden.
+
+### Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+
+```powershell
+Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+```
+
+Stuurt een query met een afbeelding als bijlage voor analyse.
+
+### llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+
+```powershell
+llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+```
+
+Start een interactieve tekstchat-sessie met het opgegeven model.
 
 ## Related Links
 

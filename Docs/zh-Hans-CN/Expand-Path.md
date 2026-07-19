@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 将任何给定的文件引用扩展为完整路径名。
+
+## Description
+
+将任何给定的文件引用扩展为完整路径名，基于用户当前目录。可选地确保目录或文件存在。
 
 ## Syntax
 
@@ -23,6 +27,20 @@ Expand-Path -FilePath <String> [-CreateDirectory] [-CreateFile] [-DeleteExisting
 | `-ForceDrive` | Char | — | — | Named | `'*'` | 将强制使用特定驱动器 |
 | `-FileMustExist` | SwitchParameter | — | — | Named | — | 如果文件不存在，将抛出异常 |
 | `-DirectoryMustExist` | SwitchParameter | — | — | Named | — | 如果目录不存在则抛出错误 |
+
+## Examples
+
+### Expand-Path -FilePath ".\myfile.txt" -CreateFile
+
+```powershell
+Expand-Path -FilePath ".\myfile.txt" -CreateFile
+```
+
+### ep ~\documents\test.txt -CreateFile
+
+```powershell
+ep ~\documents\test.txt -CreateFile
+```
 
 ## Related Links
 

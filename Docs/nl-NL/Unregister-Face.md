@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Verwijdert een geregistreerd gezicht op basis van de identificatiecode uit DeepStack.
+
+## Description
+
+Deze functie verwijdert een gezicht uit het DeepStack-gezichtsherkenningssysteem met behulp van de unieke identificatiecode. Het communiceert met het API-eindpunt om de geregistreerde gezichtsgegevens permanent uit het systeem te verwijderen.
 
 ## Syntax
 
@@ -27,6 +31,21 @@ Unregister-Face -Identifier <String> [[-ContainerName] <String>] [[-VolumeName] 
 | `-Force` | SwitchParameter | — | — | Named | — | Force rebuild of Docker container and remove existing data |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Gebruik GPU-versnelde versie (vereist NVIDIA GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Toon Docker Desktop-venster tijdens initialisatie |
+
+## Examples
+
+### Unregister-Face -Identifier "JohnDoe" -NoDockerInitialize $false `     -ContainerName "deepstack_face_recognition" -ServicePort 5000
+
+```powershell
+Unregister-Face -Identifier "JohnDoe" -NoDockerInitialize $false `
+    -ContainerName "deepstack_face_recognition" -ServicePort 5000
+```
+
+### rface "JohnDoe"
+
+```powershell
+rface "JohnDoe"
+```
 
 ## Outputs
 

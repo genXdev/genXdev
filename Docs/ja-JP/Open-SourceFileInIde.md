@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 優先するIDE（Visual Studio CodeまたはVisual Studio）でソースファイルを開きます。
+
+## Description
+
+この関数は、指定されたソースファイルをVisual Studio CodeまたはVisual Studioで開きます。特定の行番号に直接移動し、オプションでファイルを開いた後にIDEにキーボード入力を送信することもできます。この関数は、現在のホストプロセス、実行中のアプリケーション、またはユーザーの選択に基づいて、使用するIDEを決定しようとします。
 
 ## Syntax
 
@@ -25,6 +29,20 @@ Open-SourceFileInIde -Path <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]
 | `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | ターゲットウィンドウにキーボードフォーカスを保持する |
 | `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Enterキーの代わりにShift+Enterを使用してください |
 | `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | 異なる入力文字列間の遅延（ミリ秒単位） |
+
+## Examples
+
+### Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+
+```powershell
+Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+```
+
+### editcode "C:\Projects\MyScript.ps1" 25
+
+```powershell
+editcode "C:\Projects\MyScript.ps1" 25
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> オプションのレコード制限付きでSQLiteデータベーステーブルからデータを取得します。
+
+## Description
+
+この関数は、接続文字列またはデータベースファイルパスを使用して、SQLiteデータベーステーブルからデータをクエリします。データベースへの接続の柔軟性を提供し、Countパラメータを通じて取得するデータ量を制御します。
 
 ## Syntax
 
@@ -24,6 +28,20 @@ Get-SQLiteTableData -TableName <String> [[-Count] <Int32>] [<CommonParameters>]
 | `-DatabaseFilePath` | String | ✅ | — | 0 | — | SQLite データベースファイルへのパス。 *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 1 | — | データのクエリ元となるテーブルの名前。 |
 | `-Count` | Int32 | — | — | 2 | `100` | 返却するレコードの最大数。すべての場合は-1。 |
+
+## Examples
+
+### Get-SQLiteTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+
+```powershell
+Get-SQLiteTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+```
+
+### Get-SQLiteTableData "C:\data\users.db" "Employees"
+
+```powershell
+Get-SQLiteTableData "C:\data\users.db" "Employees"
+```
 
 ## Related Links
 

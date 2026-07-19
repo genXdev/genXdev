@@ -4,12 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> カスタムコマンドが見つからない場合の処理を設定します
+
+## Description
+
+PowerShell が不明なコマンドを処理する方法を構成し、ディレクトリに移動するようにします。
 
 ## Syntax
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess)]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
     param()
 
     begin {
@@ -136,6 +141,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevCommandNotFoundAction
+
+```powershell
+Set-GenXdevCommandNotFoundAction
 ```
 
 ## Related Links

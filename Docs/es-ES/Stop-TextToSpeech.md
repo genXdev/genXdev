@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Detiene inmediatamente cualquier salida de texto a voz en curso.
+
+## Description
+
+Detiene toda la síntesis de voz activa y en cola cancelando tanto las operaciones de voz estándar como las personalizadas. Esto proporciona un silencio inmediato para cualquier actividad de texto a voz en curso.
 
 ## Syntax
 
@@ -40,6 +44,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### PS C:\> Stop-TextToSpeech Immediately stops any ongoing speech
+
+```powershell
+PS C:\> Stop-TextToSpeech
+Immediately stops any ongoing speech
+```
+
+### PS C:\> say "Hello world"; sst Starts speaking but gets interrupted immediately
+
+```powershell
+PS C:\> say "Hello world"; sst
+Starts speaking but gets interrupted immediately
 ```
 
 ## Related Links

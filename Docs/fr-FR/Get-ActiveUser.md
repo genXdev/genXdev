@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves a list of unique usernames from currently active system processes.
+
+## Description
+
+Interroge tous les processus en cours d'exécution sur le système, extrait le nom d'utilisateur associé à chaque processus, et renvoie une liste dédupliquée des utilisateurs ayant des processus actifs. Ceci est utile pour l'administration système et la surveillance de la sécurité.
 
 ## Syntax
 
@@ -92,6 +96,23 @@
                 'Process completed. No active users found or an error occurred.'
         }
     }
+```
+
+## Examples
+
+### Get-ActiveUser Returns a list of all unique usernames with active processes.
+
+```powershell
+Get-ActiveUser
+Returns a list of all unique usernames with active processes.
+```
+
+### gusers Uses the alias to get the same results. ##############################################################################
+
+```powershell
+gusers
+Uses the alias to get the same results.
+##############################################################################
 ```
 
 ## Related Links

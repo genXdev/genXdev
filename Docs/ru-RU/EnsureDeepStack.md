@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Обеспечивает установку и запуск службы распознавания лиц DeepStack.
+
+## Description
+
+Эта функция настраивает и управляет службой распознавания лиц DeepStack с помощью Docker. Она проверяет, установлен ли Docker Desktop, загружает образ Docker DeepStack и запускает службу в контейнере с постоянным хранилищем для зарегистрированных лиц.
+
+DeepStack предоставляет простой REST API для обнаружения, регистрации и распознавания лиц, который хорошо документирован и активно поддерживается.
 
 ## Syntax
 
@@ -45,6 +51,24 @@ EnsureDeepStack [[-ContainerName] <String>] [[-VolumeName] <String>] [[-ServiceP
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### EnsureDeepStack -ContainerName "deepstack_face_recognition" `                 -VolumeName "deepstack_face_data" `                 -ServicePort 5000 `                 -HealthCheckTimeout 60 `                 -HealthCheckInterval 3
+
+```powershell
+EnsureDeepStack -ContainerName "deepstack_face_recognition" `
+                -VolumeName "deepstack_face_data" `
+                -ServicePort 5000 `
+                -HealthCheckTimeout 60 `
+                -HealthCheckInterval 3
+```
+
+### EnsureDeepStack -Force -UseGPU
+
+```powershell
+EnsureDeepStack -Force -UseGPU
+```
 
 ## Outputs
 

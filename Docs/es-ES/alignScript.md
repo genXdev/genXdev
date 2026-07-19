@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Devuelve una cadena (con sangría alterada) de una cadena de scriptblock proporcionada
+
+## Description
+
+Cambia la indentación de una cadena de bloque de script respetando las indentaciones originales del bloque de código
 
 ## Syntax
 

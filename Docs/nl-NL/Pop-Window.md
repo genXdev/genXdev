@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Haalt de laatste hulp van het actieve venster uit de stapel met optionele wijzigingen.
+
+## Description
+
+Haalt een vensterhelper van de stapel en past optioneel venstertransformaties toe. Als de stapel leeg is of ongeldige vensters bevat, wordt het momenteel gefocuste venster teruggegeven. Deze functie stelt u in staat om vensters te manipuleren die eerder zijn opgeslagen met Push-Window, met toepassing van verschillende positionerings-, formaat- en visuele effecten.
 
 ## Syntax
 
@@ -44,6 +48,46 @@ Pop-Window [-NoModify] [<CommonParameters>]
 | `-Centered` | SwitchParameter | — | — | Named | — | The `-Centered` parameter. *(Parameter set: )* |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | The `-ShowWindow` parameter. *(Parameter set: )* |
 | `-Monitor` | Int32 | — | — | Named | — | The `-Monitor` parameter. *(Parameter set: )* |
+
+## Examples
+
+### Pop-Window -Maximize -Focus Pops the last window from the stack, maximizes it and gives it focus.
+
+```powershell
+Pop-Window -Maximize -Focus
+Pops the last window from the stack, maximizes it and gives it focus.
+```
+
+### Pop-Window -X 100 -Y 100 -Width 800 -Height 600 -AlwaysOnTop Pops the last window, positions it at coordinates (100,100), resizes it to 800x600, and sets it to always stay on top.
+
+```powershell
+Pop-Window -X 100 -Y 100 -Width 800 -Height 600 -AlwaysOnTop
+Pops the last window, positions it at coordinates (100,100),
+resizes it to 800x600, and sets it to always stay on top.
+```
+
+### popw -Left -Focus Pops the last window, positions it on the left half of the screen, and gives it focus using the alias.
+
+```powershell
+popw -Left -Focus
+Pops the last window, positions it on the left half of the screen,
+and gives it focus using the alias.
+```
+
+### Pop-Window -Monitor 1 -Maximize Pops the last window, moves it to the first monitor, and maximizes it.
+
+```powershell
+Pop-Window -Monitor 1 -Maximize
+Pops the last window, moves it to the first monitor, and maximizes it.
+```
+
+### Pop-Window -Monitor -2 -Fullscreen Pops the last window, moves it to the secondary monitor, and makes it fullscreen. ##############################################################################
+
+```powershell
+Pop-Window -Monitor -2 -Fullscreen
+Pops the last window, moves it to the secondary monitor, and makes it fullscreen.
+##############################################################################
+```
 
 ## Related Links
 

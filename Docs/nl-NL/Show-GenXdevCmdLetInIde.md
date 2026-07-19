@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent de opgegeven GenXdev cmdlet in Visual Studio Code.
+
+## Description
+
+Deze functie haalt het scriptbestand en het regelnummer op voor de opgegeven GenXdev-cmdlet en opent het in Visual Studio Code. Het kan de implementatie van de hoofdfunctie of de bijbehorende eenheidstests openen, afhankelijk van de schakelparameter UnitTests.
 
 ## Syntax
 
@@ -40,6 +44,22 @@ Show-GenXdevCmdLetInIde [[-BaseModuleName] <String>] [[-Synopsis] <String>] [[-D
 | `-PromptKey` | String | — | — | Named | — | De AI-prompt-sleutel die moet worden gebruikt voor sjabloonselectie *(Parameter set: )* |
 | `-Prompt` | String | — | — | Named | `"Create a boilerplate GenXdev cmdlet that does what it's name suggests"` | Custom AI prompt text to use for cmdlet generation |
 | `-EditPrompt` | SwitchParameter | — | — | Named | — | Only edit the AI prompt without creating the cmdlet |
+
+## Examples
+
+### Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo" Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+
+```powershell
+Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo"
+Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+```
+
+### editcmdlet Get-GenXDevModuleInfo -UnitTests Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+
+```powershell
+editcmdlet Get-GenXDevModuleInfo -UnitTests
+Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+```
 
 ## Related Links
 

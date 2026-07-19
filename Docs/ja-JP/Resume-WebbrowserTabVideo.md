@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> YouTubeブラウザタブでの動画再生を再開します。
+
+## Description
+
+アクティブなYouTubeブラウザタブを見つけ、ページ内のビデオ要素に対してplay()メソッドを実行することで動画の再生を再開します。YouTubeタブが見つからない場合は、関数はエラーをスローします。この関数は、ブラウザセッションでの動画再生制御を自動化する際に特に便利です。
 
 ## Syntax
 
@@ -42,6 +46,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Resume-WebbrowserTabVideo
+
+```powershell
+Resume-WebbrowserTabVideo
+```
+
+### wbvideoplay
+
+```powershell
+wbvideoplay
 ```
 
 ## Related Links

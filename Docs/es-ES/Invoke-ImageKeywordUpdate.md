@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Actualiza los metadatos de la imagen con descripciones y palabras clave generadas por IA.
+
+## Description
+
+La función Invoke-ImageKeywordUpdate analiza imágenes mediante inteligencia artificial para generar descripciones, palabras clave y otros metadatos. Crea un archivo JSON complementario para cada imagen que contiene esta información. La función puede procesar solo imágenes nuevas o actualizar metadatos existentes, y admite el escaneo recursivo de directorios.
 
 ## Syntax
 
@@ -52,6 +56,20 @@ Let me prepare the response.",
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longitud máxima de devolución de llamada para llamadas de herramientas. |
 | `-PassThru` | SwitchParameter | — | — | Named | — | PassThru para devolver objetos estructurados en lugar de enviarlos a la consola |
 | `-AutoUpdateFaces` | SwitchParameter | — | — | Named | — | Detecta cambios en el directorio de rostros y vuelve a registrar los rostros si es necesario |
+
+## Examples
+
+### Invoke-ImageKeywordUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse -OnlyNew
+
+```powershell
+Invoke-ImageKeywordUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse -OnlyNew
+```
+
+### updateimages @("C:\Photos", "C:\Archive") -Recurse -RetryFailed -Language "Spanish"
+
+```powershell
+updateimages @("C:\Photos", "C:\Archive") -Recurse -RetryFailed -Language "Spanish"
+```
 
 ## Related Links
 

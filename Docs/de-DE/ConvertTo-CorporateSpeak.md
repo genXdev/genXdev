@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> We appreciate your inquiry. To ensure the most accurate and efficient response, could you kindly provide additional context or details regarding your request? This will enable us to better assist you moving forward.
+
+## Description
+
+Diese Funktion verarbeitet Eingabetexte, um direkte oder potenziell harte Sprache in diplomatische, professionelle Unternehmenskommunikation umzuwandeln. Sie kann Eingaben direkt über Parameter, aus der Pipeline oder aus der System-Zwischenablage akzeptieren. Die Funktion nutzt KI-Modelle, um Texte zu analysieren und umzuformulieren, während die ursprüngliche Absicht erhalten bleibt.
 
 ## Syntax
 
@@ -114,6 +118,20 @@ ConvertTo-CorporateSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-AllowD
 } |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale Tool-Rückrufflänge (an LLMQuery übergeben) |
+
+## Examples
+
+### ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+
+```powershell
+ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+```
+
+### "This makes no sense" | corporatize
+
+```powershell
+"This makes no sense" | corporatize
+```
 
 ## Outputs
 

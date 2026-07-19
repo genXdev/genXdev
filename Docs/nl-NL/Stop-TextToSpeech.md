@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stopt onmiddellijk alle lopende tekst-naar-spraak uitvoer.
+
+## Description
+
+Stopt alle actieve en wachtende spraaksynthese door zowel standaard als aangepaste spraakbewerkingen te annuleren. Dit zorgt voor onmiddellijke stilte bij eventuele lopende tekst-naar-spraakactiviteiten.
 
 ## Syntax
 
@@ -40,6 +44,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### PS C:\> Stop-TextToSpeech Immediately stops any ongoing speech
+
+```powershell
+PS C:\> Stop-TextToSpeech
+Immediately stops any ongoing speech
+```
+
+### PS C:\> say "Hello world"; sst Starts speaking but gets interrupted immediately
+
+```powershell
+PS C:\> say "Hello world"; sst
+Starts speaking but gets interrupted immediately
 ```
 
 ## Related Links

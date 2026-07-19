@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 使用 AI 生成的描述和关键词更新图片元数据。
+
+## Description
+
+Invoke-ImageKeywordUpdate 函数利用 AI 分析图像，生成描述、关键词及其他元数据。它会为每张图像创建一个包含这些信息的配套 JSON 文件。该函数可以仅处理新图像，也可以更新现有元数据，并支持递归目录扫描。
 
 ## Syntax
 
@@ -61,6 +65,20 @@ Invoke-ImageKeywordUpdate [[-ImageDirectories] <String[]>] [[-Instructions] <Str
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 工具调用的最大回调长度。 |
 | `-PassThru` | SwitchParameter | — | — | Named | — | PassThru 返回结构化对象而非输出到控制台 |
 | `-AutoUpdateFaces` | SwitchParameter | — | — | Named | — | 检测faces目录的变化，并在需要时重新注册人脸 |
+
+## Examples
+
+### Invoke-ImageKeywordUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse -OnlyNew
+
+```powershell
+Invoke-ImageKeywordUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse -OnlyNew
+```
+
+### updateimages @("C:\Photos", "C:\Archive") -Recurse -RetryFailed -Language "Spanish"
+
+```powershell
+updateimages @("C:\Photos", "C:\Archive") -Recurse -RetryFailed -Language "Spanish"
+```
 
 ## Related Links
 

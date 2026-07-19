@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Enhances text by adding contextually appropriate emoticons using AI 😊✨
+
+## Description
+
+이 함수는 감정적 맥락에 맞는 이모티콘을 추가하기 위해 입력 텍스트를 처리합니다. 함수는 파라미터, 파이프라인 또는 시스템 클립보드를 통해 직접 입력을 받을 수 있습니다. AI 모델을 활용하여 텍스트를 분석하고 적절한 이모티콘을 선택함으로써 메시지를 더욱 표현력 있고 매력적으로 만듭니다.
 
 ## Syntax
 
@@ -66,6 +70,21 @@ LLMQuery: "아래 문장을 한국어로 번역해 주세요: Hello, how are you
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | 필터 for markup block types (LLMQuery에 전달됨) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 최대 도구 콜백 길이 (LLM 쿼리에 전달됨) |
+
+## Examples
+
+### Add-EmoticonsToText -Text "Hello, how are you today?" -SetClipboard
+
+```powershell
+Add-EmoticonsToText -Text "Hello, how are you today?" -SetClipboard
+```
+
+### "Time to celebrate!" | emojify ##############################################################################
+
+```powershell
+"Time to celebrate!" | emojify
+##############################################################################
+```
 
 ## Outputs
 

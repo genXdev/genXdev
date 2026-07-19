@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I understand you'd like me to rephrase statements in a more diplomatic tone. How may I assist you?
+
+## Description
+
+Esta función transforma la entrada del usuario, pasando de un lenguaje directo o brusco a un lenguaje diplomático y discreto, adecuado para discusiones de alto nivel, negociaciones o comunicaciones formales. La función utiliza modelos de lenguaje de IA para mantener la intención original mientras suaviza el tono y hace que el mensaje sea más diplomático y profesional.
 
 ## Syntax
 
@@ -69,6 +73,21 @@ Let me prepare the response.",
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filtrar por tipos de bloques de marcado (pasado a LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longitud máxima de la llamada a la herramienta (pasada a LLMQuery) |
+
+## Examples
+
+### ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `     -SetClipboard
+
+```powershell
+ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `
+    -SetClipboard
+```
+
+### diplomatize "Your code is full of bugs"
+
+```powershell
+diplomatize "Your code is full of bugs"
+```
 
 ## Outputs
 

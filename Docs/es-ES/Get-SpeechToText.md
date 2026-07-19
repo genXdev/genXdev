@@ -1,10 +1,14 @@
 # Get-SpeechToText
 
-> **Module:** GenXdev.Helpers | **Type:** Cmdlet | **Aliases:** —
+> **Module:** GenXdev.AI | **Type:** Cmdlet | **Aliases:** —
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Convierte archivos de audio a texto usando el modelo de reconocimiento de voz Whisper de OpenAI.
+
+## Description
+
+Procesa archivos de audio y convierte el habla en texto utilizando la librería Whisper.NET, que implementa el sistema de reconocimiento automático del habla (ASR) Whisper de OpenAI. Soporta múltiples idiomas, capacidades de traducción y diversas configuraciones de calidad de transcripción.
 
 ## Syntax
 
@@ -47,6 +51,40 @@ Get-SpeechToText [-Input] <Object> [-ModelFileDirectoryPath <string>] [-Language
 | `-PrintSpecialTokens` | SwitchParameter | — | — | Named | `False` | Si imprimir tokens especiales |
 | `-NoContext` | SwitchParameter | — | — | Named | `False` | Don't use context |
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | `False` | Use beam search sampling strategy |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-SpeechToText -Input "C:\audio\recording.wav"
+```
+
+Transcribe un archivo de audio a texto usando la configuración predeterminada.
+
+### Example 2
+
+```powershell
+Get-ChildItem "C:\audio\*.wav" | Get-SpeechToText
+```
+
+Transcribe todos los archivos WAV en un directorio.
+
+### Example 3
+
+```powershell
+Get-SpeechToText -Input "audio.mp3" -LanguageIn "es" -WithTranslate
+```
+
+Transcribe audio en español y lo traduce al inglés.
+
+### Example 4
+
+```powershell
+Get-SpeechToText -Input "recording.wav" -Passthru -WithTokenTimestamps
+```
+
+Devuelve objetos SegmentData con información precisa de sincronización.
 
 ## Outputs
 

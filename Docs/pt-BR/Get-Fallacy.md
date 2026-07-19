@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Analisa textos para identificar falácias lógicas usando detecção com IA.
+
+## Description
+
+Esta função analisa o texto fornecido para detectar falácias lógicas usando um modelo de IA treinado na Lista de Falácias da Wikipedia. Ela retorna informações detalhadas sobre cada falácia encontrada, incluindo a citação específica, nome da falácia, descrição, explicação e classificação formal. A função usa um formato de resposta estruturada para garantir uma saída consistente.
 
 ## Syntax
 
@@ -78,6 +82,33 @@ Responda apenas com um objeto JSON. Nenhum outro texto é permitido. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Configurações alternativas claras armazenadas na sessão para preferências de IA |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazenar configurações apenas em preferências persistentes sem afetar a sessão |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Comprimento máximo de retorno de chamada para chamadas de ferramenta. |
+
+## Examples
+
+### Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " + "and he was a politician")
+
+```powershell
+Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " +
+"and he was a politician")
+```
+
+Analisa o texto fornecido em busca de falácias lógicas e retorna informações estruturadas sobre quaisquer falácias detectadas.
+
+### "This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+
+```powershell
+"This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+```
+
+Usa entrada de pipeline para analisar texto com baixa temperatura para análise focada.
+
+### dispicetext "Everyone knows this is true"
+
+```powershell
+dispicetext "Everyone knows this is true"
+```
+
+Uses the alias to analyze text for logical fallacies.
 
 ## Outputs
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 使用 Microsoft Edge 的神经 TTS 引擎将文本转换为语音。
+
+## Description
+
+使用 Microsoft Edge 的神经 TTS 引擎（通过 EdgeTTS.DotNet）将文本转换为语音，具有自然的声音。此函数提供灵活的文本转语音功能，支持不同的声音、区域设置、韵律调整（语速、音量、音调）以及同步/异步播放选项。它可以处理单个字符串和文本数组。
 
 ## Syntax
 
@@ -26,6 +30,26 @@ Start-TextToSpeech [[-VoiceName] <String>] [-Locale <String>] [-PassThru] [-Pitc
 | `-Pitch` | String | — | — | Named | `$null` | Pitch shift, e.g. "+0Hz", "-10Hz", "+20Hz" |
 | `-PassThru` | SwitchParameter | — | — | Named | — | Output the text being spoken to the pipeline |
 | `-Wait` | SwitchParameter | — | — | Named | — | 等待语音完成后再继续 |
+
+## Examples
+
+### Start-TextToSpeech -Lines "Hello World" -Locale "en-US" -Wait
+
+```powershell
+Start-TextToSpeech -Lines "Hello World" -Locale "en-US" -Wait
+```
+
+### "Hello World" | say
+
+```powershell
+"Hello World" | say
+```
+
+### say "Hello World" -Rate "+50%" -Pitch "-5Hz"
+
+```powershell
+say "Hello World" -Rate "+50%" -Pitch "-5Hz"
+```
 
 ## Related Links
 

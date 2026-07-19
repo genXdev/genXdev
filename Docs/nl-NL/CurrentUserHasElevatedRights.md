@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Controleert of de huidige gebruiker verhoogde rechten heeft.
+
+## Description
+
+Bepaalt of de huidige Windows-gebruiker beheerders- of back-upoperatorrechten heeft door hun beveiligingsprincipaalrollen te controleren. Geeft true terug als de gebruiker verhoogde rechten heeft, anders false. Implementeert robuuste foutafhandeling voor beveiligings- en toegangsgerelateerde problemen.
 
 ## Syntax
 
@@ -89,8 +93,19 @@
     }
 ```
 
+## Examples
+
+### $hasRights = CurrentUserHasElevatedRights ##############################################################################
+
+```powershell
+$hasRights = CurrentUserHasElevatedRights
+##############################################################################
+```
+
 ## Outputs
 
+- `Boolean
+Returns true if user has admin or backup operator rights, false otherwise.`
 - `Boolean`
 
 ## Related Links

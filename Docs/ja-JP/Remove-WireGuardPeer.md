@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> WireGuard VPNピア設定を削除します。
+
+## Description
+
+この関数は、Dockerコンテナで実行されているサーバーからWireGuard VPNピア設定を削除します。ピアの設定ファイルを削除し、このピアからの接続を停止するようにWireGuardサーバーを更新します。関数は削除前にピアの存在を検証し、Forceパラメータが指定されていない限り確認プロンプトを表示します。
 
 ## Syntax
 
@@ -48,6 +52,32 @@ Remove-WireGuardPeer -PeerName <String> [-Bottom] [-Centered] [-ClearSession] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定はセッションに影響を与えず、永続的な設定のみに保存します。 |
+
+## Examples
+
+### Remove-WireGuardPeer -PeerName "MyPhone"
+
+```powershell
+Remove-WireGuardPeer -PeerName "MyPhone"
+```
+
+削除確認プロンプトを表示して、「MyPhone」という名前のピアを削除します。
+
+### Remove-WireGuardPeer -PeerName "Tablet" -Force
+
+```powershell
+Remove-WireGuardPeer -PeerName "Tablet" -Force
+```
+
+確認プロンプトなしで「Tablet」という名前のピアを削除します。
+
+### Remove-WireGuardPeer "WorkLaptop"
+
+```powershell
+Remove-WireGuardPeer "WorkLaptop"
+```
+
+位置パラメータ構文を使用してピアを削除します。
 
 ## Related Links
 

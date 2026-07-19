@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula el alcance de un proyectil.
+
+## Description
+
+Utiliza la fórmula R = (v² sin(2θ)) / g para el movimiento de proyectiles ideal.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-ProjectileRangeByInitialSpeedAndAngle [-InitialSpeedInMetersPerSecond] <doub
 | `-AngleInDegrees` | Double | ✅ | — | 1 | `0` | Ángulo de lanzamiento en grados |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 2 | `0` | Gravedad en m/s² (predeterminado: 9.81) |
 | `-As` | String | — | — | 3 | — | Output unit for range |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ProjectileRangeByInitialSpeedAndAngle -InitialSpeedInMetersPerSecond 20 -AngleInDegrees 45 -As "feet"
+```
+
+Calcula el alcance usando la fórmula de movimiento de proyectiles.
+
+### Example 2
+
+```powershell
+Get-ProjectileRangeByInitialSpeedAndAngle 30 30
+```
+
+Calcula el rango con parámetros posicionales.
 
 ## Related Links
 

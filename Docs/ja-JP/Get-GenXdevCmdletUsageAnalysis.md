@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev コマンドレットの使用パターンを分析し、最も頻繁に呼び出される関数を特定します。
+
+## Description
+
+このスクリプトはGet-GenXDevCmdletを使用して、すべてのGenXdev PowerShellモジュールとその関数をスキャンし、他のコマンドレットから最も頻繁に呼び出されるコマンドレットを分析します。これにより、最初にC#にリファクタリングする関数を優先順位付けでき、最もよく使われるものから始められます。
 
 ## Syntax
 
@@ -20,6 +24,26 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-Inc
 | `-Top` | Int32 | — | — | 1 | `50` | The `-Top` parameter. |
 | `-IncludeCallChains` | SwitchParameter | — | — | Named | — | The `-IncludeCallChains` parameter. |
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | The `-IncludeScripts` parameter. |
+
+## Examples
+
+### Get-GenXdevCmdletUsageAnalysis
+
+```powershell
+Get-GenXdevCmdletUsageAnalysis
+```
+
+### Get-GenXdevCmdletUsageAnalysis -Top 20 -OutputFormat List
+
+```powershell
+Get-GenXdevCmdletUsageAnalysis -Top 20 -OutputFormat List
+```
+
+### Get-GenXdevCmdletUsageAnalysis -IncludeCallChains -IncludeScripts | Export-Csv -Path "cmdlet-usage.csv"
+
+```powershell
+Get-GenXdevCmdletUsageAnalysis -IncludeCallChains -IncludeScripts | Export-Csv -Path "cmdlet-usage.csv"
+```
 
 ## Related Links
 

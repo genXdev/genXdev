@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI 기반 처리를 사용하여 텍스트를 변환합니다.
+
+## Description
+
+이 함수는 AI 모델을 사용하여 입력 텍스트를 처리하며 맞춤법 검사, 이모티콘 추가 또는 지침을 통해 지정된 기타 텍스트 개선과 같은 다양한 변환을 수행합니다. 매개변수, 파이프라인 또는 시스템 클립보드를 통해 직접 입력을 받을 수 있습니다.
 
 ## Syntax
 
@@ -68,6 +72,28 @@ LLMQuery: "아래 문장을 한국어로 번역해 주세요: Hello, how are you
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | 필터 for markup block types (LLMQuery에 전달됨) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 최대 도구 콜백 길이 (LLM 쿼리에 전달됨) |
+
+## Examples
+
+### Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `     -Instructions "Fix spelling errors" -SetClipboard
+
+```powershell
+Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `
+    -Instructions "Fix spelling errors" -SetClipboard
+```
+
+### "Time to celerbate!" | Invoke-LLMTextTransformation `     -Instructions "Add celebratory emoticons"
+
+```powershell
+"Time to celerbate!" | Invoke-LLMTextTransformation `
+    -Instructions "Add celebratory emoticons"
+```
+
+### spellcheck "This is a sentance with erors"
+
+```powershell
+spellcheck "This is a sentance with erors"
+```
 
 ## Outputs
 

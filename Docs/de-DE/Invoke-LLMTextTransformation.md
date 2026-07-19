@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Transforms text using AI-powered processing.
+
+## Description
+
+Diese Funktion verarbeitet Eingabetext mithilfe von KI-Modellen, um verschiedene Transformationen wie Rechtschreibprüfung, Hinzufügen von Emoticons oder andere durch Anweisungen festgelegte Textverbesserungen durchzuführen. Sie kann Eingaben direkt über Parameter, aus der Pipeline oder aus der System-Zwischenablage akzeptieren.
 
 ## Syntax
 
@@ -117,6 +121,28 @@ Invoke-LLMTextTransformation [[-Text] <String>] [[-Instructions] <String>] [[-At
 } |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale Tool-Rückrufflänge (an LLMQuery übergeben) |
+
+## Examples
+
+### Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `     -Instructions "Fix spelling errors" -SetClipboard
+
+```powershell
+Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `
+    -Instructions "Fix spelling errors" -SetClipboard
+```
+
+### "Time to celerbate!" | Invoke-LLMTextTransformation `     -Instructions "Add celebratory emoticons"
+
+```powershell
+"Time to celerbate!" | Invoke-LLMTextTransformation `
+    -Instructions "Add celebratory emoticons"
+```
+
+### spellcheck "This is a sentance with erors"
+
+```powershell
+spellcheck "This is a sentance with erors"
+```
 
 ## Outputs
 

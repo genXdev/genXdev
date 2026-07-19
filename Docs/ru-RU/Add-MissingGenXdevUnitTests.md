@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Добавляет недостающие модульные тесты для командлетов GenXDev.
+
+## Description
+
+Эта функция сканирует все командлеты GenXdev и создает базовые файлы модульных тестов для тех, у которых тестов еще нет. Тесты включают проверки правил PSScriptAnalyzer.
 
 ## Syntax
 
@@ -78,6 +82,14 @@ The following PSScriptAnalyzer rules are being violated:
         Microsoft.PowerShell.Utility\Write-Verbose "Created test file: $($genXdevCmdlet.ScriptTestFilePath)"
         Microsoft.PowerShell.Utility\Write-Output $prompt
     }
+```
+
+## Examples
+
+### Add-MissingGenXdevUnitTests
+
+```powershell
+Add-MissingGenXdevUnitTests
 ```
 
 ## Related Links

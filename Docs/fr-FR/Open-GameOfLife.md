@@ -4,12 +4,24 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ouvre la simulation du Jeu de la vie de Conway dans un navigateur web.
+
+## Description
+
+Ouvre une simulation interactive du Jeu de la Vie de Conway dans une fenêtre de navigateur web
+avec des options étendues de positionnement et de configuration. Le Jeu de la Vie de Conway est
+un automate cellulaire conçu par le mathématicien John Conway en 1970, constitué
+d'une grille de cellules pouvant être dans l'un des deux états : vivante ou morte.
+
+Cette fonction offre un contrôle complet du navigateur, notamment le positionnement
+de la fenêtre, la sélection du navigateur, la navigation privée et des capacités
+d'interaction automatisée. La simulation s'exécute à l'adresse https://conway.genxdev.net/ et prend en charge
+divers modes d'interaction.
 
 ## Syntax
 
 ```powershell
-Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +35,9 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-Chrome` | SwitchParameter | — | — | Named | — | S'ouvre dans Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Ouvre dans Microsoft Edge ou Google Chrome, selon le navigateur par défaut |
 | `-Firefox` | SwitchParameter | — | — | Named | — | S'ouvre dans Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utiliser le navigateur géré par Playwright au lieu du navigateur installé sur le système d'exploitation |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Ouvre le navigateur WebKit géré par Playwright. Implique -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Exécutez le navigateur sans fenêtre visible |
 | `-All` | SwitchParameter | — | — | Named | — | S'ouvre dans tous les navigateurs modernes enregistrés |
 | `-Monitor` | Int32 | — | — | Named | `-2` | Le moniteur à utiliser, 0 = par défaut, -1 = supprimer, -2 = moniteur secondaire configuré, par défaut à -1, sans positionnement |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | S'ouvre en mode plein écran |
@@ -60,6 +75,40 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utiliser le mode session uniquement pour le profil du navigateur (cookies et données effacés à la fermeture). |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Effacer les données de session/profil du navigateur avant d'ouvrir. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Ignorer la restauration de la session précédente du navigateur. |
+
+## Examples
+
+### Open-GameOfLife -Monitor 1 -FullScreen
+
+```powershell
+Open-GameOfLife -Monitor 1 -FullScreen
+```
+
+Ouvre le Jeu de la Vie de Conway en mode plein écran sur le moniteur 1.
+
+### Open-GameOfLife -Language "French" -Chrome -Private
+
+```powershell
+Open-GameOfLife -Language "French" -Chrome -Private
+```
+
+Ouvre le Jeu de la Vie en français avec Chrome en mode privé.
+
+### gameoflife -m 0 -app
+
+```powershell
+gameoflife -m 0 -app
+```
+
+Ouvre le Jeu de la Vie sur le moniteur principal en mode application en utilisant l'alias.
+
+### conway -Edge -Left -Width 800 -Height 600
+
+```powershell
+conway -Edge -Left -Width 800 -Height 600
+```
+
+Ouvre le Jeu de la Vie de Conway dans Microsoft Edge, positionné sur le côté gauche avec des dimensions spécifiques.
 
 ## Related Links
 

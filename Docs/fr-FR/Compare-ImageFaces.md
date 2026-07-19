@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Compare les visages dans deux images différentes et retourne leur similarité en utilisant DeepStack.
+
+## Description
+
+Cette fonction compare les visages entre deux images pour déterminer leur similitude. Elle utilise une API locale DeepStack de correspondance faciale fonctionnant sur un port configurable et renvoie un score de similitude entre 0,0 et 1,0. Elle est généralement utilisée pour faire correspondre des pièces d'identité avec des photos d'une personne ou pour vérifier si deux photos montrent la même personne.
 
 ## Syntax
 
@@ -28,6 +32,25 @@ Compare-ImageFaces -ImagePath1 <String> -ImagePath2 <String> [[-ContainerName] <
 | `-Force` | SwitchParameter | — | — | Named | — | Force rebuild of Docker container and remove existing data |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Version accélérée par GPU (nécessite un GPU NVIDIA) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Afficher la fenêtre de Docker Desktop pendant l'initialisation |
+
+## Examples
+
+### Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `                    -ImagePath2 "C:\Users\YourName\photo2.jpg"
+
+```powershell
+Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `
+                   -ImagePath2 "C:\Users\YourName\photo2.jpg"
+```
+
+Compare des visages entre deux images en utilisant les paramètres par défaut.
+
+### comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+
+```powershell
+comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+```
+
+Compare des visages à l'aide de l'accélération GPU pour la vérification d'identité avec alias et paramètres positionnels.
 
 ## Outputs
 

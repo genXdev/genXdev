@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 지정된 검색어나 URL에 대해 가능한 모든 쿼리 유형을 엽니다.
+
+## Description
+
+웹페이지 쿼리를 처리하고 URL과 검색어를 모두 처리하는 모든 cmdlet을 실행합니다. URL의 경우 사이트별 쿼리를 수행하고, 검색어의 경우 일반 웹 쿼리를 실행합니다. 이 함수는 GenXdev.Queries 모듈 제품군에서 사용 가능한 모든 쿼리 cmdlet을 동적으로 검색하여 실행합니다.
 
 ## Syntax
 
 ```powershell
-Open-AllPossibleQueries -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-AllPossibleQueries -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-AllPossibleQueries -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 사용할 모니터, 0 = 기본, -1은 폐기, -2 = 설정된 보조 모니터, 기본값은 -1, 위치 지정 없음 |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 전체 화면 모드로 열기 |
@@ -59,6 +66,24 @@ Open-AllPossibleQueries -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 브라우저 세션을 열기 전에 초기화하세요. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 브라우저 세션 복원 건너뛰기. |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | 브라우저 창을 PowerShell과 다른 모니터에서 전체 화면으로 배치하거나, 같은 모니터에서 PowerShell과 나란히 배치합니다. |
+
+## Examples
+
+### Open-AllPossibleQueries -Queries "powershell scripting" -Monitor 0
+
+```powershell
+Open-AllPossibleQueries -Queries "powershell scripting" -Monitor 0
+```
+
+Opens all possible query types for "powershell scripting" on the default monitor.
+
+### qq "https://github.com" -m -1
+
+```powershell
+qq "https://github.com" -m -1
+```
+
+GitHub URL에 대해 별칭 및 짧은 매개변수를 사용하여 가능한 모든 쿼리 유형을 엽니다.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Leest JSON-bestand met herhaalpogingen en automatische vergrendelingsopschoning.
+
+## Description
+
+Probeert een JSON-bestand te lezen met herhaallogica om gelijktijdige toegang af te handelen. Implementeert automatische opschoning van verouderde lock-bestanden. Retourneert een lege hashtabel als het bestand niet bestaat.
 
 ## Syntax
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Crée une nouvelle base de données SQL Server.
+
+## Description
+
+Crée une nouvelle base de données SQL Server avec le nom spécifié sur le serveur spécifié. Nécessite les autorisations appropriées pour créer des bases de données sur l'instance SQL Server cible. Si la base de données existe déjà, l'opération sera ignorée. Prend en charge la création de bases de données basées sur des fichiers avec des chemins .mdf/.ldf explicites.
 
 ## Syntax
 
@@ -28,6 +32,38 @@ New-SQLServerDatabase [-ConsentToThirdPartySoftwareInstallation] [-ForceConsent]
 | `-DataFilePath` | String | — | — | Named | — | Chemin de fichier de données optionnel (.mdf) pour la création de base de données basée sur fichier. *(Parameter set: )* |
 | `-LogFilePath` | String | — | — | Named | — | Chemin facultatif vers le fichier journal (.ldf) pour la création d'une base de données basée sur fichier. *(Parameter set: )* |
 | `-DetachAfterCreation` | SwitchParameter | — | — | Named | — | Détacher la base de données après sa création (pour les bases de données basées sur des fichiers). *(Parameter set: )* |
+
+## Examples
+
+### New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+```
+
+### New-SQLServerDatabase "MyNewDatabase"
+
+```powershell
+New-SQLServerDatabase "MyNewDatabase"
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+```
+
+### New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

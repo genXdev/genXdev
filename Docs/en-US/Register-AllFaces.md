@@ -4,7 +4,20 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Updates all face recognition profiles from image files in the faces directory.
+
+## Description
+
+This function updates the face recognition database with all images found in
+the specified faces directory. The process involves:
+1. Ensuring the face recognition service is running
+2. Processing all images in each person's folder, registering all faces for
+   that person with a single identifier (the folder name) in a batch operation
+3. Supporting retry logic for failed registrations
+
+Each person's folder can contain multiple images, and all images will be
+registered under the same identifier (person name) in a single API call,
+eliminating the need for _1, _2, etc. suffixes.
 
 ## Syntax
 
@@ -34,6 +47,30 @@ Register-AllFaces [[-FacesDirectory] <String>] [[-MaxRetries] <Int32>] [[-Contai
 | `-ClearSession` | SwitchParameter | — | — | Named | — | If specified, clear the current session preferences before use. |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Path to the preferences database to use for known faces root path. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | If specified, skip session logic when retrieving known faces root path. |
+
+## Examples
+
+### Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `     -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `     -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+
+```powershell
+Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `
+    -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `
+    -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+```
+
+### Register-AllFaces Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+
+```powershell
+Register-AllFaces
+Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+```
+
+### updatefaces -RenameFailed ##############################################################################
+
+```powershell
+updatefaces -RenameFailed
+##############################################################################
+```
 
 ## Related Links
 

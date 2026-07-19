@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Exportiert Browser-Lesezeichen in eine JSON-Datei.
+
+## Description
+
+Das Cmdlet Export-BrowserBookmarks exportiert Lesezeichen aus einem angegebenen Webbrowser (Microsoft Edge, Google Chrome oder Mozilla Firefox) in eine JSON-Datei. Es kann jeweils nur ein Browsertyp angegeben werden. Die Lesezeichen werden unter vollständiger Beibehaltung ihrer Struktur und Metadaten exportiert.
 
 ## Syntax
 
@@ -22,6 +26,20 @@ Export-BrowserBookmarks [-Firefox] [<CommonParameters>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Lesezeichen aus Google Chrome exportieren |
 | `-Edge` | SwitchParameter | — | — | Named | — | Export bookmarks from Microsoft Edge |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Export bookmarks from Mozilla Firefox *(Parameter set: )* |
+
+## Examples
+
+### Export-BrowserBookmarks -OutputFile "C:\MyBookmarks.json" -Edge
+
+```powershell
+Export-BrowserBookmarks -OutputFile "C:\MyBookmarks.json" -Edge
+```
+
+### Export-BrowserBookmarks "C:\MyBookmarks.json" -Chrome
+
+```powershell
+Export-BrowserBookmarks "C:\MyBookmarks.json" -Chrome
+```
 
 ## Related Links
 

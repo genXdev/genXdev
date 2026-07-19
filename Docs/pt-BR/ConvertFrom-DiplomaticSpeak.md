@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converte linguagem diplomática ou educada em linguagem direta, clara e objetiva.
+
+## Description
+
+Esta função pega o discurso diplomático e o traduz para revelar o verdadeiro significado por trás de linguagem educada ou politicamente correta. Ela usa modelos de linguagem de IA para transformar expressões eufemísticas em declarações diretas, tornando a comunicação inequívoca e fácil de entender. A função é particularmente útil para analisar declarações políticas, comunicações empresariais ou qualquer texto onde o significado real possa estar obscurecido por linguagem diplomática.
 
 ## Syntax
 
@@ -77,6 +81,28 @@ ConvertFrom-DiplomaticSpeak [[-Text] <String>] [[-Instructions] <String>] [-Allo
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Você é um assistente útil projetado para gerar JSON. |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filtrar tipos de bloco de marcação na saída de IA. |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Comprimento máximo de retorno de chamada para chamadas de ferramenta. |
+
+## Examples
+
+### ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your approach"
+
+```powershell
+ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your
+approach"
+```
+
+### undiplomatize "Your proposal has merit but requires further consideration"
+
+```powershell
+undiplomatize "Your proposal has merit but requires further consideration"
+```
+
+### "We're putting you on timeout" |     ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+
+```powershell
+"We're putting you on timeout" |
+    ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+```
 
 ## Outputs
 

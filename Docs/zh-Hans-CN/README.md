@@ -1,44 +1,47 @@
 # GenXdev — Cmdlet Reference
 
-Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
+Auto-generated cmdlet reference documentation. Last updated: 2026-07-19.
 
 ## GenXdev.AI
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Approve-NewTextFileContent](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Approve-NewTextFileContent.md) | &nbsp; | &nbsp; |
-| [Convert-DotNetTypeToLLMType](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Convert-DotNetTypeToLLMType.md) | &nbsp; | &nbsp; |
-| [ConvertTo-LLMOpenAIApiFunctionDefinition](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-LLMOpenAIApiFunctionDefinition.md) | &nbsp; | &nbsp; |
-| [EnsureGithubCLIInstalled](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureGithubCLIInstalled.md) | &nbsp; | &nbsp; |
-| [EnsureHuggingFace](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureHuggingFace.md) | &nbsp; | &nbsp; |
-| [EnsurePaintNet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePaintNet.md) | &nbsp; | &nbsp; |
-| [EnsurePip](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePip.md) | &nbsp; | &nbsp; |
-| [EnsurePython](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePython.md) | &nbsp; | &nbsp; |
-| [EnsureWinMergeInstalled](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureWinMergeInstalled.md) | &nbsp; | &nbsp; |
-| [GenerateMasonryLayoutHtml](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/GenerateMasonryLayoutHtml.md) | &nbsp; | &nbsp; |
-| [Get-AIDefaultLLMSettings](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AIDefaultLLMSettings.md) | &nbsp; | &nbsp; |
-| [Get-AILLMSettings](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AILLMSettings.md) | &nbsp; | &nbsp; |
-| [Get-CpuCore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-CpuCore.md) | &nbsp; | &nbsp; |
-| [Get-HasCapableGpu](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-HasCapableGpu.md) | &nbsp; | &nbsp; |
-| [Get-NumberOfCpuCores](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-NumberOfCpuCores.md) | &nbsp; | &nbsp; |
-| [Get-TextTranslation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-TextTranslation.md) | translate | &nbsp; |
-| [Get-VectorSimilarity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-VectorSimilarity.md) | &nbsp; | &nbsp; |
-| [Invoke-CommandFromToolCall](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-CommandFromToolCall.md) | &nbsp; | &nbsp; |
-| [Invoke-HuggingFaceCli](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-HuggingFaceCli.md) | &nbsp; | &nbsp; |
-| [Invoke-LLMBooleanEvaluation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-LLMBooleanEvaluation.md) | equalstrue | &nbsp; |
-| [Invoke-LLMQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-LLMQuery.md) | qllm, llm | &nbsp; |
-| [Invoke-LLMStringListEvaluation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-LLMStringListEvaluation.md) | getlist, getstring | &nbsp; |
-| [Invoke-LLMTextTransformation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-LLMTextTransformation.md) | spellcheck | &nbsp; |
-| [Invoke-WinMerge](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-WinMerge.md) | &nbsp; | &nbsp; |
-| [Merge-TranslationCache](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Merge-TranslationCache.md) | &nbsp; | &nbsp; |
+| [Approve-NewTextFileContent](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Approve-NewTextFileContent.md) | &nbsp; | 使用 WinMerge 进行交互式文件内容比较与审批。 |
+| [Convert-DotNetTypeToLLMType](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Convert-DotNetTypeToLLMType.md) | &nbsp; | 将.NET类型名称转换为LLM（语言模型）类型名称。 |
+| [ConvertTo-LLMOpenAIApiFunctionDefinition](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-LLMOpenAIApiFunctionDefinition.md) | &nbsp; | {   "type": "function",   "function": {     "name": "convert-psfunction-to-openai",     "description": "Converts PowerShell functions to LLM OpenAI API function definitions.",     "parameters": {       "type": "object",       "properties": {},       "required": []     }   } } |
+| [EnsureGithubCLIInstalled](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureGithubCLIInstalled.md) | &nbsp; | 确保GitHub CLI已正确安装并在系统上配置。 |
+| [EnsureHuggingFace](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureHuggingFace.md) | &nbsp; | 确保已安装 Hugging Face CLI 且功能正常。 |
+| [EnsurePaintNet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePaintNet.md) | &nbsp; | 确保Paint.NET已正确安装且系统可访问。 |
+| [EnsurePip](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePip.md) | &nbsp; | 确保指定Python安装中已安装并正常运行pip。 |
+| [EnsurePython](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePython.md) | &nbsp; | 确保 Python 已安装并且在系统 PATH 中可用。 |
+| [EnsureWinMergeInstalled](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureWinMergeInstalled.md) | &nbsp; | 确保已安装 WinMerge 并可用于文件比较操作。 |
+| [GenerateMasonryLayoutHtml](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/GenerateMasonryLayoutHtml.md) | &nbsp; | Generates a responsive masonry layout HTML gallery from image data. |
+| [Get-AIDefaultLLMSettings](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AIDefaultLLMSettings.md) | &nbsp; | 获取 GenXdev.AI 中所有可用的默认 LLM 设置配置，用于 AI 操作。 |
+| [Get-AILLMSettings](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AILLMSettings.md) | &nbsp; | 获取GenXdev.AI中AI操作的LLM设置。 |
+| [Get-AudioDeviceNames](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AudioDeviceNames.md) | &nbsp; | 检索可用于麦克风或桌面音频捕捉的音频设备名称。 |
+| [Get-CpuCore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-CpuCore.md) | &nbsp; | 计算并返回系统中逻辑CPU核心的总数。 |
+| [Get-HasCapableGpu](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-HasCapableGpu.md) | &nbsp; | 检测是否存在具备足够内存的CUDA兼容GPU。 |
+| [Get-NumberOfCpuCores](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-NumberOfCpuCores.md) | &nbsp; | 计算并返回系统中逻辑CPU核心的总数。 |
+| [Get-SpeechToText](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SpeechToText.md) | &nbsp; | 使用OpenAI的Whisper语音识别模型将音频文件转换为文本。 |
+| [Get-TextTranslation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-TextTranslation.md) | translate | 使用AI将文本翻译成另一种语言。 |
+| [Get-VectorSimilarity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-VectorSimilarity.md) | &nbsp; | 计算两个向量之间的余弦相似度。 |
+| [Invoke-CommandFromToolCall](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-CommandFromToolCall.md) | &nbsp; | 执行带验证和参数过滤的工具调用函数。 |
+| [Invoke-HuggingFaceCli](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-HuggingFaceCli.md) | &nbsp; | 使用指定的参数调用Hugging Face CLI。 |
+| [Invoke-LLMBooleanEvaluation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-LLMBooleanEvaluation.md) | equalstrue | 使用AI评估一条陈述，判断其真假。 |
+| [Invoke-LLMQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-LLMQuery.md) | qllm, llm | 向兼容OpenAI的大型语言模型聊天补全API发送查询并处理响应。 |
+| [Invoke-LLMStringListEvaluation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-LLMStringListEvaluation.md) | getlist, getstring | 使用AI分析从输入文本中提取或生成相关字符串列表。 |
+| [Invoke-LLMTextTransformation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-LLMTextTransformation.md) | spellcheck | 利用人工智能处理技术转换文本。 |
+| [Invoke-WinMerge](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-WinMerge.md) | &nbsp; | 启动 WinMerge 并排比较两个文件。 |
+| [Merge-TranslationCache](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Merge-TranslationCache.md) | &nbsp; | 管理每种语言的持久化翻译缓存，采用批量磁盘写入方式。 |
 | [New-GenXdevMCPToken](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-GenXdevMCPToken.md) | &nbsp; | &nbsp; |
-| [New-LLMAudioChat](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-LLMAudioChat.md) | llmaudiochat | &nbsp; |
-| [New-LLMTextChat](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-LLMTextChat.md) | llmchat | &nbsp; |
-| [Set-AILLMSettings](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-AILLMSettings.md) | &nbsp; | &nbsp; |
-| [Set-GenXdevAICommandNotFoundAction](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevAICommandNotFoundAction.md) | &nbsp; | &nbsp; |
+| [New-LLMAudioChat](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-LLMAudioChat.md) | llmaudiochat | 创建一个与大语言模型交互的音频聊天会话。 |
+| [New-LLMTextChat](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-LLMTextChat.md) | llmchat | 启动具有AI功能的交互式文本聊天会话。 |
+| [Receive-RealTimeSpeechToText](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Receive-RealTimeSpeechToText.md) | &nbsp; | 使用Whisper AI模型将实时音频输入转换为文本。 |
+| [Set-AILLMSettings](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-AILLMSettings.md) | &nbsp; | 设置GenXdev.AI中AI操作的LLM设置。 |
+| [Set-GenXdevAICommandNotFoundAction](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevAICommandNotFoundAction.md) | &nbsp; | 设置自定义命令未找到处理，并集成AI辅助。 |
 | [Start-GenXdevMCPServer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-GenXdevMCPServer.md) | &nbsp; | &nbsp; |
-| [Stop-GenXdevMCPServer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Stop-GenXdevMCPServer.md) | &nbsp; | &nbsp; |
-| [Test-DeepLinkImageFile](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Test-DeepLinkImageFile.md) | &nbsp; | &nbsp; |
+| [Test-CpuAvx](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Test-CpuAvx.md) | &nbsp; | 测试CPU是否支持AVX和AVX2指令集。 |
+| [Test-DeepLinkImageFile](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Test-DeepLinkImageFile.md) | &nbsp; | 测试指定的文件路径是否为有效且格式支持的图像文件。 |
 
 ---
 
@@ -46,17 +49,17 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Compare-ImageFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Compare-ImageFaces.md) | comparefaces | &nbsp; |
-| [EnsureDeepStack](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureDeepStack.md) | &nbsp; | &nbsp; |
-| [Get-ImageDetectedFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageDetectedFaces.md) | &nbsp; | &nbsp; |
-| [Get-ImageDetectedObjects](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageDetectedObjects.md) | &nbsp; | &nbsp; |
-| [Get-ImageDetectedScenes](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageDetectedScenes.md) | &nbsp; | &nbsp; |
-| [Get-RegisteredFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-RegisteredFaces.md) | &nbsp; | &nbsp; |
-| [Invoke-ImageEnhancement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageEnhancement.md) | enhanceimage | &nbsp; |
-| [Register-AllFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Register-AllFaces.md) | UpdateFaces | &nbsp; |
-| [Register-Face](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Register-Face.md) | &nbsp; | &nbsp; |
-| [Unregister-AllFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Unregister-AllFaces.md) | &nbsp; | &nbsp; |
-| [Unregister-Face](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Unregister-Face.md) | &nbsp; | &nbsp; |
+| [Compare-ImageFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Compare-ImageFaces.md) | comparefaces | 比较两张不同图片中的人脸，并使用DeepStack返回它们的相似度。 |
+| [EnsureDeepStack](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureDeepStack.md) | &nbsp; | 确保 DeepStack 面部识别服务已安装并正在运行。 |
+| [Get-ImageDetectedFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageDetectedFaces.md) | &nbsp; | 通过使用DeepStack将上传图像中的人脸与已知人脸进行比较，识别出图像中的人脸。 |
+| [Get-ImageDetectedObjects](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageDetectedObjects.md) | &nbsp; | 使用DeepStack检测并分类上传图像中的对象。 |
+| [Get-ImageDetectedScenes](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageDetectedScenes.md) | &nbsp; | 利用DeepStack将图像分类至365个场景类别中的一个。 |
+| [Get-RegisteredFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-RegisteredFaces.md) | &nbsp; | 从DeepStack检索所有已注册的人脸标识符列表。 |
+| [Invoke-ImageEnhancement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageEnhancement.md) | enhanceimage | 使用DeepStack将图像放大4倍，同时提升画质。 |
+| [Register-AllFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Register-AllFaces.md) | UpdateFaces | 从faces目录中的图像文件更新所有人脸识别配置文件。 |
+| [Register-Face](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Register-Face.md) | &nbsp; | 通过DeepStack人脸识别API注册新的人脸。 |
+| [Unregister-AllFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Unregister-AllFaces.md) | &nbsp; | 从DeepStack人脸识别系统中删除所有已注册的人脸。 |
+| [Unregister-Face](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Unregister-Face.md) | &nbsp; | 从DeepStack中删除由其标识符指定的已注册人脸。 |
 
 ---
 
@@ -64,33 +67,32 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Add-EmoticonsToText](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-EmoticonsToText.md) | emojify | &nbsp; |
-| [ConvertFrom-CorporateSpeak](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertFrom-CorporateSpeak.md) | uncorporatize | &nbsp; |
-| [ConvertFrom-DiplomaticSpeak](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertFrom-DiplomaticSpeak.md) | undiplomatize | &nbsp; |
-| [ConvertTo-CorporateSpeak](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-CorporateSpeak.md) | corporatize | &nbsp; |
-| [ConvertTo-DiplomaticSpeak](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-DiplomaticSpeak.md) | diplomatize | &nbsp; |
-| [Find-Image](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Find-Image.md) | findimages, li | &nbsp; |
-| [Get-AIKnownFacesRootpath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AIKnownFacesRootpath.md) | &nbsp; | &nbsp; |
-| [Get-AIMetaLanguage](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AIMetaLanguage.md) | getimgmetalang | &nbsp; |
-| [Get-Fallacy](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Fallacy.md) | dispicetext | &nbsp; |
-| [Get-ScriptExecutionErrorFixPrompt](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ScriptExecutionErrorFixPrompt.md) | getfixprompt | &nbsp; |
-| [Get-SimularMovieTitles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SimularMovieTitles.md) | &nbsp; | &nbsp; |
-| [Invoke-AIPowershellCommand](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-AIPowershellCommand.md) | hint | &nbsp; |
-| [Invoke-ImageFacesUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageFacesUpdate.md) | imagepeopledetection | &nbsp; |
-| [Invoke-ImageKeywordUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageKeywordUpdate.md) | imagekeywordgeneration | &nbsp; |
-| [Invoke-ImageMetadataUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageMetadataUpdate.md) | imagepropdetection | &nbsp; |
-| [Invoke-ImageObjectsUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageObjectsUpdate.md) | imageobjectdetection | &nbsp; |
-| [Invoke-ImageScenesUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageScenesUpdate.md) | imagescenedetection | &nbsp; |
-| [Invoke-QueryImageContent](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-QueryImageContent.md) | &nbsp; | &nbsp; |
-| [Remove-ImageMetaData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-ImageMetaData.md) | removeimagedata | &nbsp; |
-| [Save-FoundImageFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Save-FoundImageFaces.md) | saveimagefaces | &nbsp; |
-| [Save-Transcriptions](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Save-Transcriptions.md) | &nbsp; | &nbsp; |
-| [Set-AICommandSuggestion](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-AICommandSuggestion.md) | &nbsp; | &nbsp; |
-| [Set-AIKnownFacesRootpath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-AIKnownFacesRootpath.md) | &nbsp; | &nbsp; |
-| [Set-AIMetaLanguage](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-AIMetaLanguage.md) | &nbsp; | &nbsp; |
-| [Show-FoundImagesInBrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-FoundImagesInBrowser.md) | showfoundimages | &nbsp; |
-| [Start-AudioTranscription](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-AudioTranscription.md) | transcribefile, transcribe | &nbsp; |
-| [Update-AllImageMetaData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Update-AllImageMetaData.md) | updateallimages | &nbsp; |
+| [Add-EmoticonsToText](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-EmoticonsToText.md) | emojify | Enhances text by adding contextually appropriate emoticons using AI 😊✨ |
+| [ConvertFrom-CorporateSpeak](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertFrom-CorporateSpeak.md) | uncorporatize | Converts polite, professional corporate language into direct, clear speech using AI. |
+| [ConvertFrom-DiplomaticSpeak](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertFrom-DiplomaticSpeak.md) | undiplomatize | Converts diplomatic or tactful language into direct, clear, and straightforward language. |
+| [ConvertTo-CorporateSpeak](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-CorporateSpeak.md) | corporatize | We appreciate your submission; however, it does not fully meet our current requirements. We encourage you to consider other opportunities that may better align with your qualifications. |
+| [ConvertTo-DiplomaticSpeak](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-DiplomaticSpeak.md) | diplomatize | I would like to offer a different perspective on this matter. |
+| [Find-Image](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Find-Image.md) | findimages, li | 在指定目录中搜索图像文件和元数据，支持过滤功能及可选的基于浏览器的画廊展示。 |
+| [Get-AIKnownFacesRootpath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AIKnownFacesRootpath.md) | &nbsp; | 获取用于 GenXdev.AI 操作的人脸图像文件配置目录。 |
+| [Get-AIMetaLanguage](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AIMetaLanguage.md) | getimgmetalang | 获取图像元数据操作配置的默认语言。 |
+| [Get-Fallacy](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Fallacy.md) | dispicetext | 利用AI驱动的检测来分析文本以识别逻辑谬误。 |
+| [Get-ScriptExecutionErrorFixPrompt](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ScriptExecutionErrorFixPrompt.md) | getfixprompt | 从各种流中捕获错误消息，并使用LLM建议修复方法。 |
+| [Get-SimularMovieTitles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SimularMovieTitles.md) | &nbsp; | 基于共同属性查找相似电影片名。 |
+| [Invoke-AIPowershellCommand](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-AIPowershellCommand.md) | hint | 利用AI辅助生成和执行PowerShell命令。 |
+| [Invoke-ImageFacesUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageFacesUpdate.md) | imagepeopledetection | 更新指定目录中图像文件的人脸识别元数据。 |
+| [Invoke-ImageKeywordUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageKeywordUpdate.md) | imagekeywordgeneration | 使用 AI 生成的描述和关键词更新图片元数据。 |
+| [Invoke-ImageMetadataUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageMetadataUpdate.md) | imagepropdetection | 更新目录中图像的EXIF元数据。 |
+| [Invoke-ImageObjectsUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageObjectsUpdate.md) | imageobjectdetection | 更新指定目录中图像文件的对象检测元数据。 |
+| [Invoke-ImageScenesUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-ImageScenesUpdate.md) | imagescenedetection | 更新指定目录中图像文件的场景分类元数据。 |
+| [Invoke-QueryImageContent](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-QueryImageContent.md) | &nbsp; | 使用AI视觉功能分析图像内容 |
+| [Remove-ImageMetaData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-ImageMetaData.md) | removeimagedata | 从图像目录中移除图像元数据文件。 |
+| [Save-FoundImageFaces](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Save-FoundImageFaces.md) | saveimagefaces | 从索引图像搜索结果中保存裁剪的人脸图像。 |
+| [Save-Transcriptions](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Save-Transcriptions.md) | &nbsp; | 使用OpenAI Whisper为音频和视频文件生成字幕文件。 |
+| [Set-AIKnownFacesRootpath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-AIKnownFacesRootpath.md) | &nbsp; | 设置用于 GenXdev.AI 操作的人脸图像文件目录。 |
+| [Set-AIMetaLanguage](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-AIMetaLanguage.md) | &nbsp; | 设置GenXdev.AI图像元数据操作的默认语言，并可选择设置图像目录。 |
+| [Show-FoundImagesInBrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-FoundImagesInBrowser.md) | showfoundimages | 以瀑布流布局网页画廊展示图像搜索结果。 |
+| [Start-AudioTranscription](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-AudioTranscription.md) | transcribefile, transcribe | Transcribes an audio file, video file, or a recording device to text |
+| [Update-AllImageMetaData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Update-AllImageMetaData.md) | updateallimages | 跨多个系统目录批量更新图片关键词、人脸、物体及场景。 |
 
 ---
 
@@ -98,20 +100,21 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Add-FeatureLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-FeatureLineToREADME.md) | feature | &nbsp; |
-| [Add-IdeaLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-IdeaLineToREADME.md) | idea | &nbsp; |
-| [Add-IssueLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-IssueLineToREADME.md) | issue | &nbsp; |
-| [Add-LineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-LineToREADME.md) | &nbsp; | &nbsp; |
-| [Add-ReleaseNoteLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-ReleaseNoteLineToREADME.md) | releasenote | &nbsp; |
-| [Add-TodoLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-TodoLineToREADME.md) | todo | &nbsp; |
-| [EnsureVSCodeInstallation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureVSCodeInstallation.md) | &nbsp; | &nbsp; |
-| [Features](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Features.md) | &nbsp; | &nbsp; |
-| [Ideas](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Ideas.md) | &nbsp; | &nbsp; |
-| [Issues](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Issues.md) | &nbsp; | &nbsp; |
-| [Open-SourceFileInIde](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-SourceFileInIde.md) | editcode | &nbsp; |
-| [ReleaseNotes](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ReleaseNotes.md) | &nbsp; | &nbsp; |
-| [Todoos](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Todoos.md) | &nbsp; | &nbsp; |
-| [VSCode](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/VSCode.md) | &nbsp; | &nbsp; |
+| [Add-FeatureLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-FeatureLineToREADME.md) | feature | 向README文件中添加一个带时间戳的功能行。 |
+| [Add-IdeaLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-IdeaLineToREADME.md) | idea | 向README.md文件添加一个想法项。 |
+| [Add-IssueLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-IssueLineToREADME.md) | issue | 将问题条目添加到 README.md 文件中。 |
+| [Add-LineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-LineToREADME.md) | &nbsp; | 在指定的章节中向README.md标记文件添加一行。 |
+| [Add-ReleaseNoteLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-ReleaseNoteLineToREADME.md) | releasenote | Adds a ReleaseNote line to the README file with a timestamp. |
+| [Add-TodoLineToREADME](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-TodoLineToREADME.md) | todo | 向README.md文件中添加一个待办事项。 |
+| [EnsureVSCodeInstallation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureVSCodeInstallation.md) | &nbsp; | 安装并配置带有推荐扩展的 Visual Studio Code。 |
+| [Get-Features](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Features.md) | features | 显示来自 README.md 文件的功能。 |
+| [Get-Ideas](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Ideas.md) | ideas | 显示来自README.md文件的想法。 |
+| [Get-Issues](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Issues.md) | issues | 显示 README.md 文件中的问题。 |
+| [Get-ReleaseNotes](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ReleaseNotes.md) | releasenotes | 从 README.md 文件显示发布说明 |
+| [Get-Todoos](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Todoos.md) | todoos | 从README.md文件中显示待办事项。 |
+| [Open-SourceFileInIde](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-SourceFileInIde.md) | editcode | 在首选 IDE（Visual Studio Code 或 Visual Studio）中打开源文件。 |
+| [Publish-ReleaseNotesToManifest](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Publish-ReleaseNotesToManifest.md) | pubrelnotes | 将 README.md 中未完成的发布说明发布到模块清单中。 |
+| [VSCode](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/VSCode.md) | &nbsp; | 在 Visual Studio Code 中打开一个或多个文件。 |
 
 ---
 
@@ -119,9 +122,9 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Get-GitChangedFiles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GitChangedFiles.md) | gitchanged | &nbsp; |
-| [New-GitCommit](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-GitCommit.md) | commit | &nbsp; |
-| [PermanentlyDeleteGitFolders](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/PermanentlyDeleteGitFolders.md) | &nbsp; | &nbsp; |
+| [Get-GitChangedFiles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GitChangedFiles.md) | gitchanged | 获取Git仓库中已变更文件的列表。 |
+| [New-GitCommit](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-GitCommit.md) | commit | 创建并推送一个包含所有更改的新 Git 提交。 |
+| [PermanentlyDeleteGitFolders](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/PermanentlyDeleteGitFolders.md) | &nbsp; | 从Git仓库的所有分支中永久删除指定文件夹。 |
 
 ---
 
@@ -129,55 +132,35 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Add-MissingGenXdevUnitTests](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-MissingGenXdevUnitTests.md) | &nbsp; | &nbsp; |
-| [Assert-GenXdevCmdlet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-GenXdevCmdlet.md) | improvecmdlet | &nbsp; |
-| [Assert-GenXdevCmdletTests](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-GenXdevCmdletTests.md) | improvecmdlettests | &nbsp; |
-| [Assert-GenXdevDependencyUsage](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-GenXdevDependencyUsage.md) | checkgenxdevdependencies | &nbsp; |
-| [Assert-GenXdevTest](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-GenXdevTest.md) | rungenxdevtests | &nbsp; |
-| [Assert-ModuleDefinition](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-ModuleDefinition.md) | &nbsp; | &nbsp; |
-| [Assert-RefactorFile](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-RefactorFile.md) | &nbsp; | &nbsp; |
-| [EnsureCopilotKeyboardShortCut](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureCopilotKeyboardShortCut.md) | &nbsp; | &nbsp; |
-| [EnsureDefaultGenXdevRefactors](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureDefaultGenXdevRefactors.md) | &nbsp; | &nbsp; |
-| [GenerateMamlXml](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/GenerateMamlXml.md) | &nbsp; | &nbsp; |
-| [Get-CmdletMetaData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-CmdletMetaData.md) | &nbsp; | &nbsp; |
-| [Get-GenXdevCmdletUsageAnalysis](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXdevCmdletUsageAnalysis.md) | &nbsp; | &nbsp; |
-| [Get-GenXDevModule](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXDevModule.md) | &nbsp; | &nbsp; |
-| [Get-GenXDevModuleInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXDevModuleInfo.md) | &nbsp; | &nbsp; |
-| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXDevNewModulesInOrderOfDependency.md) | &nbsp; | &nbsp; |
-| [Get-MamlTypeName](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MamlTypeName.md) | &nbsp; | &nbsp; |
-| [Get-ModuleCmdletMetaData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ModuleCmdletMetaData.md) | &nbsp; | &nbsp; |
-| [Get-ParamDescription](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ParamDescription.md) | &nbsp; | &nbsp; |
-| [Get-ParameterValueTypeName](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ParameterValueTypeName.md) | &nbsp; | &nbsp; |
-| [Get-Refactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Refactor.md) | refactors | &nbsp; |
-| [Get-RefactorReport](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-RefactorReport.md) | refactorreport | &nbsp; |
-| [Get-SynopsisText](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SynopsisText.md) | &nbsp; | &nbsp; |
-| [GetSubModuleMap](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/GetSubModuleMap.md) | &nbsp; | &nbsp; |
-| [Invoke-GenXdevPSFormatter](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-GenXdevPSFormatter.md) | &nbsp; | &nbsp; |
-| [Invoke-GenXdevScriptAnalyzer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-GenXdevScriptAnalyzer.md) | &nbsp; | &nbsp; |
-| [New-GenXdevMarkdownHelp](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-GenXdevMarkdownHelp.md) | &nbsp; | &nbsp; |
-| [New-GenXdevXmlHelp](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-GenXdevXmlHelp.md) | &nbsp; | &nbsp; |
-| [New-Refactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-Refactor.md) | newrefactor | &nbsp; |
-| [NormalizeXmlDocText](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/NormalizeXmlDocText.md) | &nbsp; | &nbsp; |
-| [Open-GenXdevCmdletsContainingClipboardTextInIde](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GenXdevCmdletsContainingClipboardTextInIde.md) | vscodesearch | &nbsp; |
-| [Remove-Refactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-Refactor.md) | &nbsp; | &nbsp; |
-| [ResolveSubModuleName](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ResolveSubModuleName.md) | &nbsp; | &nbsp; |
-| [Search-GenXdevCmdlet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Search-GenXdevCmdlet.md) | searchcmdlet | &nbsp; |
-| [Show-GenXdevCmdLetInIde](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-GenXdevCmdLetInIde.md) | editcmdlet, cmdlet | &nbsp; |
-| [Start-NextRefactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-NextRefactor.md) | nextrefactor | &nbsp; |
-| [Test-RefactorLLMSelection](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Test-RefactorLLMSelection.md) | &nbsp; | &nbsp; |
-| [Update-Refactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Update-Refactor.md) | updaterefactor | &nbsp; |
-| [Write-AlertSetElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-AlertSetElement.md) | &nbsp; | &nbsp; |
-| [Write-CmdletCommandElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-CmdletCommandElement.md) | &nbsp; | &nbsp; |
-| [Write-DetailsElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-DetailsElement.md) | &nbsp; | &nbsp; |
-| [Write-ExamplesElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-ExamplesElement.md) | &nbsp; | &nbsp; |
-| [Write-FullDescriptionElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-FullDescriptionElement.md) | &nbsp; | &nbsp; |
-| [Write-InputTypesElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-InputTypesElement.md) | &nbsp; | &nbsp; |
-| [Write-ParameterDetailElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-ParameterDetailElement.md) | &nbsp; | &nbsp; |
-| [Write-ParametersElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-ParametersElement.md) | &nbsp; | &nbsp; |
-| [Write-RelatedLinksElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-RelatedLinksElement.md) | &nbsp; | &nbsp; |
-| [Write-ReturnValuesElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-ReturnValuesElement.md) | &nbsp; | &nbsp; |
-| [Write-SyntaxElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-SyntaxElement.md) | &nbsp; | &nbsp; |
-| [Write-SyntaxParameterElement](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-SyntaxParameterElement.md) | &nbsp; | &nbsp; |
+| [Add-MissingGenXdevUnitTests](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-MissingGenXdevUnitTests.md) | &nbsp; | 为 GenXdev cmdlet 添加缺失的单元测试。 |
+| [Assert-GenXdevCmdlet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-GenXdevCmdlet.md) | improvecmdlet | 通过 AI 辅助改进 GenXdev cmdlet 的文档和实现。 |
+| [Assert-GenXdevCmdletTests](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-GenXdevCmdletTests.md) | improvecmdlettests | 断言并改进指定 GenXdev cmdlet 的单元测试。 |
+| [Assert-GenXdevDependencyUsage](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-GenXdevDependencyUsage.md) | checkgenxdevdependencies | 验证 GenXdev 模块间的依赖使用，确保维护正确的模块层级。 |
+| [Assert-GenXdevTest](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-GenXdevTest.md) | rungenxdevtests | 对 GenXdev 模块、子模块或 cmdlet 执行单元测试，并带有智能调试和 AI 驱动的错误解析。 |
+| [Assert-ModuleDefinition](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-ModuleDefinition.md) | &nbsp; | 使用AI辅助重构PowerShell源代码文件。 |
+| [Assert-RefactorFile](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Assert-RefactorFile.md) | &nbsp; | 使用指定的IDE和AI提示模板对源文件执行重构操作。 |
+| [EnsureCopilotKeyboardShortCut](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureCopilotKeyboardShortCut.md) | &nbsp; | 在 Visual Studio Code 中配置 GitHub Copilot Chat 的键盘快捷键。 |
+| [EnsureDefaultGenXdevRefactors](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureDefaultGenXdevRefactors.md) | &nbsp; | 确保默认的 GenXdev 重构定义可用。 |
+| [Get-CmdletMetaData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-CmdletMetaData.md) | &nbsp; | 检索指定 GenXdev cmdlet 的元数据，并可选择将帮助文本翻译为另一种语言。 |
+| [Get-GenXdevCmdletUsageAnalysis](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXdevCmdletUsageAnalysis.md) | &nbsp; | 分析GenXdev cmdlet使用模式，识别最常调用的函数。 |
+| [Get-GenXDevModule](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXDevModule.md) | &nbsp; | 从指定路径获取所有 GenXDev 模块。 |
+| [Get-GenXDevModuleInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXDevModuleInfo.md) | &nbsp; | 获取关于 GenXdev PowerShell 模块的详细信息。 |
+| [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXDevNewModulesInOrderOfDependency.md) | &nbsp; | 按依赖顺序检索 GenXDev 模块。 |
+| [Get-ModuleCmdletMetaData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ModuleCmdletMetaData.md) | &nbsp; | 检索 PowerShell 模块中所有 cmdlet 的元数据。 |
+| [Get-Refactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Refactor.md) | refactors | 根据名称模式从 GenXdev 偏好设置中检索重构定义。 |
+| [Get-RefactorReport](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-RefactorReport.md) | refactorreport | 重构操作详细报告及状态  生成一份关于重构操作及其状态的详细报告。 |
+| [Invoke-GenXdevPSFormatter](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-GenXdevPSFormatter.md) | &nbsp; | 使用 PSScriptAnalyzer 格式化规则格式化 PowerShell 脚本文件。 |
+| [Invoke-GenXdevScriptAnalyzer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-GenXdevScriptAnalyzer.md) | &nbsp; | 调用 PowerShell 脚本分析器，分析 PowerShell 脚本的合规性和最佳实践。 |
+| [New-GenXdevMarkdownHelp](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-GenXdevMarkdownHelp.md) | &nbsp; | 为任何 PowerShell 模块生成丰富的 Markdown 帮助文件。 |
+| [New-GenXdevXmlHelp](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-GenXdevXmlHelp.md) | &nbsp; | 为任何PowerShell模块生成MAML XML帮助文件。 |
+| [New-Refactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-Refactor.md) | newrefactor | 为代码转换任务创建新的重构集合。 |
+| [Open-GenXdevCmdletsContainingClipboardTextInIde](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GenXdevCmdletsContainingClipboardTextInIde.md) | vscodesearch | 在IDE中打开包含剪贴板文本的文件 |
+| [Remove-Refactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-Refactor.md) | &nbsp; | 从GenXdev偏好系统中移除重构集。 |
+| [Search-GenXdevCmdlet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Search-GenXdevCmdlet.md) | searchcmdlet | 搜索 GenXdev cmdlet，并可选择在 IDE 中打开进行编辑。 |
+| [Show-GenXdevCmdLetInIde](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-GenXdevCmdLetInIde.md) | editcmdlet, cmdlet | 在 Visual Studio Code 中打开指定的 GenXdev cmdlet。 |
+| [Start-NextRefactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-NextRefactor.md) | nextrefactor | 继续或重新开始代码重构会话。 |
+| [Test-RefactorLLMSelection](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Test-RefactorLLMSelection.md) | &nbsp; | 利用LLM分析评估源文件的重构资格。 |
+| [Update-Refactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Update-Refactor.md) | updaterefactor | 更新并管理重构集，包括文件选择和处理。 |
 
 ---
 
@@ -185,8 +168,8 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Add-ArrayTemplate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-ArrayTemplate.md) | FormatArray | &nbsp; |
-| [Remove-DoubleEmptyLines](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-DoubleEmptyLines.md) | &nbsp; | &nbsp; |
+| [Add-ArrayTemplate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-ArrayTemplate.md) | FormatArray | 使用带有属性占位符的模板字符串格式化对象集合，生成单个格式化字符串。 |
+| [Remove-DoubleEmptyLines](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-DoubleEmptyLines.md) | &nbsp; | 从代码字符串中删除连续的空行，并可选择重新格式化输出。 |
 
 ---
 
@@ -194,20 +177,20 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Enable-Screensaver](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Enable-Screensaver.md) | &nbsp; | &nbsp; |
-| [Get-IsSpeaking](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-IsSpeaking.md) | iss | &nbsp; |
-| [New-MicrosoftShellTab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-MicrosoftShellTab.md) | x | &nbsp; |
-| [Now](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Now.md) | &nbsp; | &nbsp; |
-| [Open-MediaFile](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-MediaFile.md) | vlcmedia, media, findmedia | &nbsp; |
-| [SayDate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/SayDate.md) | &nbsp; | &nbsp; |
-| [SayTime](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/SayTime.md) | &nbsp; | &nbsp; |
-| [Set-MonitorPowerOff](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-MonitorPowerOff.md) | poweroff | &nbsp; |
-| [Set-MonitorPowerOn](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-MonitorPowerOn.md) | wakemonitor, monitoroff | &nbsp; |
-| [Set-VLCPlayerFocused](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-VLCPlayerFocused.md) | showvlc, vlcf, fvlc | &nbsp; |
-| [Start-SnakeGame](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-SnakeGame.md) | snake | &nbsp; |
-| [Start-TextToSpeech](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-TextToSpeech.md) | say | &nbsp; |
-| [Stop-TextToSpeech](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Stop-TextToSpeech.md) | sst | &nbsp; |
-| [UtcNow](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/UtcNow.md) | &nbsp; | &nbsp; |
+| [Enable-Screensaver](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Enable-Screensaver.md) | &nbsp; | 启动配置好的Windows屏幕保护程序。 |
+| [Get-IsSpeaking](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-IsSpeaking.md) | iss | 如果文本转语音引擎正在说话，则返回 true。 |
+| [New-MicrosoftShellTab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-MicrosoftShellTab.md) | x | 创建新的 Windows 终端标签页并运行 PowerShell。 |
+| [Now](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Now.md) | &nbsp; | 将当前系统日期和时间作为 DateTime 对象返回。 |
+| [Open-MediaFile](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-MediaFile.md) | vlcmedia, media, findmedia | 使用VLC媒体播放器打开和播放媒体文件，具有高级过滤和配置选项。 |
+| [SayDate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/SayDate.md) | &nbsp; | Today's date is July 10, 2024. |
+| [SayTime](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/SayTime.md) | &nbsp; | 使用文本转语音播报当前时间。 |
+| [Set-MonitorPowerOff](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-MonitorPowerOff.md) | poweroff | 关闭所有已连接显示器的电源。 |
+| [Set-MonitorPowerOn](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-MonitorPowerOn.md) | wakemonitor, monitoroff | 打开显示器电源。 |
+| [Set-VLCPlayerFocused](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-VLCPlayerFocused.md) | showvlc, vlcf, fvlc | 将焦点设置到 VLC 媒体播放器窗口。 |
+| [Start-SnakeGame](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-SnakeGame.md) | snake | 在控制台中启动一个简单的贪吃蛇游戏。 |
+| [Start-TextToSpeech](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-TextToSpeech.md) | say | 使用 Microsoft Edge 的神经 TTS 引擎将文本转换为语音。 |
+| [Stop-TextToSpeech](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Stop-TextToSpeech.md) | sst | Immediately stops any ongoing text-to-speech output. |
+| [UtcNow](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/UtcNow.md) | &nbsp; | 获取当前UTC（协调世界时）日期和时间。 |
 
 ---
 
@@ -215,13 +198,13 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Open-VlcMediaPlayer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-VlcMediaPlayer.md) | vlc | &nbsp; |
-| [Open-VlcMediaPlayerLyrics](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-VlcMediaPlayerLyrics.md) | vlclyrics | &nbsp; |
-| [Start-VlcMediaPlayerNextInPlaylist](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-VlcMediaPlayerNextInPlaylist.md) | vlcnext | &nbsp; |
-| [Start-VlcMediaPlayerPreviousInPlaylist](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-VlcMediaPlayerPreviousInPlaylist.md) | vlcprev, vlcback | &nbsp; |
-| [Switch-VlcMediaPlayerMute](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Switch-VlcMediaPlayerMute.md) | vlcmute, vlcunmute | &nbsp; |
-| [Switch-VLCMediaPlayerPaused](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Switch-VLCMediaPlayerPaused.md) | vlcpause, vlcplay | &nbsp; |
-| [Switch-VlcMediaPlayerRepeat](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Switch-VlcMediaPlayerRepeat.md) | vlcrepeat | &nbsp; |
+| [Open-VlcMediaPlayer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-VlcMediaPlayer.md) | vlc | 启动并控制VLC媒体播放器，具有丰富的配置选项。 |
+| [Open-VlcMediaPlayerLyrics](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-VlcMediaPlayerLyrics.md) | vlclyrics | 打开网页浏览器搜索当前 VLC 播放的媒体歌词。 |
+| [Start-VlcMediaPlayerNextInPlaylist](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-VlcMediaPlayerNextInPlaylist.md) | vlcnext | 将 VLC 媒体播放器前进到当前播放列表中的下一项。 |
+| [Start-VlcMediaPlayerPreviousInPlaylist](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-VlcMediaPlayerPreviousInPlaylist.md) | vlcprev, vlcback | 跳到VLC媒体播放器播放列表中的上一个项目。 |
+| [Switch-VlcMediaPlayerMute](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Switch-VlcMediaPlayerMute.md) | vlcmute, vlcunmute | 切换 VLC 媒体播放器的静音状态。 |
+| [Switch-VLCMediaPlayerPaused](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Switch-VLCMediaPlayerPaused.md) | vlcpause, vlcplay | 切换VLC媒体播放器的暂停/播放状态。 |
+| [Switch-VlcMediaPlayerRepeat](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Switch-VlcMediaPlayerRepeat.md) | vlcrepeat | 在VLC媒体播放器中切换重复模式。 |
 
 ---
 
@@ -229,15 +212,15 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Get-KeyValueStoreNames](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-KeyValueStoreNames.md) | getstorenames | &nbsp; |
-| [Get-KeyValueStorePath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-KeyValueStorePath.md) | &nbsp; | &nbsp; |
-| [Get-StoreKeys](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-StoreKeys.md) | getkeys | &nbsp; |
-| [Get-ValueByKeyFromStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ValueByKeyFromStore.md) | getvalue | &nbsp; |
-| [Initialize-KeyValueStores](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Initialize-KeyValueStores.md) | &nbsp; | &nbsp; |
-| [Remove-KeyFromStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-KeyFromStore.md) | removekey | &nbsp; |
-| [Remove-KeyValueStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-KeyValueStore.md) | &nbsp; | &nbsp; |
-| [Set-ValueByKeyInStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-ValueByKeyInStore.md) | setvalue | &nbsp; |
-| [Sync-KeyValueStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Sync-KeyValueStore.md) | &nbsp; | &nbsp; |
+| [Get-KeyValueStoreNames](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-KeyValueStoreNames.md) | getstorenames | 检索可用的键值存储的名称。 |
+| [Get-KeyValueStorePath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-KeyValueStorePath.md) | &nbsp; | 获取键值存储的文件路径。 |
+| [Get-StoreKeys](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-StoreKeys.md) | getkeys | 检索给定键值存储中的所有键名。 |
+| [Get-ValueByKeyFromStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ValueByKeyFromStore.md) | getvalue | 从基于JSON的键值存储中检索一个值。 |
+| [Initialize-KeyValueStores](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Initialize-KeyValueStores.md) | &nbsp; | 为本地和OneDrive存储初始化KeyValueStore目录结构。 |
+| [Remove-KeyFromStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-KeyFromStore.md) | removekey | 从键值存储中移除一个键。 |
+| [Remove-KeyValueStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-KeyValueStore.md) | &nbsp; | 移除键值存储。 |
+| [Set-ValueByKeyInStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-ValueByKeyInStore.md) | setvalue | 在基于JSON文件的数据存储中管理键值对。 |
+| [Sync-KeyValueStore](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Sync-KeyValueStore.md) | &nbsp; | 同步本地和 OneDrive 键值存储 JSON 文件。 |
 
 ---
 
@@ -245,13 +228,13 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Get-GenXdevPreference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXdevPreference.md) | getPreference | &nbsp; |
-| [Get-GenXdevPreferenceNames](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXdevPreferenceNames.md) | getPreferenceNames | &nbsp; |
-| [Get-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXdevPreferencesDatabasePath.md) | &nbsp; | &nbsp; |
-| [Remove-GenXdevPreference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-GenXdevPreference.md) | removePreference | &nbsp; |
-| [Set-GenXdevDefaultPreference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevDefaultPreference.md) | setPreferenceDefault | &nbsp; |
-| [Set-GenXdevPreference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevPreference.md) | setPreference | &nbsp; |
-| [Set-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevPreferencesDatabasePath.md) | &nbsp; | &nbsp; |
+| [Get-GenXdevPreference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXdevPreference.md) | getPreference | 从 GenXdev 偏好设置中检索一个偏好值。 |
+| [Get-GenXdevPreferenceNames](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXdevPreferenceNames.md) | getPreferenceNames | 从会话存储和数据库存储中获取所有偏好名称。 |
+| [Get-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXdevPreferencesDatabasePath.md) | &nbsp; | 获取 GenXdev.Data 操作中使用的偏好数据文件的配置数据库路径。 |
+| [Remove-GenXdevPreference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-GenXdevPreference.md) | removePreference | 从GenXdev偏好存储中移除一个偏好值。 |
+| [Set-GenXdevDefaultPreference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevDefaultPreference.md) | setPreferenceDefault | 在 GenXdev 偏好设置存储中设置默认偏好值。 |
+| [Set-GenXdevPreference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevPreference.md) | setPreference | 在 GenXdev 偏好存储中设置一个偏好值。 |
+| [Set-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevPreferencesDatabasePath.md) | &nbsp; | 设置 GenXdev.Data 操作中使用的首选项数据库路径。 |
 
 ---
 
@@ -259,20 +242,20 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [EnsureSQLiteStudioInstalled](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureSQLiteStudioInstalled.md) | &nbsp; | &nbsp; |
-| [Get-SQLiteSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteSchema.md) | &nbsp; | &nbsp; |
-| [Get-SQLiteTableColumnData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTableColumnData.md) | &nbsp; | &nbsp; |
-| [Get-SQLiteTableData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTableData.md) | &nbsp; | &nbsp; |
-| [Get-SQLiteTables](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTables.md) | &nbsp; | &nbsp; |
-| [Get-SQLiteTableSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTableSchema.md) | &nbsp; | &nbsp; |
-| [Get-SQLiteTransaction](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTransaction.md) | getsqltx, newsqltx | &nbsp; |
-| [Get-SQLiteViewColumnData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteViewColumnData.md) | &nbsp; | &nbsp; |
-| [Get-SQLiteViewData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteViewData.md) | &nbsp; | &nbsp; |
-| [Get-SQLiteViews](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteViews.md) | &nbsp; | &nbsp; |
-| [Get-SQLiteViewSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteViewSchema.md) | &nbsp; | &nbsp; |
-| [Invoke-SQLiteQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-SQLiteQuery.md) | &nbsp; | &nbsp; |
-| [Invoke-SQLiteStudio](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-SQLiteStudio.md) | &nbsp; | &nbsp; |
-| [New-SQLiteDatabase](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-SQLiteDatabase.md) | nsqldb | &nbsp; |
+| [EnsureSQLiteStudioInstalled](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureSQLiteStudioInstalled.md) | &nbsp; | 确保SQLiteStudio已安装并可从命令行访问。 |
+| [Get-SQLiteSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteSchema.md) | &nbsp; | 从SQLite数据库中检索完整的模式(schema)信息。 |
+| [Get-SQLiteTableColumnData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTableColumnData.md) | &nbsp; | 从SQLite数据库表中特定列检索数据。 |
+| [Get-SQLiteTableData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTableData.md) | &nbsp; | 从SQLite数据库表中检索数据，并可限制返回的记录数。 |
+| [Get-SQLiteTables](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTables.md) | &nbsp; | 从SQLite数据库中检索表名列表。 |
+| [Get-SQLiteTableSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTableSchema.md) | &nbsp; | 检索指定SQLite表的模式信息。 |
+| [Get-SQLiteTransaction](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteTransaction.md) | getsqltx, newsqltx | 创建并返回一个用于批量操作的SQLite事务对象。 |
+| [Get-SQLiteViewColumnData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteViewColumnData.md) | &nbsp; | 从 SQLite 视图中检索列数据，并可选择限制记录数。 |
+| [Get-SQLiteViewData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteViewData.md) | &nbsp; | 从SQLite数据库视图检索数据，并可限制记录数量。 |
+| [Get-SQLiteViews](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteViews.md) | &nbsp; | 从SQLite数据库中检索视图列表。 |
+| [Get-SQLiteViewSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLiteViewSchema.md) | &nbsp; | 检索 SQLite 视图的 SQL 模式定义。 |
+| [Invoke-SQLiteQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-SQLiteQuery.md) | &nbsp; | 在一个SQLite数据库上执行一条或多条SQL查询，支持事务。 |
+| [Invoke-SQLiteStudio](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-SQLiteStudio.md) | &nbsp; | 执行支持参数和事务的SQLite数据库查询。 |
+| [New-SQLiteDatabase](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-SQLiteDatabase.md) | nsqldb | 创建一个新的 SQLite 数据库文件。 |
 
 ---
 
@@ -280,20 +263,20 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [EnsureSSMSInstalled](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureSSMSInstalled.md) | &nbsp; | &nbsp; |
-| [Get-SQLServerSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerSchema.md) | &nbsp; | &nbsp; |
-| [Get-SQLServerTableColumnData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTableColumnData.md) | &nbsp; | &nbsp; |
-| [Get-SQLServerTableData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTableData.md) | &nbsp; | &nbsp; |
-| [Get-SQLServerTables](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTables.md) | &nbsp; | &nbsp; |
-| [Get-SQLServerTableSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTableSchema.md) | &nbsp; | &nbsp; |
-| [Get-SQLServerTransaction](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTransaction.md) | getsqltx, newsqltx | &nbsp; |
-| [Get-SQLServerViewColumnData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerViewColumnData.md) | &nbsp; | &nbsp; |
-| [Get-SQLServerViewData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerViewData.md) | &nbsp; | &nbsp; |
-| [Get-SQLServerViews](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerViews.md) | &nbsp; | &nbsp; |
-| [Get-SQLServerViewSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerViewSchema.md) | &nbsp; | &nbsp; |
-| [Invoke-SQLServerQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-SQLServerQuery.md) | &nbsp; | &nbsp; |
-| [Invoke-SSMS](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-SSMS.md) | ssms, sqlservermanagementstudio | &nbsp; |
-| [New-SQLServerDatabase](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-SQLServerDatabase.md) | nsqldb | &nbsp; |
+| [EnsureSSMSInstalled](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureSSMSInstalled.md) | &nbsp; | 确保SSMS已安装并可从命令行访问。 |
+| [Get-SQLServerSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerSchema.md) | &nbsp; | 从 SQL Server 数据库中检索完整的架构信息。 |
+| [Get-SQLServerTableColumnData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTableColumnData.md) | &nbsp; | 从SQL数据库表中特定列检索数据。 |
+| [Get-SQLServerTableData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTableData.md) | &nbsp; | 从SQL数据库表中检索数据，可限制记录数量。 |
+| [Get-SQLServerTables](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTables.md) | &nbsp; | 从 SQL Server 数据库中检索表名列表。 |
+| [Get-SQLServerTableSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTableSchema.md) | &nbsp; | 检索指定 SQL Server 表的架构信息。 |
+| [Get-SQLServerTransaction](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerTransaction.md) | getsqltx, newsqltx | 创建并返回一个用于批量操作的 SQL Server 事务对象。 |
+| [Get-SQLServerViewColumnData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerViewColumnData.md) | &nbsp; | 从SQL视图中检索列数据，并可选择限制记录数。 |
+| [Get-SQLServerViewData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerViewData.md) | &nbsp; | 从SQL数据库视图中检索数据，并可选择限制记录数量。 |
+| [Get-SQLServerViews](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerViews.md) | &nbsp; | 从 SQL Server 数据库中检索视图列表。 |
+| [Get-SQLServerViewSchema](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SQLServerViewSchema.md) | &nbsp; | 检索 SQL Server 视图的 SQL 架构定义。 |
+| [Invoke-SQLServerQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-SQLServerQuery.md) | &nbsp; | 针对 SQL Server 数据库执行一个或多个 SQL 查询，并支持事务。 |
+| [Invoke-SSMS](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-SSMS.md) | ssms, sqlservermanagementstudio | 执行支持参数和事务的SQL Server数据库查询。 |
+| [New-SQLServerDatabase](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/New-SQLServerDatabase.md) | nsqldb | 创建一个新的 SQL Server 数据库。 |
 
 ---
 
@@ -301,35 +284,35 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Confirm-InstallationConsent](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Confirm-InstallationConsent.md) | &nbsp; | &nbsp; |
-| [Copy-FilesToDateFolder](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Copy-FilesToDateFolder.md) | &nbsp; | &nbsp; |
-| [Copy-IdenticalParamValues](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Copy-IdenticalParamValues.md) | &nbsp; | &nbsp; |
-| [EnsurePester](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePester.md) | &nbsp; | &nbsp; |
-| [Expand-Path](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Expand-Path.md) | ep | &nbsp; |
-| [Find-DuplicateFiles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Find-DuplicateFiles.md) | fdf | &nbsp; |
+| [Confirm-InstallationConsent](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Confirm-InstallationConsent.md) | &nbsp; | 确认用户同意安装第三方软件，使用偏好设置来实现持久化选择。 |
+| [Copy-FilesToDateFolder](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Copy-FilesToDateFolder.md) | &nbsp; | 将符合搜索条件的文件复制到基于日期的子文件夹中。 |
+| [Copy-IdenticalParamValues](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Copy-IdenticalParamValues.md) | &nbsp; | 根据另一个函数的可能参数，将绑定参数的副本值复制到一个新的哈希表中。 |
+| [EnsurePester](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePester.md) | &nbsp; | 确保 Pester 测试框架可用于使用。 |
+| [Expand-Path](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Expand-Path.md) | ep | 将任何给定的文件引用扩展为完整路径名。 |
+| [Find-DuplicateFiles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Find-DuplicateFiles.md) | fdf | Find duplicate files across multiple directories based on configurable criteria. |
 | [Find-Item](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Find-Item.md) | l | 使用高级筛选选项搜索文件和目录。 |
-| [Get-MediaFileCreationDate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MediaFileCreationDate.md) | &nbsp; | &nbsp; |
-| [Invoke-Fasti](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-Fasti.md) | fasti | &nbsp; |
-| [Move-FilesToDateFolder](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Move-FilesToDateFolder.md) | &nbsp; | &nbsp; |
-| [Move-ItemWithTracking](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Move-ItemWithTracking.md) | &nbsp; | &nbsp; |
-| [Move-ToRecycleBin](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Move-ToRecycleBin.md) | &nbsp; | &nbsp; |
-| [ReadJsonWithRetry](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ReadJsonWithRetry.md) | &nbsp; | &nbsp; |
-| [Remove-AllItems](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-AllItems.md) | sdel | &nbsp; |
-| [Remove-ItemWithFallback](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-ItemWithFallback.md) | rmf | &nbsp; |
-| [Remove-OnReboot](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-OnReboot.md) | &nbsp; | &nbsp; |
-| [Rename-InProject](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Rename-InProject.md) | rip | &nbsp; |
-| [ResolveInputObjectFileNames](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ResolveInputObjectFileNames.md) | &nbsp; | &nbsp; |
-| [Set-FoundLocation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-FoundLocation.md) | lcd | &nbsp; |
-| [Set-LocationParent](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent.md) | .. | &nbsp; |
-| [Set-LocationParent2](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent2.md) | ... | &nbsp; |
-| [Set-LocationParent3](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent3.md) | .... | &nbsp; |
-| [Set-LocationParent4](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent4.md) | ..... | &nbsp; |
-| [Set-LocationParent5](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent5.md) | ...... | &nbsp; |
-| [Start-RoboCopy](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-RoboCopy.md) | xc, rc | &nbsp; |
+| [Get-MediaFileCreationDate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MediaFileCreationDate.md) | &nbsp; | 尽力为媒体和其他文件提取创建日期。 |
+| [Invoke-Fasti](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-Fasti.md) | fasti | 将当前目录下的归档文件解压到各自的文件夹中，然后删除这些归档文件。 |
+| [Move-FilesToDateFolder](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Move-FilesToDateFolder.md) | &nbsp; | 将符合搜索条件的文件移动到基于日期的子文件夹中。 |
+| [Move-ItemWithTracking](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Move-ItemWithTracking.md) | &nbsp; | 移动文件和目录时保留文件系统链接和引用。 |
+| [Move-ToRecycleBin](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Move-ToRecycleBin.md) | &nbsp; | 安全地将文件和目录移动到Windows回收站。 |
+| [ReadJsonWithRetry](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ReadJsonWithRetry.md) | &nbsp; | 读取JSON文件，包含重试逻辑和自动锁清理。 |
+| [Remove-AllItems](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-AllItems.md) | sdel | 深入优化的异常处理：递归删除目录中的所有内容。 |
+| [Remove-ItemWithFallback](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-ItemWithFallback.md) | rmf | 使用多种回退机制可靠地删除文件或目录。 |
+| [Remove-OnReboot](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-OnReboot.md) | &nbsp; | 在下次系统启动时标记要删除的文件或目录。 |
+| [Rename-InProject](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Rename-InProject.md) | rip | 在整个项目目录中执行文本替换。 |
+| [ResolveInputObjectFileNames](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ResolveInputObjectFileNames.md) | &nbsp; | 将输入对象扩展为文件和目录名称，支持多种过滤器和输出选项。 |
+| [Set-FoundLocation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-FoundLocation.md) | lcd | 查找第一个匹配的文件或文件夹并将其位置设为当前位置。 |
+| [Set-LocationParent](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent.md) | .. | 切换到父目录并列出其内容。 |
+| [Set-LocationParent2](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent2.md) | ... | 在文件系统层次结构中向上导航两级目录。 |
+| [Set-LocationParent3](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent3.md) | .... | 在文件系统层次结构中向上导航三级目录。 |
+| [Set-LocationParent4](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent4.md) | ..... | 在文件系统层次结构中向上导航四个目录层级。 |
+| [Set-LocationParent5](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-LocationParent5.md) | ...... | 在文件系统层级中向上导航五个目录级别。 |
+| [Start-RoboCopy](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-RoboCopy.md) | xc, rc | 为 Microsoft 的稳健复制 (RoboCopy) 实用程序提供 PowerShell 包装器。 |
 | [Write-FileAtomic](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-FileAtomic.md) | &nbsp; | 以原子方式写入文件以防止损坏。 |
 | [Write-JsonFileAtomic](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-JsonFileAtomic.md) | &nbsp; | 以原子方式将对象写入JSON文件以防止损坏。 |
 | [Write-TextFileAtomic](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-TextFileAtomic.md) | &nbsp; | 以确保数据不损坏的方式原子化写入文件。 |
-| [WriteFileOutput](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/WriteFileOutput.md) | &nbsp; | &nbsp; |
+| [WriteFileOutput](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/WriteFileOutput.md) | &nbsp; | 输出带有超链接显示名称的文件信息，以增强用户体验。 |
 
 ---
 
@@ -337,31 +320,29 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [alignScript](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/alignScript.md) | &nbsp; | &nbsp; |
-| [ConvertTo-HashTable](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-HashTable.md) | &nbsp; | &nbsp; |
-| [EnsureGenXdev](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureGenXdev.md) | &nbsp; | &nbsp; |
-| [EnsureNuGetAssembly](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureNuGetAssembly.md) | &nbsp; | &nbsp; |
-| [Get-AudioDeviceNames](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AudioDeviceNames.md) | &nbsp; | &nbsp; |
-| [Get-BCP47LanguageDictionary](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-BCP47LanguageDictionary.md) | &nbsp; | &nbsp; |
-| [Get-DefaultWebLanguage](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DefaultWebLanguage.md) | &nbsp; | &nbsp; |
-| [Get-GenXDevCmdlet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXDevCmdlet.md) | gcmds | &nbsp; |
-| [Get-ImageGeolocation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageGeolocation.md) | &nbsp; | &nbsp; |
-| [Get-ImageMetadata](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageMetadata.md) | &nbsp; | &nbsp; |
-| [Get-SpeechToText](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SpeechToText.md) | &nbsp; | &nbsp; |
-| [Get-WebLanguageDictionary](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WebLanguageDictionary.md) | &nbsp; | &nbsp; |
-| [Import-GenXdevModules](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Import-GenXdevModules.md) | reloadgenxdev | &nbsp; |
-| [Initialize-SearchPaths](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Initialize-SearchPaths.md) | &nbsp; | &nbsp; |
-| [Invoke-OnEachGenXdevModule](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-OnEachGenXdevModule.md) | foreach-genxdev-module-do | &nbsp; |
-| [Out-Serial](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Out-Serial.md) | &nbsp; | &nbsp; |
-| [Receive-RealTimeSpeechToText](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Receive-RealTimeSpeechToText.md) | &nbsp; | &nbsp; |
-| [Remove-JSONComments](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-JSONComments.md) | &nbsp; | &nbsp; |
-| [resetdefaultmonitor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/resetdefaultmonitor.md) | &nbsp; | &nbsp; |
-| [secondscreen](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/secondscreen.md) | &nbsp; | &nbsp; |
-| [Set-GenXdevCommandNotFoundAction](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevCommandNotFoundAction.md) | &nbsp; | &nbsp; |
-| [Show-GenXdevCmdlet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-GenXdevCmdlet.md) | cmds | &nbsp; |
-| [Show-Verb](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-Verb.md) | showverbs | &nbsp; |
-| [sidebyside](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/sidebyside.md) | &nbsp; | &nbsp; |
-| [Test-UnattendedMode](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Test-UnattendedMode.md) | &nbsp; | &nbsp; |
+| [alignScript](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/alignScript.md) | &nbsp; | 返回一个提供脚本块字符串的字符串（带有更改的缩进） |
+| [ConvertTo-HashTable](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-HashTable.md) | &nbsp; | 递归地将 PSCustomObject 转换为哈希表。 |
+| [EnsureGenXdev](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureGenXdev.md) | &nbsp; | 通过调用所有 Ensure* cmdlet 确保所有 GenXdev 模块正确加载。 |
+| [EnsureNuGetAssembly](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureNuGetAssembly.md) | &nbsp; | 根据包密钥或 ID 从 NuGet 包中下载并加载 .NET 程序集。 |
+| [Get-BCP47LanguageDictionary](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-BCP47LanguageDictionary.md) | &nbsp; | 返回所有已安装的BCP 47语言标签及其显示名称的字典。 |
+| [Get-DefaultWebLanguage](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DefaultWebLanguage.md) | &nbsp; | 根据系统的当前语言设置获取默认的Web语言键。 |
+| [Get-GenXDevCmdlet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GenXDevCmdlet.md) | gcmds | 检索并列出所有GenXdev cmdlet及其详细信息。 |
+| [Get-ImageGeolocation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageGeolocation.md) | &nbsp; | 从图像文件中提取地理位置数据。 |
+| [Get-ImageMetadata](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImageMetadata.md) | &nbsp; | 从图像文件中提取全面的元数据。 |
+| [Get-PowerShellRoot](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PowerShellRoot.md) | &nbsp; | &nbsp; |
+| [Get-WebLanguageDictionary](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WebLanguageDictionary.md) | &nbsp; | 返回谷歌搜索支持的所有语言的逆向字典。 |
+| [Import-GenXdevModules](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Import-GenXdevModules.md) | reloadgenxdev | 将所有 GenXdev PowerShell 模块导入到全局作用域。 |
+| [Initialize-SearchPaths](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Initialize-SearchPaths.md) | &nbsp; | 初始化并配置软件包管理的系统搜索路径。 |
+| [Invoke-OnEachGenXdevModule](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-OnEachGenXdevModule.md) | foreach-genxdev-module-do | 对工作区中的每个 GenXdev 模块执行脚本块。 |
+| [Out-Serial](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Out-Serial.md) | &nbsp; | 向串口发送字符串 |
+| [Remove-JSONComments](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-JSONComments.md) | &nbsp; | 移除JSON内容中的注释。 |
+| [resetdefaultmonitor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/resetdefaultmonitor.md) | &nbsp; | 恢复默认的辅助显示器配置。 |
+| [secondscreen](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/secondscreen.md) | &nbsp; | 设置默认的第二显示器配置。 |
+| [Set-GenXdevCommandNotFoundAction](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-GenXdevCommandNotFoundAction.md) | &nbsp; | 设置自定义命令未找到处理 |
+| [Show-GenXdevCmdlet](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-GenXdevCmdlet.md) | cmds | 显示GenXdev PowerShell模块及其Cmdlet和别名。 |
+| [Show-Verb](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-Verb.md) | showverbs | 显示所有 PowerShell 动词的简短字母顺序列表。 |
+| [sidebyside](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/sidebyside.md) | &nbsp; | 设置默认并排配置。 |
+| [Test-UnattendedMode](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Test-UnattendedMode.md) | &nbsp; | 检测PowerShell是否正在以无人值守/自动模式运行。 |
 
 ---
 
@@ -369,31 +350,31 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Convert-PhysicsUnit](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Convert-PhysicsUnit.md) | &nbsp; | &nbsp; |
-| [Get-ApparentSizeAtArmLength](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ApparentSizeAtArmLength.md) | &nbsp; | &nbsp; |
-| [Get-AtEyeLengthSizeInMM](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AtEyeLengthSizeInMM.md) | &nbsp; | &nbsp; |
-| [Get-BuoyantForceByDisplacedVolumeAndDensity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-BuoyantForceByDisplacedVolumeAndDensity.md) | &nbsp; | &nbsp; |
-| [Get-CentripetalAccelerationByVelocityAndRadius](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-CentripetalAccelerationByVelocityAndRadius.md) | &nbsp; | &nbsp; |
-| [Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed.md) | &nbsp; | &nbsp; |
-| [Get-DragForceByVelocityDensityAreaAndCoefficient](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DragForceByVelocityDensityAreaAndCoefficient.md) | &nbsp; | &nbsp; |
-| [Get-EscapeVelocityByMassAndRadius](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-EscapeVelocityByMassAndRadius.md) | &nbsp; | &nbsp; |
-| [Get-FreeFallDistance](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-FreeFallDistance.md) | &nbsp; | &nbsp; |
-| [Get-FreeFallHeight](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-FreeFallHeight.md) | &nbsp; | &nbsp; |
-| [Get-FreeFallTime](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-FreeFallTime.md) | &nbsp; | &nbsp; |
-| [Get-ImpactVelocityByHeightAndGravity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImpactVelocityByHeightAndGravity.md) | &nbsp; | &nbsp; |
-| [Get-KineticEnergyByMassAndVelocity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-KineticEnergyByMassAndVelocity.md) | &nbsp; | &nbsp; |
-| [Get-LightTravelTimeByDistance](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-LightTravelTimeByDistance.md) | &nbsp; | &nbsp; |
-| [Get-MagnificationByObjectDistanceAndImageDistance](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MagnificationByObjectDistanceAndImageDistance.md) | &nbsp; | &nbsp; |
-| [Get-MomentumByMassAndVelocity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MomentumByMassAndVelocity.md) | &nbsp; | &nbsp; |
-| [Get-OrbitalVelocityByRadiusAndMass](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-OrbitalVelocityByRadiusAndMass.md) | &nbsp; | &nbsp; |
-| [Get-PotentialEnergyByMassHeightAndGravity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PotentialEnergyByMassHeightAndGravity.md) | &nbsp; | &nbsp; |
-| [Get-ProjectileRangeByInitialSpeedAndAngle](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ProjectileRangeByInitialSpeedAndAngle.md) | &nbsp; | &nbsp; |
-| [Get-RefractionAngleByIncidentAngleAndIndices](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-RefractionAngleByIncidentAngleAndIndices.md) | &nbsp; | &nbsp; |
-| [Get-ResonantFrequencyByLengthAndSpeed](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ResonantFrequencyByLengthAndSpeed.md) | &nbsp; | &nbsp; |
-| [Get-SoundTravelDistanceByTime](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SoundTravelDistanceByTime.md) | &nbsp; | &nbsp; |
-| [Get-TerminalVelocityByMassGravityDensityAndArea](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-TerminalVelocityByMassGravityDensityAndArea.md) | &nbsp; | &nbsp; |
-| [Get-TimeOfFlightByInitialVelocityAndAngle](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-TimeOfFlightByInitialVelocityAndAngle.md) | &nbsp; | &nbsp; |
-| [Get-WaveSpeedByFrequencyAndWavelength](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WaveSpeedByFrequencyAndWavelength.md) | &nbsp; | &nbsp; |
+| [Convert-PhysicsUnit](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Convert-PhysicsUnit.md) | &nbsp; | 将一个值在同一类别内的不同物理单位之间进行转换。 |
+| [Get-ApparentSizeAtArmLength](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ApparentSizeAtArmLength.md) | &nbsp; | 计算手臂距离处物体的视在大小。 |
+| [Get-AtEyeLengthSizeInMM](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-AtEyeLengthSizeInMM.md) | &nbsp; | 计算一臂距离处物体的视在尺寸（毫米）。 |
+| [Get-BuoyantForceByDisplacedVolumeAndDensity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-BuoyantForceByDisplacedVolumeAndDensity.md) | &nbsp; | 计算浮力。 |
+| [Get-CentripetalAccelerationByVelocityAndRadius](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-CentripetalAccelerationByVelocityAndRadius.md) | &nbsp; | 计算向心加速度。 |
+| [Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DopplerFrequencyShiftBySourceSpeedAndObserverSpeed.md) | &nbsp; | 计算多普勒频移后的频率。 |
+| [Get-DragForceByVelocityDensityAreaAndCoefficient](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DragForceByVelocityDensityAreaAndCoefficient.md) | &nbsp; | 计算阻力。 |
+| [Get-EscapeVelocityByMassAndRadius](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-EscapeVelocityByMassAndRadius.md) | &nbsp; | 计算逃逸速度。 |
+| [Get-FreeFallDistance](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-FreeFallDistance.md) | &nbsp; | 计算给定时间内在自由落体期间下落的距离。 |
+| [Get-FreeFallHeight](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-FreeFallHeight.md) | &nbsp; | 计算给定时间内在自由落体过程中下落的距离。 |
+| [Get-FreeFallTime](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-FreeFallTime.md) | &nbsp; | 计算物体在自由落体过程中下落给定高度所需的时间。 |
+| [Get-ImpactVelocityByHeightAndGravity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ImpactVelocityByHeightAndGravity.md) | &nbsp; | 根据高度计算撞击速度。 |
+| [Get-KineticEnergyByMassAndVelocity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-KineticEnergyByMassAndVelocity.md) | &nbsp; | 计算动能。 |
+| [Get-LightTravelTimeByDistance](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-LightTravelTimeByDistance.md) | &nbsp; | 计算光传播一段距离所需的时间。 |
+| [Get-MagnificationByObjectDistanceAndImageDistance](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MagnificationByObjectDistanceAndImageDistance.md) | &nbsp; | 计算透镜的放大率。 |
+| [Get-MomentumByMassAndVelocity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MomentumByMassAndVelocity.md) | &nbsp; | 计算线性动量。 |
+| [Get-OrbitalVelocityByRadiusAndMass](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-OrbitalVelocityByRadiusAndMass.md) | &nbsp; | 计算轨道速度。 |
+| [Get-PotentialEnergyByMassHeightAndGravity](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PotentialEnergyByMassHeightAndGravity.md) | &nbsp; | 计算重力势能。 |
+| [Get-ProjectileRangeByInitialSpeedAndAngle](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ProjectileRangeByInitialSpeedAndAngle.md) | &nbsp; | 计算抛射体的射程。 |
+| [Get-RefractionAngleByIncidentAngleAndIndices](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-RefractionAngleByIncidentAngleAndIndices.md) | &nbsp; | 使用斯涅尔定律计算折射角。 |
+| [Get-ResonantFrequencyByLengthAndSpeed](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ResonantFrequencyByLengthAndSpeed.md) | &nbsp; | 计算闭管共振频率。 |
+| [Get-SoundTravelDistanceByTime](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-SoundTravelDistanceByTime.md) | &nbsp; | 计算声音在给定时间内传播的距离。 |
+| [Get-TerminalVelocityByMassGravityDensityAndArea](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-TerminalVelocityByMassGravityDensityAndArea.md) | &nbsp; | 计算终端速度。 |
+| [Get-TimeOfFlightByInitialVelocityAndAngle](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-TimeOfFlightByInitialVelocityAndAngle.md) | &nbsp; | 计算抛射体飞行时间。 |
+| [Get-WaveSpeedByFrequencyAndWavelength](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WaveSpeedByFrequencyAndWavelength.md) | &nbsp; | 计算波速。 |
 
 ---
 
@@ -401,7 +382,7 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [StabilizeVideo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/StabilizeVideo.md) | &nbsp; | &nbsp; |
+| [StabilizeVideo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/StabilizeVideo.md) | &nbsp; | 使用 FFmpeg + vid.stab 稳定最新的或指定的 .mp4 文件（无黑边）。 |
 
 ---
 
@@ -409,9 +390,9 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [ConvertTo-Uris](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-Uris.md) | &nbsp; | &nbsp; |
-| [Invoke-WebbrowserTabPollingScript](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-WebbrowserTabPollingScript.md) | &nbsp; | &nbsp; |
-| [Open-AllPossibleQueries](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-AllPossibleQueries.md) | qq | &nbsp; |
+| [ConvertTo-Uris](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ConvertTo-Uris.md) | &nbsp; | 解析任何合法URI的字符串。 |
+| [Invoke-WebbrowserTabPollingScript](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-WebbrowserTabPollingScript.md) | &nbsp; | 在先前选中的网页浏览器标签页中执行后台轮询脚本。 |
+| [Open-AllPossibleQueries](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-AllPossibleQueries.md) | qq | 为给定的搜索词或URL打开所有可能的查询类型。 |
 
 ---
 
@@ -419,13 +400,13 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Open-BingCopilotQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-BingCopilotQuery.md) | aibc | &nbsp; |
-| [Open-ChatGPTQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-ChatGPTQuery.md) | aicgpt, askchatgpt | &nbsp; |
-| [Open-CloudLLMChat](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-CloudLLMChat.md) | ask | &nbsp; |
-| [Open-DeepSearchQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-DeepSearchQuery.md) | aideepseek, askdeepsearch | &nbsp; |
-| [Open-GithubCopilotQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GithubCopilotQuery.md) | aigc, askghcopilot | &nbsp; |
-| [Open-GoogleGeminiQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GoogleGeminiQuery.md) | aigg, askgemini | &nbsp; |
-| [Open-XGrokQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-XGrokQuery.md) | aixg, askxgrok | &nbsp; |
+| [Open-BingCopilotQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-BingCopilotQuery.md) | aibc | 在网页浏览器中打开 Bing CoPilot 查询 |
+| [Open-ChatGPTQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-ChatGPTQuery.md) | aicgpt, askchatgpt | 在网络浏览器中打开 ChatGPT 查询。 |
+| [Open-CloudLLMChat](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-CloudLLMChat.md) | ask | 打开用于AI查询的云LLM聊天界面。 |
+| [Open-DeepSearchQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-DeepSearchQuery.md) | aideepseek, askdeepsearch | 在网页浏览器中打开 DeepSeek 查询 |
+| [Open-GithubCopilotQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GithubCopilotQuery.md) | aigc, askghcopilot | 在网络浏览器中打开 GitHub Copilot 查询 |
+| [Open-GoogleGeminiQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GoogleGeminiQuery.md) | aigg, askgemini | 在网页浏览器中打开 Google Gemini 查询 |
+| [Open-XGrokQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-XGrokQuery.md) | aixg, askxgrok | 在网页浏览器中打开 X Grok 查询 |
 
 ---
 
@@ -433,8 +414,8 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Get-NextAffirmation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-NextAffirmation.md) | WhatAboutIt | &nbsp; |
-| [Get-WikipediaSummary](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WikipediaSummary.md) | wikitxt | &nbsp; |
+| [Get-NextAffirmation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-NextAffirmation.md) | WhatAboutIt | 从 affirmations.dev API 返回一条随机肯定语。 |
+| [Get-WikipediaSummary](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WikipediaSummary.md) | wikitxt | Retrieves a summary of a topic from Wikipedia. |
 
 ---
 
@@ -442,30 +423,30 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Clear-YoutubeWatched](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Clear-YoutubeWatched.md) | &nbsp; | &nbsp; |
-| [Copy-PDFsFromGoogleQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Copy-PDFsFromGoogleQuery.md) | &nbsp; | &nbsp; |
-| [Get-GoogleSearchResultUrls](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GoogleSearchResultUrls.md) | qlinksget | &nbsp; |
-| [Open-AllGoogleLinks](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-AllGoogleLinks.md) | qlinks | &nbsp; |
-| [Open-AllYoutubeVideos](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-AllYoutubeVideos.md) | qvideos, qyt | &nbsp; |
-| [Open-BingQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-BingQuery.md) | bq | &nbsp; |
-| [Open-BuiltWithSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-BuiltWithSiteInfo.md) | &nbsp; | &nbsp; |
-| [Open-GithubQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GithubQuery.md) | qgithub, qgh | &nbsp; |
-| [Open-GoogleQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GoogleQuery.md) | q | &nbsp; |
-| [Open-GoogleSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GoogleSiteInfo.md) | &nbsp; | &nbsp; |
-| [Open-GrokipediaQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GrokipediaQuery.md) | wiki | &nbsp; |
-| [Open-IMDBQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-IMDBQuery.md) | imdb | &nbsp; |
-| [Open-InstantStreetViewQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-InstantStreetViewQuery.md) | isv | &nbsp; |
-| [Open-MovieQuote](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-MovieQuote.md) | moviequote | &nbsp; |
-| [Open-SearchEngine](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-SearchEngine.md) | q | &nbsp; |
-| [Open-SimularWebSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-SimularWebSiteInfo.md) | simularsite | &nbsp; |
-| [Open-StackOverflowQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-StackOverflowQuery.md) | qso | &nbsp; |
-| [Open-WaybackMachineSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WaybackMachineSiteInfo.md) | wayback | &nbsp; |
-| [Open-WebsiteAndPerformQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WebsiteAndPerformQuery.md) | owaq | &nbsp; |
-| [Open-WhoisHostSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WhoisHostSiteInfo.md) | whois | &nbsp; |
-| [Open-WikipediaNLQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WikipediaNLQuery.md) | wikinl | &nbsp; |
-| [Open-WikipediaQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WikipediaQuery.md) | wikipedia | &nbsp; |
-| [Open-WolframAlphaQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WolframAlphaQuery.md) | qalpha | &nbsp; |
-| [Open-YoutubeQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-YoutubeQuery.md) | youtube | &nbsp; |
+| [Clear-YoutubeWatched](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Clear-YoutubeWatched.md) | &nbsp; | 从浏览器的本地存储中清除YouTube观看历史记录。 |
+| [Copy-PDFsFromGoogleQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Copy-PDFsFromGoogleQuery.md) | &nbsp; | 下载通过 Google 搜索结果找到的 PDF 文件。 |
+| [Get-GoogleSearchResultUrls](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-GoogleSearchResultUrls.md) | qlinksget | 执行谷歌搜索并返回链接 |
+| [Open-AllGoogleLinks](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-AllGoogleLinks.md) | qlinks | 执行无限自动打开谷歌搜索。 |
+| [Open-AllYoutubeVideos](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-AllYoutubeVideos.md) | qvideos, qyt | 在浏览器窗口中通过键盘快捷键打开和控制YouTube视频。 |
+| [Open-BingQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-BingQuery.md) | bq | 在网络浏览器中打开必应搜索查询。 |
+| [Open-BuiltWithSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-BuiltWithSiteInfo.md) | &nbsp; | 在网页浏览器中打开 BuiltWith 网站查询。 |
+| [Open-GithubQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GithubQuery.md) | qgithub, qgh | 在网络浏览器中打开 GitHub 仓库搜索查询，或针对 GitHub REST API 执行高级搜索，支持所有可用的限定符和搜索类别（仓库、代码、议题、用户、提交、讨论、主题、Wiki）。 |
+| [Open-GoogleQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GoogleQuery.md) | q | 在网页浏览器中打开Google查询，具有可配置设置和丰富的自定义选项。 |
+| [Open-GoogleSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GoogleSiteInfo.md) | &nbsp; | 在网络浏览器中打开 Google 站点信息查询。 |
+| [Open-GrokipediaQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GrokipediaQuery.md) | wiki | 在网页浏览器中打开Grokipedia查询。 |
+| [Open-IMDBQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-IMDBQuery.md) | imdb | 在网页浏览器中打开IMDB搜索查询。 |
+| [Open-InstantStreetViewQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-InstantStreetViewQuery.md) | isv | 在网络浏览器中打开 InstantStreetView 查询。 |
+| [Open-MovieQuote](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-MovieQuote.md) | moviequote | 在网络浏览器中打开一段电影台词的视频。 |
+| [Open-SearchEngine](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-SearchEngine.md) | q | 使用网络浏览器在指定的搜索引擎中打开搜索查询。 |
+| [Open-SimularWebSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-SimularWebSiteInfo.md) | simularsite | 在网页浏览器中打开指定URL的SimilarWeb网站信息。 |
+| [Open-StackOverflowQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-StackOverflowQuery.md) | qso | 在Web浏览器中打开Stack Overflow搜索查询。 |
+| [Open-WaybackMachineSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WaybackMachineSiteInfo.md) | wayback | 在网页浏览器中打开 Wayback Machine 网站信息。 |
+| [Open-WebsiteAndPerformQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WebsiteAndPerformQuery.md) | owaq | 在网页浏览器中打开一个网页，并执行一个或多个查询。 |
+| [Open-WhoisHostSiteInfo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WhoisHostSiteInfo.md) | whois | 在网页浏览器中打开 Whois 主机信息查询。 |
+| [Open-WikipediaNLQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WikipediaNLQuery.md) | wikinl | 在网页浏览器中打开荷兰语维基百科搜索。 |
+| [Open-WikipediaQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WikipediaQuery.md) | wikipedia | 在网页浏览器中打开维基百科查询。 |
+| [Open-WolframAlphaQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WolframAlphaQuery.md) | qalpha | 在Web浏览器中打开Wolfram Alpha查询。 |
+| [Open-YoutubeQuery](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-YoutubeQuery.md) | youtube | 在网络浏览器中打开YouTube搜索查询。 |
 
 ---
 
@@ -473,12 +454,12 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Open-GameOfLife](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GameOfLife.md) | gameoflife, conway | &nbsp; |
-| [Open-GenXdevAppCatalog](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GenXdevAppCatalog.md) | appcatalog | &nbsp; |
-| [Open-Timeline](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-Timeline.md) | timeline | &nbsp; |
-| [Open-ViralSimulation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-ViralSimulation.md) | viral | &nbsp; |
-| [Open-Yab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-Yab.md) | yab | &nbsp; |
-| [Open-YabAIBattle](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-YabAIBattle.md) | yabbattle | &nbsp; |
+| [Open-GameOfLife](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GameOfLife.md) | gameoflife, conway | 在网络浏览器中打开康威生命游戏模拟。 |
+| [Open-GenXdevAppCatalog](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-GenXdevAppCatalog.md) | appcatalog | 在网页浏览器中打开GenXdev渐进式网络应用目录。 |
+| [Open-Timeline](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-Timeline.md) | timeline | 打开交互式时间线，显示当前时间、日期、世纪和千年。 |
+| [Open-ViralSimulation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-ViralSimulation.md) | viral | 在网页浏览器中打开一款病毒模拟游戏，提供丰富的配置选项。 |
+| [Open-Yab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-Yab.md) | yab | 通过可配置设置在网络浏览器中打开YAB游戏。 |
+| [Open-YabAIBattle](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-YabAIBattle.md) | yabbattle | 在网页浏览器中打开 YabAI 战斗游戏。 |
 
 ---
 
@@ -486,32 +467,26 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Approve-FirefoxDebugging](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Approve-FirefoxDebugging.md) | &nbsp; | &nbsp; |
-| [Clear-WebbrowserTabSiteApplicationData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Clear-WebbrowserTabSiteApplicationData.md) | clearsitedata | &nbsp; |
-| [Close-Webbrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Close-Webbrowser.md) | wbc | &nbsp; |
-| [Close-WebbrowserTab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Close-WebbrowserTab.md) | ct, CloseTab | &nbsp; |
-| [Export-BrowserBookmarks](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Export-BrowserBookmarks.md) | &nbsp; | &nbsp; |
-| [Find-BrowserBookmark](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Find-BrowserBookmark.md) | bookmarks | &nbsp; |
-| [Get-BrowserBookmark](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-BrowserBookmark.md) | gbm | &nbsp; |
-| [Get-ChromeRemoteDebuggingPort](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ChromeRemoteDebuggingPort.md) | &nbsp; | &nbsp; |
-| [Get-ChromiumRemoteDebuggingPort](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ChromiumRemoteDebuggingPort.md) | &nbsp; | &nbsp; |
-| [Get-ChromiumSessionReference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ChromiumSessionReference.md) | &nbsp; | &nbsp; |
-| [Get-DefaultWebbrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DefaultWebbrowser.md) | &nbsp; | &nbsp; |
-| [Get-EdgeRemoteDebuggingPort](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-EdgeRemoteDebuggingPort.md) | &nbsp; | &nbsp; |
-| [Get-Webbrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Webbrowser.md) | &nbsp; | &nbsp; |
-| [Get-WebbrowserTabDomNodes](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WebbrowserTabDomNodes.md) | wl | &nbsp; |
-| [Import-BrowserBookmarks](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Import-BrowserBookmarks.md) | &nbsp; | &nbsp; |
-| [Import-GenXdevBookmarkletMenu](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Import-GenXdevBookmarkletMenu.md) | &nbsp; | &nbsp; |
-| [Invoke-WebbrowserEvaluation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-WebbrowserEvaluation.md) | Eval, et | &nbsp; |
-| [Open-BrowserBookmarks](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-BrowserBookmarks.md) | sites | &nbsp; |
-| [Open-Webbrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-Webbrowser.md) | wb | &nbsp; |
-| [Open-WebbrowserSideBySide](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WebbrowserSideBySide.md) | wbn | &nbsp; |
-| [Select-WebbrowserTab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Select-WebbrowserTab.md) | st | &nbsp; |
-| [Set-BrowserVideoFullscreen](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-BrowserVideoFullscreen.md) | fsvideo | &nbsp; |
-| [Set-RemoteDebuggerPortInBrowserShortcuts](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-RemoteDebuggerPortInBrowserShortcuts.md) | &nbsp; | &nbsp; |
-| [Set-WebbrowserTabLocation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-WebbrowserTabLocation.md) | lt, Nav | &nbsp; |
-| [Show-WebsiteInAllBrowsers](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-WebsiteInAllBrowsers.md) | &nbsp; | &nbsp; |
-| [Write-Bookmarks](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Write-Bookmarks.md) | &nbsp; | &nbsp; |
+| [Clear-WebbrowserTabSiteApplicationData](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Clear-WebbrowserTabSiteApplicationData.md) | clearsitedata | 清除Edge或Chrome中当前选项卡的所有浏览器存储数据。 |
+| [Close-Webbrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Close-Webbrowser.md) | wbc | 选择性地关闭一个或多个网页浏览器实例。 |
+| [Close-WebbrowserTab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Close-WebbrowserTab.md) | ct, CloseTab | 关闭当前选中的浏览器标签页。 |
+| [Export-BrowserBookmarks](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Export-BrowserBookmarks.md) | &nbsp; | 将浏览器书签导出到 JSON 文件。 |
+| [Find-BrowserBookmark](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Find-BrowserBookmark.md) | bookmarks | 从一个或多个网页浏览器中查找书签。 |
+| [Get-BrowserBookmark](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-BrowserBookmark.md) | gbm | 从已安装的网页浏览器中返回所有书签。 |
+| [Get-DefaultWebbrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DefaultWebbrowser.md) | &nbsp; | 返回当前用户配置的默认 Web 浏览器。 |
+| [Get-PlaywrightSessionReference](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PlaywrightSessionReference.md) | &nbsp; | 获取对当前 Playwright 浏览器会话的引用。 |
+| [Get-Webbrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Webbrowser.md) | &nbsp; | 返回已安装的现代Web浏览器的集合。 |
+| [Get-WebbrowserTabDomNodes](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WebbrowserTabDomNodes.md) | wl | 使用CSS选择器查询和操作活动浏览器标签中的DOM节点。 |
+| [Import-BrowserBookmarks](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Import-BrowserBookmarks.md) | &nbsp; | 将文件或收藏集中的书签导入网页浏览器中。 |
+| [Import-GenXdevBookmarkletMenu](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Import-GenXdevBookmarkletMenu.md) | &nbsp; | 将 GenXdev JavaScript 书签导入浏览器的书签集合中。 |
+| [Invoke-WebbrowserEvaluation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-WebbrowserEvaluation.md) | Eval, et | 在选定的网络浏览器标签页中执行 JavaScript 代码。 |
+| [Open-BrowserBookmarks](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-BrowserBookmarks.md) | sites | 打开与指定搜索条件匹配的浏览器书签。 |
+| [Open-Webbrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-Webbrowser.md) | wb | 在一个或多个浏览器窗口中打开URL，可设置位置和样式。 |
+| [Open-WebbrowserSideBySide](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-WebbrowserSideBySide.md) | wbn | 启动具有特定定位的新网络浏览器窗口。 |
+| [Select-WebbrowserTab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Select-WebbrowserTab.md) | st | 从正在运行的 Playwright 管理浏览器中选择一个浏览器标签页。 |
+| [Set-BrowserVideoFullscreen](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-BrowserVideoFullscreen.md) | fsvideo | 最大化当前浏览器标签页中找到的第一个视频元素。 |
+| [Set-WebbrowserTabLocation](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-WebbrowserTabLocation.md) | lt, Nav | 将当前浏览器标签页导航到指定的 URL。 |
+| [Show-WebsiteInAllBrowsers](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Show-WebsiteInAllBrowsers.md) | &nbsp; | 以马赛克布局同时打开多个浏览器中的URL。 |
 
 ---
 
@@ -519,11 +494,13 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Connect-PlaywrightViaDebuggingPort.md) | &nbsp; | &nbsp; |
-| [Get-PlaywrightProfileDirectory](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PlaywrightProfileDirectory.md) | &nbsp; | &nbsp; |
-| [Resume-WebbrowserTabVideo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Resume-WebbrowserTabVideo.md) | wbvideoplay | &nbsp; |
-| [Stop-WebbrowserVideos](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Stop-WebbrowserVideos.md) | wbsst, ssst, wbvideostop | &nbsp; |
-| [Unprotect-WebbrowserTab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Unprotect-WebbrowserTab.md) | wbctrl | &nbsp; |
+| [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Connect-PlaywrightViaDebuggingPort.md) | &nbsp; | 通过调试端口连接到现有浏览器实例。 |
+| [ensurePlaywright](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/ensurePlaywright.md) | &nbsp; | 确保 Playwright .NET 程序集和浏览器二进制文件可用。 |
+| [Get-PlaywrightProfileDirectory](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PlaywrightProfileDirectory.md) | &nbsp; | 获取用于持久化会话的 Playwright 浏览器配置文件目录。 |
+| [Open-PlayWrightBrowser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Open-PlayWrightBrowser.md) | spb | 启动一个由 Playwright 管理的浏览器，并带有持久化用户配置文件。 |
+| [Resume-WebbrowserTabVideo](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Resume-WebbrowserTabVideo.md) | wbvideoplay | 在YouTube浏览器标签页中恢复视频播放。 |
+| [Stop-WebbrowserVideos](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Stop-WebbrowserVideos.md) | wbsst, ssst, wbvideostop | 在所有活跃的浏览器会话中暂停视频播放。 |
+| [Unprotect-WebbrowserTab](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Unprotect-WebbrowserTab.md) | wbctrl | 接管选定的网页浏览器标签页以进行交互式操作。 |
 
 ---
 
@@ -531,39 +508,39 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [CurrentUserHasElevatedRights](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/CurrentUserHasElevatedRights.md) | &nbsp; | &nbsp; |
-| [EnsureDockerDesktop](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureDockerDesktop.md) | &nbsp; | &nbsp; |
-| [EnsurePSTools](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePSTools.md) | &nbsp; | &nbsp; |
-| [Get-ActiveUser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ActiveUser.md) | gusers | &nbsp; |
-| [Get-ChildProcesses](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ChildProcesses.md) | &nbsp; | &nbsp; |
-| [Get-ClipboardFiles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ClipboardFiles.md) | getclipfiles, gcbf | &nbsp; |
-| [Get-CurrentFocusedProcess](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-CurrentFocusedProcess.md) | &nbsp; | &nbsp; |
-| [Get-DesktopScalingFactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DesktopScalingFactor.md) | &nbsp; | &nbsp; |
-| [Get-ForegroundWindow](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ForegroundWindow.md) | &nbsp; | &nbsp; |
-| [Get-KnownFolderPath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-KnownFolderPath.md) | folder | &nbsp; |
-| [Get-MonitorCount](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MonitorCount.md) | &nbsp; | &nbsp; |
-| [Get-MpCmdRunPath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MpCmdRunPath.md) | &nbsp; | &nbsp; |
-| [Get-OpenedFileHandleProcesses](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-OpenedFileHandleProcesses.md) | &nbsp; | &nbsp; |
-| [Get-PowershellMainWindow](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PowershellMainWindow.md) | &nbsp; | &nbsp; |
-| [Get-PowershellMainWindowProcess](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PowershellMainWindowProcess.md) | &nbsp; | &nbsp; |
-| [Get-Window](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Window.md) | &nbsp; | &nbsp; |
-| [Get-WindowPosition](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WindowPosition.md) | gwp | &nbsp; |
-| [Initialize-ScheduledTaskScripts](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Initialize-ScheduledTaskScripts.md) | &nbsp; | &nbsp; |
-| [Invoke-WindowsUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-WindowsUpdate.md) | updatewindows | &nbsp; |
-| [Pop-Window](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Pop-Window.md) | popw | &nbsp; |
-| [Push-Window](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Push-Window.md) | pushw | &nbsp; |
-| [Save-DesktopScreenShot](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Save-DesktopScreenShot.md) | &nbsp; | &nbsp; |
-| [Send-Key](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Send-Key.md) | sendkeys, invokekeys | &nbsp; |
-| [Send-WakeOnLan](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Send-WakeOnLan.md) | &nbsp; | &nbsp; |
-| [Set-ClipboardFiles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-ClipboardFiles.md) | setclipfiles, scbf | &nbsp; |
-| [Set-ForegroundWindow](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-ForegroundWindow.md) | &nbsp; | &nbsp; |
-| [Set-KnownFolderPath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-KnownFolderPath.md) | &nbsp; | &nbsp; |
-| [Set-TaskbarAlignment](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-TaskbarAlignment.md) | &nbsp; | &nbsp; |
-| [Set-WindowPosition](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-WindowPosition.md) | wp | &nbsp; |
-| [Set-WindowPositionForSecondary](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-WindowPositionForSecondary.md) | wps | &nbsp; |
-| [Set-WindowsWallpaper](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-WindowsWallpaper.md) | &nbsp; | &nbsp; |
-| [Start-ProcessWithPriority](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-ProcessWithPriority.md) | nice | &nbsp; |
-| [Test-PathUsingWindowsDefender](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Test-PathUsingWindowsDefender.md) | virusscan, HasNoVirus | &nbsp; |
+| [CurrentUserHasElevatedRights](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/CurrentUserHasElevatedRights.md) | &nbsp; | 检查当前用户是否拥有提升的权限。 |
+| [EnsureDockerDesktop](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureDockerDesktop.md) | &nbsp; | 确保已安装 Docker Desktop 并可用于容器化操作。 |
+| [EnsurePSTools](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsurePSTools.md) | &nbsp; | 确保 Sysinternals 工具（PSTools）已安装且可用。 |
+| [Get-ActiveUser](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ActiveUser.md) | gusers | 从当前活动的系统进程中检索唯一的用户名列表。 |
+| [Get-ChildProcesses](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ChildProcesses.md) | &nbsp; | 检索当前 PowerShell 进程的所有后代进程。 |
+| [Get-ClipboardFiles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ClipboardFiles.md) | getclipfiles, gcbf | 从Windows剪贴板获取为文件操作（如复制/粘贴）设置的文件。 |
+| [Get-CurrentFocusedProcess](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-CurrentFocusedProcess.md) | &nbsp; | 检索当前拥有键盘焦点的窗口的进程对象。 |
+| [Get-DesktopScalingFactor](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-DesktopScalingFactor.md) | &nbsp; | 检索指定显示器的 Windows 显示缩放比例（DPI 设置）。 |
+| [Get-ForegroundWindow](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-ForegroundWindow.md) | &nbsp; | 获取当前活动前台窗口的句柄。 |
+| [Get-KnownFolderPath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-KnownFolderPath.md) | folder | 使用Windows Shell32 API获取Windows已知文件夹的路径。 |
+| [Get-MonitorCount](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MonitorCount.md) | &nbsp; | 获取连接到系统的显示监视器总数。 |
+| [Get-MpCmdRunPath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-MpCmdRunPath.md) | &nbsp; | 获取 Windows Defender MpCmdRun.exe 可执行文件的路径。 |
+| [Get-OpenedFileHandleProcesses](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-OpenedFileHandleProcesses.md) | &nbsp; | 检索打开了指定文件句柄的进程。 |
+| [Get-PowershellMainWindow](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PowershellMainWindow.md) | &nbsp; | 返回一个用于PowerShell终端主窗口的窗口辅助对象。 |
+| [Get-PowershellMainWindowProcess](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-PowershellMainWindowProcess.md) | &nbsp; | 返回托管 PowerShell 终端的窗口的进程对象。 |
+| [Get-Window](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-Window.md) | &nbsp; | 获取指定进程或窗口句柄的窗口信息。 |
+| [Get-WindowPosition](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WindowPosition.md) | gwp | 获取窗口的位置和状态信息。 |
+| [Initialize-ScheduledTaskScripts](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Initialize-ScheduledTaskScripts.md) | &nbsp; | 创建按指定间隔运行 PowerShell 脚本的计划任务。 |
+| [Invoke-WindowsUpdate](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Invoke-WindowsUpdate.md) | updatewindows | 检查 Windows 是否是最新版本，并可选择安装可用更新。 |
+| [Pop-Window](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Pop-Window.md) | popw | 从堆栈中弹出最后一个活动窗口助手，可附带可选修改。 |
+| [Push-Window](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Push-Window.md) | pushw | 将当前窗口推入窗口栈，可带可选修改。 |
+| [Save-DesktopScreenShot](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Save-DesktopScreenShot.md) | &nbsp; | 捕获指定显示器的屏幕截图并保存到指定路径。 |
+| [Send-Key](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Send-Key.md) | sendkeys, invokekeys | 向窗口或进程发送模拟按键。 |
+| [Send-WakeOnLan](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Send-WakeOnLan.md) | &nbsp; | 发送Wake-on-LAN魔法包以唤醒网络上的远程计算机。 |
+| [Set-ClipboardFiles](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-ClipboardFiles.md) | setclipfiles, scbf | 将文件设置为Windows剪贴板中的文件操作（如复制/粘贴）的目标。 |
+| [Set-ForegroundWindow](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-ForegroundWindow.md) | &nbsp; | 将指定窗口置于前台并使其成为活动窗口。 |
+| [Set-KnownFolderPath](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-KnownFolderPath.md) | &nbsp; | 修改Windows已知文件夹的物理路径。 |
+| [Set-TaskbarAlignment](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-TaskbarAlignment.md) | &nbsp; | 配置 Windows 11+ 任务栏在居中和左对齐之间的对齐方式。 |
+| [Set-WindowPosition](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-WindowPosition.md) | wp | 当提供明确的定位参数时，对窗口进行定位和调整大小。 |
+| [Set-WindowPositionForSecondary](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-WindowPositionForSecondary.md) | wps | 将窗口定位到副显示器上，并指定布局选项。 |
+| [Set-WindowsWallpaper](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Set-WindowsWallpaper.md) | &nbsp; | 从指定目录随机设置壁纸。 |
+| [Start-ProcessWithPriority](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Start-ProcessWithPriority.md) | nice | 以指定的优先级级别启动一个进程。 |
+| [Test-PathUsingWindowsDefender](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Test-PathUsingWindowsDefender.md) | virusscan, HasNoVirus | 使用 Windows Defender 扫描文件或目录以查找恶意软件。 |
 
 ---
 
@@ -571,10 +548,10 @@ Auto-generated cmdlet reference documentation. Last updated: 2026-07-16.
 
 | Command | Aliases | Description |
 |:---|:---|:---|
-| [Add-WireGuardPeer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-WireGuardPeer.md) | &nbsp; | &nbsp; |
-| [EnsureWireGuard](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureWireGuard.md) | &nbsp; | &nbsp; |
-| [Get-WireGuardPeerQRCode](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WireGuardPeerQRCode.md) | &nbsp; | &nbsp; |
-| [Get-WireGuardPeers](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WireGuardPeers.md) | &nbsp; | &nbsp; |
-| [Get-WireGuardStatus](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WireGuardStatus.md) | &nbsp; | &nbsp; |
-| [Remove-WireGuardPeer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-WireGuardPeer.md) | &nbsp; | &nbsp; |
-| [Reset-WireGuardConfiguration](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Reset-WireGuardConfiguration.md) | &nbsp; | &nbsp; |
+| [Add-WireGuardPeer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Add-WireGuardPeer.md) | &nbsp; | 向服务器添加一个新的 WireGuard VPN 对等体（客户端）配置。 |
+| [EnsureWireGuard](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/EnsureWireGuard.md) | &nbsp; | 确保 WireGuard VPN 服务已安装并通过 Docker 容器运行。 |
+| [Get-WireGuardPeerQRCode](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WireGuardPeerQRCode.md) | &nbsp; | Generated QR code for WireGuard VPN peer configuration. |
+| [Get-WireGuardPeers](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WireGuardPeers.md) | &nbsp; | 获取系统上所有 WireGuard VPN 对等体的配置信息。 |
+| [Get-WireGuardStatus](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Get-WireGuardStatus.md) | &nbsp; | 获取WireGuard VPN服务器的详细状态信息。 |
+| [Remove-WireGuardPeer](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Remove-WireGuardPeer.md) | &nbsp; | 删除 WireGuard VPN 对等端配置。 |
+| [Reset-WireGuardConfiguration](https://github.com/genXdev/genXdev/Docs/zh-Hans-CN/Reset-WireGuardConfiguration.md) | &nbsp; | 重置 WireGuard VPN 服务器配置，移除所有对等端。 |

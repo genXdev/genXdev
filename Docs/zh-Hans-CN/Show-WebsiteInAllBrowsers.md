@@ -4,12 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 以马赛克布局同时打开多个浏览器中的URL。
+
+## Description
+
+此函数通过打开指定URL，在Chrome、Edge、Firefox以及一个隐私浏览窗口中创建浏览器窗口的马赛克布局。浏览器按2x2网格模式排列：
+- Chrome：左上象限
+- Edge：左下象限
+- Firefox：右上象限
+- 隐私窗口：右下象限
+
+Open-Webbrowser的所有参数均受支持，并传递给浏览器以控制其定位、行为和外观。此函数充当一个包装器，在允许完全自定义浏览器启动参数的同时，应用一致的象限定位。
 
 ## Syntax
 
 ```powershell
-Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -30,6 +40,9 @@ Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-Applicat
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
 | `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-Left` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕左侧 |
 | `-Right` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕右侧 |
@@ -55,6 +68,22 @@ Show-WebsiteInAllBrowsers -Url <String> [-AcceptLang <String>] [-All] [-Applicat
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 使用存储在会话中的替代设置进行AI偏好设置。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除会话中存储的AI偏好替代设置。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. |
+
+## Examples
+
+### Show-WebsiteInAllBrowsers -Url "https://www.github.com" Opens github.com in four different browsers arranged in a mosaic layout.
+
+```powershell
+Show-WebsiteInAllBrowsers -Url "https://www.github.com"
+Opens github.com in four different browsers arranged in a mosaic layout.
+```
+
+### "https://www.github.com" | Show-UrlInAllBrowsers Uses the function's alias and pipeline input to achieve the same result.
+
+```powershell
+"https://www.github.com" | Show-UrlInAllBrowsers
+Uses the function's alias and pipeline input to achieve the same result.
+```
 
 ## Related Links
 

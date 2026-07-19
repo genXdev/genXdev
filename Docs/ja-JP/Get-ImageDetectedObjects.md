@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> DeepStackを使用して、アップロードされた画像内のオブジェクトを検出および分類します。
+
+## Description
+
+この関数は画像ファイルを分析し、最大80種類のオブジェクトを検出・分類します。設定可能なポートで動作するローカルのDeepStack物体検出APIを使用し、バウンディングボックスの座標と信頼度スコアと共にオブジェクト分類を返します。この関数はGPUアクセラレーション、カスタム信頼度しきい値、Dockerコンテナ管理をサポートしています。
 
 ## Syntax
 
@@ -28,6 +32,26 @@ Get-ImageDetectedObjects -ImagePath <String> [-ConfidenceThreshold <Double>] [-C
 | `-Force` | SwitchParameter | — | — | Named | — | Dockerコンテナを強制再構築し、既存データを削除 |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | GPUアクセラレーション版を使用（NVIDIA GPUが必要） |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 初期化中にDocker Desktopウィンドウを表示する |
+
+## Examples
+
+### Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `                          -ConfidenceThreshold 0.5 `                          -ServicePort 5000
+
+```powershell
+Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `
+                         -ConfidenceThreshold 0.5 `
+                         -ServicePort 5000
+```
+
+指定された画像内のオブジェクトを完全なパラメータ名で検出します。
+
+### Get-ImageDetectedObjects "C:\photos\street.jpg"
+
+```powershell
+Get-ImageDetectedObjects "C:\photos\street.jpg"
+```
+
+位置パラメータとデフォルト設定を使用してオブジェクトを検出します。
 
 ## Related Links
 

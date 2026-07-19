@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Aktualisiert Metadaten zur Szenenklassifizierung für Bilddateien in einem angegebenen Verzeichnis.
+
+## Description
+
+Diese Funktion verarbeitet Bilder in einem angegebenen Verzeichnis, um Szenen mithilfe von künstlicher Intelligenz zu klassifizieren. Sie erstellt JSON-Metadatendateien mit Szenenklassifikationen, Konfidenzwerten und Bezeichnungen. Die Funktion unterstützt die Stapelverarbeitung mit konfigurierbaren Konfidenzschwellen und kann optionale vorhandene Metadatendateien überspringen oder zuvor fehlgeschlagene Klassifikationen wiederholen.
 
 ## Syntax
 
@@ -42,6 +46,40 @@ Invoke-ImageScenesUpdate [[-ImageDirectories] <String[]>] [-ApiKey <String>] [-A
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Deutliche Alternativ-Einstellungen, die in der Sitzung gespeichert sind, für KI-Präferenzen wie Sprache, Bildersammlungen usw. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Verwenden Sie keine alternativen in der Sitzung gespeicherten Einstellungen für KI-Präferenzen wie Sprache, Bildsammlungen usw. |
+
+## Examples
+
+### Invoke-ImageScenesUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+Verarbeitet alle Bilder in C:\Photos und D:\Pictures sowie deren Unterverzeichnisse für die Szenenklassifizierung.
+
+### scenerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+
+```powershell
+scenerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+```
+
+Verwendet Alias, um fehlgeschlagene Klassifizierungen erneut zu versuchen und nur neue Bilder in mehreren Verzeichnissen zu verarbeiten.
+
+### Invoke-ImageScenesUpdate -ImageDirectories ".\MyImages" -Force -UseGPU
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories ".\MyImages" -Force -UseGPU
+```
+
+Erzwingt Container-Neubau und nutzt GPU-Beschleunigung für schnellere Verarbeitung.
+
+### Invoke-ImageScenesUpdate -ImageDirectories "C:\Photos" -ConfidenceThreshold 0.6 -Recurse
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories "C:\Photos" -ConfidenceThreshold 0.6 -Recurse
+```
+
+Verarbeitet alle Bilder rekursiv und speichert nur Szenenklassifikationen mit einer Konfidenz >= 60 %.
 
 ## Related Links
 

@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Открывает веб-браузер для поиска текстов песен проигрываемого в данный момент трека в VLC.
+
+## Description
+
+Эта функция определяет, запущен ли VLC Media Player, и ищет тексты песен на основе текущего воспроизводимого названия медиафайла. Она автоматически открывает поисковый запрос в веб-браузере для поиска текстов текущего трека. Функция поддерживает несколько браузеров и предоставляет расширенные возможности позиционирования окон и отображения.
 
 ## Syntax
 
 ```powershell
-Open-VlcMediaPlayerLyrics [[-Queries] <String[]>] [[-EndPoint] <String>] [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-VlcMediaPlayerLyrics [[-Queries] <String[]>] [[-EndPoint] <String>] [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -33,6 +37,9 @@ Open-VlcMediaPlayerLyrics [[-Queries] <String[]>] [[-EndPoint] <String>] [[-Lang
 | `-Chrome` | SwitchParameter | — | — | Named | — | Открывается в Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Открывается в Microsoft Edge или Google Chrome, в зависимости от того, какой браузер установлен по умолчанию |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Открывается в Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Используйте браузер, управляемый Playwright, вместо браузера, установленного в ОС |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Открывает браузер WebKit, управляемый Playwright. Подразумевает -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Запустите браузер без видимого окна |
 | `-All` | SwitchParameter | — | — | Named | — | Открывается во всех зарегистрированных современных браузерах |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Открывается в полноэкранном режиме |
 | `-Left` | SwitchParameter | — | — | Named | — | Разместите окно браузера в левой части экрана |
@@ -60,6 +67,24 @@ Open-VlcMediaPlayerLyrics [[-Queries] <String[]>] [[-EndPoint] <String>] [[-Lang
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Очистка данных сеанса браузера перед открытием браузера |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Пропустить использование существующего сеанса браузера |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Откройте окна браузера рядом |
+
+## Examples
+
+### Open-VlcMediaPlayerLyrics
+
+```powershell
+Open-VlcMediaPlayerLyrics
+```
+
+Opens a Google search for lyrics of the currently playing VLC media.
+
+### vlclyrics -Edge -Private
+
+```powershell
+vlclyrics -Edge -Private
+```
+
+Открывает поиск текстов песен в Microsoft Edge в режиме инкогнито.
 
 ## Related Links
 

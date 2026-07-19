@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Crée et retourne un objet de transaction SQL Server pour les opérations par lot.
+
+## Description
+
+Crée un objet de connexion et de transaction de base de données SQL Server pouvant être utilisé pour des opérations par lots. L'appelant est responsable de valider ou d'annuler la transaction. Nécessite une base de données SQL Server et une connexion existantes.
 
 ## Syntax
 
@@ -26,6 +30,36 @@ Get-SQLServerTransaction [-ConsentToThirdPartySoftwareInstallation] [-ForceConse
 | `-IsolationLevel` | String | — | — | Named | `"ReadCommitted"` | Niveau d'isolation des transactions. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | Forcer une invite de consentement même si la préférence est définie pour l'installation du package SQL Server. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Consentir automatiquement à l'installation de logiciels tiers et définir l'indicateur persistant pour le package SQL Server. |
+
+## Examples
+
+### $transaction = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDatabase" try {     Invoke-SQLServerQuery -Transaction $transaction -Queries "INSERT INTO Users..."     Invoke-SQLServerQuery -Transaction $transaction -Queries "UPDATE Users..."     $transaction.Commit() } catch {     $transaction.Rollback()     throw } finally {     $transaction.Connection.Close() }
+
+```powershell
+$transaction = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDatabase"
+try {
+    Invoke-SQLServerQuery -Transaction $transaction -Queries "INSERT INTO Users..."
+    Invoke-SQLServerQuery -Transaction $transaction -Queries "UPDATE Users..."
+    $transaction.Commit()
+} catch {
+    $transaction.Rollback()
+    throw
+} finally {
+    $transaction.Connection.Close()
+}
+```
+
+### $transaction = Get-SQLServerTransaction -ConnectionString "Server=localhost;Database=MyDB;Integrated Security=true"
+
+```powershell
+$transaction = Get-SQLServerTransaction -ConnectionString "Server=localhost;Database=MyDB;Integrated Security=true"
+```
+
+### $transaction = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDatabase" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+$transaction = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDatabase" -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

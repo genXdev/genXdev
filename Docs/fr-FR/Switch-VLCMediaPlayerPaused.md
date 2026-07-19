@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Bascule l'état pause/lecture du lecteur multimédia VLC.
+
+## Description
+
+Cette fonction envoie une touche espace au VLC Media Player pour basculer entre les états de pause et de lecture. Elle restaure automatiquement le focus sur la fenêtre d'origine après avoir envoyé la commande de la touche.
 
 ## Syntax
 
@@ -32,6 +36,32 @@
 
     }
 ```
+
+## Examples
+
+### Switch-VLCMediaPlayerPaused
+
+```powershell
+Switch-VLCMediaPlayerPaused
+```
+
+Bascule l'état de pause/lecture de VLC Media Player.
+
+### vlcpause
+
+```powershell
+vlcpause
+```
+
+Utilise l'alias pour basculer entre pause et lecture.
+
+### vlcplay
+
+```powershell
+vlcplay
+```
+
+Utilise l'alias alternatif pour basculer l'état pause/lecture.
 
 ## Related Links
 

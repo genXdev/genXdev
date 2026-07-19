@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Génère des fichiers de sous-titres pour des fichiers audio et vidéo en utilisant OpenAI Whisper.
+
+## Description
+
+Recherche récursivement les fichiers multimédias dans le répertoire spécifié et utilise un modèle Whisper local d'OpenAI pour générer des fichiers de sous-titres au format SRT. La fonction prend en charge plusieurs formats audio/vidéo et peut éventuellement traduire les sous-titres dans une langue différente à l'aide d'une requête LLM. La dénomination des fichiers suit un modèle standardisé avec des codes de langue (par exemple, video.mp4.en.srt).
 
 ## Syntax
 
@@ -54,6 +58,20 @@ Save-Transcriptions [[-DirectoryPath] <String>] [[-LanguageIn] <String>] [[-Lang
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utiliser les paramètres alternatifs stockés dans la session pour les préférences IA telles que la langue, les collections d'images, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Ne pas utiliser les paramètres alternatifs stockés dans la session pour les préférences IA comme la langue, les collections d'images, etc. |
+
+## Examples
+
+### Save-Transcriptions -DirectoryPath "C:\Videos" -LanguageIn "English"
+
+```powershell
+Save-Transcriptions -DirectoryPath "C:\Videos" -LanguageIn "English"
+```
+
+### Save-Transcriptions "C:\Media" "Japanese" "English"
+
+```powershell
+Save-Transcriptions "C:\Media" "Japanese" "English"
+```
 
 ## Related Links
 

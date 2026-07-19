@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Melhora uma imagem ampliando-a 4X enquanto melhora a qualidade usando DeepStack.
+
+## Description
+
+Esta função melhora uma imagem ampliando-a para 4 vezes a largura e altura originais, enquanto aumenta simultaneamente a qualidade da imagem. Ela utiliza uma API local de melhoria de imagem DeepStack executada em uma porta configurável e retorna a imagem melhorada como dados base64 ou a salva em um arquivo. A função suporta aceleração de GPU e gerenciamento de contêineres Docker.
 
 ## Syntax
 
@@ -28,6 +32,30 @@ Invoke-ImageEnhancement -ImagePath <String> [[-OutputPath] <String>] [-Container
 | `-HealthCheckInterval` | Int32 | — | — | Named | `3` | Intervalo em segundos entre tentativas de verificação de saúde |
 | `-ImageName` | String | — | — | Named | — | Nome personalizado da imagem Docker a ser usado |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Mostrar a janela do Docker Desktop durante a inicialização |
+
+## Examples
+
+### Invoke-ImageEnhancement -ImagePath "C:\Users\YourName\small_photo.jpg" `                         -OutputPath "C:\Users\YourName\enhanced_photo.jpg" Enhances the image and saves it to the specified output path.
+
+```powershell
+Invoke-ImageEnhancement -ImagePath "C:\Users\YourName\small_photo.jpg" `
+                        -OutputPath "C:\Users\YourName\enhanced_photo.jpg"
+Enhances the image and saves it to the specified output path.
+```
+
+### enhanceimage "C:\photos\low_quality.jpg" Enhances the image and returns the base64 data and dimensions using alias.
+
+```powershell
+enhanceimage "C:\photos\low_quality.jpg"
+Enhances the image and returns the base64 data and dimensions using alias.
+```
+
+### Invoke-ImageEnhancement -ImagePath "C:\photos\image.jpg" -UseGPU Enhances the image using GPU acceleration for faster processing.
+
+```powershell
+Invoke-ImageEnhancement -ImagePath "C:\photos\image.jpg" -UseGPU
+Enhances the image using GPU acceleration for faster processing.
+```
 
 ## Related Links
 

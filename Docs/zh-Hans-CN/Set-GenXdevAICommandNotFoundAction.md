@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 设置自定义命令未找到处理，并集成AI辅助。
+
+## Description
+
+配置 PowerShell 以处理未知命令，方法是导航到目录或使用 AI 解释用户意图。处理程序首先尝试任何现有的命令未找到处理程序，然后检查命令是否为有效的导航路径，最后对未知命令提供 AI 协助。
 
 ## Syntax
 
@@ -179,6 +183,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

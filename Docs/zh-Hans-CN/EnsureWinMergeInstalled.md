@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 确保已安装 WinMerge 并可用于文件比较操作。
+
+## Description
+
+验证WinMerge是否已安装并正确配置在系统PATH中。
+如果未找到，使用WinGet安装WinMerge并将其添加到用户的PATH中。
+自动处理完整的安装和配置过程。
 
 ## Syntax
 
@@ -156,6 +162,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureWinMergeInstalled Ensures WinMerge is installed and properly configured.
+
+```powershell
+EnsureWinMergeInstalled
+Ensures WinMerge is installed and properly configured.
 ```
 
 ## Related Links

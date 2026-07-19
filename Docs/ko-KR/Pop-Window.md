@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 선택적 수정사항을 적용하여 스택에서 마지막 활성 창 도우미를 꺼냅니다.
+
+## Description
+
+스택에서 창 도우미를 꺼내고 선택적으로 창 변환을 적용합니다.
+스택이 비어 있거나 유효하지 않은 창이 포함된 경우 현재 포커스된 창을 반환합니다.
+이 함수를 사용하면 Push-Window로 이전에 저장된 창을 조작하여 다양한 위치 지정, 크기 조정 및 시각적 효과를 적용할 수 있습니다.
 
 ## Syntax
 
@@ -44,6 +50,46 @@ Pop-Window [-NoModify] [<CommonParameters>]
 | `-Centered` | SwitchParameter | — | — | Named | — | The `-Centered` parameter. *(Parameter set: )* |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | The `-ShowWindow` parameter. *(Parameter set: )* |
 | `-Monitor` | Int32 | — | — | Named | — | The `-Monitor` parameter. *(Parameter set: )* |
+
+## Examples
+
+### Pop-Window -Maximize -Focus Pops the last window from the stack, maximizes it and gives it focus.
+
+```powershell
+Pop-Window -Maximize -Focus
+Pops the last window from the stack, maximizes it and gives it focus.
+```
+
+### Pop-Window -X 100 -Y 100 -Width 800 -Height 600 -AlwaysOnTop Pops the last window, positions it at coordinates (100,100), resizes it to 800x600, and sets it to always stay on top.
+
+```powershell
+Pop-Window -X 100 -Y 100 -Width 800 -Height 600 -AlwaysOnTop
+Pops the last window, positions it at coordinates (100,100),
+resizes it to 800x600, and sets it to always stay on top.
+```
+
+### popw -Left -Focus Pops the last window, positions it on the left half of the screen, and gives it focus using the alias.
+
+```powershell
+popw -Left -Focus
+Pops the last window, positions it on the left half of the screen,
+and gives it focus using the alias.
+```
+
+### Pop-Window -Monitor 1 -Maximize Pops the last window, moves it to the first monitor, and maximizes it.
+
+```powershell
+Pop-Window -Monitor 1 -Maximize
+Pops the last window, moves it to the first monitor, and maximizes it.
+```
+
+### Pop-Window -Monitor -2 -Fullscreen Pops the last window, moves it to the secondary monitor, and makes it fullscreen. ##############################################################################
+
+```powershell
+Pop-Window -Monitor -2 -Fullscreen
+Pops the last window, moves it to the secondary monitor, and makes it fullscreen.
+##############################################################################
+```
 
 ## Related Links
 

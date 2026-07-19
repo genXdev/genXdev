@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Thank you for sharing your feedback. I will take it into consideration as we move forward.
+
+## Description
+
+Esta função processa texto de entrada para transformar linguagem direta ou potencialmente agressiva em comunicações corporativas diplomáticas e profissionais. Ela pode aceitar entrada diretamente por parâmetros, do pipeline ou da área de transferência do sistema. A função utiliza modelos de IA para analisar e reescrever o texto, preservando a intenção original.
 
 ## Syntax
 
@@ -78,6 +82,20 @@ ConvertTo-CorporateSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-AllowD
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | {(llmquery "Translate the following text into pt-BR: Output only markup blocks")} |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filtro para tipos de bloco de marcação (passado para LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Comprimento máximo do callback de ferramenta (passado para LLMQuery) |
+
+## Examples
+
+### ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+
+```powershell
+ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+```
+
+### "This makes no sense" | corporatize
+
+```powershell
+"This makes no sense" | corporatize
+```
 
 ## Outputs
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Start een interactieve tekstchatsessie met AI-mogelijkheden.
+
+## Description
+
+Start een interactieve chatsessie met AI-mogelijkheden, waarmee gebruikers tijdens het gesprek PowerShell-functies kunnen toevoegen of verwijderen en PowerShell-opdrachten kunnen uitvoeren. Deze functie biedt een uitgebreide interface voor AI-gestuurde gesprekken met uitgebreide toolintegratie en aanpassingsopties.
 
 ## Syntax
 
@@ -81,6 +85,21 @@ New-LLMTextChat [[-Instructions] <String>] [[-Attachments] <String[]>] [[-Temper
 | `-NoContext` | Object | — | — | Named | — | Schakel contextgebruik uit |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | Gebruik beam search samplingstrategie |
 | `-OnlyResponses` | Object | — | — | Named | — | AI is een tak van computerwetenschappen die zich richt op het creëren van systemen die taken kunnen uitvoeren waarvoor doorgaans menselijke intelligentie nodig is. |
+
+## Examples
+
+### New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `     -Instructions "You are a helpful AI assistant"
+
+```powershell
+New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `
+    -Instructions "You are a helpful AI assistant"
+```
+
+### llmchat "Tell me a joke" -Speak -IncludeThoughts
+
+```powershell
+llmchat "Tell me a joke" -Speak -IncludeThoughts
+```
 
 ## Related Links
 

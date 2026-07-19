@@ -9,9 +9,9 @@
 ## Description
 
 * 原子写入：使用临时文件+重命名策略，确保进程中断时目标文件不会处于损坏状态。
-* 重试逻辑：最多重试MaxRetries次，每次间隔RetryDelayMs毫秒。
-* 防抖支持：当DebounceMs > 0时，对同一文件的快速连续写入会被合并——仅在文件最后一次修改后经过DebounceMs毫秒时才写入最新的有效负载。
-* 目录创建：自动创建不存在的父目录。
+* 重试逻辑：最多重试MaxRetries次，每次重试间隔RetryDelayMs毫秒。
+* 防抖支持：当DebounceMs > 0时，对同一文件的快速连续写入会被合并——仅在文件超过DebounceMs毫秒未被修改时写入最后一个有效负载。
+* 目录创建：如果父目录不存在，则自动创建。
 
 ## Syntax
 
@@ -50,7 +50,7 @@ Write-FileAtomic -FilePath "data.bin" -Data $bytes
 Start-Sleep -Seconds 6
 ```
 
-快速写入100次，但只有最终的有效负载（100）会在安静5秒后持久化到磁盘。
+快速写入100次，但只有最终的有效负载（第100次）在5秒静默期后持久化到磁盘。
 
 ### Example 3
 

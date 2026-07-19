@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Разворачивает входные объекты в имена файлов и каталогов, поддерживая различные
+фильтры и опции вывода.
+
+## Description
+
+Эта функция обрабатывает входные объекты (файлы, каталоги или коллекции) и раскрывает их в имена файлов и каталогов. Она поддерживает фильтрацию, сопоставление с образцом и может выводить результаты в виде объектов. Функция предназначена для работы с конвейерным вводом и предоставляет возможности для рекурсии, альтернативных потоков данных и многого другого.
 
 ## Syntax
 
@@ -41,6 +46,14 @@ ResolveInputObjectFileNames [-Directory] [-FilesAndDirectories] [<CommonParamete
 ] |
 | `-IncludeAlternateFileStreams` | SwitchParameter | — | — | Named | — | Включить альтернативные потоки данных в результаты поиска |
 | `-NoRecurse` | SwitchParameter | — | — | Named | — | Не рекурсировать в подкаталоги |
+
+## Examples
+
+### ResolveInputObjectFileNames -Input "C:\Temp" -File
+
+```powershell
+ResolveInputObjectFileNames -Input "C:\Temp" -File
+```
 
 ## Related Links
 

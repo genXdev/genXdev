@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Reprend la lecture de la vidéo dans un onglet du navigateur YouTube.
+
+## Description
+
+Trouve l'onglet YouTube actif dans le navigateur et reprend la lecture de la vidéo en exécutant la méthode play() sur tous les éléments vidéo trouvés dans la page. Si aucun onglet YouTube n'est trouvé, la fonction génère une erreur. Cette fonction est particulièrement utile pour automatiser le contrôle de la lecture vidéo dans des sessions de navigation.
 
 ## Syntax
 
@@ -42,6 +46,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Resume-WebbrowserTabVideo
+
+```powershell
+Resume-WebbrowserTabVideo
+```
+
+### wbvideoplay
+
+```powershell
+wbvideoplay
 ```
 
 ## Related Links

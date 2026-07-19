@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI 도움을 받아 사용자 정의 명령어 찾을 수 없음 처리 설정
+
+## Description
+
+PowerShell이 알 수 없는 명령을 처리하는 방식을 구성하여 디렉터리로 이동하거나 AI를 사용하여 사용자 의도를 해석합니다. 이 처리기는 먼저 기존 명령을 찾을 수 없는 처리기를 시도한 다음, 명령이 탐색에 유효한 경로인지 확인하고, 마지막으로 알 수 없는 명령에 대해 AI 지원을 제공합니다.
 
 ## Syntax
 
@@ -179,6 +183,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

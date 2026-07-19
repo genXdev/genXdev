@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> VLC 미디어 플레이어를 사용하여 고급 필터링 및 구성 옵션으로 미디어 파일을 열고 재생합니다.
+
+## Description
+
+이 함수는 검색 패턴에 따라 미디어 파일을 스캔하고, 재생 목록을 생성하며, 포괄적인 구성 옵션으로 VLC 미디어 플레이어를 실행합니다. 비디오, 오디오 파일 및 사진을 지원하며, 필요한 경우 자동으로 VLC를 설치합니다. 이 함수는 재생 동작, 창 위치, 오디오/비디오 설정 및 자막 처리에 대한 광범위한 제어를 제공합니다.
 
 ## Syntax
 
@@ -138,6 +142,32 @@ Example response format: {"response":"your actual response here"}
 | `-PassThru` | SwitchParameter | — | — | Named | — | 검색으로 찾은 파일들을 반환합니다 |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | VLC를 열지 않고 검색으로 찾은 파일 반환 |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | 각 프로세스에 대한 창 도우미를 반환합니다 |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+현재 디렉토리의 모든 미디어 파일을 기본 VLC 설정으로 엽니다.
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+'vlcmedia' 별칭을 사용하여 Pictures 폴더의 그림 파일만 전체 화면 모드로 엽니다.
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+별칭 'media'를 사용하여 루프가 활성화된 상태로 비디오 파일을 엽니다.
 
 ## Related Links
 

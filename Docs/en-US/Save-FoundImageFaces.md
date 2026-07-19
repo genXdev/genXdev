@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Saves cropped face images from indexed image search results.
+
+## Description
+
+This function takes image search results and extracts/saves individual face
+regions as separate image files. It can search for faces using various criteria
+and save them to a specified output directory. The function supports searching
+by description, keywords, people, objects, scenes, picture type, style type,
+and overall mood. It can also filter by nudity and explicit content.
 
 ## Syntax
 
@@ -42,6 +50,20 @@ Save-FoundImageFaces [[-Any] <String[]>] [-ClearSession] [-DatabaseFilePath <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Dont use alternative settings stored in session for AI preferences like Language, Image collections, etc |
+
+## Examples
+
+### Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+
+```powershell
+Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+```
+
+### saveimagefaces -Any "vacation" -SaveUnknownPersons
+
+```powershell
+saveimagefaces -Any "vacation" -SaveUnknownPersons
+```
 
 ## Outputs
 

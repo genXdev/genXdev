@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 通过DeepStack人脸识别API注册新的人脸。
+
+## Description
+
+此函数通过将面部图像上传至本地API端点，向DeepStack人脸识别API注册该图像。它确保DeepStack服务正在运行，并在上传前验证图像文件。该函数包含重试逻辑、错误处理以及失败时的清理操作。
 
 ## Syntax
 
@@ -28,6 +32,26 @@ Register-Face -Identifier <String> -ImagePath <String[]> [-ContainerName <String
 | `-Force` | SwitchParameter | — | — | Named | — | 强制重建 Docker 容器并移除现有数据 |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | 使用GPU加速版本（需要NVIDIA GPU） |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 在初始化期间显示 Docker Desktop 窗口 |
+
+## Examples
+
+### Register-Face -Identifier "JohnDoe" -ImagePath @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+
+```powershell
+Register-Face -Identifier "JohnDoe" -ImagePath @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+```
+
+### Register-Face "JohnDoe" @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+
+```powershell
+Register-Face "JohnDoe" @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+```
+
+### Register-Face -Identifier "JohnDoe" -ImagePath "C:\Users\YourName\faces\john.jpg"
+
+```powershell
+Register-Face -Identifier "JohnDoe" -ImagePath "C:\Users\YourName\faces\john.jpg"
+```
 
 ## Related Links
 

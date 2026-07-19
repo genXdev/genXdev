@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves the SQL schema definition for a SQL Server view.
+
+## Description
+
+This function queries the SQL Server database's system tables to extract the SQL
+definition of a specified view. It supports connecting via either a connection
+string or database name with server parameters and returns the complete SQL schema
+that defines the requested view.
 
 ## Syntax
 
@@ -24,6 +31,15 @@ Get-SQLServerViewSchema -ViewName <String> [<CommonParameters>]
 | `-DatabaseName` | String | ✅ | — | 0 | — | The name of the SQL Server database. *(Parameter set: )* |
 | `-Server` | String | — | — | 1 | `'localhost'` | The SQL Server instance name. *(Parameter set: )* |
 | `-ViewName` | String | ✅ | — | 2 | — | The name of the view. |
+
+## Examples
+
+### Get-SQLServerViewSchema -DatabaseFilePath "C:\Databases\MyApp.sqlite" `                     -ViewName "CustomerOrders"
+
+```powershell
+Get-SQLServerViewSchema -DatabaseFilePath "C:\Databases\MyApp.sqlite" `
+                    -ViewName "CustomerOrders"
+```
 
 ## Related Links
 

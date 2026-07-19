@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Posities en groottes van vensters worden aangepast wanneer expliciete positioneringsparameters worden opgegeven.
+
+## Description
+
+Biedt nauwkeurige controle over vensterpositionering en -grootte wanneer positioneringsparameters worden opgegeven. Ondersteunt meerdere monitoren, randverwijdering en diverse vooraf ingestelde posities zoals links/rechts splitsen, boven/onder splitsen en centreren. Vensters kunnen worden gepositioneerd op coördinaten of met vooraf gedefinieerde lay-outs. Zonder positioneringsparameters voert de functie geen actie uit op het venster.
 
 ## Syntax
 
@@ -54,6 +58,44 @@ Set-WindowPosition [-Bottom] [-Centered] [-ClearSession] [-FocusWindow] [-Fullsc
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
 | `-OnlyOutputCoords` | SwitchParameter | — | — | Named | — | Only output the calculated coordinates and size without actually positioning the window |
+
+## Examples
+
+### Set-WindowPosition -Centered -Monitor 0 -NoBorders Position PowerShell window centered on primary monitor with no borders
+
+```powershell
+Set-WindowPosition -Centered -Monitor 0 -NoBorders
+Position PowerShell window centered on primary monitor with no borders
+```
+
+### Get-Process notepad,calc | wp -m 1 -l,-r Split notepad and calc side by side on second monitor using aliases
+
+```powershell
+Get-Process notepad,calc | wp -m 1 -l,-r
+Split notepad and calc side by side on second monitor using aliases
+```
+
+### Set-WindowPosition -ProcessName notepad Does nothing - no positioning parameters specified
+
+```powershell
+Set-WindowPosition -ProcessName notepad
+Does nothing - no positioning parameters specified
+```
+
+### Set-WindowPosition -ProcessName notepad -KeysToSend "Hello World" Sends keystrokes to notepad window without repositioning it
+
+```powershell
+Set-WindowPosition -ProcessName notepad -KeysToSend "Hello World"
+Sends keystrokes to notepad window without repositioning it
+```
+
+### Set-WindowPosition -ProcessName notepad -Left -Monitor 1 -OnlyOutputCoords Returns the calculated coordinates where notepad would be placed on the left side of monitor 1 without actually moving the window
+
+```powershell
+Set-WindowPosition -ProcessName notepad -Left -Monitor 1 -OnlyOutputCoords
+Returns the calculated coordinates where notepad would be placed on the left
+side of monitor 1 without actually moving the window
+```
 
 ## Related Links
 

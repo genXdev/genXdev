@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 从DeepStack人脸识别系统中删除所有已注册的人脸。
+
+## Description
+
+此函数通过从数据存储目录中删除所有人脸文件并重启服务以加载空的人脸注册表，从而清除DeepStack人脸识别数据库中所有已注册的人脸。这是一个破坏性操作，无法撤销，并将永久删除所有已注册的人脸数据。
 
 ## Syntax
 
@@ -27,6 +31,32 @@ Unregister-AllFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | 健康检查尝试之间的间隔（秒） |
 | `-ImageName` | String | — | — | 5 | — | 要使用的自定义 Docker 镜像名称 |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 在初始化期间显示 Docker Desktop 窗口 |
+
+## Examples
+
+### Unregister-AllFaces
+
+```powershell
+Unregister-AllFaces
+```
+
+移除所有已注册的人脸（需确认提示）。
+
+### Unregister-AllFaces -Force
+
+```powershell
+Unregister-AllFaces -Force
+```
+
+删除所有已注册的面孔，无需确认提示。
+
+### unregall -Force
+
+```powershell
+unregall -Force
+```
+
+使用别名删除所有面孔，无需确认。
 
 ## Related Links
 

@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Registers a new face with the DeepStack face recognition API.
+
+## Description
+
+This function registers a face image with the DeepStack face recognition API by
+uploading the image to the local API endpoint. It ensures the DeepStack
+service is running and validates the image file before upload. The function
+includes retry logic, error handling, and cleanup on failure.
 
 ## Syntax
 
@@ -28,6 +35,26 @@ Register-Face -Identifier <String> -ImagePath <String[]> [-ContainerName <String
 | `-Force` | SwitchParameter | — | — | Named | — | Force rebuild of Docker container and remove existing data |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Use GPU-accelerated version (requires NVIDIA GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Show Docker Desktop window during initialization |
+
+## Examples
+
+### Register-Face -Identifier "JohnDoe" -ImagePath @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+
+```powershell
+Register-Face -Identifier "JohnDoe" -ImagePath @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+```
+
+### Register-Face "JohnDoe" @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+
+```powershell
+Register-Face "JohnDoe" @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+```
+
+### Register-Face -Identifier "JohnDoe" -ImagePath "C:\Users\YourName\faces\john.jpg"
+
+```powershell
+Register-Face -Identifier "JohnDoe" -ImagePath "C:\Users\YourName\faces\john.jpg"
+```
 
 ## Related Links
 

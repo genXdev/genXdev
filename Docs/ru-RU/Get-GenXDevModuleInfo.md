@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Извлекает подробную информацию о модулях PowerShell GenXdev.
+
+## Description
+
+Эта функция проверяет модули PowerShell GenXdev и возвращает информацию об
+их конфигурации, версиях и наличии ключевых файлов. Она может обрабатывать либо
+указанные модули, либо все доступные модули.
 
 ## Syntax
 
@@ -18,6 +24,20 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [-IncludeLocal] [<CommonParamet
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-ModuleName` | String[] | — | ✅ (ByValue, ByPropertyName) | 0 | `@()` | Имена модулей для анализа |
 | `-IncludeLocal` | SwitchParameter | — | — | Named | — | The `-IncludeLocal` parameter. |
+
+## Examples
+
+### Get-GenXDevModuleInfo -ModuleName "GenXdev.Console"
+
+```powershell
+Get-GenXDevModuleInfo -ModuleName "GenXdev.Console"
+```
+
+### "GenXdev.Console" | Get-GenXDevModuleInfo
+
+```powershell
+"GenXdev.Console" | Get-GenXDevModuleInfo
+```
 
 ## Related Links
 

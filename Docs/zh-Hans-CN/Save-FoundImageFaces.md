@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 从索引图像搜索结果中保存裁剪的人脸图像。
+
+## Description
+
+该函数接收图像搜索结果，提取并保存各个面部区域为单独的图像文件。它可以根据多种条件搜索人脸，并保存到指定的输出目录。函数支持按描述、关键词、人物、物体、场景、图片类型、风格类型和整体情绪进行搜索，还可以根据裸体和色情内容进行过滤。
 
 ## Syntax
 
@@ -42,6 +46,20 @@ Save-FoundImageFaces [[-Any] <String[]>] [-ClearSession] [-DatabaseFilePath <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的AI偏好替代设置，如语言、图像收藏等 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 不要使用存储在会话中的替代设置来处理AI偏好，如语言、图像集合等 |
+
+## Examples
+
+### Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+
+```powershell
+Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+```
+
+### saveimagefaces -Any "vacation" -SaveUnknownPersons
+
+```powershell
+saveimagefaces -Any "vacation" -SaveUnknownPersons
+```
 
 ## Outputs
 

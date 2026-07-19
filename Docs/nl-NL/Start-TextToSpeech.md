@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Zet tekst om in spraak met behulp van de neurale TTS-engine van Microsoft Edge.
+
+## Description
+
+Gebruikt de neurale TTS-engine van Microsoft Edge (via EdgeTTS.DotNet) om tekst om te zetten naar spraak met natuurlijk klinkende stemmen. Deze functie biedt flexibele tekst-naar-spraakmogelijkheden met ondersteuning voor verschillende stemmen, landinstellingen, prosodieaanpassingen (snelheid, volume, toonhoogte) en synchrone/asynchrone afspeelopties. Het kan zowel enkele tekenreeksen als arrays van tekst verwerken.
 
 ## Syntax
 
@@ -26,6 +30,26 @@ Start-TextToSpeech [[-VoiceName] <String>] [-Locale <String>] [-PassThru] [-Pitc
 | `-Pitch` | String | — | — | Named | `$null` | Toonhoogteverschuiving, bijv. "+0Hz", "-10Hz", "+20Hz" |
 | `-PassThru` | SwitchParameter | — | — | Named | — | Geef de tekst die naar de pijplijn wordt gesproken |
 | `-Wait` | SwitchParameter | — | — | Named | — | Wacht tot de spraak is voltooid voordat u doorgaat |
+
+## Examples
+
+### Start-TextToSpeech -Lines "Hello World" -Locale "en-US" -Wait
+
+```powershell
+Start-TextToSpeech -Lines "Hello World" -Locale "en-US" -Wait
+```
+
+### "Hello World" | say
+
+```powershell
+"Hello World" | say
+```
+
+### say "Hello World" -Rate "+50%" -Pitch "-5Hz"
+
+```powershell
+say "Hello World" -Rate "+50%" -Pitch "-5Hz"
+```
 
 ## Related Links
 

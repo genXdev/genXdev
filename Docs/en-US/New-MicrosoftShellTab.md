@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Creates a new Windows Terminal tab running PowerShell.
+
+## Description
+
+Opens a new Windows Terminal tab by simulating the keyboard shortcut Ctrl+Shift+T.
+The function brings the PowerShell window to the foreground, sends the keystroke
+combination, and optionally closes the current tab after a delay.
 
 ## Syntax
 
@@ -17,6 +23,22 @@ New-MicrosoftShellTab [-DontCloseThisTab] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-DontCloseThisTab` | SwitchParameter | — | — | Named | — | Keep current tab open after creating new tab |
+
+## Examples
+
+### New-MicrosoftShellTab -DontCloseThisTab Creates a new terminal tab while keeping the current tab open.
+
+```powershell
+New-MicrosoftShellTab -DontCloseThisTab
+Creates a new terminal tab while keeping the current tab open.
+```
+
+### x Creates a new terminal tab and closes the current one after 3 seconds.
+
+```powershell
+x
+Creates a new terminal tab and closes the current one after 3 seconds.
+```
 
 ## Related Links
 

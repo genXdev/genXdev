@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 创建一个与大语言模型交互的音频聊天会话。
+
+## Description
+
+发起与语言模型的语音对话，支持音频输入和输出。该函数处理音频录制、转录、模型查询以及文本转语音响应。支持多种语言模型和多种配置选项，包括窗口管理、GPU加速和高级音频处理功能。
 
 ## Syntax
 
@@ -93,6 +97,22 @@ New-LLMAudioChat [[-Query] <String>] [[-Instructions] <String>] [[-Attachments] 
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
+
+## Examples
+
+### New-LLMAudioChat -Query "Tell me about PowerShell" `     -Model "qwen2.5-14b-instruct" `     -Temperature 0.7
+
+```powershell
+New-LLMAudioChat -Query "Tell me about PowerShell" `
+    -Model "qwen2.5-14b-instruct" `
+    -Temperature 0.7
+```
+
+### llmaudiochat "What's the weather?" -DontSpeak
+
+```powershell
+llmaudiochat "What's the weather?" -DontSpeak
+```
 
 ## Related Links
 

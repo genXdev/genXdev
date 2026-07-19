@@ -4,7 +4,21 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Batch werkt afbeeldingstrefwoorden, gezichten, objecten en scènes in meerdere systeemmappen bij.
+
+## Description
+
+Deze functie verwerkt systematisch afbeeldingen in verschillende systeemmappen
+om hun trefwoorden, gezichtsherkenningsgegevens, objectdetectiegegevens en
+scèneclassificatiegegevens bij te werken met behulp van AI-services. Het dekt mappen voor
+mediaopslag, systeembestanden, downloads, OneDrive en persoonlijke foto's.
+
+De functie verwerkt afbeeldingen door elke map te doorlopen en bestanden
+afzonderlijk te verwerken. DeepStack-functies (gezichten, objecten, scènes) worden eerst
+uitgevoerd, gevolgd door het genereren van trefwoorden en beschrijvingen.
+
+Dit maakt een gestructureerde gegevensuitvoer mogelijk voor pijplijnbewerkingen zoals:
+Update-AllImageMetaData | Export-ImageIndex
 
 ## Syntax
 
@@ -42,6 +56,28 @@ Update-AllImageMetaData -ImageDirectories <String[]> [-ApiEndpoint <String>] [-A
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in de sessie voor AI-voorkeuren zoals taal, afbeeldingsverzamelingen, enz. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Gebruik geen alternatieve instellingen die zijn opgeslagen in de sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
+
+## Examples
+
+### Update-AllImageMetaData -ImageDirectories @("C:\Pictures", "D:\Photos") `     -ServicePort 5000
+
+```powershell
+Update-AllImageMetaData -ImageDirectories @("C:\Pictures", "D:\Photos") `
+    -ServicePort 5000
+```
+
+### Update-AllImageMetaData -RetryFailed -Force -Language "Spanish"
+
+```powershell
+Update-AllImageMetaData -RetryFailed -Force -Language "Spanish"
+```
+
+### updateallimages @("C:\MyImages") -ContainerName "custom_face_recognition" ##############################################################################
+
+```powershell
+updateallimages @("C:\MyImages") -ContainerName "custom_face_recognition"
+##############################################################################
+```
 
 ## Related Links
 

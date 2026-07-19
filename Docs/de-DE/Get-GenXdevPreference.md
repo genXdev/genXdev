@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ruft einen Präferenzwert aus dem GenXdev-Präferenzspeicher ab.
+
+## Description
+
+* Implementiert ein zweistufiges Präferenzabrufsystem.
+* Überprüft zuerst den lokalen Speicher auf einen Präferenzwert.
+* Wenn nicht gefunden, greift es auf den Standardspeicher zurück.
+* Wenn immer noch nicht gefunden, wird der angegebene Standardwert zurückgegeben.
 
 ## Syntax
 
@@ -22,6 +29,24 @@ Get-GenXdevPreference [-Name] <string> [[-DefaultValue] <string>] [-PreferencesD
 | `-SessionOnly` | SwitchParameter | — | — | Named | `False` | Use alternative settings stored in session for Data preferences like Language, Database paths, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Sitzungseinstellung (globale Variable) vor dem Abrufen löschen |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Verwenden Sie keine alternativen, in der Sitzung gespeicherten Einstellungen für Datenpräferenzen wie Sprache, Datenbankpfade usw. |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-GenXdevPreference -Name "Theme" -DefaultValue "Dark"
+```
+
+Ruft die Einstellung "Theme" ab, mit Rückfall auf Standard "Dark".
+
+### Example 2
+
+```powershell
+getPreference "Theme" "Dark"
+```
+
+Verwendet den Alias und die Positionsparameter.
 
 ## Related Links
 

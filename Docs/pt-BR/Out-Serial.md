@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Envia uma string para uma porta serial
+
+## Description
+
+Permite enviar uma string para uma porta de comunicação serial
 
 ## Syntax
 

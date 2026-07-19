@@ -4,12 +4,23 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 웹 브라우저에서 콘웨이의 생명 게임 시뮬레이션을 엽니다.
+
+## Description
+
+웹 브라우저 창에서 Conway의 게임 오브 라이프 시뮬레이션을 대화형으로 엽니다.
+다양한 위치 및 구성 옵션을 제공합니다. Conway의 게임 오브 라이프는
+1970년 수학자 John Conway가 고안한 세포 자동자로,
+격자 형태의 세포가 살아 있거나 죽은 두 가지 상태 중 하나일 수 있습니다.
+
+이 함수는 창 위치 지정, 브라우저 선택, 개인 브라우징, 자동 상호작용 기능 등
+포괄적인 브라우저 제어를 제공합니다. 시뮬레이션은 https://conway.genxdev.net/에서 실행되며
+다양한 상호작용 모드를 지원합니다.
 
 ## Syntax
 
 ```powershell
-Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +34,9 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-Monitor` | Int32 | — | — | Named | `-2` | 사용할 모니터, 0 = 기본, -1은 폐기, -2 = 설정된 보조 모니터, 기본값은 -1, 위치 지정 없음 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 전체 화면 모드로 열기 |
@@ -60,6 +74,40 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 브라우저 프로필에 세션 전용 모드 사용 (닫을 때 쿠키 및 데이터 삭제됨) |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 브라우저 세션/프로필 데이터를 열기 전에 삭제하세요. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 이전 브라우저 세션 복원을 건너뜁니다. |
+
+## Examples
+
+### Open-GameOfLife -Monitor 1 -FullScreen
+
+```powershell
+Open-GameOfLife -Monitor 1 -FullScreen
+```
+
+모니터 1에서 전체화면 모드로 Conway의 게임 오브 라이프를 엽니다.
+
+### Open-GameOfLife -Language "French" -Chrome -Private
+
+```powershell
+Open-GameOfLife -Language "French" -Chrome -Private
+```
+
+Ouvre le Jeu de la Vie en français en utilisant Chrome en mode privé.
+
+### gameoflife -m 0 -app
+
+```powershell
+gameoflife -m 0 -app
+```
+
+별칭을 사용하여 애플리케이션 모드에서 기본 모니터에 Game of Life를 엽니다.
+
+### conway -Edge -Left -Width 800 -Height 600
+
+```powershell
+conway -Edge -Left -Width 800 -Height 600
+```
+
+Microsoft Edge에서 왼쪽에 특정 크기로 Conway의 Game of Life를 엽니다.
 
 ## Related Links
 

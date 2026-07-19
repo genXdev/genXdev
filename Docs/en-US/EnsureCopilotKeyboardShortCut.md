@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.
+
+## Description
+
+This function ensures that GitHub Copilot Chat's file attachment feature has a proper
+keyboard shortcut (Ctrl+Shift+Alt+F12) configured in Visual Studio Code.
+
+It will remove any existing Copilot attachment shortcuts and replace them with the
+current correct command (github.copilot.chat.attachFile).
+
+Also adds Alt+` (backtick) shortcut for toggling the maximized panel.
 
 ## Syntax
 
@@ -108,6 +118,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureCopilotKeyboardShortCut
+
+```powershell
+EnsureCopilotKeyboardShortCut
 ```
 
 ## Related Links

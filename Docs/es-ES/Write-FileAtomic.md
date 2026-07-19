@@ -10,7 +10,7 @@
 
 * Escritura atómica: utiliza una estrategia de archivo temporal + renombrado para garantizar que el archivo de destino nunca quede en un estado corrupto si el proceso se interrumpe.
 * Lógica de reintento: reintenta la escritura hasta MaxRetries veces con un retardo de RetryDelayMs milisegundos entre intentos.
-* Soporte de debounce: cuando DebounceMs > 0, las escrituras consecutivas rápidas al mismo archivo se agrupan; solo se escribe la última carga útil una vez que el archivo no haya sido tocado durante DebounceMs ms.
+* Soporte de debounce: cuando DebounceMs > 0, las escrituras consecutivas rápidas al mismo archivo se agrupan; solo el último contenido se escribe una vez que el archivo no ha sido tocado durante DebounceMs ms.
 * Creación de directorios: crea automáticamente los directorios padre si no existen.
 
 ## Syntax
@@ -50,7 +50,7 @@ Writes a byte array to data.bin atomically with default retry settings.
 Start-Sleep -Seconds 6
 ```
 
-Escribe rápidamente 100 veces, pero solo la carga final (100) se mantiene en el disco después de un período de silencio de 5 segundos.
+Escribe rápidamente 100 veces, pero solo la carga útil final (100) se persiste en el disco después de un período de silencio de 5 segundos.
 
 ### Example 3
 

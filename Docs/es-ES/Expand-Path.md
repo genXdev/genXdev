@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Expande cualquier referencia de archivo proporcionada a una ruta completa.
+
+## Description
+
+Expande cualquier referencia de archivo dada a una ruta completa, con respecto al directorio actual del usuario. Puede opcionalmente asegurar que los directorios o archivos existen.
 
 ## Syntax
 
@@ -23,6 +27,20 @@ Expand-Path -FilePath <String> [-CreateDirectory] [-CreateFile] [-DeleteExisting
 | `-ForceDrive` | Char | — | — | Named | `'*'` | Forzará el uso de una unidad específica |
 | `-FileMustExist` | SwitchParameter | — | — | Named | — | Lanzará una excepción si el archivo no existe |
 | `-DirectoryMustExist` | SwitchParameter | — | — | Named | — | Lanzará una excepción si el directorio no existe |
+
+## Examples
+
+### Expand-Path -FilePath ".\myfile.txt" -CreateFile
+
+```powershell
+Expand-Path -FilePath ".\myfile.txt" -CreateFile
+```
+
+### ep ~\documents\test.txt -CreateFile
+
+```powershell
+ep ~\documents\test.txt -CreateFile
+```
 
 ## Related Links
 

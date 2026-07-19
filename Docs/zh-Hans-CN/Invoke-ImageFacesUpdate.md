@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 更新指定目录中图像文件的人脸识别元数据。
+
+## Description
+
+此函数处理指定目录中的图像，利用AI识别技术识别和分析人脸。它会为每张图像创建或更新包含人脸信息的元数据文件。这些元数据存储在一个单独的文件中。
 
 ## Syntax
 
@@ -43,6 +47,21 @@ Invoke-ImageFacesUpdate [[-ImageDirectories] <String[]>] [-ApiEndpoint <String>]
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的AI偏好替代设置，如语言、图像收藏等 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 不要使用存储在会话中的替代设置来处理AI偏好，如语言、图像集合等 |
+
+## Examples
+
+### Invoke-ImageFacesUpdate -Name @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageFacesUpdate -Name @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+### facerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew ##############################################################################
+
+```powershell
+facerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+##############################################################################
+```
 
 ## Related Links
 

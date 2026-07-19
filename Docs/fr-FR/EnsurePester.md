@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Garantit que le cadre de test Pester est disponible pour utilisation.
+
+## Description
+
+Cette fonction vérifie si le module Pester est installé dans l'environnement PowerShell actuel. S'il n'est pas trouvé, elle l'installe automatiquement depuis la galerie PowerShell et l'importe dans la session en cours. Cela garantit que les capacités de test Pester sont disponibles en cas de besoin.
 
 ## Syntax
 
@@ -60,6 +64,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsurePester This ensures Pester is installed and ready for use
+
+```powershell
+EnsurePester
+This ensures Pester is installed and ready for use
 ```
 
 ## Related Links

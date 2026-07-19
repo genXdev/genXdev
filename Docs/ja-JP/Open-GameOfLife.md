@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Webブラウザでコンウェイのライフゲームのシミュレーションを開きます。
+
+## Description
+
+インタラクティブなConwayのライフゲームシミュレーションを、さまざまな位置指定・設定オプションを備えたWebブラウザウィンドウで開きます。Conwayのライフゲームは、1970年に数学者John Conwayが考案したセル・オートマトンで、生きているか死んでいるかの2つの状態を持つセルのグリッドで構成されています。
+
+この関数は、ウィンドウの位置指定、ブラウザ選択、プライベートブラウジング、自動操作機能など、包括的なブラウザ制御を提供します。シミュレーションはhttps://conway.genxdev.net/で実行され、さまざまなインタラクションモードをサポートしています。
 
 ## Syntax
 
 ```powershell
-Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +29,9 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-Monitor` | Int32 | — | — | Named | `-2` | 使用するモニター、0=デフォルト、-1=破棄、-2=設定済みセカンダリモニター、デフォルトは-1、位置決めなし |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | フルスクリーンモードで開く |
@@ -60,6 +69,41 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | ブラウザプロファイルにセッション専用モードを使用（閉じるとクッキーとデータが消去されます）。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | ブラウザのセッション/プロファイルデータを開く前に消去してください。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 前回のブラウザセッションの復元をスキップします。 |
+
+## Examples
+
+### Open-GameOfLife -Monitor 1 -FullScreen
+
+```powershell
+Open-GameOfLife -Monitor 1 -FullScreen
+```
+
+モニター1でコンウェイのライフゲームをフルスクリーンモードで開きます。
+
+### Open-GameOfLife -Language "French" -Chrome -Private
+
+```powershell
+Open-GameOfLife -Language "French" -Chrome -Private
+```
+
+Chromeをシークレットモードで開き、ライフ・ゲームをフランス語で起動します。
+
+### gameoflife -m 0 -app
+
+```powershell
+gameoflife -m 0 -app
+```
+
+エイリアスを使用して、プライマリモニターでアプリケーションモードのライフゲームを開きます。
+
+### conway -Edge -Left -Width 800 -Height 600
+
+```powershell
+conway -Edge -Left -Width 800 -Height 600
+```
+
+Microsoft Edge で Conway のライフゲームを開き、左側に配置します。
+特定の寸法で。
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Legt foutmeldingen van verschillende streams vast en gebruikt LLM om oplossingen voor te stellen.
+
+## Description
+
+Deze cmdlet vangt foutmeldingen op uit verschillende PowerShell-streams (pijplijninvoer, uitgebreide, informatie-, fout- en waarschuwingsstromen) en stelt een gestructureerde prompt samen voor een LLM om te analyseren en suggesties voor oplossingen te geven. Vervolgens voert het de LLM-query uit en retourneert de voorgestelde oplossing.
 
 ## Syntax
 
@@ -142,6 +146,25 @@ Get-ScriptExecutionErrorFixPrompt -Script <ScriptBlock> [-ApiEndpoint <String>] 
 } |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | {"response":"Gebruik de beam search sampling strategie."} |
 | `-OnlyResponses` | Object | — | — | Named | — | Je bent een behulpzame assistent die is ontworpen om JSON uit te voeren. |
+
+## Examples
+
+### $errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {     My-ScriptThatFails }
+
+```powershell
+$errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {
+    My-ScriptThatFails
+}
+```
+
+Write-Host $errorInfo
+
+### getfixprompt { Get-ChildItem -NotExistingParameter } ##############################################################################
+
+```powershell
+getfixprompt { Get-ChildItem -NotExistingParameter }
+##############################################################################
+```
 
 ## Outputs
 

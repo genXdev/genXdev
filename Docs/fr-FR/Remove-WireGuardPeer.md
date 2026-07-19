@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Supprime une configuration de pair WireGuard VPN.
+
+## Description
+
+Cette fonction supprime la configuration d'un pair WireGuard VPN du serveur exécuté dans un conteneur Docker. Elle efface les fichiers de configuration du pair et met à jour le serveur WireGuard pour cesser d'accepter les connexions de ce pair. La fonction valide l'existence du pair avant la suppression et propose des invites de confirmation, sauf si le paramètre Force est spécifié.
 
 ## Syntax
 
@@ -48,6 +52,32 @@ Remove-WireGuardPeer -PeerName <String> [-Bottom] [-Centered] [-ClearSession] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utiliser les paramètres alternatifs stockés dans la session pour les préférences IA |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Remove-WireGuardPeer -PeerName "MyPhone"
+
+```powershell
+Remove-WireGuardPeer -PeerName "MyPhone"
+```
+
+Supprime le pair nommé "MyPhone" avec une invite de confirmation.
+
+### Remove-WireGuardPeer -PeerName "Tablet" -Force
+
+```powershell
+Remove-WireGuardPeer -PeerName "Tablet" -Force
+```
+
+Removes the peer named "Tablet" without confirmation prompt.
+
+### Remove-WireGuardPeer "WorkLaptop"
+
+```powershell
+Remove-WireGuardPeer "WorkLaptop"
+```
+
+Supprime le pair en utilisant la syntaxe de paramètre positionnel.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Registreert een nieuw gezicht met de DeepStack gezichtsherkennings-API.
+
+## Description
+
+Deze functie registreert een gezichtsafbeelding met de DeepStack gezichtsherkennings-API door de afbeelding te uploaden naar het lokale API-eindpunt. Het zorgt ervoor dat de DeepStack-service draait en valideert het afbeeldingsbestand vóór het uploaden. De functie bevat herhaallogica, foutafhandeling en opruiming bij fouten.
 
 ## Syntax
 
@@ -28,6 +32,26 @@ Register-Face -Identifier <String> -ImagePath <String[]> [-ContainerName <String
 | `-Force` | SwitchParameter | — | — | Named | — | Force rebuild of Docker container and remove existing data |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Gebruik GPU-versnelde versie (vereist NVIDIA GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Toon Docker Desktop-venster tijdens initialisatie |
+
+## Examples
+
+### Register-Face -Identifier "JohnDoe" -ImagePath @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+
+```powershell
+Register-Face -Identifier "JohnDoe" -ImagePath @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+```
+
+### Register-Face "JohnDoe" @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+
+```powershell
+Register-Face "JohnDoe" @("C:\Users\YourName\faces\john1.jpg", "C:\Users\YourName\faces\john2.jpg")
+```
+
+### Register-Face -Identifier "JohnDoe" -ImagePath "C:\Users\YourName\faces\john.jpg"
+
+```powershell
+Register-Face -Identifier "JohnDoe" -ImagePath "C:\Users\YourName\faces\john.jpg"
+```
 
 ## Related Links
 

@@ -4,42 +4,34 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Maximiert das erste Video-Element, das im aktuellen Browser-Tab gefunden wird.
+
+## Description
+
+Führt JavaScript-Code aus, um das erste Video-Element auf der aktuellen Webseite zu lokalisieren und zu maximieren. Das Video wird so eingestellt, dass es den gesamten Viewport mit maximalem z-index abdeckt, um Sichtbarkeit zu gewährleisten. Die Bildlaufleisten der Seite werden ausgeblendet, um ein sauberes Vollbild-Erlebnis zu ermöglichen.
 
 ## Syntax
 
 ```powershell
-[CmdletBinding(SupportsShouldProcess)]
-    [Alias('fsvideo')]
-    param()
+Set-BrowserVideoFullscreen [-Chrome] [-Chromium] [-Edge] [-Firefox] [-Webkit] [<CommonParameters>]
+```
 
-    begin {
+## Parameters
 
-        # prepare the javascript command that will handle video manipulation
-        $script = @(
-            "window.video = document.getElementsByTagName('video')[0];" +
-            "video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;" +
-            "right:0;z-index:10000;width:100vw;height:100vh');" +
-            'document.body.appendChild(video);' +
-            "document.body.setAttribute('style', 'overflow:hidden');"
-        ) -join ''
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-Edge` | SwitchParameter | — | — | Named | — | Verwenden Sie den Microsoft Edge-Browser |
+| `-Chrome` | SwitchParameter | — | — | Named | — | Use Google Chrome browser |
+| `-Chromium` | SwitchParameter | — | — | Named | — | Verwenden Sie Microsoft Edge oder Google Chrome, je nachdem, welcher der Standardbrowser ist. |
+| `-Firefox` | SwitchParameter | — | — | Named | — | Verwenden Sie den Firefox-Browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Verwenden Sie den Playwright-verwalteten WebKit-Browser |
 
-        Microsoft.PowerShell.Utility\Write-Verbose 'Prepared JavaScript code for video fullscreen manipulation'
-    }
+## Examples
 
+### Set-BrowserVideoFullscreen
 
-    process {
-
-        # check if we should proceed with the operation
-        if ($PSCmdlet.ShouldProcess('browser video', 'Set to fullscreen mode')) {
-
-            Microsoft.PowerShell.Utility\Write-Verbose 'Executing JavaScript to maximize video element'
-            GenXdev\Invoke-WebbrowserEvaluation $script
-        }
-    }
-
-    end {
-    }
+```powershell
+Set-BrowserVideoFullscreen
 ```
 
 ## Related Links

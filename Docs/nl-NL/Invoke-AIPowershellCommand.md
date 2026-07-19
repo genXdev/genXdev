@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Genereert en voert PowerShell-opdrachten uit met behulp van AI-assistentie.
+
+## Description
+
+Maakt gebruik van AI-modellen om PowerShell-commando's te genereren op basis van natuurlijke taalquery's. De functie kan commando's rechtstreeks naar het PowerShell-venster sturen of ze naar het klembord kopiëren. Het maakt gebruik van AI-modellen om natuurlijke taal te interpreteren en om te zetten in uitvoerbare PowerShell-commando's met uitgebreide parameterondersteuning voor verschillende AI-backends.
 
 ## Syntax
 
@@ -87,6 +91,32 @@ This is a sample block that could be passed to an LLMQuery.
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter voor markup-bloktypen (doorgegeven aan LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale toolcallback-lengte (doorgegeven aan LLMQuery) |
+
+## Examples
+
+### Invoke-AIPowershellCommand -Query "list all running processes"
+
+```powershell
+Invoke-AIPowershellCommand -Query "list all running processes"
+```
+
+Genereert een PowerShell-opdracht om actieve processen weer te geven
+
+### hint "list files modified today"
+
+```powershell
+hint "list files modified today"
+```
+
+Gebruik het alias om een commando te genereren voor het vinden van bestanden die vandaag zijn gewijzigd.
+
+### Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+
+```powershell
+Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+```
+
+Genereert een commando om een service te stoppen en kopieert het naar het klembord.
 
 ## Outputs
 

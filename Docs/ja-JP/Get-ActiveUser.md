@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 現在アクティブなシステムプロセスからユニークなユーザー名のリストを取得します。
+
+## Description
+
+システム上のすべての実行中のプロセスをクエリし、各プロセスに関連付けられたユーザー名を抽出して、アクティブなプロセスを持つユーザーの重複排除リストを返します。これはシステム管理とセキュリティ監視に役立ちます。
 
 ## Syntax
 
@@ -92,6 +96,23 @@
                 'Process completed. No active users found or an error occurred.'
         }
     }
+```
+
+## Examples
+
+### Get-ActiveUser Returns a list of all unique usernames with active processes.
+
+```powershell
+Get-ActiveUser
+Returns a list of all unique usernames with active processes.
+```
+
+### gusers Uses the alias to get the same results. ##############################################################################
+
+```powershell
+gusers
+Uses the alias to get the same results.
+##############################################################################
 ```
 
 ## Related Links

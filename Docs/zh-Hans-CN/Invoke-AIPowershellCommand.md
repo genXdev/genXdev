@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 利用AI辅助生成和执行PowerShell命令。
+
+## Description
+
+利用AI模型根据自然语言查询生成PowerShell命令。该功能可将命令直接发送到PowerShell窗口，或将其复制到剪贴板。它借助AI模型解析自然语言，并将其转换为可执行的PowerShell命令，支持多种AI后端的全面参数配置。
 
 ## Syntax
 
@@ -60,6 +64,32 @@ Invoke-AIPowershellCommand -Query <String> [[-Attachments] <String[]>] [-AllowDe
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | The `-OutputMarkdownBlocksOnly` parameter. |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 最大工具回调长度（传递给 LLMQuery） |
+
+## Examples
+
+### Invoke-AIPowershellCommand -Query "list all running processes"
+
+```powershell
+Invoke-AIPowershellCommand -Query "list all running processes"
+```
+
+Get-Process
+
+### hint "list files modified today"
+
+```powershell
+hint "list files modified today"
+```
+
+alias findtoday='find . -type f -newermt $(date +%Y-%m-%d) ! -newermt $(date +%Y-%m-%d -d tomorrow)'
+
+### Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+
+```powershell
+Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+```
+
+生成停止服务的命令并将其复制到剪贴板。
 
 ## Outputs
 

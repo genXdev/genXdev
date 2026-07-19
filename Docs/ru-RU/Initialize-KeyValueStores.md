@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Инициализирует структуру каталогов KeyValueStore для локального хранения и хранения в OneDrive.
+
+## Description
+
+Создает структуру каталогов для хранилищ ключ-значение на основе JSON в двух местах: на локальной машине для немедленного доступа и в папке OneDrive для облачной синхронизации. Командлет гарантирует, что оба каталога существуют и правильно настроены.
 
 ## Syntax
 
@@ -17,6 +21,24 @@ Initialize-KeyValueStores [[-DatabasePath] <string>] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-DatabasePath` | String | — | — | 0 | — | Путь к базе данных для файлов данных хранилища ключ-значение |
+
+## Examples
+
+### Example 1
+
+```powershell
+Initialize-KeyValueStores
+```
+
+Создает стандартные локальные каталоги и каталоги OneDrive для хранилищ ключей и значений.
+
+### Example 2
+
+```powershell
+Initialize-KeyValueStores -DatabasePath "C:\MyStores"
+```
+
+Создает каталоги хранилища ключ-значение по указанному пользовательскому пути.
 
 ## Related Links
 

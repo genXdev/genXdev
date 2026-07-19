@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Erfasst Fehlermeldungen aus verschiedenen Streams und verwendet LLM, um Korrekturen vorzuschlagen.
+
+## Description
+
+Dieses Cmdlet erfasst Fehlermeldungen aus verschiedenen PowerShell-Streams (Pipeline-Eingabe, ausführliche, Informations-, Fehler- und Warnungs-Streams) und erstellt eine strukturierte Eingabeaufforderung für ein LLM, um diese zu analysieren und Lösungen vorzuschlagen. Anschließend führt es die LLM-Abfrage aus und gibt die vorgeschlagene Lösung zurück.
 
 ## Syntax
 
@@ -141,6 +145,25 @@ Antworten Sie NUR mit einem JSON-Objekt. |
 | `-NoContext` | Object | — | — | Named | — | Do not use context for LLM query. |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | Verwenden Sie Beam-Search-Stichprobenstrategie. |
 | `-OnlyResponses` | Object | — | — | Named | — | {"response": "Das ist eine Beispielübersetzung."} |
+
+## Examples
+
+### $errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {     My-ScriptThatFails }
+
+```powershell
+$errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {
+    My-ScriptThatFails
+}
+```
+
+Write-Host $errorInfo
+
+### getfixprompt { Get-ChildItem -NotExistingParameter } ##############################################################################
+
+```powershell
+getfixprompt { Get-ChildItem -NotExistingParameter }
+##############################################################################
+```
 
 ## Outputs
 

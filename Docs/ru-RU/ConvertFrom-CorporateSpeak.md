@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converts polite, professional corporate speak into direct, clear language using AI.
+
+## Description
+
+Эта функция обрабатывает входной текст, преобразуя дипломатическую, корпоративную коммуникацию в более прямой и ясный язык. Она может принимать ввод непосредственно через параметры, из конвейера или из системного буфера обмена. Функция использует модели ИИ для анализа и переформулирования текста, сохраняя изначальный смысл.
 
 ## Syntax
 
@@ -78,6 +82,21 @@ ConvertFrom-CorporateSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-Allo
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Максимальная длина обратного вызова инструмента (передается в LLMQuery) |
+
+## Examples
+
+### ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+
+```powershell
+ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+```
+
+### "We should circle back" | uncorporatize ###############################################################################
+
+```powershell
+"We should circle back" | uncorporatize
+###############################################################################
+```
 
 ## Outputs
 

@@ -4,7 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stellt einen PowerShell-Wrapper für das Robust Copy (RoboCopy)-Dienstprogramm von Microsoft bereit.
+
+## Description
+
+Ein umfassender Wrapper für das RoboCopy-Befehlszeilentool, das robuste Datei- und Verzeichniskopierfunktionen bietet. Diese Funktion macht RoboCoppys umfangreiche Funktionspalette über PowerShell-freundliche Parameter zugänglich, während der Großteil seiner leistungsstarken Funktionalität erhalten bleibt.
+
+Hauptfunktionen:
+- Verzeichnissynchronisation mit Spiegeloptionen
+- Unterstützung für extrem lange Pfadnamen (>256 Zeichen)
+- Beibehaltung von Sicherheitseinstellungen
+- Erweiterte Dateiattributverwaltung
+- Verwaltung von symbolischen Links und Junction Points
+- Überwachungsmodus für kontinuierliche Synchronisation
+- Leistungsoptimierung für große Dateien
+- Unterstützung für Netzwerkkomprimierung
+- Wiederherstellungsmodus für fehlerhafte Geräte
 
 ## Syntax
 
@@ -21,10 +36,8 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Source` | String | ✅ | — | 0 | — | Der Ordner, der Dateipfad oder der Ordner+Suchmaske |
-| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | Das Zielverzeichnis, in das die kopierten Dateien und Verzeichnisse abgelegt werden.
-            Falls dieses Verzeichnis noch nicht existiert, werden alle fehlenden Verzeichnisse erstellt.
-            Standardwert = ".\" |
-| `-Files` | String[] | — | — | 2 | `@()` | Optionale Suchmaske zur Auswahl der zu kopierenden Dateien.
+| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | Das Zielverzeichnis, in das die kopierten Dateien und Verzeichnisse abgelegt werden sollen. Falls dieses Verzeichnis noch nicht existiert, werden alle fehlenden Verzeichnisse erstellt. Standardwert = "." |
+| `-Files` | String[] | — | — | 2 | `@()` | Optionale Suchmaske für die Auswahl der zu kopierenden Dateien.
             Standardwert = '*' 🌐 *Supports wildcards* |
 | `-Mirror` | SwitchParameter | — | — | Named | — | Synchronisiert den Inhalt angegebener Verzeichnisse, löscht dabei auch alle Dateien und Verzeichnisse im Ziel, die nicht im Quellverzeichnis vorhanden sind |
 | `-Move` | SwitchParameter | — | — | Named | — | Verschiebt anstatt Dateien vom Quell- zum Zielort zu kopieren |
@@ -78,7 +91,7 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | `-MultiThreaded` | SwitchParameter | — | — | Named | — | Optimieren Sie die Leistung durch mehrthreadfähiges Kopieren |
 | `-CompressibleContent` | SwitchParameter | — | — | Named | — | Falls möglich, verwenden Sie Komprimierung beim Kopieren von Dateien zwischen Servern, um Bandbreite und Zeit zu sparen. |
 | `-ExactTimestamps` | SwitchParameter | — | — | Named | — | Wenn gesetzt, wird anstelle der standardmäßigen 2-Sekunden-Toleranz ein Millisekunden-Zeitstempelabgleich verwendet |
-| `-Override` | String | — | — 🌐 Remaining | 3 | — | Überschreibt, entfernt oder fügt einen beliebigen robocopy-Parameter hinzu.
+| `-Override` | String | — | — 🌐 Remaining | 3 | — | Überschreibt, entfernt oder fügt einen angegebenen robocopy-Parameter hinzu.
 
 Verwendung:
 
@@ -95,6 +108,24 @@ Parameter entfernen:
 Mehrere Überschreibungen:
 
     -Override "/ReplaceThisSwitchWithValue:'SomeValue' -/RemoveThisSwitch /AddThisSwitch" |
+
+## Examples
+
+### ########################################################################Mirror a directory with security settings Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `     -Mirror -IncludeSecurity
+
+```powershell
+########################################################################Mirror a directory with security settings
+Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `
+    -Mirror -IncludeSecurity
+```
+
+### ########################################################################Monitor and sync changes every 10 minutes Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `     -MonitorMode -MonitorModeThresholdMinutes 10
+
+```powershell
+########################################################################Monitor and sync changes every 10 minutes
+Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `
+    -MonitorMode -MonitorModeThresholdMinutes 10
+```
 
 ## Related Links
 

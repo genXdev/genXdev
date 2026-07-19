@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ouvre les fichiers dans l'IDE qui contiennent le texte du presse-papiers
+
+## Description
+
+Le texte dans le presse-papier est utilisé pour effectuer une recherche dans tous les scripts GenXdev et, lorsqu'il est trouvé, ouvre ce fichier dans Code ou Visual Studio.
 
 ## Syntax
 

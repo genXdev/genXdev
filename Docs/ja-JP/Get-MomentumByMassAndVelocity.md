@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 線形運動量を計算します。
+
+## Description
+
+p = m v を使用します。
 
 ## Syntax
 

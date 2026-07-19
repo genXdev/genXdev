@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Arrête immédiatement toute sortie de synthèse vocale en cours.
+
+## Description
+
+Arrête toutes les synthèses vocales actives et en attente en annulant à la fois les opérations vocales standard et personnalisées. Cela garantit un silence immédiat pour toute activité de synthèse vocale en cours.
 
 ## Syntax
 
@@ -40,6 +44,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### PS C:\> Stop-TextToSpeech Immediately stops any ongoing speech
+
+```powershell
+PS C:\> Stop-TextToSpeech
+Immediately stops any ongoing speech
+```
+
+### PS C:\> say "Hello world"; sst Starts speaking but gets interrupted immediately
+
+```powershell
+PS C:\> say "Hello world"; sst
+Starts speaking but gets interrupted immediately
 ```
 
 ## Related Links

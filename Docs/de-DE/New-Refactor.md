@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Erstellt ein neues Refactoring-Set für Code-Transformationsaufgaben.
+
+## Description
+
+Erstellt und konfiguriert eine neue Refactoring-Definition mit angegebenen Einstellungen für
+LLM-basierte Codetransformationen. Die Funktion behandelt:
+- Einrichten der Refactoring-Konfiguration
+- Konfigurieren von Auswahlkriterien und Eingabeaufforderungen
+- Verwalten von LLM-Modelleinstellungen
+- Integration mit Entwicklungsumgebungen
+- Persistieren von Refactor-Definitionen
 
 ## Syntax
 
@@ -40,6 +50,22 @@ New-Refactor -Name <String> -PromptKey <String> [[-Prompt] <String>] [[-Selectio
 | `-Code` | SwitchParameter | — | — | Named | — | Öffnen Sie Dateien in Visual Studio Code |
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | In Visual Studio öffnen |
 | `-KeysToSend` | String[] | — | — | Named | `@()` | Nach dem Öffnen von Dateien zu sendende Tastenanschläge |
+
+## Examples
+
+### New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `     -SelectionScript "Get-LoggingMethods" -Priority 1 `     -Code
+
+```powershell
+New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `
+    -SelectionScript "Get-LoggingMethods" -Priority 1 `
+    -Code
+```
+
+### newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+
+```powershell
+newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+```
 
 ## Related Links
 

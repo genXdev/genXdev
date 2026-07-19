@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 将窗口定位到副显示器上，并指定布局选项。
+
+## Description
+
+此函数允许使用 Set-WindowPosition 在配置的辅助显示器上定位窗口，提供多种布局选项，包括对齐、大小和边框设置。它基于全局配置处理显示器选择，并为辅助显示器窗口定位提供了便捷的封装。
 
 ## Syntax
 
@@ -44,6 +48,21 @@ Set-WindowPositionForSecondary [[-Process] <Diagnostics.Process[]>] [-Bottom] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
+
+## Examples
+
+### Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `     -Centered -NoBorders
+
+```powershell
+Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `
+    -Centered -NoBorders
+```
+
+### wps notepad -w 800 -h 600 -c -nb
+
+```powershell
+wps notepad -w 800 -h 600 -c -nb
+```
 
 ## Related Links
 

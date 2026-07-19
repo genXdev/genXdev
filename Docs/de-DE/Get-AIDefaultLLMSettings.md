@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ruft alle verfügbaren Standard-LLM-Einstellungskonfigurationen für KI-Operationen in GenXdev.AI ab.
+
+## Description
+
+Ruft den vollständigen Satz der Standardeinstellungen für Large Language Models (LLM) ab, die für KI-Operationen konfiguriert sind. Ergebnisse können nach Abfragetyp, Modellkennung, API-Endpunkt oder API-Schlüssel gefiltert werden. Unterstützt sowohl sitzungsbasierte als auch persistente präferenzbasierte Abfragen mit Optionen zum Löschen des Sitzungszustands oder zur vollständigen Umgehung, um direkt aus gespeicherten Einstellungen zu lesen.
 
 ## Syntax
 
@@ -24,6 +28,16 @@ Get-AIDefaultLLMSettings [[-LLMQueryType] <String>] [-ApiEndpoint <String>] [-Ap
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Sitzungseinstellung (globale Variable) vor dem Abrufen löschen |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Datenbankpfad für Präferenzdatendateien |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Sitzungseinstellungen überspringen und nur aus Präferenzen oder Standardwerten beziehen |
+
+## Examples
+
+### Get-AIDefaultLLMSettings -LLMQueryType "Coding"
+
+```powershell
+Get-AIDefaultLLMSettings -LLMQueryType "Coding"
+```
+
+Ruft alle verfügbaren Standardkonfigurationen für den Abfragetyp Coding ab.
 
 ## Outputs
 

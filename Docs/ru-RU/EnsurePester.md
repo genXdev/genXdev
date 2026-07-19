@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Обеспечивает доступность фреймворка тестирования Pester для использования.
+
+## Description
+
+Эта функция проверяет, установлен ли модуль Pester в текущей среде PowerShell. Если он не найден, она автоматически устанавливает его из коллекции PowerShell и импортирует в текущий сеанс. Это гарантирует, что возможности тестирования Pester будут доступны при необходимости.
 
 ## Syntax
 
@@ -60,6 +64,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsurePester This ensures Pester is installed and ready for use
+
+```powershell
+EnsurePester
+This ensures Pester is installed and ready for use
 ```
 
 ## Related Links

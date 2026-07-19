@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Configure les raccourcis clavier de GitHub Copilot Chat dans Visual Studio Code.
+
+## Description
+
+Cette fonction garantit que la fonction de pièce jointe de GitHub Copilot Chat dispose d'un raccourci clavier approprié (Ctrl+Maj+Alt+F12) configuré dans Visual Studio Code.
+
+Elle supprimera tous les raccourcis de pièce jointe Copilot existants et les remplacera par la commande correcte actuelle (github.copilot.chat.attachFile).
+
+Ajoute également le raccourci Alt+` (accent grave) pour basculer le panneau agrandi.
 
 ## Syntax
 
@@ -108,6 +116,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureCopilotKeyboardShortCut
+
+```powershell
+EnsureCopilotKeyboardShortCut
 ```
 
 ## Related Links

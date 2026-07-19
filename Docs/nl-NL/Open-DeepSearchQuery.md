@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent een DeepSeek-query in een webbrowser
+
+## Description
+
+Opent een DeepSeek-query in de webbrowser, typt de query in en drukt op Enter om de zoekopdracht uit te voeren. Deze functie maakt gebruik van de DeepSeek AI-zoekmachine om intelligente antwoorden en inzichten te bieden voor de opgegeven queries.
 
 ## Syntax
 
 ```powershell
-Open-DeepSearchQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-DeepSearchQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-DeepSearchQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <St
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opent in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wordt geopend in Microsoft Edge of Google Chrome, afhankelijk van wat de standaardbrowser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Openen in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Gebruik de door Playwright beheerde browser in plaats van de in het besturingssysteem geïnstalleerde browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opent de door Playwright beheerde WebKit-browser. Impliceert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Voer de browser uit zonder een zichtbaar venster |
 | `-All` | SwitchParameter | — | — | Named | — | Opent in alle geregistreerde moderne browsers |
 | `-Monitor` | Int32 | — | — | Named | `-1` | De monitor om te gebruiken, 0 = standaard, -1 = weggooien, -2 = geconfigureerde secundaire monitor, standaard -1, geen positionering |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opent in volledig scherm |
@@ -58,6 +65,32 @@ Open-DeepSearchQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Positioneer het browservenster ofwel volledig scherm op een andere monitor dan PowerShell, of naast PowerShell op dezelfde monitor. |
+
+## Examples
+
+### Open-DeepSearchQuery -Queries "powershell function"
+
+```powershell
+Open-DeepSearchQuery -Queries "powershell function"
+```
+
+Opens DeepSeek and searches for "powershell function" using default settings.
+
+### aideepseek "powershell function"
+
+```powershell
+aideepseek "powershell function"
+```
+
+Gebruikt het alias om te zoeken naar "powershell function" met standaardparameters.
+
+### Open-DeepSearchQuery -Queries "machine learning basics" -Monitor 0 -FullScreen
+
+```powershell
+Open-DeepSearchQuery -Queries "machine learning basics" -Monitor 0 -FullScreen
+```
+
+Opent DeepSeek in volledig scherm op de primaire monitor om te zoeken naar "machine learning basics".
 
 ## Related Links
 

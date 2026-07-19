@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Сегодня текущая дата.
+
+## Description
+
+Преобразует текущую дату в формат естественного языка и озвучивает её с помощью системы преобразования текста в речь. Дата произносится в формате: «Сегодня [день недели], [месяц] [день] [год]»
 
 ## Syntax
 
@@ -32,6 +36,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### SayDate Announces today's date using text-to-speech
+
+```powershell
+SayDate
+Announces today's date using text-to-speech
 ```
 
 ## Related Links

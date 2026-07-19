@@ -4,19 +4,27 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 画像データからレスポンシブなメイソンリーレイアウトのHTMLギャラリーを生成します。
+
+## Description
+
+画像を表示するための、レスポンシブなメーソンリーグリッドレイアウトのインタラクティブなHTMLギャラリーを作成します。機能:
+- 画面サイズに適応するレスポンシブグリッドレイアウト
+- 説明とキーワードを表示する画像ツールチップ
+- 画像パスをクリックしてコピーする機能
+- ホバーエフェクト付きのクリーンでモダンなスタイリング
 
 ## Syntax
 
 ```powershell
-GenerateMasonryLayoutHtml -Images <IEnumerable`1[[GenXdev.Helpers.ImageSearchResult, GenXdev, Version=3.26.2026.0, Culture=neutral, PublicKeyToken=null]]> [[-FilePath] <String>] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-CanDelete] [-CanEdit] [-Description <String>] [-EmbedImages] [-ImageUrlPrefix <String>] [-MaxPrintImages <Int32>] [-PageSize <Int32>] [-RootMargin <String>] [-ShowOnlyPictures] [-SingleColumnMode] [-Threshold <Double>] [-Title <String>] [<CommonParameters>]
+GenerateMasonryLayoutHtml -Images <Object> [[-FilePath] <String>] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-CanDelete] [-CanEdit] [-Description <String>] [-EmbedImages] [-ImageUrlPrefix <String>] [-MaxPrintImages <Int32>] [-PageSize <Int32>] [-RootMargin <String>] [-ShowOnlyPictures] [-SingleColumnMode] [-Threshold <Double>] [-Title <String>] [<CommonParameters>]
 ```
 
 ## Parameters
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Images` | IEnumerable`1[[GenXdev.Helpers.ImageSearchResult, GenXdev, Version=3.26.2026.0, Culture=neutral, PublicKeyToken=null]] | ✅ | ✅ (ByValue) | 0 | — | パス、キーワード、説明を持つ画像オブジェクトの配列 |
+| `-Images` | Object | ✅ | — | 0 | — | パス、キーワード、説明を持つ画像オブジェクトの配列 |
 | `-FilePath` | String | — | — | 1 | `$null` | 生成された HTML ファイルの出力パス |
 | `-Title` | String | — | — | Named | `'Photo Gallery'` | ギャラリーのタイトル |
 | `-Description` | String | — | — | Named | `'Hover over images to see face recognition, object detection, and scene classification data'` | ギャラリーの説明 |
@@ -32,6 +40,32 @@ GenerateMasonryLayoutHtml -Images <IEnumerable`1[[GenXdev.Helpers.ImageSearchRes
 | `-MaxPrintImages` | Int32 | — | — | Named | `50` | 印刷モードで読み込む画像の最大数 |
 | `-RootMargin` | String | — | — | Named | `'1200px'` | 無限スクロールトリガーのIntersectionObserver rootMargin（例: "1200px"） |
 | `-Threshold` | Double | — | — | Named | `0.1` | 無限スクロールトリガーのためのIntersectionObserver閾値 |
+
+## Examples
+
+### Create gallery from image array and save to file $images = @(     @{         path = "C:\photos\sunset.jpg"         keywords = @("nature", "sunset", "landscape")         description = @{             short_description = "Mountain sunset"             long_description = "Beautiful sunset over mountain range"         }     } ) GenerateMasonryLayoutHtml -Images $images -FilePath "C:\output\gallery.html"
+
+```powershell
+Create gallery from image array and save to file
+$images = @(
+    @{
+        path = "C:\photos\sunset.jpg"
+        keywords = @("nature", "sunset", "landscape")
+        description = @{
+            short_description = "Mountain sunset"
+            long_description = "Beautiful sunset over mountain range"
+        }
+    }
+)
+GenerateMasonryLayoutHtml -Images $images -FilePath "C:\output\gallery.html"
+```
+
+### Generate HTML string without saving $html = GenerateMasonryLayoutHtml $images
+
+```powershell
+Generate HTML string without saving
+$html = GenerateMasonryLayoutHtml $images
+```
 
 ## Outputs
 

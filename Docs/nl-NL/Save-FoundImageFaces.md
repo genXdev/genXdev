@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Slaat bijgesneden gezichtsafbeeldingen op uit geïndexeerde zoekresultaten voor afbeeldingen.
+
+## Description
+
+Deze functie neemt beeldzoekresultaten en extraheert/slaat individuele gezichtsregio's op als aparte beeldbestanden. Het kan zoeken naar gezichten met behulp van verschillende criteria en deze opslaan in een opgegeven uitvoermap. De functie ondersteunt zoeken op beschrijving, trefwoorden, personen, objecten, scènes, afbeeldingstype, stijltype en algemene stemming. Het kan ook filteren op naaktheid en expliciete inhoud.
 
 ## Syntax
 
@@ -42,6 +46,20 @@ Save-FoundImageFaces [[-Any] <String[]>] [-ClearSession] [-DatabaseFilePath <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in de sessie voor AI-voorkeuren zoals taal, afbeeldingsverzamelingen, enz. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Gebruik geen alternatieve instellingen die zijn opgeslagen in de sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
+
+## Examples
+
+### Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+
+```powershell
+Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+```
+
+### saveimagefaces -Any "vacation" -SaveUnknownPersons
+
+```powershell
+saveimagefaces -Any "vacation" -SaveUnknownPersons
+```
 
 ## Outputs
 

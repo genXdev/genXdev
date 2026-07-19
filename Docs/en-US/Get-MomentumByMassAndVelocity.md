@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calculates linear momentum.
+
+## Description
+
+Uses p = m v.
 
 ## Syntax
 

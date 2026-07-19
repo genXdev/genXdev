@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> VLC Media Playerのプレイリストで前のアイテムに移動します。
+
+## Description
+
+この関数は、現在のプレイリスト内の前の項目に移動するために、'p'キーコマンドをVLCメディアプレーヤーに送信します。この関数はWhatIf操作をサポートし、コマンド送信後にフォーカスを復元します。
 
 ## Syntax
 
@@ -33,6 +37,26 @@
     end {
 
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerPreviousInPlaylist
+
+```powershell
+Start-VlcMediaPlayerPreviousInPlaylist
+```
+
+### vlcprev
+
+```powershell
+vlcprev
+```
+
+### vlcback
+
+```powershell
+vlcback
 ```
 
 ## Related Links

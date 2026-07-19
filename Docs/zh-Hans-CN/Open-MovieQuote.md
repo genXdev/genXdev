@@ -4,12 +4,25 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在网络浏览器中打开一段电影台词的视频。
+
+## Description
+
+使用playphrase.me搜索并播放电影台词，支持指定显示器和浏览器设置。该功能提供访问海量电影台词数据库（含视频片段），支持多种语言及高级浏览器配置选项。
+
+主要特性：
+- 从海量数据库中搜索电影台词
+- 多语言支持，自动语言检测
+- 高级浏览器定位与窗口管理
+- 支持多种浏览器（Edge、Chrome、Firefox）
+- 支持隐私浏览模式
+- 浏览器交互键盘自动化
+- 多显示器支持，精确定位
 
 ## Syntax
 
 ```powershell
-Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +37,9 @@ Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
 | `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 要使用的显示器，0 = 默认，-1 = 丢弃，-2 = 配置的辅助显示器，默认为 -1，无定位 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 在全屏模式下打开 |
@@ -59,6 +75,40 @@ Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | Don't open webbrowser, just return the url |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | After opening webbrowser, return the url |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | 将浏览器窗口定位到与PowerShell不同的显示器上全屏显示，或者与PowerShell在同一显示器上并排显示。 |
+
+## Examples
+
+### Open-MovieQuote -Queries "I'll be back"
+
+```powershell
+Open-MovieQuote -Queries "I'll be back"
+```
+
+Opens a search for the famous Terminator quote "I'll be back".
+
+### Open-MovieQuote -Queries "Here's looking at you kid" -Monitor 1
+
+```powershell
+Open-MovieQuote -Queries "Here's looking at you kid" -Monitor 1
+```
+
+在监视器1上搜索《卡萨布兰卡》的引文。
+
+### moviequote "May the Force be with you" -Language "English" -Private
+
+```powershell
+moviequote "May the Force be with you" -Language "English" -Private
+```
+
+Opens a search for the Star Wars quote in English using private browsing.
+
+### "I'll be back", "Frankly, my dear" | Open-MovieQuote -Chrome -FullScreen
+
+```powershell
+"I'll be back", "Frankly, my dear" | Open-MovieQuote -Chrome -FullScreen
+```
+
+通过管道在Chrome全屏模式下打开多个电影台词搜索。
 
 ## Related Links
 

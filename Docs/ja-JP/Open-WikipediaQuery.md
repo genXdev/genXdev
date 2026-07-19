@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> ウェブブラウザでWikipediaのクエリを開きます。
+
+## Description
+
+豊富な設定オプションを備え、1つ以上のWikipedia検索クエリをウェブブラウザで開きます。ブラウザの動作、モニターの選択、ウィンドウの配置を設定可能。クエリはURLエンコードされ、指定された言語のWikipediaドメインを使用して開かれ、完全なローカリゼーションに対応します。
+
+この関数は、プライベートブラウジングモード、ウィンドウの配置、キーボード自動化、マルチモニター対応を含む包括的なブラウザ制御を提供します。国際的なWikipediaドメインのためのURLエンコードと言語コードのマッピングを自動的に処理します。
 
 ## Syntax
 
 ```powershell
-Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +30,9 @@ Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Str
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox で開く |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
 | `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 使用するモニター、0 = デフォルト、-1 = 破棄、-2 = 設定済みのセカンダリモニター |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | フルスクリーンモードで開く |
@@ -59,6 +68,32 @@ Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションに保存された代替設定をAIの選択肢に使用します。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリアします。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定は永続的なプリファレンスにのみ保存し、セッションには影響を与えないでください。 |
+
+## Examples
+
+### Open-WikipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+
+```powershell
+Open-WikipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+```
+
+デフォルトのモニターで「PowerShell」のWikipedia検索を英語で開きます。
+
+### wiki "PowerShell" -mon 0
+
+```powershell
+wiki "PowerShell" -mon 0
+```
+
+位置パラメータを使用してエイリアスでWikipedia検索を開きます。
+
+### "PowerShell", "Windows" | Open-WikipediaQuery -Language "German" -Private
+
+```powershell
+"PowerShell", "Windows" | Open-WikipediaQuery -Language "German" -Private
+```
+
+プライベートブラウジングモードを使用して、ドイツ語版ウィキペディアで複数の用語を検索します。
 
 ## Related Links
 

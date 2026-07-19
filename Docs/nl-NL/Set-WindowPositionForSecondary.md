@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Plaatst een venster op het tweede scherm met opgegeven lay-outopties.
+
+## Description
+
+Deze functie maakt het mogelijk om vensters te positioneren op een geconfigureerd secundair beeldscherm met behulp van
+Set-WindowPosition met verschillende lay-outopties, waaronder uitlijning, grootte en
+randinstellingen. Het behandelt de monitorselectie op basis van globale configuratie en
+biedt een handige wrapper voor het positioneren van vensters op het secundaire beeldscherm.
 
 ## Syntax
 
@@ -44,6 +51,21 @@ Set-WindowPositionForSecondary [[-Process] <Diagnostics.Process[]>] [-Bottom] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
+
+## Examples
+
+### Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `     -Centered -NoBorders
+
+```powershell
+Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `
+    -Centered -NoBorders
+```
+
+### wps notepad -w 800 -h 600 -c -nb
+
+```powershell
+wps notepad -w 800 -h 600 -c -nb
+```
 
 ## Related Links
 

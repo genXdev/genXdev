@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Starts the configured Windows screensaver.
+
+## Description
+
+Activates the Windows system screensaver by executing the default screensaver
+executable (scrnsave.scr) with the /s switch to start it immediately.
 
 ## Syntax
 
@@ -26,6 +31,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### Enable-Screensaver
+
+```powershell
+Enable-Screensaver
 ```
 
 ## Related Links

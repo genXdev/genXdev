@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Voegt een nieuwe WireGuard VPN-peer (client) configuratie toe aan de server.
+
+## Description
+
+Deze functie voegt een nieuwe peer toe aan de WireGuard VPN-server die in een Docker-container draait. Het genereert een nieuwe clientconfiguratie met een uniek IP-adres, maakt de benodigde cryptografische sleutels aan en retourneert de configuratiedetails. De functie kan optioneel de configuratie opslaan in een bestand of een QR-code genereren voor eenvoudige installatie op mobiele apparaten. De functie valideert peernamen, controleert op duplicaten en behandelt verschillende foutcondities op een nette manier.
 
 ## Syntax
 
@@ -53,6 +57,25 @@ Add-WireGuardPeer -PeerName <String> [[-AllowedIPs] <String>] [[-DNS] <String>] 
 | `-ShowQRCode` | SwitchParameter | — | — | Named | — | Genereren van QR-code voor eenvoudige mobiele setup |
 | `-NoDockerInitialize` | SwitchParameter | — | — | Named | — | Docker-initialisatie overslaan (gebruikt wanneer al aangeroepen door bovenliggende functie) |
 | `-Force` | SwitchParameter | — | — | Named | — | Force rebuild of Docker container and remove existing data |
+
+## Examples
+
+### Add-WireGuardPeer -PeerName "MyPhone" -AllowedIPs "0.0.0.0/0, ::/0" `     -DNS "1.1.1.1, 1.0.0.1" -SaveConfig -OutputPath `     "$env:USERPROFILE\WireGuardConfigs" -ShowQRCode -ContainerName "wireguard" `     -VolumeName "wireguard_data" -ServicePort 51839 -HealthCheckTimeout 60 `     -HealthCheckInterval 3 -ImageName "linuxserver/wireguard" -PUID "1000" `     -PGID "1000" -TimeZone "Etc/UTC"
+
+```powershell
+Add-WireGuardPeer -PeerName "MyPhone" -AllowedIPs "0.0.0.0/0, ::/0" `
+    -DNS "1.1.1.1, 1.0.0.1" -SaveConfig -OutputPath `
+    "$env:USERPROFILE\WireGuardConfigs" -ShowQRCode -ContainerName "wireguard" `
+    -VolumeName "wireguard_data" -ServicePort 51839 -HealthCheckTimeout 60 `
+    -HealthCheckInterval 3 -ImageName "linuxserver/wireguard" -PUID "1000" `
+    -PGID "1000" -TimeZone "Etc/UTC"
+```
+
+### Add-WireGuardPeer "MyTablet" -ShowQRCode
+
+```powershell
+Add-WireGuardPeer "MyTablet" -ShowQRCode
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula a aceleração centrípeta.
+
+## Description
+
+Usa a = v² / r.
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Get-CentripetalAccelerationByVelocityAndRadius [-VelocityInMetersPerSecond] <dou
 | `-VelocityInMetersPerSecond` | Double | ✅ | — | 0 | `0` | Velocidade em m/s |
 | `-RadiusInMeters` | Double | ✅ | — | 1 | `0` | Raio em metros |
 | `-As` | String | — | — | 2 | — | Unidade de saída para aceleração |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-CentripetalAccelerationByVelocityAndRadius -VelocityInMetersPerSecond 10 -RadiusInMeters 5 -As "g"
+```
+
+Calcula aceleração centrípeta para velocidade 10 m/s e raio 5 m, saída em unidades g.
+
+### Example 2
+
+```powershell
+Get-CentripetalAccelerationByVelocityAndRadius 20 10
+```
+
+Calcula a aceleração centrípeta para velocidade 20 m/s e raio 10 m usando parâmetros posicionais.
 
 ## Related Links
 

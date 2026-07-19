@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Configureert de sneltoetsen voor GitHub Copilot Chat in Visual Studio Code.
+
+## Description
+
+Deze functie zorgt ervoor dat de bestandsbijlagefunctie van GitHub Copilot Chat een correcte sneltoets (Ctrl+Shift+Alt+F12) heeft geconfigureerd in Visual Studio Code.
+
+Het verwijdert alle bestaande Copilot-bijlagensneltoetsen en vervangt ze door het huidige juiste commando (github.copilot.chat.attachFile).
+
+Voegt ook Alt+` (backtick) sneltoets toe voor het in- en uitschakelen van het gemaximaliseerde paneel.
 
 ## Syntax
 
@@ -108,6 +116,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureCopilotKeyboardShortCut
+
+```powershell
+EnsureCopilotKeyboardShortCut
 ```
 
 ## Related Links

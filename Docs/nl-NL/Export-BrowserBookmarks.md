@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Exporteert browserbladwijzers naar een JSON-bestand.
+
+## Description
+
+De cmdlet Export-BrowserBookmarks exporteert bladwijzers uit een opgegeven webbrowser (Microsoft Edge, Google Chrome of Mozilla Firefox) naar een JSON-bestand. Er kan slechts één browsertype tegelijk worden opgegeven. De bladwijzers worden geëxporteerd met volledige behoud van hun structuur en metadata.
 
 ## Syntax
 
@@ -22,6 +26,20 @@ Export-BrowserBookmarks [-Firefox] [<CommonParameters>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Bladwijzers exporteren uit Google Chrome |
 | `-Edge` | SwitchParameter | — | — | Named | — | Bladwijzers exporteren uit Microsoft Edge |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Bladwijzers exporteren uit Mozilla Firefox *(Parameter set: )* |
+
+## Examples
+
+### Export-BrowserBookmarks -OutputFile "C:\MyBookmarks.json" -Edge
+
+```powershell
+Export-BrowserBookmarks -OutputFile "C:\MyBookmarks.json" -Edge
+```
+
+### Export-BrowserBookmarks "C:\MyBookmarks.json" -Chrome
+
+```powershell
+Export-BrowserBookmarks "C:\MyBookmarks.json" -Chrome
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Удаляет двойные (подряд идущие) пустые строки из строки кода, опционально переформатируя вывод.
+
+## Description
+
+Очищает исходный код или текст, сжимая последовательные пустые строки в одну пустую строку. Это улучшает читаемость и соответствует общим соглашениям форматирования кода. При указании переключателя -Reformat применяются дополнительные правила форматирования для нормализации структуры кода.
 
 ## Syntax
 
@@ -16,8 +20,26 @@ Remove-DoubleEmptyLines -code <String> [-Reformat] [<CommonParameters>]
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-code` | String | ✅ | — | 0 | — | The `-code` parameter. |
-| `-Reformat` | SwitchParameter | — | — | 1 | — | The `-Reformat` parameter. |
+| `-code` | String | ✅ | — | 0 | — | Исходный код или текстовая строка для обработки удаления двойных пустых строк |
+| `-Reformat` | SwitchParameter | — | — | Named | — | Применение дополнительных правил форматирования, помимо удаления двойных пустых строк |
+
+## Examples
+
+### $cleanCode = $sourceCode | Remove-DoubleEmptyLines
+
+```powershell
+$cleanCode = $sourceCode | Remove-DoubleEmptyLines
+```
+
+Пропускает исходный код через функцию для удаления последовательных пустых строк.
+
+### Remove-DoubleEmptyLines -code $sourceCode -Reformat
+
+```powershell
+Remove-DoubleEmptyLines -code $sourceCode -Reformat
+```
+
+Удаляет двойные пустые строки и применяет дополнительное форматирование.
 
 ## Outputs
 

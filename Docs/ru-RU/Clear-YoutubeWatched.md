@@ -4,47 +4,36 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Очищает историю просмотров YouTube из локального хранилища браузера.
+
+## Description
+
+Эта функция выбирает вкладку YouTube в браузере и очищает историю просмотров, сбрасывая значение локального хранилища для просмотренных видео командлета Open-AllYoutubeVideos -> qvideos. Для работы требуется открытая вкладка YouTube в браузере.
 
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    param()
+Clear-YoutubeWatched [-Chrome] [-Chromium] [-Edge] [-Firefox] [-Webkit] [<CommonParameters>]
+```
 
-    begin {
-        # inform user that we're looking for a youtube tab
-        Microsoft.PowerShell.Utility\Write-Verbose 'Searching for an open YouTube browser tab...'
-    }
+## Parameters
 
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-Edge` | SwitchParameter | — | — | Named | — | Используйте браузер Microsoft Edge |
+| `-Chrome` | SwitchParameter | — | — | Named | — | Используйте браузер Google Chrome |
+| `-Chromium` | SwitchParameter | — | — | Named | — | Используйте Microsoft Edge или Google Chrome, в зависимости от того, какой браузер является браузером по умолчанию |
+| `-Firefox` | SwitchParameter | — | — | Named | — | Используйте браузер Firefox |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Используйте браузер WebKit, управляемый Playwright |
 
-    process {
+## Examples
 
-        try {
-            # attempt to select any open youtube tab
-            $null = GenXdev\Select-WebbrowserTab -Name '*youtube*'
+### Clear-YoutubeWatched Clears the watch history of the Open-AllYoutubeVideos -> qvideos cmdlet, in the currently open YouTube tab.
 
-            # verify chrome session exists and is valid
-            if ($null -eq $chromeSession -or $chromeSession -isnot [PSCustomObject]) {
-                throw 'No active YouTube tab found in browser'
-            }
-
-            # inform user we're clearing the watch history
-            Microsoft.PowerShell.Utility\Write-Verbose 'Clearing YouTube watch history from local storage...'
-
-            # reset the watch history in local storage
-            $null = GenXdev\Invoke-WebbrowserEvaluation `
-                -Script "localStorage['oaytvDone'] = '[]'"
-
-            Microsoft.PowerShell.Utility\Write-Verbose 'YouTube watch history cleared successfully'
-        }
-        catch {
-            throw "Failed to clear YouTube watch history: $_"
-        }
-    }
-
-    end {
-    }
+```powershell
+Clear-YoutubeWatched
+Clears the watch history of the Open-AllYoutubeVideos -> qvideos cmdlet, in the
+currently open YouTube tab.
 ```
 
 ## Related Links

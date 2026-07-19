@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ouvre une requête Wolfram Alpha dans un navigateur web.
+
+## Description
+
+Ouvre une ou plusieurs requêtes Wolfram Alpha dans un navigateur web. Prend en charge la sélection configurable du moniteur et les options du navigateur via des paramètres dynamiques. Fournit un contrôle complet du navigateur, y compris le positionnement, le redimensionnement et les capacités d'automatisation pour des workflows de calcul scientifique améliorés.
 
 ## Syntax
 
 ```powershell
-Open-WolframAlphaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WolframAlphaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-WolframAlphaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <
 | `-Chrome` | SwitchParameter | — | — | Named | — | S'ouvre dans Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Ouvre dans Microsoft Edge ou Google Chrome, selon le navigateur par défaut |
 | `-Firefox` | SwitchParameter | — | — | Named | — | S'ouvre dans Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utiliser le navigateur géré par Playwright au lieu du navigateur installé sur le système d'exploitation |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Ouvre le navigateur WebKit géré par Playwright. Implique -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Exécutez le navigateur sans fenêtre visible |
 | `-All` | SwitchParameter | — | — | Named | — | S'ouvre dans tous les navigateurs modernes enregistrés |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Le moniteur à utiliser, 0 = par défaut, -1 = supprimer, -2 = moniteur secondaire configuré, par défaut à -1, sans positionnement |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | S'ouvre en mode plein écran |
@@ -59,6 +66,33 @@ Open-WolframAlphaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Enregistrer uniquement les paramètres dans les préférences persistantes sans affecter la session. |
+
+## Examples
+
+### Open-WolframAlphaQuery -Queries "mass of sun" -Monitor 0
+
+```powershell
+Open-WolframAlphaQuery -Queries "mass of sun" -Monitor 0
+```
+
+Opens a Wolfram Alpha query for the mass of the sun on the default monitor.
+
+### qalpha "speed of light", "planck constant"
+
+```powershell
+qalpha "speed of light", "planck constant"
+```
+
+Ouvre plusieurs requêtes Wolfram Alpha en utilisant l'alias pour des calculs scientifiques rapides.
+
+### "derivative of x^2" | Open-WolframAlphaQuery -Language "English" -FullScreen
+
+```powershell
+"derivative of x^2" | Open-WolframAlphaQuery -Language "English" -FullScreen
+```
+
+Ouvre une requête de calcul en mode plein écran avec préférence de langue anglaise
+via l'entrée du pipeline.
 
 ## Related Links
 

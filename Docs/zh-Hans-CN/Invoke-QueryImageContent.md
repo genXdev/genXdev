@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 使用AI视觉功能分析图像内容
+
+## Description
+
+利用AI视觉能力处理图像，分析内容并解答关于图像的疑问。该功能支持多种分析参数，包括控制响应随机性的温度参数以及限制输出长度的令牌数参数。
 
 ## Syntax
 
@@ -82,6 +86,33 @@ Invoke-QueryImageContent -Query <String> -ImagePath <String> [[-Instructions] <S
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 工具调用的最大回调长度。 |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | 即使已设置首选项，也要强制显示同意提示以安装ImageSharp包。 |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | 自动同意第三方软件安装，并为ImageSharp包设置持久标志。 |
+
+## Examples
+
+### Invoke-QueryImageContent `     -Query "What objects are in this image?" `     -ImagePath "C:\Images\sample.jpg" `     -Temperature 0.01
+
+```powershell
+Invoke-QueryImageContent `
+    -Query "What objects are in this image?" `
+    -ImagePath "C:\Images\sample.jpg" `
+    -Temperature 0.01
+```
+
+Analyzes an image with specific temperature and token limits.
+
+### Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+```
+
+### Query-Image "Describe this image" "C:\Images\photo.jpg"
+
+```powershell
+Query-Image "Describe this image" "C:\Images\photo.jpg"
+```
+
+使用别名和位置参数的简单图像分析。
 
 ## Related Links
 

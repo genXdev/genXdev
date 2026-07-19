@@ -8,27 +8,55 @@
 
 ## Description
 
-* Encontrar archivos con Find-Item -> l
-        * Búsqueda rápida multi-hilo: utiliza procesamiento de E/S paralelo y asíncrono con un grado máximo de paralelismo configurable (por defecto basado en núcleos de CPU) para escaneo eficiente de archivos y directorios.
-        * Coincidencia de patrones avanzada: Compatible con comodines (*, ?), patrones recursivos como ** y estructuras de ruta complejas para consultas precisas de archivos y directorios.
-        **/filename solo recurrirá hasta que se encuentre filename. Se permiten múltiples de estos patrones, siempre que estén precedidos por un nombre de archivo o directorio que coincida.
-        Este analizador de patrones tiene el poder de Resolve-Path pero con características de recursión, y solo admite * y ? como comodines, evitando errores con rutas que contienen corchetes [ ], eliminando la necesidad del parámetro -LiteralPath, manteniendo la integridad para secciones de ruta sin comodines, a diferencia de una coincidencia de comodín en toda la ruta completa.
-        * Búsqueda de contenido mejorada: Integración completa de Select-String con patrones de expresión regular dentro del contenido de archivos usando el parámetro -Content.
-        * Optimización para archivos grandes: Maneja archivos extremadamente grandes con búferes superpuestos inteligentes y asignación mínima de memoria.
-        * Opciones de coincidencia múltiple: Encuentra todas las coincidencias por línea (-AllMatches) o solo la primera coincidencia por archivo (-List).
-        * Control de sensibilidad a mayúsculas/minúsculas: Coincidencia sensible a mayúsculas/minúsculas (-CaseSensitive) con opciones específicas de cultura (-Culture).
-        * Captura de contexto: Muestra líneas antes y después de las coincidencias (-Context) para una mejor comprensión.
-        * Coincidencia inversa: Encuentra archivos que no contienen el patrón (-NotMatch).
-        * Formatos de salida: Salida de cadena sin procesar (-Raw), respuesta booleana silenciosa (-Quiet) u objetos MatchInfo completos.
-        * Tipos de patrón: Expresiones regulares (predeterminado) o coincidencia de cadena literal simple (-SimpleMatch).
-        * Soporte de codificación: Especificar codificación de archivo (-Encoding) para un procesamiento de texto preciso.
-        * Flexibilidad de tipo de ruta: Maneja rutas relativas, absolutas, UNC, rutas con raíz y flujos de datos alternativos de NTFS (ADS) con búsqueda de contenido opcional en flujos.
-        * Soporte multi-unidad: Busca en todas las unidades con -AllDrives o unidades específicas mediante -SearchDrives, incluidos discos ópticos si se especifica.
-        * Filtrado de directorios y archivos: Opciones para buscar solo directorios (-Directory), tanto archivos como directorios (-FilesAndDirectories) o archivos con coincidencia de contenido.
-        * Exclusión y límites: Patrones de exclusión con -Exclude, establecer profundidad máxima de recursión (-MaxRecursionDepth), límites de tamaño de archivo (-MaxFileSize, -MinFileSize) y filtros de fecha de modificación (-ModifiedAfter, -ModifiedBefore).
-        * Personalización de salida: Compatibilidad con PassThru para objetos FileInfo/DirectoryInfo, rutas relativas, hipervínculos en modo interactivo o rutas simples en modo no interactivo (use -NoLinks en caso de problemas para forzar el modo no interactivo).
-        * Optimizaciones de rendimiento: Omite archivos no textuales por defecto en la búsqueda de contenido (anular con -IncludeNonTextFileMatching), maneja rutas largas (>260 caracteres) y sigue enlaces simbólicos/junctions.
-        * Funciones de seguridad: Soporte de tiempo de espera (-TimeoutSeconds), ignora elementos inaccesibles, omite atributos de sistema por defecto y evita bucles infinitos con seguimiento de nodos visitados.
+* Encuentra archivos con Find-Item -> l
+        * Búsqueda rápida multi-hilo: utiliza procesamiento de E/S paralelo y asíncrono
+              con un grado máximo de paralelismo configurable (por defecto basado en núcleos de CPU) para un escaneo eficiente de archivos y directorios.
+        * Coincidencia de Patrones Avanzada: Admite comodines (*, ?), patrones recursivos
+              como **, y estructuras de ruta complejas para consultas precisas de archivos y directorios.
+              **/nombrearchivo solo recursará hasta que se encuentre nombrearchivo. Se permiten múltiples de estos
+              patrones, siempre que estén precedidos por un nombre de archivo o
+              directorio a coincidir.
+              Este analizador de patrones tiene el poder de Resolve-Path pero cuenta con características
+              de recursión, y solo admite * y ? como comodines,
+              evitando errores con rutas que contienen corchetes [ ], eliminando
+              la necesidad del parámetro -LiteralPath, manteniendo la integridad
+              para secciones de ruta sin comodines, a diferencia de una coincidencia de comodín en toda
+              la ruta completa.
+        * Búsqueda Mejorada de Contenido: Integración completa de Select-String
+              con patrones de expresiones regulares dentro del contenido de archivos usando el
+              parámetro -Content.
+            * Optimización para Archivos Grandes: Maneja archivos extremadamente grandes con búferes
+                  superpuestos inteligentes y asignación mínima de montón.
+            * Múltiples Opciones de Coincidencia: Encuentra todas las coincidencias por línea (-AllMatches) o
+                  solo la primera coincidencia por archivo (-List).
+            * Control de Sensibilidad a Mayúsculas: Coincidencia sensible a mayúsculas (-CaseSensitive)
+                  con opciones específicas de cultura (-Culture).
+            * Captura de Contexto: Muestra líneas antes y después de las coincidencias (-Context) para
+                  una mejor comprensión.
+            * Coincidencia Inversa: Encuentra archivos que no contienen el patrón (-NotMatch).
+            * Formatos de Salida: Salida de cadena sin procesar (-Raw), respuesta booleana silenciosa (-Quiet),
+                  o objetos MatchInfo completos.
+            * Tipos de Patrón: Expresiones regulares (por defecto) o coincidencia de cadena literal simple
+                  (-SimpleMatch).
+            * Soporte de Codificación: Especificar codificación de archivo (-Encoding) para un procesamiento
+                  de texto preciso.
+        * Flexibilidad de Tipo de Ruta: Maneja rutas relativas, absolutas, UNC, enraizadas, y
+              flujos de datos alternativos de NTFS (ADS) con búsqueda opcional de contenido en flujos.
+        * Soporte Multi-Unidad: Busca en todas las unidades con -AllDrives o unidades específicas
+              mediante -SearchDrives, incluyendo discos ópticos si se especifica.
+        * Filtrado de Directorios y Archivos: Opciones para buscar solo directorios (-Directory),
+              tanto archivos como directorios (-FilesAndDirectories), o archivos con coincidencia de contenido.
+        * Exclusiones y Límites: Patrones de exclusión con -Exclude, establecer profundidad máxima de recursión
+              (-MaxRecursionDepth), límites de tamaño de archivo (-MaxFileSize, -MinFileSize), y filtros
+              de fecha de modificación (-ModifiedAfter, -ModifiedBefore).
+        * Personalización de Salida: Admite PassThru para objetos FileInfo/DirectoryInfo,
+              rutas relativas, hipervínculos en modo atendido, o rutas simples en modo desatendido
+              (use -NoLinks en caso de contratiempos para forzar el modo desatendido).
+        * Optimizaciones de Rendimiento: Omite archivos no textuales por defecto en búsqueda de contenido
+              (anular con -IncludeNonTextFileMatching), maneja rutas largas (>260 caracteres),
+              y sigue enlaces simbólicos/junctions.
+        * Características de Seguridad: Soporte de tiempo de espera (-TimeoutSeconds), ignora elementos inaccesibles,
+              omite atributos de sistema por defecto, y previene bucles infinitos con seguimiento de nodos visitados.
 
 ## Syntax
 
@@ -96,7 +124,8 @@ Find-Item -Content "translation"
 l -mc translation
 ```
 
-find . -type f -name '*' -exec grep -l 'translation' {} +
+Buscar archivos que contengan una palabra específica
+Buscar todos los archivos en el directorio actual y subdirectorios que contengan la palabra "traducción".
 
 ### Example 2
 
@@ -107,8 +136,8 @@ Find-Item "*.js" "Version == `"\d\d?\.\d\d?\.\d\d?`""
 l *.js "Version == `"\d\d?\.\d\d?\.\d\d?`""
 ```
 
-Find JavaScript files with a version string
-Search for JavaScript files containing a version string in the format "Version == `x.y.z`".
+Buscar archivos JavaScript con una cadena de versión
+Buscar archivos JavaScript que contengan una cadena de versión en el formato "Versión == `x.y.z`".
 
 ### Example 3
 
@@ -119,8 +148,8 @@ Find-Item -Directory
 l -dir
 ```
 
-List all directories
-Find all directories in the current directory and its subdirectories.
+Listar todos los directorios
+Encuentra todos los directorios en el directorio actual y sus subdirectorios.
 
 ### Example 4
 
@@ -132,7 +161,7 @@ l *.xml -pt | % FullName
 ```
 
 Buscar archivos XML y pasar objetos
-Busque todos los archivos .xml y pase los resultados como objetos a través de la canalización.
+Busca todos los archivos .xml y pasa los resultados como objetos a través de la canalización.
 
 ### Example 5
 
@@ -167,8 +196,8 @@ Find-Item "*.log" -TimeoutSeconds 300 -MaxDegreeOfParallelism 4
 l *.log -maxseconds 300 -threads 4
 ```
 
-Tiempo de espera y paralelismo personalizados
-Búsqueda de archivos de registro con un tiempo de espera de 5 minutos y paralelismo limitado.
+Tiempo de espera personalizado y paralelismo
+Busque archivos de registro con un tiempo de espera de 5 minutos y paralelismo limitado.
 
 ### Example 8
 
@@ -179,8 +208,8 @@ Get-ChildItem -Path "C:\Logs" | Find-Item -Content "error"
 ls C:\Logs | l -matchcontent "error"
 ```
 
-Entrada de canalización
-Pase las rutas de archivo desde Get-ChildItem para buscar archivos que contengan "error".
+Entrada de la canalización
+Pase las rutas de archivo de Get-ChildItem para buscar archivos que contengan "error".
 
 ### Example 9
 
@@ -191,7 +220,8 @@ Find-Item "*.txt" -MaxRecursionDepth 2
 l *.txt -maxdepth 2
 ```
 
-find . -maxdepth 2 -name "*.txt"
+Limitar profundidad de recursión
+Buscar archivos de texto pero limitar la recursión a 2 niveles de directorios.
 
 ### Example 10
 
@@ -203,7 +233,7 @@ l -minsize 1048576 -maxsize 10485760
 ```
 
 Filtrar por tamaño de archivo
-Buscar archivos mayores de 1 MB pero menores de 10 MB.
+Buscar archivos de más de 1 MB pero menos de 10 MB.
 
 ### Example 11
 
@@ -239,7 +269,7 @@ l *.docx -drives C:\, D:\
 ```
 
 Buscar unidades específicas
-Buscar archivos .docx solo en las unidades C: y D:.
+Buscar archivos .docx solo en las unidades C: y D:
 
 ### Example 14
 
@@ -250,8 +280,8 @@ Find-Item -Content "Error" -CaseSensitive
 l -mc "Error" -CaseSensitive
 ```
 
-Case-sensitive content search
-Search for files containing "Error" (case-sensitive) in their content.
+Búsqueda de contenido que distingue mayúsculas y minúsculas
+Buscar archivos que contengan "Error" (distinguiendo mayúsculas y minúsculas) en su contenido.
 
 ### Example 15
 
@@ -262,7 +292,7 @@ Find-Item -IncludeAlternateFileStreams -SearchADSContent -Content "secret"
 l -ads -sads -mc "secret"
 ```
 
-Buscar contenido de flujos de datos alternativos
+Buscar contenido de flujo de datos alternativo
 Buscar archivos con flujos de datos alternativos que contengan "secret".
 
 ### Example 16
@@ -274,7 +304,8 @@ Find-Item "*.ps1" -Content "function" -AllMatches
 l *.ps1 -mc "function" -AllMatches
 ```
 
-Search for all occurrences of "function" in each line, not just the first match.
+Encuentra todas las coincidencias por línea
+Busca todas las apariciones de "function" en cada línea, no solo la primera coincidencia.
 
 ### Example 17
 
@@ -285,8 +316,8 @@ Find-Item "*.log" -Content "error" -Context 2,3
 l *.log -mc "error" -Context 2,3
 ```
 
-Show context around matches
-Display 2 lines before and 3 lines after each match for better understanding.
+Mostrar contexto alrededor de las coincidencias
+Muestra 2 líneas antes y 3 líneas después de cada coincidencia para una mejor comprensión.
 
 ### Example 18
 
@@ -297,8 +328,8 @@ Find-Item "*.txt" -Content "TODO:.*" -Raw
 l *.txt -mc "TODO:.*" -Raw
 ```
 
-Get only matching strings
-Return just the matching text strings instead of full match objects.
+Obtener solo cadenas coincidentes
+Devuelve solo las cadenas de texto coincidentes en lugar de objetos completos de coincidencia.
 
 ### Example 19
 
@@ -309,7 +340,7 @@ Find-Item "*.config" -Content "database" -Quiet
 l *.config -mc "database" -Quiet
 ```
 
-Comprobación booleana simple
+Verificación booleana simple
 Devuelve verdadero/falso en lugar de detalles de coincidencia para verificar si existe un patrón.
 
 ### Example 20
@@ -321,8 +352,8 @@ Find-Item "*.cs" -Content "class.*Controller" -List
 l *.cs -mc "class.*Controller" -List
 ```
 
-Encontrar solo la primera coincidencia por archivo
-Detenerse en la primera coincidencia en cada archivo para un listado eficiente.
+Encuentra solo la primera coincidencia por archivo
+Detente en la primera coincidencia de cada archivo para listar archivos de manera eficiente.
 
 ### Example 21
 
@@ -346,7 +377,7 @@ l *.js -mc "console\.log" -NotMatch
 ```
 
 Buscar archivos que NO contengan un patrón
-Use NotMatch para encontrar archivos que no contengan el patrón especificado.
+Usa NotMatch para encontrar archivos que no contengan el patrón especificado.
 
 ### Example 23
 
@@ -357,7 +388,7 @@ Find-Item "*.txt" -Content "café" -Encoding UTF8
 l *.txt -mc "café" -Encoding UTF8
 ```
 
-Especificar codificación de archivos
+Especificar codificación de archivo
 Buscar archivos con codificación específica para un procesamiento de texto preciso.
 
 ### Example 24
@@ -382,7 +413,7 @@ l *.log -mc "exception" -minsize 1024 -after "2025-01-01" -maxdepth 3
 ```
 
 Búsqueda compleja de contenido con filtros de archivo
-Combina filtros de tamaño, fecha y contenido para búsquedas precisas.
+Combine filtros de tamaño, fecha y contenido de archivos para búsquedas precisas.
 
 ## Related Links
 

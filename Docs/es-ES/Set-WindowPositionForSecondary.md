@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ubica una ventana en el monitor secundario con opciones de diseño especificadas.
+
+## Description
+
+Esta función permite posicionar ventanas en un monitor secundario configurado usando
+Set-WindowPosition con varias opciones de diseño, incluyendo alineación, tamaño y
+configuraciones de borde. Maneja la selección del monitor basada en la configuración global y
+proporciona un envoltorio conveniente para el posicionamiento de ventanas en el monitor secundario.
 
 ## Syntax
 
@@ -44,6 +51,21 @@ Set-WindowPositionForSecondary [[-Process] <Diagnostics.Process[]>] [-Bottom] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utilice ajustes alternativos almacenados en la sesión para las preferencias de IA |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `     -Centered -NoBorders
+
+```powershell
+Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `
+    -Centered -NoBorders
+```
+
+### wps notepad -w 800 -h 600 -c -nb
+
+```powershell
+wps notepad -w 800 -h 600 -c -nb
+```
 
 ## Related Links
 

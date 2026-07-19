@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula a frequência de ressonância para um tubo fechado.
+
+## Description
+
+Usa f = v / (4 L) para a frequência fundamental.
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-ResonantFrequencyByLengthAndSpeed [-LengthInMeters] <double> [-Medium] <stri
 | `-SpeedInMetersPerSecond` | Double | ✅ | — | 1 | `0` | Velocidade da onda em m/s *(Parameter set: )* |
 | `-Medium` | String | ✅ | — | 1 | — | O meio *(Parameter set: )* |
 | `-As` | String | — | — | 2 | — | Output unit for frequency |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ResonantFrequencyByLengthAndSpeed -LengthInMeters 0.5 -Medium "air" -As "kilohertz"
+```
+
+Calcula a frequência ressonante para um tubo de 0,5 metro no ar, saída em quilohertz.
+
+### Example 2
+
+```powershell
+Get-ResonantFrequencyByLengthAndSpeed 1 -SpeedInMetersPerSecond 343
+```
+
+Calcula a frequência de ressonância para um tubo de 1 metro com velocidade do som de 343 m/s.
 
 ## Related Links
 

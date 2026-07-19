@@ -4,12 +4,25 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens a video of a movie quote in a web browser.
+
+## Description
+
+Ищет и открывает цитаты из фильмов с помощью playphrase.me, позволяя указать настройки монитора и браузера. Эта функция предоставляет доступ к обширной базе цитат из фильмов с видеоклипами, поддерживает несколько языков и расширенные возможности настройки браузера.
+
+Основные возможности:
+- Поиск цитат из фильмов в обширной базе данных
+- Поддержка нескольких языков с автоматическим определением языка
+- Продвинутое управление положением и размером окна браузера
+- Поддержка нескольких браузеров (Edge, Chrome, Firefox)
+- Режим приватного просмотра
+- Автоматизация клавиатуры для взаимодействия с браузером
+- Поддержка нескольких мониторов с точным позиционированием
 
 ## Syntax
 
 ```powershell
-Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +37,9 @@ Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>
 | `-Chrome` | SwitchParameter | — | — | Named | — | Открывается в Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Открывается в Microsoft Edge или Google Chrome, в зависимости от того, какой браузер установлен по умолчанию |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Открывается в Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Используйте браузер, управляемый Playwright, вместо браузера, установленного в ОС |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Открывает браузер WebKit, управляемый Playwright. Подразумевает -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Запустите браузер без видимого окна |
 | `-All` | SwitchParameter | — | — | Named | — | Открывается во всех зарегистрированных современных браузерах |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Используемый монитор: 0 = по умолчанию, -1 = отключить, -2 = настроенный вторичный монитор, по умолчанию -1, без позиционирования |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Открывается в полноэкранном режиме |
@@ -59,6 +75,40 @@ Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | https://example.com |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | После открытия веб-браузера верните URL |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Расположите окно браузера либо на весь экран на другом мониторе, отличном от PowerShell, либо рядом с PowerShell на одном мониторе. |
+
+## Examples
+
+### Open-MovieQuote -Queries "I'll be back"
+
+```powershell
+Open-MovieQuote -Queries "I'll be back"
+```
+
+Opens a search for the famous Terminator quote "I'll be back".
+
+### Open-MovieQuote -Queries "Here's looking at you kid" -Monitor 1
+
+```powershell
+Open-MovieQuote -Queries "Here's looking at you kid" -Monitor 1
+```
+
+Открывает поиск по цитате из Касабланки на мониторе 1.
+
+### moviequote "May the Force be with you" -Language "English" -Private
+
+```powershell
+moviequote "May the Force be with you" -Language "English" -Private
+```
+
+Открывает поиск цитаты из «Звёздных войн» на английском языке в приватном режиме браузера.
+
+### "I'll be back", "Frankly, my dear" | Open-MovieQuote -Chrome -FullScreen
+
+```powershell
+"I'll be back", "Frankly, my dear" | Open-MovieQuote -Chrome -FullScreen
+```
+
+Открывает несколько поисков цитат из фильмов в полноэкранном режиме Chrome через конвейер.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Übersetzt Text mithilfe von KI in eine andere Sprache.
+
+## Description
+
+Diese Funktion übersetzt Eingabetext mithilfe von KI-Modellen in eine bestimmte Zielsprache. Sie kann Eingaben direkt über Parameter, aus der Pipeline oder aus der Systemzwischenablage akzeptieren. Die Funktion bewahrt Formatierung und Stil während der Übersetzung.
 
 ## Syntax
 
@@ -79,6 +83,20 @@ Get-TextTranslation [[-Text] <String>] [[-Instructions] <String>] [[-Attachments
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLM) |
 | `-NoCache` | SwitchParameter | — | — | Named | — | Übersetzungs-Cache überspringen; immer die LLM-API aufrufen |
 | `-ClearCache` | SwitchParameter | — | — | Named | — | Lösche den gesamten Übersetzungs-Cache für alle Sprachen |
+
+## Examples
+
+### Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+
+```powershell
+Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+```
+
+### "Bonjour" | translate -Language "English"
+
+```powershell
+"Bonjour" | translate -Language "English"
+```
 
 ## Outputs
 

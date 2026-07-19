@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Toggles the pause/play state of the VLC Media Player.
+
+## Description
+
+This function sends a space key to VLC Media Player to toggle between paused
+and playing states. It automatically restores focus to the original window
+after sending the key command.
 
 ## Syntax
 
@@ -32,6 +38,32 @@
 
     }
 ```
+
+## Examples
+
+### Switch-VLCMediaPlayerPaused
+
+```powershell
+Switch-VLCMediaPlayerPaused
+```
+
+Toggles the pause/play state of VLC Media Player.
+
+### vlcpause
+
+```powershell
+vlcpause
+```
+
+Uses the alias to toggle the pause/play state.
+
+### vlcplay
+
+```powershell
+vlcplay
+```
+
+Uses the alternate alias to toggle the pause/play state.
 
 ## Related Links
 

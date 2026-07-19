@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Liest JSON-Datei mit Wiederholungslogik und automatischer Lock-Bereinigung.
+
+## Description
+
+Versucht, eine JSON-Datei mit Wiederholungslogik zu lesen, um gleichzeitigen Zugriff zu handhaben. Implementiert automatische Bereinigung veralteter Sperrdateien. Gibt eine leere Hashtabelle zurück, wenn die Datei nicht existiert.
 
 ## Syntax
 

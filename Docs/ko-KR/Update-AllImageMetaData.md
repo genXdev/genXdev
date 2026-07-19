@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 여러 시스템 디렉터리에서 이미지 키워드, 얼굴, 객체 및 장면을 일괄 업데이트합니다.
+
+## Description
+
+이 함수는 시스템의 다양한 디렉터리에서 이미지를 체계적으로 처리하여 AI 서비스를 사용해 키워드, 얼굴 인식 데이터, 객체 감지 데이터 및 장면 분류 데이터를 업데이트합니다. 미디어 저장소, 시스템 파일, 다운로드, OneDrive 및 개인 사진 폴더를 포함합니다.
+
+함수는 각 디렉터리를 탐색하고 개별적으로 파일을 처리하여 이미지를 처리합니다. DeepStack 기능(얼굴, 객체, 장면)이 먼저 수행된 다음 키워드 및 설명 생성이 이어집니다.
+
+이를 통해 다음과 같은 파이프라인 작업을 위한 구조화된 데이터 출력이 가능합니다:
+Update-AllImageMetaData | Export-ImageIndex
 
 ## Syntax
 
@@ -42,6 +51,28 @@ Update-AllImageMetaData -ImageDirectories <String[]> [-ApiEndpoint <String>] [-A
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | AI 기본 설정(예: 언어, 이미지 컬렉션 등)을 세션에 저장된 대체 설정으로 사용합니다. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 지웁니다. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 사용하지 마세요 |
+
+## Examples
+
+### Update-AllImageMetaData -ImageDirectories @("C:\Pictures", "D:\Photos") `     -ServicePort 5000
+
+```powershell
+Update-AllImageMetaData -ImageDirectories @("C:\Pictures", "D:\Photos") `
+    -ServicePort 5000
+```
+
+### Update-AllImageMetaData -RetryFailed -Force -Language "Spanish"
+
+```powershell
+Update-AllImageMetaData -RetryFailed -Force -Language "Spanish"
+```
+
+### updateallimages @("C:\MyImages") -ContainerName "custom_face_recognition" ##############################################################################
+
+```powershell
+updateallimages @("C:\MyImages") -ContainerName "custom_face_recognition"
+##############################################################################
+```
 
 ## Related Links
 

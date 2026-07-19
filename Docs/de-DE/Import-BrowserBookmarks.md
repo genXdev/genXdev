@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Importiert Lesezeichen aus einer Datei oder Sammlung in einen Webbrowser.
+
+## Description
+
+Importiert Lesezeichen in Microsoft Edge oder Google Chrome aus einer CSV-Datei oder einer Sammlung von Lesezeichenobjekten. Die Lesezeichen werden der Lesezeichenleiste des Browsers oder angegebenen Ordnern hinzugefügt. Der Firefox-Import wird derzeit nicht unterstützt.
 
 ## Syntax
 
@@ -25,6 +29,29 @@ Import-BrowserBookmarks [-Chrome] [-Edge] [-Firefox] [<CommonParameters>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | In Google Chrome importieren |
 | `-Edge` | SwitchParameter | — | — | Named | — | Import in Microsoft Edge |
 | `-Firefox` | SwitchParameter | — | — | Named | — | In Firefox importieren (nicht unterstützt) |
+
+## Examples
+
+### Import-BrowserBookmarks -InputFile "C:\MyBookmarks.csv" -Edge Imports bookmarks from the CSV file into Microsoft Edge.
+
+```powershell
+Import-BrowserBookmarks -InputFile "C:\MyBookmarks.csv" -Edge
+Imports bookmarks from the CSV file into Microsoft Edge.
+```
+
+### $bookmarks = @(     @{         Name = "Microsoft";         URL = "https://microsoft.com";         Folder = "Tech"     } ) Import-BrowserBookmarks -Bookmarks $bookmarks -Chrome Imports a collection of bookmarks into Google Chrome.
+
+```powershell
+$bookmarks = @(
+    @{
+        Name = "Microsoft";
+        URL = "https://microsoft.com";
+        Folder = "Tech"
+    }
+)
+Import-BrowserBookmarks -Bookmarks $bookmarks -Chrome
+Imports a collection of bookmarks into Google Chrome.
+```
 
 ## Related Links
 

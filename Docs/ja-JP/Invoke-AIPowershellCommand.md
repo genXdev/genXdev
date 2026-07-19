@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AIアシスタンスを使用してPowerShellコマンドを生成・実行します。
+
+## Description
+
+AIモデルを使用して、自然言語クエリに基づいてPowerShellコマンドを生成します。この関数は、コマンドをPowerShellウィンドウに直接送信するか、クリップボードにコピーすることができます。さまざまなAIバックエンドの包括的なパラメータサポートを利用して、自然言語を解釈し、実行可能なPowerShellコマンドに変換します。
 
 ## Syntax
 
@@ -65,6 +69,32 @@ Invoke-AIPowershellCommand -Query <String> [[-Attachments] <String[]>] [-AllowDe
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | フィルター用マークアップブロックタイプ（LLMQueryに渡される） |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 最大ツールコールバック長（LLMQueryに渡される） |
+
+## Examples
+
+### Invoke-AIPowershellCommand -Query "list all running processes"
+
+```powershell
+Invoke-AIPowershellCommand -Query "list all running processes"
+```
+
+実行中のプロセスを一覧表示するPowerShellコマンドを生成します
+
+### hint "list files modified today"
+
+```powershell
+hint "list files modified today"
+```
+
+エイリアスを使用して、今日変更されたファイルを検索するコマンドを生成します。
+
+### Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+
+```powershell
+Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+```
+
+サービスを停止するコマンドを生成し、クリップボードにコピーします。
 
 ## Outputs
 

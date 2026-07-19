@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Entfernt rekursiv alle Inhalte eines Verzeichnisses mit erweiterter Fehlerbehandlung.
+
+## Description
+
+Entfernt sicher alle Dateien und Unterverzeichnisse innerhalb eines angegebenen Verzeichnisses unter Verwendung einer Reverse-Order-Löschstrategie, um tiefe Pfade zu handhaben. Enthält WhatIf-Unterstützung, ausführliche Protokollierung und alternative Löschmethoden für gesperrte Dateien.
 
 ## Syntax
 
@@ -17,7 +21,21 @@ Remove-AllItems -Path <String> [-DeleteFolder] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Path` | String | ✅ | ✅ (ByValue, ByPropertyName) | 0 | — | Der zu leerende Verzeichnispfad |
-| `-DeleteFolder` | SwitchParameter | — | — | 1 | — | Löschen Sie auch das Stammverzeichnis, das mit dem Path-Parameter angegeben wurde |
+| `-DeleteFolder` | SwitchParameter | — | — | Named | — | Löschen Sie auch das Stammverzeichnis, das mit dem Path-Parameter angegeben wurde |
+
+## Examples
+
+### Remove-AllItems -Path "C:\Temp\BuildOutput" -DeleteFolder -Verbose
+
+```powershell
+Remove-AllItems -Path "C:\Temp\BuildOutput" -DeleteFolder -Verbose
+```
+
+### sdel ".\temp" -DeleteFolder
+
+```powershell
+sdel ".\temp" -DeleteFolder
+```
 
 ## Related Links
 

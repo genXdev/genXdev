@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converts diplomatic or tactful language into direct, clear, and straightforward language.
+
+## Description
+
+This function decodes diplomatic language to expose the true meaning behind polite or politically correct speech. It uses AI language models to turn euphemistic expressions into direct statements, making communication clear and unambiguous. This function is especially useful for analyzing political statements, business communications, or any text where the real meaning may be hidden by diplomatic language.
 
 ## Syntax
 
@@ -77,6 +81,28 @@ ConvertFrom-DiplomaticSpeak [[-Text] <String>] [[-Instructions] <String>] [-Allo
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | The `-OutputMarkdownBlocksOnly` parameter. |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types in AI output. |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 工具调用的最大回调长度。 |
+
+## Examples
+
+### ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your approach"
+
+```powershell
+ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your
+approach"
+```
+
+### undiplomatize "Your proposal has merit but requires further consideration"
+
+```powershell
+undiplomatize "Your proposal has merit but requires further consideration"
+```
+
+### "We're putting you on timeout" |     ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+
+```powershell
+"We're putting you on timeout" |
+    ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+```
 
 ## Outputs
 

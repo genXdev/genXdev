@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Cria um novo conjunto de refatoração para tarefas de transformação de código.
+
+## Description
+
+Cria e configura uma nova definição de refatoração com configurações especificadas para transformações de código baseadas em LLM. A função trata de:
+- Configuração da refatoração
+- Configuração de critérios de seleção e prompts
+- Gerenciamento de configurações do modelo LLM
+- Integração com ambientes de desenvolvimento
+- Persistência de definições de refatoração
 
 ## Syntax
 
@@ -40,6 +49,22 @@ New-Refactor -Name <String> -PromptKey <String> [[-Prompt] <String>] [[-Selectio
 | `-Code` | SwitchParameter | — | — | Named | — | Abrir arquivos no Visual Studio Code |
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | Abrir no Visual Studio |
 | `-KeysToSend` | String[] | — | — | Named | `@()` | Toques de tecla a serem enviados após abrir arquivos |
+
+## Examples
+
+### New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `     -SelectionScript "Get-LoggingMethods" -Priority 1 `     -Code
+
+```powershell
+New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `
+    -SelectionScript "Get-LoggingMethods" -Priority 1 `
+    -Code
+```
+
+### newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+
+```powershell
+newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+```
 
 ## Related Links
 

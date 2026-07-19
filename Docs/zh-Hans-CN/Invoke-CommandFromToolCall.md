@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 执行带验证和参数过滤的工具调用函数。
+
+## Description
+
+此函数通过验证参数、过滤参数并执行带有适当确认处理的回调来处理工具调用。它支持脚本块和命令信息回调。
 
 ## Syntax
 
@@ -21,6 +25,21 @@ Invoke-CommandFromToolCall -ToolCall <Collections.Hashtable> [-ExposedCmdLets <G
 | `-ExposedCmdLets` | GenXdev.Helpers.ExposedCmdletDefinition[] | — | — | Named | `@()` | 用作工具的 PowerShell 命令定义数组 |
 | `-NoConfirmationToolFunctionNames` | String[] | — | — | Named | `@()` | 无需确认的命令名称数组 |
 | `-ForceAsText` | SwitchParameter | — | — | Named | — | Force output as text |
+
+## Examples
+
+### Invoke-CommandFromToolCall -ToolCall $toolCall -Functions $functions `     -ExposedCmdLets $exposedCmdlets
+
+```powershell
+Invoke-CommandFromToolCall -ToolCall $toolCall -Functions $functions `
+    -ExposedCmdLets $exposedCmdlets
+```
+
+### $result = Invoke-CommandFromToolCall $toolCall $functions -ForceAsText
+
+```powershell
+$result = Invoke-CommandFromToolCall $toolCall $functions -ForceAsText
+```
 
 ## Related Links
 

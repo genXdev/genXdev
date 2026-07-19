@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Analyzer Text on logische Fehlschlüsse mittels KI-gestützter Erkennung.
+
+## Description
+
+Diese Funktion analysiert bereitgestellten Text, um logische Trugschlüsse mithilfe eines KI-Modells zu erkennen, das auf der Wikipedia-Liste der Trugschlüsse trainiert wurde. Sie gibt detaillierte Informationen zu jedem gefundenen Trugschluss zurück, einschließlich des spezifischen Zitats, des Namens des Trugschlusses, einer Beschreibung, Erklärung und formalen Klassifikation. Die Funktion verwendet ein strukturiertes Antwortformat, um eine konsistente Ausgabe zu gewährleisten.
 
 ## Syntax
 
@@ -95,6 +99,33 @@ Get-Fallacy -InputObject <Object> [[-Instructions] <String>] [[-Attachments] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | In der Sitzung gespeicherte alternative Einstellungen für KI-Präferenzen löschen |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Nur Einstellungen in dauerhaften Präferenzen speichern, ohne die Sitzung zu beeinflussen |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale Rückruflänge für Tool-Aufrufe. |
+
+## Examples
+
+### Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " + "and he was a politician")
+
+```powershell
+Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " +
+"and he was a politician")
+```
+
+Analysiert den bereitgestellten Text auf logische Trugschlüsse und gibt strukturierte Informationen über alle erkannten Trugschlüsse zurück.
+
+### "This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+
+```powershell
+"This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+```
+
+Uses pipeline input to analyze text with low temperature for focused analysis.
+
+### dispicetext "Everyone knows this is true"
+
+```powershell
+dispicetext "Everyone knows this is true"
+```
+
+This alias is used to analyze text for logical fallacies.
 
 ## Outputs
 

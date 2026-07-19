@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Démarre l'écran de veille Windows configuré.
+
+## Description
+
+Active l'économiseur d'écran du système Windows en exécutant l'exécutable d'économiseur d'écran par défaut (scrnsave.scr) avec le commutateur /s pour le démarrer immédiatement.
 
 ## Syntax
 
@@ -26,6 +30,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### Enable-Screensaver
+
+```powershell
+Enable-Screensaver
 ```
 
 ## Related Links

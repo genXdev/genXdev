@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sucht nach einem GenXdev-Cmdlet und öffnet es optional in einer IDE zur Bearbeitung.
+
+## Description
+
+Diese Funktion sucht nach GenXdev-Cmdlets mithilfe eines Musters und öffnet optional die Quelldatei des gefundenen Cmdlets in Visual Studio Code oder Visual Studio zur Bearbeitung. Sie ruft Cmdlet-Informationen ab und bietet Tastaturkürzel, um schnell zur Funktionsdefinition zu navigieren.
 
 ## Syntax
 
@@ -24,6 +28,22 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-Code]
 | `-Code` | SwitchParameter | — | — | Named | — | Öffnen Sie das gefundene Cmdlet in Visual Studio Code. |
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | Öffnen Sie das gefundene Cmdlet in Visual Studio |
 | `-EditCmdlet` | SwitchParameter | — | — | Named | — | Öffnet die Datei auch im Editor, nachdem sie gefunden wurde |
+
+## Examples
+
+### Search-GenXdevCmdlet -CmdletName "Get-*" -Code Opens first matching cmdlet starting with "Get-" in Visual Studio Code.
+
+```powershell
+Search-GenXdevCmdlet -CmdletName "Get-*" -Code
+Opens first matching cmdlet starting with "Get-" in Visual Studio Code.
+```
+
+### searchcmdlet "Set-GitConfig" -EditCmdlet Searches for Set-GitConfig cmdlet and opens it for editing.
+
+```powershell
+searchcmdlet "Set-GitConfig" -EditCmdlet
+Searches for Set-GitConfig cmdlet and opens it for editing.
+```
 
 ## Related Links
 

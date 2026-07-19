@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> ファイルまたはコレクションからブックマークをウェブブラウザにインポートします。
+
+## Description
+
+CSVファイルまたはブックマークオブジェクトのコレクションから、Microsoft EdgeまたはGoogle Chromeにブックマークをインポートします。ブックマークはブラウザのブックマークバーまたは指定されたフォルダに追加されます。Firefoxからのインポートは現在サポートされていません。
 
 ## Syntax
 
@@ -25,6 +29,29 @@ Import-BrowserBookmarks [-Chrome] [-Edge] [-Firefox] [<CommonParameters>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome にインポート |
 | `-Edge` | SwitchParameter | — | — | Named | — | Microsoft Edge にインポート |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox にインポート（非対応） |
+
+## Examples
+
+### Import-BrowserBookmarks -InputFile "C:\MyBookmarks.csv" -Edge Imports bookmarks from the CSV file into Microsoft Edge.
+
+```powershell
+Import-BrowserBookmarks -InputFile "C:\MyBookmarks.csv" -Edge
+Imports bookmarks from the CSV file into Microsoft Edge.
+```
+
+### $bookmarks = @(     @{         Name = "Microsoft";         URL = "https://microsoft.com";         Folder = "Tech"     } ) Import-BrowserBookmarks -Bookmarks $bookmarks -Chrome Imports a collection of bookmarks into Google Chrome.
+
+```powershell
+$bookmarks = @(
+    @{
+        Name = "Microsoft";
+        URL = "https://microsoft.com";
+        Folder = "Tech"
+    }
+)
+Import-BrowserBookmarks -Bookmarks $bookmarks -Chrome
+Imports a collection of bookmarks into Google Chrome.
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Gaat naar het vorige item in de afspeellijst van VLC Media Player.
+
+## Description
+
+Deze functie stuurt de 'p'-toetsopdracht naar VLC Media Player om naar het vorige item in de huidige afspeellijst te navigeren. De functie ondersteunt WhatIf-bewerkingen en herstelt de focus na het verzenden van de opdracht.
 
 ## Syntax
 
@@ -33,6 +37,26 @@
     end {
 
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerPreviousInPlaylist
+
+```powershell
+Start-VlcMediaPlayerPreviousInPlaylist
+```
+
+### vlcprev
+
+```powershell
+vlcprev
+```
+
+### vlcback
+
+```powershell
+vlcback
 ```
 
 ## Related Links

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Classificeert een afbeelding in een van 365 scènekategorieën met behulp van DeepStack.
+
+## Description
+
+Deze functie analyseert een afbeeldingsbestand om het te classificeren in een van de 365 verschillende scènecategorieën. Het gebruikt een lokale DeepStack-scèneherkennings-API die draait op een configureerbare poort en retourneert de scèneclassificatie met een betrouwbaarheidsscore. De functie ondersteunt GPU-versnelling en Docker-containerbeheer.
 
 ## Syntax
 
@@ -28,6 +32,36 @@ Get-ImageDetectedScenes -ImagePath <String> [[-ConfidenceThreshold] <Double>] [[
 | `-Force` | SwitchParameter | — | — | Named | — | Force rebuild of Docker container and remove existing data |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Gebruik GPU-versnelde versie (vereist NVIDIA GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Toon Docker Desktop-venster tijdens initialisatie |
+
+## Examples
+
+### Get-ImageDetectedScenes -ImagePath "C:\Users\YourName\landscape.jpg" Classifies the scene in the specified image using default settings.
+
+```powershell
+Get-ImageDetectedScenes -ImagePath "C:\Users\YourName\landscape.jpg"
+Classifies the scene in the specified image using default settings.
+```
+
+### Get-ImageDetectedScenes -ImagePath "C:\photos\vacation.jpg" -ConfidenceThreshold 0.6 -UseGPU Classifies the scene using GPU acceleration and only accepts results with confidence >= 60%.
+
+```powershell
+Get-ImageDetectedScenes -ImagePath "C:\photos\vacation.jpg" -ConfidenceThreshold 0.6 -UseGPU
+Classifies the scene using GPU acceleration and only accepts results with confidence >= 60%.
+```
+
+### Get-ImageDetectedScenes -ImagePath "C:\photos\vacation.jpg" -UseGPU Classifies the scene using GPU acceleration for faster processing.
+
+```powershell
+Get-ImageDetectedScenes -ImagePath "C:\photos\vacation.jpg" -UseGPU
+Classifies the scene using GPU acceleration for faster processing.
+```
+
+### "C:\Users\YourName\beach.jpg" | Get-ImageDetectedScenes Pipeline support for processing multiple images.
+
+```powershell
+"C:\Users\YourName\beach.jpg" | Get-ImageDetectedScenes
+Pipeline support for processing multiple images.
+```
 
 ## Related Links
 

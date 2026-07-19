@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> ✨ Enhances text by adding contextually appropriate emoticons using AI! 🎯🤖💬
+
+## Description
+
+この関数は入力テキストを処理し、感情的な文脈に合った絵文字を追加します。パラメータ、パイプライン、またはシステムのクリップボードから直接入力を受け付けることができます。この関数はAIモデルを活用してテキストを分析し、適切な絵文字を選択することで、メッセージをより表現豊かで魅力的にします。
 
 ## Syntax
 
@@ -66,6 +70,21 @@ Add-EmoticonsToText [[-Text] <String>] [[-Instructions] <String>] [[-Attachments
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | フィルター用マークアップブロックタイプ（LLMQueryに渡される） |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 最大ツールコールバック長（LLMQueryに渡される） |
+
+## Examples
+
+### Add-EmoticonsToText -Text "Hello, how are you today?" -SetClipboard
+
+```powershell
+Add-EmoticonsToText -Text "Hello, how are you today?" -SetClipboard
+```
+
+### "Time to celebrate!" | emojify ##############################################################################
+
+```powershell
+"Time to celebrate!" | emojify
+##############################################################################
+```
 
 ## Outputs
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 첫 번째로 일치하는 파일 또는 폴더를 찾아 해당 위치로 설정합니다.
+
+## Description
+
+이 cmdlet은 검색어를 사용하여 일치하는 첫 번째 폴더 또는 파일(선택 사항)을 빠르게 찾고 해당 디렉터리로 이동하여 디렉터리를 신속하게 변경할 수 있도록 도와줍니다. 콘텐츠, 파일 특성, 크기, 수정 날짜 및 기타 여러 조건에 따른 고급 필터링을 지원합니다.
 
 ## Syntax
 
@@ -55,6 +59,48 @@ Set-FoundLocation [[-Content] <String[]>] [-CaseSensitive] [-Culture <String>] [
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | cmdlet이 정규식 일치 대신 단순 일치를 사용함을 나타냅니다. 단순 일치에서 Select-String은 Pattern 매개 변수의 텍스트에 대해 입력을 검색합니다. Pattern 매개 변수 값을 정규식 문으로 해석하지 않습니다. *(Parameter set: )* |
 | `-Push` | SwitchParameter | — | — | Named | — | Use Push-Location instead of Set-Location and push the location onto the location stack |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | 설정된 경우 정확한 이름 일치만 고려됩니다. 기본적으로 이름에 와일드카드 문자가 포함되어 있지 않으면 와일드카드 일치가 사용됩니다. |
+
+## Examples
+
+### Set-FoundLocation *.Console
+
+```powershell
+Set-FoundLocation *.Console
+```
+
+'*.Console' 패턴과 일치하는 첫 번째 디렉토리 변경 사항.
+
+### lcd *.Console
+
+```powershell
+lcd *.Console
+```
+
+패턴 '*.Console'과 일치하는 첫 번째 디렉토리에 대한 변경 사항을 별칭을 사용하여 적용합니다.
+
+### Set-FoundLocation -Name "*.ps1" -Content "function"
+
+```powershell
+Set-FoundLocation -Name "*.ps1" -Content "function"
+```
+
+'function'이라는 단어를 포함하는 첫 번째 PowerShell 파일이 있는 디렉터리로 변경됩니다.
+
+### Set-FoundLocation *test* -File
+
+```powershell
+Set-FoundLocation *test* -File
+```
+
+이름에 'test'가 포함된 첫 번째 파일이 있는 디렉토리로 변경합니다.
+
+### Set-FoundLocation * '1\.\d+\.2025'
+
+```powershell
+Set-FoundLocation * '1\.\d+\.2025'
+```
+
+내용이 '1.\d+\.2025' 패턴과 일치하는 첫 번째 파일이 포함된 디렉터리 변경 사항입니다.
 
 ## Related Links
 

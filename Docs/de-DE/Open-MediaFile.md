@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Öffnet und spielt Mediendateien mit dem VLC Media Player ab, mit erweiterten Filter- und Konfigurationsoptionen.
+
+## Description
+
+Diese Funktion durchsucht Medien nach Suchmustern, erstellt eine Playlist und startet den VLC Media Player mit umfassenden Konfigurationsoptionen. Sie unterstützt Videos, Audiodateien und Bilder mit automatischer VLC-Installation bei Bedarf. Die Funktion bietet umfangreiche Steuerungsmöglichkeiten für das Abspielverhalten, die Fensterpositionierung, Audio-/Video-Einstellungen und die Untertitelverwaltung.
 
 ## Syntax
 
@@ -111,6 +115,32 @@ Open-MediaFile [[-Name] <String[]>] [[-Width] <Int32>] [[-Height] <Int32>] [[-X]
 | `-PassThru` | SwitchParameter | — | — | Named | — | Gibt die durch die Suche gefundenen Dateien zurück |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | Gibt die durch die Suche gefundenen Dateien zurück, ohne VLC zu öffnen |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | Gibt das Fenster-Hilfsobjekt für jeden Prozess zurück |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+Öffnet alle Mediendateien im aktuellen Verzeichnis mit den Standard-VLC-Einstellungen.
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+Öffnet nur Bilddateien aus dem Ordner Bilder im Vollbildmodus mit dem Alias 'vlcmedia'.
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+Öffnet Videodateien mit aktivierter Schleifenfunktion über den Alias 'media'.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcule la force de poussée.
+
+## Description
+
+Utilise F = ρ V g.
 
 ## Syntax
 

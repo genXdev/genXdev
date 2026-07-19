@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 跨多个系统目录批量更新图片关键词、人脸、物体及场景。
+
+## Description
+
+此函数通过AI服务系统性地处理各系统目录中的图片，以更新其关键词、人脸识别数据、物体检测数据和场景分类数据。涵盖的目录包括媒体存储、系统文件、下载、OneDrive及个人图片文件夹。
+
+该函数逐目录处理图片，对每个文件单独进行操作。首先执行DeepStack功能（人脸、物体、场景），随后生成关键词和描述。
+
+这可为以下流水线操作提供结构化数据输出：
+Update-AllImageMetaData | Export-ImageIndex
 
 ## Syntax
 
@@ -42,6 +51,28 @@ Update-AllImageMetaData -ImageDirectories <String[]> [-ApiEndpoint <String>] [-A
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的AI偏好替代设置，如语言、图像收藏等 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 不要使用存储在会话中的替代设置来处理AI偏好，如语言、图像集合等 |
+
+## Examples
+
+### Update-AllImageMetaData -ImageDirectories @("C:\Pictures", "D:\Photos") `     -ServicePort 5000
+
+```powershell
+Update-AllImageMetaData -ImageDirectories @("C:\Pictures", "D:\Photos") `
+    -ServicePort 5000
+```
+
+### Update-AllImageMetaData -RetryFailed -Force -Language "Spanish"
+
+```powershell
+Update-AllImageMetaData -RetryFailed -Force -Language "Spanish"
+```
+
+### updateallimages @("C:\MyImages") -ContainerName "custom_face_recognition" ##############################################################################
+
+```powershell
+updateallimages @("C:\MyImages") -ContainerName "custom_face_recognition"
+##############################################################################
+```
 
 ## Related Links
 

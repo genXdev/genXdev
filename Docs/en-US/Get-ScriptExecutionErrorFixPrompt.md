@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Captures error messages from various streams and uses LLM to suggest fixes.
+
+## Description
+
+This cmdlet captures error messages from various PowerShell streams (pipeline
+input, verbose, information, error, and warning) and formulates a structured
+prompt for an LLM to analyze and suggest fixes. It then invokes the LLM query
+and returns the suggested solution.
 
 ## Syntax
 
@@ -61,6 +68,25 @@ Get-ScriptExecutionErrorFixPrompt -Script <ScriptBlock> [-ApiEndpoint <String>] 
 | `-NoContext` | Object | — | — | Named | — | Do not use context for LLM query. |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | Use beam search sampling strategy. |
 | `-OnlyResponses` | Object | — | — | Named | — | Return only responses from LLM. |
+
+## Examples
+
+### $errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {     My-ScriptThatFails }
+
+```powershell
+$errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {
+    My-ScriptThatFails
+}
+```
+
+Write-Host $errorInfo
+
+### getfixprompt { Get-ChildItem -NotExistingParameter } ##############################################################################
+
+```powershell
+getfixprompt { Get-ChildItem -NotExistingParameter }
+##############################################################################
+```
 
 ## Outputs
 

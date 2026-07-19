@@ -4,7 +4,47 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Устанавливает настройки LLM для операций AI в GenXdev.AI.
+
+## Description
+
+Этот [int] $TimeoutSeconds,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Указывает, что конечная точка не поддерживает формат ответа json_schema'
+        )]
+        [switch] $NoSupportForJsonSchema,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Указывает, что конечная точка не поддерживает функциональность загрузки изображений'
+        )]
+        [switch] $NoSupportForImageUpload,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Указывает, что конечная точка не поддерживает функциональность вызова инструментов'
+        )]
+        [switch] $NoSupportForToolCalls,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('Сохранить настройки только в текущем сеансе без ' +
+                'сохранения')
+        )]
+        [switch] $SessionOnly,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('Очистить альтернативные настройки, сохраненные в сеансе для ' +
+                'настроек ИИ')
+        )]
+        [switch] $ClearSession, сохраняет настройки LLM (Large Language Model), используемые модулем
+GenXdev.AI для различных операций ИИ. Настройки могут храниться постоянно
+в предпочтениях (по умолчанию), только в текущем сеансе (с помощью -SessionOnly) или
+очищены из сеанса (с помощью -ClearSession). Функция проверяет, что хотя бы
+один параметр настройки предоставлен, если только не происходит очистка настроек сеанса.
 
 ## Syntax
 
@@ -27,6 +67,41 @@ Set-AILLMSettings -LLMQueryType <String> [[-Model] <String>] [[-ApiEndpoint] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Путь к базе данных для файлов данных предпочтений |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Set-AILLMSettings -LLMQueryType "Coding" -Model "*Qwen*14B*"
+
+```powershell
+Set-AILLMSettings -LLMQueryType "Coding" -Model "*Qwen*14B*"
+```
+
+Устанавливает настройки LLM для типа запроса Coding постоянно в настройках.
+
+### Set-AILLMSettings -LLMQueryType "SimpleIntelligence" -Model "maziyarpanahi/llama-3-groq-8b-tool-use" -SessionOnly
+
+```powershell
+Set-AILLMSettings -LLMQueryType "SimpleIntelligence" -Model "maziyarpanahi/llama-3-groq-8b-tool-use" -SessionOnly
+```
+
+Устанавливает настройки LLM только для SimpleIntelligence на текущую сессию.
+
+### Set-AILLMSettings -LLMQueryType "Pictures" -ClearSession
+
+```powershell
+Set-AILLMSettings -LLMQueryType "Pictures" -ClearSession
+```
+
+Очищает настройки LLM сессии для типа запроса Pictures, не затрагивая
+постоянные предпочтения.
+
+### Set-AILLMSettings "Coding" "*Qwen*14B*"
+
+```powershell
+Set-AILLMSettings "Coding" "*Qwen*14B*"
+```
+
+Устанавливает настройки LLM для типа запроса Coding с использованием позиционных параметров.
 
 ## Related Links
 

@@ -4,7 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 更新并管理重构集，包括文件选择和处理。
+
+## Description
+
+通过以下方式提供重构集的全面管理：
+- 在处理队列中添加或移除文件
+- 清理集中已删除的文件
+- 管理状态信息和进度跟踪
+- 处理基于LLM的文件选择和处理
+- 支持自动和手动文件管理
+- 维护所有操作的详细日志
+- 优雅处理已删除的文件（除非使用CleanUpDeletedFiles，否则跳过）
 
 ## Syntax
 
@@ -62,6 +73,27 @@ Update-Refactor [[-FilesToAdd] <IO.FileInfo[]>] [[-FilesToRemove] <IO.FileInfo[]
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
+
+## Examples
+
+### Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `     -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+
+```powershell
+Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `
+    -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+```
+
+### Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+
+```powershell
+Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+```
+
+### updaterefactor * -Clear -Reset
+
+```powershell
+updaterefactor * -Clear -Reset
+```
 
 ## Related Links
 

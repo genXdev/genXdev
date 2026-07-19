@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Transcribe un archivo de audio, un archivo de video o un dispositivo de grabación a texto
+
+## Description
+
+Transcribe un archivo de audio, archivo de video o un dispositivo de grabación a texto usando el modelo Whisper AI. La función puede manejar varios formatos de audio y video, convertirlos al formato adecuado para la transcripción y, opcionalmente, traducir la salida a un idioma diferente. Admite la salida de formato de subtítulos SRT y varios parámetros de procesamiento de audio para ajustar la calidad de la transcripción.
 
 ## Syntax
 
@@ -64,6 +68,34 @@ This is the second subtitle line. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | No uses configuraciones alternativas almacenadas en la sesión para preferencias de IA como Idioma, colecciones de imágenes, etc. |
 | `-VOX` | SwitchParameter | — | — | Named | — | Use silence detection to automatically stop recording |
+
+## Examples
+
+### Start-AudioTranscription -Input "C:\path\to\audio.wav" `     -LanguageIn "English" -LanguageOut "French" -SRT
+
+```powershell
+Start-AudioTranscription -Input "C:\path\to\audio.wav" `
+    -LanguageIn "English" -LanguageOut "French" -SRT
+```
+
+### transcribefile "C:\video.mp4" "English"
+
+```powershell
+transcribefile "C:\video.mp4" "English"
+```
+
+### Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+
+```powershell
+Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+```
+
+### Start-AudioTranscription  # Records from microphone when no file specified ##############################################################################
+
+```powershell
+Start-AudioTranscription  # Records from microphone when no file specified
+##############################################################################
+```
 
 ## Related Links
 

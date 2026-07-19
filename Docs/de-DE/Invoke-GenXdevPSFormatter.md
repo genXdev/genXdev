@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Formatiert PowerShell-Skriptdateien unter Verwendung der PSScriptAnalyzer-Formatierungsregeln.
+
+## Description
+
+Diese Funktion wendet PowerShell-Formatierungsregeln auf Skriptdateien an, indem sie das Cmdlet Invoke-Formatter von PSScriptAnalyzer verwendet. Sie kann einzelne Dateien oder rekursiv mehrere Dateien in Verzeichnissen formatieren. Die Funktion nutzt anpassbare Formatierungseinstellungen und bietet eine detaillierte Protokollierung des Formatierungsprozesses.
 
 ## Syntax
 
@@ -20,6 +24,26 @@ Invoke-GenXdevPSFormatter -Path <String> [-Range <Int32[]>] [-Recurse] [-Setting
 | `-Settings` | Object | — | — | Named | — | Eine Einstellungshashtabelle oder ein Pfad zu einer PowerShell-Datendatei (.psd1), die die Formatierungseinstellungen enthält. |
 | `-Range` | Int32[] | — | — | Named | — | Der Bereich, in dem die Formatierung erfolgen soll, als Array von vier Ganzzahlen: Startzeilennummer, Startspaltennummer, Endzeilennummer, Endspaltennummer. |
 | `-Recurse` | SwitchParameter | — | — | Named | — | Dateien in Unterverzeichnissen rekursiv verarbeiten. |
+
+## Examples
+
+### Invoke-GenXdevPSFormatter -Path "C:\Scripts\MyScript.ps1"
+
+```powershell
+Invoke-GenXdevPSFormatter -Path "C:\Scripts\MyScript.ps1"
+```
+
+### Invoke-GenXdevPSFormatter -Path "C:\Scripts" -Recurse
+
+```powershell
+Invoke-GenXdevPSFormatter -Path "C:\Scripts" -Recurse
+```
+
+### "MyScript.ps1" | Invoke-GenXdevPSFormatter -Settings @{IncludeRules=@('PSUseCorrectCasing')}
+
+```powershell
+"MyScript.ps1" | Invoke-GenXdevPSFormatter -Settings @{IncludeRules=@('PSUseCorrectCasing')}
+```
 
 ## Related Links
 

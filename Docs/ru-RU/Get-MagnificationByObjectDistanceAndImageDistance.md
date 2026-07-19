@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет увеличение для линзы.
+
+## Description
+
+Используется m = - (расстояние до изображения / расстояние до объекта).
 
 ## Syntax
 
@@ -18,6 +22,24 @@ Get-MagnificationByObjectDistanceAndImageDistance [-ObjectDistanceInMeters] <dou
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-ObjectDistanceInMeters` | Double | ✅ | — | 0 | `0` | Расстояние до объекта в метрах |
 | `-ImageDistanceInMeters` | Double | ✅ | — | 1 | `0` | Расстояние до изображения в метрах |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-MagnificationByObjectDistanceAndImageDistance -ObjectDistanceInMeters 0.5 -ImageDistanceInMeters 1
+```
+
+Вычисляет увеличение при расстоянии до объекта 0.5 м и расстоянии до изображения 1 м.
+
+### Example 2
+
+```powershell
+Get-MagnificationByObjectDistanceAndImageDistance 0.3 0.6
+```
+
+Вычисляет увеличение, используя позиционные параметры.
 
 ## Related Links
 

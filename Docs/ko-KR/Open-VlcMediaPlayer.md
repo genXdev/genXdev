@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 광범위한 설정 옵션으로 VLC 미디어 플레이어를 실행하고 제어합니다.
+
+## Description
+
+이 함수는 VLC 미디어 플레이어를 실행하고 제어하기 위한 포괄적인 인터페이스를 제공하며, 창 위치 지정, 모니터 선택, 재생 설정, 오디오 및 비디오 필터, 자막 처리, 다중 언어 지원, 네트워크 프록시 설정, 고급 성능 옵션을 지원합니다. 이 함수는 VLC가 설치되어 있지 않은 경우 자동으로 설치할 수 있으며, 미디어 재생북 시나리오에 대한 광범위한 사용자 정의를 제공합니다. GenXdev 창 관리 시스템과 원활하게 통합되며, Send-Key 기능을 통한 키보드 입력 자동화를 지원합니다.
 
 ## Syntax
 
@@ -113,6 +117,32 @@ Example response format: {"response":"your actual response here"}
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 세션에 저장된 대체 설정을 AI 선호도에 사용 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-VlcMediaPlayer -Path "video.mp4" -Fullscreen -Monitor 0 Opens a video file in fullscreen mode on the primary monitor for immersive viewing experience.
+
+```powershell
+Open-VlcMediaPlayer -Path "video.mp4" -Fullscreen -Monitor 0
+Opens a video file in fullscreen mode on the primary monitor for immersive
+viewing experience.
+```
+
+### vlc "video.mp4" -fs -m 0 Short form using aliases to open video fullscreen on monitor 0 with minimal typing required.
+
+```powershell
+vlc "video.mp4" -fs -m 0
+Short form using aliases to open video fullscreen on monitor 0 with minimal
+typing required.
+```
+
+### Open-VlcMediaPlayer -Path "movie.mkv" -SubtitleFile "movie.srt" -AudioLanguage "English" Opens a movie with external subtitles and specific audio language for enhanced viewing with captions.
+
+```powershell
+Open-VlcMediaPlayer -Path "movie.mkv" -SubtitleFile "movie.srt" -AudioLanguage "English"
+Opens a movie with external subtitles and specific audio language for
+enhanced viewing with captions.
+```
 
 ## Related Links
 

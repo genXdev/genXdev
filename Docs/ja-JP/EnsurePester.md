@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Pester テストフレームワークが利用可能であることを保証します。
+
+## Description
+
+この関数は、現在のPowerShell環境にPesterモジュールがインストールされているかどうかを確認します。見つからない場合は、PowerShellギャラリーから自動的にインストールし、現在のセッションにインポートします。これにより、必要なときにPesterのテスト機能が利用可能になります。
 
 ## Syntax
 
@@ -60,6 +64,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsurePester This ensures Pester is installed and ready for use
+
+```powershell
+EnsurePester
+This ensures Pester is installed and ready for use
 ```
 
 ## Related Links

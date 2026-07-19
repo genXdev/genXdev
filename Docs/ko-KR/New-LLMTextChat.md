@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI 기능을 갖춘 대화형 텍스트 채팅 세션을 시작합니다.
+
+## Description
+
+AI 기능을 갖춘 대화형 채팅 세션을 시작하여 사용자가 대화 중에 PowerShell 함수를 추가하거나 제거하고 PowerShell 명령을 실행할 수 있습니다. 이 함수는 광범위한 도구 통합 및 사용자 지정 옵션을 통해 AI 기반 대화를 위한 포괄적인 인터페이스를 제공합니다.
 
 ## Syntax
 
@@ -69,6 +73,21 @@ New-LLMTextChat [[-Instructions] <String>] [[-Attachments] <String[]>] [[-Temper
 | `-NoContext` | Object | — | — | Named | — | 컨텍스트 사용 비활성화 |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | 빔 검색 샘플링 전략 사용 |
 | `-OnlyResponses` | Object | — | — | Named | — | 네가 도움이 되는 어시스턴트로 설계되어 JSON을 출력합니다. |
+
+## Examples
+
+### New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `     -Instructions "You are a helpful AI assistant"
+
+```powershell
+New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `
+    -Instructions "You are a helpful AI assistant"
+```
+
+### llmchat "Tell me a joke" -Speak -IncludeThoughts
+
+```powershell
+llmchat "Tell me a joke" -Speak -IncludeThoughts
+```
 
 ## Related Links
 

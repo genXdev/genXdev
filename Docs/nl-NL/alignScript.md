@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retourneert een string (met aangepaste inspringing) van een opgegeven scriptblockstring
+
+## Description
+
+Changes the indentation of a scriptblock string while respecting the original code-block indentations
 
 ## Syntax
 

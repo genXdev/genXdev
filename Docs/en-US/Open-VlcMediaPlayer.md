@@ -4,7 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Launches and controls VLC Media Player with extensive configuration options.
+
+## Description
+
+This function provides a comprehensive interface to launch and control VLC
+Media Player with support for window positioning, monitor selection, playback
+settings, audio and video filters, subtitle handling, multiple language
+support, network proxy settings, and advanced performance options. The
+function can automatically install VLC if not present and provides extensive
+customization for media playbook scenarios. It integrates seamlessly with the
+GenXdev window management system and supports keyboard input automation through
+the Send-Key functionality.
 
 ## Syntax
 
@@ -86,6 +97,32 @@ Open-VlcMediaPlayer [[-Path] <String[]>] [[-Width] <Int32>] [[-Height] <Int32>] 
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-VlcMediaPlayer -Path "video.mp4" -Fullscreen -Monitor 0 Opens a video file in fullscreen mode on the primary monitor for immersive viewing experience.
+
+```powershell
+Open-VlcMediaPlayer -Path "video.mp4" -Fullscreen -Monitor 0
+Opens a video file in fullscreen mode on the primary monitor for immersive
+viewing experience.
+```
+
+### vlc "video.mp4" -fs -m 0 Short form using aliases to open video fullscreen on monitor 0 with minimal typing required.
+
+```powershell
+vlc "video.mp4" -fs -m 0
+Short form using aliases to open video fullscreen on monitor 0 with minimal
+typing required.
+```
+
+### Open-VlcMediaPlayer -Path "movie.mkv" -SubtitleFile "movie.srt" -AudioLanguage "English" Opens a movie with external subtitles and specific audio language for enhanced viewing with captions.
+
+```powershell
+Open-VlcMediaPlayer -Path "movie.mkv" -SubtitleFile "movie.srt" -AudioLanguage "English"
+Opens a movie with external subtitles and specific audio language for
+enhanced viewing with captions.
+```
 
 ## Related Links
 

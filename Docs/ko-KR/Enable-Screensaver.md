@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 구성된 Windows 화면 보호기를 시작합니다.
+
+## Description
+
+기본 화면 보호기 실행 파일(scrnsave.scr)을 /s 스위치와 함께 실행하여 Windows 시스템 화면 보호기를 즉시 활성화합니다.
 
 ## Syntax
 
@@ -26,6 +30,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### Enable-Screensaver
+
+```powershell
+Enable-Screensaver
 ```
 
 ## Related Links

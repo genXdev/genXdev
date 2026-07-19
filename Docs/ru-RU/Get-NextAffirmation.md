@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Возвращает случайный аффирмационный текст из API affirmations.dev.
+
+## Description
+
+* Получает случайное утверждение из API affirmations.dev и при необходимости озвучивает его с помощью синтеза речи.
 
 ## Syntax
 
@@ -16,7 +20,25 @@ Get-NextAffirmation [-Speak] [<CommonParameters>]
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Speak` | SwitchParameter | — | — | 0 | `False` | Use text-to-speech to speak the affirmation |
+| `-Speak` | SwitchParameter | — | — | Named | `False` | Use text-to-speech to speak the affirmation |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-NextAffirmation
+```
+
+Получает случайное аффирмацию из API.
+
+### Example 2
+
+```powershell
+Get-NextAffirmation -Speak
+```
+
+Получает случайное утверждение и озвучивает его с помощью синтеза речи.
 
 ## Related Links
 

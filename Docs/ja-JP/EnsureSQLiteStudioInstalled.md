@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> SQLiteStudioがインストールされており、コマンドラインからアクセスできることを確認します。
+
+## Description
+
+SQLiteStudioがシステムのPATHにインストールされて利用可能かどうかを確認します。見つからない場合、まずPATH環境変数を更新する必要があるかどうかをチェックします。それでも問題が解決しない場合は、WinGetを使用してSQLiteStudioをインストールし、PATH環境変数を構成します。
 
 ## Syntax
 
@@ -119,6 +123,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsureSQLiteStudioInstalled Checks and ensures SQLiteStudio is installed and accessible.
+
+```powershell
+EnsureSQLiteStudioInstalled
+Checks and ensures SQLiteStudio is installed and accessible.
 ```
 
 ## Related Links

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 文字列をシリアルポートに送信します
+
+## Description
+
+シリアル通信ポートに文字列を送信できます
 
 ## Syntax
 

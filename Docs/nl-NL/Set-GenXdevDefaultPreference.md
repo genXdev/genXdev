@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stelt een standaardvoorkeurswaarde in de GenXdev-voorkeurenopslag in.
+
+## Description
+
+* Beheert standaardvoorkeuren in het GenXdev-voorkeurssysteem.
+* Verwerkt het opslaan van waarden, het verwijderen van voorkeuren wanneer waarden leeg zijn, en
+  zorgt ervoor dat wijzigingen in het systeem worden gesynchroniseerd.
+* Ondersteunt null-waarden door de voorkeur in dergelijke gevallen volledig te verwijderen.
 
 ## Syntax
 
@@ -22,6 +29,24 @@ Set-GenXdevDefaultPreference [-Name] <string> [[-Value] <string>] [[-Preferences
 | `-SessionOnly` | SwitchParameter | — | — | Named | `False` | Gebruik alternatieve instellingen opgeslagen in sessie voor Data voorkeuren zoals Taal, Database paden, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Het sessie-instelling (Globale variabele) wissen voordat u ophaalt |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Gebruik geen alternatieve instellingen opgeslagen in sessie voor Data-voorkeuren zoals Taal, Database-paden, etc. |
+
+## Examples
+
+### Example 1
+
+```powershell
+Set-GenXdevDefaultPreference -Name "Theme" -Value "Dark"
+```
+
+Stelt de standaard themavoorkeur in op "Donker".
+
+### Example 2
+
+```powershell
+setPreferenceDefault "EmailNotifications" "Disabled"
+```
+
+Gebruikt het alias om e-mailnotificaties uit te schakelen in standaardinstellingen.
 
 ## Related Links
 

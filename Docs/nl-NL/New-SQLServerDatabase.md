@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Maakt een nieuwe SQL Server-database aan.
+
+## Description
+
+Maakt een nieuwe SQL Server-database aan met de opgegeven naam op de opgegeven server. Vereist de juiste machtigingen om databases te maken op de doel-SQL Server-instantie. Als de database al bestaat, wordt de bewerking overgeslagen. Ondersteunt bestandsgebaseerde databasecreatie met expliciete .mdf/.ldf-paden.
 
 ## Syntax
 
@@ -28,6 +32,38 @@ New-SQLServerDatabase [-ConsentToThirdPartySoftwareInstallation] [-ForceConsent]
 | `-DataFilePath` | String | — | — | Named | — | Optioneel databestandspad (.mdf) voor het aanmaken van een bestandsgebaseerde database. *(Parameter set: )* |
 | `-LogFilePath` | String | — | — | Named | — | Optioneel pad naar logbestand (.ldf) voor aanmaken van bestandsgebaseerde database. *(Parameter set: )* |
 | `-DetachAfterCreation` | SwitchParameter | — | — | Named | — | Database na creatie loskoppelen (voor bestandsgebaseerde databases). *(Parameter set: )* |
+
+## Examples
+
+### New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+```
+
+### New-SQLServerDatabase "MyNewDatabase"
+
+```powershell
+New-SQLServerDatabase "MyNewDatabase"
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+```
+
+### New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

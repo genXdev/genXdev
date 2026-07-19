@@ -4,42 +4,34 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 最大化当前浏览器标签页中找到的第一个视频元素。
+
+## Description
+
+执行JavaScript代码，定位当前网页中的第一个视频元素并将其最大化。视频设置为覆盖整个视口，使用最大z-index确保可见性。页面滚动条被隐藏，以提供干净的全屏体验。
 
 ## Syntax
 
 ```powershell
-[CmdletBinding(SupportsShouldProcess)]
-    [Alias('fsvideo')]
-    param()
+Set-BrowserVideoFullscreen [-Chrome] [-Chromium] [-Edge] [-Firefox] [-Webkit] [<CommonParameters>]
+```
 
-    begin {
+## Parameters
 
-        # prepare the javascript command that will handle video manipulation
-        $script = @(
-            "window.video = document.getElementsByTagName('video')[0];" +
-            "video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;" +
-            "right:0;z-index:10000;width:100vw;height:100vh');" +
-            'document.body.appendChild(video);' +
-            "document.body.setAttribute('style', 'overflow:hidden');"
-        ) -join ''
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-Edge` | SwitchParameter | — | — | Named | — | 请使用 Microsoft Edge 浏览器 |
+| `-Chrome` | SwitchParameter | — | — | Named | — | 请使用谷歌浏览器 |
+| `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器是什么，使用 Microsoft Edge 或 Google Chrome。 |
+| `-Firefox` | SwitchParameter | — | — | Named | — | 使用 Firefox 浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的 WebKit 浏览器 |
 
-        Microsoft.PowerShell.Utility\Write-Verbose 'Prepared JavaScript code for video fullscreen manipulation'
-    }
+## Examples
 
+### Set-BrowserVideoFullscreen
 
-    process {
-
-        # check if we should proceed with the operation
-        if ($PSCmdlet.ShouldProcess('browser video', 'Set to fullscreen mode')) {
-
-            Microsoft.PowerShell.Utility\Write-Verbose 'Executing JavaScript to maximize video element'
-            GenXdev\Invoke-WebbrowserEvaluation $script
-        }
-    }
-
-    end {
-    }
+```powershell
+Set-BrowserVideoFullscreen
 ```
 
 ## Related Links

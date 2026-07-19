@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 지정된 GenXdev cmdlet의 단위 테스트를 검증하고 개선합니다.
+
+## Description
+
+이 함수는 GenXDev cmdlet에 대한 단위 테스트를 유지 관리하고 개선하는 데 도움을 줍니다:
+1. 테스트 파일이 없으면 생성합니다.
+2. VS Code에서 cmdlet을 엽니다.
+3. 테스트 생성/개선을 위한 AI 프롬프트를 준비하고 적용합니다.
+4. 테스트 실행 워크플로를 관리합니다.
 
 ## Syntax
 
@@ -23,6 +31,21 @@ Assert-GenXdevCmdletTests -CmdletName <String> [[-Prompt] <String>] [[-PromptKey
 | `-AssertFailedTest` | SwitchParameter | — | — | Named | — | 실패한 테스트를 표시합니다 |
 | `-FromScripts` | SwitchParameter | — | — | Named | — | 스크립트 파일에서 검색 (모듈 대신) |
 | `-ContinuationHandled` | SwitchParameter | — | — | Named | — | The `-ContinuationHandled` parameter. |
+
+## Examples
+
+### Assert-GenXdevCmdletTests -CmdletName "Get-GenXDevModuleInfo" -EditPrompt
+
+```powershell
+Assert-GenXdevCmdletTests -CmdletName "Get-GenXDevModuleInfo" -EditPrompt
+```
+
+### improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest ##############################################################################
+
+```powershell
+improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest
+##############################################################################
+```
 
 ## Related Links
 

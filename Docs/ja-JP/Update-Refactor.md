@@ -4,7 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> ファイル選択や処理を含むリファクタリングセットの更新と管理を行います。
+
+## Description
+
+リファクタリングセットの包括的な管理を提供します：
+- 処理キューへのファイルの追加または削除
+- セットから削除されたファイルのクリーンアップ
+- 状態情報と進捗状況の追跡管理
+- LLMベースのファイル選択と処理の実行
+- 自動および手動のファイル管理の両方をサポート
+- すべての操作の詳細なログの維持
+- 削除されたファイルの適切な処理（CleanUpDeletedFilesが使用されない限りスキップ）
 
 ## Syntax
 
@@ -62,6 +73,27 @@ Update-Refactor [[-FilesToAdd] <IO.FileInfo[]>] [[-FilesToRemove] <IO.FileInfo[]
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定はセッションに影響を与えず、永続的な設定のみに保存します。 |
+
+## Examples
+
+### Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `     -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+
+```powershell
+Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `
+    -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+```
+
+### Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+
+```powershell
+Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+```
+
+### updaterefactor * -Clear -Reset
+
+```powershell
+updaterefactor * -Clear -Reset
+```
 
 ## Related Links
 

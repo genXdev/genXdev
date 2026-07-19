@@ -4,7 +4,25 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Provides a PowerShell wrapper for Microsoft's Robust Copy (RoboCopy) utility.
+
+## Description
+
+A comprehensive wrapper for the RoboCopy command-line utility that provides
+robust file and directory copying capabilities. This function exposes RoboCopy's
+extensive feature set through PowerShell-friendly parameters while maintaining
+most of its powerful functionality.
+
+Key Features:
+- Directory synchronization with mirror options
+- Support for extra long pathnames (>256 characters)
+- Security settings preservation
+- Advanced file attribute handling
+- Symbolic link and junction point management
+- Monitor mode for continuous synchronization
+- Performance optimization for large files
+- Network compression support
+- Recovery mode for failing devices
 
 ## Syntax
 
@@ -87,6 +105,24 @@ Multiple overrides:
 
     -Override "/ReplaceThisSwitchWithValue:'SomeValue' -/RemoveThisSwitch /AddThisSwitch"
  |
+
+## Examples
+
+### ########################################################################Mirror a directory with security settings Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `     -Mirror -IncludeSecurity
+
+```powershell
+########################################################################Mirror a directory with security settings
+Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `
+    -Mirror -IncludeSecurity
+```
+
+### ########################################################################Monitor and sync changes every 10 minutes Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `     -MonitorMode -MonitorModeThresholdMinutes 10
+
+```powershell
+########################################################################Monitor and sync changes every 10 minutes
+Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `
+    -MonitorMode -MonitorModeThresholdMinutes 10
+```
 
 ## Related Links
 

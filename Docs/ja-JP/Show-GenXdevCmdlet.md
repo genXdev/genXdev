@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev PowerShellモジュールとそのコマンドレットおよびエイリアスを表示します。
+
+## Description
+
+インストールされているすべてのGenXdev PowerShellモジュールと、それに関連するコマンドレットおよびエイリアスを一覧表示します。Get-GenXDevCmdletを使用してコマンドレット情報を取得し、オプションでスクリプトの位置も取得します。フィルタリングや様々な表示オプションを提供します。
 
 ## Syntax
 
@@ -31,6 +35,29 @@ Show-GenXdevCmdlet [-IncludeScripts] [<CommonParameters>]
 | `-OnlyAliases` | SwitchParameter | — | — | Named | — | 指定時は、コマンドレットのエイリアスのみを表示します |
 | `-ShowTable` | SwitchParameter | — | — | Named | — | 結果を表形式で表示 |
 | `-PassThru` | SwitchParameter | — | — | Named | — | The `-PassThru` parameter. |
+
+## Examples
+
+### Show-GenXdevCmdlet -CmdletName "Get" -ModuleName "Console" -ShowTable Lists all cmdlets starting with "Get" in the Console module as a table
+
+```powershell
+Show-GenXdevCmdlet -CmdletName "Get" -ModuleName "Console" -ShowTable
+Lists all cmdlets starting with "Get" in the Console module as a table
+```
+
+### cmds get -m console Lists all cmdlets starting with "Get" in the Console module
+
+```powershell
+cmds get -m console
+Lists all cmdlets starting with "Get" in the Console module
+```
+
+### Show-GenXdevCmdlet -OnlyReturnModuleNames Returns only unique module names
+
+```powershell
+Show-GenXdevCmdlet -OnlyReturnModuleNames
+Returns only unique module names
+```
 
 ## Outputs
 

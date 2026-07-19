@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> SQLiteStudio가 설치되어 있고 명령줄에서 액세스 가능한지 확인합니다.
+
+## Description
+
+SQLiteStudio가 시스템 PATH에 설치되어 있고 사용 가능한지 확인합니다. 발견되지 않으면 먼저 PATH 환경 변수를 업데이트해야 하는지 확인합니다. 그래도 문제가 해결되지 않으면 WinGet을 사용하여 SQLiteStudio를 설치하고 PATH 환경 변수를 구성합니다.
 
 ## Syntax
 
@@ -119,6 +123,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsureSQLiteStudioInstalled Checks and ensures SQLiteStudio is installed and accessible.
+
+```powershell
+EnsureSQLiteStudioInstalled
+Checks and ensures SQLiteStudio is installed and accessible.
 ```
 
 ## Related Links

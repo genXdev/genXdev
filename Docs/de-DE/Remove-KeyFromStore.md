@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Entfernt einen Schlüssel aus einem Schlüssel-Wert-Speicher.
+
+## Description
+
+Diese Funktion entfernt einen angegebenen Schlüssel aus einem benannten Schlüssel-Wert-Speicher. Bei lokalen Speichern wird der Schlüssel dauerhaft gelöscht. Bei synchronisierten Speichern wird der Schlüssel als gelöscht markiert, um die Synchronisation zu ermöglichen.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Remove-KeyFromStore [-StoreName] <string> [-KeyName] <string> [[-Synchronization
 | `-KeyName` | String | ✅ | — | 1 | — | Key to be deleted |
 | `-SynchronizationKey` | String | — | — | 2 | — | Schlüssel zur Identifizierung des Synchronisationsbereichs |
 | `-DatabasePath` | String | — | — | Named | — | Datenbankpfad für Key-Value-Speicherdatendateien |
+
+## Examples
+
+### Example 1
+
+```powershell
+Remove-KeyFromStore -StoreName "MyStore" -KeyName "MyKey"
+```
+
+Entfernen Sie den Schlüssel "MyKey" aus dem Speicher "MyStore".
+
+### Example 2
+
+```powershell
+removekey "MyStore" "MyKey"
+```
+
+Entfernen eines Schlüssels mit dem Alias.
 
 ## Related Links
 

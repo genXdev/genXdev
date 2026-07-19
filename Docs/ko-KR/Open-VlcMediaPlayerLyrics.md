@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 현재 재생 중인 VLC 미디어의 가사를 검색하기 위해 웹 브라우저를 엽니다.
+
+## Description
+
+이 함수는 VLC 미디어 플레이어가 실행 중인지 감지하고 현재 재생 중인 미디어 제목을 기반으로 가사를 검색합니다. 현재 트랙의 가사를 찾기 위해 웹 브라우저에서 검색 쿼리를 자동으로 엽니다. 이 함수는 여러 브라우저를 지원하며 다양한 창 위치 지정 및 표시 옵션을 제공합니다.
 
 ## Syntax
 
 ```powershell
-Open-VlcMediaPlayerLyrics [[-Queries] <String[]>] [[-EndPoint] <String>] [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-VlcMediaPlayerLyrics [[-Queries] <String[]>] [[-EndPoint] <String>] [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -33,6 +37,9 @@ Open-VlcMediaPlayerLyrics [[-Queries] <String[]>] [[-EndPoint] <String>] [[-Lang
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 전체 화면 모드로 열기 |
 | `-Left` | SwitchParameter | — | — | Named | — | 브라우저 창을 화면 왼쪽에 배치합니다. |
@@ -60,6 +67,24 @@ Open-VlcMediaPlayerLyrics [[-Queries] <String[]>] [[-EndPoint] <String>] [[-Lang
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 브라우저를 열기 전에 브라우저 세션 데이터를 삭제하십시오. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 기존 브라우저 세션을 사용하지 않고 진행 |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Open browser windows side by side |
+
+## Examples
+
+### Open-VlcMediaPlayerLyrics
+
+```powershell
+Open-VlcMediaPlayerLyrics
+```
+
+Opens a Google search for lyrics of the currently playing VLC media.
+
+### vlclyrics -Edge -Private
+
+```powershell
+vlclyrics -Edge -Private
+```
+
+비공개/시크릿 모드로 Microsoft Edge에서 가사 검색을 엽니다.
 
 ## Related Links
 

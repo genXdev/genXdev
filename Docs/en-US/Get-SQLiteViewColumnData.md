@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves column data from a SQLite view with optional record limiting.
+
+## Description
+
+Executes a SELECT query against a specified SQLite view to retrieve data from a
+single column. Supports connecting via either a connection string or database file
+path. Allows limiting the number of returned records or retrieving all records.
 
 ## Syntax
 
@@ -25,6 +31,23 @@ Get-SQLiteViewColumnData -ViewName <String> -ColumnName <String> [[-Count] <Int3
 | `-ViewName` | String | ✅ | — | 1 | — | The name of the view. |
 | `-ColumnName` | String | ✅ | — | 2 | — | The name of the column. |
 | `-Count` | Int32 | — | — | 3 | `100` | The number of records to return. Default is 100. -1 for all. |
+
+## Examples
+
+### Get-SQLiteViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `     -ViewName "CustomersView" `     -ColumnName "Email" `     -Count 50
+
+```powershell
+Get-SQLiteViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `
+    -ViewName "CustomersView" `
+    -ColumnName "Email" `
+    -Count 50
+```
+
+### Get-SQLiteViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+
+```powershell
+Get-SQLiteViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+```
 
 ## Related Links
 

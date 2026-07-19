@@ -4,12 +4,23 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens browser bookmarks that match specified search criteria.
+
+## Description
+
+Searches bookmarks across Microsoft Edge, Google Chrome, and Mozilla Firefox
+browsers based on provided search queries. Opens matching bookmarks in the
+selected browser with configurable window settings and browser modes.
+
+This function provides a comprehensive interface for finding and opening
+browser bookmarks with advanced filtering and display options. It supports
+multiple search criteria and can open results in any installed browser with
+extensive window positioning and behavior customization.
 
 ## Syntax
 
 ```powershell
-Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -48,6 +59,9 @@ Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <S
 | `-RestoreFocus` | SwitchParameter | — | — | Named | — | Restore PowerShell window focus |
 | `-NewWindow` | SwitchParameter | — | — | Named | — | Don't re-use existing browser window, instead, create a new one |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge or Google Chrome, depending on what the default browser is |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use Playwright-managed browser instead of the OS-installed browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opens the Playwright-managed WebKit browser. Implies -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Run the browser without a visible window |
 | `-All` | SwitchParameter | — | — | Named | — | Opens in all registered modern browsers |
 | `-DisablePopupBlocker` | SwitchParameter | — | — | Named | — | Disable the popup blocker |
 | `-SendKeyEscape` | SwitchParameter | — | — | Named | — | Escape control characters when sending keys |
@@ -58,6 +72,35 @@ Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <S
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-BrowserBookmarks -Queries "github" -Edge -Count 5
+
+```powershell
+Open-BrowserBookmarks -Queries "github" -Edge -Count 5
+```
+
+Searches for bookmarks containing "github" in Microsoft Edge and opens the
+first 5 results in the default browser.
+
+### sites gh -e -c 5
+
+```powershell
+sites gh -e -c 5
+```
+
+Same as above using aliases - searches Edge bookmarks for "gh" and opens 5
+results in the default browser.
+
+### Open-BrowserBookmarks -Queries "development", "tools" -Chrome -Firefox -Left -Count 10
+
+```powershell
+Open-BrowserBookmarks -Queries "development", "tools" -Chrome -Firefox -Left -Count 10
+```
+
+Searches Chrome bookmarks for "development" and "tools", opens first 10
+results in Firefox positioned on the left side of screen.
 
 ## Related Links
 

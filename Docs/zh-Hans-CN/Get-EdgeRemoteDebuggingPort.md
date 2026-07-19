@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 返回Microsoft Edge浏览器配置的远程调试端口。
+
+## Description
+
+检索用于连接到Microsoft Edge浏览器调试接口的远程调试端口号。如果未通过全局变量$Global:EdgeDebugPort配置自定义端口，则返回默认端口9223。该函数会验证任何自定义端口配置，如果无效则回退到默认值。
 
 ## Syntax
 
@@ -54,8 +58,19 @@
     }
 ```
 
+## Examples
+
+### Get-EdgeRemoteDebuggingPort Returns the configured debug port (default 9223 if not configured)
+
+```powershell
+Get-EdgeRemoteDebuggingPort
+Returns the configured debug port (default 9223 if not configured)
+```
+
 ## Outputs
 
+- `Int32
+Returns the port number to use for Edge remote debugging`
 - `Int32`
 
 ## Related Links

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Améliore une image en l'agrandissant 4 fois tout en améliorant la qualité grâce à DeepStack.
+
+## Description
+
+Cette fonction améliore une image en l'agrandissant à 4 fois la largeur et la hauteur originales tout en augmentant simultanément la qualité de l'image. Elle utilise une API locale d'amélioration d'images DeepStack fonctionnant sur un port configurable et renvoie l'image améliorée sous forme de données base64 ou la sauvegarde dans un fichier. La fonction prend en charge l'accélération GPU et la gestion des conteneurs Docker.
 
 ## Syntax
 
@@ -28,6 +32,30 @@ Invoke-ImageEnhancement -ImagePath <String> [[-OutputPath] <String>] [-Container
 | `-HealthCheckInterval` | Int32 | — | — | Named | `3` | Intervalle en secondes entre les tentatives de vérification d'état |
 | `-ImageName` | String | — | — | Named | — | Nom personnalisé de l'image Docker à utiliser |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Afficher la fenêtre de Docker Desktop pendant l'initialisation |
+
+## Examples
+
+### Invoke-ImageEnhancement -ImagePath "C:\Users\YourName\small_photo.jpg" `                         -OutputPath "C:\Users\YourName\enhanced_photo.jpg" Enhances the image and saves it to the specified output path.
+
+```powershell
+Invoke-ImageEnhancement -ImagePath "C:\Users\YourName\small_photo.jpg" `
+                        -OutputPath "C:\Users\YourName\enhanced_photo.jpg"
+Enhances the image and saves it to the specified output path.
+```
+
+### enhanceimage "C:\photos\low_quality.jpg" Enhances the image and returns the base64 data and dimensions using alias.
+
+```powershell
+enhanceimage "C:\photos\low_quality.jpg"
+Enhances the image and returns the base64 data and dimensions using alias.
+```
+
+### Invoke-ImageEnhancement -ImagePath "C:\photos\image.jpg" -UseGPU Enhances the image using GPU acceleration for faster processing.
+
+```powershell
+Invoke-ImageEnhancement -ImagePath "C:\photos\image.jpg" -UseGPU
+Enhances the image using GPU acceleration for faster processing.
+```
 
 ## Related Links
 

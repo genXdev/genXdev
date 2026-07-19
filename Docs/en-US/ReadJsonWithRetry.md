@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Reads JSON file with retry logic and automatic lock cleanup.
+
+## Description
+
+Attempts to read a JSON file with retry logic to handle concurrent access.
+Implements automatic cleanup of stale lock files. Returns empty hashtable if
+file doesn't exist.
 
 ## Syntax
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ruft Daten aus einer SQL-Datenbanktabelle mit optionaler Datensatzbegrenzung ab.
+
+## Description
+
+Diese Funktion fragt Daten aus einer SQL-Datenbanktabelle ab, wobei entweder eine Verbindungszeichenfolge oder ein Datenbankdateipfad verwendet wird. Sie bietet Flexibilität bei der Verbindung zur Datenbank und bei der Steuerung der abgerufenen Datenmenge über den Parameter Count.
 
 ## Syntax
 
@@ -25,6 +29,20 @@ Get-SQLServerTableData -TableName <String> [[-Count] <Int32>] [<CommonParameters
 | `-Server` | String | — | — | 1 | `'localhost'` | Der Name der SQL Server-Instanz. *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 2 | — | Der Name der Tabelle, aus der Daten abgefragt werden. |
 | `-Count` | Int32 | — | — | 3 | `100` | Die maximale Anzahl der zurückzugebenden Datensätze. -1 für alle. |
+
+## Examples
+
+### Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+
+```powershell
+Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+```
+
+### Get-SQLServerTableData "C:\data\users.db" "Employees"
+
+```powershell
+Get-SQLServerTableData "C:\data\users.db" "Employees"
+```
 
 ## Related Links
 

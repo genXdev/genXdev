@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Importa os favoritos JavaScript do GenXdev nas coleções de favoritos do navegador.
+
+## Description
+
+Esta função varre um diretório em busca de arquivos de bookmarklet GenXdev com a extensão
 
 ## Syntax
 
@@ -21,6 +25,24 @@ Import-GenXdevBookmarkletMenu [[-SnippetsPath] <String>] [[-TargetFolder] <Strin
 | `-Edge` | SwitchParameter | — | — | Named | — | Importar bookmarklets no navegador Microsoft Edge |
 | `-Chrome` | SwitchParameter | — | — | Named | — | Importe bookmarklets no navegador Google Chrome |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Importe bookmarklets no navegador Mozilla Firefox |
+
+## Examples
+
+### Import-GenXdevBookmarkletMenu -Edge
+
+```powershell
+Import-GenXdevBookmarkletMenu -Edge
+```
+
+Importa todos os arquivos de bookmarklet do diretório de snippets padrão para a pasta de favoritos do Microsoft Edge.
+
+### Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+
+```powershell
+Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+```
+
+Mostra quais bookmarklets seriam importados do caminho especificado para o Google Chrome sem realmente realizar a operação de importação.
 
 ## Related Links
 

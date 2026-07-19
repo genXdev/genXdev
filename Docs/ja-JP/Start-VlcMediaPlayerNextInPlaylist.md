@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> VLCメディアプレーヤーで現在のプレイリストの次のアイテムに進みます。
+
+## Description
+
+この関数は、VLCメディアプレーヤーに「n」キーストロークを送信し、現在読み込まれているプレイリスト内の次のトラックまたはメディアアイテムにスキップします。VLCウィンドウにフォーカスを当て、次のコマンドを送信し、PowerShellコンソールにフォーカスを戻します。この関数には、必要に応じて確認プロンプトを表示するためのShouldProcessサポートが含まれています。
 
 ## Syntax
 
@@ -41,6 +45,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerNextInPlaylist
+
+```powershell
+Start-VlcMediaPlayerNextInPlaylist
+```
+
+### vlcnext
+
+```powershell
+vlcnext
 ```
 
 ## Related Links

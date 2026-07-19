@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 웹 브라우저에서 BuiltWith 웹사이트 쿼리를 엽니다.
+
+## Description
+
+웹 브라우저에서 BuiltWith 쿼리를 열며, 구성 가능한 모니터 설정 및 브라우저 동작 옵션을 제공합니다. 이 함수는 BuiltWith.com의 기술 프로파일링 서비스를 쿼리하여 웹사이트에서 사용되는 웹 기술, 프레임워크 및 서비스에 대한 상세 정보를 제공함으로써 웹사이트의 기술 스택을 분석합니다.
+
+BuiltWith.com은 웹사이트에서 사용되는 웹 기술, 프레임워크, 콘텐츠 관리 시스템, 분석 도구, 호스팅 제공업체 및 기타 소프트웨어 구성 요소를 식별하는 종합적인 기술 조회 서비스입니다. 이 함수는 수동으로 BuiltWith 웹사이트를 탐색하지 않고도 기술 스택을 신속하게 분석할 수 있는 PowerShell 인터페이스를 제공합니다.
 
 ## Syntax
 
 ```powershell
-Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -32,6 +38,9 @@ Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <I
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-Left` | SwitchParameter | — | — | Named | — | 브라우저 창을 화면 왼쪽에 배치합니다. |
 | `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen |
@@ -59,6 +68,24 @@ Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <I
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 세션에 저장된 대체 설정을 AI 선호도에 사용 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-BuiltWithSiteInfo -Queries "microsoft.com" -Monitor 0
+
+```powershell
+Open-BuiltWithSiteInfo -Queries "microsoft.com" -Monitor 0
+```
+
+기본 모니터에서 Microsoft.com의 BuiltWith 기술 분석을 엽니다.
+
+### "microsoft.com" | Open-BuiltWithSiteInfo -m -1
+
+```powershell
+"microsoft.com" | Open-BuiltWithSiteInfo -m -1
+```
+
+Microsoft.com을 파이프라인 입력으로 분석하되, 모니터 위치는 무시합니다.
 
 ## Related Links
 

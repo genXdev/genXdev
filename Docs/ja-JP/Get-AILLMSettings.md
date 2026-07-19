@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev.AI での AI 操作の LLM 設定を取得します。
+
+## Description
+
+この関数は、GenXdev.AIモジュールが様々なAI操作に使用するLLM（大規模言語モデル）設定を取得します。設定は、セッション変数、永続的な設定、またはデフォルト設定JSONファイルから、この優先順位で取得されます。この関数は、利用可能なシステムメモリリソースに基づいた自動設定選択をサポートしています。
+
+メモリ選択戦略は、指定されたGpuおよびCpuパラメータに基づいて自動的に決定されます：
+- GpuとCpuの両方のパラメータが指定された場合：CPU + GPUメモリの合計を使用
+- Gpuパラメータのみが指定された場合：GPUメモリを優先（システムRAMをフォールバックとして使用）
+- Cpuパラメータのみが指定された場合：システムRAMのみを使用
+- どちらのパラメータも指定されなかった場合：CPU + GPUメモリの合計を使用（デフォルト）
 
 ## Syntax
 
@@ -27,6 +37,38 @@ Get-AILLMSettings [[-LLMQueryType] <String>] [-ApiEndpoint <String>] [-ApiKey <S
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッション設定（グローバル変数）をクリアしてから取得してください |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | 設定データファイルのデータベースパス |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | セッション設定をスキップし、設定またはデフォルトのみから取得する |
+
+## Examples
+
+### Get-AILLMSettings
+
+```powershell
+Get-AILLMSettings
+```
+
+SimpleIntelligence クエリタイプ（デフォルト）のLLM設定を取得します。
+
+### Get-AILLMSettings -LLMQueryType "Coding"
+
+```powershell
+Get-AILLMSettings -LLMQueryType "Coding"
+```
+
+コーディングクエリタイプのLLM設定を取得します。
+
+### Get-AILLMSettings -SkipSession
+
+```powershell
+Get-AILLMSettings -SkipSession
+```
+
+セッション設定を無視し、プリファレンスまたはデフォルトのみからLLM設定を取得します。
+
+### Get-AILLMSettings "Knowledge"
+
+```powershell
+Get-AILLMSettings "Knowledge"
+```
 
 ## Outputs
 

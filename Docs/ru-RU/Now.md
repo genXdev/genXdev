@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Возвращает текущую системную дату и время в виде объекта DateTime.
+
+## Description
+
+Предоставляет простой способ получения текущей даты и времени системы без каких-либо параметров. Возвращает стандартный объект DateTime .NET, который может использоваться для вычислений, форматирования и сравнения даты и времени.
 
 ## Syntax
 
@@ -29,6 +33,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### Now Returns the current system date and time as a DateTime object
+
+```powershell
+Now
+Returns the current system date and time as a DateTime object
+```
+
+### $timestamp = Now Stores the current date and time in a variable for later use
+
+```powershell
+$timestamp = Now
+Stores the current date and time in a variable for later use
 ```
 
 ## Outputs

@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retourneert een verzameling geïnstalleerde moderne webbrowsers.
+
+## Description
+
+* Ontdekt en retourneert details over moderne webbrowsers die op het systeem zijn geïnstalleerd.
+* Haalt informatie op zoals naam, beschrijving, pictogrampad, uitvoerbaar pad en standaardbrowserstatus door de Windows-register te doorzoeken.
+* Retourneert alleen browsers die de vereiste mogelijkheden in Windows hebben geregistreerd.
 
 ## Syntax
 
@@ -18,10 +24,28 @@ Get-Webbrowser [-Edge] [-Chrome] [-Chromium] [-Firefox] [<CommonParameters>]
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Edge` | SwitchParameter | — | — | 0 | `False` | Selecteert Microsoft Edge browserinstanties *(Parameter set: )* |
-| `-Chrome` | SwitchParameter | — | — | 1 | `False` | Selecteert Google Chrome browserinstanties *(Parameter set: )* |
-| `-Chromium` | SwitchParameter | — | — | 2 | `False` | Selecteert de standaard chromium-gebaseerde browser *(Parameter set: )* |
-| `-Firefox` | SwitchParameter | — | — | 3 | `False` | Selecteert Firefox browserinstanties *(Parameter set: )* |
+| `-Edge` | SwitchParameter | — | — | Named | `False` | Selecteert Microsoft Edge browserinstanties *(Parameter set: )* |
+| `-Chrome` | SwitchParameter | — | — | Named | `False` | Selecteert Google Chrome browserinstanties *(Parameter set: )* |
+| `-Chromium` | SwitchParameter | — | — | Named | `False` | Selecteert de standaard chromium-gebaseerde browser *(Parameter set: )* |
+| `-Firefox` | SwitchParameter | — | — | Named | `False` | Selecteert Firefox browserinstanties *(Parameter set: )* |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-Webbrowser | Select-Object Name, Description | Format-Table
+```
+
+Retourneert een verzameling van alle geïnstalleerde moderne webbrowsers.
+
+### Example 2
+
+```powershell
+Get-Webbrowser | Where-Object { $_.IsDefaultBrowser }
+```
+
+Filters om alleen de standaardbrowser van het systeem weer te geven.
 
 ## Related Links
 

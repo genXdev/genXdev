@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 通过 AI 辅助改进 GenXdev cmdlet 的文档和实现。
+
+## Description
+
+此函数通过AI提示分析并改进GenXDev cmdlet的代码，从而增强它们。它可以将cmdlet集成到模块中，更新文档，并验证实现的正确性。该函数支持自定义提示模板，并且可以在Visual Studio Code或Visual Studio中打开文件。
 
 ## Syntax
 
@@ -29,6 +33,20 @@ Assert-GenXdevCmdlet [-EditPrompt] [<CommonParameters>]
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | 在 Visual Studio 中打开 |
 | `-EditPrompt` | SwitchParameter | — | — | Named | — | You are a helpful assistant designed to output JSON. *(Parameter set: )* |
 | `-Integrate` | SwitchParameter | — | — | Named | — | 将cmdlet集成到模块中 |
+
+## Examples
+
+### Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+
+```powershell
+Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+```
+
+### improvecmdlet Get-Something CheckDocs -c
+
+```powershell
+improvecmdlet Get-Something CheckDocs -c
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Entfernt eine WireGuard-VPN-Peer-Konfiguration.
+
+## Description
+
+Diese Funktion entfernt eine WireGuard-VPN-Peer-Konfiguration vom Server, der in einem Docker-Container läuft. Sie löscht die Konfigurationsdateien des Peers und aktualisiert den WireGuard-Server, um keine Verbindungen von diesem Peer mehr zu akzeptieren. Die Funktion validiert die Existenz des Peers vor dem Entfernen und gibt Bestätigungsaufforderungen aus, es sei denn, der Parameter Force ist angegeben.
 
 ## Syntax
 
@@ -48,6 +52,32 @@ Remove-WireGuardPeer -PeerName <String> [-Bottom] [-Centered] [-ClearSession] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | In der Sitzung gespeicherte alternative Einstellungen für KI-Präferenzen löschen |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Nur Einstellungen in dauerhaften Präferenzen speichern, ohne die Sitzung zu beeinflussen |
+
+## Examples
+
+### Remove-WireGuardPeer -PeerName "MyPhone"
+
+```powershell
+Remove-WireGuardPeer -PeerName "MyPhone"
+```
+
+Entfernt den Peer namens "MyPhone" mit Bestätigungsaufforderung.
+
+### Remove-WireGuardPeer -PeerName "Tablet" -Force
+
+```powershell
+Remove-WireGuardPeer -PeerName "Tablet" -Force
+```
+
+Entfernt den Peer namens "Tablet" ohne Bestätigungsaufforderung.
+
+### Remove-WireGuardPeer "WorkLaptop"
+
+```powershell
+Remove-WireGuardPeer "WorkLaptop"
+```
+
+Entfernt den Peer mithilfe der Positionsparametersyntax.
 
 ## Related Links
 

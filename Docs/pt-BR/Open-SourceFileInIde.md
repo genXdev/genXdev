@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre um arquivo fonte no IDE preferido (Visual Studio Code ou Visual Studio).
+
+## Description
+
+Esta função abre um arquivo de origem especificado no Visual Studio Code ou no Visual Studio. Ela pode navegar diretamente para um número de linha específico e, opcionalmente, enviar entradas de teclado para a IDE após abrir o arquivo. A função tentará determinar qual IDE usar com base no processo host atual, aplicativos em execução ou seleção do usuário.
 
 ## Syntax
 
@@ -25,6 +29,20 @@ Open-SourceFileInIde -Path <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]
 | `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | Manter o foco do teclado na janela de destino |
 | `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Use Shift+Enter instead of Enter |
 | `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | Atraso entre diferentes strings de entrada em milissegundos |
+
+## Examples
+
+### Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+
+```powershell
+Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+```
+
+### editcode "C:\Projects\MyScript.ps1" 25
+
+```powershell
+editcode "C:\Projects\MyScript.ps1" 25
+```
 
 ## Related Links
 

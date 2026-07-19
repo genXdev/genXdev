@@ -1,10 +1,14 @@
 # Receive-RealTimeSpeechToText
 
-> **Module:** GenXdev.Helpers | **Type:** Cmdlet | **Aliases:** —
+> **Module:** GenXdev.AI | **Type:** Cmdlet | **Aliases:** —
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Convertit l'entrée audio en temps réel en texte à l'aide du modèle Whisper AI.
+
+## Description
+
+Cette cmdlet capture l'audio du microphone ou du bureau et le transcrit en texte en temps réel à l'aide du modèle Whisper AI. Elle prend en charge diverses sources audio, la détection de silence et plusieurs options de configuration pour la reconnaissance vocale.
 
 ## Syntax
 
@@ -52,6 +56,40 @@ Receive-RealTimeSpeechToText [-ModelFileDirectoryPath <string>] [-UseDesktopAudi
 | `-NoContext` | SwitchParameter | — | — | Named | `False` | N'utilisez pas de contexte |
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | `False` | Utiliser la stratégie d'échantillonnage par faisceau |
 | `-ModelType` | Whisper.net.Ggml.GgmlType | — | — | Named | `Tiny` | Type de modèle Whisper à utiliser, par défaut Small |
+
+## Examples
+
+### Example 1
+
+```powershell
+Receive-RealTimeSpeechToText
+```
+
+Utilisation de base avec microphone.
+
+### Example 2
+
+```powershell
+Receive-RealTimeSpeechToText -UseDesktopAudioCapture
+```
+
+En utilisant la capture audio du bureau.
+
+### Example 3
+
+```powershell
+Receive-RealTimeSpeechToText -AudioDevice "Microphone*"
+```
+
+Utilisation d'un périphérique audio spécifique.
+
+### Example 4
+
+```powershell
+Receive-RealTimeSpeechToText -MaxDurationOfSilence "00:00:05"
+```
+
+Avec détection du silence.
 
 ## Related Links
 

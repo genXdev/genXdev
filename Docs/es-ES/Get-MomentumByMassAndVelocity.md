@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula el momento lineal.
+
+## Description
+
+Usa p = m v.
 
 ## Syntax
 

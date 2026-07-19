@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Génère et exécute des commandes PowerShell à l'aide de l'assistance IA.
+
+## Description
+
+Utilise des modèles d'IA pour générer des commandes PowerShell à partir de requêtes en langage naturel. La fonction peut soit envoyer les commandes directement dans la fenêtre PowerShell, soit les copier dans le presse-papiers. Elle exploite des modèles d'IA pour interpréter le langage naturel et le convertir en commandes PowerShell exécutables, avec un support complet des paramètres pour différents backends d'IA.
 
 ## Syntax
 
@@ -175,6 +179,32 @@ Ce projet est sous licence MIT. |
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longueur maximale de rappel d'outil (transmise à LLMQuery) |
+
+## Examples
+
+### Invoke-AIPowershellCommand -Query "list all running processes"
+
+```powershell
+Invoke-AIPowershellCommand -Query "list all running processes"
+```
+
+Génère une commande PowerShell pour lister les processus en cours d'exécution
+
+### hint "list files modified today"
+
+```powershell
+hint "list files modified today"
+```
+
+Utilise l'alias pour générer une commande permettant de trouver les fichiers modifiés aujourd'hui.
+
+### Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+
+```powershell
+Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+```
+
+Génère une commande pour arrêter un service et la copie dans le presse-papiers.
 
 ## Outputs
 

@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Adds a feature line to the README file with a timestamp.
+
+## Description
+
+Fügt dem angegebenen README-Datei eine Funktionszeile hinzu, die mit dem aktuellen Datum im Format yyyyMMdd beginnt. Die Zeile kann als Code formatiert und optional angezeigt werden.
 
 ## Syntax
 
 ```powershell
-Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
+Add-FeatureLineToREADME [[-Line] <String>] [-Ascending] [-Code] [-First <Int32>] [-Priority <Int32>] [-Show] [-SortByDate] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -49,6 +53,24 @@ Example response format: {"response":"your actual response here"}
 ===== END REQUIREMENT ===== |
 | `-UseHomeREADME` | SwitchParameter | — | — | Named | — | Verwenden Sie README im Home-Verzeichnis |
 | `-UseOneDriveREADME` | SwitchParameter | — | — | Named | — | Use README in OneDrive directory |
+| `-Priority` | Int32 | — | — | Named | `1` | Priorität für Sortierung (höher = zuerst angezeigt, Standard 1) |
+| `-SortByDate` | SwitchParameter | — | — | Named | — | Zeilen nach Datum (yyyyMMdd-Präfix) sortieren statt nach Priorität |
+| `-Ascending` | SwitchParameter | — | — | Named | — | Die Sortierreihenfolge umkehren (aufsteigend statt absteigend) |
+| `-First` | Int32 | — | — | Named | `0` | Limit - Ausgabe auf die ersten N Zeilen beschränken |
+
+## Examples
+
+### Add-FeatureLineToREADME -Line "Added new Git feature"
+
+```powershell
+Add-FeatureLineToREADME -Line "Added new Git feature"
+```
+
+### feature "Added new Git feature" -Code -Show
+
+```powershell
+feature "Added new Git feature" -Code -Show
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I would like to kindly request that you consider adjusting your volume level to ensure a more conducive environment for all.
+
+## Description
+
+Cette fonction traite le texte d'entrée pour transformer un langage direct ou potentiellement dur en communications professionnelles et diplomatiques. Elle peut accepter l'entrée directement via des paramètres, depuis le pipeline ou depuis le presse-papiers système. La fonction utilise des modèles d'IA pour analyser et reformuler le texte tout en préservant l'intention originale.
 
 ## Syntax
 
@@ -157,6 +161,20 @@ Ce projet est sous licence MIT. |
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longueur maximale de rappel d'outil (transmise à LLMQuery) |
+
+## Examples
+
+### ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+
+```powershell
+ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+```
+
+### "This makes no sense" | corporatize
+
+```powershell
+"This makes no sense" | corporatize
+```
 
 ## Outputs
 

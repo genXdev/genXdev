@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> DeepStack顔認識システムから、登録されているすべての顔を削除します。
+
+## Description
+
+この関数は、データストアディレクトリからすべての顔ファイルを削除し、空の顔レジストリを再読み込みするためにサービスを再起動することで、DeepStack顔認識データベースに登録されているすべての顔を消去します。これは元に戻せない破壊的な操作であり、すべての登録済み顔データが永久に削除されます。
 
 ## Syntax
 
@@ -27,6 +31,32 @@ Unregister-AllFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | ヘルスチェック試行間の間隔（秒） |
 | `-ImageName` | String | — | — | 5 | — | 使用するカスタムDockerイメージ名 |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 初期化中にDocker Desktopウィンドウを表示する |
+
+## Examples
+
+### Unregister-AllFaces
+
+```powershell
+Unregister-AllFaces
+```
+
+確認プロンプトを表示して、登録されているすべての顔を削除します。
+
+### Unregister-AllFaces -Force
+
+```powershell
+Unregister-AllFaces -Force
+```
+
+確認プロンプトなしで登録されたすべての顔を削除します。
+
+### unregall -Force
+
+```powershell
+unregall -Force
+```
+
+エイリアスを使用して、確認なしですべての面を削除します。
 
 ## Related Links
 

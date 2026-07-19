@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Анализирует содержимое изображения с помощью возможностей AI-зрения
+
+## Description
+
+Обрабатывает изображения с использованием возможностей искусственного зрения для анализа содержимого и ответа на вопросы об изображении. Функция поддерживает различные параметры анализа, включая контроль температуры для случайности ответов и ограничение токенов для длины вывода.
 
 ## Syntax
 
@@ -82,6 +86,33 @@ Invoke-QueryImageContent -Query <String> -ImagePath <String> [[-Instructions] <S
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Максимальная длина обратного вызова для вызовов инструментов. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | Заставить принудительно отображать запрос согласия, даже если настройки для пакета ImageSharp установлены. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Автоматически соглашаться на установку стороннего программного обеспечения и устанавливать постоянный флаг для пакетов ImageSharp. |
+
+## Examples
+
+### Invoke-QueryImageContent `     -Query "What objects are in this image?" `     -ImagePath "C:\Images\sample.jpg" `     -Temperature 0.01
+
+```powershell
+Invoke-QueryImageContent `
+    -Query "What objects are in this image?" `
+    -ImagePath "C:\Images\sample.jpg" `
+    -Temperature 0.01
+```
+
+Analyzes an image with specific temperature and token limits.
+
+### Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+```
+
+### Query-Image "Describe this image" "C:\Images\photo.jpg"
+
+```powershell
+Query-Image "Describe this image" "C:\Images\photo.jpg"
+```
+
+Простой анализ изображения с использованием псевдонимов и позиционных параметров.
 
 ## Related Links
 

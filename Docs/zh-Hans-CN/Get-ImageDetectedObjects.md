@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 使用DeepStack检测并分类上传图像中的对象。
+
+## Description
+
+该函数分析图像文件，检测并分类多达80种不同物体。它使用运行在可配置端口上的本地DeepStack物体检测API，并返回物体分类及其边界框坐标和置信度分数。该函数支持GPU加速、自定义置信度阈值和Docker容器管理。
 
 ## Syntax
 
@@ -28,6 +32,26 @@ Get-ImageDetectedObjects -ImagePath <String> [-ConfidenceThreshold <Double>] [-C
 | `-Force` | SwitchParameter | — | — | Named | — | 强制重建 Docker 容器并移除现有数据 |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | 使用GPU加速版本（需要NVIDIA GPU） |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 在初始化期间显示 Docker Desktop 窗口 |
+
+## Examples
+
+### Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `                          -ConfidenceThreshold 0.5 `                          -ServicePort 5000
+
+```powershell
+Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `
+                         -ConfidenceThreshold 0.5 `
+                         -ServicePort 5000
+```
+
+使用完整参数名称检测指定图像中的对象。
+
+### Get-ImageDetectedObjects "C:\photos\street.jpg"
+
+```powershell
+Get-ImageDetectedObjects "C:\photos\street.jpg"
+```
+
+使用位置参数和默认设置检测对象。
 
 ## Related Links
 

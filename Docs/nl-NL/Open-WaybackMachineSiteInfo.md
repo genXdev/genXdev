@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent WaybackMachine-site-informatie in een webbrowser.
+
+## Description
+
+Opent een Waybackmachine-query in een webbrowser, met historische versies van de opgegeven URL of website. Ondersteunt meerdere queries en monitorselectie. Biedt toegang tot gearchiveerde webinhoud via de Wayback Machine-service van het Internet Archive.
 
 ## Syntax
 
 ```powershell
-Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +28,9 @@ Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opent in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wordt geopend in Microsoft Edge of Google Chrome, afhankelijk van wat de standaardbrowser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Openen in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Gebruik de door Playwright beheerde browser in plaats van de in het besturingssysteem geïnstalleerde browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opent de door Playwright beheerde WebKit-browser. Impliceert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Voer de browser uit zonder een zichtbaar venster |
 | `-All` | SwitchParameter | — | — | Named | — | Opent in alle geregistreerde moderne browsers |
 | `-Monitor` | Int32 | — | — | Named | `-1` | De monitor om te gebruiken, 0 = standaard, -1 = weggooien, -2 = geconfigureerde secundaire monitor, standaard -1, geen positionering |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opent in volledig scherm |
@@ -59,6 +66,32 @@ Open-WaybackMachineSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | http://example.com |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | Na het openen van de webbrowser, geef de url terug |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Positioneer het browservenster ofwel volledig scherm op een andere monitor dan PowerShell, of naast PowerShell op dezelfde monitor. |
+
+## Examples
+
+### Open-WaybackMachineSiteInfo -Queries "www.example.com" -Monitor 0
+
+```powershell
+Open-WaybackMachineSiteInfo -Queries "www.example.com" -Monitor 0
+```
+
+Opent het Wayback Machine-archief voor example.com op de standaardmonitor.
+
+### wayback example.com -mon -1
+
+```powershell
+wayback example.com -mon -1
+```
+
+Opent het Wayback Machine-archief voor example.com met behulp van aliassen met monitorpositionering verwijderd.
+
+### Open-WaybackMachineSiteInfo -Queries "microsoft.com" -Chrome -Private
+
+```powershell
+Open-WaybackMachineSiteInfo -Queries "microsoft.com" -Chrome -Private
+```
+
+Opent het Wayback Machine archief voor microsoft.com in de incognitomodus van Chrome.
 
 ## Related Links
 

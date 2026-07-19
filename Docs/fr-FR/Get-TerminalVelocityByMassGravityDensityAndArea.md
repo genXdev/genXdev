@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcule la vitesse terminale.
+
+## Description
+
+Utilise v = sqrt(2 m g / (ρ A C)).
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-TerminalVelocityByMassGravityDensityAndArea [-MassInKilograms] <double> [[-G
 | `-AreaInSquareMeters` | Double | ✅ | — | 3 | `0` | Section transversale en m² |
 | `-DragCoefficient` | Double | — | — | 4 | `0` | Coefficient de traînée (par défaut : 0,5) |
 | `-As` | String | — | — | 5 | — | Output unit for velocity |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-TerminalVelocityByMassGravityDensityAndArea -MassInKilograms 80 -DensityInKilogramsPerCubicMeter 1.225 -AreaInSquareMeters 0.7 -DragCoefficient 1.0 -As "mph"
+```
+
+Calcule la vitesse terminale pour une masse de 80 kg dans l'air avec un coefficient de traînée de 1,0, en affichant le résultat en mph.
+
+### Example 2
+
+```powershell
+Get-TerminalVelocityByMassGravityDensityAndArea 70 1.225 0.8 0.8
+```
+
+Utilise des paramètres positionnels pour calculer la vitesse terminale.
 
 ## Related Links
 

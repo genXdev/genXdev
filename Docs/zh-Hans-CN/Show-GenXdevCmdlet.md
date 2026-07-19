@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 显示GenXdev PowerShell模块及其Cmdlet和别名。
+
+## Description
+
+列出所有已安装的 GenXdev PowerShell 模块及其关联的 cmdlet 和别名。使用 Get-GenXDevCmdlet 检索 cmdlet 信息，并可选择显示其脚本位置。提供筛选和多种显示选项。
 
 ## Syntax
 
@@ -34,6 +38,29 @@ Show-GenXdevCmdlet [-IncludeScripts] [<CommonParameters>]
 | Row 1 Col 1 | Row 1 Col 2 | Row 1 Col 3 |
 | Row 2 Col 1 | Row 2 Col 2 | Row 2 Col 3 | |
 | `-PassThru` | SwitchParameter | — | — | Named | — | The `-PassThru` parameter. |
+
+## Examples
+
+### Show-GenXdevCmdlet -CmdletName "Get" -ModuleName "Console" -ShowTable Lists all cmdlets starting with "Get" in the Console module as a table
+
+```powershell
+Show-GenXdevCmdlet -CmdletName "Get" -ModuleName "Console" -ShowTable
+Lists all cmdlets starting with "Get" in the Console module as a table
+```
+
+### cmds get -m console Lists all cmdlets starting with "Get" in the Console module
+
+```powershell
+cmds get -m console
+Lists all cmdlets starting with "Get" in the Console module
+```
+
+### Show-GenXdevCmdlet -OnlyReturnModuleNames Returns only unique module names
+
+```powershell
+Show-GenXdevCmdlet -OnlyReturnModuleNames
+Returns only unique module names
+```
 
 ## Outputs
 

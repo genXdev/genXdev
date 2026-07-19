@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Checks if the current user has elevated rights.
+
+## Description
+
+Determines whether the current Windows user has administrative or backup operator
+privileges by checking their security principal roles. Returns true if the user
+has elevated rights, false otherwise. Implements robust error handling for
+security and access-related issues.
 
 ## Syntax
 
@@ -89,8 +96,19 @@
     }
 ```
 
+## Examples
+
+### $hasRights = CurrentUserHasElevatedRights ##############################################################################
+
+```powershell
+$hasRights = CurrentUserHasElevatedRights
+##############################################################################
+```
+
 ## Outputs
 
+- `Boolean
+Returns true if user has admin or backup operator rights, false otherwise.`
 - `Boolean`
 
 ## Related Links

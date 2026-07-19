@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ensures Pester testing framework is available for use.
+
+## Description
+
+This function verifies if the Pester module is installed in the current
+PowerShell environment. If not found, it automatically installs it from the
+PowerShell Gallery and imports it into the current session. This ensures that
+Pester testing capabilities are available when needed.
 
 ## Syntax
 
@@ -60,6 +67,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsurePester This ensures Pester is installed and ready for use
+
+```powershell
+EnsurePester
+This ensures Pester is installed and ready for use
 ```
 
 ## Related Links

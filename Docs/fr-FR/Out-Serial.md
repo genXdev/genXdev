@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Envoie une chaîne vers un port série
+
+## Description
+
+Allows you to send a string to a serial communication port
 
 ## Syntax
 

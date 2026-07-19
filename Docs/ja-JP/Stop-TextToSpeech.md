@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 進行中のテキスト読み上げ出力を即座に停止します。
+
+## Description
+
+標準およびカスタム音声合成操作をキャンセルすることにより、アクティブおよびキューに入っているすべての音声合成を停止します。これにより、進行中のテキスト読み上げ活動が即座に無音になります。
 
 ## Syntax
 
@@ -40,6 +44,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### PS C:\> Stop-TextToSpeech Immediately stops any ongoing speech
+
+```powershell
+PS C:\> Stop-TextToSpeech
+Immediately stops any ongoing speech
+```
+
+### PS C:\> say "Hello world"; sst Starts speaking but gets interrupted immediately
+
+```powershell
+PS C:\> say "Hello world"; sst
+Starts speaking but gets interrupted immediately
 ```
 
 ## Related Links

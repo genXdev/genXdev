@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Récupère les définitions de refactorisation à partir des préférences GenXdev basées sur les modèles de noms.
+
+## Description
+
+Recherche et charge les ensembles de définition de refactoring stockés dans les préférences de GenXdev.
+Chaque ensemble de refactoring est stocké sous forme de chaîne JSON dans une préférence dont le nom commence
+par 'refactor_set_'. La fonction désérialise les ensembles correspondants en objets.
 
 ## Syntax
 
@@ -22,6 +28,22 @@ Get-Refactor [[-Name] <String[]>] [-ClearSession] [-DefaultValue <String>] [-Pre
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utiliser les paramètres alternatifs stockés dans la session pour les préférences de données comme la langue, les chemins de base de données, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Effacer le paramètre de session (variable globale) avant de récupérer |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | N'utilisez pas de paramètres alternatifs stockés dans la session pour les préférences de données telles que la langue, les chemins de base de données, etc. |
+
+## Examples
+
+### Get-Refactor -Name "CodeStyle*" Returns refactor definitions matching pattern "CodeStyle*"
+
+```powershell
+Get-Refactor -Name "CodeStyle*"
+Returns refactor definitions matching pattern "CodeStyle*"
+```
+
+### refactor "UnitTest" Uses alias to find refactor definitions containing "UnitTest"
+
+```powershell
+refactor "UnitTest"
+Uses alias to find refactor definitions containing "UnitTest"
+```
 
 ## Outputs
 

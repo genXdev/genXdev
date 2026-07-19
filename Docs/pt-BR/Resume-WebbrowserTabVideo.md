@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retoma a reprodução de vídeo em uma aba do navegador do YouTube.
+
+## Description
+
+Encontra a aba ativa do YouTube no navegador e retoma a reprodução do vídeo executando o método play() em quaisquer elementos de vídeo encontrados na página. Se nenhuma aba do YouTube for encontrada, a função lança um erro. Esta função é particularmente útil para automatizar o controle de reprodução de vídeo em sessões do navegador.
 
 ## Syntax
 
@@ -42,6 +46,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Resume-WebbrowserTabVideo
+
+```powershell
+Resume-WebbrowserTabVideo
+```
+
+### wbvideoplay
+
+```powershell
+wbvideoplay
 ```
 
 ## Related Links

@@ -8,29 +8,26 @@
 
 ## Description
 
-* 使用 Find-Item 查找文件 -> l
-        * 快速多线程搜索：利用并行和异步 I/O 处理，可配置最大并行度（默认基于 CPU 核心数），实现高效的文件和目录扫描。
-        * 高级模式匹配：支持通配符（*、?）、递归模式（如 **）和复杂路径结构，用于精确的文件和目录查询。
-              **/filename 仅在匹配到 filename 时进行递归。允许多个此类模式，但每个模式前必须包含要匹配的文件名或目录名。
-              此模式解析器具有 Resolve-Path 的能力，但增加了递归功能，仅支持 * 和 ? 作为通配符，
-              避免了路径中包含 [ ] 括号时的错误，无需 -LiteralPath 参数，同时保持不含通配符的路径部分的完整性，
-              不同于对整个完整路径进行通配符匹配。
-        * 增强的内容搜索：通过 -Content 参数，将 Select-String 全面集成，支持文件内容中的正则表达式模式。
+* 使用 Find-Item -> l 查找文件
+        * 快速多线程搜索：利用并行和异步 I/O 处理，支持可配置的最大并行度（默认基于 CPU 核心数），实现高效的文件和目录扫描。
+        * 高级模式匹配：支持通配符（*、?）、递归模式（如 **）以及复杂路径结构，用于精确的文件和目录查询。**/filename 仅在匹配到 filename 时进行递归。允许多个这样的模式，前提是它们前面有要匹配的文件名或目录名。
+              此模式解析器具有 Resolve-Path 的功能，但增加了递归特性，并且仅支持 * 和 ? 作为通配符，从而避免路径中包含 [ ] 括号时出现错误，无需使用 -LiteralPath 参数，同时保持不含通配符的路径部分的完整性，这与对整个完整路径进行通配符匹配不同。
+        * 增强内容搜索：通过 -Content 参数，集成 Select-String 对文件内容进行正则表达式模式匹配。
             * 大文件优化：通过智能重叠缓冲区和最小堆分配处理超大文件
             * 多种匹配选项：查找每行的所有匹配项（-AllMatches）或仅查找每个文件的第一个匹配项（-List）
-            * 大小写敏感控制：支持区分大小写的匹配（-CaseSensitive），并提供区域特定选项（-Culture）
-            * 上下文捕获：显示匹配前后的行（-Context），以便更好地理解
-            * 反向匹配：查找不包含模式的文件（-NotMatch）
+            * 大小写敏感性控制：支持区分大小写匹配（-CaseSensitive）以及区域性特定选项（-Culture）
+            * 上下文捕获：显示匹配前后的行（-Context）以便更好地理解
+            * 反向匹配：查找不包含指定模式的文件（-NotMatch）
             * 输出格式：原始字符串输出（-Raw）、静默布尔响应（-Quiet）或完整的 MatchInfo 对象
-            * 模式类型：正则表达式（默认）或简单文字字符串匹配（-SimpleMatch）
+            * 模式类型：正则表达式（默认）或简单字面字符串匹配（-SimpleMatch）
             * 编码支持：指定文件编码（-Encoding）以实现准确的文本处理
-        * 路径类型灵活性：处理相对路径、绝对路径、UNC 路径、根路径和 NTFS 备用数据流（ADS），并可选在流中搜索内容。
-        * 多驱动器支持：通过 -AllDrives 搜索所有驱动器，或通过 -SearchDrives 指定特定驱动器，包括光盘（如果指定）。
-        * 目录和文件过滤：支持仅搜索目录（-Directory）、同时搜索文件和目录（-FilesAndDirectories）或搜索内容匹配的文件。
-        * 排除和限制：使用 -Exclude 排除模式，设置最大递归深度（-MaxRecursionDepth）、文件大小限制（-MaxFileSize、-MinFileSize）和修改日期过滤器（-ModifiedAfter、-ModifiedBefore）。
-        * 输出定制：支持 PassThru 以返回 FileInfo/DirectoryInfo 对象、相对路径、交互模式下的超链接，或非交互模式下的纯路径（如果出现问题，使用 -NoLinks 强制非交互模式）。
-        * 性能优化：默认跳过非文本文件以进行内容搜索（使用 -IncludeNonTextFileMatching 覆盖），处理长路径（>260 字符），并跟随符号链接/交接点。
-        * 安全特性：超时支持（-TimeoutSeconds），忽略不可访问项，默认跳过系统属性，并通过访问节点跟踪防止无限循环。
+        * 路径类型灵活性：处理相对路径、绝对路径、UNC 路径、根路径以及 NTFS 备用数据流（ADS），并可选择在流中进行内容搜索。
+        * 多驱动器支持：使用 -AllDrives 搜索所有驱动器，或通过 -SearchDrives 搜索特定驱动器，如果指定，还包括光盘。
+        * 目录和文件筛选：提供仅搜索目录（-Directory）、同时搜索文件和目录（-FilesAndDirectories）或搜索匹配内容的文件等选项。
+        * 排除和限制：使用 -Exclude 排除模式，设置最大递归深度（-MaxRecursionDepth）、文件大小限制（-MaxFileSize、-MinFileSize）以及修改日期过滤器（-ModifiedAfter、-ModifiedBefore）。
+        * 输出自定义：支持 PassThru 输出 FileInfo/DirectoryInfo 对象、相对路径、在交互模式下的超链接，或在非交互模式下的纯路径（如果出现问题，使用 -NoLinks 强制非交互模式）。
+        * 性能优化：内容搜索时默认跳过非文本文件（使用 -IncludeNonTextFileMatching 覆盖），处理长路径（超过 260 个字符），并跟踪符号链接/连接点。
+        * 安全特性：支持超时设置（-TimeoutSeconds），忽略不可访问的项目，默认跳过系统属性，并通过跟踪已访问节点防止无限循环。
 
 ## Syntax
 
@@ -98,8 +95,7 @@ Find-Item -Content "translation"
 l -mc translation
 ```
 
-查找包含特定单词的文件
-在当前目录及其子目录中搜索所有包含单词“translation”的文件。
+grep -r "translation" .
 
 ### Example 2
 
@@ -110,8 +106,7 @@ Find-Item "*.js" "Version == `"\d\d?\.\d\d?\.\d\d?`""
 l *.js "Version == `"\d\d?\.\d\d?\.\d\d?`""
 ```
 
-查找包含版本字符串的JavaScript文件
-搜索包含格式为 "Version == `x.y.z`" 的版本字符串的JavaScript文件。
+查找包含版本字符串 "Version == `x.y.z`" 格式的 JavaScript 文件。
 
 ### Example 3
 
@@ -134,7 +129,8 @@ Find-Item ".\*.xml" -PassThru | % FullName
 l *.xml -pt | % FullName
 ```
 
-查找所有 .xml 文件并将结果以对象形式通过管道传递。
+查找XML文件并传递对象
+搜索所有.xml文件并将结果以对象形式通过管道传递。
 
 ### Example 5
 
@@ -145,8 +141,8 @@ Find-Item -IncludeAlternateFileStreams
 l -ads
 ```
 
-Include alternate data streams
-Search for all files and include their alternate data streams in the results.
+包含备用数据流
+搜索所有文件并在结果中包含它们的备用数据流。
 
 ### Example 6
 
@@ -158,7 +154,7 @@ l *.pdf -alldrives
 ```
 
 搜索所有驱动器
-在所有可用的驱动器中搜索所有PDF文件。
+搜索所有可用驱动器中的所有PDF文件。
 
 ### Example 7
 
@@ -169,7 +165,7 @@ Find-Item "*.log" -TimeoutSeconds 300 -MaxDegreeOfParallelism 4
 l *.log -maxseconds 300 -threads 4
 ```
 
-自定义超时与并行度
+自定义超时和并行度
 搜索日志文件，设置5分钟超时并限制并行度。
 
 ### Example 8
@@ -182,7 +178,7 @@ ls C:\Logs | l -matchcontent "error"
 ```
 
 管道输入
-将 Get-ChildItem 中的文件路径传递给搜索包含 "error" 的文件。
+从 Get-ChildItem 传递文件路径，以搜索包含 "error" 的文件。
 
 ### Example 9
 
@@ -194,7 +190,7 @@ l *.txt -maxdepth 2
 ```
 
 限制递归深度
-搜索文本文件但限制递归到2个目录级别。
+搜索文本文件，但将递归限制为2个目录层级。
 
 ### Example 10
 
@@ -229,8 +225,8 @@ Find-Item -Exclude "*.tmp", "*\bin\*"
 l -skiplike "*.tmp", "*\bin\*"
 ```
 
-Exclude specific patterns
-Search for all files but exclude temporary files and bin directories.
+排除特定模式
+搜索所有文件，但排除临时文件和bin目录。
 
 ### Example 13
 
@@ -241,8 +237,8 @@ Find-Item "*.docx" -SearchDrives "C:\", "D:\"
 l *.docx -drives C:\, D:\
 ```
 
-Search specific drives
-Search for .docx files on C: and D: drives only.
+搜索特定驱动器
+仅在C:和D:驱动器上搜索.docx文件。
 
 ### Example 14
 
@@ -254,7 +250,7 @@ l -mc "Error" -CaseSensitive
 ```
 
 区分大小写的内容搜索
-搜索包含字符串 "Error"（区分大小写）的文件。
+搜索文件中包含"Error"（区分大小写）的内容。
 
 ### Example 15
 
@@ -277,7 +273,8 @@ Find-Item "*.ps1" -Content "function" -AllMatches
 l *.ps1 -mc "function" -AllMatches
 ```
 
-Search for all occurrences of "function" in each line, not just the first match.
+每行查找所有匹配
+在每行中搜索所有出现的"function"，不仅仅是第一个匹配。
 
 ### Example 17
 
@@ -288,8 +285,8 @@ Find-Item "*.log" -Content "error" -Context 2,3
 l *.log -mc "error" -Context 2,3
 ```
 
-在匹配项周围显示上下文
-每个匹配项前后分别显示2行和3行，以便更好地理解。
+在每个匹配项前后显示上下文
+在每个匹配项前显示2行，后显示3行，以便更好地理解。
 
 ### Example 18
 
@@ -300,8 +297,8 @@ Find-Item "*.txt" -Content "TODO:.*" -Raw
 l *.txt -mc "TODO:.*" -Raw
 ```
 
-Get only matching strings
-Return just the matching text strings instead of full match objects.
+只获取匹配的字符串
+返回匹配的文本字符串，而不是完整的匹配对象。
 
 ### Example 19
 
@@ -313,7 +310,7 @@ l *.config -mc "database" -Quiet
 ```
 
 简单的布尔检查
-返回true/false而不是匹配细节以检查模式是否存在。
+返回 true/false 而非匹配详情，以检查模式是否存在。
 
 ### Example 20
 
@@ -324,8 +321,8 @@ Find-Item "*.cs" -Content "class.*Controller" -List
 l *.cs -mc "class.*Controller" -List
 ```
 
-每个文件仅查找第一个匹配项
-在每个文件中停在第一个匹配项处，以实现高效的文件列举。
+仅查找每个文件中的第一个匹配项
+在每个文件中找到第一个匹配项后即停止，以实现高效的文件列表。
 
 ### Example 21
 
@@ -336,8 +333,8 @@ Find-Item "*.txt" -Content "$variable[0]" -SimpleMatch
 l *.txt -mc "$variable[0]" -SimpleMatch
 ```
 
-Literal string matching
-Search for exact text without regex interpretation using SimpleMatch.
+字面字符串匹配
+使用SimpleMatch搜索精确文本，无需正则表达式解释。
 
 ### Example 22
 
@@ -348,8 +345,8 @@ Find-Item "*.js" -Content "console\.log" -NotMatch
 l *.js -mc "console\.log" -NotMatch
 ```
 
-查找不包含模式的文件
-使用 NotMatch 来查找不包含指定模式的文件。
+查找不包含指定模式的文件
+使用NotMatch来查找不包含指定模式的文件。
 
 ### Example 23
 
@@ -361,7 +358,7 @@ l *.txt -mc "café" -Encoding UTF8
 ```
 
 指定文件编码
-为精确文本处理，搜索具有特定编码的文件。
+搜索具有特定编码的文件，以进行准确的文本处理。
 
 ### Example 24
 
@@ -372,8 +369,8 @@ Find-Item "*.txt" -Content "Müller" -SimpleMatch -Culture "de-DE"
 l *.txt -mc "Müller" -SimpleMatch -Culture "de-DE"
 ```
 
-Cultural text comparison
-Use culture-specific matching with SimpleMatch for international text.
+文化文本比较
+使用文化特定匹配与SimpleMatch处理国际文本。
 
 ### Example 25
 
@@ -384,8 +381,7 @@ Find-Item "*.log" -Content "exception" -MinFileSize 1024 -ModifiedAfter "2025-01
 l *.log -mc "exception" -minsize 1024 -after "2025-01-01" -maxdepth 3
 ```
 
-复杂内容搜索与文件筛选
-结合文件大小、日期和内容筛选进行精确搜索。
+结合文件大小、日期和内容筛选条件进行精确搜索的复杂内容搜索与文件过滤器
 
 ## Related Links
 

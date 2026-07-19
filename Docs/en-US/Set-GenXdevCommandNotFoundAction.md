@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sets up custom command not found handling
+
+## Description
+
+Configures PowerShell to handle unknown commands by either navigating to
+directories.
 
 ## Syntax
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess)]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
     param()
 
     begin {
@@ -136,6 +142,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevCommandNotFoundAction
+
+```powershell
+Set-GenXdevCommandNotFoundAction
 ```
 
 ## Related Links

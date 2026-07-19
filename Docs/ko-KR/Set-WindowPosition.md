@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 명시적 위치 조정 매개변수가 제공될 때 창을 배치하고 크기를 조정합니다.
+
+## Description
+
+위치 매개변수가 지정될 때 창 위치와 크기를 정밀하게 제어합니다. 여러 모니터, 테두리 제거, 왼쪽/오른쪽 분할, 위/아래 분할, 중앙 배치 등 다양한 사전 설정 위치를 지원합니다. 창은 좌표 또는 미리 정의된 레이아웃을 사용하여 배치할 수 있습니다. 위치 매개변수가 없으면 함수는 창에 아무 작업도 수행하지 않습니다.
 
 ## Syntax
 
@@ -54,6 +58,44 @@ Set-WindowPosition [-Bottom] [-Centered] [-ClearSession] [-FocusWindow] [-Fullsc
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-OnlyOutputCoords` | SwitchParameter | — | — | Named | — | Only output the calculated coordinates and size without actually positioning the window |
+
+## Examples
+
+### Set-WindowPosition -Centered -Monitor 0 -NoBorders Position PowerShell window centered on primary monitor with no borders
+
+```powershell
+Set-WindowPosition -Centered -Monitor 0 -NoBorders
+Position PowerShell window centered on primary monitor with no borders
+```
+
+### Get-Process notepad,calc | wp -m 1 -l,-r Split notepad and calc side by side on second monitor using aliases
+
+```powershell
+Get-Process notepad,calc | wp -m 1 -l,-r
+Split notepad and calc side by side on second monitor using aliases
+```
+
+### Set-WindowPosition -ProcessName notepad Does nothing - no positioning parameters specified
+
+```powershell
+Set-WindowPosition -ProcessName notepad
+Does nothing - no positioning parameters specified
+```
+
+### Set-WindowPosition -ProcessName notepad -KeysToSend "Hello World" Sends keystrokes to notepad window without repositioning it
+
+```powershell
+Set-WindowPosition -ProcessName notepad -KeysToSend "Hello World"
+Sends keystrokes to notepad window without repositioning it
+```
+
+### Set-WindowPosition -ProcessName notepad -Left -Monitor 1 -OnlyOutputCoords Returns the calculated coordinates where notepad would be placed on the left side of monitor 1 without actually moving the window
+
+```powershell
+Set-WindowPosition -ProcessName notepad -Left -Monitor 1 -OnlyOutputCoords
+Returns the calculated coordinates where notepad would be placed on the left
+side of monitor 1 without actually moving the window
+```
 
 ## Related Links
 

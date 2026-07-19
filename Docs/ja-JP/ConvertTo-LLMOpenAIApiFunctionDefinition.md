@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converts PowerShell functions to LLM OpenAI API function definitions.
+
+## Description
+
+公開されたコマンドレット定義を受け取り、パラメーター情報とコールバックハンドラーを含む LLM OpenAI API 互換の関数定義を生成します。
 
 ## Syntax
 
@@ -17,6 +21,15 @@ ConvertTo-LLMOpenAIApiFunctionDefinition [[-ExposedCmdLets] <GenXdev.Helpers.Exp
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-ExposedCmdLets` | GenXdev.Helpers.ExposedCmdletDefinition[] | — | ✅ (ByValue) | 0 | `@()` | PowerShellコマンドをツール関数に変換する |
+
+## Examples
+
+### Get-Command Get-Process | ConvertTo-LLMOpenAIApiFunctionDefinition ##############################################################################
+
+```powershell
+Get-Command Get-Process | ConvertTo-LLMOpenAIApiFunctionDefinition
+##############################################################################
+```
 
 ## Outputs
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Clasifica una imagen en una de 365 categorías de escenas usando DeepStack.
+
+## Description
+
+Esta función analiza un archivo de imagen para clasificarlo en una de 365 categorías de escenas diferentes. Utiliza una API local de reconocimiento de escenas de DeepStack que se ejecuta en un puerto configurable y devuelve la clasificación de la escena con una puntuación de confianza. La función admite aceleración por GPU y gestión de contenedores Docker.
 
 ## Syntax
 
@@ -28,6 +32,36 @@ Get-ImageDetectedScenes -ImagePath <String> [[-ConfidenceThreshold] <Double>] [[
 | `-Force` | SwitchParameter | — | — | Named | — | Forzar reconstrucción del contenedor Docker y eliminar datos existentes |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Use GPU-accelerated version (requires NVIDIA GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Mostrar la ventana de Docker Desktop durante la inicialización |
+
+## Examples
+
+### Get-ImageDetectedScenes -ImagePath "C:\Users\YourName\landscape.jpg" Classifies the scene in the specified image using default settings.
+
+```powershell
+Get-ImageDetectedScenes -ImagePath "C:\Users\YourName\landscape.jpg"
+Classifies the scene in the specified image using default settings.
+```
+
+### Get-ImageDetectedScenes -ImagePath "C:\photos\vacation.jpg" -ConfidenceThreshold 0.6 -UseGPU Classifies the scene using GPU acceleration and only accepts results with confidence >= 60%.
+
+```powershell
+Get-ImageDetectedScenes -ImagePath "C:\photos\vacation.jpg" -ConfidenceThreshold 0.6 -UseGPU
+Classifies the scene using GPU acceleration and only accepts results with confidence >= 60%.
+```
+
+### Get-ImageDetectedScenes -ImagePath "C:\photos\vacation.jpg" -UseGPU Classifies the scene using GPU acceleration for faster processing.
+
+```powershell
+Get-ImageDetectedScenes -ImagePath "C:\photos\vacation.jpg" -UseGPU
+Classifies the scene using GPU acceleration for faster processing.
+```
+
+### "C:\Users\YourName\beach.jpg" | Get-ImageDetectedScenes Pipeline support for processing multiple images.
+
+```powershell
+"C:\Users\YourName\beach.jpg" | Get-ImageDetectedScenes
+Pipeline support for processing multiple images.
+```
 
 ## Related Links
 

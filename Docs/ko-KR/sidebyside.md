@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 기본 나란히 보기 구성을 설정합니다.
+
+## Description
+
+GenXdev 창 열기의 기본 동작을 PowerShell과 나란히 배치하도록 설정합니다.
+이는 단일 모니터를 사용하는 사용자 또는 창을 나란히 배치하는 것을 선호하는 사용자에게 유용합니다.
+'secondscreen' 및 'restoredefaultmonitor' cmdlet도 참조하세요.
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> sidebyside
+
+```powershell
+PS> sidebyside
+```
+
+GenXdev 창이 PowerShell과 나란히 열리도록 기본값을 설정합니다.
 
 ## Related Links
 

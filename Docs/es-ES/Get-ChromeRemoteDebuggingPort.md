@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Devuelve el puerto de depuración remota configurado para Google Chrome.
+
+## Description
+
+Recupera y gestiona la configuración del puerto de depuración remota para Google Chrome.
+La función primero verifica si hay un número de puerto personalizado almacenado en $Global:ChromeDebugPort.
+Si no se encuentra o es inválido, utiliza por defecto el puerto 9222. El número de puerto se almacena
+luego de forma global para que otras funciones de automatización de Chrome lo utilicen.
 
 ## Syntax
 
@@ -58,8 +65,26 @@
     }
 ```
 
+## Examples
+
+### $port = Get-ChromeRemoteDebuggingPort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromeRemoteDebuggingPort
+Write-Host "Chrome debug port: $port"
+```
+
+### $port = Get-ChromePort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromePort
+Write-Host "Chrome debug port: $port"
+```
+
 ## Outputs
 
+- `Int32
+Returns the configured Chrome debugging port number.`
 - `Int32`
 
 ## Related Links

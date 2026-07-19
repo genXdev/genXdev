@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Haalt de SQL-schemadefinitie op voor een SQLite-view.
+
+## Description
+
+Deze functie doorzoekt de systeemtabellen van de SQLite-database om de SQL-definitie van een opgegeven weergave te extraheren. Het ondersteunt verbinding via een verbindingsreeks of een direct databasebestandspad en retourneert het volledige SQL-schema dat de gevraagde weergave definieert.
 
 ## Syntax
 
@@ -23,6 +27,15 @@ Get-SQLiteViewSchema -ViewName <String> [<CommonParameters>]
 | `-ConnectionString` | String | ✅ | — | 0 | — | De verbindingsreeks naar de SQLite-database. *(Parameter set: )* |
 | `-DatabaseFilePath` | String | ✅ | — | 0 | — | Het pad naar het SQLite-databasebestand. *(Parameter set: )* |
 | `-ViewName` | String | ✅ | — | 1 | — | De naam van de weergave. |
+
+## Examples
+
+### Get-SQLiteViewSchema -DatabaseFilePath "C:\Databases\MyApp.sqlite" `                     -ViewName "CustomerOrders"
+
+```powershell
+Get-SQLiteViewSchema -DatabaseFilePath "C:\Databases\MyApp.sqlite" `
+                    -ViewName "CustomerOrders"
+```
 
 ## Related Links
 

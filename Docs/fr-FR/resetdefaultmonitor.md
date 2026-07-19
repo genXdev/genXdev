@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Rétablit la configuration par défaut du moniteur secondaire.
+
+## Description
+
+Ce script restaure la configuration par défaut du moniteur secondaire pour le système, définissant le moniteur secondaire sur la valeur par défaut d'origine. Cela est utile pour les utilisateurs qui souhaitent revenir à leur configuration multi-écran précédente après avoir utilisé des configurations côte à côte. Voir aussi : la fonction 'sidebyside' pour passer en mode côte à côte pour les nouvelles fenêtres.
 
 ## Syntax
 
@@ -42,6 +46,16 @@
             'Secondary monitor configuration completed'
     }
 ```
+
+## Examples
+
+### secondscreen
+
+```powershell
+secondscreen
+```
+
+Restores the default secondary monitor configuration for the system.
 
 ## Related Links
 

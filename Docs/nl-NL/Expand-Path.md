@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Breidt elke opgegeven bestandsverwijzing uit naar een volledig pad.
+
+## Description
+
+Breidt elk gegeven bestandsreferentie uit naar een volledig pad, met betrekking tot de huidige map van de gebruiker. Kan optioneel garanderen dat mappen of bestanden bestaan.
 
 ## Syntax
 
@@ -23,6 +27,20 @@ Expand-Path -FilePath <String> [-CreateDirectory] [-CreateFile] [-DeleteExisting
 | `-ForceDrive` | Char | — | — | Named | `'*'` | Dwingt het gebruik van een specifieke schijf |
 | `-FileMustExist` | SwitchParameter | — | — | Named | — | Zal een fout geven als het bestand niet bestaat |
 | `-DirectoryMustExist` | SwitchParameter | — | — | Named | — | Gooit een fout als de map niet bestaat |
+
+## Examples
+
+### Expand-Path -FilePath ".\myfile.txt" -CreateFile
+
+```powershell
+Expand-Path -FilePath ".\myfile.txt" -CreateFile
+```
+
+### ep ~\documents\test.txt -CreateFile
+
+```powershell
+ep ~\documents\test.txt -CreateFile
+```
 
 ## Related Links
 

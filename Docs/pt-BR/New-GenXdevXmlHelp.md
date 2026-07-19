@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Gera arquivos de ajuda MAML para qualquer módulo do PowerShell.
+
+## Description
+
+Gera arquivos de ajuda XML MAML para qualquer módulo PowerShell extraindo metadados de todos os cmdlets em um módulo usando Get-CmdletMetaData e produzindo tanto ModuleName.dll-Help.xml (para cmdlets C#) quanto ModuleName-help.xml
 
 ## Syntax
 
@@ -21,6 +25,32 @@ New-GenXdevXmlHelp -ModuleName <String> [-Force] [-Language <String>] [-SkipTran
 | `-Force` | SwitchParameter | — | — | Named | — | Sobrescrever arquivos XML de ajuda existentes sem avisar |
 | `-SkipTranslation` | SwitchParameter | — | — | Named | — | Skip LLM translation; keep help in source language |
 | `-TranslationInstructions` | String | — | — | Named | — | Instruções personalizadas para a tradução do LLM (passadas para Get-TextTranslation) |
+
+## Examples
+
+### New-GenXdevXmlHelp -ModuleName 'Pester'
+
+```powershell
+New-GenXdevXmlHelp -ModuleName 'Pester'
+```
+
+Gera XML de ajuda em inglês para o módulo Pester em en-US.
+
+### New-GenXdevXmlHelp -ModuleName 'GenXdev' -Language 'nl-NL' -Force
+
+```powershell
+New-GenXdevXmlHelp -ModuleName 'GenXdev' -Language 'nl-NL' -Force
+```
+
+Gera XML de ajuda em holandês para GenXdev, sobrescrevendo arquivos existentes.
+
+### New-GenXdevXmlHelp -ModuleName 'PSReadLine' -WhatIf
+
+```powershell
+New-GenXdevXmlHelp -ModuleName 'PSReadLine' -WhatIf
+```
+
+Mostra quais arquivos seriam criados sem realmente escrevê-los.
 
 ## Outputs
 

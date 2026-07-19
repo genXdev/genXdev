@@ -4,12 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 사용자 정의 명령어를 찾을 수 없을 때의 처리를 설정합니다
+
+## Description
+
+PowerShell이 알 수 없는 명령을 처리하여 디렉터리로 이동하도록 구성합니다.
 
 ## Syntax
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess)]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
     param()
 
     begin {
@@ -136,6 +141,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevCommandNotFoundAction
+
+```powershell
+Set-GenXdevCommandNotFoundAction
 ```
 
 ## Related Links

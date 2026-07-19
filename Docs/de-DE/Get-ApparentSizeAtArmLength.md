@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berechnet die scheinbare Größe eines Objekts auf Armeslänge.
+
+## Description
+
+Berechnet die scheinbare Größe unter Verwendung der Kleinwinkelnäherung.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-ApparentSizeAtArmLength [-DistanceInMeters] <double> [-SizeInMeters] <double
 | `-SizeInMeters` | Double | ✅ | — | 1 | `0` | Die tatsächliche Größe des Objekts in Metern |
 | `-ArmLengthInMeters` | Double | — | — | 2 | `0` | Die Armlänge in Metern (Standard: 0,7) |
 | `-As` | String | — | — | 3 | — | Die Einheit für die Ausgabegröße |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ApparentSizeAtArmLength -DistanceInMeters 10 -SizeInMeters 1 -As "centimeters"
+```
+
+Berechnet die scheinbare Größe eines 1 Meter großen Objekts in 10 Metern Entfernung.
+
+### Example 2
+
+```powershell
+Get-ApparentSizeAtArmLength 10 1
+```
+
+Berechnet die scheinbare Größe unter Verwendung von Positionsparametern.
 
 ## Related Links
 

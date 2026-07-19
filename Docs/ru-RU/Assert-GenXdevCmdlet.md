@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Улучшает документацию и реализацию командлетов GenXdev с помощью ИИ-ассистента.
+
+## Description
+
+Эта функция улучшает командлеты GenXdev, анализируя и совершенствуя их код с помощью запросов к ИИ. Она может интегрировать командлеты в модули, обновлять документацию и проверять правильность реализации. Функция поддерживает пользовательские шаблоны запросов и может открывать файлы в Visual Studio Code или Visual Studio.
 
 ## Syntax
 
@@ -29,6 +33,20 @@ Assert-GenXdevCmdlet [-EditPrompt] [<CommonParameters>]
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | Открыть в Visual Studio |
 | `-EditPrompt` | SwitchParameter | — | — | Named | — | Ты — полезный ассистент, предназначенный для вывода JSON. *(Parameter set: )* |
 | `-Integrate` | SwitchParameter | — | — | Named | — | Интегрировать командлет в модуль |
+
+## Examples
+
+### Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+
+```powershell
+Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+```
+
+### improvecmdlet Get-Something CheckDocs -c
+
+```powershell
+improvecmdlet Get-Something CheckDocs -c
+```
 
 ## Related Links
 

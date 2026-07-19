@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Establece la configuración predeterminada del segundo monitor.
+
+## Description
+
+Establece el comportamiento predeterminado para que las aperturas de ventanas de GenXdev se realicen en el monitor secundario.
+Esto es útil para usuarios con un solo monitor o que prefieren diseños de ventanas lado a lado.
+Consulte también el cmdlet 'sidebyside' y 'restoredefaultmonitor'
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> secondscreen
+
+```powershell
+PS> secondscreen
+```
+
+Establece los valores predeterminados para que las aperturas de ventanas de GenXdev se realicen en el monitor secundario
 
 ## Related Links
 

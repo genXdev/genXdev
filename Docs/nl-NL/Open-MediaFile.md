@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent en speelt mediabestanden af met VLC media player met geavanceerde filter- en configuratieopties.
+
+## Description
+
+Deze functie scant naar mediabestanden op basis van zoekpatronen, maakt een afspeellijst en start de VLC-mediaspeler met uitgebreide configuratieopties. Het ondersteunt video's, audiobestanden en afbeeldingen met automatische installatie van VLC indien nodig. De functie biedt uitgebreide controle over het afspeelgedrag, de vensterpositionering, audio-/video-instellingen en ondertitelingsbeheer.
 
 ## Syntax
 
@@ -111,6 +115,32 @@ Open-MediaFile [[-Name] <String[]>] [[-Width] <Int32>] [[-Height] <Int32>] [[-X]
 | `-PassThru` | SwitchParameter | — | — | Named | — | Retourneert de bestanden die door de zoekopdracht zijn gevonden |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | Geeft de bestanden terug die gevonden zijn door de zoekopdracht zonder VLC te openen |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | Geeft de vensterhelper voor elk proces terug |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+Opent alle mediabestanden in de huidige map met de standaard VLC-instellingen.
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+Opent alleen afbeeldingsbestanden uit de map Afbeeldingen in volledige schermmodus met behulp van de alias 'vlcmedia'.
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+Opent videobestanden met herhaling ingeschakeld met behulp van het alias 'media'.
 
 ## Related Links
 

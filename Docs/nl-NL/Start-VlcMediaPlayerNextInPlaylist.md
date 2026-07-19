@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Laat VLC Media Player naar het volgende item in de huidige afspeellijst gaan.
+
+## Description
+
+Deze functie stuurt de 'n'-toetsaanslag naar VLC Media Player om naar het volgende nummer of media-item in de momenteel geladen afspeellijst te springen. Het focust het VLC-venster, stuurt de volgende-opdracht en herstelt de focus naar de PowerShell-console. De functie bevat ShouldProcess-ondersteuning voor bevestigingsprompts indien nodig.
 
 ## Syntax
 
@@ -41,6 +45,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerNextInPlaylist
+
+```powershell
+Start-VlcMediaPlayerNextInPlaylist
+```
+
+### vlcnext
+
+```powershell
+vlcnext
 ```
 
 ## Related Links

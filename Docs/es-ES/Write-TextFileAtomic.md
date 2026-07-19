@@ -9,9 +9,9 @@
 ## Description
 
 * Escritura atómica: utiliza una estrategia de archivo temporal + renombrado para garantizar que el archivo de destino nunca quede en un estado corrupto si el proceso se interrumpe.
-* Lógica de reintento: reintenta la escritura hasta un máximo de MaxRetries veces con un retraso de RetryDelayMs milisegundos entre intentos.
+* Lógica de reintento: reintenta la escritura hasta MaxRetries veces con una demora de RetryDelayMs milisegundos entre intentos.
 * Soporte de codificación: acepta un parámetro System.Text.Encoding para controlar la codificación de salida. Por defecto es UTF-8.
-* Soporte de debounce: cuando DebounceMs > 0, las escrituras consecutivas rápidas al mismo archivo se fusionan; solo se escribe la última carga una vez que el archivo no ha sido tocado durante DebounceMs ms.
+* Soporte de debounce: cuando DebounceMs > 0, las escrituras consecutivas rápidas al mismo archivo se fusionan — solo se escribe la última carga útil una vez que el archivo no haya sido modificado durante DebounceMs ms.
 * Creación de directorios: crea automáticamente los directorios padre si no existen.
 
 ## Syntax
@@ -52,7 +52,7 @@ Get-Content server.log -Tail 50 | ForEach-Object {
 Start-Sleep -Seconds 3
 ```
 
-Pipes 50 lineas rápidamente; solo la última línea se persiste después de un período de silencio de 2 segundos.
+Envía rápidamente 50 líneas; solo se conserva la última línea después de un período de silencio de 2 segundos.
 
 ### Example 3
 
@@ -78,7 +78,7 @@ $watcher = Start-ThreadJob -ScriptBlock {
 } -ArgumentList "timestamp.txt"
 ```
 
-Un trabajo en segundo plano escribe marcas de tiempo cada 100 ms, pero el debounce las fusiona: solo una escritura por segundo llega al disco.
+Un trabajo en segundo plano escribe marcas de tiempo cada 100ms pero el debounce las agrupa — solo una escritura por segundo llega realmente al disco.
 
 ## Related Links
 

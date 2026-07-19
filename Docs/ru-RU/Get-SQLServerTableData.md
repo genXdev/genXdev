@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Извлекает данные из таблицы SQL базы данных с возможностью ограничения количества записей.
+
+## Description
+
+Эта функция запрашивает данные из таблицы базы данных SQL, используя либо строку подключения, либо путь к файлу базы данных. Она обеспечивает гибкость при подключении к базе данных и контроле объема извлекаемых данных через параметр Count.
 
 ## Syntax
 
@@ -25,6 +29,20 @@ Get-SQLServerTableData -TableName <String> [[-Count] <Int32>] [<CommonParameters
 | `-Server` | String | — | — | 1 | `'localhost'` | Имя экземпляра SQL Server. *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 2 | — | Имя таблицы, из которой следует запрашивать данные. |
 | `-Count` | Int32 | — | — | 3 | `100` | Максимальное количество записей для возврата. -1 для всех. |
+
+## Examples
+
+### Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+
+```powershell
+Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+```
+
+### Get-SQLServerTableData "C:\data\users.db" "Employees"
+
+```powershell
+Get-SQLServerTableData "C:\data\users.db" "Employees"
+```
 
 ## Related Links
 

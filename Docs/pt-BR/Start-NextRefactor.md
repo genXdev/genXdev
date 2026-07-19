@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Continua ou reinicia uma sessão de refatoração de código.
+
+## Description
+
+Gerencia operações de refatoração de código processando definições de refatoração em ordem de prioridade. Lida com seleção de arquivos, acompanhamento de progresso, tratamento de erros e fornece controle interativo do usuário sobre o processo de refatoração.
 
 ## Syntax
 
@@ -19,7 +23,7 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <IO.FileInfo[]>] [[-Files
 | `-Name` | String[] | — | ✅ (ByValue, ByPropertyName) | 0 | `@('*')` | O nome do refatorador aceita curingas 🌐 *Supports wildcards* |
 | `-FilesToAdd` | IO.FileInfo[] | — | — | 1 | `@()` | Nomes de arquivos a adicionar |
 | `-FilesToRemove` | IO.FileInfo[] | — | — | 2 | `@()` | Nomes de arquivos para remover |
-| `-CleanUpDeletedFiles` | SwitchParameter | — | — | 3 | — | Limpar arquivos deletados |
+| `-CleanUpDeletedFiles` | SwitchParameter | — | — | Named | — | Limpar arquivos deletados |
 | `-Reset` | SwitchParameter | — | — | Named | — | Comece desde o início do conjunto de refatoração |
 | `-ResetLMSelections` | SwitchParameter | — | — | Named | — | Reiniciar todas as seleções de LLM |
 | `-MarkAllCompleted` | SwitchParameter | — | — | Named | — | Marcar todos os arquivos como refatorados |
@@ -35,6 +39,22 @@ You are a helpful assistant designed to output JSON.
 ## Response Format
 
 Reply with JSON object ONLY. |
+
+## Examples
+
+### Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles Restarts refactoring for "RefactorProject" and removes deleted files.
+
+```powershell
+Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles
+Restarts refactoring for "RefactorProject" and removes deleted files.
+```
+
+### nextrefactor -Name "*Test*" -Speak Processes all refactor sets matching "*Test*" pattern with speech enabled.
+
+```powershell
+nextrefactor -Name "*Test*" -Speak
+Processes all refactor sets matching "*Test*" pattern with speech enabled.
+```
 
 ## Related Links
 

@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre la información del sitio web de SimilarWeb para las URLs especificadas en un navegador web.
+
+## Description
+
+Abre una consulta de "Similar web" en un navegador web de forma configurable utilizando
+interruptores de línea de comandos. Permite comprobar análisis y comparaciones de sitios web para
+el análisis de tráfico web, investigación de competidores y perspectivas de marketing digital.
 
 ## Syntax
 
 ```powershell
-Open-SimularWebSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-SimularWebSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -36,6 +42,9 @@ Open-SimularWebSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-Chrome` | SwitchParameter | — | — | Named | — | Se abre en Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Se abre en Microsoft Edge o Google Chrome, dependiendo de cuál sea el navegador predeterminado |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Se abre en Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utilizar el navegador gestionado por Playwright en lugar del navegador instalado en el sistema operativo |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre el navegador WebKit gestionado por Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Ejecuta el navegador sin una ventana visible |
 | `-All` | SwitchParameter | — | — | Named | — | Se abre en todos los navegadores modernos registrados |
 | `-ApplicationMode` | SwitchParameter | — | — | Named | — | Ocultar los controles del navegador |
 | `-NoBrowserExtensions` | SwitchParameter | — | — | Named | — | Prevenir la carga de extensiones del navegador |
@@ -59,6 +68,40 @@ Open-SimularWebSiteInfo -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Coloque la ventana del navegador en pantalla completa en un monitor diferente al de PowerShell, o en paralelo con PowerShell en el mismo monitor. |
+
+## Examples
+
+### Open-SimularWebSiteInfo -Queries "google.com" -Monitor 0
+
+```powershell
+Open-SimularWebSiteInfo -Queries "google.com" -Monitor 0
+```
+
+Abre un análisis de SimilarWeb para Google.com en el monitor principal.
+
+### simularsite google.com -mon 0
+
+```powershell
+simularsite google.com -mon 0
+```
+
+Abre un análisis de SimilarWeb utilizando el alias de función con posicionamiento de monitor.
+
+### "microsoft.com", "apple.com" | Open-SimularWebSiteInfo -Language "English" -Centered
+
+```powershell
+"microsoft.com", "apple.com" | Open-SimularWebSiteInfo -Language "English" -Centered
+```
+
+Analiza múltiples sitios web a través de entrada de tubería con posicionamiento de ventana centrado.
+
+### Open-SimularWebSiteInfo -Queries "github.com" -ReturnURL
+
+```powershell
+Open-SimularWebSiteInfo -Queries "github.com" -ReturnURL
+```
+
+https://www.similarweb.com/website/github.com/
 
 ## Related Links
 

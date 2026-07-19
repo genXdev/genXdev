@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 设置默认并排配置。
+
+## Description
+
+设置GenXdev窗口的默认行为为与PowerShell并排显示。
+这对于使用单显示器的用户或偏好并排窗口布局的用户很有用。
+另请参阅cmdlet 'secondscreen'和'restoredefaultmonitor'。
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> sidebyside
+
+```powershell
+PS> sidebyside
+```
+
+将GenXdev窗口的默认打开方式设置为与PowerShell并排显示
 
 ## Related Links
 

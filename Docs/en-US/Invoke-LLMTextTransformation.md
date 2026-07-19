@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Transforms text using AI-powered processing.
+
+## Description
+
+This function processes input text using AI models to perform various
+transformations such as spell checking, adding emoticons, or any other text
+enhancement specified through instructions. It can accept input directly
+through parameters, from the pipeline, or from the system clipboard.
 
 ## Syntax
 
@@ -63,6 +70,28 @@ Invoke-LLMTextTransformation [[-Text] <String>] [[-Instructions] <String>] [[-At
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximum tool callback length (passed to LLMQuery) |
+
+## Examples
+
+### Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `     -Instructions "Fix spelling errors" -SetClipboard
+
+```powershell
+Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `
+    -Instructions "Fix spelling errors" -SetClipboard
+```
+
+### "Time to celerbate!" | Invoke-LLMTextTransformation `     -Instructions "Add celebratory emoticons"
+
+```powershell
+"Time to celerbate!" | Invoke-LLMTextTransformation `
+    -Instructions "Add celebratory emoticons"
+```
+
+### spellcheck "This is a sentance with erors"
+
+```powershell
+spellcheck "This is a sentance with erors"
+```
 
 ## Outputs
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Initializes KeyValueStore directory structure for local and OneDrive storage.
+
+## Description
+
+Creates directory structure for JSON-based key-value stores in two locations: local machine for immediate access and OneDrive folder for cloud synchronization. The cmdlet ensures both directories exist and are properly configured.
 
 ## Syntax
 
@@ -17,6 +21,24 @@ Initialize-KeyValueStores [[-DatabasePath] <string>] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-DatabasePath` | String | — | — | 0 | — | Database path for key-value store data files |
+
+## Examples
+
+### Example 1
+
+```powershell
+Initialize-KeyValueStores
+```
+
+Creates the standard local and OneDrive directories for key-value stores.
+
+### Example 2
+
+```powershell
+Initialize-KeyValueStores -DatabasePath "C:\MyStores"
+```
+
+Creates key-value store directories under the specified custom path.
 
 ## Related Links
 

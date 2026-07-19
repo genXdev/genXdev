@@ -4,7 +4,25 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Biedt een PowerShell-wrapper voor het Robust Copy (RoboCopy) hulpprogramma van Microsoft.
+
+## Description
+
+Een uitgebreide wrapper voor de RoboCopy-opdrachtregelprogramma die
+robuuste bestands- en directorykopiëermogelijkheden biedt. Deze functie stelt RoboCopy's
+uitgebreide functieset beschikbaar via PowerShell-vriendelijke parameters, terwijl het
+grootste deel van zijn krachtige functionaliteit behouden blijft.
+
+Belangrijkste functies:
+- Directorysynchronisatie met spiegelopties
+- Ondersteuning voor extra lange padnamen (>256 tekens)
+- Behoud van beveiligingsinstellingen
+- Geavanceerde bestandskenmerkverwerking
+- Beheer van symbolische koppelingen en junction points
+- Monitor-modus voor continue synchronisatie
+- Prestatieoptimalisatie voor grote bestanden
+- Ondersteuning voor netwerkcompressie
+- Herstelmodus voor falende apparaten
 
 ## Syntax
 
@@ -21,12 +39,11 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Source` | String | ✅ | — | 0 | — | De directory, het bestandspad, of directory+zoekmasker |
-| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | De doelmap waarin de gekopieerde bestanden en mappen worden geplaatst.
+| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | De doelmap waarin de gekopieerde bestanden en mappen moeten worden geplaatst.
             Als deze map nog niet bestaat, worden alle ontbrekende mappen aangemaakt.
-            Standaardwaarde = ".\"
-            Geef een pad op naar de directory waar het doelbestand moet komen. |
-| `-Files` | String[] | — | — | 2 | `@()` | Optioneel zoekmasker voor het selecteren van de te kopiëren bestanden.
-            Standaardwaarde = '*' 🌐 *Supports wildcards* |
+            Standaardwaarde = ".\"" |
+| `-Files` | String[] | — | — | 2 | `@()` | Optionele zoekmasker voor het selecteren van de bestanden die moeten worden gekopieerd.
+Standaardwaarde = '*' 🌐 *Supports wildcards* |
 | `-Mirror` | SwitchParameter | — | — | Named | — | Synchroniseert de inhoud van opgegeven mappen, verwijdert ook alle bestanden en mappen in de bestemming die niet in de bron bestaan |
 | `-Move` | SwitchParameter | — | — | Named | — | Verplaatst in plaats van kopieert alle bestanden van bron naar bestemming |
 | `-IncludeSecurity` | SwitchParameter | — | — | Named | — | Kopieert ook eigenaarschap, beveiligingsdescriptors en auditinformatie van bestanden en mappen |
@@ -70,7 +87,7 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | `-MultiThreaded` | SwitchParameter | — | — | Named | — | Optimaliseer prestaties door multithreaded kopiëren |
 | `-CompressibleContent` | SwitchParameter | — | — | Named | — | Gebruik waar mogelijk compressie bij het kopiëren van bestanden tussen servers om bandbreedte en tijd te besparen |
 | `-ExactTimestamps` | SwitchParameter | — | — | Named | — | Wanneer ingesteld, wordt tijdstempelovereenkomst op millisecondeniveau gebruikt in plaats van de standaard tolerantie van 2 seconden. |
-| `-Override` | String | — | — 🌐 Remaining | 3 | — | Overschrijft, verwijdert of voegt elke gespecificeerde robocopy-parameter toe.
+| `-Override` | String | — | — 🌐 Remaining | 3 | — | Overschrijft, verwijdert of voegt elke opgegeven robocopy-parameter toe.
 
 Gebruik:
 
@@ -87,6 +104,24 @@ Parameter verwijderen:
 Meerdere overschrijvingen:
 
     -Override "/ReplaceThisSwitchWithValue:'SomeValue' -/RemoveThisSwitch /AddThisSwitch" |
+
+## Examples
+
+### ########################################################################Mirror a directory with security settings Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `     -Mirror -IncludeSecurity
+
+```powershell
+########################################################################Mirror a directory with security settings
+Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `
+    -Mirror -IncludeSecurity
+```
+
+### ########################################################################Monitor and sync changes every 10 minutes Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `     -MonitorMode -MonitorModeThresholdMinutes 10
+
+```powershell
+########################################################################Monitor and sync changes every 10 minutes
+Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `
+    -MonitorMode -MonitorModeThresholdMinutes 10
+```
 
 ## Related Links
 

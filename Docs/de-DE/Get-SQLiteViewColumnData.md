@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ruft Spaltendaten aus einer SQLite-Ansicht ab, mit optionaler Begrenzung der Datensätze.
+
+## Description
+
+Führt eine SELECT-Abfrage gegen eine bestimmte SQLite-Ansicht aus, um Daten aus einer einzelnen Spalte abzurufen. Unterstützt die Verbindung entweder über eine Verbindungszeichenfolge oder einen Datenbankdateipfad. Ermöglicht die Begrenzung der Anzahl zurückgegebener Datensätze oder das Abrufen aller Datensätze.
 
 ## Syntax
 
@@ -25,6 +29,23 @@ Get-SQLiteViewColumnData -ViewName <String> -ColumnName <String> [[-Count] <Int3
 | `-ViewName` | String | ✅ | — | 1 | — | Der Name der Ansicht. |
 | `-ColumnName` | String | ✅ | — | 2 | — | Der Name der Spalte. |
 | `-Count` | Int32 | — | — | 3 | `100` | Die Anzahl der zurückzugebenden Datensätze. Standard ist 100. -1 für alle. |
+
+## Examples
+
+### Get-SQLiteViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `     -ViewName "CustomersView" `     -ColumnName "Email" `     -Count 50
+
+```powershell
+Get-SQLiteViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `
+    -ViewName "CustomersView" `
+    -ColumnName "Email" `
+    -Count 50
+```
+
+### Get-SQLiteViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+
+```powershell
+Get-SQLiteViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+```
 
 ## Related Links
 

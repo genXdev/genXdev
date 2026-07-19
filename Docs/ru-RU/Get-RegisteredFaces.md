@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Извлекает список всех зарегистрированных идентификаторов лиц из DeepStack.
+
+## Description
+
+Эта функция подключается к локальному API распознавания лиц DeepStack и извлекает все зарегистрированные идентификаторы лиц. Она использует конечную точку /v1/vision/face/list для запроса к сервису DeepStack и возвращает массив строк с идентификаторами лиц. Функция обрабатывает инициализацию Docker-контейнера, взаимодействие с API и обработку ошибок для различных сценариев сбоев.
 
 ## Syntax
 
@@ -26,6 +30,41 @@ Get-RegisteredFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | Интервал в секундах между проверками состояния |
 | `-ImageName` | String | — | — | 5 | — | Имя пользовательского образа Docker для использования |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Показать окно Docker Desktop во время инициализации |
+
+## Examples
+
+### Get-RegisteredFaces
+
+```powershell
+Get-RegisteredFaces
+```
+
+Этот пример извлекает все зарегистрированные лица с использованием параметров по умолчанию.
+
+### Get-RegisteredFaces -Force -UseGPU
+
+```powershell
+Get-RegisteredFaces -Force -UseGPU
+```
+
+Этот пример принудительно пересобирает контейнер и использует ускорение GPU.
+
+### Get-RegisteredFaces -ContainerName "my_deepstack" -ServicePort 8080
+
+```powershell
+Get-RegisteredFaces -ContainerName "my_deepstack" -ServicePort 8080
+```
+
+Этот пример использует пользовательское имя контейнера и номер порта.
+
+### Get-RegisteredFaces | Where-Object { $_ -like "John*" }
+
+```powershell
+Get-RegisteredFaces |
+Where-Object { $_ -like "John*" }
+```
+
+Этот пример извлекает все лица и фильтрует те, которые начинаются с «John».
 
 ## Related Links
 

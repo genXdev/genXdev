@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Проверяет, имеет ли текущий пользователь повышенные права.
+
+## Description
+
+Определяет, имеет ли текущий пользователь Windows права администратора или оператора резервного копирования, проверяя их роли субъектов безопасности. Возвращает true, если пользователь обладает повышенными правами, и false в противном случае. Реализует надежную обработку ошибок для проблем, связанных с безопасностью и доступом.
 
 ## Syntax
 
@@ -89,8 +93,19 @@
     }
 ```
 
+## Examples
+
+### $hasRights = CurrentUserHasElevatedRights ##############################################################################
+
+```powershell
+$hasRights = CurrentUserHasElevatedRights
+##############################################################################
+```
+
 ## Outputs
 
+- `Boolean
+Returns true if user has admin or backup operator rights, false otherwise.`
 - `Boolean`
 
 ## Related Links

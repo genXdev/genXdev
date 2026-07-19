@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Evaluates a statement using AI to determine if it's true or false.
+
+## Description
+
+Cette fonction utilise des modèles d'IA pour évaluer des déclarations et déterminer leur valeur de vérité. Elle peut accepter une entrée directement via des paramètres, depuis le pipeline ou depuis le presse-papiers du système. La fonction renvoie un résultat booléen ainsi que le niveau de confiance et le raisonnement du modèle d'IA.
 
 ## Syntax
 
@@ -158,6 +162,27 @@ Ce projet est sous licence MIT. |
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | — | Utiliser la stratégie d'échantillonnage par faisceau |
 | `-OnlyResponses` | SwitchParameter | — | — | Named | — | Retourner uniquement les réponses du modèle |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | The `-MaxToolcallBackLength` parameter. |
+
+## Examples
+
+### Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+
+```powershell
+Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+```
+
+### "Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+
+```powershell
+"Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+```
+
+### equalstrue "2 + 2 = 4" ##############################################################################
+
+```powershell
+equalstrue "2 + 2 = 4"
+##############################################################################
+```
 
 ## Outputs
 

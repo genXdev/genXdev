@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Cria um novo banco de dados SQL Server.
+
+## Description
+
+Cria um novo banco de dados SQL Server com o nome especificado no servidor especificado. Requer permissões apropriadas para criar bancos de dados na instância do SQL Server de destino. Se o banco de dados já existir, a operação será ignorada. Suporta a criação de bancos de dados baseados em arquivo com caminhos explícitos .mdf/.ldf.
 
 ## Syntax
 
@@ -28,6 +32,38 @@ New-SQLServerDatabase [-ConsentToThirdPartySoftwareInstallation] [-ForceConsent]
 | `-DataFilePath` | String | — | — | Named | — | Caminho opcional para arquivo de dados (.mdf) para criação de banco de dados baseado em arquivo. *(Parameter set: )* |
 | `-LogFilePath` | String | — | — | Named | — | Caminho opcional do arquivo de log (.ldf) para criação de banco de dados baseado em arquivo. *(Parameter set: )* |
 | `-DetachAfterCreation` | SwitchParameter | — | — | Named | — | Desanexar banco de dados após a criação (para bancos de dados baseados em arquivos). *(Parameter set: )* |
+
+## Examples
+
+### New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+```
+
+### New-SQLServerDatabase "MyNewDatabase"
+
+```powershell
+New-SQLServerDatabase "MyNewDatabase"
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+```
+
+### New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

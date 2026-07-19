@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berechnet die Auftriebskraft.
+
+## Description
+
+Verwendet F = ρ V g.
 
 ## Syntax
 

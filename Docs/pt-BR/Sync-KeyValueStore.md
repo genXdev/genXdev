@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sincroniza arquivos JSON de armazenamento chave-valor locais e do OneDrive.
+
+## Description
+
+Realiza sincronização bidirecional entre arquivos JSON sombra locais e do OneDrive usando uma estratégia de timestamp da última modificação. Os registros são mesclados com base no horário da última modificação, com as versões mais recentes tendo precedência.
 
 ## Syntax
 
@@ -18,6 +22,20 @@ Sync-KeyValueStore [[-SynchronizationKey] <string>] [-DatabasePath <string>] [<C
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-SynchronizationKey` | String | — | — | 0 | — | Chave para identificar o escopo de sincronização |
 | `-DatabasePath` | String | — | — | Named | — | Caminho do banco de dados para arquivos de dados do armazenamento chave-valor |
+
+## Examples
+
+### Example 1
+
+```powershell
+Sync-KeyValueStore
+```
+
+### Example 2
+
+```powershell
+Sync-KeyValueStore -SynchronizationKey "UserSettings"
+```
 
 ## Related Links
 

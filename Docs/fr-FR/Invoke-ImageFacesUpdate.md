@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Met à jour les métadonnées de reconnaissance faciale pour les fichiers image dans un répertoire spécifié.
+
+## Description
+
+Cette fonction traite les images dans un répertoire spécifié pour identifier et analyser les visages à l'aide de la technologie de reconnaissance IA. Elle crée ou met à jour des fichiers de métadonnées contenant des informations sur les visages pour chaque image. Les métadonnées sont stockées dans un fichier séparé avec
 
 ## Syntax
 
@@ -43,6 +47,21 @@ Invoke-ImageFacesUpdate [[-ImageDirectories] <String[]>] [-ApiEndpoint <String>]
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utiliser les paramètres alternatifs stockés dans la session pour les préférences IA telles que la langue, les collections d'images, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Ne pas utiliser les paramètres alternatifs stockés dans la session pour les préférences IA comme la langue, les collections d'images, etc. |
+
+## Examples
+
+### Invoke-ImageFacesUpdate -Name @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageFacesUpdate -Name @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+### facerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew ##############################################################################
+
+```powershell
+facerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+##############################################################################
+```
 
 ## Related Links
 

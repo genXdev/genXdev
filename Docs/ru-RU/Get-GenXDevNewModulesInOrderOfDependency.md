@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Извлекает модули GenXDev в порядке зависимостей.
+
+## Description
+
+Эта функция возвращает список модулей GenXDev, расположенных в правильном порядке зависимостей, чтобы обеспечить правильную загрузку модулей. Сначала она получает всю информацию о модулях, а затем упорядочивает их на основе зависимостей, начиная с основных модулей и заканчивая зависимыми. Это гарантирует, что модули загружаются в правильной последовательности.
 
 ## Syntax
 
@@ -17,6 +21,20 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-ModuleName` | String[] | — | ✅ (ByValue, ByPropertyName) | 0 | `@('GenXdev*')` | Одно или несколько имен модулей для фильтрации |
+
+## Examples
+
+### Get-GenXDevNewModulesInOrderOfDependency -ModuleName "GenXdev.Helpers"
+
+```powershell
+Get-GenXDevNewModulesInOrderOfDependency -ModuleName "GenXdev.Helpers"
+```
+
+### "GenXdev.Console" | Get-GenXDevNewModulesInOrderOfDependency
+
+```powershell
+"GenXdev.Console" | Get-GenXDevNewModulesInOrderOfDependency
+```
 
 ## Related Links
 

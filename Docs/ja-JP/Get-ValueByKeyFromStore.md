@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> JSONベースのキー・バリューストアから値を取得します。
+
+## Description
+
+* JSONファイルベースのキー・バリューストアから指定されたキーの値を取得します。
+* オプションのデフォルト値と異なるスコープ間での同期をサポートします。
+* 自動的なディレクトリ初期化と同期を提供します。
 
 ## Syntax
 
@@ -21,6 +27,24 @@ Get-ValueByKeyFromStore [-StoreName] <string> [-KeyName] <string> [[-DefaultValu
 | `-DefaultValue` | String | — | — | 2 | — | オプションのデフォルト値 |
 | `-SynchronizationKey` | String | — | — | 3 | — | 同期範囲を識別するキー |
 | `-DatabasePath` | String | — | — | Named | — | キーバリューストアデータファイルのデータベースパス |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ValueByKeyFromStore -StoreName "AppSettings" -KeyName "Theme" -DefaultValue "Dark"
+```
+
+「AppSettings」から「Theme」の値を取得し、見つからない場合は「Dark」を返します。
+
+### Example 2
+
+```powershell
+getvalue AppSettings Theme
+```
+
+値の取得に「getvalue」エイリアスを使用します。
 
 ## Related Links
 

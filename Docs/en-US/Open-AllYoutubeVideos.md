@@ -4,12 +4,20 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens and controls YouTube videos in a browser window with keyboard shortcuts.
+
+## Description
+
+Opens YouTube videos matching search terms or from various YouTube sections in a
+browser window. Provides keyboard controls for video playback and navigation
+through an interactive interface. Supports multiple browsers and various YouTube
+content types including search results, subscriptions, watch later, recommended
+videos, and trending content.
 
 ## Syntax
 
 ```powershell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-AcceptLang <String>] [-ApplicationMode] [-Chrome] [-Edge] [-NoFullScreen] [-Private] [-Recommended] [-Subscriptions] [-Trending] [-WatchLater] [<CommonParameters>]
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-AcceptLang <String>] [-ApplicationMode] [-Chrome] [-Chromium] [-Edge] [-Firefox] [-NoFullScreen] [-Private] [-Recommended] [-Subscriptions] [-Trending] [-WatchLater] [-Webkit] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,9 +32,26 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-AcceptLang <String>] [-Applicati
 | `-Private` | SwitchParameter | — | — | Named | — | Opens in incognito/private browsing mode |
 | `-Edge` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge |
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opens in Google Chrome |
+| `-Chromium` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge or Google Chrome, depending on what the default browser is |
+| `-Firefox` | SwitchParameter | — | — | Named | — | Opens in Firefox |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Uses the Playwright-managed WebKit browser |
 | `-NoFullScreen` | SwitchParameter | — | — | Named | — | Prevents opening in fullscreen mode |
 | `-ApplicationMode` | SwitchParameter | — | — | Named | — | Hide the browser controls |
 | `-AcceptLang` | String | — | — | Named | `$null` | Set the browser accept-lang http header |
+
+## Examples
+
+### Open-AllYoutubeVideos -Queries "PowerShell tutorial","vscode tips" -Edge
+
+```powershell
+Open-AllYoutubeVideos -Queries "PowerShell tutorial","vscode tips" -Edge
+```
+
+### qvideos "PowerShell tutorial" -e
+
+```powershell
+qvideos "PowerShell tutorial" -e
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> VLCメディアプレーヤーを使用してメディアファイルを開き再生します。高度なフィルタリングと設定オプションを備えています。
+
+## Description
+
+この関数は、検索パターンに基づいてメディアファイルをスキャンし、プレイリストを作成して、包括的な設定オプションを備えたVLCメディアプレーヤーを起動します。ビデオ、オーディオファイル、画像をサポートし、必要に応じてVLCを自動インストールします。この関数は、再生動作、ウィンドウの配置、オーディオ/ビデオ設定、字幕処理を広範囲に制御できます。
 
 ## Syntax
 
@@ -111,6 +115,32 @@ Open-MediaFile [[-Name] <String[]>] [[-Width] <Int32>] [[-Height] <Int32>] [[-X]
 | `-PassThru` | SwitchParameter | — | — | Named | — | 検索で見つかったファイルを返します |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | VLCを開かずに検索で見つかったファイルを返します |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | 各プロセスのウィンドウヘルパーを返します |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+VLCのデフォルト設定を使用して、現在のディレクトリ内のすべてのメディアファイルを開きます。
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+エイリアス 'vlcmedia' を使用して、Pictures フォルダー内の画像ファイルのみを全画面モードで開きます。
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+エイリアス'media'を使用してループ再生を有効にしてビデオファイルを開きます。
 
 ## Related Links
 

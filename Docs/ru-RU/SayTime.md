@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Объявляет текущее время с помощью синтеза речи.
+
+## Description
+
+Эта функция получает текущее время и использует системный синтезатор речи, чтобы объявить его в формате часов и минут. Это полезно для целей доступности или когда вам нужно звуковое объявление времени.
 
 ## Syntax
 
@@ -17,6 +21,15 @@ SayTime [-Wait] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Wait` | SwitchParameter | — | — | Named | — | The `-Wait` parameter. |
+
+## Examples
+
+### SayTime Speaks the current time, e.g. "The time is 14 hours and 30 minutes"
+
+```powershell
+SayTime
+Speaks the current time, e.g. "The time is 14 hours and 30 minutes"
+```
 
 ## Related Links
 

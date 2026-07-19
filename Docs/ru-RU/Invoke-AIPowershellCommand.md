@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Генерирует и выполняет команды PowerShell с помощью ИИ.
+
+## Description
+
+Использует модели ИИ для генерации команд PowerShell на основе запросов на естественном языке. Функция может либо отправлять команды напрямую в окно PowerShell, либо копировать их в буфер обмена. Она использует модели ИИ для интерпретации естественного языка и преобразования его в исполняемые команды PowerShell с всесторонней поддержкой параметров для различных серверных частей ИИ.
 
 ## Syntax
 
@@ -78,6 +82,32 @@ Invoke-AIPowershellCommand -Query <String> [[-Attachments] <String[]>] [-AllowDe
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Максимальная длина обратного вызова инструмента (передается в LLMQuery) |
+
+## Examples
+
+### Invoke-AIPowershellCommand -Query "list all running processes"
+
+```powershell
+Invoke-AIPowershellCommand -Query "list all running processes"
+```
+
+Создает команду PowerShell для вывода списка запущенных процессов
+
+### hint "list files modified today"
+
+```powershell
+hint "list files modified today"
+```
+
+find . -type f -newermt $(date +%Y-%m-%d)
+
+### Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+
+```powershell
+Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+```
+
+Генерирует команду для остановки службы и копирует её в буфер обмена.
 
 ## Outputs
 

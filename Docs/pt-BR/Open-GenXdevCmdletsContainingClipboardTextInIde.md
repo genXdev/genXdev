@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre arquivos na IDE que contêm texto da área de transferência
+
+## Description
+
+O texto da área de transferência é usado para pesquisar em todos os scripts do GenXdev e, quando encontrado, abre esse arquivo no Code ou Visual Studio
+##############################################################################
 
 ## Syntax
 

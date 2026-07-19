@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 删除 WireGuard VPN 对等端配置。
+
+## Description
+
+此函数用于删除在Docker容器中运行的服务器上的WireGuard VPN对等体配置。它会删除对等体的配置文件，并更新WireGuard服务器以停止接受来自该对等体的连接。函数会在删除前验证对等体是否存在，除非指定了Force参数，否则会提供确认提示。
 
 ## Syntax
 
@@ -48,6 +52,32 @@ Remove-WireGuardPeer -PeerName <String> [-Bottom] [-Centered] [-ClearSession] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
+
+## Examples
+
+### Remove-WireGuardPeer -PeerName "MyPhone"
+
+```powershell
+Remove-WireGuardPeer -PeerName "MyPhone"
+```
+
+删除名为 "MyPhone" 的对等节点，并显示确认提示。
+
+### Remove-WireGuardPeer -PeerName "Tablet" -Force
+
+```powershell
+Remove-WireGuardPeer -PeerName "Tablet" -Force
+```
+
+Removes the peer named "Tablet" without confirmation prompt.
+
+### Remove-WireGuardPeer "WorkLaptop"
+
+```powershell
+Remove-WireGuardPeer "WorkLaptop"
+```
+
+使用位置参数语法移除对等节点。
 
 ## Related Links
 

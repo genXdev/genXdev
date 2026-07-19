@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Genera y ejecuta comandos de PowerShell usando asistencia de IA.
+
+## Description
+
+Utiliza modelos de IA para generar comandos de PowerShell basados en consultas en lenguaje natural. La función puede enviar comandos directamente a la ventana de PowerShell o copiarlos al portapapeles. Aprovecha modelos de IA para interpretar el lenguaje natural y convertirlo en comandos de PowerShell ejecutables con soporte completo de parámetros para varios backends de IA.
 
 ## Syntax
 
@@ -69,6 +73,32 @@ Let me prepare the response.",
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filtrar por tipos de bloques de marcado (pasado a LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longitud máxima de la llamada a la herramienta (pasada a LLMQuery) |
+
+## Examples
+
+### Invoke-AIPowershellCommand -Query "list all running processes"
+
+```powershell
+Invoke-AIPowershellCommand -Query "list all running processes"
+```
+
+Genera un comando de PowerShell para listar los procesos en ejecución
+
+### hint "list files modified today"
+
+```powershell
+hint "list files modified today"
+```
+
+Utiliza el alias para generar un comando que busque archivos modificados hoy.
+
+### Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+
+```powershell
+Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+```
+
+Genera un comando para detener un servicio y lo copia al portapapeles.
 
 ## Outputs
 

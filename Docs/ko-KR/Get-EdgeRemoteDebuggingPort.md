@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Microsoft Edge 브라우저에 대해 구성된 원격 디버깅 포트를 반환합니다.
+
+## Description
+
+Microsoft Edge 브라우저의 디버깅 인터페이스에 연결하는 데 사용되는 원격 디버깅 포트 번호를 검색합니다. 사용자 지정 포트가 전역 변수 $Global:EdgeDebugPort를 통해 구성되지 않은 경우 기본 포트 9223을 반환합니다. 함수는 사용자 지정 포트 구성을 확인하고 잘못된 경우 기본값으로 대체합니다.
 
 ## Syntax
 
@@ -54,8 +58,19 @@
     }
 ```
 
+## Examples
+
+### Get-EdgeRemoteDebuggingPort Returns the configured debug port (default 9223 if not configured)
+
+```powershell
+Get-EdgeRemoteDebuggingPort
+Returns the configured debug port (default 9223 if not configured)
+```
+
 ## Outputs
 
+- `Int32
+Returns the port number to use for Edge remote debugging`
 - `Int32`
 
 ## Related Links

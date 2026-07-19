@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> バッチ操作用のSQLiteトランザクションオブジェクトを作成して返します。
+
+## Description
+
+バッチ操作に使用できるSQLiteデータベース接続とトランザクションオブジェクトを作成します。呼び出し元はトランザクションのコミットまたはロールバックを行う責任を負います。データベースファイルが存在しない場合、接続は自動的に作成されます。
 
 ## Syntax
 
@@ -26,6 +30,36 @@ Get-SQLiteTransaction [-ConsentToThirdPartySoftwareInstallation] [-CreateDatabas
 | `-CreateDatabaseIfNotExists` | Boolean | — | — | Named | `$true` | データベースファイルが存在しない場合に作成するかどうか。 |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | SQLite パッケージのインストールに設定されている場合でも、同意プロンプトを強制します。 |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | サードパーティ製ソフトウェアのインストールを自動的に同意し、SQLiteパッケージの永続フラグを設定します。 |
+
+## Examples
+
+### $transaction = Get-SQLiteTransaction -DatabaseFilePath "C:\data.db" try {     Invoke-SQLiteQuery -Transaction $transaction -Queries "INSERT INTO Users..."     Invoke-SQLiteQuery -Transaction $transaction -Queries "UPDATE Users..."     $transaction.Commit() } catch {     $transaction.Rollback()     throw } finally {     $transaction.Connection.Close() }
+
+```powershell
+$transaction = Get-SQLiteTransaction -DatabaseFilePath "C:\data.db"
+try {
+    Invoke-SQLiteQuery -Transaction $transaction -Queries "INSERT INTO Users..."
+    Invoke-SQLiteQuery -Transaction $transaction -Queries "UPDATE Users..."
+    $transaction.Commit()
+} catch {
+    $transaction.Rollback()
+    throw
+} finally {
+    $transaction.Connection.Close()
+}
+```
+
+### $transaction = Get-SQLiteTransaction -ConnectionString "Data Source=C:\data.db"
+
+```powershell
+$transaction = Get-SQLiteTransaction -ConnectionString "Data Source=C:\data.db"
+```
+
+### $transaction = Get-SQLiteTransaction -DatabaseFilePath "C:\data.db" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+$transaction = Get-SQLiteTransaction -DatabaseFilePath "C:\data.db" -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

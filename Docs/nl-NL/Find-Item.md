@@ -8,56 +8,55 @@
 
 ## Description
 
-* Zoek bestanden met Find-Item -> l
+* Bestanden zoeken met Find-Item -> l
         * Snelle multi-threaded zoekopdracht: maakt gebruik van parallelle en asynchrone
-              IO verwerking met configureerbare maximale mate van parallellisme
-              (standaard gebaseerd op CPU-kernen) voor efficiënt bestand- en directory scannen.
+              IO-verwerking met configureerbare maximale parallelliteitsgraad
+              (standaard op basis van CPU-kernen) voor efficiënt scannen van bestanden en mappen.
         * Geavanceerd patroonherkenning: Ondersteunt jokertekens (*, ?), recursieve patronen
-              zoals **, en complexe padstructuren voor precieze bestand- en directoryquery's.
-              **/bestandsnaam zal alleen recursief doorzoeken totdat bestandsnaam is gevonden. Meerdere van deze
+              zoals **, en complexe padstructuren voor precieze bestands- en mapquery's.
+              **/bestandsnaam zal alleen recursief zoeken totdat bestandsnaam is gevonden. Meerdere van deze
               patronen zijn toegestaan, zolang ze worden voorafgegaan door een bestandsnaam of
-              directorynaam om te matchen.
+              mapnaam om te matchen.
               Deze patroonparser heeft de kracht van Resolve-Path maar heeft recursie
               functies, en ondersteunt alleen * en ? als jokertekens,
-              waardoor bugs met paden met [ ] haakjes worden voorkomen,
-              waardoor de noodzaak voor de -LiteralPath parameter vervalt, terwijl de integriteit
-              behouden blijft voor padsecties zonder jokertekens, in tegenstelling tot een jokerteken match op het
+              waardoor bugs met paden met [ ]-haakjes worden voorkomen, wat de
+              noodzaak van de parameter -LiteralPath elimineert, terwijl de integriteit
+              van padgedeelten zonder jokertekens behouden blijft, in tegenstelling tot een jokertekenmatch op de
               volledige pad.
-        * Verbeterd inhoud zoeken: Uitgebreide Select-String integratie
+        * Verbeterd zoeken in inhoud: Uitgebreide integratie van Select-String
               met reguliere expressiepatronen in bestandsinhoud met behulp van de
-              -Content parameter.
+              parameter -Content.
             * Optimalisatie voor grote bestanden: Verwerkt extreem grote bestanden met slimme
-                  overlappende buffers en minimale heapallocatie
-            * Meerdere matchopties: Vind alle matches per regel (-AllMatches) of
+                  overlappende buffers en minimale heap-toewijzing
+            * Meerdere matchopties: Vind alle overeenkomsten per regel (-AllMatches) of
                   alleen de eerste match per bestand (-List)
-            * Hoofdlettergevoeligheid controle: Hoofdlettergevoelig matchen (-CaseSensitive)
+            * Hoofdlettergevoeligheidscontrole: Hoofdlettergevoelig matchen (-CaseSensitive)
                   met cultuurspecifieke opties (-Culture)
             * Context vastleggen: Toon regels voor en na matches (-Context) voor
                   beter begrip
-            * Inverse matching: Vind bestanden die het patroon niet bevatten (-NotMatch)
-            * Uitvoerformaten: Onbewerkte tekenreeksuitvoer (-Raw), stille booleaanse respons (-Quiet),
+            *Omgekeerd matchen: Vind bestanden die het patroon niet bevatten (-NotMatch)
+            * Uitvoerformaten: Ruwe stringuitvoer (-Raw), stille booleaanse respons (-Quiet),
                   of volledige MatchInfo-objecten
-            * Patroontypes: Reguliere expressies (standaard) of eenvoudige letterlijke tekenreeks
-                  matching (-SimpleMatch)
-            * Codering ondersteuning: Specificeer bestandscodering (-Encoding) voor nauwkeurige tekst
-                  verwerking
-        * Padvariabiliteit: Verwerkt relatieve, absolute, UNC, gewortelde paden, en
-              NTFS alternatieve datastromen (ADS) met optionele inhoudszoekopdracht in streams.
-        * Multi-schijf ondersteuning: Zoekt over alle schijven met -AllDrives of specifieke
+            * Patroontypen: Reguliere expressies (standaard) of eenvoudig letterlijk string
+                  matchen (-SimpleMatch)
+            * Codering ondersteuning: Specificeer bestandscodering (-Encoding) voor nauwkeurige tekstverwerking
+        * Flexibiliteit in padtype: Verwerkt relatieve, absolute, UNC-, geroote paden en
+              NTFS alternatieve datastromen (ADS) met optioneel zoeken in inhoud van stromen.
+        * Ondersteuning voor meerdere schijven: Zoekt op alle schijven met -AllDrives of specifieke
               schijven via -SearchDrives, inclusief optische schijven indien gespecificeerd.
-        * Directory en bestandsfiltering: Opties om alleen directories te doorzoeken (-Directory),
-              zowel bestanden als directories (-FilesAndDirectories), of bestanden met inhoudsmatchende.
-        * Uitsluiting en limieten: Sluit patronen uit met -Exclude, stel maximale recursiediepte in
-              (-MaxRecursionDepth), bestandsgrootte limieten (-MaxFileSize, -MinFileSize), en gewijzigde
+        * Map- en bestandsfiltering: Opties om alleen mappen te doorzoeken (-Directory),
+              zowel bestanden als mappen (-FilesAndDirectories), of bestanden met overeenkomende inhoud.
+        * Uitsluitingen en limieten: Uitsluitingspatronen met -Exclude, stel maximale recursiediepte in
+              (-MaxRecursionDepth), bestandsgroottebeperkingen (-MaxFileSize, -MinFileSize), en gewijzigde
               datumfilters (-ModifiedAfter, -ModifiedBefore).
-        * Uitvoer aanpassen: Ondersteunt PassThru voor FileInfo/DirectoryInfo-objecten,
-              relatieve paden, hyperlinks in bewaakte modus, of gewone paden in onbewaakte modus
-              (gebruik -NoLinks in geval van problemen om onbewaakte modus af te dwingen).
-        * Prestatieoptimalisaties: Slaat niet-tekstbestanden standaard over voor inhoudszoekopdrachten
+        * Aanpassing van uitvoer: Ondersteunt PassThru voor FileInfo/DirectoryInfo-objecten,
+              relatieve paden, hyperlinks in interactieve modus, of gewone paden in niet-interactieve modus
+              (gebruik -NoLinks bij problemen om de niet-interactieve modus af te dwingen).
+        * Prestatieoptimalisaties: Slaat standaard niet-tekstbestanden over voor zoeken in inhoud
               (overschrijven met -IncludeNonTextFileMatching), verwerkt lange paden (>260 tekens),
-              en volgt symlinks/juncties.
-        * Veiligheidsfuncties: Timeout-ondersteuning (-TimeoutSeconds), negeert ontoegankelijke items,
-              slaat systeemattributen standaard over en voorkomt oneindige lussen met tracking van bezochte knooppunten.
+              en volgt symlinks/junctions.
+        * Veiligheidsfuncties: Time-out ondersteuning (-TimeoutSeconds), negeert ontoegankelijke items,
+              slaat systeemattributen standaard over en voorkomt oneindige lussen met registratie van bezochte knooppunten.
 
 ## Syntax
 
@@ -125,7 +124,8 @@ Find-Item -Content "translation"
 l -mc translation
 ```
 
-grep -r "translation" .
+Vind bestanden die een specifiek woord bevatten
+Zoek naar alle bestanden in de huidige map en submappen die het woord "vertaling" bevatten.
 
 ### Example 2
 
@@ -136,8 +136,8 @@ Find-Item "*.js" "Version == `"\d\d?\.\d\d?\.\d\d?`""
 l *.js "Version == `"\d\d?\.\d\d?\.\d\d?`""
 ```
 
-Find JavaScript files with a version string
-Search for JavaScript files containing a version string in the format "Version == `x.y.z`".
+Zoek JavaScript-bestanden met een versietekenreeks
+Zoek naar JavaScript-bestanden die een versietekenreeks bevatten in de indeling "Version == `x.y.z`".
 
 ### Example 3
 
@@ -149,7 +149,7 @@ l -dir
 ```
 
 List alle mappen
-Vind alle mappen in de huidige map en de submappen ervan.
+Vind alle mappen in de huidige map en de submappen.
 
 ### Example 4
 
@@ -160,8 +160,8 @@ Find-Item ".\*.xml" -PassThru | % FullName
 l *.xml -pt | % FullName
 ```
 
-Zoek naar XML-bestanden en geef objecten door
-Zoek naar alle .xml-bestanden en geef de resultaten als objecten door de pijplijn.
+Zoek XML-bestanden en geef objecten door
+Zoek naar alle .xml-bestanden en geef de resultaten als objecten door via de pijplijn.
 
 ### Example 5
 
@@ -173,7 +173,7 @@ l -ads
 ```
 
 Alternatieve gegevensstromen opnemen
-Doorzoek alle bestanden en neem hun alternatieve gegevensstromen op in de resultaten.
+Zoek naar alle bestanden en neem hun alternatieve gegevensstromen op in de resultaten.
 
 ### Example 6
 
@@ -184,7 +184,7 @@ Find-Item "*.pdf" -AllDrives
 l *.pdf -alldrives
 ```
 
-Zoek op alle schijven
+Zoeken op alle schijven
 Zoek naar alle PDF-bestanden op alle beschikbare schijven.
 
 ### Example 7
@@ -196,8 +196,8 @@ Find-Item "*.log" -TimeoutSeconds 300 -MaxDegreeOfParallelism 4
 l *.log -maxseconds 300 -threads 4
 ```
 
-Custom timeout and parallelism
-Search for log files with a 5-minute timeout and limited parallelism.
+Aangepaste time-out en parallelliteit
+Doorzoek logbestanden met een time-out van 5 minuten en beperkte parallelliteit.
 
 ### Example 8
 
@@ -209,7 +209,7 @@ ls C:\Logs | l -matchcontent "error"
 ```
 
 Pipeline-invoer
-Geef bestandspaden van Get-ChildItem door om te zoeken naar bestanden met 'error'.
+Geef bestandspaden van Get-ChildItem door om te zoeken naar bestanden die 'error' bevatten.
 
 ### Example 9
 
@@ -220,8 +220,8 @@ Find-Item "*.txt" -MaxRecursionDepth 2
 l *.txt -maxdepth 2
 ```
 
-Beperk de recursiediepte
-Zoek naar tekstbestanden maar beperk recursie tot 2 mapniveaus.
+Beperk recursiediepte
+Zoek naar tekstbestanden maar beperk recursie tot 2 directoryniveaus.
 
 ### Example 10
 
@@ -233,7 +233,7 @@ l -minsize 1048576 -maxsize 10485760
 ```
 
 Filter op bestandsgrootte
-Zoek bestanden groter dan 1MB maar kleiner dan 10MB.
+Zoek bestanden groter dan 1 MB maar kleiner dan 10 MB.
 
 ### Example 11
 
@@ -245,7 +245,7 @@ l -after "2025-01-01"
 ```
 
 Filteren op wijzigingsdatum
-Vind bestanden die zijn gewijzigd na 1 januari 2025.
+Vind bestanden gewijzigd na 1 januari 2025.
 
 ### Example 12
 
@@ -268,8 +268,8 @@ Find-Item "*.docx" -SearchDrives "C:\", "D:\"
 l *.docx -drives C:\, D:\
 ```
 
-Zoek op specifieke schijven
-Zoek naar .docx-bestanden op alleen C: en D: schijven.
+Zoek specifieke stations
+Zoek naar .docx-bestanden alleen op C: en D:.
 
 ### Example 14
 
@@ -293,7 +293,7 @@ l -ads -sads -mc "secret"
 ```
 
 Zoek naar inhoud van alternatieve datastromen
-Zoek naar bestanden met alternatieve datastromen die "geheim" bevatten.
+Zoek naar bestanden met alternatieve datastromen die "secret" bevatten.
 
 ### Example 16
 
@@ -304,7 +304,7 @@ Find-Item "*.ps1" -Content "function" -AllMatches
 l *.ps1 -mc "function" -AllMatches
 ```
 
-Vind alle overeenkomsten per regel
+Zoek alle overeenkomsten per regel
 Zoek naar alle voorkomens van "function" in elke regel, niet alleen de eerste overeenkomst.
 
 ### Example 17
@@ -317,7 +317,7 @@ l *.log -mc "error" -Context 2,3
 ```
 
 Toon context rond overeenkomsten
-Toon 2 regels voor en 3 regels na elke overeenkomst voor een beter begrip.
+Geef 2 regels vóór en 3 regels na elke overeenkomst weer voor een beter begrip.
 
 ### Example 18
 
@@ -328,8 +328,8 @@ Find-Item "*.txt" -Content "TODO:.*" -Raw
 l *.txt -mc "TODO:.*" -Raw
 ```
 
-Get only matching strings
-Return just the matching text strings instead of full match objects.
+Alleen overeenkomende strings ophalen
+Geef alleen de overeenkomende tekstreeksen terug in plaats van volledige matchobjecten.
 
 ### Example 19
 
@@ -340,8 +340,8 @@ Find-Item "*.config" -Content "database" -Quiet
 l *.config -mc "database" -Quiet
 ```
 
-Eenvoudige boolean controle
-Retourneer waar/onwaar in plaats van overeenkomstdetails om te controleren of een patroon bestaat.
+Eenvoudige booleaanse controle
+Retourneer waar/onwaar in plaats van matchdetails om te controleren of een patroon bestaat.
 
 ### Example 20
 
@@ -352,8 +352,8 @@ Find-Item "*.cs" -Content "class.*Controller" -List
 l *.cs -mc "class.*Controller" -List
 ```
 
-Per bestand alleen de eerste overeenkomst vinden
-Stop bij de eerste overeenkomst in elk bestand voor efficiënt bestandenlijsten.
+Zoek alleen de eerste overeenkomst per bestand
+Stop bij de eerste overeenkomst in elk bestand voor een efficiënte bestandslijst.
 
 ### Example 21
 
@@ -364,7 +364,7 @@ Find-Item "*.txt" -Content "$variable[0]" -SimpleMatch
 l *.txt -mc "$variable[0]" -SimpleMatch
 ```
 
-Letterlijke string matching
+Letterlijke tekenreeks match
 Zoek naar exacte tekst zonder regex-interpretatie met behulp van SimpleMatch.
 
 ### Example 22
@@ -376,7 +376,7 @@ Find-Item "*.js" -Content "console\.log" -NotMatch
 l *.js -mc "console\.log" -NotMatch
 ```
 
-Bestanden die NIET overeenkomen met patroon
+Bestanden vinden die NIET het patroon bevatten
 Gebruik NotMatch om bestanden te vinden die het opgegeven patroon niet bevatten.
 
 ### Example 23
@@ -389,7 +389,7 @@ l *.txt -mc "café" -Encoding UTF8
 ```
 
 Specificeer bestandscodering
-Zoek bestanden met specifieke codering voor nauwkeurige tekstverwerking.
+Doorzoek bestanden met specifieke codering voor nauwkeurige tekstverwerking.
 
 ### Example 24
 
@@ -400,8 +400,8 @@ Find-Item "*.txt" -Content "Müller" -SimpleMatch -Culture "de-DE"
 l *.txt -mc "Müller" -SimpleMatch -Culture "de-DE"
 ```
 
-Cultural text comparison
-Use culture-specific matching with SimpleMatch for international text.
+Culturele tekstvergelijking
+Gebruik cultuurspecifieke matching met SimpleMatch voor internationale tekst.
 
 ### Example 25
 
@@ -412,7 +412,7 @@ Find-Item "*.log" -Content "exception" -MinFileSize 1024 -ModifiedAfter "2025-01
 l *.log -mc "exception" -minsize 1024 -after "2025-01-01" -maxdepth 3
 ```
 
-Complexe inhoudszoekopdracht met bestandsfilters
+Geavanceerd zoeken met bestandsfilters
 Combineer bestandsgrootte, datum en inhoudsfilters voor nauwkeurige zoekopdrachten.
 
 ## Related Links

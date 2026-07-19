@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Расширяет любую заданную ссылку на файл до полного пути.
+
+## Description
+
+Преобразует любую заданную ссылку на файл в полный путь, относительно текущей директории пользователя. При необходимости может проверять существование директорий или файлов.
 
 ## Syntax
 
@@ -23,6 +27,20 @@ Expand-Path -FilePath <String> [-CreateDirectory] [-CreateFile] [-DeleteExisting
 | `-ForceDrive` | Char | — | — | Named | `'*'` | Будет принудительно использовать конкретный диск |
 | `-FileMustExist` | SwitchParameter | — | — | Named | — | Бросает исключение, если файл не существует |
 | `-DirectoryMustExist` | SwitchParameter | — | — | Named | — | Выдаст ошибку, если директория не существует |
+
+## Examples
+
+### Expand-Path -FilePath ".\myfile.txt" -CreateFile
+
+```powershell
+Expand-Path -FilePath ".\myfile.txt" -CreateFile
+```
+
+### ep ~\documents\test.txt -CreateFile
+
+```powershell
+ep ~\documents\test.txt -CreateFile
+```
 
 ## Related Links
 

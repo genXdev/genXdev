@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ejecuta un bloque de script en cada módulo de GenXdev en el espacio de trabajo.
+
+## Description
+
+Esta función itera a través de los módulos de GenXdev en el espacio de trabajo y ejecuta un bloque de script proporcionado contra cada módulo. Puede filtrar módulos por patrón de nombre, excluir módulos locales, incluir solo módulos publicados o procesar scripts en lugar de módulos. La función navega automáticamente al directorio del módulo correcto antes de ejecutar el bloque de script.
 
 ## Syntax
 
@@ -22,6 +26,27 @@ Invoke-OnEachGenXdevModule -Script <ScriptBlock> [[-ModuleName] <String[]>] [-Fr
 | `-OnlyPublished` | SwitchParameter | — | — | Named | — | Incluye solo módulos publicados que tengan archivos LICENSE y README.md |
 | `-FromScripts` | SwitchParameter | — | — | Named | — | Procesar directorio de scripts en lugar de directorios de módulos |
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | Incluye el directorio scripts además de los módulos regulares |
+
+## Examples
+
+### Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+
+```powershell
+Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+```
+
+Enlista todos los nombres de módulos de GenXdev.
+
+### foreach-genxdev-module-do {     param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)     Get-ChildItem } -ModuleName "GenXdev.AI"
+
+```powershell
+foreach-genxdev-module-do {
+    param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)
+    Get-ChildItem
+} -ModuleName "GenXdev.AI"
+```
+
+Utiliza el alias para listar el contenido del directorio del módulo GenXdev.AI.
 
 ## Related Links
 

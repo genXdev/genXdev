@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Analysiert Bildinhalte mithilfe von KI-Vision-Funktionen
+
+## Description
+
+Verarbeitet Bilder mithilfe von KI-Vision-Funktionen, um Inhalte zu analysieren und Fragen zum Bild zu beantworten. Die Funktion unterstützt verschiedene Analyseparameter, einschließlich Temperatursteuerung für die Zufälligkeit der Antworten und Token-Limits für die Ausgabelänge.
 
 ## Syntax
 
@@ -82,6 +86,33 @@ Invoke-QueryImageContent -Query <String> -ImagePath <String> [[-Instructions] <S
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale Rückruflänge für Tool-Aufrufe. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | Erzwingen Sie eine Einwilligungsaufforderung, auch wenn eine Präferenz für die Installation des ImageSharp-Pakets festgelegt ist. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Drittanbieter-Softwareinstallation automatisch zustimmen und persistentes Flag für ImageSharp-Pakete setzen. |
+
+## Examples
+
+### Invoke-QueryImageContent `     -Query "What objects are in this image?" `     -ImagePath "C:\Images\sample.jpg" `     -Temperature 0.01
+
+```powershell
+Invoke-QueryImageContent `
+    -Query "What objects are in this image?" `
+    -ImagePath "C:\Images\sample.jpg" `
+    -Temperature 0.01
+```
+
+Analyziert ein Bild mit spezifischen Temperatur- und Token-Limits.
+
+### Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+```
+
+### Query-Image "Describe this image" "C:\Images\photo.jpg"
+
+```powershell
+Query-Image "Describe this image" "C:\Images\photo.jpg"
+```
+
+Einfache Bildanalyse mit Alias und Positionsparametern.
 
 ## Related Links
 

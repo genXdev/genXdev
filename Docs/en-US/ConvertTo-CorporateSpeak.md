@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converts direct or blunt text into polite, professional corporate speak using AI.
+
+## Description
+
+This function processes input text to transform direct or potentially harsh
+language into diplomatic, professional corporate communications. It can accept
+input directly through parameters, from the pipeline, or from the system
+clipboard. The function leverages AI models to analyze and rephrase text while
+preserving the original intent.
 
 ## Syntax
 
@@ -60,6 +68,20 @@ ConvertTo-CorporateSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-AllowD
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximum tool callback length (passed to LLMQuery) |
+
+## Examples
+
+### ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+
+```powershell
+ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+```
+
+### "This makes no sense" | corporatize
+
+```powershell
+"This makes no sense" | corporatize
+```
 
 ## Outputs
 

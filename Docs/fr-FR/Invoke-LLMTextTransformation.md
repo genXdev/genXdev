@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Transforme du texte à l'aide d'un traitement alimenté par l'IA.
+
+## Description
+
+Cette fonction traite le texte d'entrée à l'aide de modèles d'IA pour effectuer diverses transformations telles que la correction orthographique, l'ajout d'emoticônes ou toute autre amélioration de texte spécifiée par des instructions. Elle peut accepter l'entrée directement via des paramètres, depuis le pipeline ou depuis le presse-papiers système.
 
 ## Syntax
 
@@ -160,6 +164,28 @@ Ce projet est sous licence MIT. |
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longueur maximale de rappel d'outil (transmise à LLMQuery) |
+
+## Examples
+
+### Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `     -Instructions "Fix spelling errors" -SetClipboard
+
+```powershell
+Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `
+    -Instructions "Fix spelling errors" -SetClipboard
+```
+
+### "Time to celerbate!" | Invoke-LLMTextTransformation `     -Instructions "Add celebratory emoticons"
+
+```powershell
+"Time to celerbate!" | Invoke-LLMTextTransformation `
+    -Instructions "Add celebratory emoticons"
+```
+
+### spellcheck "This is a sentance with erors"
+
+```powershell
+spellcheck "This is a sentance with erors"
+```
 
 ## Outputs
 

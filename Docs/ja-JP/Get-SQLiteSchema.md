@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> SQLiteデータベースから完全なスキーマ情報を取得します。
+
+## Description
+
+この関数は、sqlite_master テーブルをクエリして、SQLite データベースの完全なスキーマ定義（テーブル、ビュー、インデックス、トリガーを含む）を取得します。接続文字列またはデータベースファイルへの直接パスのいずれかを受け入れます。
 
 ## Syntax
 
@@ -20,6 +24,20 @@ Get-SQLiteSchema -DatabaseFilePath <String> [<CommonParameters>]
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-ConnectionString` | String | ✅ | — | 0 | — | SQLiteデータベースへの接続文字列。 *(Parameter set: )* |
 | `-DatabaseFilePath` | String | ✅ | — | 0 | — | SQLite データベースファイルへのパス。 *(Parameter set: )* |
+
+## Examples
+
+### Get-SQLiteSchema -DatabaseFilePath "C:\Databases\inventory.db"
+
+```powershell
+Get-SQLiteSchema -DatabaseFilePath "C:\Databases\inventory.db"
+```
+
+### Get-SQLiteSchema -ConnectionString "Data Source=C:\Databases\inventory.db;Version=3;"
+
+```powershell
+Get-SQLiteSchema -ConnectionString "Data Source=C:\Databases\inventory.db;Version=3;"
+```
 
 ## Related Links
 

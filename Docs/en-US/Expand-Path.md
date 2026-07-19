@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Expands any given file reference to a full pathname.
+
+## Description
+
+Expands any given file reference to a full pathname, with respect to the user's
+current directory. Can optionally assure that directories or files exist.
 
 ## Syntax
 
@@ -23,6 +28,20 @@ Expand-Path -FilePath <String> [-CreateDirectory] [-CreateFile] [-DeleteExisting
 | `-ForceDrive` | Char | — | — | Named | `'*'` | Will force the use of a specific drive |
 | `-FileMustExist` | SwitchParameter | — | — | Named | — | Will throw if file does not exist |
 | `-DirectoryMustExist` | SwitchParameter | — | — | Named | — | Will throw if directory does not exist |
+
+## Examples
+
+### Expand-Path -FilePath ".\myfile.txt" -CreateFile
+
+```powershell
+Expand-Path -FilePath ".\myfile.txt" -CreateFile
+```
+
+### ep ~\documents\test.txt -CreateFile
+
+```powershell
+ep ~\documents\test.txt -CreateFile
+```
 
 ## Related Links
 

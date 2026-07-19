@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在网络浏览器中打开 InstantStreetView 查询。
+
+## Description
+
+以可配置的方式使用网页浏览器命令行开关打开InstantStreetView查询。支持多个查询和显示器选择。提供全面的浏览器控制，包括窗口定位、语言设置和特定浏览器功能。
+
+该函数通过URL编码位置查询并自动构建InstantStreetView URL，在指定浏览器中打开。支持所有主流浏览器，包括Edge、Chrome和Firefox，并具有丰富的自定义选项。
 
 ## Syntax
 
 ```powershell
-Open-InstantStreetViewQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-InstantStreetViewQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +30,9 @@ Open-InstantStreetViewQuery -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
 | `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 要使用的显示器，0=默认，-1=丢弃，-2=配置的辅助显示器，默认为$Global:DefaultSecondaryMonitor，如果未找到则为2 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 在全屏模式下打开 |
@@ -59,6 +68,40 @@ Open-InstantStreetViewQuery -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
+
+## Examples
+
+### Open-InstantStreetViewQuery -Queries "Times Square, New York" -Monitor 0
+
+```powershell
+Open-InstantStreetViewQuery -Queries "Times Square, New York" -Monitor 0
+```
+
+在主屏幕的默认浏览器中打开时代广场的InstantStreetView。
+
+### isv "Eiffel Tower, Paris" -mon -2
+
+```powershell
+isv "Eiffel Tower, Paris" -mon -2
+```
+
+使用别名 'isv' 打开埃菲尔铁塔的即时街景视图，并在副显示器上显示。
+
+### Open-InstantStreetViewQuery -Queries "Big Ben, London" -Language "English" -Private
+
+```powershell
+Open-InstantStreetViewQuery -Queries "Big Ben, London" -Language "English" -Private
+```
+
+以英语打开大本钟的InstantStreetView，并使用隐私浏览模式。
+
+### "Central Park, New York", "Golden Gate Bridge, San Francisco" | isv -Chrome -Left
+
+```powershell
+"Central Park, New York", "Golden Gate Bridge, San Francisco" | isv -Chrome -Left
+```
+
+通过管道在Chrome浏览器中打开多个InstantStreetView查询，并定位在屏幕左侧。
 
 ## Related Links
 

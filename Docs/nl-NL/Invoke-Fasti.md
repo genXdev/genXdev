@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Extraheert archiefbestanden in de huidige map naar hun eigen mappen en verwijdert ze daarna.
+
+## Description
+
+Extraheert automatisch veelvoorkomende archiefformaten (zip, 7z, tar, enz.) in de huidige map naar individuele mappen vernoemd naar elk archief. Na succesvolle extractie worden de oorspronkelijke archiefbestanden verwijderd. Vereist dat 7-Zip op het systeem is geïnstalleerd.
 
 ## Syntax
 
@@ -18,6 +22,20 @@ Invoke-Fasti [[-Password] <String>] [-ExtractOutputToo] [<CommonParameters>]
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Password` | String | — | — | 0 | — | Voer het wachtwoord in voor de versleutelde archieven |
 | `-ExtractOutputToo` | SwitchParameter | — | — | Named | — | Recursief archieven uitpakken die in uitgepakte mappen worden gevonden |
+
+## Examples
+
+### PS C:\Downloads> Invoke-Fasti
+
+```powershell
+PS C:\Downloads> Invoke-Fasti
+```
+
+### PS C:\Downloads> fasti
+
+```powershell
+PS C:\Downloads> fasti
+```
 
 ## Related Links
 

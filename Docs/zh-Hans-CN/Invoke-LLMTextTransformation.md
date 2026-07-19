@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 利用人工智能处理技术转换文本。
+
+## Description
+
+该函数利用AI模型处理输入文本，执行拼写检查、添加表情符号或根据指令指定的其他文本增强等各类转换。它可直接通过参数、管道或系统剪贴板接收输入。
 
 ## Syntax
 
@@ -63,6 +67,28 @@ Invoke-LLMTextTransformation [[-Text] <String>] [[-Instructions] <String>] [[-At
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | The `-OutputMarkdownBlocksOnly` parameter. |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 最大工具回调长度（传递给 LLMQuery） |
+
+## Examples
+
+### Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `     -Instructions "Fix spelling errors" -SetClipboard
+
+```powershell
+Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `
+    -Instructions "Fix spelling errors" -SetClipboard
+```
+
+### "Time to celerbate!" | Invoke-LLMTextTransformation `     -Instructions "Add celebratory emoticons"
+
+```powershell
+"Time to celerbate!" | Invoke-LLMTextTransformation `
+    -Instructions "Add celebratory emoticons"
+```
+
+### spellcheck "This is a sentance with erors"
+
+```powershell
+spellcheck "This is a sentance with erors"
+```
 
 ## Outputs
 

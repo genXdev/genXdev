@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> VLCメディアプレーヤーの一時停止/再生状態を切り替えます。
+
+## Description
+
+この機能は、VLCメディアプレーヤーにスペースキーを送信して、一時停止と再生の状態を切り替えます。キーコマンドを送信した後、自動的に元のウィンドウにフォーカスを戻します。
 
 ## Syntax
 
@@ -32,6 +36,32 @@
 
     }
 ```
+
+## Examples
+
+### Switch-VLCMediaPlayerPaused
+
+```powershell
+Switch-VLCMediaPlayerPaused
+```
+
+VLC Media Playerの一時停止/再生状態を切り替えます。
+
+### vlcpause
+
+```powershell
+vlcpause
+```
+
+エイリアスを使用して、一時停止/再生の状態を切り替えます。
+
+### vlcplay
+
+```powershell
+vlcplay
+```
+
+別名を使用して一時停止/再生状態を切り替えます。
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Transforms polite, professional corporate language into direct, clear speech using AI.
+
+## Description
+
+Esta função processa texto de entrada para transformar comunicações diplomáticas e corporativas em uma linguagem mais direta e clara. Ela pode aceitar entrada diretamente por parâmetros, do pipeline ou da área de transferência do sistema. A função aproveita modelos de IA para analisar e reformular o texto, preservando a intenção original.
 
 ## Syntax
 
@@ -78,6 +82,21 @@ ConvertFrom-CorporateSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-Allo
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | {(llmquery "Translate the following text into pt-BR: Output only markup blocks")} |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filtro para tipos de bloco de marcação (passado para LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Comprimento máximo do callback de ferramenta (passado para LLMQuery) |
+
+## Examples
+
+### ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+
+```powershell
+ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+```
+
+### "We should circle back" | uncorporatize ###############################################################################
+
+```powershell
+"We should circle back" | uncorporatize
+###############################################################################
+```
 
 ## Outputs
 

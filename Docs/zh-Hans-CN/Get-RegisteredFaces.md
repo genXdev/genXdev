@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 从DeepStack检索所有已注册的人脸标识符列表。
+
+## Description
+
+此函数连接本地DeepStack人脸识别API，检索所有已注册的人脸标识。它使用/v1/vision/face/list端点查询DeepStack服务，返回人脸标识字符串数组。该函数处理Docker容器初始化、API通信以及各种故障场景的错误处理。
 
 ## Syntax
 
@@ -26,6 +30,41 @@ Get-RegisteredFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | 健康检查尝试之间的间隔（秒） |
 | `-ImageName` | String | — | — | 5 | — | 要使用的自定义 Docker 镜像名称 |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 在初始化期间显示 Docker Desktop 窗口 |
+
+## Examples
+
+### Get-RegisteredFaces
+
+```powershell
+Get-RegisteredFaces
+```
+
+该示例使用默认参数检索所有已注册的人脸。
+
+### Get-RegisteredFaces -Force -UseGPU
+
+```powershell
+Get-RegisteredFaces -Force -UseGPU
+```
+
+此示例强制重建容器并使用GPU加速。
+
+### Get-RegisteredFaces -ContainerName "my_deepstack" -ServicePort 8080
+
+```powershell
+Get-RegisteredFaces -ContainerName "my_deepstack" -ServicePort 8080
+```
+
+此示例使用自定义容器名称和端口号。
+
+### Get-RegisteredFaces | Where-Object { $_ -like "John*" }
+
+```powershell
+Get-RegisteredFaces |
+Where-Object { $_ -like "John*" }
+```
+
+此示例检索所有人脸，并筛选出以“John”开头的人脸。
 
 ## Related Links
 

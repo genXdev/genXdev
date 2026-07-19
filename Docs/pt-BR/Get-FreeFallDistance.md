@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula a distância percorrida durante a queda livre para um determinado intervalo de tempo.
+
+## Description
+
+Calcula a distância percorrida durante queda livre usando um método numérico que considera resistência do ar e velocidade terminal.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-FreeFallDistance [-DurationInSeconds] <double> [[-TerminalVelocityInMetersPe
 | `-TerminalVelocityInMetersPerSecond` | Double | — | — | 1 | `0` | A velocidade terminal em metros por segundo (padrão: 53) |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 2 | `0` | A aceleração da gravidade em m/s² (padrão: 9,81) |
 | `-As` | String | — | — | 3 | — | A unidade para a distância de saída |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-FreeFallDistance -DurationInSeconds 10 -TerminalVelocityInMetersPerSecond 53 -As "feet"
+```
+
+Calcula a distância percorrida em queda livre em 10 segundos, em pés.
+
+### Example 2
+
+```powershell
+Get-FreeFallDistance 5
+```
+
+Calcula a distância em 5 segundos em metros.
 
 ## Related Links
 

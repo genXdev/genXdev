@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 지정된 검색 엔진을 사용하여 웹 브라우저에서 검색어를 엽니다.
+
+## Description
+
+이 함수는 Google, Bing, GitHub, Wikipedia, YouTube 등 여러 검색 엔진에서 검색할 수 있는 통합 인터페이스를 제공합니다. 창 위치, 크기, 브라우저 선택, 언어 설정을 포함한 광범위한 브라우저 구성 옵션을 지원합니다. 이 함수는 쿼리를 적절한 검색 엔진별 함수로 동적으로 라우팅합니다.
 
 ## Syntax
 
 ```powershell
-Open-SearchEngine -Queries <String[]> [[-EndPoint] <String>] [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SetForeground] [-SetRestored] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-SearchEngine -Queries <String[]> [[-EndPoint] <String>] [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SetForeground] [-SetRestored] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -32,6 +36,9 @@ Open-SearchEngine -Queries <String[]> [[-EndPoint] <String>] [[-Language] <Strin
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 전체 화면 모드로 열기 |
 | `-Left` | SwitchParameter | — | — | Named | — | 브라우저 창을 화면 왼쪽에 배치합니다. |
@@ -50,6 +57,24 @@ Open-SearchEngine -Queries <String[]> [[-EndPoint] <String>] [[-Language] <Strin
 | `-PassThru` | SwitchParameter | — | — | Named | — | 브라우저 프로세스의 [System.Diagnostics.Process] 객체를 반환합니다. |
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | Don't open webbrowser, just return the url |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | 웹 브라우저를 연 후 URL을 반환하세요 |
+
+## Examples
+
+### Open-SearchEngine -Queries "PowerShell cmdlets" -EndPoint "Google" -Language "English"
+
+```powershell
+Open-SearchEngine -Queries "PowerShell cmdlets" -EndPoint "Google" -Language "English"
+```
+
+Google에서 영어 결과로 "PowerShell cmdlets" 검색
+
+### q "GitHub PowerShell" Bing -Chrome -Private
+
+```powershell
+q "GitHub PowerShell" Bing -Chrome -Private
+```
+
+별칭 'q'를 사용하여 Chrome 시크릿 모드에서 Bing에 'GitHub PowerShell'을 검색합니다.
 
 ## Related Links
 

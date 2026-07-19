@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 指定された GenXdev コマンドレットを Visual Studio Code で開きます。
+
+## Description
+
+この関数は、指定されたGenXdevコマンドレットのスクリプトファイルと行番号を取得し、Visual Studio Codeで開きます。UnitTestsスイッチパラメータに基づいて、メイン関数の実装または関連する単体テストのいずれかを開くことができます。
 
 ## Syntax
 
@@ -51,6 +55,22 @@ Show-GenXdevCmdLetInIde [[-BaseModuleName] <String>] [[-Synopsis] <String>] [[-D
 | `-PromptKey` | String | — | — | Named | — | テンプレート選択に使用するAIプロンプトキー *(Parameter set: )* |
 | `-Prompt` | String | — | — | Named | `"Create a boilerplate GenXdev cmdlet that does what it's name suggests"` | カスタムAIプロンプトテキスト（コマンドレット生成用） |
 | `-EditPrompt` | SwitchParameter | — | — | Named | — | プロンプトのみを編集し、コマンドレットは作成しない |
+
+## Examples
+
+### Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo" Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+
+```powershell
+Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo"
+Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+```
+
+### editcmdlet Get-GenXDevModuleInfo -UnitTests Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+
+```powershell
+editcmdlet Get-GenXDevModuleInfo -UnitTests
+Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+```
 
 ## Related Links
 

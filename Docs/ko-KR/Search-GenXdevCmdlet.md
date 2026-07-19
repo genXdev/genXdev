@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev cmdlet을 검색하고 선택적으로 IDE에서 편집할 수 있도록 엽니다.
+
+## Description
+
+이 함수는 패턴을 사용하여 GenXdev cmdlet을 검색하고, 발견된 cmdlet의 소스 파일을 Visual Studio Code 또는 Visual Studio에서 선택적으로 열어 편집할 수 있도록 합니다. cmdlet 정보를 검색하고 함수 정의로 빠르게 이동할 수 있는 키보드 단축키를 제공합니다.
 
 ## Syntax
 
@@ -24,6 +28,22 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-Code]
 | `-Code` | SwitchParameter | — | — | Named | — | Visual Studio Code에서 찾은 cmdlet을 엽니다. |
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | 발견된 cmdlet을 Visual Studio에서 열기 |
 | `-EditCmdlet` | SwitchParameter | — | — | Named | — | 또한 찾은 후 편집기에서 파일을 엽니다 |
+
+## Examples
+
+### Search-GenXdevCmdlet -CmdletName "Get-*" -Code Opens first matching cmdlet starting with "Get-" in Visual Studio Code.
+
+```powershell
+Search-GenXdevCmdlet -CmdletName "Get-*" -Code
+Opens first matching cmdlet starting with "Get-" in Visual Studio Code.
+```
+
+### searchcmdlet "Set-GitConfig" -EditCmdlet Searches for Set-GitConfig cmdlet and opens it for editing.
+
+```powershell
+searchcmdlet "Set-GitConfig" -EditCmdlet
+Searches for Set-GitConfig cmdlet and opens it for editing.
+```
 
 ## Related Links
 

@@ -4,12 +4,26 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Recherche des fichiers image et des métadonnées dans des répertoires spécifiés avec des capacités de filtrage et un affichage de galerie optionnel basé sur un navigateur.
+
+## Description
+
+Recherche les fichiers image (jpg, jpeg, png, gif, bmp, webp, tiff, tif) dans le répertoire spécifié et ses sous-répertoires. Pour chaque image, vérifie les fichiers de métadonnées associés description.json, keywords.json, people.json et objects.json. Peut filtrer les images en fonction de correspondances de mots-clés, de reconnaissance de personnes et de détection d'objets, puis retourner les résultats sous forme d'objets. Utilisez -ShowInBrowser pour afficher les résultats dans une disposition en maçonnerie basée sur un navigateur.
+
+Logique des paramètres :
+- Pour chaque type de paramètre (Mots-clés, Personnes, Objets, etc.) : utilise la logique OU
+  Exemple : -Keywords "chat","chien" trouve les images avec SOIT chat SOIT chien
+- Entre différents types de paramètres : utilise la logique ET
+  Exemple : -Keywords "chat" -People "Jean" trouve les images avec chat ET Jean
+- Paramètres de plage EXIF : fournissez les valeurs [min, max] pour filtrer les plages
+- Paramètres de chaîne : prennent en charge la correspondance par wildcard avec * et ?
+
+La fonction recherche dans les répertoires d'images et examine les flux de données alternatifs contenant des métadonnées au format JSON. Elle peut faire correspondre des mots-clés à l'aide de motifs wildcard, filtrer pour des personnes spécifiques et rechercher des objets détectés. Par défaut, retourne des objets de données d'image. Utilisez -ShowInBrowser pour afficher dans un navigateur web.
 
 ## Syntax
 
 ```powershell
-Find-Image [[-Any] <String[]>] [[-Name] <String[]>] [-AcceptLang <String>] [-All] [-AllDrives] [-ApplicationMode] [-AttributesToSkip <IO.FileAttributes>] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-Description <String>] [-DescriptionSearch <String[]>] [-DisablePopupBlocker] [-Edge] [-EmbedImages] [-Firefox] [-FocusWindow] [-FollowSymlinkAndJunctions] [-Force] [-FullScreen] [-GeoDistanceInMeters <Double>] [-GeoLocation <Double[]>] [-HasExplicitContent] [-HasNudity] [-Height <Int32>] [-ImageUrlPrefix <String>] [-Interactive] [-KeysToSend <String[]>] [-Keywords <String[]>] [-Language <String>] [-Left] [-MaxFileSize <Int64>] [-Maximize] [-MaxRecursionDepth <Int32>] [-MaxSearchUpDepth <Int32>] [-MetaCameraMake <String[]>] [-MetaCameraModel <String[]>] [-MetaDateTaken <DateTime[]>] [-MetaExposureTime <Double[]>] [-MetaFNumber <Double[]>] [-MetaFocalLength <Double[]>] [-MetaGPSAltitude <Double[]>] [-MetaGPSLatitude <Double[]>] [-MetaGPSLongitude <Double[]>] [-MetaHeight <Int32[]>] [-MetaISO <Int32[]>] [-MetaWidth <Int32[]>] [-MinConfidenceRatio <Double>] [-MinFileSize <Int64>] [-ModifiedAfter <DateTime>] [-ModifiedBefore <DateTime>] [-Monitor <Int32>] [-NeverRebuild] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-NoExplicitContent] [-NoFallback] [-NoNudity] [-NoRecurse] [-Objects <String[]>] [-OnlyReturnHtml] [-OverallMood <String[]>] [-PassThru] [-People <String[]>] [-PictureType <String[]>] [-PreferencesDatabasePath <String>] [-Private] [-RestoreFocus] [-Right] [-Scenes <String[]>] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowInBrowser] [-ShowOnlyPictures] [-SideBySide] [-SingleColumnMode] [-SkipSession] [-StyleType <String[]>] [-Title <String>] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Find-Image [[-Any] <String[]>] [[-Name] <String[]>] [-AcceptLang <String>] [-All] [-AllDrives] [-ApplicationMode] [-AttributesToSkip <IO.FileAttributes>] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-Description <String>] [-DescriptionSearch <String[]>] [-DisablePopupBlocker] [-Edge] [-EmbedImages] [-Firefox] [-FocusWindow] [-FollowSymlinkAndJunctions] [-Force] [-FullScreen] [-GeoDistanceInMeters <Double>] [-GeoLocation <Double[]>] [-HasExplicitContent] [-HasNudity] [-Headless] [-Height <Int32>] [-ImageUrlPrefix <String>] [-Interactive] [-KeysToSend <String[]>] [-Keywords <String[]>] [-Language <String>] [-Left] [-MaxFileSize <Int64>] [-Maximize] [-MaxRecursionDepth <Int32>] [-MaxSearchUpDepth <Int32>] [-MetaCameraMake <String[]>] [-MetaCameraModel <String[]>] [-MetaDateTaken <DateTime[]>] [-MetaExposureTime <Double[]>] [-MetaFNumber <Double[]>] [-MetaFocalLength <Double[]>] [-MetaGPSAltitude <Double[]>] [-MetaGPSLatitude <Double[]>] [-MetaGPSLongitude <Double[]>] [-MetaHeight <Int32[]>] [-MetaISO <Int32[]>] [-MetaWidth <Int32[]>] [-MinConfidenceRatio <Double>] [-MinFileSize <Int64>] [-ModifiedAfter <DateTime>] [-ModifiedBefore <DateTime>] [-Monitor <Int32>] [-NeverRebuild] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-NoExplicitContent] [-NoFallback] [-NoNudity] [-NoRecurse] [-Objects <String[]>] [-OnlyReturnHtml] [-OverallMood <String[]>] [-PassThru] [-People <String[]>] [-PictureType <String[]>] [-PlayWright] [-PreferencesDatabasePath <String>] [-Private] [-RestoreFocus] [-Right] [-Scenes <String[]>] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowInBrowser] [-ShowOnlyPictures] [-SideBySide] [-SingleColumnMode] [-SkipSession] [-StyleType <String[]>] [-Title <String>] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -19,14 +33,15 @@ Find-Image [[-Any] <String[]>] [[-Name] <String[]>] [-AcceptLang <String>] [-All
 | `-Any` | String[] | — | — | 0 | `@()` | Correspondra à n'importe lequel de tous les types de métadonnées possibles. |
 | `-Name` | String[] | — | — | 1 | `@('.\')` | Tableau de chemins de répertoires pour rechercher des images |
 | `-Language` | String | — | — | Named | — | Langue pour les descriptions et mots-clés. |
-| `-DescriptionSearch` | String[] | — | — | Named | `@()` | Le texte de description à rechercher, les caractères génériques sont autorisés. |
+| `-DescriptionSearch` | String[] | — | — | Named | `@()` | ('Le texte de description à rechercher, les caractères génériques ' +
+                'autorisés.') |
 | `-Keywords` | String[] | — | — | Named | `@()` | The keywords to look for, wildcards allowed. |
 | `-People` | String[] | — | — | Named | `@()` | Personnes à rechercher, caractères génériques autorisés. |
 | `-Objects` | String[] | — | — | Named | `@()` | Objets à rechercher, caractères génériques autorisés. |
 | `-Scenes` | String[] | — | — | Named | `@()` | Catégories de scènes à rechercher, avec wildcards autorisées. |
-| `-PictureType` | String[] | — | — | Named | `@()` | Type d'image à filtrer (par exemple, 'daylight', 'evening', 'indoor', etc). Accepte les caractères génériques. |
-| `-StyleType` | String[] | — | — | Named | `@()` | Type de style à filtrer (par exemple, 'décontracté', 'formel', etc.). Prend en charge les caractères génériques. |
-| `-OverallMood` | String[] | — | — | Named | `@()` | Ambiance générale à filtrer (par exemple, « calme », « joyeux », « triste », etc.). Prend en charge les caractères génériques. |
+| `-PictureType` | String[] | — | — | Named | `@()` | Type d'image pour le filtrage (par exemple, 'journée', 'soirée', 'intérieur', etc). Prend en charge les caractères génériques. |
+| `-StyleType` | String[] | — | — | Named | `@()` | Type de style à filtrer (par exemple, 'décontracté', 'formel', etc.). Accepte les caractères génériques. |
+| `-OverallMood` | String[] | — | — | Named | `@()` | Humeur générale pour filtrer (par exemple, « calme », « joyeux », « triste », etc.). Prend en charge les caractères génériques. |
 | `-MetaCameraMake` | String[] | — | — | Named | `@()` | Filter by camera make in image EXIF metadata. Supports wildcards. |
 | `-MetaCameraModel` | String[] | — | — | Named | `@()` | Filtrer par modèle d'appareil photo dans les métadonnées EXIF de l'image. Prend en charge les jokers. |
 | `-MetaGPSLatitude` | Double[] | — | — | Named | — | Filtrer par plage de latitude GPS dans les métadonnées EXIF d'une image |
@@ -45,16 +60,20 @@ Find-Image [[-Any] <String[]>] [[-Name] <String[]>] [-AcceptLang <String>] [-All
 | `-Description` | String | — | — | Named | `('Hover over images to see face recognition ' +
             'and object detection data')` | Description for the gallery |
 | `-AcceptLang` | String | — | — | Named | `$null` | Set browser accept-language HTTP header |
-| `-KeysToSend` | String[] | — | — | Named | — | Keystrokes to send to the Browser window, see documentation for cmdlet GenXdev\Send-Key |
+| `-KeysToSend` | String[] | — | — | Named | — | ('Frappes à envoyer à la fenêtre du navigateur, ' +
+                'voir la documentation de l’applet de commande GenXdev\Send-Key') |
 | `-SendKeyEscape` | SwitchParameter | — | — | Named | — | Échapper les caractères de contrôle et les modificateurs lors de l'envoi des touches |
 | `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | Empêcher le retour du focus clavier à PowerShell après l'envoi de touches |
-| `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Utilisez Shift+Entrée au lieu d'Entrée lors de l'envoi des touches |
-| `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | Délai entre les différentes chaînes d'entrée en millisecondes lors de l'envoi des touches |
+| `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Utilisez Maj+Entrée au lieu d'Entrée lors de l'envoi de touches |
+| `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | ('Délai entre différentes chaînes d'entrée ' +
+                'en millisecondes lors de l'envoi des touches') |
 | `-FocusWindow` | SwitchParameter | — | — | Named | — | Focus the browser window after opening |
 | `-SetForeground` | SwitchParameter | — | — | Named | — | Mettre la fenêtre du navigateur au premier plan après l'ouverture |
 | `-Maximize` | SwitchParameter | — | — | Named | — | Maximiser la fenêtre après le positionnement |
 | `-SetRestored` | SwitchParameter | — | — | Named | — | Restaurer la fenêtre à son état normal après le positionnement |
-| `-Monitor` | Int32 | — | — | Named | `-2` | Le moniteur à utiliser, 0 = par défaut, -1 = ignorer, -2 = moniteur secondaire configuré, par défaut Global:DefaultSecondaryMonitor ou 2 si non trouvé |
+| `-Monitor` | Int32 | — | — | Named | `-2` | ('Le moniteur à utiliser, 0 = par défaut, -1 = ignorer, ' +
+                '-2 = Moniteur secondaire configuré, par défaut ' +
+                "`Global:DefaultSecondaryMonitor` ou 2 si introuvable)" |
 | `-Width` | Int32 | — | — | Named | `-1` | La largeur initiale de la fenêtre du navigateur Web |
 | `-Height` | Int32 | — | — | Named | `-1` | Hauteur initiale de la fenêtre du navigateur web |
 | `-X` | Int32 | — | — | Named | `-999999` | La position initiale X de la fenêtre du navigateur web |
@@ -78,16 +97,26 @@ Find-Image [[-Any] <String[]>] [[-Name] <String[]>] [-AcceptLang <String>] [-All
 | `-HasExplicitContent` | SwitchParameter | — | — | Named | — | Filtrer les images qui contiennent du contenu explicite. |
 | `-NoExplicitContent` | SwitchParameter | — | — | Named | — | Filtrer les images qui ne contiennent PAS de contenu explicite. |
 | `-ShowInBrowser` | SwitchParameter | — | — | Named | — | Affichez les résultats de recherche dans une galerie d'images basée sur le navigateur. |
-| `-PassThru` | SwitchParameter | — | — | Named | — | Return image data as objects. When used with -ShowInBrowser, both displays the gallery and returns the objects. |
+| `-PassThru` | SwitchParameter | — | — | Named | — | Retourne les données d'image sous forme d'objets. Lorsqu'il est utilisé avec 
+'-ShowInBrowser, affiche la galerie et retourne 
+les objets. |
 | `-NoBorders` | SwitchParameter | — | — | Named | — | Supprimez les bordures et la barre de titre des fenêtres pour un aspect plus épuré |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Placez la fenêtre du navigateur côte à côte avec PowerShell sur le même moniteur |
-| `-Interactive` | SwitchParameter | — | — | Named | — | Se connecte au navigateur et ajoute des boutons supplémentaires comme Modifier et Supprimer. Efficace uniquement lorsqu'il est utilisé avec -ShowInBrowser. |
+| `-Interactive` | SwitchParameter | — | — | Named | — | ('Se connectera au navigateur et ajoutera des ' +
+                'boutons supplémentaires comme Modifier et Supprimer. Efficace uniquement lorsqu'il est utilisé avec ' +
+                '-ShowInBrowser.') |
 | `-Private` | SwitchParameter | — | — | Named | — | S'ouvre en mode Navigation privée |
-| `-Force` | SwitchParameter | — | — | Named | — | Forcer l'activation du port de débogage, arrêter les navigateurs existants si nécessaire |
+| `-Force` | SwitchParameter | — | — | Named | — | ('Forcer l'activation du port de débogage, arrêtant les ' +
+                'navigateurs existants si nécessaire') |
 | `-Edge` | SwitchParameter | — | — | Named | — | Ouvre dans Microsoft Edge |
 | `-Chrome` | SwitchParameter | — | — | Named | — | S'ouvre dans Google Chrome |
-| `-Chromium` | SwitchParameter | — | — | Named | — | Ouvre dans Microsoft Edge ou Google Chrome, selon le navigateur par défaut |
+| `-Chromium` | SwitchParameter | — | — | Named | — | ('S'ouvre dans Microsoft Edge ou Google Chrome, ' +
+                'selon le navigateur par défaut') |
 | `-Firefox` | SwitchParameter | — | — | Named | — | S'ouvre dans Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utilisez le navigateur géré par Playwright au lieu du navigateur installé sur le système d'exploitation |
+| `-Webkit` | SwitchParameter | — | — | Named | — | ('Ouvre le navigateur WebKit géré par Playwright. ' +
+                'Implique -PlayWright') |
+| `-Headless` | SwitchParameter | — | — | Named | — | Exécutez le navigateur sans fenêtre visible |
 | `-All` | SwitchParameter | — | — | Named | — | S'ouvre dans tous les navigateurs modernes enregistrés |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | S'ouvre en mode plein écran |
 | `-Left` | SwitchParameter | — | — | Named | — | Place browser window on the left side of the screen |
@@ -99,50 +128,117 @@ Find-Image [[-Any] <String[]>] [[-Name] <String[]>] [-AcceptLang <String>] [-All
 | `-NoBrowserExtensions` | SwitchParameter | — | — | Named | — | Empêcher le chargement des extensions de navigateur |
 | `-DisablePopupBlocker` | SwitchParameter | — | — | Named | — | Désactiver le bloqueur de pop-ups |
 | `-RestoreFocus` | SwitchParameter | — | — | Named | — | Restaurer le focus de la fenêtre PowerShell |
-| `-NewWindow` | SwitchParameter | — | — | Named | — | Ne pas réutiliser la fenêtre de navigateur existante, mais en créer une nouvelle à la place |
-| `-OnlyReturnHtml` | SwitchParameter | — | — | Named | — | <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site Web</title>
-</head>
-<body>
-    <header>
-        <h1>Bienvenue sur Mon Site Web</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <p>Ceci est un exemple de site web responsive.</p>
-        </section>
-        <section id="about">
-            <p>Nous créons des sites web modernes et accessibles.</p>
-        </section>
-        <section id="contact">
-            <p>Contactez-nous pour plus d'informations.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Mon Site Web. Tous droits réservés.</p>
-    </footer>
-</body>
-</html> |
-| `-ShowOnlyPictures` | SwitchParameter | — | — | Named | — | Affichez uniquement les images dans un rectangle arrondi, sans texte en dessous. |
-| `-SessionOnly` | SwitchParameter | — | — | Named | — | Utiliser les paramètres alternatifs stockés dans la session pour les préférences IA telles que la langue, les collections d'images, etc. |
-| `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
-| `-SkipSession` | SwitchParameter | — | — | Named | — | Ne pas utiliser les paramètres alternatifs stockés dans la session pour les préférences IA comme la langue, les collections d'images, etc. |
+| `-NewWindow` | SwitchParameter | — | — | Named | — | « Ne réutilisez pas la fenêtre de navigateur existante, créez-en plutôt une nouvelle. » |
+| `-OnlyReturnHtml` | SwitchParameter | — | — | Named | — | ('Généré uniquement le HTML au lieu de ' +
+                'l\'afficher dans un navigateur.') |
+| `-ShowOnlyPictures` | SwitchParameter | — | — | Named | — | Afficher uniquement les images dans un rectangle arrondi, sans texte en dessous. |
+| `-SessionOnly` | SwitchParameter | — | — | Named | — | ('Utiliser des paramètres alternatifs stockés dans la session pour les préférences IA ' +
+                'comme la langue, les collections d'images, etc.) |
+| `-ClearSession` | SwitchParameter | — | — | Named | — | Effacer les paramètres alternatifs stockés dans la session pour les préférences IA comme la Langue, les collections d'Images, etc. |
+| `-SkipSession` | SwitchParameter | — | — | Named | — | N'utilisez pas les paramètres alternatifs stockés dans la session pour les préférences IA telles que la langue, les collections d'images, etc. |
 | `-AutoScrollPixelsPerSecond` | Int32 | — | — | Named | `$null` | Faire défiler automatiquement la page de ce nombre de pixels par seconde (null pour désactiver) |
 | `-AutoAnimateRectangles` | SwitchParameter | — | — | Named | — | Animer les rectangles (objets/faces) dans la plage visible, en cyclant toutes les 300 ms |
 | `-SingleColumnMode` | SwitchParameter | — | — | Named | `$false` | Forcer la mise en page à une seule colonne (centrée, 1/3 de la largeur de l'écran) |
 | `-ImageUrlPrefix` | String | — | — | Named | `''` | Préfixe à ajouter avant chaque chemin d’image (ex. pour les URLs distantes) |
-| `-MinConfidenceRatio` | Double | — | — | Named | — | Ratio de confiance minimal (0,0-1,0) pour filtrer les personnes, scènes et objets par confiance. Ne retourne que les données pour les personnes, scènes et objets dont la confiance est supérieure ou égale à cette valeur. |
+| `-MinConfidenceRatio` | Double | — | — | Named | — | ('Ratio de confiance minimum (0.0-1.0) pour filtrer les ' +
+                'personnes, scènes et objets par confiance. Retourne uniquement les ' +
+                'données pour les personnes, scènes et objets ayant une confiance ' +
+                'supérieure ou égale à cette valeur.') |
+
+## Examples
+
+### Find-Image -Keywords "cat","dog" -Name "C:\Photos\*" Searches for images containing 'cat' OR 'dog' keywords and returns the image objects.
+
+```powershell
+Find-Image -Keywords "cat","dog" -Name "C:\Photos\*"
+Searches for images containing 'cat' OR 'dog' keywords and returns the image objects.
+```
+
+### findimages cat,dog "C:\Photos" Same as above using the alias and positional parameters.
+
+```powershell
+findimages cat,dog "C:\Photos"
+Same as above using the alias and positional parameters.
+```
+
+### Find-Image -People "John","Jane" -Name "C:\Family\*" -ShowInBrowser Searches for photos containing John OR Jane and displays them in a web gallery.
+
+```powershell
+Find-Image -People "John","Jane" -Name "C:\Family\*" -ShowInBrowser
+Searches for photos containing John OR Jane and displays them in a web gallery.
+```
+
+### Find-Image -Keywords "vacation" -People "John" -Objects "beach" -Name "C:\Photos\*" Searches for images that contain vacation keywords AND John as a person AND beach objects. All three criteria must be met (AND logic between parameter types).
+
+```powershell
+Find-Image -Keywords "vacation" -People "John" -Objects "beach" -Name "C:\Photos\*"
+Searches for images that contain vacation keywords AND John as a person AND beach objects.
+All three criteria must be met (AND logic between parameter types).
+```
+
+### Find-Image -MetaISO 100,800 -MetaFNumber 1.4,2.8 -Name "C:\Photos\*" Finds images with ISO between 100-800 AND aperture (F-number) between f/1.4-f/2.8. EXIF parameters use range filtering with [min, max] values.
+
+```powershell
+Find-Image -MetaISO 100,800 -MetaFNumber 1.4,2.8 -Name "C:\Photos\*"
+Finds images with ISO between 100-800 AND aperture (F-number) between f/1.4-f/2.8.
+EXIF parameters use range filtering with [min, max] values.
+```
+
+### Find-Image -Objects "car","bicycle" -Name "C:\Photos\*" -ShowInBrowser -PassThru Searches for images containing detected cars or bicycles, displays them in a gallery, and also returns the objects.
+
+```powershell
+Find-Image -Objects "car","bicycle" -Name "C:\Photos\*" -ShowInBrowser -PassThru
+Searches for images containing detected cars or bicycles, displays them in a gallery, and also returns the objects.
+```
+
+### findimages -Language "Spanish" -Keywords "playa","sol" -Name "C:\Vacations\*" -ShowInBrowser Searches for images with Spanish metadata containing the keywords "playa" (beach) or "sol" (sun) and displays in gallery.
+
+```powershell
+findimages -Language "Spanish" -Keywords "playa","sol" -Name "C:\Vacations\*" -ShowInBrowser
+Searches for images with Spanish metadata containing the keywords "playa" (beach) or "sol" (sun) and displays in gallery.
+```
+
+### Find-Image -Keywords "vacation" -People "John" -Objects "beach*" -Name "C:\Photos\*" Searches for vacation photos with John in them that also contain beach-related objects and returns the data objects.
+
+```powershell
+Find-Image -Keywords "vacation" -People "John" -Objects "beach*" -Name "C:\Photos\*"
+Searches for vacation photos with John in them that also contain beach-related objects and returns the data objects.
+```
+
+### Find-Image -Scenes "beach","forest","mountain*" -Name "C:\Nature\*" -ShowInBrowser Searches for images classified as beach, forest, or mountain scenes and displays them in a gallery.
+
+```powershell
+Find-Image -Scenes "beach","forest","mountain*" -Name "C:\Nature\*" -ShowInBrowser
+Searches for images classified as beach, forest, or mountain scenes and displays them in a gallery.
+```
+
+### Find-Image -NoNudity -NoExplicitContent -Name "C:\Family\*" -ShowInBrowser Searches for family-safe images (no nudity or explicit content) and displays them in a gallery.
+
+```powershell
+Find-Image -NoNudity -NoExplicitContent -Name "C:\Family\*" -ShowInBrowser
+Searches for family-safe images (no nudity or explicit content) and displays them in a gallery.
+```
+
+### Find-Image -PictureType "daylight" -OverallMood "calm" -Name "C:\Photos\*" Searches for daylight photos with a calm/peaceful mood and returns the image objects.
+
+```powershell
+Find-Image -PictureType "daylight" -OverallMood "calm" -Name "C:\Photos\*"
+Searches for daylight photos with a calm/peaceful mood and returns the image objects.
+```
+
+### findimages -StyleType "casual" -HasNudity -Name "C:\Art\*" Searches for casual style images that contain nudity and returns the data objects.
+
+```powershell
+findimages -StyleType "casual" -HasNudity -Name "C:\Art\*"
+Searches for casual style images that contain nudity and returns the data objects.
+```
+
+### Find-Image -Scenes "beach" -MinConfidenceRatio 0.75 -Name "C:\Photos\*" Searches for beach scenes with confidence level of 75% or higher and filters people, scenes, and objects data by confidence.
+
+```powershell
+Find-Image -Scenes "beach" -MinConfidenceRatio 0.75 -Name "C:\Photos\*"
+Searches for beach scenes with confidence level of 75% or higher and filters people, scenes, and objects data by confidence.
+```
 
 ## Outputs
 

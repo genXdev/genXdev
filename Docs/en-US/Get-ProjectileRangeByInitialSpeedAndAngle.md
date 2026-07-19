@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calculates the range of a projectile.
+
+## Description
+
+Uses the formula R = (v² sin(2θ)) / g for ideal projectile motion.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-ProjectileRangeByInitialSpeedAndAngle [-InitialSpeedInMetersPerSecond] <doub
 | `-AngleInDegrees` | Double | ✅ | — | 1 | `0` | Launch angle in degrees |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 2 | `0` | Gravity in m/s² (default: 9.81) |
 | `-As` | String | — | — | 3 | — | Output unit for range |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ProjectileRangeByInitialSpeedAndAngle -InitialSpeedInMetersPerSecond 20 -AngleInDegrees 45 -As "feet"
+```
+
+Calculates the range using the projectile motion formula.
+
+### Example 2
+
+```powershell
+Get-ProjectileRangeByInitialSpeedAndAngle 30 30
+```
+
+Calculates the range with positional parameters.
 
 ## Related Links
 

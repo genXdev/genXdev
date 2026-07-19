@@ -4,12 +4,25 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent de GenXdev progressieve webapps-catalogus in een webbrowser.
+
+## Description
+
+Opent de catalogus met gepubliceerde GenXdev progressieve webapps in een webbrowser.
+Opent in de applicatiemodus met standaard volledig scherm ingeschakeld voor een
+optimale kijkervaring van de catalogus. Ondersteunt alle standaard opties voor
+webbrowserconfiguratie, waaronder monitorplaatsing, venstergrootte en
+taalvoorkeuren.
+
+De functie configureert de browser automatisch voor de beste catalogusweergave
+en kan meerdere browserinstanties tegelijk openen. Het biedt uitgebreide
+taalondersteuning en respecteert gebruikersvoorkeuren voor browserselectie en
+-positionering.
 
 ## Syntax
 
 ```powershell
-Open-GenXdevAppCatalog [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GenXdevAppCatalog [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +36,9 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-AcceptLang <String>] [-All] [-Ap
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opent in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wordt geopend in Microsoft Edge of Google Chrome, afhankelijk van wat de standaardbrowser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Openen in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Gebruik de door Playwright beheerde browser in plaats van de in het besturingssysteem geïnstalleerde browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opent de door Playwright beheerde WebKit-browser. Impliceert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Voer de browser uit zonder een zichtbaar venster |
 | `-All` | SwitchParameter | — | — | Named | — | Opent in alle geregistreerde moderne browsers |
 | `-Monitor` | Int32 | — | — | Named | `-2` | De monitor om te gebruiken, 0 = standaard, -1 = weggooien, -2 = geconfigureerde secundaire monitor, standaard -1, geen positionering |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opent in volledig scherm |
@@ -61,6 +77,24 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-AcceptLang <String>] [-All] [-Ap
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen die in de sessie zijn opgeslagen voor AI-voorkeuren. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wissen Sie, dass alternative Einstellungen, die in der Sitzung gespeichert sind, für KI-Präferenzen gelöscht wurden. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. |
+
+## Examples
+
+### Open-GenXdevAppCatalog -Monitor 1 -ApplicationMode -FullScreen
+
+```powershell
+Open-GenXdevAppCatalog -Monitor 1 -ApplicationMode -FullScreen
+```
+
+Opent de GenXdev app-catalogus op monitor 1 in applicatiemodus met volledig scherm ingeschakeld.
+
+### appcatalog -mon 1
+
+```powershell
+appcatalog -mon 1
+```
+
+Opent de GenXdev app catalogus op monitor 1 met behulp van het alias commando.
 
 ## Related Links
 

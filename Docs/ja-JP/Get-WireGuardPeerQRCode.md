@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> WireGuard VPN ピア設定用のQRコードを生成します。
+
+## Description
+
+この関数は、モバイルデバイスでスキャンして簡単にセットアップできるWireGuard VPNピア設定のQRコードを生成します。QRコードはコンソールに表示され、スマートフォンやタブレットでWireGuardクライアントを迅速に設定するために使用できます。この関数は、linuxserver/wireguard Dockerコンテナと連携して、ピア設定のQRコードを生成します。
 
 ## Syntax
 
@@ -28,6 +32,20 @@ Get-WireGuardPeerQRCode -PeerName <String> [-ContainerName <String>] [-Force] [-
 | `-PUID` | String | — | — | Named | `'1000'` | コンテナ内の権限のためのユーザーID |
 | `-PGID` | String | — | — | Named | `'1000'` | コンテナ内の権限のグループID |
 | `-TimeZone` | String | — | — | Named | `'Etc/UTC'` | コンテナに使用するタイムゾーン |
+
+## Examples
+
+### Get-WireGuardPeerQRCode -PeerName "MyPhone"
+
+```powershell
+Get-WireGuardPeerQRCode -PeerName "MyPhone"
+```
+
+### Get-WireGuardPeerQRCode -PeerName "Tablet" -NoDockerInitialize
+
+```powershell
+Get-WireGuardPeerQRCode -PeerName "Tablet" -NoDockerInitialize
+```
 
 ## Related Links
 

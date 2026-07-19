@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 現在のユーザーが昇格された権限を持っているかどうかを確認します。
+
+## Description
+
+現在のWindowsユーザーが管理者またはバックアップオペレーターの権限を持っているかどうかを、セキュリティプリンシパルロールを確認することで判断します。ユーザーが昇格された権限を持っている場合はtrueを、そうでない場合はfalseを返します。セキュリティおよびアクセス関連の問題に対して、堅牢なエラーハンドリングを実装しています。
 
 ## Syntax
 
@@ -89,8 +93,19 @@
     }
 ```
 
+## Examples
+
+### $hasRights = CurrentUserHasElevatedRights ##############################################################################
+
+```powershell
+$hasRights = CurrentUserHasElevatedRights
+##############################################################################
+```
+
 ## Outputs
 
+- `Boolean
+Returns true if user has admin or backup operator rights, false otherwise.`
 - `Boolean`
 
 ## Related Links

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Schakelt de pauze/afspeelstatus van de VLC Media Player om.
+
+## Description
+
+Deze functie stuurt een spatiebalk naar VLC Media Player om te schakelen tussen gepauzeerd en afspelend. Het herstelt automatisch de focus naar het oorspronkelijke venster na het verzenden van de toetsopdracht.
 
 ## Syntax
 
@@ -32,6 +36,32 @@
 
     }
 ```
+
+## Examples
+
+### Switch-VLCMediaPlayerPaused
+
+```powershell
+Switch-VLCMediaPlayerPaused
+```
+
+Schakelt de pauze-/afspeelstatus van VLC Media Player om.
+
+### vlcpause
+
+```powershell
+vlcpause
+```
+
+Gebruikt de alias om de pauze/afspeelstatus te wisselen.
+
+### vlcplay
+
+```powershell
+vlcplay
+```
+
+Gebruikt het alternatieve alias om de pauze/afspeelstatus te wisselen.
 
 ## Related Links
 

@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 向README文件中添加一个带时间戳的功能行。
+
+## Description
+
+为指定的README文件添加一行特性说明，以当前日期（yyyyMMdd格式）为前缀。该行可以格式化为代码，并可选择性显示。
 
 ## Syntax
 
 ```powershell
-Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
+Add-FeatureLineToREADME [[-Line] <String>] [-Ascending] [-Code] [-First <Int32>] [-Priority <Int32>] [-Show] [-SortByDate] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -61,6 +65,24 @@ Example response format: {"response":"your actual response here"}
 ===== END REQUIREMENT ===== |
 | `-UseHomeREADME` | SwitchParameter | — | — | Named | — | 使用主目录中的 README |
 | `-UseOneDriveREADME` | SwitchParameter | — | — | Named | — | 使用 OneDrive 目录中的 README |
+| `-Priority` | Int32 | — | — | Named | `1` | 排序优先级（数值越大越靠前显示，默认为1） |
+| `-SortByDate` | SwitchParameter | — | — | Named | — | 按日期（yyyyMMdd前缀）排序，而非优先级 |
+| `-Ascending` | SwitchParameter | — | — | Named | — | 将排序顺序颠倒（升序改为降序） |
+| `-First` | Int32 | — | — | Named | `0` | 限制 - 仅显示前 N 行输出 |
+
+## Examples
+
+### Add-FeatureLineToREADME -Line "Added new Git feature"
+
+```powershell
+Add-FeatureLineToREADME -Line "Added new Git feature"
+```
+
+### feature "Added new Git feature" -Code -Show
+
+```powershell
+feature "Added new Git feature" -Code -Show
+```
 
 ## Related Links
 

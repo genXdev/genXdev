@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Выполняет блок сценария для каждого модуля GenXdev в рабочей области.
+
+## Description
+
+Эта функция перебирает модули GenXdev в рабочей области и выполняет предоставленный блок скрипта для каждого модуля. Она может фильтровать модули по шаблону имени, исключать локальные модули, включать только опубликованные модули или обрабатывать скрипты вместо модулей. Функция автоматически переходит в правильный каталог модуля перед выполнением блока скрипта.
 
 ## Syntax
 
@@ -22,6 +26,27 @@ Invoke-OnEachGenXdevModule -Script <ScriptBlock> [[-ModuleName] <String[]>] [-Fr
 | `-OnlyPublished` | SwitchParameter | — | — | Named | — | Включает только опубликованные модули, имеющие файлы LICENSE и README.md |
 | `-FromScripts` | SwitchParameter | — | — | Named | — | Обрабатывать каталог скриптов вместо каталогов модулей |
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | Включает каталог сценариев в дополнение к обычным модулям |
+
+## Examples
+
+### Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+
+```powershell
+Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+```
+
+GenXdev modules include: GenXdev.Console, GenXdev.DotNet, GenXdev.Extensions, GenXdev.Helpers, GenXdev.Installer, GenXdev.IO, GenXdev.NET, GenXdev.NuGet, GenXdev.OS, GenXdev.Razor, GenXdev.Text, GenXdev.Web, GenXdev.Windows, GenXdev.WPF
+
+### foreach-genxdev-module-do {     param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)     Get-ChildItem } -ModuleName "GenXdev.AI"
+
+```powershell
+foreach-genxdev-module-do {
+    param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)
+    Get-ChildItem
+} -ModuleName "GenXdev.AI"
+```
+
+Использует псевдоним для вывода содержимого каталога модуля GenXdev.AI.
 
 ## Related Links
 

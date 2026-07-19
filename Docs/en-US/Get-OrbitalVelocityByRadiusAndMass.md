@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calculates orbital velocity.
+
+## Description
+
+Uses v = sqrt(G M / r).
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Get-OrbitalVelocityByRadiusAndMass [-RadiusInMeters] <double> [-CentralMassInKil
 | `-RadiusInMeters` | Double | ✅ | — | 0 | `0` | Orbital radius in meters |
 | `-CentralMassInKilograms` | Double | ✅ | — | 1 | `0` | Central mass in kg |
 | `-As` | String | — | — | 2 | — | Output unit for velocity |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-OrbitalVelocityByRadiusAndMass -RadiusInMeters 6371000 -CentralMassInKilograms 5.972e24 -As "km/h"
+```
+
+Uses Earth's mass and radius for demonstration.
+
+### Example 2
+
+```powershell
+Get-OrbitalVelocityByRadiusAndMass 10000000 1e26
+```
+
+Simple calculation with default m/s output.
 
 ## Related Links
 

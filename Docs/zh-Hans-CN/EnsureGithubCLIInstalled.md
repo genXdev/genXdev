@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 确保GitHub CLI已正确安装并在系统上配置。
+
+## Description
+
+对GitHub CLI（gh）执行全面检查与设置：
+- 验证GitHub CLI是否已安装并在PATH中可用
+- 若未安装，通过WinGet安装GitHub CLI
+- 配置系统PATH环境变量
+- 安装GitHub Copilot扩展
+- 设置GitHub身份验证
+该函数处理所有先决条件，确保GitHub CLI配置可用。
 
 ## Syntax
 
@@ -175,6 +185,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsureGithubCLIInstalled This will verify and setup GitHub CLI if needed.
+
+```powershell
+EnsureGithubCLIInstalled
+This will verify and setup GitHub CLI if needed.
 ```
 
 ## Related Links

@@ -4,7 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Предоставляет оболочку PowerShell для утилиты Microsoft Robust Copy (Robocopy).
+
+## Description
+
+Всесторонняя оболочка для утилиты командной строки RoboCopy, обеспечивающая надежные возможности копирования файлов и каталогов. Эта функция предоставляет доступ к обширному набору функций RoboCopy через удобные для PowerShell параметры, сохраняя при этом большую часть его мощной функциональности.
+
+Ключевые особенности:
+- Синхронизация каталогов с параметрами зеркалирования
+- Поддержка длинных путей (>256 символов)
+- Сохранение настроек безопасности
+- Расширенная обработка атрибутов файлов
+- Управление символическими ссылками и точками соединения
+- Режим мониторинга для непрерывной синхронизации
+- Оптимизация производительности для больших файлов
+- Поддержка сетевого сжатия
+- Режим восстановления для вышедших из строя устройств
 
 ## Syntax
 
@@ -22,8 +37,8 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Source` | String | ✅ | — | 0 | — | Каталог, путь к файлу или каталог+маска поиска |
 | `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | Целевой каталог для размещения скопированных файлов и папок.
-            Если этот каталог еще не существует, все недостающие каталоги будут созданы.
-            Значение по умолчанию = ".\" |
+            Если этот каталог не существует, все отсутствующие каталоги будут созданы.
+            Значение по умолчанию = "." |
 | `-Files` | String[] | — | — | 2 | `@()` | Необязательная маска поиска для выбора файлов, которые необходимо скопировать.
             Значение по умолчанию = '*' 🌐 *Supports wildcards* |
 | `-Mirror` | SwitchParameter | — | — | Named | — | Синхронизирует содержимое указанных каталогов, также удаляет все файлы и каталоги в целевом расположении, которых нет в исходном |
@@ -77,7 +92,7 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | `-MultiThreaded` | SwitchParameter | — | — | Named | — | Оптимизируйте производительность с помощью многопоточного копирования |
 | `-CompressibleContent` | SwitchParameter | — | — | Named | — | При возможности используйте сжатие при копировании файлов между серверами для экономии пропускной способности и времени |
 | `-ExactTimestamps` | SwitchParameter | — | — | Named | — | При установке будет использоваться сопоставление меток времени в миллисекундах вместо стандартного допуска в 2 секунды |
-| `-Override` | String | — | — 🌐 Remaining | 3 | — | Переопределяет, удаляет или добавляет любой заданный параметр robocopy.
+| `-Override` | String | — | — 🌐 Remaining | 3 | — | Переопределяет, удаляет или добавляет любой указанный параметр robocopy.
 
 Использование:
 
@@ -91,9 +106,27 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 
     -Override -/Switch
 
-Несколько переопределений:
+Множественные переопределения:
 
     -Override "/ReplaceThisSwitchWithValue:'SomeValue' -/RemoveThisSwitch /AddThisSwitch" |
+
+## Examples
+
+### ########################################################################Mirror a directory with security settings Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `     -Mirror -IncludeSecurity
+
+```powershell
+########################################################################Mirror a directory with security settings
+Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `
+    -Mirror -IncludeSecurity
+```
+
+### ########################################################################Monitor and sync changes every 10 minutes Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `     -MonitorMode -MonitorModeThresholdMinutes 10
+
+```powershell
+########################################################################Monitor and sync changes every 10 minutes
+Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `
+    -MonitorMode -MonitorModeThresholdMinutes 10
+```
 
 ## Related Links
 

@@ -4,12 +4,31 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在Web浏览器中打开Stack Overflow搜索查询。
+
+## Description
+
+在网页浏览器中打开一个或多个Stack Overflow搜索查询，并提供全面的浏览器和显示配置选项。此功能围绕Stack Overflow搜索功能提供了高级封装，具有窗口位置、浏览器选择和行为自定义的丰富选项。
+
+主要特性：
+- 支持通过管道输入多个搜索查询
+- 智能浏览器检测与选择（Edge、Chrome、Firefox、全部浏览器）
+- 高级窗口定位（左、右、上、下、居中、全屏）
+- 多显示器支持，自动或手动选择显示器
+- 支持隐私/无痕浏览模式
+- 应用模式，实现无干扰浏览
+- 语言本地化支持，获取国际搜索结果
+- 扩展和弹窗屏蔽选项
+- 焦点管理与窗口操作
+- 向浏览器窗口自动输入按键
+- 支持返回URL以便自动化工作流
+
+该函数自动检测系统功能并相应调整行为。对于系统未安装的浏览器，相关操作会静默跳过，不产生错误。
 
 ## Syntax
 
 ```powershell
-Open-StackOverflowQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-StackOverflowQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -31,6 +50,9 @@ Open-StackOverflowQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
 | `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 在全屏模式下打开 |
 | `-Left` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕左侧 |
@@ -59,6 +81,40 @@ Open-StackOverflowQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的 Stack Overflow 搜索偏好的替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久偏好中，不影响 Stack Overflow 搜索的会话 |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | 将浏览器窗口定位到与PowerShell不同的显示器上全屏显示，或者与PowerShell在同一显示器上并排显示。 |
+
+## Examples
+
+### Open-StackOverflowQuery -Queries "powershell array" -Monitor 0
+
+```powershell
+Open-StackOverflowQuery -Queries "powershell array" -Monitor 0
+```
+
+在主显示器上打开 Stack Overflow 搜索 "powershell array"。
+
+### qso "powershell array" -mon 0
+
+```powershell
+qso "powershell array" -mon 0
+```
+
+使用别名并监视器定位打开 Stack Overflow 搜索
+
+### "powershell", "array manipulation" | Open-StackOverflowQuery -Language "English" -Chrome
+
+```powershell
+"powershell", "array manipulation" | Open-StackOverflowQuery -Language "English" -Chrome
+```
+
+在Chrome中打开多个Stack Overflow搜索，并设置英语语言偏好。
+
+### Open-StackOverflowQuery -Queries "c# linq" -ReturnURL
+
+```powershell
+Open-StackOverflowQuery -Queries "c# linq" -ReturnURL
+```
+
+Returns the Stack Overflow search URL without opening a browser.
 
 ## Related Links
 

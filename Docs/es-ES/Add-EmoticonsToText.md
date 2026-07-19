@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Enhances text by adding contextually appropriate emoticons using AI 🤖✨🎨
+
+## Description
+
+Esta función procesa el texto de entrada para añadir emoticonos que coincidan con el contexto emocional. Puede aceptar entrada directamente a través de parámetros, desde el pipeline o desde el portapapeles del sistema. La función aprovecha modelos de IA para analizar el texto y seleccionar emoticonos apropiados, haciendo que los mensajes sean más expresivos y atractivos.
 
 ## Syntax
 
@@ -70,6 +74,21 @@ Let me prepare the response.",
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filtrar por tipos de bloques de marcado (pasado a LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longitud máxima de la llamada a la herramienta (pasada a LLMQuery) |
+
+## Examples
+
+### Add-EmoticonsToText -Text "Hello, how are you today?" -SetClipboard
+
+```powershell
+Add-EmoticonsToText -Text "Hello, how are you today?" -SetClipboard
+```
+
+### "Time to celebrate!" | emojify ##############################################################################
+
+```powershell
+"Time to celebrate!" | emojify
+##############################################################################
+```
 
 ## Outputs
 

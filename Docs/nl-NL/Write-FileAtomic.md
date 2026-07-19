@@ -8,10 +8,10 @@
 
 ## Description
 
-* Atomisch schrijven: maakt gebruik van een tijdelijke bestand + hernoem strategie om ervoor te zorgen dat het doelbestand nooit in een beschadigde staat achterblijft als het proces wordt onderbroken.
-* Pogingen: herhaalt het schrijven tot MaxRetries keer met een vertraging van RetryDelayMs milliseconden tussen pogingen.
-* Debounce-ondersteuning: wanneer DebounceMs > 0, worden snelle opeenvolgende schrijfbewerkingen naar hetzelfde bestand samengevoegd — alleen de laatste inhoud wordt geschreven zodra het bestand voor DebounceMs ms niet is aangeraakt.
-* Map aanmaken: maakt automatisch bovenliggende mappen aan als deze niet bestaan.
+* Atomic write: maakt gebruik van een tijdelijk bestand + hernoem-strategie om ervoor te zorgen dat het doelbestand nooit in een corrupte staat achterblijft als het proces wordt onderbroken.
+* Retry logic: probeert de write tot MaxRetries keer opnieuw met een vertraging van RetryDelayMs milliseconden tussen pogingen.
+* Debounce ondersteuning: wanneer DebounceMs > 0, worden snelle opeenvolgende writes naar hetzelfde bestand samengevoegd - alleen de laatste payload wordt weggeschreven zodra het bestand DebounceMs ms niet is aangeraakt.
+* Directory aanmaken: maakt automatisch bovenliggende mappen aan als ze nog niet bestaan.
 
 ## Syntax
 
@@ -50,7 +50,7 @@ Schrijft een byte-array atomair naar data.bin met standaardinstellingen voor nie
 Start-Sleep -Seconds 6
 ```
 
-Schrijft snel 100 keer, maar alleen de laatste payload (100) wordt na een stilteperiode van 5 seconden naar de schijf weggeschreven.
+Schrijft snel 100 keer, maar alleen de laatste payload (100) wordt opgeslagen naar schijf na een rustperiode van 5 seconden.
 
 ### Example 3
 

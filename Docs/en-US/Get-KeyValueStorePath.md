@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Gets the file path for a key-value store.
+
+## Description
+
+* Constructs the file path for a key-value store based on the
+  synchronization key, store name, and base directory.
 
 ## Syntax
 
@@ -19,6 +24,16 @@ Get-KeyValueStorePath [-SynchronizationKey] <string> [-StoreName] <string> [-Bas
 | `-SynchronizationKey` | String | ✅ | — | 0 | — | The synchronization key used to identify the store |
 | `-StoreName` | String | ✅ | — | 1 | — | The name of the key-value store |
 | `-BasePath` | String | — | — | Named | — | The base directory path for store files |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-KeyValueStorePath -SynchronizationKey "Local" -StoreName "MyStore"
+```
+
+Get the path for a local key-value store.
 
 ## Related Links
 

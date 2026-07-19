@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Obtém informações detalhadas sobre o status do servidor VPN WireGuard.
+
+## Description
+
+Esta função recupera informações detalhadas de status sobre o servidor VPN WireGuard em execução em um contêiner Docker, incluindo detalhes da interface, porta de escuta, peers conectados e saúde do servidor. Ela fornece informações abrangentes sobre o serviço WireGuard, incluindo status do servidor, contagem de peers, tempo de atividade e detalhes de configuração de rede.
 
 ## Syntax
 
@@ -47,6 +51,24 @@ Get-WireGuardStatus [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Modo apenas de sessão (pass-through) |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Limpar dados da sessão (passagem direta) |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Ignorar a inicialização da sessão (passagem direta) |
+
+## Examples
+
+### Get-WireGuardStatus
+
+```powershell
+Get-WireGuardStatus
+```
+
+Retorna o status do servidor WireGuard com configurações padrão.
+
+### Get-WireGuardStatus -NoDockerInitialize -ContainerName "custom_wireguard"
+
+```powershell
+Get-WireGuardStatus -NoDockerInitialize -ContainerName "custom_wireguard"
+```
+
+Recupera o status de um contêiner personalizado sem inicializar o Docker.
 
 ## Related Links
 

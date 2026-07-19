@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Restaura la configuración predeterminada del monitor secundario.
+
+## Description
+
+Este script restaura la configuración predeterminada del monitor secundario para el sistema, estableciendo el monitor secundario al valor predeterminado original. Esto es útil para usuarios que deseen volver a su configuración de múltiples monitores anterior después de usar configuraciones lado a lado. Ver también: la función 'sidebyside' para cambiar al modo lado a lado para nuevas ventanas.
 
 ## Syntax
 
@@ -42,6 +46,16 @@
             'Secondary monitor configuration completed'
     }
 ```
+
+## Examples
+
+### secondscreen
+
+```powershell
+secondscreen
+```
+
+Restaura la configuración predeterminada del monitor secundario para el sistema.
 
 ## Related Links
 

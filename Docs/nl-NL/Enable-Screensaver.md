@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Start de geconfigureerde Windows-screensaver.
+
+## Description
+
+Activeert de Windows-systeemscreensaver door het standaard screensaver-uitvoerbare bestand (scrnsave.scr) uit te voeren met de /s-schakelaar om deze onmiddellijk te starten.
 
 ## Syntax
 
@@ -26,6 +30,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### Enable-Screensaver
+
+```powershell
+Enable-Screensaver
 ```
 
 ## Related Links

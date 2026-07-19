@@ -4,12 +4,25 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens BuiltWith website queries in a web browser.
+
+## Description
+
+Opens a BuiltWith query in a web browser, with configurable monitor settings and
+browser behavior options. The function analyzes website technology stacks by
+querying BuiltWith.com's technology profiling service, which provides detailed
+information about web technologies, frameworks, and services used by websites.
+
+BuiltWith.com is a comprehensive technology lookup service that identifies web
+technologies, frameworks, content management systems, analytics tools, hosting
+providers, and other software components used by any website. This function
+provides a PowerShell interface to quickly analyze technology stacks without
+manually navigating to the BuiltWith website.
 
 ## Syntax
 
 ```powershell
-Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -32,6 +45,9 @@ Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <I
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opens in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge or Google Chrome, depending on what the default browser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Opens in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use Playwright-managed browser instead of the OS-installed browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opens the Playwright-managed WebKit browser. Implies -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Run the browser without a visible window |
 | `-All` | SwitchParameter | — | — | Named | — | Opens in all registered modern browsers |
 | `-Left` | SwitchParameter | — | — | Named | — | Place browser window on the left side of the screen |
 | `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen |
@@ -59,6 +75,24 @@ Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <I
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-BuiltWithSiteInfo -Queries "microsoft.com" -Monitor 0
+
+```powershell
+Open-BuiltWithSiteInfo -Queries "microsoft.com" -Monitor 0
+```
+
+Opens a BuiltWith technology analysis for Microsoft.com on the default monitor.
+
+### "microsoft.com" | Open-BuiltWithSiteInfo -m -1
+
+```powershell
+"microsoft.com" | Open-BuiltWithSiteInfo -m -1
+```
+
+Analyzes Microsoft.com using pipeline input with monitor positioning discarded.
 
 ## Related Links
 

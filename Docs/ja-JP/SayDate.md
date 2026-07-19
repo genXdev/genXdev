@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Speaks the current date using text-to-speech synthesis.
+
+## Description
+
+現在の日付を自然言語形式に変換し、システムのテキスト読み上げエンジンを使用して発声します。日付は次の形式で発声されます：「今日は[曜日]、[月] [日] [年]です」
 
 ## Syntax
 
@@ -32,6 +36,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### SayDate Announces today's date using text-to-speech
+
+```powershell
+SayDate
+Announces today's date using text-to-speech
 ```
 
 ## Related Links

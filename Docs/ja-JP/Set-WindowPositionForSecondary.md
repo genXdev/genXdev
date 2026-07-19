@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> セカンダリモニタ上で指定されたレイアウトオプションを使用してウィンドウを配置します。
+
+## Description
+
+この関数は、Set-WindowPositionを使用して構成されたセカンダリモニター上にウィンドウを配置することを可能にし、配置、サイズ、境界設定などの様々なレイアウトオプションを提供します。グローバル設定に基づいてモニターを選択し、セカンダリモニターのウィンドウ配置のための便利なラッパーとして機能します。
 
 ## Syntax
 
@@ -44,6 +48,21 @@ Set-WindowPositionForSecondary [[-Process] <Diagnostics.Process[]>] [-Bottom] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定はセッションに影響を与えず、永続的な設定のみに保存します。 |
+
+## Examples
+
+### Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `     -Centered -NoBorders
+
+```powershell
+Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `
+    -Centered -NoBorders
+```
+
+### wps notepad -w 800 -h 600 -c -nb
+
+```powershell
+wps notepad -w 800 -h 600 -c -nb
+```
 
 ## Related Links
 

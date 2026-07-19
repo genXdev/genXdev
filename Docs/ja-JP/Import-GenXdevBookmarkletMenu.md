@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev JavaScriptブックマークレットをブラウザのブックマークコレクションにインポートします。
+
+## Description
+
+この関数は、GenXdevブックマークレットファイルをディレクトリからスキャンします。
 
 ## Syntax
 
@@ -21,6 +25,24 @@ Import-GenXdevBookmarkletMenu [[-SnippetsPath] <String>] [[-TargetFolder] <Strin
 | `-Edge` | SwitchParameter | — | — | Named | — | ブックマークレットをMicrosoft Edgeブラウザにインポートする |
 | `-Chrome` | SwitchParameter | — | — | Named | — | ブックマークレットをGoogle Chromeブラウザにインポートする |
 | `-Firefox` | SwitchParameter | — | — | Named | — | ブックマークレットをMozilla Firefoxブラウザにインポートする |
+
+## Examples
+
+### Import-GenXdevBookmarkletMenu -Edge
+
+```powershell
+Import-GenXdevBookmarkletMenu -Edge
+```
+
+デフォルトのスニペットディレクトリからすべてのブックマークレットファイルをMicrosoft Edgeのブックマークバーフォルダにインポートします。
+
+### Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+
+```powershell
+Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+```
+
+指定されたパスからGoogle Chromeにどのブックマークレットがインポートされるかを表示しますが、実際にインポート操作は実行しません。
 
 ## Related Links
 

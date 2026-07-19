@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Kopiert Dateien, die den Suchkriterien entsprechen, in datumsbasierte Unterordner.
+
+## Description
+
+Sucht nach Dateien mit demselben Parametersatz wie `Find-Item` und kopiert jede gefundene Datei basierend auf ihrem Erstellungs- oder Mediendatum in einen Unterordner von `TargetFolder`. Das Cmdlet unterstützt Inhaltsabgleiche, laufwerksweite Suchen und viele Filter.
+
+Versucht mehrere Strategien, um ein genaues Erstellungs- oder Aufnahmedatum für die angegebene Datei zu ermitteln. Zu den Strategien gehören das Lesen von EXIF-Metadaten von Bildern, das Extrahieren von Datums-/Zeitinformationen aus Dateinamen und das Zurückgreifen auf die letzte Änderungszeit der Datei, wenn keine anderen zuverlässigen Informationen verfügbar sind.
 
 ## Syntax
 
@@ -62,6 +68,34 @@ Copy-FilesToDateFolder [[-Content] <String[]>] [-AllMatches] [-CaseSensitive] [-
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Use simple string matching instead of regex *(Parameter set: )* |
 | `-DeleteEmptyDirs` | SwitchParameter | — | — | Named | — | Leere Quellverzeichnisse nach dem Verschieben von Dateien löschen |
 | `-TargetFolderNameDateSyntax` | String | — | — | Named | `'Year + Month'` | Syntax für Datumsangaben im Zielordnernamen |
+
+## Examples
+
+### Copy all pictures and videos to the corresponsing Android Onedrive App Image backup folders     Copy-FilesToDateFolder -TargetFolder "~\onedrive\Pictures\Camera Roll" `                            -SourceFolder ~\Pictures\*, ~\desktop\* `                            -Category 'Pictures', 'Videos'
+
+```powershell
+Copy all pictures and videos to the corresponsing Android Onedrive App Image backup folders
+    Copy-FilesToDateFolder -TargetFolder "~\onedrive\Pictures\Camera Roll" `
+                           -SourceFolder ~\Pictures\*, ~\desktop\* `
+                           -Category 'Pictures', 'Videos'
+```
+
+### Copy all jpg files from the current directory into date folders under `D:\Archive` (dry run):
+
+```powershell
+Copy all jpg files from the current directory into date folders under
+`D:\Archive` (dry run):
+```
+
+Copy-FilesToDateFolder -TargetFolder 'D:\Archive' -Name '*.jpg' -WhatIf
+
+### Copy all files across drives matching `*.mp4` into monthly folders
+
+```powershell
+Copy all files across drives matching `*.mp4` into monthly folders
+```
+
+Copy-FilesToDateFolder -TargetFolder 'E:\Media\Videos' -Name '.*\.mp4'
 
 ## Related Links
 

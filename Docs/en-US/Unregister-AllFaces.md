@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Removes all registered faces from the DeepStack face recognition system.
+
+## Description
+
+This function clears all registered faces from the DeepStack face recognition
+database by removing all face files from the datastore directory and restarting
+the service to reload an empty face registry. This is a destructive operation
+that cannot be undone and will permanently remove all registered face data.
 
 ## Syntax
 
@@ -27,6 +34,32 @@ Unregister-AllFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | Interval in seconds between health check attempts |
 | `-ImageName` | String | — | — | 5 | — | Custom Docker image name to use |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Show Docker Desktop window during initialization |
+
+## Examples
+
+### Unregister-AllFaces
+
+```powershell
+Unregister-AllFaces
+```
+
+Removes all registered faces with confirmation prompt.
+
+### Unregister-AllFaces -Force
+
+```powershell
+Unregister-AllFaces -Force
+```
+
+Removes all registered faces without confirmation prompt.
+
+### unregall -Force
+
+```powershell
+unregall -Force
+```
+
+Uses alias to remove all faces without confirmation.
 
 ## Related Links
 

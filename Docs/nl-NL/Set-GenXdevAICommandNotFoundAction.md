@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stelt aangepaste afhandeling van niet-gevonden commando's in met AI-ondersteuning.
+
+## Description
+
+Configureert PowerShell om onbekende opdrachten af te handelen door ofwel naar mappen te navigeren of AI te gebruiken om de bedoeling van de gebruiker te interpreteren. De handler probeert eerst een bestaande handler voor niet-gevonden opdrachten, controleert vervolgens of de opdracht een geldig pad is voor navigatie, en biedt ten slotte AI-assistentie voor onbekende opdrachten.
 
 ## Syntax
 
@@ -179,6 +183,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

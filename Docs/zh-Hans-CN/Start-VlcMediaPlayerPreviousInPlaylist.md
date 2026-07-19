@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 跳到VLC媒体播放器播放列表中的上一个项目。
+
+## Description
+
+该函数向VLC媒体播放器发送 'p' 键命令，以导航到当前播放列表中的上一个项目。该函数支持 WhatIf 操作，并在发送命令后恢复焦点。
 
 ## Syntax
 
@@ -33,6 +37,26 @@
     end {
 
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerPreviousInPlaylist
+
+```powershell
+Start-VlcMediaPlayerPreviousInPlaylist
+```
+
+### vlcprev
+
+```powershell
+vlcprev
+```
+
+### vlcback
+
+```powershell
+vlcback
 ```
 
 ## Related Links

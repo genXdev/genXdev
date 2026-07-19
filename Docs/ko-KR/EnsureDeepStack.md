@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> DeepStack 얼굴 인식 서비스가 설치되어 실행 중인지 확인합니다.
+
+## Description
+
+이 함수는 Docker를 사용하여 DeepStack 얼굴 인식 서비스를 설정하고 관리합니다. Docker Desktop이 설치되어 있는지 확인하고, DeepStack Docker 이미지를 가져온 후, 등록된 얼굴을 위한 영구 저장소를 갖춘 컨테이너에서 서비스를 실행합니다.
+
+DeepStack은 얼굴 감지, 등록 및 인식을 위한 간단한 REST API를 제공하며, 이 API는 잘 문서화되어 있고 적극적으로 유지 관리됩니다.
 
 ## Syntax
 
@@ -45,6 +51,24 @@ EnsureDeepStack [[-ContainerName] <String>] [[-VolumeName] <String>] [[-ServiceP
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 세션에 저장된 대체 설정을 AI 선호도에 사용 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### EnsureDeepStack -ContainerName "deepstack_face_recognition" `                 -VolumeName "deepstack_face_data" `                 -ServicePort 5000 `                 -HealthCheckTimeout 60 `                 -HealthCheckInterval 3
+
+```powershell
+EnsureDeepStack -ContainerName "deepstack_face_recognition" `
+                -VolumeName "deepstack_face_data" `
+                -ServicePort 5000 `
+                -HealthCheckTimeout 60 `
+                -HealthCheckInterval 3
+```
+
+### EnsureDeepStack -Force -UseGPU
+
+```powershell
+EnsureDeepStack -Force -UseGPU
+```
 
 ## Outputs
 

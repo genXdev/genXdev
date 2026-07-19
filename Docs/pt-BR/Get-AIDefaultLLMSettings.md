@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Obtém todas as configurações de configuração padrão disponíveis do LLM para operações de IA no GenXdev.AI.
+
+## Description
+
+Recupera o conjunto completo de configurações padrão de Modelo de Linguagem Grande (LLM) definidas para operações de IA. Os resultados podem ser filtrados por tipo de consulta, identificador do modelo, endpoint da API ou chave de API. Suporta recuperação baseada em sessão e em preferências persistentes, com opções para limpar o estado da sessão ou ignorá-lo completamente para ler diretamente das preferências armazenadas.
 
 ## Syntax
 
@@ -24,6 +28,16 @@ Get-AIDefaultLLMSettings [[-LLMQueryType] <String>] [-ApiEndpoint <String>] [-Ap
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Limpe a configuração da sessão (variável global) antes de recuperar |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Caminho do banco de dados para arquivos de dados de preferência |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Pular configurações de sessão e obter apenas de preferências ou padrões |
+
+## Examples
+
+### Get-AIDefaultLLMSettings -LLMQueryType "Coding"
+
+```powershell
+Get-AIDefaultLLMSettings -LLMQueryType "Coding"
+```
+
+Obtém todas as configurações padrão disponíveis para o tipo de consulta Coding.
 
 ## Outputs
 

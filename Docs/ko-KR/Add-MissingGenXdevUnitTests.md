@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev cmdlet에 대한 누락된 단위 테스트를 추가합니다.
+
+## Description
+
+이 함수는 모든 GenXdev cmdlet을 스캔하여 아직 테스트가 없는 것들에 대해 기본 단위 테스트 파일을 생성합니다. 테스트에는 PSScriptAnalyzer 규칙 검사가 포함됩니다.
 
 ## Syntax
 
@@ -78,6 +82,14 @@ The following PSScriptAnalyzer rules are being violated:
         Microsoft.PowerShell.Utility\Write-Verbose "Created test file: $($genXdevCmdlet.ScriptTestFilePath)"
         Microsoft.PowerShell.Utility\Write-Output $prompt
     }
+```
+
+## Examples
+
+### Add-MissingGenXdevUnitTests
+
+```powershell
+Add-MissingGenXdevUnitTests
 ```
 
 ## Related Links

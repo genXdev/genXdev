@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Schaltet den Pause-/Wiedergabestatus des VLC Media Players um.
+
+## Description
+
+Diese Funktion sendet einen Leertasten-Befehl an den VLC Media Player, um zwischen Pause- und Wiedergabestatus umzuschalten. Sie stellt automatisch den Fokus auf das ursprüngliche Fenster wieder her, nachdem der Tastenbefehl gesendet wurde.
 
 ## Syntax
 
@@ -32,6 +36,32 @@
 
     }
 ```
+
+## Examples
+
+### Switch-VLCMediaPlayerPaused
+
+```powershell
+Switch-VLCMediaPlayerPaused
+```
+
+Schaltet den Pause-/Wiedergabezustand des VLC Media Players um.
+
+### vlcpause
+
+```powershell
+vlcpause
+```
+
+Verwendet den Alias, um den Pause-/Wiedergabestatus umzuschalten.
+
+### vlcplay
+
+```powershell
+vlcplay
+```
+
+Verwendet den alternativen Alias, um den Pause-/Wiedergabezustand umzuschalten.
 
 ## Related Links
 

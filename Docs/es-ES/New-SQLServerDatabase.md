@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Crea una nueva base de datos SQL Server.
+
+## Description
+
+Crea una nueva base de datos SQL Server con el nombre especificado en el servidor especificado. Requiere permisos adecuados para crear bases de datos en la instancia de SQL Server de destino. Si la base de datos ya existe, la operación se omitirá. Admite la creación de bases de datos basadas en archivos con rutas explícitas .mdf/.ldf.
 
 ## Syntax
 
@@ -28,6 +32,38 @@ New-SQLServerDatabase [-ConsentToThirdPartySoftwareInstallation] [-ForceConsent]
 | `-DataFilePath` | String | — | — | Named | — | Ruta opcional de archivo de datos (.mdf) para la creación de bases de datos basadas en archivos. *(Parameter set: )* |
 | `-LogFilePath` | String | — | — | Named | — | Ruta opcional del archivo de registro (.ldf) para la creación de la base de datos basada en archivos. *(Parameter set: )* |
 | `-DetachAfterCreation` | SwitchParameter | — | — | Named | — | Desconectar la base de datos después de su creación (para bases de datos basadas en archivos). *(Parameter set: )* |
+
+## Examples
+
+### New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+```
+
+### New-SQLServerDatabase "MyNewDatabase"
+
+```powershell
+New-SQLServerDatabase "MyNewDatabase"
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+```
+
+### New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

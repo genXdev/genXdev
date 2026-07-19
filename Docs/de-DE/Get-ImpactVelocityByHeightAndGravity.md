@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berechnet die Aufprallgeschwindigkeit aus der Höhe.
+
+## Description
+
+Verwendet v = sqrt(2 g h) unter Vernachlässigung des Luftwiderstands.
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Get-ImpactVelocityByHeightAndGravity [-HeightInMeters] <double> [[-GravityInMete
 | `-HeightInMeters` | Double | ✅ | — | 0 | `0` | Höhe in Metern |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 1 | `0` | Schwerkraft in m/s². Standard 9,81. |
 | `-As` | String | — | — | 2 | — | Einheit für Geschwindigkeit. Standard 'm/s'. |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ImpactVelocityByHeightAndGravity -HeightInMeters 100 -As "km/h"
+```
+
+Berechnet die Aufprallgeschwindigkeit für einen 100-Meter-Sturz und gibt sie in km/h aus.
+
+### Example 2
+
+```powershell
+Get-ImpactVelocityByHeightAndGravity 50
+```
+
+Berechnet die Aufprallgeschwindigkeit für einen 50 Meter Fall unter Verwendung der Standardeinheiten.
 
 ## Related Links
 

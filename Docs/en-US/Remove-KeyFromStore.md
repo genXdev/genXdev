@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Removes a key from a key-value store.
+
+## Description
+
+This function removes a specified key from a named key-value store. For local stores, the key is permanently deleted. For synchronized stores, the key is marked as deleted to allow for synchronization.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Remove-KeyFromStore [-StoreName] <string> [-KeyName] <string> [[-Synchronization
 | `-KeyName` | String | ✅ | — | 1 | — | Key to be deleted |
 | `-SynchronizationKey` | String | — | — | 2 | — | Key to identify synchronization scope |
 | `-DatabasePath` | String | — | — | Named | — | Database path for key-value store data files |
+
+## Examples
+
+### Example 1
+
+```powershell
+Remove-KeyFromStore -StoreName "MyStore" -KeyName "MyKey"
+```
+
+Remove the key "MyKey" from the store "MyStore".
+
+### Example 2
+
+```powershell
+removekey "MyStore" "MyKey"
+```
+
+Remove a key using the alias.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 将 VLC 媒体播放器前进到当前播放列表中的下一项。
+
+## Description
+
+此函数向VLC媒体播放器发送'n'键击，以跳到当前加载的播放列表中的下一曲目或媒体项。它会聚焦VLC窗口，发送下一项命令，并将焦点恢复至PowerShell控制台。该函数包含ShouldProcess支持，可在需要时进行确认提示。
 
 ## Syntax
 
@@ -41,6 +45,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerNextInPlaylist
+
+```powershell
+Start-VlcMediaPlayerNextInPlaylist
+```
+
+### vlcnext
+
+```powershell
+vlcnext
 ```
 
 ## Related Links

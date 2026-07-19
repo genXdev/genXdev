@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Analyzes text to identify logical fallacies using AI-powered detection.
+
+## Description
+
+Cette fonction analyse le texte fourni pour détecter les sophismes logiques à l'aide d'un modèle d'IA entraîné sur la liste des sophismes de Wikipédia. Elle renvoie des informations détaillées sur chaque sophisme trouvé, y compris la citation spécifique, le nom du sophisme, la description, l'explication et la classification formelle. La fonction utilise un format de réponse structuré pour garantir une sortie cohérente.
 
 ## Syntax
 
@@ -154,6 +158,33 @@ Exemple de format de réponse : {"response":"votre réponse réelle ici"}
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longueur maximale de rappel pour les appels d'outils. |
+
+## Examples
+
+### Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " + "and he was a politician")
+
+```powershell
+Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " +
+"and he was a politician")
+```
+
+Analyse le texte fourni pour y déceler des sophismes logiques et renvoie des informations structurées sur les sophismes détectés.
+
+### "This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+
+```powershell
+"This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+```
+
+Uses pipeline input to analyze text with low temperature for focused analysis.
+
+### dispicetext "Everyone knows this is true"
+
+```powershell
+dispicetext "Everyone knows this is true"
+```
+
+Uses the alias to analyze text for logical fallacies.
 
 ## Outputs
 

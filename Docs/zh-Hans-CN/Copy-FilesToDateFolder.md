@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 将符合搜索条件的文件复制到基于日期的子文件夹中。
+
+## Description
+
+使用与`Find-Item`相同的参数集搜索文件，并根据文件的创建日期或媒体日期将每个匹配的文件复制到`TargetFolder`的子文件夹中。该cmdlet支持内容匹配、全驱动器搜索和多种筛选器。
+
+尝试多种策略来确定指定文件的准确创建或捕获日期。策略包括读取图像EXIF元数据、从文件名中解析日期/时间信息，以及在无法获取其他可靠信息时回退到文件的上次写入时间。
 
 ## Syntax
 
@@ -62,6 +68,34 @@ Copy-FilesToDateFolder [[-Content] <String[]>] [-AllMatches] [-CaseSensitive] [-
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Use simple string matching instead of regex *(Parameter set: )* |
 | `-DeleteEmptyDirs` | SwitchParameter | — | — | Named | — | 移动文件后删除空的源目录 |
 | `-TargetFolderNameDateSyntax` | String | — | — | Named | `'Year + Month'` | 目标文件夹名称日期语法 |
+
+## Examples
+
+### Copy all pictures and videos to the corresponsing Android Onedrive App Image backup folders     Copy-FilesToDateFolder -TargetFolder "~\onedrive\Pictures\Camera Roll" `                            -SourceFolder ~\Pictures\*, ~\desktop\* `                            -Category 'Pictures', 'Videos'
+
+```powershell
+Copy all pictures and videos to the corresponsing Android Onedrive App Image backup folders
+    Copy-FilesToDateFolder -TargetFolder "~\onedrive\Pictures\Camera Roll" `
+                           -SourceFolder ~\Pictures\*, ~\desktop\* `
+                           -Category 'Pictures', 'Videos'
+```
+
+### Copy all jpg files from the current directory into date folders under `D:\Archive` (dry run):
+
+```powershell
+Copy all jpg files from the current directory into date folders under
+`D:\Archive` (dry run):
+```
+
+Copy-FilesToDateFolder -TargetFolder 'D:\Archive' -Name '*.jpg' -WhatIf
+
+### Copy all files across drives matching `*.mp4` into monthly folders
+
+```powershell
+Copy all files across drives matching `*.mp4` into monthly folders
+```
+
+Copy-FilesToDateFolder -TargetFolder 'E:\Media\Videos' -Name '.*\\.mp4'
 
 ## Related Links
 

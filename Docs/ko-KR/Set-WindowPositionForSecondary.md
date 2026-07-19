@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 지정된 레이아웃 옵션으로 보조 모니터에 창을 배치합니다.
+
+## Description
+
+이 함수는 Set-WindowPosition을 사용하여 구성된 보조 모니터에 창을 배치할 수 있도록 하며, 정렬, 크기, 테두리 설정 등 다양한 레이아웃 옵션을 제공합니다. 전역 구성을 기반으로 모니터 선택을 처리하며 보조 모니터 창 배치를 위한 편리한 래퍼를 제공합니다.
 
 ## Syntax
 
@@ -44,6 +48,21 @@ Set-WindowPositionForSecondary [[-Process] <Diagnostics.Process[]>] [-Bottom] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 세션에 저장된 대체 설정을 AI 선호도에 사용 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `     -Centered -NoBorders
+
+```powershell
+Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `
+    -Centered -NoBorders
+```
+
+### wps notepad -w 800 -h 600 -c -nb
+
+```powershell
+wps notepad -w 800 -h 600 -c -nb
+```
 
 ## Related Links
 

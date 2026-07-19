@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berekent de schijnbare grootte van een object op armlengte.
+
+## Description
+
+Berekent de schijnbare grootte met behulp van de benadering voor kleine hoeken.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-ApparentSizeAtArmLength [-DistanceInMeters] <double> [-SizeInMeters] <double
 | `-SizeInMeters` | Double | ✅ | — | 1 | `0` | De werkelijke grootte van het object in meters |
 | `-ArmLengthInMeters` | Double | — | — | 2 | `0` | De armlengte in meters (standaard: 0,7) |
 | `-As` | String | — | — | 3 | — | De eenheid voor de uitvoergrootte |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ApparentSizeAtArmLength -DistanceInMeters 10 -SizeInMeters 1 -As "centimeters"
+```
+
+Berekent de schijnbare grootte van een object van 1 meter op 10 meter afstand.
+
+### Example 2
+
+```powershell
+Get-ApparentSizeAtArmLength 10 1
+```
+
+Berekent de schijnbare grootte met behulp van positieparameters.
 
 ## Related Links
 

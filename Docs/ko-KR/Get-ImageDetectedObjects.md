@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> DeepStack을 사용하여 업로드된 이미지에서 객체를 감지하고 분류합니다.
+
+## Description
+
+이 함수는 이미지 파일을 분석하여 최대 80가지 종류의 객체를 감지하고 분류합니다. 구성 가능한 포트에서 실행되는 로컬 DeepStack 객체 감지 API를 사용하며, 객체 분류 결과와 함께 경계 상자 좌표 및 신뢰도 점수를 반환합니다. 이 함수는 GPU 가속, 사용자 정의 신뢰도 임계값 및 Docker 컨테이너 관리를 지원합니다.
 
 ## Syntax
 
@@ -28,6 +32,26 @@ Get-ImageDetectedObjects -ImagePath <String> [-ConfidenceThreshold <Double>] [-C
 | `-Force` | SwitchParameter | — | — | Named | — | Docker 컨테이너를 강제로 재구축하고 기존 데이터를 제거합니다 |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | GPU 가속 버전 사용 (NVIDIA GPU 필요) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 초기화 중에 Docker Desktop 창 표시 |
+
+## Examples
+
+### Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `                          -ConfidenceThreshold 0.5 `                          -ServicePort 5000
+
+```powershell
+Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `
+                         -ConfidenceThreshold 0.5 `
+                         -ServicePort 5000
+```
+
+지정된 이미지에서 객체를 전체 매개변수 이름으로 감지합니다.
+
+### Get-ImageDetectedObjects "C:\photos\street.jpg"
+
+```powershell
+Get-ImageDetectedObjects "C:\photos\street.jpg"
+```
+
+위치 매개변수와 기본 설정을 사용하여 객체를 감지합니다.
 
 ## Related Links
 

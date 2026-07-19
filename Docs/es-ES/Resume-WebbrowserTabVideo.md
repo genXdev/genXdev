@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Reanuda la reproducción de video en una pestaña del navegador de YouTube.
+
+## Description
+
+Busca la pestaña activa de YouTube en el navegador y reanuda la reproducción del video ejecutando el método play() en cualquier elemento de video encontrado en la página. Si no se encuentra ninguna pestaña de YouTube, la función lanza un error. Esta función es particularmente útil para automatizar el control de reproducción de video en sesiones del navegador.
 
 ## Syntax
 
@@ -42,6 +46,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Resume-WebbrowserTabVideo
+
+```powershell
+Resume-WebbrowserTabVideo
+```
+
+### wbvideoplay
+
+```powershell
+wbvideoplay
 ```
 
 ## Related Links

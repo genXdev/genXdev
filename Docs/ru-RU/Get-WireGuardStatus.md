@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Получает подробную информацию о статусе VPN-сервера WireGuard.
+
+## Description
+
+Эта функция получает подробную информацию о состоянии VPN-сервера WireGuard, работающего в Docker-контейнере, включая данные об интерфейсе, порте прослушивания, подключенных пирах и работоспособности сервера. Она предоставляет полную информацию о сервисе WireGuard, включая статус сервера, количество пиров, время работы и детали сетевой конфигурации.
 
 ## Syntax
 
@@ -47,6 +51,24 @@ Get-WireGuardStatus [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Session only mode (pass-through) |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Очистить данные сессии (прозрачный проход) |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Пропустить инициализацию сеанса (сквозной проход) |
+
+## Examples
+
+### Get-WireGuardStatus
+
+```powershell
+Get-WireGuardStatus
+```
+
+Возвращает статус сервера WireGuard с настройками по умолчанию.
+
+### Get-WireGuardStatus -NoDockerInitialize -ContainerName "custom_wireguard"
+
+```powershell
+Get-WireGuardStatus -NoDockerInitialize -ContainerName "custom_wireguard"
+```
+
+Получает статус пользовательского контейнера без инициализации Docker.
 
 ## Related Links
 

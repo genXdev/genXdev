@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Konfiguriert die Tastenkombinationen von GitHub Copilot Chat in Visual Studio Code.
+
+## Description
+
+Diese Funktion stellt sicher, dass die Dateianhänge-Funktion von GitHub Copilot Chat eine ordnungsgemäße Tastenkombination (Strg+Umschalt+Alt+F12) in Visual Studio Code konfiguriert hat.
+
+Sie entfernt alle vorhandenen Copilot-Anhänge-Verknüpfungen und ersetzt sie durch den aktuellen korrekten Befehl (github.copilot.chat.attachFile).
+
+Außerdem wird die Tastenkombination Alt+` (Backtick) zum Umschalten des maximierten Bereichs hinzugefügt.
 
 ## Syntax
 
@@ -108,6 +116,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureCopilotKeyboardShortCut
+
+```powershell
+EnsureCopilotKeyboardShortCut
 ```
 
 ## Related Links

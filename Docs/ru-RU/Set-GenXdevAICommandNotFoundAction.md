@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Настраивает обработку ошибок "команда не найдена" с помощью ИИ.
+
+## Description
+
+Настраивает PowerShell для обработки неизвестных команд путем перехода в каталоги или использования ИИ для интерпретации намерений пользователя. Обработчик сначала пробует любой существующий обработчик команды not found, затем проверяет, является ли команда допустимым путем для навигации, и, наконец, предлагает помощь ИИ для неизвестных команд.
 
 ## Syntax
 
@@ -179,6 +183,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

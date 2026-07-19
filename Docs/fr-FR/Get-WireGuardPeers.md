@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Obtient des informations sur tous les pairs VPN WireGuard configurés sur le système.
+
+## Description
+
+Cette fonction récupère des informations complètes sur tous les pairs VPN WireGuard configurés sur le serveur s'exécutant dans un conteneur Docker. Elle fournit des informations détaillées incluant les noms des pairs, les clés publiques, les adresses IP autorisées, les points de terminaison de connexion, le statut de la poignée de main, les statistiques de transfert de données et le statut de connexion actuel. La fonction peut fonctionner en conjonction avec des fonctions parentes ou gérer indépendamment l'initialisation du conteneur Docker.
 
 ## Syntax
 
@@ -47,6 +51,21 @@ Get-WireGuardPeers [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Servi
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Ne pas utiliser Docker en mode session |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Effacer la session pour la fenêtre Docker avant d'exécuter |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Ignorer la session pour la fenêtre Docker |
+
+## Examples
+
+### Get-WireGuardPeers
+
+```powershell
+Get-WireGuardPeers
+```
+
+### Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `                    -ServicePort 55555
+
+```powershell
+Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `
+                   -ServicePort 55555
+```
 
 ## Related Links
 

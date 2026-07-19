@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent BuiltWith-websitequery's in een webbrowser.
+
+## Description
+
+Opent een BuiltWith-query in een webbrowser, met configureerbare monitorinstellingen en opties voor browser-gedrag. De functie analyseert technologie-stacks van websites door een query uit te voeren op de technologieprofileringsservice van BuiltWith.com, die gedetailleerde informatie geeft over webtechnologieën, frameworks en diensten die door websites worden gebruikt.
+
+BuiltWith.com is een uitgebreide technology lookup-service die webtechnologieën, frameworks, contentmanagementsystemen, analysetools, hostingproviders en andere softwarecomponenten identificeert die door elke website worden gebruikt. Deze functie biedt een PowerShell-interface om snel technologie-stacks te analyseren zonder handmatig naar de BuiltWith-website te navigeren.
 
 ## Syntax
 
 ```powershell
-Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -32,6 +38,9 @@ Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <I
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opent in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wordt geopend in Microsoft Edge of Google Chrome, afhankelijk van wat de standaardbrowser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Openen in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Gebruik de door Playwright beheerde browser in plaats van de in het besturingssysteem geïnstalleerde browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opent de door Playwright beheerde WebKit-browser. Impliceert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Voer de browser uit zonder een zichtbaar venster |
 | `-All` | SwitchParameter | — | — | Named | — | Opent in alle geregistreerde moderne browsers |
 | `-Left` | SwitchParameter | — | — | Named | — | Plaats het browser venster aan de linkerkant van het scherm |
 | `-Right` | SwitchParameter | — | — | Named | — | Plaats het browservenster aan de rechterkant van het scherm |
@@ -59,6 +68,24 @@ Open-BuiltWithSiteInfo -Queries <String[]> [[-Language] <String>] [[-Monitor] <I
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
+
+## Examples
+
+### Open-BuiltWithSiteInfo -Queries "microsoft.com" -Monitor 0
+
+```powershell
+Open-BuiltWithSiteInfo -Queries "microsoft.com" -Monitor 0
+```
+
+Opent een BuiltWith-technologieanalyse voor Microsoft.com op het standaardscherm.
+
+### "microsoft.com" | Open-BuiltWithSiteInfo -m -1
+
+```powershell
+"microsoft.com" | Open-BuiltWithSiteInfo -m -1
+```
+
+Analyseert Microsoft.com met behulp van pijplijninvoer waarbij monitorpositionering wordt genegeerd.
 
 ## Related Links
 

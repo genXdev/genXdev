@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 현재 사용자에게 상승된 권한이 있는지 확인합니다.
+
+## Description
+
+현재 Windows 사용자가 보안 주체 역할을 확인하여 관리자 또는 백업 운영자 권한을 보유하고 있는지 판단합니다. 사용자가 상승된 권한을 가지고 있으면 true를, 그렇지 않으면 false를 반환합니다. 보안 및 액세스 관련 문제에 대한 강력한 오류 처리를 구현합니다.
 
 ## Syntax
 
@@ -89,8 +93,19 @@
     }
 ```
 
+## Examples
+
+### $hasRights = CurrentUserHasElevatedRights ##############################################################################
+
+```powershell
+$hasRights = CurrentUserHasElevatedRights
+##############################################################################
+```
+
 ## Outputs
 
+- `Boolean
+Returns true if user has admin or backup operator rights, false otherwise.`
 - `Boolean`
 
 ## Related Links

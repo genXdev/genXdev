@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Importeert GenXdev JavaScript-bladwijzers in browserbladwijzercollecties.
+
+## Description
+
+Deze functie scant een directory naar GenXdev-bladwijzerbestanden met de
 
 ## Syntax
 
@@ -21,6 +25,24 @@ Import-GenXdevBookmarkletMenu [[-SnippetsPath] <String>] [[-TargetFolder] <Strin
 | `-Edge` | SwitchParameter | — | — | Named | — | Importeer bookmarklets in Microsoft Edge-browser |
 | `-Chrome` | SwitchParameter | — | — | Named | — | Importeer bookmarklets in de Google Chrome-browser |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Importeer bookmarklets in de Mozilla Firefox-browser |
+
+## Examples
+
+### Import-GenXdevBookmarkletMenu -Edge
+
+```powershell
+Import-GenXdevBookmarkletMenu -Edge
+```
+
+Importeert alle bookmarklet-bestanden uit de standaard snippets-directory naar de bookmarkbalk-map van Microsoft Edge.
+
+### Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+
+```powershell
+Import-GenXdevBookmarkletMenu -SnippetsPath "C:\MyBookmarklets" -Chrome -WhatIf
+```
+
+Toont welke bookmarklets vanuit het opgegeven pad in Google Chrome zouden worden geïmporteerd zonder de importbewerking daadwerkelijk uit te voeren.
 
 ## Related Links
 

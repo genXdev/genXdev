@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Crea una sesión de chat de audio interactiva con un modelo de LLM.
+
+## Description
+
+Inicia una conversación basada en voz con un modelo de lenguaje, compatible con entrada y salida de audio. La función maneja la grabación de audio, transcripción, consultas al modelo y respuestas de texto a voz. Admite múltiples modelos de lenguaje y diversas opciones de configuración, incluyendo gestión de ventanas, aceleración por GPU y funciones avanzadas de procesamiento de audio.
 
 ## Syntax
 
@@ -93,6 +97,22 @@ Let me prepare the response.",
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utilice ajustes alternativos almacenados en la sesión para las preferencias de IA |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### New-LLMAudioChat -Query "Tell me about PowerShell" `     -Model "qwen2.5-14b-instruct" `     -Temperature 0.7
+
+```powershell
+New-LLMAudioChat -Query "Tell me about PowerShell" `
+    -Model "qwen2.5-14b-instruct" `
+    -Temperature 0.7
+```
+
+### llmaudiochat "What's the weather?" -DontSpeak
+
+```powershell
+llmaudiochat "What's the weather?" -DontSpeak
+```
 
 ## Related Links
 

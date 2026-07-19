@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Installs and configures Visual Studio Code with recommended extensions.
+
+## Description
+
+Checks if Visual Studio Code is installed and if not, installs it using WinGet.
+Configures user settings, keybindings, and installs recommended extensions from
+the workspace configuration. Also sets up PSGallery as a trusted repository and
+configures specific extension settings.
 
 ## Syntax
 
@@ -17,6 +24,14 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Force` | SwitchParameter | — | — | Named | — | The `-Force` parameter. |
+
+## Examples
+
+### EnsureVSCodeInstallation
+
+```powershell
+EnsureVSCodeInstallation
+```
 
 ## Related Links
 

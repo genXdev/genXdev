@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Verstuurt een string naar een seriële poort
+
+## Description
+
+Hiermee kunt u een tekenreeks naar een seriële communicatiepoort sturen
 
 ## Syntax
 

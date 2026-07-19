@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Wake-on-LANマジックパケットを送信して、ネットワーク上のリモートコンピュータを起動します。
+
+## Description
+
+指定されたMACアドレスに対してWake-on-LAN（WOL）マジックパケットを構築し、ブロードキャストします。マジックパケットは、ターゲットMACアドレスを16回繰り返したUDPブロードキャストであり、対応するネットワークインターフェースがコンピュータの電源を投入するトリガーとなります。カスタムブロードキャストアドレスとポートをサポートします。
 
 ## Syntax
 
@@ -16,9 +20,27 @@ Send-WakeOnLan -MacAddress <String[]> [[-BroadcastAddress] <String>] [[-Port] <I
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-MacAddress` | String[] | ✅ | ✅ (ByValue, ByPropertyName) | 0 | — | The `-MacAddress` parameter. |
-| `-BroadcastAddress` | String | — | — | 1 | `"255.255.255.255"` | The `-BroadcastAddress` parameter. |
-| `-Port` | Int32 | — | — | 2 | `4000` | The `-Port` parameter. |
+| `-MacAddress` | String[] | ✅ | ✅ (ByValue, ByPropertyName) | 0 | — | マジックパケットを送信するための一つ以上のMACアドレス（例：00:11:22:33:44:55） |
+| `-BroadcastAddress` | String | — | — | 1 | `"255.255.255.255"` | マジックパケットを送信するブロードキャストIPアドレス（デフォルト：255.255.255.255） |
+| `-Port` | Int32 | — | — | 2 | `4000` | マジックパケットを送信するUDPポート（デフォルト：4000） |
+
+## Examples
+
+### Send-WakeOnLan -MacAddress "00:11:22:33:44:55"
+
+```powershell
+Send-WakeOnLan -MacAddress "00:11:22:33:44:55"
+```
+
+指定されたMACアドレスのコンピュータを起動するためのマジックパケットを送信します。
+
+### "00:11:22:33:44:55", "AA:BB:CC:DD:EE:FF" | Send-WakeOnLan -Port 9
+
+```powershell
+"00:11:22:33:44:55", "AA:BB:CC:DD:EE:FF" | Send-WakeOnLan -Port 9
+```
+
+パイプライン入力を介して、複数のコンピュータにポート9でマジックパケットを送信します。
 
 ## Related Links
 

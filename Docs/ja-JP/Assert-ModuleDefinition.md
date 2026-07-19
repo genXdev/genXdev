@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AIアシスタンスを使用してPowerShellソースコードファイルのリファクタリングを支援します。
+
+## Description
+
+この関数は、AIを使用してPowerShellコードのリファクタリングプロセスを自動化します。プロンプトテンプレートを管理し、アクティブなIDE（VS CodeまたはVisual Studio）を検出し、キーボード自動化を通じてリファクタリングワークフローを調整します。この関数は、モジュールマニフェスト（.psd1）ファイルとモジュールスクリプト（.psm1）ファイルの両方を処理できます。
 
 ## Syntax
 
@@ -22,6 +26,20 @@ Assert-ModuleDefinition -ModuleName <String> [-EditPrompt] [-Prompt <String>] [<
 ## 応答形式
 
 JSONオブジェクトのみで応答してください。それ以外のテキストは許可されません。 |
+
+## Examples
+
+### Assert-ModuleDefinition -ModuleName "MyModule" -EditPrompt
+
+```powershell
+Assert-ModuleDefinition -ModuleName "MyModule" -EditPrompt
+```
+
+### "MyModule" | Assert-ModuleDefinition
+
+```powershell
+"MyModule" | Assert-ModuleDefinition
+```
 
 ## Related Links
 

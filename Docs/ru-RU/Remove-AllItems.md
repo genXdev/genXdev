@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Рекурсивно удаляет всё содержимое из директории с продвинутой обработкой ошибок.
+
+## Description
+
+Безопасно удаляет все файлы и подкаталоги внутри указанного каталога, используя стратегию удаления в обратном порядке для обработки глубоких путей. Включает поддержку WhatIf, подробное журналирование и запасные методы удаления для заблокированных файлов.
 
 ## Syntax
 
@@ -17,7 +21,21 @@ Remove-AllItems -Path <String> [-DeleteFolder] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Path` | String | ✅ | ✅ (ByValue, ByPropertyName) | 0 | — | Путь к каталогу для очистки |
-| `-DeleteFolder` | SwitchParameter | — | — | 1 | — | Также удалите корневую папку, указанную в параметре Path |
+| `-DeleteFolder` | SwitchParameter | — | — | Named | — | Также удалите корневую папку, указанную в параметре Path |
+
+## Examples
+
+### Remove-AllItems -Path "C:\Temp\BuildOutput" -DeleteFolder -Verbose
+
+```powershell
+Remove-AllItems -Path "C:\Temp\BuildOutput" -DeleteFolder -Verbose
+```
+
+### sdel ".\temp" -DeleteFolder
+
+```powershell
+sdel ".\temp" -DeleteFolder
+```
 
 ## Related Links
 

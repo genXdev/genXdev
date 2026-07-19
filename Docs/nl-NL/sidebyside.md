@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stelt de standaard naast-elkaar-configuratie in.
+
+## Description
+
+Stelt het standaardgedrag in voor het openen van GenXDev-vensters naast elkaar met PowerShell.
+Dit is nuttig voor gebruikers met één monitor of voor degenen die de voorkeur geven aan nevenvensters.
+Zie ook cmdlet 'secondscreen' en 'restoredefaultmonitor'
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> sidebyside
+
+```powershell
+PS> sidebyside
+```
+
+Stelt standaardwaarden in voor GenXdev-vensteropeningen om naast PowerShell te worden weergegeven
 
 ## Related Links
 

@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Google Chrome に設定されたリモートデバッグポートを返します。
+
+## Description
+
+Google Chromeのリモートデバッグポート設定を取得および管理します。
+この関数は、まず$Global:ChromeDebugPortに保存されているカスタムポート番号を確認します。
+見つからないか無効な場合、デフォルトでポート9222を使用します。ポート番号はその後、
+他のChrome自動化関数で使用するためにグローバルに保存されます。
 
 ## Syntax
 
@@ -58,8 +65,26 @@
     }
 ```
 
+## Examples
+
+### $port = Get-ChromeRemoteDebuggingPort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromeRemoteDebuggingPort
+Write-Host "Chrome debug port: $port"
+```
+
+### $port = Get-ChromePort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromePort
+Write-Host "Chrome debug port: $port"
+```
+
 ## Outputs
 
+- `Int32
+Returns the configured Chrome debugging port number.`
 - `Int32`
 
 ## Related Links

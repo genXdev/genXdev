@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Analyzes text to identify logical fallacies using AI-powered detection.
+
+## Description
+
+Эта функция анализирует предоставленный текст для обнаружения логических ошибок с помощью ИИ-модели, обученной на списке заблуждений Википедии. Она возвращает подробную информацию о каждой найденной ошибке, включая конкретную цитату, название ошибки, описание, объяснение и формальную классификацию. Функция использует структурированный формат ответа для обеспечения согласованности вывода.
 
 ## Syntax
 
@@ -93,6 +97,33 @@ Get-Fallacy -InputObject <Object> [[-Instructions] <String>] [[-Attachments] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Максимальная длина обратного вызова для вызовов инструментов. |
+
+## Examples
+
+### Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " + "and he was a politician")
+
+```powershell
+Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " +
+"and he was a politician")
+```
+
+Анализирует предоставленный текст на наличие логических ошибок и возвращает структурированную информацию о любых обнаруженных ошибках.
+
+### "This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+
+```powershell
+"This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+```
+
+Использует входные данные конвейера для анализа текста с низкой температурой для целенаправленного анализа.
+
+### dispicetext "Everyone knows this is true"
+
+```powershell
+dispicetext "Everyone knows this is true"
+```
+
+The alias is used to analyze text for logical fallacies.
 
 ## Outputs
 

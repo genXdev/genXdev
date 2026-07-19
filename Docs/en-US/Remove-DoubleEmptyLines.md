@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Removes double (consecutive) empty lines from a code string, optionally
+reformatting the output.
+
+## Description
+
+Cleans up source code or text by collapsing consecutive blank lines into a
+single empty line. This improves readability and follows common code
+formatting conventions. When the -Reformat switch is specified, additional
+formatting rules are applied to normalize the code structure.
 
 ## Syntax
 
@@ -16,8 +24,26 @@ Remove-DoubleEmptyLines -code <String> [-Reformat] [<CommonParameters>]
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-code` | String | ✅ | — | 0 | — | The `-code` parameter. |
-| `-Reformat` | SwitchParameter | — | — | 1 | — | The `-Reformat` parameter. |
+| `-code` | String | ✅ | — | 0 | — | The source code or text string to process for double empty line removal |
+| `-Reformat` | SwitchParameter | — | — | Named | — | Apply additional formatting rules beyond double empty line removal |
+
+## Examples
+
+### $cleanCode = $sourceCode | Remove-DoubleEmptyLines
+
+```powershell
+$cleanCode = $sourceCode | Remove-DoubleEmptyLines
+```
+
+Pipes source code through the function to remove consecutive blank lines.
+
+### Remove-DoubleEmptyLines -code $sourceCode -Reformat
+
+```powershell
+Remove-DoubleEmptyLines -code $sourceCode -Reformat
+```
+
+Removes double empty lines and applies additional formatting.
 
 ## Outputs
 

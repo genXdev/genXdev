@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Positioniert ein Fenster auf dem sekundären Monitor mit den angegebenen Layout-Optionen.
+
+## Description
+
+Diese Funktion ermöglicht die Positionierung von Fenstern auf einem konfigurierten sekundären Monitor mithilfe von
+Set-WindowPosition mit verschiedenen Layout-Optionen einschließlich Ausrichtung, Größe und
+Rand-Einstellungen. Sie übernimmt die Monitorauswahl basierend auf der globalen Konfiguration und
+bietet einen bequemen Wrapper für die Fensterpositionierung auf dem sekundären Monitor.
 
 ## Syntax
 
@@ -44,6 +51,21 @@ Set-WindowPositionForSecondary [[-Process] <Diagnostics.Process[]>] [-Bottom] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | In der Sitzung gespeicherte alternative Einstellungen für KI-Präferenzen löschen |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Nur Einstellungen in dauerhaften Präferenzen speichern, ohne die Sitzung zu beeinflussen |
+
+## Examples
+
+### Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `     -Centered -NoBorders
+
+```powershell
+Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `
+    -Centered -NoBorders
+```
+
+### wps notepad -w 800 -h 600 -c -nb
+
+```powershell
+wps notepad -w 800 -h 600 -c -nb
+```
 
 ## Related Links
 

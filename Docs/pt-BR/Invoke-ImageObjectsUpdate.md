@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Atualiza os metadados de detecção de objetos para arquivos de imagem em um diretório especificado.
+
+## Description
+
+Esta função processa imagens em um diretório especificado para detectar objetos usando inteligência artificial. Ela cria arquivos de metadados JSON contendo objetos detectados, suas posições, pontuações de confiança e rótulos. A função suporta processamento em lote com limiares de confiança configuráveis e pode opcionalmente pular arquivos de metadados existentes ou repetir detecções que falharam anteriormente.
 
 ## Syntax
 
@@ -28,6 +32,34 @@ Invoke-ImageObjectsUpdate [[-ImageDirectories] <String[]>] [-ClearSession] [-Lan
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use configurações alternativas armazenadas na sessão para preferências de IA |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Configurações alternativas claras armazenadas na sessão para preferências de IA |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazenar configurações apenas em preferências persistentes sem afetar a sessão |
+
+## Examples
+
+### Invoke-ImageObjectsUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageObjectsUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+Este exemplo processa todas as imagens em C:\Photos e D:\Pictures e todos os subdiretórios usando configurações padrão com limite de confiança de 0.5.
+
+### Invoke-ImageObjectsUpdate @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+
+```powershell
+Invoke-ImageObjectsUpdate @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+```
+
+Este exemplo processa apenas novas imagens e tenta novamente as que falharam anteriormente em vários diretórios usando a sintaxe de parâmetro posicional.
+
+### Invoke-ImageObjectsUpdate -ImageDirectories "C:\Photos" -UseGPU `     -ConfidenceThreshold 0.7
+
+```powershell
+Invoke-ImageObjectsUpdate -ImageDirectories "C:\Photos" -UseGPU `
+    -ConfidenceThreshold 0.7
+```
+
+Este exemplo usa aceleração de GPU com um limite de confiança mais alto de 0,7
+para detecções de objetos mais precisas, porém em menor quantidade.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> SQLiteデータベーステーブルの特定の列からデータを取得します。
+
+## Description
+
+この関数は、SQLiteデータベーステーブルの単一カラムからデータを抽出する便利な方法を提供します。2つの接続方法（直接データベースファイルパスまたは接続文字列）をサポートしています。返されるレコード数を制限するオプションを含み、最適なパフォーマンスのために適切なSQLiteクエリ構築を使用します。
 
 ## Syntax
 
@@ -25,6 +29,23 @@ Get-SQLiteTableColumnData -TableName <String> -ColumnName <String> [[-Count] <In
 | `-TableName` | String | ✅ | — | 1 | — | クエリするテーブルの名前 |
 | `-ColumnName` | String | ✅ | — | 2 | — | 取得する列の名前 |
 | `-Count` | Int32 | — | — | 3 | `100` | 返却するレコード数。デフォルトは100。すべての場合は-1を使用。 |
+
+## Examples
+
+### Get-SQLiteTableColumnData -DatabaseFilePath "C:\MyDb.sqlite" `     -TableName "Employees" `     -ColumnName "Email" `     -Count 10
+
+```powershell
+Get-SQLiteTableColumnData -DatabaseFilePath "C:\MyDb.sqlite" `
+    -TableName "Employees" `
+    -ColumnName "Email" `
+    -Count 10
+```
+
+### Get-SQLiteTableColumnData "C:\MyDb.sqlite" "Employees" "Email"
+
+```powershell
+Get-SQLiteTableColumnData "C:\MyDb.sqlite" "Employees" "Email"
+```
 
 ## Related Links
 

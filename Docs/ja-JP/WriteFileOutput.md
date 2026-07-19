@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> ユーザーエクスペリエンスを向上させるため、表示名をハイパーリンク化してファイル情報を出力します。
+
+## Description
+
+この関数は、ファイル入力オブジェクトを処理し、コンソールに表示する際にファイル名をハイパーリンク付きでユーザーフレンドリーな形式で出力します。文字列、FileInfoオブジェクト、その他のオブジェクト型など、さまざまな入力タイプを処理します。この関数は、出力がリダイレクトまたはパイプラインでキャプチャされているかどうかを自動的に検出し、それに応じて動作を調整します。
 
 ## Syntax
 
@@ -21,6 +25,20 @@ WriteFileOutput -CallerInvocation <Object> -Input <Object> [-FullPaths] [-Prefix
 | `-Prefix` | String | — | — | Named | — | 出力表示に追加コンテキストを付与するためのオプションの文字列プレフィックス |
 | `-RelativeBasePath` | String | — | — | Named | — | 出力で相対ファイルパスを生成するためのベースパス |
 | `-FullPaths` | SwitchParameter | — | — | Named | — | 出力に相対パスの代わりに絶対パスを使用するように強制します |
+
+## Examples
+
+### WriteFileOutput -CallerInvocation $MyInvocation -Input "C:\temp\file.txt"
+
+```powershell
+WriteFileOutput -CallerInvocation $MyInvocation -Input "C:\temp\file.txt"
+```
+
+### Get-ChildItem | WriteFileOutput -CallerInvocation $MyInvocation -Input $_
+
+```powershell
+Get-ChildItem | WriteFileOutput -CallerInvocation $MyInvocation -Input $_
+```
 
 ## Related Links
 

@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在 Visual Studio Code 中配置 GitHub Copilot Chat 的键盘快捷键。
+
+## Description
+
+此功能确保 GitHub Copilot Chat 的文件附件功能在 Visual Studio Code 中配置了合适的快捷键 (Ctrl+Shift+Alt+F12)。
+
+它将移除所有现有的 Copilot 附件快捷键，并替换为当前正确的命令 (github.copilot.chat.attachFile)。
+
+同时为切换最大化面板添加 Alt+`（反引号）快捷键。
 
 ## Syntax
 
@@ -108,6 +116,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureCopilotKeyboardShortCut
+
+```powershell
+EnsureCopilotKeyboardShortCut
 ```
 
 ## Related Links

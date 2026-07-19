@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Обновляет ярлыки браузера для включения портов удаленной отладки.
+
+## Description
+
+Изменяет ярлыки браузеров Chrome и Edge, добавляя параметры порта удаленной отладки. Это позволяет скриптам автоматизации взаимодействовать с браузерами через их интерфейсы отладки. Обрабатывает как пользовательские, так и общесистемные ярлыки.
+
+Функция:
+- Удаляет существующие параметры порта отладки
+- Добавляет текущие порты отладки для Chrome и Edge
+- Обновляет ярлыки в стандартных расположениях (Рабочий стол, Меню «Пуск», Панель быстрого запуска)
+- Для общесистемных ярлыков требуются права администратора
 
 ## Syntax
 
@@ -165,6 +175,15 @@
 
             end {
             }
+```
+
+## Examples
+
+### Set-RemoteDebuggerPortInBrowserShortcuts Updates all Chrome and Edge shortcuts with their respective debugging ports.
+
+```powershell
+Set-RemoteDebuggerPortInBrowserShortcuts
+Updates all Chrome and Edge shortcuts with their respective debugging ports.
 ```
 
 ## Related Links

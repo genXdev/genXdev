@@ -8,11 +8,11 @@
 
 ## Description
 
-* 原子写入：使用临时文件加重命名策略，确保目标文件在进程中断时不会处于损坏状态。
-* 重试逻辑：最多重试 MaxRetries 次，每次尝试之间间隔 RetryDelayMs 毫秒。
-* 对象支持：接受任何对象，而不仅仅是哈希表。通过 System.Text.Json 序列化，对于无法原生序列化的复杂 .NET 类型，则回退到 ConvertTo-Json。
-* 防抖支持：当 DebounceMs > 0 时，对同一文件的快速连续写入会被合并——仅当文件在 DebounceMs 毫秒内未被访问时，才写入最后的内容。
-* 目录创建：如果父目录不存在，会自动创建。
+* 原子写入：使用临时文件+重命名策略，确保进程中断时目标文件不会处于损坏状态。
+* 重试机制：最多重试MaxRetries次，每次间隔RetryDelayMs毫秒。
+* 对象支持：接受任意对象，不限于Hashtable。通过System.Text.Json序列化，对于无法原生序列化的复杂.NET类型，回退到ConvertTo-Json。
+* 防抖支持：当DebounceMs > 0时，对同一文件的快速连续写入会被合并——仅当文件在DebounceMs毫秒内未被触碰时，才写入最后一个有效负载。
+* 目录创建：自动创建不存在的父目录。
 
 ## Syntax
 
@@ -30,8 +30,8 @@ Write-JsonFileAtomic [-FilePath] <string> [[-Data] <Object>] [-MaxRetries <int>]
 | `-RetryDelayMs` | Int32 | — | — | Named | `0` | 重试尝试之间的延迟（毫秒）。默认为200。 |
 | `-DebounceMs` | Int32 | — | — | Named | `0` | 如果大于0，则对此文件执行去抖写入。默认为0（禁用）。 |
 | `-Depth` | Nullable`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]] | — | — | Named | — | JSON 序列化的最大深度。默认值为 30。 |
-| `-Compress` | SwitchParameter | — | — | Named | `False` | {"type":"json_schema","json_schema":{"name":"text_transformation_response","schema":{"properties":{"response":{"description":"The transformed text output","type":"string"}},"required":["response"],"type":"object"},"strict":true}} |
-| `-AsArray` | SwitchParameter | — | — | Named | `False` | The `-AsArray` parameter. |
+| `-Compress` | SwitchParameter | — | — | Named | `False` | You are a helpful assistant designed to output JSON. |
+| `-AsArray` | SwitchParameter | — | — | Named | `False` | You are a helpful assistant designed to output JSON. |
 | `-EnumsAsStrings` | SwitchParameter | — | — | Named | `False` | 提供一种替代的序列化选项，将所有枚举转换为它们的字符串表示形式。 |
 
 ## Examples

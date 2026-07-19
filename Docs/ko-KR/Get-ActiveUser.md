@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 현재 활성 시스템 프로세스에서 고유한 사용자 이름 목록을 검색합니다.
+
+## Description
+
+시스템에서 실행 중인 모든 프로세스를 쿼리하고, 각 프로세스와 연결된 사용자 이름을 추출한 다음, 활성 프로세스가 있는 사용자의 중복 제거된 목록을 반환합니다. 이는 시스템 관리 및 보안 모니터링에 유용합니다.
 
 ## Syntax
 
@@ -92,6 +96,23 @@
                 'Process completed. No active users found or an error occurred.'
         }
     }
+```
+
+## Examples
+
+### Get-ActiveUser Returns a list of all unique usernames with active processes.
+
+```powershell
+Get-ActiveUser
+Returns a list of all unique usernames with active processes.
+```
+
+### gusers Uses the alias to get the same results. ##############################################################################
+
+```powershell
+gusers
+Uses the alias to get the same results.
+##############################################################################
 ```
 
 ## Related Links

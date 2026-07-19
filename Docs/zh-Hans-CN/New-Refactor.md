@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 为代码转换任务创建新的重构集合。
+
+## Description
+
+创建并配置一个新的重构定义，用于基于LLM的代码转换。该函数处理：
+- 设置重构配置
+- 配置选择标准和提示
+- 管理LLM模型设置
+- 与开发环境集成
+- 持久化重构定义
 
 ## Syntax
 
@@ -40,6 +49,22 @@ New-Refactor -Name <String> -PromptKey <String> [[-Prompt] <String>] [[-Selectio
 | `-Code` | SwitchParameter | — | — | Named | — | 在 Visual Studio Code 中打开文件 |
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | 在 Visual Studio 中打开 |
 | `-KeysToSend` | String[] | — | — | Named | `@()` | 打开文件后发送的按键 |
+
+## Examples
+
+### New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `     -SelectionScript "Get-LoggingMethods" -Priority 1 `     -Code
+
+```powershell
+New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `
+    -SelectionScript "Get-LoggingMethods" -Priority 1 `
+    -Code
+```
+
+### newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+
+```powershell
+newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+```
 
 ## Related Links
 

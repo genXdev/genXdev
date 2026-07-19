@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Устанавливает конфигурацию второго монитора по умолчанию.
+
+## Description
+
+Устанавливает поведение по умолчанию для открытия окон GenXdev на дополнительном мониторе.
+Это полезно для пользователей с одним монитором или тех, кто предпочитает расположение окон рядом друг с другом.
+См. также командлеты 'sidebyside' и 'restoredefaultmonitor'
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> secondscreen
+
+```powershell
+PS> secondscreen
+```
+
+Устанавливает значения по умолчанию для окон GenXdev, чтобы они открывались на дополнительном мониторе
 
 ## Related Links
 

@@ -8,11 +8,11 @@
 
 ## Description
 
-* Escrita atômica: usa uma estratégia de arquivo temporário + renomeação para garantir que o arquivo de destino nunca seja deixado em estado corrompido se o processo for interrompido.
+* Gravação atômica: usa uma estratégia de arquivo temporário + renomeação para garantir que o arquivo de destino nunca fique em um estado corrompido se o processo for interrompido.
 * Lógica de repetição: repete a gravação até MaxRetries vezes com um atraso de RetryDelayMs milissegundos entre as tentativas.
 * Suporte a codificação: aceita um parâmetro System.Text.Encoding para controlar a codificação de saída. O padrão é UTF-8.
-* Suporte a debounce: quando DebounceMs > 0, gravações consecutivas rápidas no mesmo arquivo são coalescidas — apenas o último conteúdo é gravado depois que o arquivo não é tocado por DebounceMs ms.
-* Criação de diretório: cria diretórios pai automaticamente, se não existirem.
+* Suporte a debounce: quando DebounceMs > 0, gravações consecutivas rápidas no mesmo arquivo são coalescidas — apenas o último conteúdo é gravado quando o arquivo não é tocado por DebounceMs ms.
+* Criação de diretórios: cria diretórios pai automaticamente se eles não existirem.
 
 ## Syntax
 
@@ -52,7 +52,7 @@ Get-Content server.log -Tail 50 | ForEach-Object {
 Start-Sleep -Seconds 3
 ```
 
-Tubula rapidamente 50 linhas; apenas a última linha é persistida após um período de silêncio de 2 segundos.
+Canaliza 50 linhas rapidamente; apenas a última linha é mantida após um período de silêncio de 2 segundos.
 
 ### Example 3
 
@@ -78,7 +78,7 @@ $watcher = Start-ThreadJob -ScriptBlock {
 } -ArgumentList "timestamp.txt"
 ```
 
-Um job em segundo plano escreve timestamps a cada 100ms, mas o debounce coalesce os eventos — apenas uma escrita por segundo realmente atinge o disco.
+Um trabalho em segundo plano escreve timestamps a cada 100ms, mas o debounce os coalesce — apenas uma escrita por segundo chega ao disco.
 
 ## Related Links
 

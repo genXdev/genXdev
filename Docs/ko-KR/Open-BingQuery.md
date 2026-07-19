@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 웹 브라우저에서 Bing 검색 쿼리를 엽니다.
+
+## Description
+
+구성 가능한 브라우저 설정 및 명령줄 스위치를 사용하여 웹 브라우저에서 하나 이상의 Bing 검색 쿼리를 엽니다. 이 함수는 창 위치 지정, 모니터 선택, 개인 브라우징 및 키 입력 자동화를 포함한 광범위한 브라우저 사용자 지정 옵션으로 Bing 검색을 수행하기 위한 포괄적인 인터페이스를 제공합니다.
+
+이 함수는 쿼리를 자동으로 URL 인코딩하고 Bing의 검색 API에 맞게 형식화합니다. Edge, Chrome 및 Firefox를 포함한 모든 주요 브라우저를 지원하며 개인 브라우징, 애플리케이션 모드, 정밀한 창 관리 및 키 입력 자동화와 같은 기능을 제공합니다.
 
 ## Syntax
 
 ```powershell
-Open-BingQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BingQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -29,6 +35,9 @@ Open-BingQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-Left` | SwitchParameter | — | — | Named | — | 브라우저 창을 화면 왼쪽에 배치합니다. |
 | `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen |
@@ -59,6 +68,40 @@ Open-BingQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-NewWindow` | SwitchParameter | — | — | Named | — | 기존 브라우저 창을 재사용하지 말고, 대신 새 창을 만드세요. |
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | Don't open webbrowser, just return the url |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | 웹 브라우저를 연 후 URL을 반환하세요 |
+
+## Examples
+
+### Open-BingQuery -Queries "PowerShell scripting" -Monitor 0
+
+```powershell
+Open-BingQuery -Queries "PowerShell scripting" -Monitor 0
+```
+
+기본 모니터에서 "PowerShell 스크립팅"에 대한 Bing 검색을 엽니다.
+
+### bq "PowerShell scripting" -m 0
+
+```powershell
+bq "PowerShell scripting" -m 0
+```
+
+별칭과 짧은 매개변수 이름을 사용하여 Bing 검색을 엽니다.
+
+### Open-BingQuery -Queries "machine learning" -Language "English" -Private
+
+```powershell
+Open-BingQuery -Queries "machine learning" -Language "English" -Private
+```
+
+"machine learning"을(를) 영어 결과로 검색하기 위해 개인 브라우징 세션을 엽니다.
+
+### "PowerShell", "automation", "scripting" | Open-BingQuery -All -Left
+
+```powershell
+"PowerShell", "automation", "scripting" | Open-BingQuery -All -Left
+```
+
+파이프라인을 통해 여러 검색어를 검색하고 설치된 모든 브라우저에서 결과를 열어 창을 화면 왼쪽에 배치합니다.
 
 ## Related Links
 

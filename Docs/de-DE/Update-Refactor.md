@@ -4,7 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Aktualisiert und verwaltet Refactoring-Sets, einschließlich Dateiauswahl und -verarbeitung.
+
+## Description
+
+Bietet umfassende Verwaltung von Refactoring-Sets durch:
+- Hinzufügen oder Entfernen von Dateien aus Verarbeitungswarteschlangen
+- Bereinigen gelöschter Dateien aus dem Set
+- Verwalten von Zustandsinformationen und Fortschrittsverfolgung
+- Handhabung von LLM-basierter Dateiauswahl und -verarbeitung
+- Unterstützung sowohl automatischer als auch manueller Dateiverwaltung
+- Führen detaillierter Protokolle aller Vorgänge
+- Graziöse Behandlung gelöschter Dateien (übersprungen, sofern nicht CleanUpDeletedFiles verwendet wird)
 
 ## Syntax
 
@@ -70,6 +81,27 @@ Estimated effort: 8 hours. |
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | In der Sitzung gespeicherte alternative Einstellungen für KI-Präferenzen löschen |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Nur Einstellungen in dauerhaften Präferenzen speichern, ohne die Sitzung zu beeinflussen |
+
+## Examples
+
+### Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `     -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+
+```powershell
+Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `
+    -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+```
+
+### Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+
+```powershell
+Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+```
+
+### updaterefactor * -Clear -Reset
+
+```powershell
+updaterefactor * -Clear -Reset
+```
 
 ## Related Links
 

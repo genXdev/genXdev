@@ -4,12 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 웹 브라우저에서 YabAI Battle 게임을 엽니다.
+
+## Description
+
+이 함수는 웹 브라우저에서 YabAI Battle 게임을 실행하며, 창 배치, 브라우저 선택 및 디스플레이 모드에 대한 광범위한 사용자 지정 옵션을 제공합니다. GenXdev\Open-Webbrowser 함수를 래핑하여 게임별 URL 구성과 매개변수 처리를 수행합니다.
+
+이 함수는 두 가지 게임 모드를 지원합니다:
+- 배틀 모드: 새로운 AI 대 AI 배틀 시작
+- 관전 모드: 기존 AI 배틀 관전
+
+브라우저 위치 옵션에는 왼쪽, 오른쪽, 위쪽, 아래쪽, 중앙 및 전체 화면 모드가 포함되며, 다중 모니터를 지원합니다. 함수는 최적의 게임 환경을 위해 애플리케이션 모드 설정 및 브라우저 확장 관리 기능을 자동으로 처리합니다.
 
 ## Syntax
 
 ```powershell
-Open-YabAIBattle [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-SpectateOnly] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-YabAIBattle [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-SpectateOnly] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +34,9 @@ Open-YabAIBattle [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicat
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-Monitor` | Int32 | — | — | Named | `-2` | 사용할 모니터, 0 = 기본값, -1 = 폐기, -2 = 설정된 보조 모니터, 기본값은 $Global:DefaultSecondaryMonitor이며, 찾을 수 없으면 2 |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 전체 화면 모드로 열기 |
@@ -61,6 +74,40 @@ Open-YabAIBattle [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicat
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | AI 기본 설정을 위해 세션에 저장된 대체 설정을 사용합니다. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정 대안을 삭제합니다. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 설정 변경 사항은 세션에 영향을 주지 않고 영구 설정에만 저장하십시오. |
+
+## Examples
+
+### Open-YabAIBattle -Edge -Private -NoFullScreen
+
+```powershell
+Open-YabAIBattle -Edge -Private -NoFullScreen
+```
+
+비공개 브라우징 모드로 전체 화면 없이 Microsoft Edge에서 YabAI 배틀 게임을 엽니다.
+
+### yabbattle -e -incognito -nfs
+
+```powershell
+yabbattle -e -incognito -nfs
+```
+
+Edge의 별칭, 시크릿 모드, 전체 화면 없음을 사용하여 게임을 엽니다.
+
+### Open-YabAIBattle -SpectateOnly -Chrome
+
+```powershell
+Open-YabAIBattle -SpectateOnly -Chrome
+```
+
+관전 모드에서 Google Chrome을 사용하여 게임을 열어 AI 전투를 관람합니다.
+
+### Open-YabAIBattle -Language "Spanish" -Monitor 1 -Left
+
+```powershell
+Open-YabAIBattle -Language "Spanish" -Monitor 1 -Left
+```
+
+모니터 1의 왼쪽에 스페인어 인터페이스로 게임을 실행합니다.
 
 ## Related Links
 

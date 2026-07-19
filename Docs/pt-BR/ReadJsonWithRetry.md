@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Lê arquivo JSON com lógica de repetição e limpeza automática de bloqueio.
+
+## Description
+
+Tenta ler um arquivo JSON com lógica de repetição para lidar com acesso concorrente. Implementa limpeza automática de arquivos de bloqueio obsoletos. Retorna uma hashtable vazia se o arquivo não existir.
 
 ## Syntax
 

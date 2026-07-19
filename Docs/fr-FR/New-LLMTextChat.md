@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Starts an interactive text chat session with AI capabilities.
+
+## Description
+
+Lance une session de chat interactive avec des capacités d'IA, permettant aux utilisateurs d'ajouter ou de supprimer des fonctions PowerShell pendant la conversation et d'exécuter des commandes PowerShell. Cette fonction offre une interface complète pour des conversations alimentées par l'IA avec une intégration étendue d'outils et des options de personnalisation.
 
 ## Syntax
 
@@ -199,6 +203,21 @@ Le message était &quot;Erreur inattendue&quot;.</p> |
 | `-NoContext` | Object | — | — | Named | — | Désactiver l'utilisation du contexte |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | Utiliser la stratégie d'échantillonnage par faisceau |
 | `-OnlyResponses` | Object | — | — | Named | — | Retourner seulement les réponses |
+
+## Examples
+
+### New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `     -Instructions "You are a helpful AI assistant"
+
+```powershell
+New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `
+    -Instructions "You are a helpful AI assistant"
+```
+
+### llmchat "Tell me a joke" -Speak -IncludeThoughts
+
+```powershell
+llmchat "Tell me a joke" -Speak -IncludeThoughts
+```
 
 ## Related Links
 

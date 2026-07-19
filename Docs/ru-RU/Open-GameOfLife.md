@@ -4,12 +4,24 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Открывает симуляцию игры «Жизнь» Конвея в веб-браузере.
+
+## Description
+
+Открывает интерактивную симуляцию «Игра жизни» Конвея в окне веб-браузера
+с широкими возможностями позиционирования и настройки. «Игра жизни» Конвея — это
+клеточный автомат, разработанный математиком Джоном Конвеем в 1970 году, состоящий
+из сетки клеток, которые могут находиться в одном из двух состояний: живом или мёртвом.
+
+Эта функция обеспечивает всестороннее управление браузером, включая позиционирование
+окна, выбор браузера, приватный просмотр и возможности автоматического взаимодействия.
+Симуляция запускается по адресу https://conway.genxdev.net/ и поддерживает
+различные режимы взаимодействия.
 
 ## Syntax
 
 ```powershell
-Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +35,9 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-Chrome` | SwitchParameter | — | — | Named | — | Открывается в Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Открывается в Microsoft Edge или Google Chrome, в зависимости от того, какой браузер установлен по умолчанию |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Открывается в Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Используйте браузер, управляемый Playwright, вместо браузера, установленного в ОС |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Открывает браузер WebKit, управляемый Playwright. Подразумевает -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Запустите браузер без видимого окна |
 | `-All` | SwitchParameter | — | — | Named | — | Открывается во всех зарегистрированных современных браузерах |
 | `-Monitor` | Int32 | — | — | Named | `-2` | Используемый монитор: 0 = по умолчанию, -1 = отключить, -2 = настроенный вторичный монитор, по умолчанию -1, без позиционирования |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Открывается в полноэкранном режиме |
@@ -60,6 +75,40 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Использовать сессионный режим для профиля браузера (файлы cookie и данные удаляются при закрытии). |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Очистите данные сессии/профиля браузера перед открытием. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Пропустить восстановление предыдущего сеанса браузера. |
+
+## Examples
+
+### Open-GameOfLife -Monitor 1 -FullScreen
+
+```powershell
+Open-GameOfLife -Monitor 1 -FullScreen
+```
+
+Opens Conway's Game of Life in fullscreen mode on monitor 1.
+
+### Open-GameOfLife -Language "French" -Chrome -Private
+
+```powershell
+Open-GameOfLife -Language "French" -Chrome -Private
+```
+
+Ouvre le Jeu de la Vie en français en utilisant Chrome en mode privé.
+
+### gameoflife -m 0 -app
+
+```powershell
+gameoflife -m 0 -app
+```
+
+Открывает Игру "Жизнь" на основном мониторе в режиме приложения, используя псевдоним.
+
+### conway -Edge -Left -Width 800 -Height 600
+
+```powershell
+conway -Edge -Left -Width 800 -Height 600
+```
+
+Открывает игру «Жизнь» Конвея в Microsoft Edge, расположенную слева, с определёнными размерами.
 
 ## Related Links
 

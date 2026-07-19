@@ -8,10 +8,10 @@
 
 ## Description
 
-* Atomisches Schreiben: Verwendet eine Temporärdatei + Umbenennungsstrategie, um sicherzustellen, dass die Zieldatei nie in einem beschädigten Zustand zurückbleibt, falls der Prozess unterbrochen wird.
-* Wiederholungslogik: Wiederholt den Schreibvorgang bis zu MaxRetries Male mit einer Verzögerung von RetryDelayMs Millisekunden zwischen den Versuchen.
-* Objektunterstützung: Akzeptiert jedes Objekt, nicht nur Hashtable. Serialisiert über System.Text.Json mit Fallback zu ConvertTo-Json für komplexe .NET-Typen, die nicht nativ serialisiert werden können.
-* Entprellungsunterstützung: Wenn DebounceMs > 0, werden aufeinanderfolgende schnelle Schreibvorgänge in dieselbe Datei zusammengefasst – nur die letzte Nutzlast wird geschrieben, sobald die Datei für DebounceMs ms nicht mehr berührt wurde.
+* Atomisches Schreiben: Verwendet eine Temp-Datei- und Umbenennungsstrategie, um sicherzustellen, dass die Zieldatei bei Unterbrechung des Prozesses nie in einem korrupten Zustand hinterlassen wird.
+* Wiederholungslogik: Wiederholt den Schreibvorgang bis zu MaxRetries Mal mit einer Verzögerung von RetryDelayMs Millisekunden zwischen den Versuchen.
+* Objektunterstützung: Akzeptiert jedes Objekt, nicht nur Hashtable. Serialisiert über System.Text.Json mit Rückfall auf ConvertTo-Json für komplexe .NET-Typen, die nicht nativ serialisiert werden können.
+* Debounce-Unterstützung: Wenn DebounceMs > 0 ist, werden schnelle aufeinanderfolgende Schreibvorgänge in dieselbe Datei zusammengefasst – nur die letzte Nutzlast wird geschrieben, sobald die Datei für DebounceMs Millisekunden nicht berührt wurde.
 * Verzeichniserstellung: Erstellt automatisch übergeordnete Verzeichnisse, falls sie nicht existieren.
 
 ## Syntax

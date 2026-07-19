@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Устанавливает значение предпочтения в хранилище предпочтений GenXdev.
+
+## Description
+
+* Управляет настройками в локальном хранилище GenXdev.
+* Может устанавливать новые настройки, обновлять существующие или удалять их, если значение равно null или пусто.
+* Настройки хранятся с синхронизацией, установленной на "Локально".
 
 ## Syntax
 
@@ -22,6 +28,24 @@ Set-GenXdevPreference [-Name] <string> [[-Value] <string>] [-SessionOnly] [-Clea
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Очистите настройки сессии (глобальные переменные) перед получением |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Путь к базе данных для файлов данных предпочтений |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Не используйте альтернативные настройки, хранящиеся в сессии, для настроек данных, таких как язык, пути к базам данных и т.д. |
+
+## Examples
+
+### Example 1
+
+```powershell
+Set-GenXdevPreference -Name "Theme" -Value "Dark"
+```
+
+Устанавливает предпочтение «Тема» на «Тёмная» в локальном хранилище.
+
+### Example 2
+
+```powershell
+setPreference Theme Light
+```
+
+Использует псевдоним и позиционные параметры для установки темы оформления.
 
 ## Related Links
 

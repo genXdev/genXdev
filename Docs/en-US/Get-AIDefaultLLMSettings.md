@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Gets all available default LLM settings configurations for AI operations in
+GenXdev.AI.
+
+## Description
+
+Retrieves the complete set of default Large Language Model (LLM) settings
+configured for AI operations. Results can be filtered by query type, model
+identifier, API endpoint, or API key. Supports both session-based and
+persistent preference-based retrieval, with options to clear session state
+or bypass it entirely to read directly from stored preferences.
 
 ## Syntax
 
@@ -24,6 +33,16 @@ Get-AIDefaultLLMSettings [[-LLMQueryType] <String>] [-ApiEndpoint <String>] [-Ap
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear the session setting (Global variable) before retrieving |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Database path for preference data files |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Skip session settings and get from preferences or defaults only |
+
+## Examples
+
+### Get-AIDefaultLLMSettings -LLMQueryType "Coding"
+
+```powershell
+Get-AIDefaultLLMSettings -LLMQueryType "Coding"
+```
+
+Gets all available default configurations for Coding query type.
 
 ## Outputs
 

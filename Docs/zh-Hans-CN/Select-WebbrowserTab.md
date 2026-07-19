@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 从正在运行的 Playwright 管理浏览器中选择一个浏览器标签页。
+
+## Description
+
+列出并选择所有正在运行的Playwright管理的浏览器实例中的浏览器标签页。在未指定选择条件时，显示所有浏览器类型中所有可用标签页的表格。支持按数字索引、URL模式或直接页面引用进行选择。选定标签页后，设置$Global:chromeController和$Global:chromeSession，以与其他Webbrowser cmdlet保持向后兼容。
 
 ## Syntax
 
@@ -13,55 +17,59 @@ Select-WebbrowserTab [[-Id] <Int32>] [<CommonParameters>]
 
 Select-WebbrowserTab -Name <String> [<CommonParameters>]
 
-Select-WebbrowserTab -ByReference <PSObject> [<CommonParameters>]
+Select-WebbrowserTab -ByReference <Object> [<CommonParameters>]
 
-Select-WebbrowserTab [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SetForeground] [-SetRestored] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Select-WebbrowserTab [-All] [-Chrome] [-Chromium] [-Edge] [-Firefox] [-Force] [-PlayWright] [-Webkit] [<CommonParameters>]
 ```
 
 ## Parameters
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Id` | Int32 | — | — | 0 | `-1` | 从显示的列表中选择标签标识符 *(Parameter set: )* |
-| `-Name` | String | ✅ | — | 0 | — | 选择 URL 中包含此名称的第一个选项卡 *(Parameter set: )* 🌐 *Supports wildcards* |
-| `-ByReference` | PSObject | ✅ | — | Named | — | 使用 Get-ChromiumSessionReference 中的引用选择选项卡 *(Parameter set: )* |
-| `-Monitor` | Int32 | — | — | Named | `-1` | 要使用的显示器，0=默认，-1=丢弃，-2=配置的辅助显示器，默认为$Global:DefaultSecondaryMonitor，如果未找到则为2 |
-| `-Width` | Int32 | — | — | Named | `-1` | Web浏览器窗口的初始宽度 |
-| `-Height` | Int32 | — | — | Named | `-1` | Web浏览器窗口的初始高度 |
-| `-X` | Int32 | — | — | Named | `-999999` | 网络浏览器窗口的初始X位置 |
-| `-Y` | Int32 | — | — | Named | `-999999` | Web浏览器窗口的初始Y坐标 |
-| `-AcceptLang` | String | — | — | Named | — | 设置浏览器接受语言 HTTP 头 |
-| `-FullScreen` | SwitchParameter | — | — | Named | — | 在全屏模式下打开 |
-| `-Private` | SwitchParameter | — | — | Named | — | 在无痕/隐私浏览模式下打开 |
-| `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
-| `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
-| `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
-| `-Left` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕左侧 |
-| `-Right` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕右侧 |
-| `-Top` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕顶部 |
-| `-Bottom` | SwitchParameter | — | — | Named | — | Place browser window on the bottom side of the screen |
-| `-Centered` | SwitchParameter | — | — | Named | — | 将浏览器窗口放置在屏幕中央 |
-| `-ApplicationMode` | SwitchParameter | — | — | Named | — | 隐藏浏览器控件 |
-| `-NoBrowserExtensions` | SwitchParameter | — | — | Named | — | 防止加载浏览器扩展 |
-| `-DisablePopupBlocker` | SwitchParameter | — | — | Named | — | 禁用弹出窗口拦截器 |
-| `-RestoreFocus` | SwitchParameter | — | — | Named | — | 恢复 PowerShell 窗口焦点 |
-| `-NewWindow` | SwitchParameter | — | — | Named | — | 不要重用现有浏览器窗口，而是创建一个新窗口。 |
-| `-FocusWindow` | SwitchParameter | — | — | Named | — | 打开浏览器窗口后聚焦 |
-| `-SetForeground` | SwitchParameter | — | — | Named | — | 打开后将浏览器窗口置为前台 |
-| `-Maximize` | SwitchParameter | — | — | Named | — | 定位后最大化窗口 |
-| `-SetRestored` | SwitchParameter | — | — | Named | — | 定位后将窗口恢复到正常状态 |
-| `-KeysToSend` | String[] | — | — | Named | — | 要发送到浏览器窗口的按键，请参阅 cmdlet GenXdev\Send-Key 的文档 |
-| `-SendKeyEscape` | SwitchParameter | — | — | Named | — | 发送按键时转义控制字符 |
-| `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | 发送键后阻止键盘焦点返回 PowerShell |
-| `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Send Shift+Enter instead of regular Enter for line breaks |
-| `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | 发送不同键序列之间的延迟（毫秒） |
-| `-Edge` | SwitchParameter | — | — | Named | — | 在 Microsoft Edge 中打开 |
-| `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
-| `-Force` | SwitchParameter | — | — | Named | — | 如果浏览器需要，则强制执行重启 |
+| `-Id` | Int32 | — | — | 0 | `-1` | 从所显示列表中的标签索引 *(Parameter set: )* |
+| `-Name` | String | ✅ | — | 0 | — | 在其URL中选择包含此文本的第一个标签页 *(Parameter set: )* 🌐 *Supports wildcards* |
+| `-ByReference` | Object | ✅ | — | Named | — | 来自 Playwright 浏览器状态的直接页面引用 *(Parameter set: )* |
+| `-Edge` | SwitchParameter | — | — | Named | — | 筛选标签页到 Microsoft Edge 浏览器实例 |
+| `-Chrome` | SwitchParameter | — | — | Named | — | 将标签页筛选到 Google Chrome 浏览器实例 |
+| `-Chromium` | SwitchParameter | — | — | Named | — | 过滤标签页至基于 Chromium 的浏览器实例（Edge 或 Chrome） |
+| `-Firefox` | SwitchParameter | — | — | Named | — | 筛选标签页至 Firefox 浏览器实例 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 筛选标签页到所有Playwright管理的浏览器类型 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 将选项卡筛选到 WebKit 浏览器实例 |
+| `-All` | SwitchParameter | — | — | Named | — | 显示所有浏览器类型的标签（不过滤） |
+| `-Force` | SwitchParameter | — | — | Named | — | 跳过确认，选择第一个匹配标签 |
+
+## Examples
+
+### Select-WebbrowserTab Lists all open tabs across all Playwright browser types.
+
+```powershell
+Select-WebbrowserTab
+Lists all open tabs across all Playwright browser types.
+```
+
+### Select-WebbrowserTab -Id 2 Selects the tab at index 2 from the list.
+
+```powershell
+Select-WebbrowserTab -Id 2
+Selects the tab at index 2 from the list.
+```
+
+### st -Name "github.com" Selects the first tab whose URL contains "github.com".
+
+```powershell
+st -Name "github.com"
+Selects the first tab whose URL contains "github.com".
+```
+
+### st -Firefox -Id 0 Selects the first tab from the Firefox browser.
+
+```powershell
+st -Firefox -Id 0
+Selects the first tab from the Firefox browser.
+```
 
 ## Outputs
 
-- `String`
 - `PSObject`
 
 ## Related Links

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Devuelve un texto de afirmación aleatorio de la API affirmations.dev.
+
+## Description
+
+* Recupera una afirmación aleatoria de la API de affirmations.dev y opcionalmente la pronuncia usando texto a voz.
 
 ## Syntax
 
@@ -16,7 +20,25 @@ Get-NextAffirmation [-Speak] [<CommonParameters>]
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Speak` | SwitchParameter | — | — | 0 | `False` | Use text-to-speech to speak the affirmation |
+| `-Speak` | SwitchParameter | — | — | Named | `False` | Use text-to-speech to speak the affirmation |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-NextAffirmation
+```
+
+Recupera una afirmación aleatoria de la API.
+
+### Example 2
+
+```powershell
+Get-NextAffirmation -Speak
+```
+
+Recupera una afirmación aleatoria y la dice usando texto a voz.
 
 ## Related Links
 

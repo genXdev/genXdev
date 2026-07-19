@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Создает новый набор рефакторинга для задач по трансформации кода.
+
+## Description
+
+Создает и настраивает новое определение рефакторинга с указанными параметрами для LLM-преобразований кода. Функция обрабатывает:
+- Настройку конфигурации рефакторинга
+- Настройку критериев выбора и промптов
+- Управление настройками LLM-модели
+- Интеграцию со средами разработки
+- Сохранение определений рефакторинга
 
 ## Syntax
 
@@ -40,6 +49,22 @@ New-Refactor -Name <String> -PromptKey <String> [[-Prompt] <String>] [[-Selectio
 | `-Code` | SwitchParameter | — | — | Named | — | Открывать файлы в Visual Studio Code |
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | Открыть в Visual Studio |
 | `-KeysToSend` | String[] | — | — | Named | `@()` | Клавиатурные комбинации для отправки после открытия файлов |
+
+## Examples
+
+### New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `     -SelectionScript "Get-LoggingMethods" -Priority 1 `     -Code
+
+```powershell
+New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `
+    -SelectionScript "Get-LoggingMethods" -Priority 1 `
+    -Code
+```
+
+### newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+
+```powershell
+newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+```
 
 ## Related Links
 

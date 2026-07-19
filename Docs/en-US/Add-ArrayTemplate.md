@@ -4,12 +4,21 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Formats a collection of objects using a template string with property
+placeholders, producing a single formatted string.
+
+## Description
+
+Iterates over a collection of objects and applies a template string with
+{PropertyName} or {PropertyName:format} placeholders to each item. The
+formatted results are joined with a configurable delimiter. Supports
+indentation, trailing newlines, and trailing delimiters for flexible output
+formatting.
 
 ## Syntax
 
 ```powershell
-Add-ArrayTemplate -InputObject <Collections.IEnumerable> -Template <String> [[-Delimiter] <String>] [[-Indentation] <Int32>] [-NewLine] [-EndDelimiter] [<CommonParameters>]
+Add-ArrayTemplate -InputObject <Collections.IEnumerable> -Template <String> [[-Delimiter] <String>] [[-Indentation] <Int32>] [-EndDelimiter] [-NewLine] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -20,8 +29,35 @@ Add-ArrayTemplate -InputObject <Collections.IEnumerable> -Template <String> [[-D
 | `-Template` | String | ✅ | — | 1 | — | The template string with {PropertyName} or {PropertyName:format} placeholders |
 | `-Delimiter` | String | — | — | 2 | `"`n"` | The delimiter string to insert between formatted items |
 | `-Indentation` | Int32 | — | — | 3 | `0` | The number of indentation levels (4 spaces per level) to apply |
-| `-NewLine` | SwitchParameter | — | — | 4 | `$false` | Appends a trailing delimiter after the final item |
-| `-EndDelimiter` | SwitchParameter | — | — | 5 | `$false` | Add delimiter at end when array not empty |
+| `-NewLine` | SwitchParameter | — | — | Named | `$false` | Appends a trailing delimiter after the final item |
+| `-EndDelimiter` | SwitchParameter | — | — | Named | `$false` | Add delimiter at end when array not empty |
+
+## Examples
+
+### @(     @{ Name = "Alice"; Age = 30 }     @{ Name = "Bob"; Age = 25 } ) | Add-ArrayTemplate -Template "{Name} is {Age} years old"
+
+```powershell
+@(
+    @{ Name = "Alice"; Age = 30 }
+    @{ Name = "Bob"; Age = 25 }
+) | Add-ArrayTemplate -Template "{Name} is {Age} years old"
+```
+
+Name: Alice
+Age: 30
+
+Name: Bob
+Age: 25
+
+Formats an array of hashtables with property placeholders.
+
+### $items | FormatArray -Template "  - {Name}" -Delimiter ", " -Indentation 1
+
+```powershell
+$items | FormatArray -Template "  - {Name}" -Delimiter ", " -Indentation 1
+```
+
+Uses the FormatArray alias with indentation and a custom delimiter.
 
 ## Outputs
 

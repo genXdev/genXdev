@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 确保 Pester 测试框架可用于使用。
+
+## Description
+
+此函数用于验证当前PowerShell环境中是否安装了Pester模块。如果未找到，则自动从PowerShell库安装该模块并将其导入当前会话。这确保了在需要时Pester测试功能可用。
 
 ## Syntax
 
@@ -60,6 +64,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsurePester This ensures Pester is installed and ready for use
+
+```powershell
+EnsurePester
+This ensures Pester is installed and ready for use
 ```
 
 ## Related Links

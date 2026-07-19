@@ -4,12 +4,42 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens a Github repository search query in a web browser or executes advanced
+searches against the GitHub REST API supporting all available qualifiers and
+search categories (repositories, code, issues, users, commits, discussions,
+topics, wikis).
+
+## Description
+
+Opens a Github repository search query in a web browser with extensive
+customization options or performs advanced API searches. This function
+provides a powerful interface for quickly accessing Github repositories from
+PowerShell with support for multiple browsers, window positioning, language
+filtering, and keyboard automation, or retrieving structured data via API.
+Key features:
+
+Multiple search query support with pipeline input
+Language-specific filtering with automatic localization
+Multi-browser support (Edge, Chrome, Firefox)
+Advanced window positioning and monitor selection
+Private/incognito browsing mode
+Application mode for distraction-free browsing
+Keyboard automation and focus management
+URL return options for programmatic use
+Advanced API search with qualifiers, sorting, pagination
+Support for all GitHub search types
+Authentication with personal access token
+Asynchronous job execution for API searches
+Raw JSON or structured object output
+
+The function automatically constructs Github search URLs for web mode or API
+endpoints for API mode and passes all browser-related parameters to the
+underlying Open-Webbrowser function for consistent behavior.
 
 ## Syntax
 
 ```powershell
-Open-GithubQuery -Query <String[]> [-AcceptLang <String>] [-CaseSensitive] [-In <String[]>] [-Language <String>] [-Order <String>] [-Org <String>] [-Page <Int32>] [-PassThru] [-PerPage <Int32>] [-Repo <String>] [-Size <String>] [-SortBy <String>] [-Type <String>] [-User <String>] [<CommonParameters>]
+Open-GithubQuery -Query <String[]> [-AcceptLang <String>] [-All] [-CaseSensitive] [-Headless] [-In <String[]>] [-Language <String>] [-Order <String>] [-Org <String>] [-Page <Int32>] [-PassThru] [-PerPage <Int32>] [-PlayWright] [-Repo <String>] [-Size <String>] [-SortBy <String>] [-Type <String>] [-User <String>] [-Webkit] [<CommonParameters>]
 
 Open-GithubQuery [-Extension <String>] [-Filename <String>] [-Path <String>] [<CommonParameters>]
 
@@ -17,7 +47,7 @@ Open-GithubQuery [-Assignee <String>] [-Author <String>] [-Labels <String[]>] [-
 
 Open-GithubQuery [-Api] [-AsJob] [-RawResponse] [-Token <String>] [<CommonParameters>]
 
-Open-GithubQuery [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GithubQuery [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -63,7 +93,10 @@ Open-GithubQuery [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chr
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opens the search results in Google Chrome browser. *(Parameter set: )* |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Opens the search results in Microsoft Edge or Google Chrome, depending on what the default browser is. *(Parameter set: )* |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Opens the search results in Mozilla Firefox browser. *(Parameter set: )* |
-| `-All` | SwitchParameter | — | — | Named | — | Opens the search results in all registered modern browsers. *(Parameter set: )* |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use Playwright-managed browser instead of the OS-installed browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opens the Playwright-managed WebKit browser. Implies -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Run the browser without a visible window |
+| `-All` | SwitchParameter | — | — | Named | — | Opens in all registered modern browsers |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opens the browser in fullscreen mode. *(Parameter set: )* |
 | `-Left` | SwitchParameter | — | — | Named | — | Place browser window on the left side of the screen. *(Parameter set: )* |
 | `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen. *(Parameter set: )* |
@@ -89,6 +122,53 @@ Open-GithubQuery [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chr
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for preferences. *(Parameter set: )* |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for preferences. *(Parameter set: )* |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. *(Parameter set: )* |
+
+## Examples
+
+### Open-GithubQuery -Query "powershell module" -Language "PowerShell" Opens a search for PowerShell modules in Github with language filtering.
+
+```powershell
+Open-GithubQuery -Query "powershell module" -Language "PowerShell"
+Opens a search for PowerShell modules in Github with language filtering.
+```
+
+### qgithub "azure functions" -Monitor 0 Opens a search for Azure Functions on the primary monitor using the alias.
+
+```powershell
+qgithub "azure functions" -Monitor 0
+Opens a search for Azure Functions on the primary monitor using the alias.
+```
+
+### Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc -PerPage 1 Repository search: Find top-starred PowerShell repo in GitHub
+
+```powershell
+Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc
+-PerPage 1
+Repository search: Find top-starred PowerShell repo in GitHub
+```
+
+### Open-GithubQuery -Type Code -Query "def " -Language python -In File Code search for function definitions in Python
+
+```powershell
+Open-GithubQuery -Type Code -Query "def " -Language python -In File
+Code search for function definitions in Python
+```
+
+### Open-GithubQuery -Type Issue -Query security -Repo microsoft/vscode -Labels bug -State open Issue search: All open bugs mentioning 'security' in microsoft/vscode
+
+```powershell
+Open-GithubQuery -Type Issue -Query security -Repo microsoft/vscode -Labels
+bug -State open
+Issue search: All open bugs mentioning 'security' in microsoft/vscode
+```
+
+### Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc -PerPage 1 -Api API mode for repository search.
+
+```powershell
+Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc
+-PerPage 1 -Api
+API mode for repository search.
+```
 
 ## Outputs
 

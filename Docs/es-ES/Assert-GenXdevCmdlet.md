@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Mejora la documentación e implementación de cmdlets de GenXdev mediante asistencia de IA.
+
+## Description
+
+Esta función mejora los cmdlets de GenXdev analizando y perfeccionando su código mediante indicaciones de IA. Puede integrar cmdlets en módulos, actualizar la documentación y verificar la implementación adecuada. La función admite plantillas de indicaciones personalizadas y puede abrir archivos en Visual Studio Code o Visual Studio.
 
 ## Syntax
 
@@ -29,6 +33,20 @@ Assert-GenXdevCmdlet [-EditPrompt] [<CommonParameters>]
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | Abrir en Visual Studio |
 | `-EditPrompt` | SwitchParameter | — | — | Named | — | @{json_schema=; type=json_schema} *(Parameter set: )* |
 | `-Integrate` | SwitchParameter | — | — | Named | — | Integrar cmdlet en el módulo |
+
+## Examples
+
+### Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+
+```powershell
+Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
+```
+
+### improvecmdlet Get-Something CheckDocs -c
+
+```powershell
+improvecmdlet Get-Something CheckDocs -c
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Werkt gezichtsherkenningsmetadata bij voor afbeeldingsbestanden in een opgegeven map.
+
+## Description
+
+Deze functie verwerkt afbeeldingen in een opgegeven map om gezichten te identificeren en analyseren met behulp van AI-herkenningstechnologie. Het maakt of werkt metadatabestanden bij met gezichtsinformatie voor elke afbeelding. De metadata wordt opgeslagen in een apart bestand met
 
 ## Syntax
 
@@ -43,6 +47,21 @@ Invoke-ImageFacesUpdate [[-ImageDirectories] <String[]>] [-ApiEndpoint <String>]
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in de sessie voor AI-voorkeuren zoals taal, afbeeldingsverzamelingen, enz. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Gebruik geen alternatieve instellingen die zijn opgeslagen in de sessie voor AI-voorkeuren zoals taal, afbeeldingscollecties, enz. |
+
+## Examples
+
+### Invoke-ImageFacesUpdate -Name @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageFacesUpdate -Name @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+### facerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew ##############################################################################
+
+```powershell
+facerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+##############################################################################
+```
 
 ## Related Links
 

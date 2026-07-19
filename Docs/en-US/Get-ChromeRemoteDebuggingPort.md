@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Returns the configured remote debugging port for Google Chrome.
+
+## Description
+
+Retrieves and manages the remote debugging port configuration for Google Chrome.
+The function first checks for a custom port number stored in $Global:ChromeDebugPort.
+If not found or invalid, it defaults to port 9222. The port number is then stored
+globally for use by other Chrome automation functions.
 
 ## Syntax
 
@@ -58,8 +65,26 @@
     }
 ```
 
+## Examples
+
+### $port = Get-ChromeRemoteDebuggingPort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromeRemoteDebuggingPort
+Write-Host "Chrome debug port: $port"
+```
+
+### $port = Get-ChromePort Write-Host "Chrome debug port: $port"
+
+```powershell
+$port = Get-ChromePort
+Write-Host "Chrome debug port: $port"
+```
+
 ## Outputs
 
+- `Int32
+Returns the configured Chrome debugging port number.`
 - `Int32`
 
 ## Related Links

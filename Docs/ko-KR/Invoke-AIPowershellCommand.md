@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI 지원을 사용하여 PowerShell 명령을 생성하고 실행합니다.
+
+## Description
+
+AI 모델을 사용하여 자연어 질의를 기반으로 PowerShell 명령을 생성합니다. 이 기능은 명령을 직접 PowerShell 창으로 보내거나 클립보드에 복사할 수 있습니다. 다양한 AI 백엔드에 대한 포괄적인 매개변수 지원을 통해 자연어를 해석하고 실행 가능한 PowerShell 명령으로 변환하기 위해 AI 모델을 활용합니다.
 
 ## Syntax
 
@@ -65,6 +69,32 @@ LLMQuery: "아래 문장을 한국어로 번역해 주세요: Hello, how are you
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | 필터 for markup block types (LLMQuery에 전달됨) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 최대 도구 콜백 길이 (LLM 쿼리에 전달됨) |
+
+## Examples
+
+### Invoke-AIPowershellCommand -Query "list all running processes"
+
+```powershell
+Invoke-AIPowershellCommand -Query "list all running processes"
+```
+
+Get-Process
+
+### hint "list files modified today"
+
+```powershell
+hint "list files modified today"
+```
+
+별칭을 사용하여 오늘 수정된 파일을 찾는 명령어를 생성합니다.
+
+### Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+
+```powershell
+Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+```
+
+서비스를 중지하는 명령을 생성하여 클립보드에 복사합니다.
 
 ## Outputs
 

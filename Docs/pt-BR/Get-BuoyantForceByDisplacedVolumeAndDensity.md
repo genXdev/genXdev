@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula a força de empuxo.
+
+## Description
+
+Utiliza F = ρ V g.
 
 ## Syntax
 

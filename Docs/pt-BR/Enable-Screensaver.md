@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Inicia o protetor de tela configurado do Windows.
+
+## Description
+
+Ativa o protetor de tela do sistema Windows executando o executável padrão do protetor de tela (scrnsave.scr) com o switch /s para iniciá-lo imediatamente.
 
 ## Syntax
 
@@ -26,6 +30,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### Enable-Screensaver
+
+```powershell
+Enable-Screensaver
 ```
 
 ## Related Links

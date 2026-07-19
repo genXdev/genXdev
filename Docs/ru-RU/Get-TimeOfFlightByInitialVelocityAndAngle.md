@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет время полета снаряда.
+
+## Description
+
+Используется T = (2 v sinθ) / g для идеального движения.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-TimeOfFlightByInitialVelocityAndAngle [-InitialVelocityInMetersPerSecond] <d
 | `-AngleInDegrees` | Double | ✅ | — | 1 | `0` | Угол запуска в градусах |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 2 | `0` | Сила тяжести в м/с² (по умолчанию: 9,81) |
 | `-As` | String | — | — | 3 | — | Единица измерения времени |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-TimeOfFlightByInitialVelocityAndAngle -InitialVelocityInMetersPerSecond 20 -AngleInDegrees 45 -As "minutes"
+```
+
+Вычисляет время полета для снаряда, запущенного со скоростью 20 м/с под углом 45 градусов, выводит в минутах.
+
+### Example 2
+
+```powershell
+Get-TimeOfFlightByInitialVelocityAndAngle 30 30
+```
+
+Рассчитывает время полета для снаряда, запущенного со скоростью 30 м/с под углом 30 градусов.
 
 ## Related Links
 

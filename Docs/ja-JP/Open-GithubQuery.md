@@ -4,12 +4,32 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> WebブラウザでGitHubリポジトリ検索クエリを開くか、利用可能なすべての修飾子と検索カテゴリ（リポジトリ、コード、課題、ユーザー、コミット、ディスカッション、トピック、Wiki）をサポートした高度な検索をGitHub REST APIに対して実行します。
+
+## Description
+
+Githubリポジトリ検索クエリを、豊富なカスタマイズオプションを備えたWebブラウザで開いたり、高度なAPI検索を実行します。この関数は、複数のブラウザ、ウィンドウ位置指定、言語フィルタリング、キーボード自動化のサポート、またはAPIを介した構造化データの取得により、PowerShellからGithubリポジトリに迅速にアクセスするための強力なインターフェースを提供します。主な機能：
+
+- パイプライン入力対応の複数検索クエリ
+- 自動ローカライズ付きの言語固有フィルタリング
+- マルチブラウザ対応（Edge、Chrome、Firefox）
+- 高度なウィンドウ位置指定とモニター選択
+- プライベート/シークレットブラウジングモード
+- アプリケーションモードによる集中ブラウジング
+- キーボード自動化とフォーカス管理
+- プログラム使用のためのURL返却オプション
+- 修飾子、ソート、ページネーション対応の高度なAPI検索
+- すべてのGitHub検索タイプをサポート
+- パーソナルアクセストークンによる認証
+- API検索の非同期ジョブ実行
+- 生JSONまたは構造化オブジェクト出力
+
+この関数は、Webモードの場合はGithub検索URL、APIモードの場合はAPIエンドポイントを自動的に構築し、一貫した動作のためにブラウザ関連パラメータをすべて基盤のOpen-Webbrowser関数に渡します。
 
 ## Syntax
 
 ```powershell
-Open-GithubQuery -Query <String[]> [-AcceptLang <String>] [-CaseSensitive] [-In <String[]>] [-Language <String>] [-Order <String>] [-Org <String>] [-Page <Int32>] [-PassThru] [-PerPage <Int32>] [-Repo <String>] [-Size <String>] [-SortBy <String>] [-Type <String>] [-User <String>] [<CommonParameters>]
+Open-GithubQuery -Query <String[]> [-AcceptLang <String>] [-All] [-CaseSensitive] [-Headless] [-In <String[]>] [-Language <String>] [-Order <String>] [-Org <String>] [-Page <Int32>] [-PassThru] [-PerPage <Int32>] [-PlayWright] [-Repo <String>] [-Size <String>] [-SortBy <String>] [-Type <String>] [-User <String>] [-Webkit] [<CommonParameters>]
 
 Open-GithubQuery [-Extension <String>] [-Filename <String>] [-Path <String>] [<CommonParameters>]
 
@@ -17,7 +37,7 @@ Open-GithubQuery [-Assignee <String>] [-Author <String>] [-Labels <String[]>] [-
 
 Open-GithubQuery [-Api] [-AsJob] [-RawResponse] [-Token <String>] [<CommonParameters>]
 
-Open-GithubQuery [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GithubQuery [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -63,7 +83,10 @@ Open-GithubQuery [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chr
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chromeブラウザで検索結果を開きます。 *(Parameter set: )* |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft Edge または Google Chrome で検索結果を開きます。 *(Parameter set: )* |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Mozilla Firefox ブラウザで検索結果を開きます。 *(Parameter set: )* |
-| `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで検索結果を開きます。 *(Parameter set: )* |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
+| `-All` | SwitchParameter | — | — | Named | — | 登録されているすべての最新ブラウザで開きます |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | ブラウザを全画面モードで開きます。 *(Parameter set: )* |
 | `-Left` | SwitchParameter | — | — | Named | — | ブラウザウィンドウを画面の左側に配置します。 *(Parameter set: )* |
 | `-Right` | SwitchParameter | — | — | Named | — | ブラウザウィンドウを画面の右側に配置します。 *(Parameter set: )* |
@@ -89,6 +112,53 @@ Open-GithubQuery [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chr
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションに保存された代替設定をユーザー設定に使用します。 *(Parameter set: )* |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されている代替設定をクリアします。 *(Parameter set: )* |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定は永続的なプリファレンスにのみ保存し、セッションには影響を与えないでください。 *(Parameter set: )* |
+
+## Examples
+
+### Open-GithubQuery -Query "powershell module" -Language "PowerShell" Opens a search for PowerShell modules in Github with language filtering.
+
+```powershell
+Open-GithubQuery -Query "powershell module" -Language "PowerShell"
+Opens a search for PowerShell modules in Github with language filtering.
+```
+
+### qgithub "azure functions" -Monitor 0 Opens a search for Azure Functions on the primary monitor using the alias.
+
+```powershell
+qgithub "azure functions" -Monitor 0
+Opens a search for Azure Functions on the primary monitor using the alias.
+```
+
+### Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc -PerPage 1 Repository search: Find top-starred PowerShell repo in GitHub
+
+```powershell
+Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc
+-PerPage 1
+Repository search: Find top-starred PowerShell repo in GitHub
+```
+
+### Open-GithubQuery -Type Code -Query "def " -Language python -In File Code search for function definitions in Python
+
+```powershell
+Open-GithubQuery -Type Code -Query "def " -Language python -In File
+Code search for function definitions in Python
+```
+
+### Open-GithubQuery -Type Issue -Query security -Repo microsoft/vscode -Labels bug -State open Issue search: All open bugs mentioning 'security' in microsoft/vscode
+
+```powershell
+Open-GithubQuery -Type Issue -Query security -Repo microsoft/vscode -Labels
+bug -State open
+Issue search: All open bugs mentioning 'security' in microsoft/vscode
+```
+
+### Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc -PerPage 1 -Api API mode for repository search.
+
+```powershell
+Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc
+-PerPage 1 -Api
+API mode for repository search.
+```
 
 ## Outputs
 

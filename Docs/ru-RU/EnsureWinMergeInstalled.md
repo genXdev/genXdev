@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Обеспечивает установку WinMerge и его доступность для операций сравнения файлов.
+
+## Description
+
+Проверяет, установлен ли WinMerge и правильно ли он настроен в системном PATH. Если не найден, устанавливает WinMerge с помощью WinGet и добавляет его в PATH пользователя. Обрабатывает весь процесс установки и настройки автоматически.
 
 ## Syntax
 
@@ -156,6 +160,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureWinMergeInstalled Ensures WinMerge is installed and properly configured.
+
+```powershell
+EnsureWinMergeInstalled
+Ensures WinMerge is installed and properly configured.
 ```
 
 ## Related Links

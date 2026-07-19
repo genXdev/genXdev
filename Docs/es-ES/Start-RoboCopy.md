@@ -4,7 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Proporciona un envoltorio de PowerShell para la utilidad Robust Copy (RoboCopy) de Microsoft.
+
+## Description
+
+Un envoltorio completo para la utilidad de línea de comandos RoboCopy que proporciona capacidades robustas de copia de archivos y directorios. Esta función expone el amplio conjunto de características de RoboCopy a través de parámetros amigables para PowerShell, manteniendo la mayor parte de su potente funcionalidad.
+
+Características clave:
+- Sincronización de directorios con opciones de espejo
+- Soporte para rutas de archivo extremadamente largas (>256 caracteres)
+- Preservación de configuraciones de seguridad
+- Manejo avanzado de atributos de archivo
+- Gestión de enlaces simbólicos y puntos de unión
+- Modo monitor para sincronización continua
+- Optimización del rendimiento para archivos grandes
+- Soporte de compresión de red
+- Modo de recuperación para dispositivos con fallos
 
 ## Syntax
 
@@ -21,10 +36,10 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Source` | String | ✅ | — | 0 | — | El directorio, la ruta de archivo, o directorio+máscara de búsqueda |
-| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | El directorio de destino para colocar los archivos y directorios copiados.
-Si este directorio aún no existe, se crearán todos los directorios faltantes.
-Valor predeterminado = "." |
-| `-Files` | String[] | — | — | 2 | `@()` | Máscara de búsqueda opcional para seleccionar los archivos que se deben copiar.
+| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | El directorio de destino donde se colocarán los archivos y directorios copiados.
+            Si este directorio aún no existe, se crearán todos los directorios faltantes.
+            Valor predeterminado = ".\" |
+| `-Files` | String[] | — | — | 2 | `@()` | Máscara de búsqueda opcional para seleccionar los archivos que deben copiarse.
             Valor predeterminado = '*' 🌐 *Supports wildcards* |
 | `-Mirror` | SwitchParameter | — | — | Named | — | Sincroniza el contenido de los directorios especificados, también eliminará cualquier archivo y directorio en el destino que no exista en el origen |
 | `-Move` | SwitchParameter | — | — | Named | — | Se moverán en lugar de copiar todos los archivos del origen al destino |
@@ -81,19 +96,37 @@ Valor predeterminado = "." |
 
 Uso:
 
-Agregar o reemplazar parámetro:
+Agregar o reemplazar un parámetro:
 
     -Override /SwitchWithValue:'SomeValue'
 
     -Override /Switch
 
-Eliminar parámetro:
+Eliminar un parámetro:
 
     -Override -/Switch
 
 Múltiples anulaciones:
 
     -Override "/ReplaceThisSwitchWithValue:'SomeValue' -/RemoveThisSwitch /AddThisSwitch" |
+
+## Examples
+
+### ########################################################################Mirror a directory with security settings Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `     -Mirror -IncludeSecurity
+
+```powershell
+########################################################################Mirror a directory with security settings
+Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `
+    -Mirror -IncludeSecurity
+```
+
+### ########################################################################Monitor and sync changes every 10 minutes Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `     -MonitorMode -MonitorModeThresholdMinutes 10
+
+```powershell
+########################################################################Monitor and sync changes every 10 minutes
+Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `
+    -MonitorMode -MonitorModeThresholdMinutes 10
+```
 
 ## Related Links
 

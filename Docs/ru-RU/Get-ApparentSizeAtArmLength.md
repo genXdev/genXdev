@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет видимый размер объекта на расстоянии вытянутой руки.
+
+## Description
+
+Вычисляет видимый размер с использованием аппроксимации малых углов.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-ApparentSizeAtArmLength [-DistanceInMeters] <double> [-SizeInMeters] <double
 | `-SizeInMeters` | Double | ✅ | — | 1 | `0` | Фактический размер объекта в метрах |
 | `-ArmLengthInMeters` | Double | — | — | 2 | `0` | Длина руки в метрах (по умолчанию: 0.7) |
 | `-As` | String | — | — | 3 | — | Единица измерения выходного размера |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ApparentSizeAtArmLength -DistanceInMeters 10 -SizeInMeters 1 -As "centimeters"
+```
+
+Вычисляет видимый размер объекта высотой 1 метр на расстоянии 10 метров.
+
+### Example 2
+
+```powershell
+Get-ApparentSizeAtArmLength 10 1
+```
+
+Вычисляет видимый размер с использованием позиционных параметров.
 
 ## Related Links
 

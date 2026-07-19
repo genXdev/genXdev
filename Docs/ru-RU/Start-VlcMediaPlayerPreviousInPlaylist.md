@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Переходит к предыдущему элементу в плейлисте VLC Media Player.
+
+## Description
+
+Эта функция отправляет команду клавиши 'p' в VLC Media Player для перехода к предыдущему элементу в текущем плейлисте. Функция поддерживает операции WhatIf и восстанавливает фокус после отправки команды.
 
 ## Syntax
 
@@ -33,6 +37,26 @@
     end {
 
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerPreviousInPlaylist
+
+```powershell
+Start-VlcMediaPlayerPreviousInPlaylist
+```
+
+### vlcprev
+
+```powershell
+vlcprev
+```
+
+### vlcback
+
+```powershell
+vlcback
 ```
 
 ## Related Links

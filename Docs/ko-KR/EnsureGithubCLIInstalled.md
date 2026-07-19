@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GitHub CLI가 시스템에 올바르게 설치되고 구성되었는지 확인합니다.
+
+## Description
+
+GitHub CLI(gh)에 대한 포괄적인 확인 및 설정을 수행합니다:
+- GitHub CLI가 설치되어 있고 PATH에 접근 가능한지 확인
+- WinGet을 통해 GitHub CLI를 설치(없는 경우)
+- 시스템 PATH 환경 변수 구성
+- GitHub Copilot 확장 설치
+- GitHub 인증 설정
+이 함수는 모든 필수 조건을 처리하고 작동하는 GitHub CLI 설정을 보장합니다.
 
 ## Syntax
 
@@ -175,6 +185,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsureGithubCLIInstalled This will verify and setup GitHub CLI if needed.
+
+```powershell
+EnsureGithubCLIInstalled
+This will verify and setup GitHub CLI if needed.
 ```
 
 ## Related Links

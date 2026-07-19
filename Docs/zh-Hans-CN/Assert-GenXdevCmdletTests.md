@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 断言并改进指定 GenXdev cmdlet 的单元测试。
+
+## Description
+
+此功能通过以下方式帮助维护和改进GenXdev cmdlet的单元测试：
+1. 如果测试文件不存在则创建
+2. 在VS Code中打开cmdlet
+3. 准备并应用AI提示以生成/改进测试
+4. 管理测试执行工作流
 
 ## Syntax
 
@@ -23,6 +31,21 @@ Assert-GenXdevCmdletTests -CmdletName <String> [[-Prompt] <String>] [[-PromptKey
 | `-AssertFailedTest` | SwitchParameter | — | — | Named | — | 表示断言一个失败的测试 |
 | `-FromScripts` | SwitchParameter | — | — | Named | — | 在脚本文件中搜索，而非模块中 |
 | `-ContinuationHandled` | SwitchParameter | — | — | Named | — | The `-ContinuationHandled` parameter. |
+
+## Examples
+
+### Assert-GenXdevCmdletTests -CmdletName "Get-GenXDevModuleInfo" -EditPrompt
+
+```powershell
+Assert-GenXdevCmdletTests -CmdletName "Get-GenXDevModuleInfo" -EditPrompt
+```
+
+### improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest ##############################################################################
+
+```powershell
+improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest
+##############################################################################
+```
 
 ## Related Links
 

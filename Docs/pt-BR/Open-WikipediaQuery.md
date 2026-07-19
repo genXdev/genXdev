@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre uma consulta à Wikipédia em um navegador web.
+
+## Description
+
+Abre uma ou mais consultas de pesquisa da Wikipedia em um navegador web com amplas opções de configuração. Suporta comportamento configurável do navegador, seleção de monitor e posicionamento da janela. As consultas são codificadas em URL e abertas usando o domínio da Wikipedia no idioma especificado, com suporte completo de localização.
+
+A função fornece controle abrangente do navegador, incluindo modos de navegação privada, posicionamento da janela, automação de teclado e suporte a vários monitores. Ela lida automaticamente com a codificação de URL e mapeamento de código de idioma para domínios internacionais da Wikipedia.
 
 ## Syntax
 
 ```powershell
-Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +30,9 @@ Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Str
 | `-Chrome` | SwitchParameter | — | — | Named | — | Abre no Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Abre no Microsoft Edge ou Google Chrome, dependendo de qual é o navegador padrão |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Abre no Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use o navegador gerenciado pelo Playwright em vez do navegador instalado no sistema operacional |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre o navegador WebKit gerenciado pelo Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Execute o navegador sem uma janela visível |
 | `-All` | SwitchParameter | — | — | Named | — | Abre em todos os navegadores modernos registrados |
 | `-Monitor` | Int32 | — | — | Named | `-1` | O monitor a ser usado, 0 = padrão, -1 é descartar, -2 = Monitor secundário configurado |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Abre em modo de tela cheia |
@@ -59,6 +68,32 @@ Open-WikipediaQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use configurações alternativas armazenadas na sessão para preferências de IA. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Limpar configurações alternativas armazenadas na sessão para preferências de IA. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazenar configurações apenas nas preferências persistentes sem afetar a sessão. |
+
+## Examples
+
+### Open-WikipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+
+```powershell
+Open-WikipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+```
+
+Abre uma pesquisa na Wikipedia para "PowerShell" em inglês no monitor padrão.
+
+### wiki "PowerShell" -mon 0
+
+```powershell
+wiki "PowerShell" -mon 0
+```
+
+Abre uma pesquisa da Wikipedia usando o alias com parâmetros posicionais.
+
+### "PowerShell", "Windows" | Open-WikipediaQuery -Language "German" -Private
+
+```powershell
+"PowerShell", "Windows" | Open-WikipediaQuery -Language "German" -Private
+```
+
+Busca por vários termos na Wikipédia em alemão usando o modo de navegação privada.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Zorgt ervoor dat SQLiteStudio is geïnstalleerd en toegankelijk is vanaf de opdrachtregel.
+
+## Description
+
+Controleert of SQLiteStudio is geïnstalleerd en beschikbaar is in het systeem-PATH. Indien niet gevonden, controleert het eerst of de PATH-omgevingsvariabele moet worden bijgewerkt. Als dat het probleem niet oplost, installeert het SQLiteStudio met WinGet en configureert het de PATH-omgevingsvariabele.
 
 ## Syntax
 
@@ -119,6 +123,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsureSQLiteStudioInstalled Checks and ensures SQLiteStudio is installed and accessible.
+
+```powershell
+EnsureSQLiteStudioInstalled
+Checks and ensures SQLiteStudio is installed and accessible.
 ```
 
 ## Related Links

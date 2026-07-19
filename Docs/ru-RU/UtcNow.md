@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Получает текущую дату и время в формате UTC (Всемирное координированное время).
+
+## Description
+
+Возвращает текущую дату и время в формате UTC в виде объекта System.DateTime. Эта функция предоставляет стандартизированный способ получения времени UTC в различных системах и часовых поясах. Возвращаемый объект DateTime можно использовать для синхронизации меток времени, ведения журнала и операций, выполняемых в разных часовых поясах.
 
 ## Syntax
 
@@ -29,6 +33,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### $currentUtc = UtcNow Returns the current UTC time as a DateTime object.
+
+```powershell
+$currentUtc = UtcNow
+Returns the current UTC time as a DateTime object.
+```
+
+### $timestamp = (UtcNow).ToString("yyyy-MM-dd HH:mm:ss") Gets the current UTC time and formats it as a string.
+
+```powershell
+$timestamp = (UtcNow).ToString("yyyy-MM-dd HH:mm:ss")
+Gets the current UTC time and formats it as a string.
 ```
 
 ## Outputs

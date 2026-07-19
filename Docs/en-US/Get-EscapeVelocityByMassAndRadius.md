@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calculates escape velocity.
+
+## Description
+
+Uses v = sqrt(2 G M / r).
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Get-EscapeVelocityByMassAndRadius [-MassInKilograms] <double> [-RadiusInMeters] 
 | `-MassInKilograms` | Double | ✅ | — | 0 | `0` | Mass of body in kg |
 | `-RadiusInMeters` | Double | ✅ | — | 1 | `0` | Radius in meters |
 | `-As` | String | — | — | 2 | — | Output unit for velocity |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-EscapeVelocityByMassAndRadius -MassInKilograms 5.972e24 -RadiusInMeters 6371000 -As "km/h"
+```
+
+Calculates the escape velocity for a body with Earth's mass and radius.
+
+### Example 2
+
+```powershell
+Get-EscapeVelocityByMassAndRadius 1e26 10000000
+```
+
+Calculates escape velocity using default m/s units.
 
 ## Related Links
 

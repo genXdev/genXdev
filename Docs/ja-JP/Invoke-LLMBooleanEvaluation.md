@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AIを使用してステートメントを評価し、それが真か偽かを判断します。
+
+## Description
+
+この関数はAIモデルを使用してステートメントを評価し、その真偽値を判定します。パラメーターを介した直接入力、パイプラインからの入力、またはシステムクリップボードからの入力を受け付けることができます。関数はブール値の結果と、AIモデルからの信頼度および推論を返します。
 
 ## Syntax
 
@@ -61,6 +65,27 @@ Invoke-LLMBooleanEvaluation [[-Text] <String>] [[-Instructions] <String>] [[-Att
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | — | ビームサーチサンプリング戦略を使用する |
 | `-OnlyResponses` | SwitchParameter | — | — | Named | — | モデルからの応答のみを返します |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | The `-MaxToolcallBackLength` parameter. |
+
+## Examples
+
+### Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+
+```powershell
+Invoke-LLMBooleanEvaluation -Text "The Earth is flat" -Model "gpt-4"
+```
+
+### "Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+
+```powershell
+"Humans need oxygen to survive" | Invoke-LLMBooleanEvaluation
+```
+
+### equalstrue "2 + 2 = 4" ##############################################################################
+
+```powershell
+equalstrue "2 + 2 = 4"
+##############################################################################
+```
 
 ## Outputs
 

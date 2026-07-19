@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> オプションでレコード数の制限が可能な、SQLデータベースビューからデータを取得します。
+
+## Description
+
+SQLデータベースビューを、接続文字列またはデータベースファイルパスのいずれかを使用してクエリします。この関数は返されるレコード数の制限をサポートし、クエリ実行を追跡するための詳細出力を提供します。
 
 ## Syntax
 
@@ -25,6 +29,22 @@ Get-SQLServerViewData -ViewName <String> [[-Count] <Int32>] [<CommonParameters>]
 | `-Server` | String | — | — | 1 | `'localhost'` | SQL Server インスタンス名。 *(Parameter set: )* |
 | `-ViewName` | String | ✅ | — | 2 | — | クエリを実行するビューの名前。 |
 | `-Count` | Int32 | — | — | 3 | `100` | 返却するレコード数。-1は全レコード。 |
+
+## Examples
+
+### Get-SQLServerViewData -DatabaseFilePath "C:\MyDb.sqlite" `     -ViewName "CustomerView" `     -Count 50
+
+```powershell
+Get-SQLServerViewData -DatabaseFilePath "C:\MyDb.sqlite" `
+    -ViewName "CustomerView" `
+    -Count 50
+```
+
+### Get-SQLServerViewData "C:\MyDb.sqlite" "CustomerView"
+
+```powershell
+Get-SQLServerViewData "C:\MyDb.sqlite" "CustomerView"
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Recupera dados de coluna de uma view SQL com limitação opcional de registros.
+
+## Description
+
+Executa uma consulta SELECT em uma visão SQL especificada para recuperar dados de uma única coluna. Suporta conexão via string de conexão ou caminho de arquivo de banco de dados. Permite limitar o número de registros retornados ou recuperar todos os registros.
 
 ## Syntax
 
@@ -26,6 +30,23 @@ Get-SQLServerViewColumnData -ViewName <String> -ColumnName <String> [[-Count] <I
 | `-ViewName` | String | ✅ | — | 2 | — | O nome da view. |
 | `-ColumnName` | String | ✅ | — | 3 | — | O nome da coluna. |
 | `-Count` | Int32 | — | — | 4 | `100` | O número de registros a serem retornados. O padrão é 100. -1 para todos. |
+
+## Examples
+
+### Get-SQLServerViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `     -ViewName "CustomersView" `     -ColumnName "Email" `     -Count 50
+
+```powershell
+Get-SQLServerViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `
+    -ViewName "CustomersView" `
+    -ColumnName "Email" `
+    -Count 50
+```
+
+### Get-SQLServerViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+
+```powershell
+Get-SQLServerViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+```
 
 ## Related Links
 

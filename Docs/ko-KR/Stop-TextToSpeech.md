@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Immediately stops any ongoing text-to-speech output.
+
+## Description
+
+표준 및 사용자 정의 음성 합성 작업을 모두 취소하여 모든 활성 및 대기 중인 음성 합성을 중단합니다. 이는 진행 중인 모든 텍스트 음성 변환 활동에 즉각적인 무음을 제공합니다.
 
 ## Syntax
 
@@ -40,6 +44,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### PS C:\> Stop-TextToSpeech Immediately stops any ongoing speech
+
+```powershell
+PS C:\> Stop-TextToSpeech
+Immediately stops any ongoing speech
+```
+
+### PS C:\> say "Hello world"; sst Starts speaking but gets interrupted immediately
+
+```powershell
+PS C:\> say "Hello world"; sst
+Starts speaking but gets interrupted immediately
 ```
 
 ## Related Links

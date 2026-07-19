@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> The current date is spoken using text-to-speech synthesis.
+
+## Description
+
+Converteer de huidige datum naar een natuurlijke taalindeling en kondig deze aan met behulp van de tekst-naar-spraakengine van het systeem. De datum wordt uitgesproken in de indeling: 'Het is [dag van de week], [maand] [dag] [jaar]'
 
 ## Syntax
 
@@ -32,6 +36,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### SayDate Announces today's date using text-to-speech
+
+```powershell
+SayDate
+Announces today's date using text-to-speech
 ```
 
 ## Related Links

@@ -9,26 +9,54 @@
 ## Description
 
 * Finden von Dateien mit Find-Item -> l
-        * Schnelle Multithread-Suche: Nutzt parallele und asynchrone E/A-Verarbeitung mit konfigurierbarem maximalen Parallelitätsgrad (Standard basierend auf CPU-Kernen) für effizientes Scannen von Dateien und Verzeichnissen.
-        * Erweiterter Musterabgleich: Unterstützt Platzhalter (*, ?), rekursive Muster wie ** und komplexe Pfadstrukturen für präzise Datei- und Verzeichnisabfragen.
-          **/filename rekursiert nur, bis filename gefunden wird. Mehrere solcher Muster sind erlaubt, solange ihnen ein Datei- oder Verzeichnisname vorausgeht.
-          Dieser Musterparser hat die Leistungsfähigkeit von Resolve-Path, bietet aber Rekursionsfunktionen und unterstützt nur * und ? als Platzhalter, wodurch Fehler mit Pfaden, die [ ] Klammern enthalten, vermieden werden und die Notwendigkeit des -LiteralPath-Parameters entfällt, während die Integrität für Pfadabschnitte ohne Platzhalter erhalten bleibt, anders als ein Platzhalterabgleich auf dem gesamten vollständigen Pfad.
-        * Verbesserte Inhaltsuche: Umfassende Select-String-Integration mit regulären Ausdrücken in Dateiinhalten über den -Content-Parameter.
-            * Optimierung für große Dateien: Verarbeitet extrem große Dateien mit intelligenten überlappenden Puffern und minimaler Heap-Allokation.
-            * Mehrere Trefferoptionen: Alle Treffer pro Zeile finden (-AllMatches) oder nur den ersten Treffer pro Datei (-List).
-            * Groß-/Kleinschreibungssteuerung: Groß-/Kleinschreibungsabhängige Suche (-CaseSensitive) mit kulturspezifischen Optionen (-Culture).
-            * Kontexterfassung: Zeilen vor und nach Treffern anzeigen (-Context) für besseres Verständnis.
-            * Umgekehrte Suche: Dateien finden, die das Muster nicht enthalten (-NotMatch).
-            * Ausgabeformate: Rohe Zeichenfolgenausgabe (-Raw), boolesche Antwort (-Quiet) oder vollständige MatchInfo-Objekte.
-            * Musterarten: Reguläre Ausdrücke (Standard) oder einfacher literaler Zeichenfolgenabgleich (-SimpleMatch).
-            * Kodierungsunterstützung: Dateikodierung angeben (-Encoding) für genaue Textverarbeitung.
-        * Pfadtypenflexibilität: Verarbeitet relative, absolute, UNC-, Stammpfade und NTFS-Alternativdatenströme (ADS) mit optionaler Inhaltssuche in Streams.
-        * Multi-Laufwerk-Unterstützung: Durchsucht alle Laufwerke mit -AllDrives oder bestimmte Laufwerke über -SearchDrives, einschließlich optischer Datenträger, falls angegeben.
-        * Datei- und Verzeichnisfilterung: Optionen zum Durchsuchen nur von Verzeichnissen (-Directory), sowohl Dateien als auch Verzeichnissen (-FilesAndDirectories) oder Dateien mit passendem Inhalt.
-        * Ausschlüsse und Grenzen: Muster ausschließen mit -Exclude, maximale Rekursionstiefe festlegen (-MaxRecursionDepth), Dateigrößenbeschränkungen (-MaxFileSize, -MinFileSize) und Änderungsdatumfilter (-ModifiedAfter, -ModifiedBefore).
-        * Ausgabeanpassung: Unterstützt PassThru für FileInfo-/DirectoryInfo-Objekte, relative Pfade, Hyperlinks im interaktiven Modus oder einfache Pfade im unbeaufsichtigten Modus (verwenden Sie -NoLinks bei Problemen, um den unbeaufsichtigten Modus zu erzwingen).
-        * Leistungsoptimierungen: Überspringt standardmäßig Nicht-Text-Dateien bei der Inhaltssuche (mit -IncludeNonTextFileMatching überschreibbar), verarbeitet lange Pfade (>260 Zeichen) und folgt Symlinks/Junctions.
-        * Sicherheitsfunktionen: Timeout-Unterstützung (-TimeoutSeconds), ignoriert nicht zugängliche Elemente, überspringt standardmäßig Systemattribute und verhindert Endlosschleifen mit Besuchsverfolgung.
+        * Schnelle multi-threaded Suche: Nutzt parallele und asynchrone
+              IO-Verarbeitung mit konfigurierbarem maximalen Grad der Parallelität
+              (Standard basierend auf CPU-Kernen) für effizientes Datei- und Verzeichnisscannen.
+        * Erweiterte Mustervergleiche: Unterstützt Platzhalter (*, ?), rekursive Muster
+              wie **, und komplexe Pfadstrukturen für präzise Datei- und Verzeichnisabfragen.
+              **/dateiname wird nur rekursiv fortgesetzt, bis dateiname gefunden wird. Mehrere solcher
+              Muster sind erlaubt, solange ihnen ein Datei- oder
+              Verzeichnisname vorausgeht.
+              Dieser Musterparser hat die Leistungsfähigkeit von Resolve-Path, aber mit Rekursions-,
+              funktionen, und unterstützt nur * und ? als Platzhalter,
+              wodurch Fehler mit Pfaden mit Klammern [ ] vermieden werden, und die Notwendigkeit
+              des Parameters -LiteralPath entfällt, während die Integrität
+              für Pfadabschnitte ohne Platzhalter gewahrt bleibt, im Gegensatz zu einem Platzhalterabgleich auf dem
+              gesamten vollständigen Pfad.
+        * Verbesserte Inhaltssuche: Umfassende Select-String-Integration
+              mit regulären Ausdrücken in Dateiinhalten über den
+              Parameter -Content.
+            * Optimierung für große Dateien: Handhabt extrem große Dateien mit intelligenten
+                  überlappenden Puffern und minimaler Heap-Allokation
+            * Mehrere Trefferoptionen: Findet alle Treffer pro Zeile (-AllMatches) oder
+                  nur den ersten Treffer pro Datei (-List)
+            * Groß-/Kleinschreibungssteuerung: Groß-/Kleinschreibung beachten (-CaseSensitive)
+                  mit kulturspezifischen Optionen (-Culture)
+            * Kontext erfassen: Zeigt Zeilen vor und nach Treffern (-Context) für
+                  besseres Verständnis
+            *Inverse Suche: Findet Dateien, die das Muster nicht enthalten (-NotMatch)
+            * Ausgabeformate: Rohe Zeichenkettenausgabe (-Raw), stille boolesche Antwort (-Quiet),
+                  oder vollständige MatchInfo-Objekte
+            * Musterarten: Reguläre Ausdrücke (Standard) oder einfache literale Zeichenketten,
+                  -vergleiche (-SimpleMatch)
+            * Kodierungsunterstützung: Geben Sie die Dateikodierung (-Encoding) für genaue Textverarbeitung an
+        * Pfadtypen-Flexibilität: Verarbeitet relative, absolute, UNC-, verwurzelte Pfade und
+              NTFS-Alternativdatenströme (ADS) mit optionaler Inhaltssuche in Streams.
+        * Multi-Laufwerk-Unterstützung: Durchsucht alle Laufwerke mit -AllDrives oder bestimmte
+              Laufwerke über -SearchDrives, einschließlich optischer Datenträger, falls angegeben.
+        * Verzeichnis- und Dateifilterung: Optionen zur Suche nur in Verzeichnissen (-Directory),
+              sowohl Dateien als auch Verzeichnissen (-FilesAndDirectories), oder Dateien mit passendem Inhalt.
+        * Ausschluss und Grenzen: Ausschlussmuster mit -Exclude, festlegen der maximalen Rekursionstiefe
+              (-MaxRecursionDepth), Dateigrößenbeschränkungen (-MaxFileSize, -MinFileSize) und Änderungsdatum,
+              -filter (-ModifiedAfter, -ModifiedBefore).
+        * Ausgabeanpassung: Unterstützt PassThru für FileInfo/DirectoryInfo-Objekte,
+              relative Pfade, Hyperlinks im beaufsichtigten Modus oder einfache Pfade im unbeaufsichtigten Modus
+              (verwenden Sie -NoLinks bei Fehlern, um den unbeaufsichtigten Modus zu erzwingen).
+        * Leistungsoptimierungen: Überspringt standardmäßig Nicht-Textdateien bei der Inhaltssuche
+              (überschreiben mit -IncludeNonTextFileMatching), behandelt lange Pfade (>260 Zeichen)
+              und folgt Symlinks/Junctions.
+        * Sicherheitsfunktionen: Timeout-Unterstützung (-TimeoutSeconds), ignoriert unzugängliche Elemente,
+              überspringt standardmäßig Systemattribute und verhindert Endlosschleifen durch Verfolgung besuchter Knoten.
 
 ## Syntax
 
@@ -96,8 +124,8 @@ Find-Item -Content "translation"
 l -mc translation
 ```
 
-Finde Dateien, die ein bestimmtes Wort enthalten
-Durchsuche alle Dateien im aktuellen Verzeichnis und Unterverzeichnissen, die das Wort "Übersetzung" enthalten.
+Finden Sie Dateien, die ein bestimmtes Wort enthalten
+Durchsuchen Sie alle Dateien im aktuellen Verzeichnis und Unterverzeichnissen nach dem Wort "Übersetzung".
 
 ### Example 2
 
@@ -108,8 +136,8 @@ Find-Item "*.js" "Version == `"\d\d?\.\d\d?\.\d\d?`""
 l *.js "Version == `"\d\d?\.\d\d?\.\d\d?`""
 ```
 
-Finde JavaScript-Dateien mit einer Versionszeichenfolge
-Suche nach JavaScript-Dateien, die eine Versionszeichenfolge im Format "Version == `x.y.z`" enthalten.
+Finden Sie JavaScript-Dateien mit einer Versionszeichenfolge
+Durchsuchen Sie JavaScript-Dateien, die eine Versionszeichenfolge im Format "Version == `x.y.z`" enthalten.
 
 ### Example 3
 
@@ -120,8 +148,8 @@ Find-Item -Directory
 l -dir
 ```
 
-Auflisten aller Verzeichnisse
-Finden Sie alle Verzeichnisse im aktuellen Verzeichnis und seinen Unterverzeichnissen.
+Liste alle Verzeichnisse
+Finde alle Verzeichnisse im aktuellen Verzeichnis und seinen Unterverzeichnissen.
 
 ### Example 4
 
@@ -132,8 +160,8 @@ Find-Item ".\*.xml" -PassThru | % FullName
 l *.xml -pt | % FullName
 ```
 
-XML-Dateien suchen und Objekte übergeben
-Durchsuchen Sie alle .xml-Dateien und übergeben Sie die Ergebnisse als Objekte durch die Pipeline.
+XML-Dateien finden und Objekte übergeben
+Durchsuchen Sie alle .xml-Dateien und übergeben Sie die Ergebnisse als Objekte über die Pipeline.
 
 ### Example 5
 
@@ -144,8 +172,8 @@ Find-Item -IncludeAlternateFileStreams
 l -ads
 ```
 
-Include alternate data streams
-Search for all files and include their alternate data streams in the results.
+Alternative Datenströme einbeziehen
+Durchsuchen Sie alle Dateien und beziehen Sie deren alternative Datenströme in die Ergebnisse ein.
 
 ### Example 6
 
@@ -156,8 +184,8 @@ Find-Item "*.pdf" -AllDrives
 l *.pdf -alldrives
 ```
 
-Search across all drives
-Search for all PDF files across all available drives.
+Suche über alle Laufwerke
+Suche nach allen PDF-Dateien auf allen verfügbaren Laufwerken.
 
 ### Example 7
 
@@ -168,8 +196,8 @@ Find-Item "*.log" -TimeoutSeconds 300 -MaxDegreeOfParallelism 4
 l *.log -maxseconds 300 -threads 4
 ```
 
-Individuelles Timeout und Parallelität
-Suche nach Logdateien mit einem 5-Minuten-Timeout und begrenzter Parallelität.
+Benutzerdefiniertes Timeout und Parallelität
+Suche nach Logdateien mit einem 5-minütigen Timeout und begrenzter Parallelität.
 
 ### Example 8
 
@@ -181,7 +209,7 @@ ls C:\Logs | l -matchcontent "error"
 ```
 
 Pipeline-Eingabe
-Übergeben Sie Dateipfade von Get-ChildItem, um nach Dateien zu suchen, die "error" enthalten.
+Übergeben Sie Dateipfade von Get-ChildItem, um nach Dateien zu suchen, die "Fehler" enthalten.
 
 ### Example 9
 
@@ -192,8 +220,8 @@ Find-Item "*.txt" -MaxRecursionDepth 2
 l *.txt -maxdepth 2
 ```
 
-Limit recursion depth
-Search for text files but limit recursion to 2 directory levels.
+Rekursionstiefe begrenzen
+Textdateien suchen, aber Rekursion auf 2 Verzeichnisebenen begrenzen.
 
 ### Example 10
 
@@ -205,7 +233,7 @@ l -minsize 1048576 -maxsize 10485760
 ```
 
 Nach Dateigröße filtern
-Finde Dateien, die größer als 1 MB, aber kleiner als 10 MB sind.
+Dateien finden, die größer als 1 MB, aber kleiner als 10 MB sind.
 
 ### Example 11
 
@@ -228,8 +256,8 @@ Find-Item -Exclude "*.tmp", "*\bin\*"
 l -skiplike "*.tmp", "*\bin\*"
 ```
 
-Spezifische Muster ausschließen
-Suchen Sie nach allen Dateien, schließen Sie jedoch temporäre Dateien und Bin-Verzeichnisse aus.
+Bestimmte Muster ausschließen
+Durchsuchen Sie alle Dateien, schließen Sie aber temporäre Dateien und Bin-Verzeichnisse aus.
 
 ### Example 13
 
@@ -240,8 +268,8 @@ Find-Item "*.docx" -SearchDrives "C:\", "D:\"
 l *.docx -drives C:\, D:\
 ```
 
-Search specific drives
-Search for .docx files on C: and D: drives only.
+Bestimmte Laufwerke durchsuchen
+Suchen Sie nur auf Laufwerk C: und D: nach .docx-Dateien.
 
 ### Example 14
 
@@ -253,7 +281,7 @@ l -mc "Error" -CaseSensitive
 ```
 
 Groß-/Kleinschreibung beachten bei der Inhaltssuche
-Nach Dateien suchen, die "Error" (Groß-/Kleinschreibung beachten) in ihrem Inhalt enthalten.
+Suchen Sie in Dateiinhalten nach "Error" (Groß-/Kleinschreibung beachten).
 
 ### Example 15
 
@@ -264,7 +292,7 @@ Find-Item -IncludeAlternateFileStreams -SearchADSContent -Content "secret"
 l -ads -sads -mc "secret"
 ```
 
-Inhalt alternativer Datenströme durchsuchen
+Alternativen Datenstrom-Inhalt durchsuchen
 Nach Dateien mit alternativen Datenströmen suchen, die "secret" enthalten.
 
 ### Example 16
@@ -276,8 +304,8 @@ Find-Item "*.ps1" -Content "function" -AllMatches
 l *.ps1 -mc "function" -AllMatches
 ```
 
-Finde alle Treffer pro Zeile
-Suche nach allen Vorkommen von "function" in jeder Zeile, nicht nur nach dem ersten Treffer.
+Finden Sie alle Übereinstimmungen pro Zeile
+Suchen Sie nach allen Vorkommen von "function" in jeder Zeile, nicht nur nach der ersten Übereinstimmung.
 
 ### Example 17
 
@@ -289,7 +317,7 @@ l *.log -mc "error" -Context 2,3
 ```
 
 Kontext um Treffer anzeigen
-2 Zeilen vor und 3 Zeilen nach jedem Treffer anzeigen, um das Verständnis zu verbessern.
+Zeigt 2 Zeilen vor und 3 Zeilen nach jedem Treffer für besseres Verständnis.
 
 ### Example 18
 
@@ -300,8 +328,8 @@ Find-Item "*.txt" -Content "TODO:.*" -Raw
 l *.txt -mc "TODO:.*" -Raw
 ```
 
-Get only matching strings
-Return just the matching text strings instead of full match objects.
+Nur übereinstimmende Zeichenfolgen abrufen
+Gibt die übereinstimmenden Textstrings anstelle vollständiger Übereinstimmungsobjekte zurück.
 
 ### Example 19
 
@@ -312,8 +340,8 @@ Find-Item "*.config" -Content "database" -Quiet
 l *.config -mc "database" -Quiet
 ```
 
-Einfache boolesche Prüfung
-Geben Sie true/false statt der Übereinstimmungsdetails zurück, um zu prüfen, ob ein Muster vorhanden ist.
+Einfacher Boolean-Check
+Statt Übereinstimmungsdetails true/false zurückgeben, um zu prüfen, ob Muster vorhanden ist.
 
 ### Example 20
 
@@ -324,8 +352,8 @@ Find-Item "*.cs" -Content "class.*Controller" -List
 l *.cs -mc "class.*Controller" -List
 ```
 
-Finde nur den ersten Treffer pro Datei
-Stoppe beim ersten Treffer in jeder Datei für effiziente Dateiauflistung.
+Nur den ersten Treffer pro Datei finden
+Stopp nach dem ersten Treffer in jeder Datei für effizientes Auflisten.
 
 ### Example 21
 
@@ -336,8 +364,8 @@ Find-Item "*.txt" -Content "$variable[0]" -SimpleMatch
 l *.txt -mc "$variable[0]" -SimpleMatch
 ```
 
-Literal string matching
-Search for exact text without regex interpretation using SimpleMatch.
+Literal String Matching
+Suche nach exaktem Text ohne Regex-Interpretation mit SimpleMatch.
 
 ### Example 22
 
@@ -348,7 +376,7 @@ Find-Item "*.js" -Content "console\.log" -NotMatch
 l *.js -mc "console\.log" -NotMatch
 ```
 
-Finden von Dateien, die KEIN Muster enthalten
+Dateien finden, die KEIN Muster enthalten
 Verwenden Sie NotMatch, um Dateien zu finden, die das angegebene Muster nicht enthalten.
 
 ### Example 23
@@ -361,7 +389,7 @@ l *.txt -mc "café" -Encoding UTF8
 ```
 
 Dateikodierung angeben
-Durchsuchen Sie Dateien mit bestimmter Kodierung für präzise Textverarbeitung.
+Durchsuchen Sie Dateien mit einer bestimmten Kodierung, um eine genaue Textverarbeitung zu gewährleisten.
 
 ### Example 24
 
@@ -372,8 +400,8 @@ Find-Item "*.txt" -Content "Müller" -SimpleMatch -Culture "de-DE"
 l *.txt -mc "Müller" -SimpleMatch -Culture "de-DE"
 ```
 
-Vergleich kultureller Texte
-Verwenden Sie kulturspezifische Übereinstimmung mit SimpleMatch für internationale Texte.
+Kulturtextvergleich
+Verwende kulturspezifisches Matching mit SimpleMatch für internationalen Text.
 
 ### Example 25
 
@@ -384,8 +412,8 @@ Find-Item "*.log" -Content "exception" -MinFileSize 1024 -ModifiedAfter "2025-01
 l *.log -mc "exception" -minsize 1024 -after "2025-01-01" -maxdepth 3
 ```
 
-Complessuche mit Dateifiltern
-Kombinieren Sie Dateigrößen-, Datums- und Inhaltsfilter für präzise Suchvorgänge.
+Erweiterte Inhaltssuche mit Dateifiltern
+Kombinieren Sie Dateigröße, Datum und Inhaltfilter für präzise Suchen.
 
 ## Related Links
 

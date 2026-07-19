@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在网络浏览器中打开康威生命游戏模拟。
+
+## Description
+
+在网页浏览器窗口中打开交互式康威生命游戏模拟，提供丰富的定位和配置选项。康威生命游戏是数学家约翰·康威于1970年设计的一种细胞自动机，由可以处于存活或死亡两种状态的细胞网格组成。
+
+此函数提供全面的浏览器控制功能，包括窗口定位、浏览器选择、隐私浏览以及自动化交互能力。模拟运行于 https://conway.genxdev.net/，支持多种交互模式。
 
 ## Syntax
 
 ```powershell
-Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoApplicationMode] [-NoBorders] [-NoBrowserExtensions] [-NoFullScreen] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +29,9 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
 | `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-Monitor` | Int32 | — | — | Named | `-2` | 要使用的显示器，0 = 默认，-1 = 丢弃，-2 = 配置的辅助显示器，默认为 -1，无定位 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 在全屏模式下打开 |
@@ -60,6 +69,40 @@ Open-GameOfLife [[-Language] <String>] [-AcceptLang <String>] [-All] [-Applicati
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 对浏览器配置文件使用仅会话模式（关闭时清除 Cookie 和数据）。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 在打开之前清除浏览器会话/配置文件数据。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 跳过恢复之前的浏览器会话。 |
+
+## Examples
+
+### Open-GameOfLife -Monitor 1 -FullScreen
+
+```powershell
+Open-GameOfLife -Monitor 1 -FullScreen
+```
+
+在显示器1上全屏模式打开康威生命游戏。
+
+### Open-GameOfLife -Language "French" -Chrome -Private
+
+```powershell
+Open-GameOfLife -Language "French" -Chrome -Private
+```
+
+Ouvre le Jeu de la Vie en français en utilisant Chrome en mode privé.
+
+### gameoflife -m 0 -app
+
+```powershell
+gameoflife -m 0 -app
+```
+
+使用别名在主显示器上以应用程序模式打开《生命游戏》。
+
+### conway -Edge -Left -Width 800 -Height 600
+
+```powershell
+conway -Edge -Left -Width 800 -Height 600
+```
+
+在 Microsoft Edge 中打开 Conway 的生命游戏，位于左侧，并具有特定尺寸。
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> YouTube 브라우저 탭에서 동영상 재생을 재개합니다.
+
+## Description
+
+활성화된 YouTube 브라우저 탭을 찾아 페이지에서 발견된 비디오 요소에 대해 play() 메서드를 실행하여 비디오 재생을 재개합니다. YouTube 탭이 없으면 함수는 오류를 발생시킵니다. 이 함수는 브라우저 세션에서 비디오 재생 제어를 자동화하는 데 특히 유용합니다.
 
 ## Syntax
 
@@ -42,6 +46,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Resume-WebbrowserTabVideo
+
+```powershell
+Resume-WebbrowserTabVideo
+```
+
+### wbvideoplay
+
+```powershell
+wbvideoplay
 ```
 
 ## Related Links

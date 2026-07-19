@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stelt een voorkeurswaarde in de GenXdev-voorkeurenopslag in.
+
+## Description
+
+* Beheert voorkeuren in de GenXdev lokale opslag.
+* Kan nieuwe voorkeuren instellen, bestaande bijwerken of verwijderen wanneer een null/lege waarde wordt opgegeven.
+* Voorkeuren worden opgeslagen met synchronisatie ingesteld op "Lokaal".
 
 ## Syntax
 
@@ -22,6 +28,24 @@ Set-GenXdevPreference [-Name] <string> [[-Value] <string>] [-SessionOnly] [-Clea
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Het sessie-instelling (Globale variabele) wissen voordat u ophaalt |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Databasepad voor voorkeursgegevensbestanden |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Gebruik geen alternatieve instellingen opgeslagen in sessie voor Data-voorkeuren zoals Taal, Database-paden, etc. |
+
+## Examples
+
+### Example 1
+
+```powershell
+Set-GenXdevPreference -Name "Theme" -Value "Dark"
+```
+
+Stelt de "Thema"-voorkeur in op "Donker" in de lokale opslag.
+
+### Example 2
+
+```powershell
+setPreference Theme Light
+```
+
+Gebruikt het alias en positionele parameters om de themavoorkeur in te stellen.
 
 ## Related Links
 

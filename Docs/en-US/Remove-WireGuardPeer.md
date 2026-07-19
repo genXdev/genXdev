@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Removes a WireGuard VPN peer configuration.
+
+## Description
+
+This function removes a WireGuard VPN peer configuration from the server running
+in a Docker container. It deletes the peer's configuration files and updates the
+WireGuard server to stop accepting connections from this peer. The function
+validates peer existence before removal and provides confirmation prompts unless
+the Force parameter is specified.
 
 ## Syntax
 
@@ -48,6 +56,32 @@ Remove-WireGuardPeer -PeerName <String> [-Bottom] [-Centered] [-ClearSession] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Remove-WireGuardPeer -PeerName "MyPhone"
+
+```powershell
+Remove-WireGuardPeer -PeerName "MyPhone"
+```
+
+Removes the peer named "MyPhone" with confirmation prompt.
+
+### Remove-WireGuardPeer -PeerName "Tablet" -Force
+
+```powershell
+Remove-WireGuardPeer -PeerName "Tablet" -Force
+```
+
+Removes the peer named "Tablet" without confirmation prompt.
+
+### Remove-WireGuardPeer "WorkLaptop"
+
+```powershell
+Remove-WireGuardPeer "WorkLaptop"
+```
+
+Removes the peer using positional parameter syntax.
 
 ## Related Links
 

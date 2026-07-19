@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Beheert sleutel-waardeparen in een op JSON-bestanden gebaseerde opslag.
+
+## Description
+
+Biedt persistente opslag voor sleutel-waardeparen met behulp van JSON-bestanden. Verwerkt zowel het invoegen van nieuwe items als het bijwerken van bestaande. Ondersteunt optionele synchronisatie voor niet-lokale opslag. Deze functie voert een upsert-bewerking uit die ofwel nieuwe sleutel-waardeparen invoegt of bestaande bijwerkt op basis van de combinatie van synchronisatiesleutel, winkelnaam en sleutelnaam.
 
 ## Syntax
 
@@ -21,6 +25,25 @@ Set-ValueByKeyInStore [-StoreName] <string> [-KeyName] <string> [[-Value] <strin
 | `-Value` | String | — | — | 2 | — | Waarde om op te slaan |
 | `-SynchronizationKey` | String | — | — | 3 | — | Sleutel om synchronisatiebereik te identificeren |
 | `-DatabasePath` | String | — | — | Named | — | Databasepad voor data-bestanden van key-value-opslag |
+
+## Examples
+
+### Example 1
+
+```powershell
+Set-ValueByKeyInStore -StoreName "ConfigStore" -KeyName "ApiEndpoint" `
+    -Value "https://api.example.com"
+```
+
+Stel een API-eindpunt in in de ConfigStore.
+
+### Example 2
+
+```powershell
+setvalue ConfigStore ApiEndpoint "https://api.example.com"
+```
+
+Gebruik de alias om een waarde in te stellen.
 
 ## Related Links
 

@@ -4,7 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Microsoft の Robust Copy (RoboCopy) ユーティリティ用の PowerShell ラッパーを提供します。
+
+## Description
+
+RoboCopy コマンドラインユーティリティの包括的なラッパーです。堅牢なファイルおよびディレクトリコピー機能を提供します。この関数は、RoboCopy の広範な機能セットを PowerShell フレンドリーなパラメーターを通じて公開し、その強力な機能の大部分を維持します。
+
+主な機能:
+- ミラーオプションによるディレクトリ同期
+- 長いパス名（256文字以上）のサポート
+- セキュリティ設定の保持
+- 高度なファイル属性の処理
+- シンボリックリンクとジャンクションポイントの管理
+- 継続的同期のための監視モード
+- 大容量ファイル向けのパフォーマンス最適化
+- ネットワーク圧縮のサポート
+- 障害が発生したデバイス向けのリカバリモード
 
 ## Syntax
 
@@ -21,11 +36,11 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Source` | String | ✅ | — | 0 | — | ディレクトリ、ファイルパス、またはディレクトリ+検索マスク |
-| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | コピー先のファイルとディレクトリの配置先ディレクトリ。
-このディレクトリがまだ存在しない場合、不足しているディレクトリはすべて作成されます。
+| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | コピーしたファイルとディレクトリを配置する先のディレクトリです。
+このディレクトリがまだ存在しない場合は、不足しているすべてのディレクトリが作成されます。
 デフォルト値 = "." |
 | `-Files` | String[] | — | — | 2 | `@()` | コピーするファイルを選択するためのオプションの検索マスク。
-デフォルト値 = '*' 🌐 *Supports wildcards* |
+            デフォルト値 = '*' 🌐 *Supports wildcards* |
 | `-Mirror` | SwitchParameter | — | — | Named | — | 指定されたディレクトリの内容を同期します。送信先に存在するが送信元に存在しないファイルやディレクトリも削除されます。 |
 | `-Move` | SwitchParameter | — | — | Named | — | ソースから宛先に全てのファイルをコピーする代わりに移動します |
 | `-IncludeSecurity` | SwitchParameter | — | — | Named | — | また、ファイルとディレクトリの所有権、セキュリティ記述子、監査情報もコピーします。 |
@@ -71,7 +86,7 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | `-ExactTimestamps` | SwitchParameter | — | — | Named | — | 設定時は、デフォルトの2秒トレランスの代わりにミリ秒タイムスタンプマッチングを使用します |
 | `-Override` | String | — | — 🌐 Remaining | 3 | — | 指定されたrobocopyパラメータを上書き、削除、または追加します。
 
-使用方法：
+使用法：
 
 パラメータを追加または置換：
 
@@ -86,6 +101,24 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 複数の上書き：
 
     -Override "/ReplaceThisSwitchWithValue:'SomeValue' -/RemoveThisSwitch /AddThisSwitch" |
+
+## Examples
+
+### ########################################################################Mirror a directory with security settings Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `     -Mirror -IncludeSecurity
+
+```powershell
+########################################################################Mirror a directory with security settings
+Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `
+    -Mirror -IncludeSecurity
+```
+
+### ########################################################################Monitor and sync changes every 10 minutes Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `     -MonitorMode -MonitorModeThresholdMinutes 10
+
+```powershell
+########################################################################Monitor and sync changes every 10 minutes
+Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `
+    -MonitorMode -MonitorModeThresholdMinutes 10
+```
 
 ## Related Links
 

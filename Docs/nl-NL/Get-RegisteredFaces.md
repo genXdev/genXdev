@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Haalt een lijst op van alle geregistreerde gezichts-ID's van DeepStack.
+
+## Description
+
+Deze functie maakt verbinding met een lokale DeepStack gezichtsherkennings-API en haalt alle geregistreerde gezichtsidentifiers op. Het gebruikt het /v1/vision/face/list-eindpunt om de DeepStack-service te raadplegen en retourneert een reeks gezichtsidentificatiestrings. De functie behandelt de initialisatie van Docker-containers, API-communicatie en foutafhandeling voor verschillende storingsscenario's.
 
 ## Syntax
 
@@ -26,6 +30,41 @@ Get-RegisteredFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | Interval in seconden tussen health check pogingen |
 | `-ImageName` | String | — | — | 5 | — | Aangepaste Docker-afbeeldingsnaam om te gebruiken |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Toon Docker Desktop-venster tijdens initialisatie |
+
+## Examples
+
+### Get-RegisteredFaces
+
+```powershell
+Get-RegisteredFaces
+```
+
+Dit voorbeeld haalt alle geregistreerde gezichten op met standaardparameters.
+
+### Get-RegisteredFaces -Force -UseGPU
+
+```powershell
+Get-RegisteredFaces -Force -UseGPU
+```
+
+Dit voorbeeld forceert een herbouw van de container en gebruikt GPU-versnelling.
+
+### Get-RegisteredFaces -ContainerName "my_deepstack" -ServicePort 8080
+
+```powershell
+Get-RegisteredFaces -ContainerName "my_deepstack" -ServicePort 8080
+```
+
+Dit voorbeeld gebruikt een aangepaste containernaam en poortnummer.
+
+### Get-RegisteredFaces | Where-Object { $_ -like "John*" }
+
+```powershell
+Get-RegisteredFaces |
+Where-Object { $_ -like "John*" }
+```
+
+Dit voorbeeld haalt alle gezichten op en filtert op die met "John" beginnen.
 
 ## Related Links
 

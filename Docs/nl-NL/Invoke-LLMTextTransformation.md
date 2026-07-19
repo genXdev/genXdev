@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Verwerkt tekst met behulp van AI-gestuurde verwerking.
+
+## Description
+
+Deze functie verwerkt invoertekst met behulp van AI-modellen om verschillende transformaties uit te voeren, zoals spellingcontrole, het toevoegen van emoticons of elke andere tekstverbetering die via instructies wordt gespecificeerd. Het kan invoer rechtstreeks accepteren via parameters, van de pijplijn of van het systeemklembord.
 
 ## Syntax
 
@@ -90,6 +94,28 @@ This is a sample block that could be passed to an LLMQuery.
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter voor markup-bloktypen (doorgegeven aan LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale toolcallback-lengte (doorgegeven aan LLMQuery) |
+
+## Examples
+
+### Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `     -Instructions "Fix spelling errors" -SetClipboard
+
+```powershell
+Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `
+    -Instructions "Fix spelling errors" -SetClipboard
+```
+
+### "Time to celerbate!" | Invoke-LLMTextTransformation `     -Instructions "Add celebratory emoticons"
+
+```powershell
+"Time to celerbate!" | Invoke-LLMTextTransformation `
+    -Instructions "Add celebratory emoticons"
+```
+
+### spellcheck "This is a sentance with erors"
+
+```powershell
+spellcheck "This is a sentance with erors"
+```
 
 ## Outputs
 

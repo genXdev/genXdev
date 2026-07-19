@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 2つの異なる画像内の顔を比較し、DeepStackを使用してそれらの類似性を返します。
+
+## Description
+
+この関数は、2つの画像間の顔を比較して類似度を判定します。設定可能なポートで動作するローカルのDeepStack顔一致APIを使用し、0.0から1.0の間の類似度スコアを返します。これは通常、身分証明書と人物の写真の一致確認や、2枚の写真が同一人物かどうかの検証に使用されます。
 
 ## Syntax
 
@@ -28,6 +32,25 @@ Compare-ImageFaces -ImagePath1 <String> -ImagePath2 <String> [[-ContainerName] <
 | `-Force` | SwitchParameter | — | — | Named | — | Dockerコンテナを強制再構築し、既存データを削除 |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | GPUアクセラレーション版を使用（NVIDIA GPUが必要） |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 初期化中にDocker Desktopウィンドウを表示する |
+
+## Examples
+
+### Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `                    -ImagePath2 "C:\Users\YourName\photo2.jpg"
+
+```powershell
+Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `
+                   -ImagePath2 "C:\Users\YourName\photo2.jpg"
+```
+
+デフォルト設定を使用して、2つの画像間の顔を比較します。
+
+### comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+
+```powershell
+comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+```
+
+GPUアクセラレーションを使用して顔を比較し、エイリアスと位置パラメータで本人確認を行います。
 
 ## Outputs
 

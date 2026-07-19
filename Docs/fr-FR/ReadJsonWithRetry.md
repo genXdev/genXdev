@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Lit un fichier JSON avec logique de réessai et nettoyage automatique des verrous.
+
+## Description
+
+Tente de lire un fichier JSON avec une logique de réessai pour gérer l'accès concurrentiel. Implémente un nettoyage automatique des fichiers de verrouillage obsolètes. Renvoie une table de hachage vide si le fichier n'existe pas.
 
 ## Syntax
 

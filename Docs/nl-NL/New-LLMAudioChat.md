@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Maakt een interactieve audiochat-sessie met een LLM-model.
+
+## Description
+
+Start een spraakgestuurd gesprek met een taalmodel, met ondersteuning voor audio-invoer en -uitvoer. De functie verwerkt audio-opname, transcriptie, modelquery's en tekst-naar-spraak-reacties. Ondersteunt meerdere taalmodellen en diverse configuratieopties, waaronder vensterbeheer, GPU-versnelling en geavanceerde audioverwerkingsfuncties.
 
 ## Syntax
 
@@ -93,6 +97,22 @@ New-LLMAudioChat [[-Query] <String>] [[-Instructions] <String>] [[-Attachments] 
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
+
+## Examples
+
+### New-LLMAudioChat -Query "Tell me about PowerShell" `     -Model "qwen2.5-14b-instruct" `     -Temperature 0.7
+
+```powershell
+New-LLMAudioChat -Query "Tell me about PowerShell" `
+    -Model "qwen2.5-14b-instruct" `
+    -Temperature 0.7
+```
+
+### llmaudiochat "What's the weather?" -DontSpeak
+
+```powershell
+llmaudiochat "What's the weather?" -DontSpeak
+```
 
 ## Related Links
 

@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Garante que o Docker Desktop esteja instalado e disponível para operações de conteinerização.
+
+## Description
+
+Verifica se o Docker Desktop está instalado e configurado corretamente no sistema.
+Se não for encontrado, instala o Docker Desktop usando WinGet e lida com todo o processo de instalação automaticamente. Esta função também gerencia a inicialização do serviço do Docker Desktop, a verificação de prontidão do daemon e trata dos requisitos de autenticação quando necessário. A função inclui gerenciamento abrangente de caminho para instalações do Docker no nível do sistema e do usuário.
 
 ## Syntax
 
@@ -43,6 +48,26 @@ EnsureDockerDesktop [[-Monitor] <Int32>] [[-Width] <Int32>] [[-Height] <Int32>] 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Configurações alternativas claras armazenadas na sessão para preferências de IA |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazenar configurações apenas em preferências persistentes sem afetar a sessão |
 | `-NoDockerInitialization` | SwitchParameter | — | — | Named | — | Pular a inicialização do Docker e retornar imediatamente |
+
+## Examples
+
+### EnsureDockerDesktop
+
+```powershell
+EnsureDockerDesktop
+```
+
+### EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+```
+
+### EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+```
 
 ## Related Links
 

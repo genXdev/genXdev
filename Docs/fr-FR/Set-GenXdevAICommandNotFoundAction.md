@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Met en place une gestion personnalisée des commandes introuvables avec assistance IA.
+
+## Description
+
+Configure PowerShell pour gérer les commandes inconnues, soit en navigant vers des répertoires, soit en utilisant l'IA pour interpréter l'intention de l'utilisateur. Le gestionnaire essaie d'abord tout gestionnaire existant de commande non trouvée, puis vérifie si la commande est un chemin valide pour la navigation, et enfin propose une assistance IA pour les commandes inconnues.
 
 ## Syntax
 
@@ -179,6 +183,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdev PowerShell 모듈과 해당 cmdlet 및 별칭을 표시합니다.
+
+## Description
+
+설치된 모든 GenXdev PowerShell 모듈과 관련 cmdlet 및 별칭을 나열합니다. Get-GenXDevCmdlet을 사용하여 cmdlet 정보와 선택적으로 해당 스크립트 위치를 검색합니다. 다양한 필터링 및 표시 옵션을 제공합니다.
 
 ## Syntax
 
@@ -31,6 +35,29 @@ Show-GenXdevCmdlet [-IncludeScripts] [<CommonParameters>]
 | `-OnlyAliases` | SwitchParameter | — | — | Named | — | When specified displays only aliases of cmdlets |
 | `-ShowTable` | SwitchParameter | — | — | Named | — | 결과를 표 형식으로 표시 |
 | `-PassThru` | SwitchParameter | — | — | Named | — | The `-PassThru` parameter. |
+
+## Examples
+
+### Show-GenXdevCmdlet -CmdletName "Get" -ModuleName "Console" -ShowTable Lists all cmdlets starting with "Get" in the Console module as a table
+
+```powershell
+Show-GenXdevCmdlet -CmdletName "Get" -ModuleName "Console" -ShowTable
+Lists all cmdlets starting with "Get" in the Console module as a table
+```
+
+### cmds get -m console Lists all cmdlets starting with "Get" in the Console module
+
+```powershell
+cmds get -m console
+Lists all cmdlets starting with "Get" in the Console module
+```
+
+### Show-GenXdevCmdlet -OnlyReturnModuleNames Returns only unique module names
+
+```powershell
+Show-GenXdevCmdlet -OnlyReturnModuleNames
+Returns only unique module names
+```
 
 ## Outputs
 

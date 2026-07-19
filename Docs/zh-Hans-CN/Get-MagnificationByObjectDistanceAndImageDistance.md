@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 计算透镜的放大率。
+
+## Description
+
+使用 m = -(像距/物距)。
 
 ## Syntax
 
@@ -18,6 +22,24 @@ Get-MagnificationByObjectDistanceAndImageDistance [-ObjectDistanceInMeters] <dou
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-ObjectDistanceInMeters` | Double | ✅ | — | 0 | `0` | 物体距离（米） |
 | `-ImageDistanceInMeters` | Double | ✅ | — | 1 | `0` | Image distance in meters |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-MagnificationByObjectDistanceAndImageDistance -ObjectDistanceInMeters 0.5 -ImageDistanceInMeters 1
+```
+
+Magnification = image distance / object distance = 1 m / 0.5 m = 2.
+
+### Example 2
+
+```powershell
+Get-MagnificationByObjectDistanceAndImageDistance 0.3 0.6
+```
+
+使用位置参数计算放大率。
 
 ## Related Links
 

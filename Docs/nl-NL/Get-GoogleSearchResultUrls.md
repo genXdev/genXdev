@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Voert een Google-zoekopdracht uit en retourneert de links
+
+## Description
+
+Voert een Google-zoekopdracht uit en retourneert de links
 
 ## Syntax
 
@@ -19,6 +23,14 @@ Get-GoogleSearchResultUrls -Queries <String[]> [-Language <String>] [-Max <Int32
 | `-Queries` | String[] | ✅ | ✅ (ByValue, ByPropertyName) 🌐 Remaining | 0 | — | De uit te voeren query |
 | `-Max` | Int32 | — | — | Named | `200` | Het maximale aantal resultaten dat u wilt verkrijgen, standaard 200 |
 | `-Language` | String | — | — | Named | — | De taal van de geretourneerde zoekresultaten |
+
+## Examples
+
+### PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls
+
+```powershell
+PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls
+```
 
 ## Related Links
 

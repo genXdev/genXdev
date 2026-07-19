@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Generate a QR code for a WireGuard VPN peer configuration.
+
+## Description
+
+Deze functie genereert een QR-code voor een WireGuard VPN-peerconfiguratie die kan worden gescand door mobiele apparaten voor eenvoudige installatie. De QR-code wordt weergegeven in de console en kan worden gebruikt om WireGuard-clients snel te configureren op smartphones en tablets. De functie werkt samen met de linuxserver/wireguard Docker-container om QR-codes te genereren voor peerconfiguraties.
 
 ## Syntax
 
@@ -28,6 +32,20 @@ Get-WireGuardPeerQRCode -PeerName <String> [-ContainerName <String>] [-Force] [-
 | `-PUID` | String | — | — | Named | `'1000'` | Gebruikers-ID voor machtigingen in de container |
 | `-PGID` | String | — | — | Named | `'1000'` | Groep-ID voor machtigingen in de container |
 | `-TimeZone` | String | — | — | Named | `'Etc/UTC'` | Tijdzone voor de container |
+
+## Examples
+
+### Get-WireGuardPeerQRCode -PeerName "MyPhone"
+
+```powershell
+Get-WireGuardPeerQRCode -PeerName "MyPhone"
+```
+
+### Get-WireGuardPeerQRCode -PeerName "Tablet" -NoDockerInitialize
+
+```powershell
+Get-WireGuardPeerQRCode -PeerName "Tablet" -NoDockerInitialize
+```
 
 ## Related Links
 

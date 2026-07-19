@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 인덱싱된 이미지 검색 결과에서 자른 얼굴 이미지를 저장합니다.
+
+## Description
+
+이 함수는 이미지 검색 결과를 가져와서 개별 얼굴 영역을 별도의 이미지 파일로 추출 및 저장합니다. 설명, 키워드, 사람, 객체, 장면, 사진 유형, 스타일 유형, 전반적인 분위기 등 다양한 기준으로 얼굴을 검색할 수 있으며, 지정된 출력 디렉토리에 저장합니다. 또한 노출 및 선정적인 콘텐츠를 필터링할 수 있습니다.
 
 ## Syntax
 
@@ -42,6 +46,20 @@ Save-FoundImageFaces [[-Any] <String[]>] [-ClearSession] [-DatabaseFilePath <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | AI 기본 설정(예: 언어, 이미지 컬렉션 등)을 세션에 저장된 대체 설정으로 사용합니다. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 지웁니다. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 사용하지 마세요 |
+
+## Examples
+
+### Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+
+```powershell
+Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+```
+
+### saveimagefaces -Any "vacation" -SaveUnknownPersons
+
+```powershell
+saveimagefaces -Any "vacation" -SaveUnknownPersons
+```
 
 ## Outputs
 

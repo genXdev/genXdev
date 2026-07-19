@@ -8,11 +8,11 @@
 
 ## Description
 
-* 원자적 쓰기: 임시 파일 + 이름 변경 전략을 사용하여 프로세스가 중단되더라도 대상 파일이 절대 손상되지 않도록 합니다.
-* 재시도 로직: 최대 MaxRetries회까지 시도하며, 각 시도 사이에 RetryDelayMs 밀리초의 지연이 있습니다.
+* 원자적 쓰기: 임시 파일 + 이름 변경 전략을 사용하여 프로세스가 중단되더라도 대상 파일이 손상된 상태로 남지 않도록 보장합니다.
+* 재시도 로직: MaxRetries 횟수만큼 쓰기를 재시도하며, 시도 사이에는 RetryDelayMs 밀리초의 지연이 있습니다.
 * 인코딩 지원: System.Text.Encoding 매개변수를 받아 출력 인코딩을 제어합니다. 기본값은 UTF-8입니다.
-* 디바운스 지원: DebounceMs > 0인 경우 동일 파일에 대한 연속적인 쓰기를 병합합니다. 파일이 DebounceMs 밀리초 동안 변경되지 않은 경우 마지막 페이로드만 기록됩니다.
-* 디렉터리 생성: 부모 디렉터리가 존재하지 않으면 자동으로 생성합니다.
+* 디바운스 지원: DebounceMs > 0일 때, 동일한 파일에 대한 빠른 연속 쓰기가 병합됩니다. 파일이 DebounceMs 밀리초 동안 변경되지 않은 후에만 마지막 페이로드가 기록됩니다.
+* 디렉터리 생성: 상위 디렉터리가 존재하지 않으면 자동으로 생성합니다.
 
 ## Syntax
 
@@ -52,7 +52,7 @@ Get-Content server.log -Tail 50 | ForEach-Object {
 Start-Sleep -Seconds 3
 ```
 
-빠르게 50줄의 파이프가 흘러갑니다. 2초간의 정적 시간 이후 최종 줄만 유지됩니다.
+파이프가 50줄을 빠르게 출력합니다. 2초간의 정적 기간 후에 최종 줄만 유지됩니다.
 
 ### Example 3
 
@@ -78,7 +78,7 @@ $watcher = Start-ThreadJob -ScriptBlock {
 } -ArgumentList "timestamp.txt"
 ```
 
-A background job writes timestamps every 100ms but debounce coalesces them — only one write per second actually hits disk.
+백그라운드 작업이 100ms마다 타임스탬프를 기록하지만 디바운싱이 이를 병합합니다. 실제로 디스크에 쓰는 것은 초당 한 번뿐입니다.
 
 ## Related Links
 

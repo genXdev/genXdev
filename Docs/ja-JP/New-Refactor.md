@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> コード変換タスク用の新しいリファクタリングセットを作成します。
+
+## Description
+
+LLMベースのコード変換のための指定された設定で新しいリファクタリング定義を作成し、構成します。この関数は以下を処理します：
+- リファクタリング構成の設定
+- 選択基準とプロンプトの構成
+- LLMモデル設定の管理
+- 開発環境との統合
+- リファクタ定義の永続化
 
 ## Syntax
 
@@ -40,6 +49,22 @@ New-Refactor -Name <String> -PromptKey <String> [[-Prompt] <String>] [[-Selectio
 | `-Code` | SwitchParameter | — | — | Named | — | Visual Studio Code でファイルを開く |
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | Visual Studio で開く |
 | `-KeysToSend` | String[] | — | — | Named | `@()` | ファイルを開いた後に送信するキーストローク |
+
+## Examples
+
+### New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `     -SelectionScript "Get-LoggingMethods" -Priority 1 `     -Code
+
+```powershell
+New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `
+    -SelectionScript "Get-LoggingMethods" -Priority 1 `
+    -Code
+```
+
+### newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+
+```powershell
+newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+```
 
 ## Related Links
 

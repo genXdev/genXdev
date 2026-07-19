@@ -10,9 +10,9 @@
 
 * Gravação atômica: usa uma estratégia de arquivo temporário + renomeação para garantir que o arquivo de destino nunca seja deixado em um estado corrompido se o processo for interrompido.
 * Lógica de repetição: repete a gravação até MaxRetries vezes com um atraso de RetryDelayMs milissegundos entre as tentativas.
-* Suporte a objetos: aceita qualquer objeto, não apenas Hashtable. Serializa via System.Text.Json com fallback para ConvertTo-Json para tipos complexos do .NET que não podem ser serializados nativamente.
-* Suporte a debounce: quando DebounceMs > 0, gravações consecutivas rápidas no mesmo arquivo são coalescidas — apenas o último conteúdo é escrito depois que o arquivo não é alterado por DebounceMs ms.
-* Criação de diretório: cria diretórios pais automaticamente se eles não existirem.
+* Suporte a objetos: aceita qualquer objeto, não apenas Hashtable. Serializa via System.Text.Json com fallback para ConvertTo-Json para tipos .NET complexos que não podem ser serializados nativamente.
+* Suporte a debounce: quando DebounceMs > 0, gravações consecutivas rápidas no mesmo arquivo são coalescidas — apenas o último payload é gravado depois que o arquivo não é tocado por DebounceMs ms.
+* Criação de diretório: cria diretórios pai automaticamente se eles não existirem.
 
 ## Syntax
 

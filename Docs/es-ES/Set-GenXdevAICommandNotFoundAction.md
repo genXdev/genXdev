@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Configura el manejo de comandos no encontrados con asistencia de IA.
+
+## Description
+
+Configura PowerShell para manejar comandos desconocidos navegando a directorios o usando IA para interpretar la intención del usuario. El controlador primero intenta cualquier controlador de comando no encontrado existente, luego verifica si el comando es una ruta válida para navegación y, finalmente, ofrece asistencia de IA para comandos desconocidos.
 
 ## Syntax
 
@@ -179,6 +183,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

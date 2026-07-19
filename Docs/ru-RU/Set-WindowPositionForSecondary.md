@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Размещает окно на дополнительном мониторе с указанными параметрами расположения.
+
+## Description
+
+Эта функция позволяет размещать окна на настроенном дополнительном мониторе с помощью
+Set-WindowPosition с различными параметрами расположения, включая выравнивание, размер и
+настройки границ. Она обрабатывает выбор монитора на основе глобальной конфигурации и
+предоставляет удобную обертку для позиционирования окон на дополнительном мониторе.
 
 ## Syntax
 
@@ -44,6 +51,21 @@ Set-WindowPositionForSecondary [[-Process] <Diagnostics.Process[]>] [-Bottom] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `     -Centered -NoBorders
+
+```powershell
+Set-WindowPositionForSecondary -Process "notepad" -Width 800 -Height 600 `
+    -Centered -NoBorders
+```
+
+### wps notepad -w 800 -h 600 -c -nb
+
+```powershell
+wps notepad -w 800 -h 600 -c -nb
+```
 
 ## Related Links
 

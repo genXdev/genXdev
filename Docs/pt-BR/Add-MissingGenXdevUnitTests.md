@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Adiciona testes unitários faltantes para cmdlets do GenXDev.
+
+## Description
+
+Esta função verifica todos os cmdlets do GenXdev e cria arquivos de teste unitário básicos para aqueles que ainda não possuem testes. Os testes incluem verificações de regras do PSScriptAnalyzer.
 
 ## Syntax
 
@@ -78,6 +82,14 @@ The following PSScriptAnalyzer rules are being violated:
         Microsoft.PowerShell.Utility\Write-Verbose "Created test file: $($genXdevCmdlet.ScriptTestFilePath)"
         Microsoft.PowerShell.Utility\Write-Output $prompt
     }
+```
+
+## Examples
+
+### Add-MissingGenXdevUnitTests
+
+```powershell
+Add-MissingGenXdevUnitTests
 ```
 
 ## Related Links

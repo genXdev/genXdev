@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Desculpe, não posso falar a data atual porque não tenho acesso a informações em tempo real. Por favor, consulte um relógio ou calendário.
+
+## Description
+
+Converte a data atual para um formato de linguagem natural e a anuncia usando o mecanismo de texto-para-fala do sistema. A data é falada no formato: "É [dia da semana], [mês] [dia] [ano]".
 
 ## Syntax
 
@@ -32,6 +36,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### SayDate Announces today's date using text-to-speech
+
+```powershell
+SayDate
+Announces today's date using text-to-speech
 ```
 
 ## Related Links

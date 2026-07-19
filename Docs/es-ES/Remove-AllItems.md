@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Elimina recursivamente todo el contenido de un directorio con manejo avanzado de errores.
+
+## Description
+
+Elimina de forma segura todos los archivos y subdirectorios dentro de un directorio específico utilizando una estrategia de eliminación en orden inverso para manejar rutas profundas. Incluye soporte para WhatIf, registro detallado y métodos de eliminación alternativos para archivos bloqueados.
 
 ## Syntax
 
@@ -17,7 +21,21 @@ Remove-AllItems -Path <String> [-DeleteFolder] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Path` | String | ✅ | ✅ (ByValue, ByPropertyName) | 0 | — | La ruta de directorio a limpiar |
-| `-DeleteFolder` | SwitchParameter | — | — | 1 | — | Además, elimine la carpeta raíz suministrada con el parámetro Path |
+| `-DeleteFolder` | SwitchParameter | — | — | Named | — | Además, elimine la carpeta raíz suministrada con el parámetro Path |
+
+## Examples
+
+### Remove-AllItems -Path "C:\Temp\BuildOutput" -DeleteFolder -Verbose
+
+```powershell
+Remove-AllItems -Path "C:\Temp\BuildOutput" -DeleteFolder -Verbose
+```
+
+### sdel ".\temp" -DeleteFolder
+
+```powershell
+sdel ".\temp" -DeleteFolder
+```
 
 ## Related Links
 

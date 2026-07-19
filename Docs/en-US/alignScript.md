@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Returns a string (with altered indentation) of a provided scriptblock string
+
+## Description
+
+Changes the indentation of a scriptblock string while respecting the original code-block identations
 
 ## Syntax
 

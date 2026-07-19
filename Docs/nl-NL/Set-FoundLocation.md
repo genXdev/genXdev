@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Zoekt het eerste overeenkomende bestand of map en stelt de locatie daarop in.
+
+## Description
+
+Deze cmdlet helpt je snel van map te wisselen door zoekzinnen te gebruiken.
+Deze zinnen zoeken de eerste overeenkomende map of bestand (optioneel) en wisselen
+ernaar. Ondersteunt geavanceerd filteren op inhoud, bestandskenmerken,
+grootte, wijzigingsdata en vele andere criteria.
 
 ## Syntax
 
@@ -55,6 +62,48 @@ Set-FoundLocation [[-Content] <String[]>] [-CaseSensitive] [-Culture <String>] [
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Geeft aan dat de cmdlet een eenvoudige overeenkomst gebruikt in plaats van een reguliere expressie-overeenkomst. Bij een eenvoudige overeenkomst doorzoekt Select-String de invoer op de tekst in de parameter Pattern. Het interpreteert de waarde van de parameter Pattern niet als een reguliere expressie-instructie. *(Parameter set: )* |
 | `-Push` | SwitchParameter | — | — | Named | — | Gebruik Push-Location in plaats van Set-Location en duw de locatie op de locatiestapel |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | When set, only exact name matches are considered. By default, wildcard matching is used unless the Name contains wildcard characters. |
+
+## Examples
+
+### Set-FoundLocation *.Console
+
+```powershell
+Set-FoundLocation *.Console
+```
+
+Wijzigingen in de eerste directory die overeenkomt met het patroon '*.Console'.
+
+### lcd *.Console
+
+```powershell
+lcd *.Console
+```
+
+Wijzigingen in de eerste map die overeenkomt met het patroon '*.Console' met behulp van het alias.
+
+### Set-FoundLocation -Name "*.ps1" -Content "function"
+
+```powershell
+Set-FoundLocation -Name "*.ps1" -Content "function"
+```
+
+Wijzigingen aan de map met het eerste PowerShell-bestand dat het woord 'function' bevat.
+
+### Set-FoundLocation *test* -File
+
+```powershell
+Set-FoundLocation *test* -File
+```
+
+Wijzigingen in de map met het eerste bestand met 'test' in de naam.
+
+### Set-FoundLocation * '1\.\d+\.2025'
+
+```powershell
+Set-FoundLocation * '1\.\d+\.2025'
+```
+
+Wijzigingen aan de directory met het eerste bestand waarvan de inhoud overeenkomt met het patroon '1.\d+\.2025'.
 
 ## Related Links
 

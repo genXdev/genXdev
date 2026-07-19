@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Inicia uma sessão de chat de texto interativo com capacidades de IA.
+
+## Description
+
+Inicia uma sessão de chat interativa com capacidades de IA, permitindo que os usuários adicionem ou removam funções do PowerShell durante a conversa e executem comandos do PowerShell. Esta função fornece uma interface abrangente para conversas com tecnologia de IA, com ampla integração de ferramentas e opções de personalização.
 
 ## Syntax
 
@@ -117,6 +121,21 @@ New-LLMTextChat [[-Instructions] <String>] [[-Attachments] <String[]>] [[-Temper
 | `-NoContext` | Object | — | — | Named | — | Desabilitar uso de contexto |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | Use a estratégia de amostragem por beam search |
 | `-OnlyResponses` | Object | — | — | Named | — | A saída apenas respostas |
+
+## Examples
+
+### New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `     -Instructions "You are a helpful AI assistant"
+
+```powershell
+New-LLMTextChat -Model "qwen2.5-14b-instruct" -Temperature 0.7 `
+    -Instructions "You are a helpful AI assistant"
+```
+
+### llmchat "Tell me a joke" -Speak -IncludeThoughts
+
+```powershell
+llmchat "Tell me a joke" -Speak -IncludeThoughts
+```
 
 ## Related Links
 

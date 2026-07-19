@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> DeepStack를 사용하여 이미지를 4배 확대하고 품질을 향상시킵니다.
+
+## Description
+
+이 함수는 원본 이미지의 너비와 높이를 4배로 확대하면서 이미지 품질을 향상시킵니다. 구성 가능한 포트에서 실행되는 로컬 DeepStack 이미지 향상 API를 사용하며, 향상된 이미지를 base64 데이터로 반환하거나 파일로 저장합니다. 이 함수는 GPU 가속 및 Docker 컨테이너 관리를 지원합니다.
 
 ## Syntax
 
@@ -28,6 +32,30 @@ Invoke-ImageEnhancement -ImagePath <String> [[-OutputPath] <String>] [-Container
 | `-HealthCheckInterval` | Int32 | — | — | Named | `3` | 헬스 체크 시도 간격 (초 단위) |
 | `-ImageName` | String | — | — | Named | — | 사용할 사용자 정의 Docker 이미지 이름 |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 초기화 중에 Docker Desktop 창 표시 |
+
+## Examples
+
+### Invoke-ImageEnhancement -ImagePath "C:\Users\YourName\small_photo.jpg" `                         -OutputPath "C:\Users\YourName\enhanced_photo.jpg" Enhances the image and saves it to the specified output path.
+
+```powershell
+Invoke-ImageEnhancement -ImagePath "C:\Users\YourName\small_photo.jpg" `
+                        -OutputPath "C:\Users\YourName\enhanced_photo.jpg"
+Enhances the image and saves it to the specified output path.
+```
+
+### enhanceimage "C:\photos\low_quality.jpg" Enhances the image and returns the base64 data and dimensions using alias.
+
+```powershell
+enhanceimage "C:\photos\low_quality.jpg"
+Enhances the image and returns the base64 data and dimensions using alias.
+```
+
+### Invoke-ImageEnhancement -ImagePath "C:\photos\image.jpg" -UseGPU Enhances the image using GPU acceleration for faster processing.
+
+```powershell
+Invoke-ImageEnhancement -ImagePath "C:\photos\image.jpg" -UseGPU
+Enhances the image using GPU acceleration for faster processing.
+```
 
 ## Related Links
 

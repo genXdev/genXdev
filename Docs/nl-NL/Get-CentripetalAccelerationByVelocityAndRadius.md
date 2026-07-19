@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berekent de centripetale versnelling.
+
+## Description
+
+Gebruikt a = v² / r.
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Get-CentripetalAccelerationByVelocityAndRadius [-VelocityInMetersPerSecond] <dou
 | `-VelocityInMetersPerSecond` | Double | ✅ | — | 0 | `0` | Snelheid in m/s |
 | `-RadiusInMeters` | Double | ✅ | — | 1 | `0` | Straal in meters |
 | `-As` | String | — | — | 2 | — | Eenheid voor versnelling |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-CentripetalAccelerationByVelocityAndRadius -VelocityInMetersPerSecond 10 -RadiusInMeters 5 -As "g"
+```
+
+Berekent centripetale versnelling voor snelheid 10 m/s en straal 5 m, uitvoer in g-eenheden.
+
+### Example 2
+
+```powershell
+Get-CentripetalAccelerationByVelocityAndRadius 20 10
+```
+
+Berekent centripetale versnelling voor snelheid 20 m/s en straal 10 m met behulp van positionele parameters.
 
 ## Related Links
 

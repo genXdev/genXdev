@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> クリップボードテキストを含むファイルをIDEで開く
+
+## Description
+
+クリップボード内のテキストは、すべてのGenXdevスクリプトを検索するために使用され、見つかった場合はCodeまたはVisual Studioでそのファイルを開きます。
 
 ## Syntax
 

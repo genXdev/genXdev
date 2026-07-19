@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> We appreciate your submission; however, it does not fully meet our current requirements. We encourage you to consider other opportunities that may better align with your qualifications.
+
+## Description
+
+该函数处理输入文本，将直接或可能生硬的语言转化为得体、专业的公司沟通用语。它可以通过参数直接接收输入、从管道接收输入或从系统剪贴板接收输入。该函数利用AI模型分析并改写文本，同时保留原始意图。
 
 ## Syntax
 
@@ -60,6 +64,20 @@ ConvertTo-CorporateSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-AllowD
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | The `-OutputMarkdownBlocksOnly` parameter. |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 最大工具回调长度（传递给 LLMQuery） |
+
+## Examples
+
+### ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+
+```powershell
+ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+```
+
+### "This makes no sense" | corporatize
+
+```powershell
+"This makes no sense" | corporatize
+```
 
 ## Outputs
 

@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在网页浏览器中打开Grokipedia查询。
+
+## Description
+
+在网页浏览器中打开一个或多个Grokipedia搜索查询，并附带丰富的配置选项。支持可配置的浏览器行为、显示器选择以及窗口定位。查询将经过URL编码，并使用指定语言的Grokipedia域名打开，提供完整的本地化支持。
+
+该函数提供全面的浏览器控制功能，包括隐私浏览模式、窗口定位、键盘自动化以及多显示器支持。它会自动处理URL编码和语言代码映射，以适配国际Grokipedia域名。
 
 ## Syntax
 
 ```powershell
-Open-GrokipediaQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GrokipediaQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +29,9 @@ Open-GrokipediaQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applica
 | `-Chrome` | SwitchParameter | — | — | Named | — | 在谷歌浏览器中打开 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 根据默认浏览器，在 Microsoft Edge 或 Google Chrome 中打开 |
 | `-Firefox` | SwitchParameter | — | — | Named | — | 在 Firefox 中打开 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | 使用 Playwright 管理的浏览器而非操作系统安装的浏览器 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | 打开由 Playwright 管理的 WebKit 浏览器。隐含 -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | 在无可见窗口的情况下运行浏览器 |
 | `-All` | SwitchParameter | — | — | Named | — | 在所有注册的现代浏览器中打开 |
 | `-Monitor` | Int32 | — | — | Named | `-1` | 要使用的显示器，0 = 默认，-1 = 丢弃，-2 = 配置的辅助显示器 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | 在全屏模式下打开 |
@@ -58,6 +67,32 @@ Open-GrokipediaQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applica
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 使用存储在会话中的替代设置进行AI偏好设置。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除会话中存储的AI偏好替代设置。 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. |
+
+## Examples
+
+### Open-GrokipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+
+```powershell
+Open-GrokipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+```
+
+在默认显示器上打开 Grokipedia 搜索“PowerShell”的英文结果。
+
+### wiki "PowerShell" -mon 0
+
+```powershell
+wiki "PowerShell" -mon 0
+```
+
+使用带有位置参数的别名打开 Grokipedia 搜索。
+
+### "PowerShell", "Windows" | Open-GrokipediaQuery -Private
+
+```powershell
+"PowerShell", "Windows" | Open-GrokipediaQuery -Private
+```
+
+使用隐私浏览模式在 Grokipedia 中搜索多个词条。
 
 ## Related Links
 

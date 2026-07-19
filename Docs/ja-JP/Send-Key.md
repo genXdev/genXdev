@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> ウィンドウまたはプロセスにシミュレートされたキー入力を送信します。
+
+## Description
+
+この関数は、Windows Script Host Shell オブジェクトを使用して、ターゲットウィンドウまたはプロセスにキーボード入力を送信します。プロセス名、プロセスID、またはウィンドウハンドルでウィンドウをターゲットにできます。この関数は、特殊キーシーケンス、エスケープ文字、信頼性の高いキー送信のためのさまざまなタイミングオプションをサポートしています。
 
 ## Syntax
 
@@ -30,6 +34,29 @@ Send-Key [-WindowHandle <Int64>] [<CommonParameters>]
 | `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | キー送信後にターゲットウィンドウにキーボードフォーカスを保持する |
 | `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | 改行にはEnterキーではなくShift+Enterを使用してください |
 | `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | `10` | 異なる入力文字列間の遅延（ミリ秒単位） |
+
+## Examples
+
+### Send-Key -KeysToSend "Hello World{ENTER}" -ProcessName "notepad" Sends text to Notepad followed by Enter key using process name targeting.
+
+```powershell
+Send-Key -KeysToSend "Hello World{ENTER}" -ProcessName "notepad"
+Sends text to Notepad followed by Enter key using process name targeting.
+```
+
+### Send-Key "Special {F11} key" -SendKeyEscape -ProcessId 1234 Sends literal "{F11}" text rather than F11 key using process ID targeting.
+
+```powershell
+Send-Key "Special {F11} key" -SendKeyEscape -ProcessId 1234
+Sends literal "{F11}" text rather than F11 key using process ID targeting.
+```
+
+### sendkeys "Line 1{ENTER}Line 2" -WindowHandle 123456 -SendKeyDelayMilliSeconds 50 Sends multi-line text with custom delay using window handle targeting.
+
+```powershell
+sendkeys "Line 1{ENTER}Line 2" -WindowHandle 123456 -SendKeyDelayMilliSeconds 50
+Sends multi-line text with custom delay using window handle targeting.
+```
 
 ## Related Links
 

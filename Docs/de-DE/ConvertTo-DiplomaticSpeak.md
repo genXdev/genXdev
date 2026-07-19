@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I understand your request. However, direct or blunt text is not provided. Please share the specific text you'd like transformed into diplomatic language.
+
+## Description
+
+Diese Funktion wandelt direkte oder unverblümte Formulierungen von Benutzereingaben in diplomatische, taktvolle Sprache um, die für Diskussionen auf hoher Ebene, Verhandlungen oder formelle Kommunikation geeignet ist. Die Funktion verwendet KI-Sprachmodelle, um die ursprüngliche Absicht beizubehalten, während der Ton gemildert und die Botschaft diplomatischer und professioneller gestaltet wird.
 
 ## Syntax
 
@@ -114,6 +118,21 @@ ConvertTo-DiplomaticSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-Allow
 } |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale Tool-Rückrufflänge (an LLMQuery übergeben) |
+
+## Examples
+
+### ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `     -SetClipboard
+
+```powershell
+ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `
+    -SetClipboard
+```
+
+### diplomatize "Your code is full of bugs"
+
+```powershell
+diplomatize "Your code is full of bugs"
+```
 
 ## Outputs
 

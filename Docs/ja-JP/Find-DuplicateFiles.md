@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 複数のディレクトリにわたって設定可能な条件に基づいて重複ファイルを検出します。
+
+## Description
+
+指定されたディレクトリ内の重複ファイルを再帰的に検索します。ファイルの内容が完全に同一であるか、同じ内容で始まる場合（-ComparePartialスイッチを使用した部分比較の場合）に重複と見なされます。このコマンドレットは、ファイルの先頭バイトのクイックハッシュを使用して効率的にグループ化し、その後完全な内容比較を行います。このクイックハッシュのサイズは-CompareByteLengthパラメータで設定可能で、重複検出のパフォーマンスと精度のバランスを調整できます。このCompareByteLength値以上の最小長さを持つファイルのみが重複検出の対象となり、より小さいファイルはファイル名のみでグループ化されます。
 
 ## Syntax
 
@@ -79,6 +83,22 @@ Find-DuplicateFiles [[-Content] <String[]>] [-AllMatches] [-CaseSensitive] [-Con
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Use simple string matching instead of regex *(Parameter set: )* |
 | `-ComparePartial` | SwitchParameter | — | — | Named | — | 同じファイル名と内容で開始されていれば、異なるサイズのファイルが返されます。これは、ダウンロード/コピー操作の破損を検出します。 |
 | `-CompareByteLength` | Int32 | — | — | Named | `65536` | ファイルのバイト長をすばやく比較します。ファイルの内容は比較されないため、高速なインデックス作成や重複検索に使用されます。 |
+
+## Examples
+
+### Find duplicate text files in the Documents folder based on exact content: Find-DuplicateFiles ~\Documents\*.doc* -ComparePartial
+
+```powershell
+Find duplicate text files in the Documents folder based on exact content:
+Find-DuplicateFiles ~\Documents\*.doc* -ComparePartial
+```
+
+### Removes all duplicate media files in the Pictures and Videos folders, keeping only one copy of each duplicate set: (Find-DuplicateFiles ~\Pictures\*, ~\Videos\* -Category Pictures, Videos -ComparePartial).Duplicates.FullName | Remove-Item -Force -Verbose
+
+```powershell
+Removes all duplicate media files in the Pictures and Videos folders, keeping only one copy of each duplicate set:
+(Find-DuplicateFiles ~\Pictures\*, ~\Videos\* -Category Pictures, Videos -ComparePartial).Duplicates.FullName | Remove-Item -Force -Verbose
+```
 
 ## Related Links
 

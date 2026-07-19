@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Translates text to another language using AI.
+
+## Description
+
+This function translates input text into a specified target language using AI
+models. It can accept input directly through parameters, from the pipeline, or
+from the system clipboard. The function preserves formatting and style while
+translating.
 
 ## Syntax
 
@@ -61,6 +68,20 @@ Get-TextTranslation [[-Text] <String>] [[-Instructions] <String>] [[-Attachments
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLM) |
 | `-NoCache` | SwitchParameter | — | — | Named | — | Skip the translation cache; always call the LLM API |
 | `-ClearCache` | SwitchParameter | — | — | Named | — | Clear the entire translation cache for all languages |
+
+## Examples
+
+### Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+
+```powershell
+Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+```
+
+### "Bonjour" | translate -Language "English"
+
+```powershell
+"Bonjour" | translate -Language "English"
+```
 
 ## Outputs
 

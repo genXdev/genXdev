@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Открывает и воспроизводит медиафайлы с помощью медиаплеера VLC с расширенными возможностями фильтрации и настройки.
+
+## Description
+
+Эта функция сканирует медиафайлы по шаблонам поиска, создает плейлист и запускает медиаплеер VLC с расширенными параметрами конфигурации. Она поддерживает видео, аудиофайлы и изображения с автоматической установкой VLC при необходимости. Функция предоставляет широкие возможности управления воспроизведением, положением окна, настройками аудио/видео и обработкой субтитров.
 
 ## Syntax
 
@@ -147,6 +151,32 @@ Open-MediaFile [[-Name] <String[]>] [[-Width] <Int32>] [[-Height] <Int32>] [[-X]
 | `-PassThru` | SwitchParameter | — | — | Named | — | Возвращает файлы, найденные поиском |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | Возвращает файлы, найденные поиском, без открытия VLC |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | Возвращает вспомогательное окно для каждого процесса |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+Открывает все медиафайлы в текущей директории, используя настройки VLC по умолчанию.
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+Открывает только файлы изображений из папки Pictures в полноэкранном режиме, используя псевдоним 'vlcmedia'.
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+Открывает видеофайлы с включенным циклом, используя псевдоним 'media'.
 
 ## Related Links
 

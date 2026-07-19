@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Adds a ReleaseNote line to the README file with a timestamp.
+
+## Description
+
+向指定的README文件中添加一行ReleaseNote，以当前日期（yyyyMMdd格式）为前缀。该行可格式化为代码，并可选地显示。
 
 ## Syntax
 
 ```powershell
-Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
+Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Ascending] [-Code] [-First <Int32>] [-Priority <Int32>] [-Show] [-SortByDate] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -61,6 +65,24 @@ Example response format: {"response":"your actual response here"}
 ===== END REQUIREMENT ===== |
 | `-UseHomeREADME` | SwitchParameter | — | — | Named | — | 使用主目录中的 README |
 | `-UseOneDriveREADME` | SwitchParameter | — | — | Named | — | 使用 OneDrive 目录中的 README |
+| `-Priority` | Int32 | — | — | Named | `1` | 排序优先级（数值越大越靠前显示，默认为1） |
+| `-SortByDate` | SwitchParameter | — | — | Named | — | 按日期（yyyyMMdd前缀）排序，而非优先级 |
+| `-Ascending` | SwitchParameter | — | — | Named | — | 将排序顺序颠倒（升序改为降序） |
+| `-First` | Int32 | — | — | Named | `0` | 限制 - 仅显示前 N 行输出 |
+
+## Examples
+
+### Add-ReleaseNoteLineToREADME -Line "Added new Git ReleaseNote"
+
+```powershell
+Add-ReleaseNoteLineToREADME -Line "Added new Git ReleaseNote"
+```
+
+### ReleaseNote "Added new Git ReleaseNote" -Code -Show
+
+```powershell
+ReleaseNote "Added new Git ReleaseNote" -Code -Show
+```
 
 ## Related Links
 

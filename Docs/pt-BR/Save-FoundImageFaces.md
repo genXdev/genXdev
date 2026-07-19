@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Salva imagens de rostos recortadas dos resultados de pesquisa de imagens indexadas.
+
+## Description
+
+Esta função recebe resultados de pesquisa de imagens e extrai/salva regiões faciais individuais como arquivos de imagem separados. Ela pode pesquisar rostos usando vários critérios e salvá-los em um diretório de saída especificado. A função suporta pesquisa por descrição, palavras-chave, pessoas, objetos, cenas, tipo de imagem, tipo de estilo e clima geral. Também pode filtrar por nudez e conteúdo explícito.
 
 ## Syntax
 
@@ -42,6 +46,20 @@ Save-FoundImageFaces [[-Any] <String[]>] [-ClearSession] [-DatabaseFilePath <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use configurações alternativas armazenadas na sessão para preferências de IA, como idioma, coleções de imagens, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Limpar configurações alternativas armazenadas na sessão para preferências de IA, como Idioma, coleções de Imagens, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Não use configurações alternativas armazenadas na sessão para preferências de IA, como idioma, coleções de imagens, etc. |
+
+## Examples
+
+### Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+
+```powershell
+Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+```
+
+### saveimagefaces -Any "vacation" -SaveUnknownPersons
+
+```powershell
+saveimagefaces -Any "vacation" -SaveUnknownPersons
+```
 
 ## Outputs
 

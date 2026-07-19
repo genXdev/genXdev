@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berekent de gevallen afstand tijdens vrije val voor een gegeven tijdsduur.
+
+## Description
+
+Berekent de afgelegde afstand tijdens vrije val met behulp van een numerieke methode die rekening houdt met luchtweerstand en eindsnelheid.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-FreeFallDistance [-DurationInSeconds] <double> [[-TerminalVelocityInMetersPe
 | `-TerminalVelocityInMetersPerSecond` | Double | — | — | 1 | `0` | De eindsnelheid in meter per seconde (standaard: 53) |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 2 | `0` | De versnelling door de zwaartekracht in m/s² (standaard: 9,81) |
 | `-As` | String | — | — | 3 | — | De eenheid voor de uitvoerafstand |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-FreeFallDistance -DurationInSeconds 10 -TerminalVelocityInMetersPerSecond 53 -As "feet"
+```
+
+Berekent de afstand die in 10 seconden is gevallen in voet.
+
+### Example 2
+
+```powershell
+Get-FreeFallDistance 5
+```
+
+Berekent de afstand in 5 seconden in meters.
 
 ## Related Links
 

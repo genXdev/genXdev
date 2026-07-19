@@ -4,12 +4,29 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 1つ以上のブラウザウィンドウでURLを開き、位置やスタイルをオプションで指定できます。
+
+## Description
+
+この関数は、ブラウザ起動に関する高度なラッパーを提供し、ウィンドウの配置、ブラウザの選択、動作のカスタマイズに関する豊富なオプションを備えています。Edge、Chrome、Firefoxを含む複数のブラウザをサポートし、プライベートブラウジング、アプリケーションモード、精密なウィンドウ管理などの機能を提供します。
+
+主な機能：
+- スマートなブラウザ検出と選択
+- ウィンドウ配置（左、右、上、下、中央、全画面）
+- 自動または手動のモニター選択によるマルチモニター対応
+- プライベート/シークレットブラウジングモードのサポート
+- 集中ブラウジングのためのアプリケーションモード
+- 拡張機能とポップアップブロックのオプション
+- フォーカス管理とウィンドウ操作
+- 複数ブラウザにわたるバッチURL開封
+- ブラウザウィンドウへのキーストローク自動化
+
+この関数はシステムの機能を自動検出し、それに応じて動作を調整できます。システムにインストールされていないブラウザについては、エラーなしで操作が静かにスキップされます。
 
 ## Syntax
 
 ```powershell
-Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-Input <String>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-ConsentToThirdPartySoftwareInstallation] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-Input <String>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,7 +41,7 @@ Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] 
 | `-X` | Int32 | — | — | Named | `-999999` | ウェブブラウザウィンドウの初期X位置 |
 | `-Y` | Int32 | — | — | Named | `-999999` | ウェブブラウザウィンドウの初期Y位置 |
 | `-AcceptLang` | String | — | — | Named | `$null` | ブラウザのaccept-lang HTTPヘッダーを設定する |
-| `-Force` | SwitchParameter | — | — | Named | — | 必要に応じて既存のブラウザを停止し、デバッグポートを強制的に有効にします |
+| `-Force` | SwitchParameter | — | — | Named | — | 新しいブラウザインスタンスを開く前に、既存のブラウザインスタンスを強制終了します |
 | `-Edge` | SwitchParameter | — | — | Named | — | Microsoft Edge で開く |
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome で開く |
 | `-Chromium` | SwitchParameter | — | — | Named | — | デフォルトのブラウザに応じて、Microsoft EdgeまたはGoogle Chromeで開きます |
@@ -57,6 +74,76 @@ Open-Webbrowser [[-Url] <String[]>] [[-Monitor] <Int32>] [-AcceptLang <String>] 
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定はセッションに影響を与えず、永続的な設定のみに保存します。 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | OSにインストールされているブラウザの代わりにPlaywright管理のブラウザを使用する |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright 管理の WebKit ブラウザを開きます。-PlayWright を暗示します。 |
+| `-Headless` | SwitchParameter | — | — | Named | — | 表示ウィンドウなしでブラウザを実行する |
+| `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | サードパーティソフトウェア（Playwrightブラウザ）のインストールに自動的に同意する |
+
+## Examples
+
+### wb -PlayWright https://github.com
+
+```powershell
+wb -PlayWright https://github.com
+```
+
+Playwrightで管理されるChromiumブラウザでGitHubを開きます。
+
+### Open-Webbrowser -Url "https://github.com"
+
+```powershell
+Open-Webbrowser -Url "https://github.com"
+```
+
+デフォルトのブラウザでGitHubを開きます。
+
+### Open-Webbrowser -Url "https://stackoverflow.com" -Monitor 1 -Left
+
+```powershell
+Open-Webbrowser -Url "https://stackoverflow.com" -Monitor 1 -Left
+```
+
+モニター1の左半分にStack Overflowを開きます。
+
+### wb "https://google.com" -m 0 -fs
+
+```powershell
+wb "https://google.com" -m 0 -fs
+```
+
+エイリアスを使用してプライマリモニターでGoogleを全画面モードで開く
+
+### Open-Webbrowser -Chrome -Private -NewWindow
+
+```powershell
+Open-Webbrowser -Chrome -Private -NewWindow
+```
+
+新しいChromeウィンドウをシークレットモードで開きます。
+
+### "https://github.com", "https://stackoverflow.com" | Open-Webbrowser -All
+
+```powershell
+"https://github.com", "https://stackoverflow.com" | Open-Webbrowser -All
+```
+
+パイプライン経由でインストールされているすべてのブラウザで複数のURLを開きます。
+
+### Open-Webbrowser -Monitor 0 -Right
+
+```powershell
+Open-Webbrowser -Monitor 0 -Right
+```
+
+既に開いているブラウザウィンドウを、プライマリモニタの右側に再配置します。
+
+### Open-Webbrowser -ApplicationMode -Url "https://app.example.com"
+
+```powershell
+Open-Webbrowser -ApplicationMode -Url "https://app.example.com"
+```
+
+ブラウザコントロールなしでアプリモードでWebアプリケーションを開きます。
 
 ## Related Links
 

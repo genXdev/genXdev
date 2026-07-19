@@ -4,7 +4,19 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Updates browser shortcuts to enable remote debugging ports.
+
+## Description
+
+Modifies Chrome and Edge browser shortcuts to include remote debugging port
+parameters. This enables automation scripts to interact with the browsers through
+their debugging interfaces. Handles both user-specific and system-wide shortcuts.
+
+The function:
+- Removes any existing debugging port parameters
+- Adds current debugging ports for Chrome and Edge
+- Updates shortcuts in common locations (Desktop, Start Menu, Quick Launch)
+- Requires administrative rights for system-wide shortcuts
 
 ## Syntax
 
@@ -165,6 +177,15 @@
 
             end {
             }
+```
+
+## Examples
+
+### Set-RemoteDebuggerPortInBrowserShortcuts Updates all Chrome and Edge shortcuts with their respective debugging ports.
+
+```powershell
+Set-RemoteDebuggerPortInBrowserShortcuts
+Updates all Chrome and Edge shortcuts with their respective debugging ports.
 ```
 
 ## Related Links

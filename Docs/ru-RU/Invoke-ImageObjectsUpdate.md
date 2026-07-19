@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Обновляет метаданные обнаружения объектов для файлов изображений в указанной директории.
+
+## Description
+
+Эта функция обрабатывает изображения в указанной директории для обнаружения объектов с помощью искусственного интеллекта. Она создает JSON-файлы метаданных, содержащие обнаруженные объекты, их положения, оценки достоверности и метки. Функция поддерживает пакетную обработку с настраиваемыми порогами достоверности и может опционально пропускать существующие файлы метаданных или повторять ранее неудачные обнаружения.
 
 ## Syntax
 
@@ -28,6 +32,33 @@ Invoke-ImageObjectsUpdate [[-ImageDirectories] <String[]>] [-ClearSession] [-Lan
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Invoke-ImageObjectsUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageObjectsUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+В этом примере обрабатываются все изображения в C:\Photos и D:\Pictures и всех подкаталогах с использованием настроек по умолчанию с порогом уверенности 0.5.
+
+### Invoke-ImageObjectsUpdate @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+
+```powershell
+Invoke-ImageObjectsUpdate @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+```
+
+Этот пример обрабатывает только новые изображения и повторяет ранее неудавшиеся в нескольких директориях с использованием синтаксиса позиционных параметров.
+
+### Invoke-ImageObjectsUpdate -ImageDirectories "C:\Photos" -UseGPU `     -ConfidenceThreshold 0.7
+
+```powershell
+Invoke-ImageObjectsUpdate -ImageDirectories "C:\Photos" -UseGPU `
+    -ConfidenceThreshold 0.7
+```
+
+Этот пример использует ускорение GPU с более высоким порогом уверенности 0,7 для более точного, но меньшего количества обнаружений объектов.
 
 ## Related Links
 

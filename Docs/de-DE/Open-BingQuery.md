@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Öffnet eine Bing-Suchanfrage in einem Webbrowser.
+
+## Description
+
+Öffnet eine oder mehrere Bing-Suchanfragen in einem Webbrowser unter Verwendung konfigurierbarer Browsereinstellungen und Befehlszeilenschalter. Diese Funktion bietet eine umfassende Schnittstelle zur Durchführung von Bing-Suchen mit umfangreichen Anpassungsoptionen für den Browser, einschließlich Fensterpositionierung, Monitorauswahl, privatem Surfen und Tastaturautomatisierung.
+
+Die Funktion codiert Suchanfragen automatisch URL-kodiert und formatiert sie für die Bing-Such-API. Sie unterstützt alle gängigen Browser wie Edge, Chrome und Firefox mit Funktionen wie privatem Surfen, Anwendungsmodus, präziser Fensterverwaltung und Tastaturautomatisierung.
 
 ## Syntax
 
 ```powershell
-Open-BingQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BingQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -29,6 +35,9 @@ Open-BingQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Öffnet in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wird in Microsoft Edge oder Google Chrome geöffnet, je nachdem, welcher der Standardbrowser ist |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Öffnet in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Verwenden Sie den von Playwright verwalteten Browser anstelle des im Betriebssystem installierten Browsers. |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Öffnet den von Playwright verwalteten WebKit-Browser. Impliziert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Führen Sie den Browser ohne sichtbares Fenster aus |
 | `-All` | SwitchParameter | — | — | Named | — | Öffnet in allen registrierten modernen Browsern |
 | `-Left` | SwitchParameter | — | — | Named | — | Place browser window on the left side of the screen |
 | `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen |
@@ -59,6 +68,40 @@ Open-BingQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-NewWindow` | SwitchParameter | — | — | Named | — | Statt ein vorhandenes Browserfenster wiederzuverwenden, erstelle ein neues. |
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | https://www.example.com |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | Nach dem Öffnen des Webbrowsers geben Sie die URL zurück |
+
+## Examples
+
+### Open-BingQuery -Queries "PowerShell scripting" -Monitor 0
+
+```powershell
+Open-BingQuery -Queries "PowerShell scripting" -Monitor 0
+```
+
+Öffnet eine Bing-Suche nach "PowerShell-Skripterstellung" auf dem Standardmonitor.
+
+### bq "PowerShell scripting" -m 0
+
+```powershell
+bq "PowerShell scripting" -m 0
+```
+
+Öffnet eine Bing-Suche mit dem Alias und kurzen Parameternamen.
+
+### Open-BingQuery -Queries "machine learning" -Language "English" -Private
+
+```powershell
+Open-BingQuery -Queries "machine learning" -Language "English" -Private
+```
+
+Öffnet eine private Browsersitzung, um nach "machine learning" mit englischen Suchergebnissen zu suchen.
+
+### "PowerShell", "automation", "scripting" | Open-BingQuery -All -Left
+
+```powershell
+"PowerShell", "automation", "scripting" | Open-BingQuery -All -Left
+```
+
+Sucht über eine Pipeline nach mehreren Begriffen und öffnet die Ergebnisse in allen installierten Browsern, wobei die Fenster auf der linken Seite des Bildschirms positioniert werden.
 
 ## Related Links
 

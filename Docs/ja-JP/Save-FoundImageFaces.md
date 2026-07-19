@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> インデックス化された画像検索結果から切り抜いた顔画像を保存します。
+
+## Description
+
+この関数は、画像検索結果を受け取り、個々の顔領域を個別の画像ファイルとして抽出・保存します。さまざまな条件で顔を検索し、指定された出力ディレクトリに保存することができます。この関数は、説明、キーワード、人物、オブジェクト、シーン、画像タイプ、スタイルタイプ、全体的な雰囲気による検索をサポートしています。また、ヌードや露骨なコンテンツによるフィルタリングも可能です。
 
 ## Syntax
 
@@ -42,6 +46,20 @@ Save-FoundImageFaces [[-Any] <String[]>] [-ClearSession] [-DatabaseFilePath <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションに保存されている代替設定を使用して、AIの言語や画像コレクションなどの設定を変更します。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 言語、画像コレクションなどのAI設定用にセッションに保存されている代替設定をクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | AIの設定（言語、画像コレクションなど）にセッションに保存された代替設定を使用しない |
+
+## Examples
+
+### Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+
+```powershell
+Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+```
+
+### saveimagefaces -Any "vacation" -SaveUnknownPersons
+
+```powershell
+saveimagefaces -Any "vacation" -SaveUnknownPersons
+```
 
 ## Outputs
 

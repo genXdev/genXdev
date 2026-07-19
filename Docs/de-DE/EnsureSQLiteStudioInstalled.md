@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stellt sicher, dass SQLiteStudio installiert und über die Befehlszeile zugänglich ist.
+
+## Description
+
+Überprüft, ob SQLiteStudio installiert und im System-PATH verfügbar ist. Wenn nicht gefunden, wird zuerst geprüft, ob die PATH-Umgebungsvariable aktualisiert werden muss. Falls das das Problem nicht behebt, wird SQLiteStudio mit WinGet installiert und die PATH-Umgebungsvariable konfiguriert.
 
 ## Syntax
 
@@ -119,6 +123,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsureSQLiteStudioInstalled Checks and ensures SQLiteStudio is installed and accessible.
+
+```powershell
+EnsureSQLiteStudioInstalled
+Checks and ensures SQLiteStudio is installed and accessible.
 ```
 
 ## Related Links

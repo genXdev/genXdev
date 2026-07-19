@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет силу Архимеда.
+
+## Description
+
+Используется F = ρ V g.
 
 ## Syntax
 

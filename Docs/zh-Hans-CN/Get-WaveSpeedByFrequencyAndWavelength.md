@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 计算波速。
+
+## Description
+
+使用 v = f λ。
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Get-WaveSpeedByFrequencyAndWavelength [-FrequencyInHertz] <double> [-WavelengthI
 | `-FrequencyInHertz` | Double | ✅ | — | 0 | `0` | 频率（Hz） |
 | `-WavelengthInMeters` | Double | ✅ | — | 1 | `0` | 波长（米） |
 | `-As` | String | — | — | 2 | — | 速度输出单位 |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-WaveSpeedByFrequencyAndWavelength -FrequencyInHertz 440 -WavelengthInMeters 0.78 -As "km/h"
+```
+
+使用 v = f * λ 计算波速。
+
+### Example 2
+
+```powershell
+Get-WaveSpeedByFrequencyAndWavelength 1000 0.34
+```
+
+使用位置参数计算波速。
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 使用VLC媒体播放器打开和播放媒体文件，具有高级过滤和配置选项。
+
+## Description
+
+该函数根据搜索模式扫描媒体文件，创建播放列表，并以全面配置选项启动VLC媒体播放器。它支持视频、音频文件和图片，必要时可自动安装VLC。该功能提供对播放行为、窗口位置、音视频设置及字幕处理的广泛控制。
 
 ## Syntax
 
@@ -111,6 +115,32 @@ Open-MediaFile [[-Name] <String[]>] [[-Width] <Int32>] [[-Height] <Int32>] [[-X]
 | `-PassThru` | SwitchParameter | — | — | Named | — | 返回搜索结果中查到的文件 |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | 返回搜索结果中的文件，而不打开 VLC |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | 返回每个进程的窗口助手 |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+使用默认 VLC 设置打开当前目录中的所有媒体文件。
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+使用别名 'vlcmedia'，以全屏模式仅打开“图片”文件夹中的图片文件。
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+使用别名 'media' 以循环模式打开视频文件。
 
 ## Related Links
 

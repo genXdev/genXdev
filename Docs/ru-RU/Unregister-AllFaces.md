@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Удаляет все зарегистрированные лица из системы распознавания лиц DeepStack.
+
+## Description
+
+Эта функция удаляет все зарегистрированные лица из базы данных распознавания лиц DeepStack, удаляя все файлы лиц из каталога хранилища данных и перезапуская сервис для загрузки пустого реестра лиц. Это разрушительная операция, которую нельзя отменить, и она навсегда удалит все данные зарегистрированных лиц.
 
 ## Syntax
 
@@ -27,6 +31,32 @@ Unregister-AllFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | Интервал в секундах между проверками состояния |
 | `-ImageName` | String | — | — | 5 | — | Имя пользовательского образа Docker для использования |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Показать окно Docker Desktop во время инициализации |
+
+## Examples
+
+### Unregister-AllFaces
+
+```powershell
+Unregister-AllFaces
+```
+
+Удаляет все зарегистрированные лица с запросом подтверждения.
+
+### Unregister-AllFaces -Force
+
+```powershell
+Unregister-AllFaces -Force
+```
+
+Удаляет все зарегистрированные лица без подтверждения.
+
+### unregall -Force
+
+```powershell
+unregall -Force
+```
+
+Uses alias to remove all faces without confirmation.
 
 ## Related Links
 

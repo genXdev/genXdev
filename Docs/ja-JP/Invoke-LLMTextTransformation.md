@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AIを活用した処理でテキストを変換します。
+
+## Description
+
+この関数は、AIモデルを使用して入力テキストを処理し、スペルチェック、絵文字の追加、または指示によって指定されたその他のテキスト強調など、さまざまな変換を実行します。パラメータ、パイプライン、またはシステムクリップボードから直接入力を受け付けることができます。
 
 ## Syntax
 
@@ -68,6 +72,28 @@ Invoke-LLMTextTransformation [[-Text] <String>] [[-Instructions] <String>] [[-At
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | フィルター用マークアップブロックタイプ（LLMQueryに渡される） |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 最大ツールコールバック長（LLMQueryに渡される） |
+
+## Examples
+
+### Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `     -Instructions "Fix spelling errors" -SetClipboard
+
+```powershell
+Invoke-LLMTextTransformation -Text "Hello, hwo are you todey?" `
+    -Instructions "Fix spelling errors" -SetClipboard
+```
+
+### "Time to celerbate!" | Invoke-LLMTextTransformation `     -Instructions "Add celebratory emoticons"
+
+```powershell
+"Time to celerbate!" | Invoke-LLMTextTransformation `
+    -Instructions "Add celebratory emoticons"
+```
+
+### spellcheck "This is a sentance with erors"
+
+```powershell
+spellcheck "This is a sentance with erors"
+```
 
 ## Outputs
 

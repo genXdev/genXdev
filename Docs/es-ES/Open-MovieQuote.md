@@ -4,12 +4,25 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre un vídeo de una cita de una película en un navegador web.
+
+## Description
+
+Busca y abre citas de películas usando playphrase.me, permitiendo especificar la configuración del monitor y del navegador. Esta función proporciona acceso a una extensa base de datos de citas de películas con videoclips, compatible con varios idiomas y opciones avanzadas de configuración del navegador.
+
+Características principales:
+- Buscar citas de películas en una amplia base de datos
+- Compatibilidad con varios idiomas y detección automática del idioma
+- Posicionamiento avanzado del navegador y gestión de ventanas
+- Compatibilidad con múltiples navegadores (Edge, Chrome, Firefox)
+- Soporte para modo de navegación privada
+- Automatización del teclado para la interacción con el navegador
+- Compatibilidad con múltiples monitores y posicionamiento preciso
 
 ## Syntax
 
 ```powershell
-Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +37,9 @@ Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>
 | `-Chrome` | SwitchParameter | — | — | Named | — | Se abre en Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Se abre en Microsoft Edge o Google Chrome, dependiendo de cuál sea el navegador predeterminado |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Se abre en Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utilizar el navegador gestionado por Playwright en lugar del navegador instalado en el sistema operativo |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre el navegador WebKit gestionado por Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Ejecuta el navegador sin una ventana visible |
 | `-All` | SwitchParameter | — | — | Named | — | Se abre en todos los navegadores modernos registrados |
 | `-Monitor` | Int32 | — | — | Named | `-1` | El monitor a utilizar, 0 = predeterminado, -1 es descartar, -2 = Monitor secundario configurado, valores predeterminados a -1, sin posicionamiento |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Se abre en modo de pantalla completa |
@@ -59,6 +75,40 @@ Open-MovieQuote -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>
 | `-ReturnURL` | SwitchParameter | — | — | Named | — | Don't open webbrowser, just return the url |
 | `-ReturnOnlyURL` | SwitchParameter | — | — | Named | — | Después de abrir el navegador web, devuelve la url |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Coloque la ventana del navegador en pantalla completa en un monitor diferente al de PowerShell, o en paralelo con PowerShell en el mismo monitor. |
+
+## Examples
+
+### Open-MovieQuote -Queries "I'll be back"
+
+```powershell
+Open-MovieQuote -Queries "I'll be back"
+```
+
+Abre una búsqueda de la famosa frase de Terminator "Volveré".
+
+### Open-MovieQuote -Queries "Here's looking at you kid" -Monitor 1
+
+```powershell
+Open-MovieQuote -Queries "Here's looking at you kid" -Monitor 1
+```
+
+Abre una búsqueda de la cita de Casablanca en el monitor 1.
+
+### moviequote "May the Force be with you" -Language "English" -Private
+
+```powershell
+moviequote "May the Force be with you" -Language "English" -Private
+```
+
+Abre una búsqueda de la cita de Star Wars en inglés usando navegación privada.
+
+### "I'll be back", "Frankly, my dear" | Open-MovieQuote -Chrome -FullScreen
+
+```powershell
+"I'll be back", "Frankly, my dear" | Open-MovieQuote -Chrome -FullScreen
+```
+
+Abre múltiples búsquedas de citas de películas en el modo de pantalla completa de Chrome a través de la tubería.
 
 ## Related Links
 

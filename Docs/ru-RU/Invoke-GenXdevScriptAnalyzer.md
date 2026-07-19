@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Запускает анализатор сценариев PowerShell для анализа сценариев PowerShell на соответствие требованиям и рекомендациям.
+
+## Description
+
+Эта функция предоставляет оболочку вокруг PSScriptAnalyzer для анализа PowerShell-скриптов на предмет соответствия требованиям, нарушений лучших практик и потенциальных ошибок. Она поддерживает как анализ на основе файлов, так и анализ на основе строк с настраиваемыми правилами и настройками.
 
 ## Syntax
 
@@ -26,6 +30,26 @@ Invoke-GenXdevScriptAnalyzer [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<
 | `-Fix` | SwitchParameter | — | — | Named | — | Включает автоматическое исправление нарушений. |
 | `-Recurse` | SwitchParameter | — | — | Named | — | Recursively process files. |
 | `-ReportSummary` | SwitchParameter | — | — | Named | — | Сообщает сводку после анализа. |
+
+## Examples
+
+### Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\MyScript.ps1"
+
+```powershell
+Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\MyScript.ps1"
+```
+
+### Invoke-GenXdevScriptAnalyzer -ScriptDefinition "Get-Process | Where-Object {$_.Name -eq 'notepad'}"
+
+```powershell
+Invoke-GenXdevScriptAnalyzer -ScriptDefinition "Get-Process | Where-Object {$_.Name -eq 'notepad'}"
+```
+
+### Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\" -Recurse -Fix
+
+```powershell
+Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\" -Recurse -Fix
+```
 
 ## Related Links
 

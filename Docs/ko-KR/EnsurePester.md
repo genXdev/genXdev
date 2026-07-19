@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Pester 테스트 프레임워크를 사용할 수 있도록 보장합니다.
+
+## Description
+
+이 함수는 현재 PowerShell 환경에 Pester 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않은 경우 PowerShell 갤러리에서 자동으로 설치하여 현재 세션으로 가져옵니다. 이렇게 하면 필요할 때 Pester 테스트 기능을 사용할 수 있습니다.
 
 ## Syntax
 
@@ -60,6 +64,15 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsurePester This ensures Pester is installed and ready for use
+
+```powershell
+EnsurePester
+This ensures Pester is installed and ready for use
 ```
 
 ## Related Links

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Recupera dados de uma coluna específica em uma tabela de banco de dados SQL.
+
+## Description
+
+Esta função fornece uma maneira conveniente de extrair dados de uma única coluna em uma tabela de banco de dados SQL. Ela suporta dois métodos de conexão: caminho de arquivo de banco de dados direto ou string de conexão. A função inclui opções para limitar o número de registros retornados e usa construção de consulta SQL adequada para desempenho ideal.
 
 ## Syntax
 
@@ -26,6 +30,23 @@ Get-SQLServerTableColumnData -TableName <String> -ColumnName <String> [[-Count] 
 | `-TableName` | String | ✅ | — | 2 | — | O nome da tabela a ser consultada |
 | `-ColumnName` | String | ✅ | — | 3 | — | O nome da coluna a ser recuperada |
 | `-Count` | Int32 | — | — | 4 | `100` | Número de registros a retornar. Padrão 100. Use -1 para todos |
+
+## Examples
+
+### Get-SQLServerTableColumnData -DatabaseFilePath "C:\MyDb.sqlite" `     -TableName "Employees" `     -ColumnName "Email" `     -Count 10
+
+```powershell
+Get-SQLServerTableColumnData -DatabaseFilePath "C:\MyDb.sqlite" `
+    -TableName "Employees" `
+    -ColumnName "Email" `
+    -Count 10
+```
+
+### Get-SQLServerTableColumnData "C:\MyDb.sqlite" "Employees" "Email"
+
+```powershell
+Get-SQLServerTableColumnData "C:\MyDb.sqlite" "Employees" "Email"
+```
 
 ## Related Links
 

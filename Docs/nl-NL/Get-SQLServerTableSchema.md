@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Haalt de schema-informatie op voor een opgegeven SQL Server-tabel.
+
+## Description
+
+Deze functie bevraagt de SQL Server-database om gedetailleerde schema-informatie voor een opgegeven tabel op te halen. Het gebruikt de SQL Server INFORMATION_SCHEMA.COLUMNS-weergave om kolomdefinities te retourneren, inclusief namen, typen, nullable-status en standaardwaarden.
 
 ## Syntax
 
@@ -24,6 +28,22 @@ Get-SQLServerTableSchema -TableName <String> [<CommonParameters>]
 | `-DatabaseName` | String | ✅ | — | 0 | — | De naam van de SQL Server-database *(Parameter set: )* |
 | `-Server` | String | — | — | 1 | `'.'` | De SQL Server-instantienaam *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 2 | — | De naam van de tabel |
+
+## Examples
+
+### Get-SQLServerTableSchema -DatabaseName "mydb" -Server "localhost" `     -TableName "Users"
+
+```powershell
+Get-SQLServerTableSchema -DatabaseName "mydb" -Server "localhost" `
+    -TableName "Users"
+```
+
+### Get-SQLServerTableSchema -ConnectionString "Server=localhost;Database=mydb;Integrated Security=true" `     -TableName "Products"
+
+```powershell
+Get-SQLServerTableSchema -ConnectionString "Server=localhost;Database=mydb;Integrated Security=true" `
+    -TableName "Products"
+```
 
 ## Related Links
 

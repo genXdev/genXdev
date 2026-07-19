@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Generated QR code for WireGuard VPN peer configuration.
+
+## Description
+
+此函数用于生成 WireGuard VPN 对等体配置的二维码，移动设备可通过扫描该二维码轻松完成配置。二维码将显示在控制台中，可用于在智能手机和平板电脑上快速配置 WireGuard 客户端。该函数与 linuxserver/wireguard Docker 容器交互，以生成对等体配置的二维码。
 
 ## Syntax
 
@@ -28,6 +32,20 @@ Get-WireGuardPeerQRCode -PeerName <String> [-ContainerName <String>] [-Force] [-
 | `-PUID` | String | — | — | Named | `'1000'` | 容器内权限的用户ID |
 | `-PGID` | String | — | — | Named | `'1000'` | 容器中用于权限的组ID |
 | `-TimeZone` | String | — | — | Named | `'Etc/UTC'` | 容器使用的时区 |
+
+## Examples
+
+### Get-WireGuardPeerQRCode -PeerName "MyPhone"
+
+```powershell
+Get-WireGuardPeerQRCode -PeerName "MyPhone"
+```
+
+### Get-WireGuardPeerQRCode -PeerName "Tablet" -NoDockerInitialize
+
+```powershell
+Get-WireGuardPeerQRCode -PeerName "Tablet" -NoDockerInitialize
+```
 
 ## Related Links
 

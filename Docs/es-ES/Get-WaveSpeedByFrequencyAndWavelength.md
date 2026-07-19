@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula la velocidad de la onda.
+
+## Description
+
+Usa v = f λ.
 
 ## Syntax
 
@@ -42,6 +46,24 @@ Get-WaveSpeedByFrequencyAndWavelength [-FrequencyInHertz] <double> [-WavelengthI
   },
   "required": ["speed_units"]
 } |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-WaveSpeedByFrequencyAndWavelength -FrequencyInHertz 440 -WavelengthInMeters 0.78 -As "km/h"
+```
+
+Calcula la velocidad de la onda usando v = f * λ.
+
+### Example 2
+
+```powershell
+Get-WaveSpeedByFrequencyAndWavelength 1000 0.34
+```
+
+Calcula la velocidad de onda con parámetros posicionales.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Microsoft EdgeのニューラルTTSエンジンを使用してテキストを音声に変換します。
+
+## Description
+
+Microsoft EdgeのニューラルTTSエンジン（EdgeTTS.DotNet経由）を使用して、テキストを自然な音声に変換します。この関数は、さまざまな音声、ロケール、韻律調整（レート、ボリューム、ピッチ）、同期/非同期再生オプションをサポートする柔軟なテキスト読み上げ機能を提供します。単一の文字列とテキストの配列の両方を処理できます。
 
 ## Syntax
 
@@ -26,6 +30,26 @@ Start-TextToSpeech [[-VoiceName] <String>] [-Locale <String>] [-PassThru] [-Pitc
 | `-Pitch` | String | — | — | Named | `$null` | ピッチシフト、例：「+0Hz」、「-10Hz」、「+20Hz」 |
 | `-PassThru` | SwitchParameter | — | — | Named | — | パイプラインへの発話テキストの出力 |
 | `-Wait` | SwitchParameter | — | — | Named | — | 発話が完了するのを待ってから続行する |
+
+## Examples
+
+### Start-TextToSpeech -Lines "Hello World" -Locale "en-US" -Wait
+
+```powershell
+Start-TextToSpeech -Lines "Hello World" -Locale "en-US" -Wait
+```
+
+### "Hello World" | say
+
+```powershell
+"Hello World" | say
+```
+
+### say "Hello World" -Rate "+50%" -Pitch "-5Hz"
+
+```powershell
+say "Hello World" -Rate "+50%" -Pitch "-5Hz"
+```
 
 ## Related Links
 

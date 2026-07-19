@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Garante que as definições de refatoração padrão do GenXdev estejam disponíveis.
+
+## Description
+
+Esta função cria e mantém definições de refatoração padrão para módulos PowerShell da GenXdev. Ela configura refatorações para documentação e formatação, conversão para C# e prompts de consentimento de instalação.
 
 ## Syntax
 
@@ -17,6 +21,20 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Force` | SwitchParameter | — | — | Named | — | Força a recriação das definições de refatoração existentes |
+
+## Examples
+
+### EnsureDefaultGenXdevRefactors
+
+```powershell
+EnsureDefaultGenXdevRefactors
+```
+
+### EnsureDefaultGenXdevRefactors -Force
+
+```powershell
+EnsureDefaultGenXdevRefactors -Force
+```
 
 ## Related Links
 

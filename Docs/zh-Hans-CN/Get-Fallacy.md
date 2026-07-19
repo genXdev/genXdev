@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 利用AI驱动的检测来分析文本以识别逻辑谬误。
+
+## Description
+
+该函数利用基于维基百科谬误列表训练的AI模型分析提供的文本，以检测逻辑谬误。它会返回关于每个发现谬误的详细信息，包括具体引用、谬误名称、描述、解释和正式分类。该函数采用结构化响应格式以确保输出的一致性。
 
 ## Syntax
 
@@ -57,6 +61,33 @@ Get-Fallacy -InputObject <Object> [[-Instructions] <String>] [[-Attachments] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 清除存储在会话中的人工智能偏好替代设置 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 仅将设置存储在持久化偏好中，不影响会话 |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 工具调用的最大回调长度。 |
+
+## Examples
+
+### Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " + "and he was a politician")
+
+```powershell
+Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " +
+"and he was a politician")
+```
+
+分析提供的文本中的逻辑谬误，并返回检测到的谬误的结构化信息。
+
+### "This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+
+```powershell
+"This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+```
+
+使用管道输入分析文本，低温设置以实现聚焦分析。
+
+### dispicetext "Everyone knows this is true"
+
+```powershell
+dispicetext "Everyone knows this is true"
+```
+
+The alias is used to analyze text for logical fallacies.
 
 ## Outputs
 

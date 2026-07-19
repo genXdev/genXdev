@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves column data from a SQL view with optional record limiting.
+
+## Description
+
+Executes a SELECT query against a specified SQL view to retrieve data from a
+single column. Supports connecting via either a connection string or database file
+path. Allows limiting the number of returned records or retrieving all records.
 
 ## Syntax
 
@@ -26,6 +32,23 @@ Get-SQLServerViewColumnData -ViewName <String> -ColumnName <String> [[-Count] <I
 | `-ViewName` | String | ✅ | — | 2 | — | The name of the view. |
 | `-ColumnName` | String | ✅ | — | 3 | — | The name of the column. |
 | `-Count` | Int32 | — | — | 4 | `100` | The number of records to return. Default is 100. -1 for all. |
+
+## Examples
+
+### Get-SQLServerViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `     -ViewName "CustomersView" `     -ColumnName "Email" `     -Count 50
+
+```powershell
+Get-SQLServerViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `
+    -ViewName "CustomersView" `
+    -ColumnName "Email" `
+    -Count 50
+```
+
+### Get-SQLServerViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+
+```powershell
+Get-SQLServerViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+```
 
 ## Related Links
 

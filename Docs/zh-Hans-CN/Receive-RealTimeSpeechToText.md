@@ -1,10 +1,14 @@
 # Receive-RealTimeSpeechToText
 
-> **Module:** GenXdev.Helpers | **Type:** Cmdlet | **Aliases:** —
+> **Module:** GenXdev.AI | **Type:** Cmdlet | **Aliases:** —
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 使用Whisper AI模型将实时音频输入转换为文本。
+
+## Description
+
+该Cmdlet从麦克风或桌面捕获音频，并利用Whisper AI模型实时将其转录为文本。它支持多种音频源、静音检测以及多种用于语音识别的配置选项。
 
 ## Syntax
 
@@ -52,6 +56,40 @@ Receive-RealTimeSpeechToText [-ModelFileDirectoryPath <string>] [-UseDesktopAudi
 | `-NoContext` | SwitchParameter | — | — | Named | `False` | Don't use context |
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | `False` | 使用束搜索采样策略 |
 | `-ModelType` | Whisper.net.Ggml.GgmlType | — | — | Named | `Tiny` | 要使用的Whisper模型类型，默认为Small |
+
+## Examples
+
+### Example 1
+
+```powershell
+Receive-RealTimeSpeechToText
+```
+
+麦克风基本用法。
+
+### Example 2
+
+```powershell
+Receive-RealTimeSpeechToText -UseDesktopAudioCapture
+```
+
+正在使用桌面音频捕获。
+
+### Example 3
+
+```powershell
+Receive-RealTimeSpeechToText -AudioDevice "Microphone*"
+```
+
+使用特定的音频设备。
+
+### Example 4
+
+```powershell
+Receive-RealTimeSpeechToText -MaxDurationOfSilence "00:00:05"
+```
+
+带静音检测。
 
 ## Related Links
 

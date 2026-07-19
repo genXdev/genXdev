@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 计算线性动量。
+
+## Description
+
+Uses p = mv.
 
 ## Syntax
 

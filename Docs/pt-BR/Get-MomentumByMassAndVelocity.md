@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calcula o momento linear.
+
+## Description
+
+Usa p = m v.
 
 ## Syntax
 

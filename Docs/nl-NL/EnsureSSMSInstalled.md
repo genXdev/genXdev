@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Zorgt ervoor dat SSMS is geïnstalleerd en toegankelijk is vanaf de opdrachtregel.
+
+## Description
+
+Controleert of SSMS is geïnstalleerd en beschikbaar is in het systeem-PAD. Indien niet gevonden, controleert het eerst of de omgevingsvariabele PAD moet worden bijgewerkt. Als dat het probleem niet oplost, installeert het SSMS met WinGet en configureert het de omgevingsvariabele PAD.
 
 ## Syntax
 
@@ -17,6 +21,15 @@ EnsureSSMSInstalled [-Force] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Force` | SwitchParameter | — | — | Named | — | The `-Force` parameter. |
+
+## Examples
+
+### EnsureSSMSInstalled Checks and ensures SSMS is installed and accessible.
+
+```powershell
+EnsureSSMSInstalled
+Checks and ensures SSMS is installed and accessible.
+```
 
 ## Related Links
 

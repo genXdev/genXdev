@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Herstart de videoweergave in een YouTube-browsertabblad.
+
+## Description
+
+Vindt het actieve YouTube-browsertabblad en hervat het afspelen van video door de play()-methode uit te voeren op alle gevonden video-elementen in de pagina. Als er geen YouTube-tabblad wordt gevonden, genereert de functie een foutmelding. Deze functie is vooral nuttig voor het automatiseren van videoweergavebesturing in browsersessies.
 
 ## Syntax
 
@@ -42,6 +46,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Resume-WebbrowserTabVideo
+
+```powershell
+Resume-WebbrowserTabVideo
+```
+
+### wbvideoplay
+
+```powershell
+wbvideoplay
 ```
 
 ## Related Links

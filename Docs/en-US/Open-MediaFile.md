@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opens and plays media files using VLC media player with advanced filtering and
+configuration options.
+
+## Description
+
+This function scans for media files based on search patterns,
+creates a playlist, and launches VLC media player with comprehensive
+configuration options. It supports videos, audio files, and pictures with
+automatic VLC installation if needed. The function provides extensive control
+over playback behavior, window positioning, audio/video settings, and subtitle
+handling.
 
 ## Syntax
 
@@ -111,6 +121,33 @@ Open-MediaFile [[-Name] <String[]>] [[-Width] <Int32>] [[-Height] <Int32>] [[-X]
 | `-PassThru` | SwitchParameter | — | — | Named | — | Returns the files found by the search |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | Returns the files found by the search without opening VLC |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | Returns the window helper for each process |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+Opens all media files in the current directory using default VLC settings.
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+Opens only picture files from the Pictures folder in fullscreen mode using the
+alias 'vlcmedia'.
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+Opens video files with looping enabled using the alias 'media'.
 
 ## Related Links
 

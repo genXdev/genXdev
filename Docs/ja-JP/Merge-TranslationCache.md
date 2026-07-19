@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 言語ごとにバッチ書き込みで永続的な翻訳キャッシュを管理します。
+
+## Description
+
+Get-TextTranslation のモジュールスコープのメモリ内変換キャッシュを維持します。
+キャッシュは $env:LOCALAPPDATA\GenXdev.PowerShell 下の言語ごとの JSON ファイルに分割されます。エントリの追加呼び出しはバッチ処理され、ディスクへの書き込みは言語あたり100回の変更ごと、または -PersistNow が呼び出された場合にのみ行われます。-PersistNow はまた、処理バッチ間での無制限の成長を防ぐためにメモリ内キャッシュをクリアします。
 
 ## Syntax
 
@@ -31,6 +36,32 @@ Merge-TranslationCache -PurgeFromCache [<CommonParameters>]
 | `-PersistNow` | SwitchParameter | ✅ | — | Named | — | すべてのダーティキャッシュをディスクに書き込み、メモリをクリアする *(Parameter set: )* |
 | `-ClearCache` | SwitchParameter | ✅ | — | Named | — | メモリ内キャッシュをクリアし、すべてのディスクファイルを削除する *(Parameter set: )* |
 | `-PurgeFromCache` | SwitchParameter | ✅ | — | Named | — | ディスク上のすべての言語キャッシュから未翻訳のエントリを削除します *(Parameter set: )* |
+
+## Examples
+
+### $cache = Merge-TranslationCache -GetCache
+
+```powershell
+$cache = Merge-TranslationCache -GetCache
+```
+
+### Merge-TranslationCache -Language 'nl-NL' -Key 'Hello' -Value 'Hallo'
+
+```powershell
+Merge-TranslationCache -Language 'nl-NL' -Key 'Hello' -Value 'Hallo'
+```
+
+### Merge-TranslationCache -PersistNow
+
+```powershell
+Merge-TranslationCache -PersistNow
+```
+
+### Merge-TranslationCache -PurgeFromCache
+
+```powershell
+Merge-TranslationCache -PurgeFromCache
+```
 
 ## Outputs
 

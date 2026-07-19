@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Find duplicate files across multiple directories based on configurable criteria.
+
+## Description
+
+Durchsucht rekursiv angegebene Verzeichnisse nach doppelten Dateien. Dateien gelten als Duplikate, wenn der Inhalt entweder exakt gleich ist oder mit demselben Inhalt beginnt (für den partiellen Vergleich mit dem -ComparePartial-Schalter). Das Cmdlet verwendet einen schnellen Hash der ersten Bytes der Datei für eine effiziente Gruppierung, bevor vollständige Inhaltsvergleiche durchgeführt werden. Die Größe dieses schnellen Hashs kann mit dem -CompareByteLength-Parameter konfiguriert werden, um eine Abwägung zwischen Leistung und Genauigkeit bei der Duplikaterkennung zu ermöglichen. Nur Dateien, die mindestens diese CompareByteLength-Länge haben, werden für die Duplikaterkennung berücksichtigt; kleinere Dateien werden nur nach Dateinamen gruppiert.
 
 ## Syntax
 
@@ -61,6 +65,22 @@ Find-DuplicateFiles [[-Content] <String[]>] [-AllMatches] [-CaseSensitive] [-Con
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Use simple string matching instead of regex *(Parameter set: )* |
 | `-ComparePartial` | SwitchParameter | — | — | Named | — | Es werden Dateien mit unterschiedlichen Größen zurückgegeben, solange sie mit demselben Dateinamen und Inhalt beginnen. Dies erkennt unterbrochene Download-/Kopiervorgänge. |
 | `-CompareByteLength` | Int32 | — | — | Named | `65536` | Quick compare byte length of files, used for fast indexing and searching of duplicates, this will not compare content of files |
+
+## Examples
+
+### Find duplicate text files in the Documents folder based on exact content: Find-DuplicateFiles ~\Documents\*.doc* -ComparePartial
+
+```powershell
+Find duplicate text files in the Documents folder based on exact content:
+Find-DuplicateFiles ~\Documents\*.doc* -ComparePartial
+```
+
+### Removes all duplicate media files in the Pictures and Videos folders, keeping only one copy of each duplicate set: (Find-DuplicateFiles ~\Pictures\*, ~\Videos\* -Category Pictures, Videos -ComparePartial).Duplicates.FullName | Remove-Item -Force -Verbose
+
+```powershell
+Removes all duplicate media files in the Pictures and Videos folders, keeping only one copy of each duplicate set:
+(Find-DuplicateFiles ~\Pictures\*, ~\Videos\* -Category Pictures, Videos -ComparePartial).Duplicates.FullName | Remove-Item -Force -Verbose
+```
 
 ## Related Links
 

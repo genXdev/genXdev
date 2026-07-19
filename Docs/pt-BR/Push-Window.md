@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Empurra a janela atual para a pilha de janelas com modificações opcionais.
+
+## Description
+
+Empurra um auxiliar de janela para a janela atualmente focada na pilha.
+Permite aplicar várias transformações na janela antes ou depois de empurrar.
+Esta função captura a janela atual e a armazena para recuperação posterior
+com Pop-Window, enquanto opcionalmente aplica efeitos de posicionamento, dimensionamento
+ e efeitos visuais.
 
 ## Syntax
 
@@ -42,6 +50,46 @@ Push-Window [-AlwaysOnTop] [-Bottom] [-Centered] [-FadeOut] [-Focus] [-Hide] [-L
 | `-Centered` | SwitchParameter | — | — | Named | — | The `-Centered` parameter. *(Parameter set: )* |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | The `-ShowWindow` parameter. *(Parameter set: )* |
 | `-Monitor` | Int32 | — | — | Named | — | The `-Monitor` parameter. *(Parameter set: )* |
+
+## Examples
+
+### Push-Window -Maximize -AlwaysOnTop Maximizes the current window, sets it to be always on top, and pushes it onto the stack.
+
+```powershell
+Push-Window -Maximize -AlwaysOnTop
+Maximizes the current window, sets it to be always on top, and pushes it onto the stack.
+```
+
+### Push-Window -X 100 -Y 100 -Width 800 -Height 600 -NoBorders Positions and resizes the current window, removes its borders, and pushes it onto the stack.
+
+```powershell
+Push-Window -X 100 -Y 100 -Width 800 -Height 600 -NoBorders
+Positions and resizes the current window, removes its borders, and pushes it onto the stack.
+```
+
+### pushw -Left Positions the current window on the left half of the screen and pushes it onto the stack using the alias.
+
+```powershell
+pushw -Left
+Positions the current window on the left half of the screen and pushes it
+onto the stack using the alias.
+```
+
+### Push-Window -Monitor 1 -Maximize Moves the current window to the first monitor, maximizes it, and pushes it onto the stack.
+
+```powershell
+Push-Window -Monitor 1 -Maximize
+Moves the current window to the first monitor, maximizes it, and pushes it onto the stack.
+```
+
+### Push-Window -Monitor -2 -Fullscreen Moves the current window to the secondary monitor, makes it fullscreen, and pushes it onto the stack. ##############################################################################
+
+```powershell
+Push-Window -Monitor -2 -Fullscreen
+Moves the current window to the secondary monitor, makes it fullscreen,
+and pushes it onto the stack.
+##############################################################################
+```
 
 ## Related Links
 

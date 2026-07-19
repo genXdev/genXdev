@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I understand you'd like me to transform direct or blunt statements into more diplomatic and polite language. How may I assist you with a specific phrase or statement?
+
+## Description
+
+Deze functie transformeert gebruikersinvoer van directe of botte formuleringen naar diplomatieke, tactvolle taal die geschikt is voor discussies op hoog niveau, onderhandelingen of formele communicatie. De functie maakt gebruik van AI-taalmodellen om de oorspronkelijke intentie te behouden, terwijl de toon wordt verzacht en de boodschap diplomatieker en professioneler wordt gemaakt.
 
 ## Syntax
 
@@ -87,6 +91,21 @@ This is a sample block that could be passed to an LLMQuery.
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter voor markup-bloktypen (doorgegeven aan LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale toolcallback-lengte (doorgegeven aan LLMQuery) |
+
+## Examples
+
+### ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `     -SetClipboard
+
+```powershell
+ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `
+    -SetClipboard
+```
+
+### diplomatize "Your code is full of bugs"
+
+```powershell
+diplomatize "Your code is full of bugs"
+```
 
 ## Outputs
 

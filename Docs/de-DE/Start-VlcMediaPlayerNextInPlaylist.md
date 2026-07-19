@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Spielt den nächsten Titel in der aktuellen Wiedergabeliste des VLC Media Players ab.
+
+## Description
+
+Diese Funktion sendet den Tastendruck 'n' an VLC Media Player, um zum nächsten Titel oder Medienelement in der aktuell geladenen Playlist zu springen. Sie fokussiert das VLC-Fenster, sendet den Befehl 'nächster Titel' und stellt den Fokus wieder auf die PowerShell-Konsole zurück. Die Funktion enthält ShouldProcess-Unterstützung für Bestätigungsaufforderungen, wenn erforderlich.
 
 ## Syntax
 
@@ -41,6 +45,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerNextInPlaylist
+
+```powershell
+Start-VlcMediaPlayerNextInPlaylist
+```
+
+### vlcnext
+
+```powershell
+vlcnext
 ```
 
 ## Related Links

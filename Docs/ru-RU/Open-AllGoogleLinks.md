@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Выполняет бесконечный автоматический поиск в Google.
+
+## Description
+
+Выполняет поиск в Google.
+Открывает 10 вкладок каждый раз, делает паузу до возврата к исходной вкладке.
+Закрывает исходную вкладку для остановки.
 
 ## Syntax
 
@@ -18,6 +24,16 @@ Open-AllGoogleLinks -Queries <String[]> [-Language <String>] [<CommonParameters>
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Queries` | String[] | ✅ | ✅ (ByValue, ByPropertyName) 🌐 Remaining | 0 | — | The query to perform |
 | `-Language` | String | — | — | Named | — | Язык возвращаемых результатов поиска |
+
+## Examples
+
+### PS C:\>
+
+```powershell
+PS C:\>
+```
+
+Open-AllGoogleLinks "site:github.com PowerShell module"
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> DeepStackから登録されたすべての顔識別子のリストを取得します。
+
+## Description
+
+この関数は、ローカルのDeepStack顔認識APIに接続し、登録されているすべての顔識別子を取得します。/v1/vision/face/listエンドポイントを使用してDeepStackサービスにクエリを送信し、顔識別子の文字列の配列を返します。この関数は、Dockerコンテナの初期化、API通信、およびさまざまな障害シナリオに対するエラーハンドリングを処理します。
 
 ## Syntax
 
@@ -26,6 +30,41 @@ Get-RegisteredFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | ヘルスチェック試行間の間隔（秒） |
 | `-ImageName` | String | — | — | 5 | — | 使用するカスタムDockerイメージ名 |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 初期化中にDocker Desktopウィンドウを表示する |
+
+## Examples
+
+### Get-RegisteredFaces
+
+```powershell
+Get-RegisteredFaces
+```
+
+この例では、デフォルトのパラメータを使用して登録されたすべての顔を取得します。
+
+### Get-RegisteredFaces -Force -UseGPU
+
+```powershell
+Get-RegisteredFaces -Force -UseGPU
+```
+
+この例では、コンテナの再構築を強制し、GPUアクセラレーションを使用します。
+
+### Get-RegisteredFaces -ContainerName "my_deepstack" -ServicePort 8080
+
+```powershell
+Get-RegisteredFaces -ContainerName "my_deepstack" -ServicePort 8080
+```
+
+この例では、カスタムのコンテナ名とポート番号を使用しています。
+
+### Get-RegisteredFaces | Where-Object { $_ -like "John*" }
+
+```powershell
+Get-RegisteredFaces |
+Where-Object { $_ -like "John*" }
+```
+
+この例では、すべての顔を取得し、「John」で始まるものにフィルタリングします。
 
 ## Related Links
 

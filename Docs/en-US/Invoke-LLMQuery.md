@@ -4,7 +4,24 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sends queries to an OpenAI compatible Large Language Chat completion API and
+processes responses.
+
+## Description
+
+This function sends queries to an OpenAI compatible Large Language Chat
+completion API and processes responses. It supports text and image inputs,
+handles tool function calls, and can operate in various chat modes including
+text and audio.
+
+The function provides comprehensive support for LLM interaction including:
+- Text and image input processing
+- Tool function calling and command execution
+- Interactive chat modes (text and audio)
+- Model initialization and configuration
+- Response formatting and processing
+- Session management and caching
+- Window positioning and display control
 
 ## Syntax
 
@@ -66,6 +83,40 @@ Invoke-LLMQuery [[-Query] <String>] [[-Instructions] <String>] [[-Attachments] <
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | `100000` | Maximum length of tool callback output in characters. Output exceeding this length will be trimmed with a warning message. Default is 100000 characters. |
+
+## Examples
+
+### Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+
+```powershell
+Invoke-LLMQuery -Query "What is 2+2?" -Model "qwen" -Temperature 0.7
+```
+
+Sends a simple mathematical query to the qwen model with specified temperature.
+
+### qllm "What is 2+2?" -Model "qwen"
+
+```powershell
+qllm "What is 2+2?" -Model "qwen"
+```
+
+Uses the alias to send a query with default parameters.
+
+### Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+
+```powershell
+Invoke-LLMQuery -Query "Analyze this image" -Attachments @("image.jpg") -Model "qwen"
+```
+
+Sends a query with an image attachment for analysis.
+
+### llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+
+```powershell
+llm "Start a conversation" -ChatMode "textprompt" -Model "qwen"
+```
+
+Starts an interactive text chat session with the specified model.
 
 ## Related Links
 

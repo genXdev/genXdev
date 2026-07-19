@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 항력을 계산합니다.
+
+## Description
+
+F = 1/2 C ρ A v² 공식을 사용합니다.
 
 ## Syntax
 
@@ -21,6 +25,24 @@ Get-DragForceByVelocityDensityAreaAndCoefficient [-VelocityInMetersPerSecond] <d
 | `-AreaInSquareMeters` | Double | ✅ | — | 2 | `0` | 단면적 (m²) |
 | `-Coefficient` | Double | ✅ | — | 3 | `0` | 항력 계수 |
 | `-As` | String | — | — | 4 | — | 뉴턴 (N) |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-DragForceByVelocityDensityAreaAndCoefficient -VelocityInMetersPerSecond 10 -DensityInKilogramsPerCubicMeter 1.225 -AreaInSquareMeters 1 -Coefficient 0.5 -As "poundforce"
+```
+
+속도 10m/s, 공기 밀도 1.225kg/m³, 면적 1m², 계수 0.5를 사용하여 항력을 계산하고, 파운드힘으로 출력합니다.
+
+### Example 2
+
+```powershell
+Get-DragForceByVelocityDensityAreaAndCoefficient 20 1.225 2 0.3
+```
+
+위치 매개변수를 사용하여 항력을 계산: 속도 20m/s, 밀도 1.225kg/m³, 면적 2m², 계수 0.3.
 
 ## Related Links
 

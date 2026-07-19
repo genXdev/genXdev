@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Сбрасывает конфигурацию сервера WireGuard VPN, удаляя всех пиров.
+
+## Description
+
+Эта функция сбрасывает конфигурацию сервера WireGuard VPN, работающего в Docker-контейнере, удаляя всех пиров и генерируя новую конфигурацию сервера. Это необратимая деструктивная операция, которая навсегда удалит все конфигурации пиров. Функция останавливает службу WireGuard, удаляет все каталоги пиров и файлы конфигурации, удаляет ключи сервера, перезапускает контейнер и проверяет, что новая конфигурация была сгенерирована.
 
 ## Syntax
 
@@ -27,6 +31,24 @@ Reset-WireGuardConfiguration [[-ContainerName] <String>] [[-VolumeName] <String>
 | `-TimeZone` | String | — | — | 8 | `'Etc/UTC'` | Часовой пояс для использования контейнером |
 | `-NoDockerInitialize` | SwitchParameter | — | — | Named | — | Пропустить инициализацию Docker (используется, когда уже вызвана родительской функцией) |
 | `-Force` | SwitchParameter | — | — | Named | — | Принудительный сброс без подтверждения |
+
+## Examples
+
+### Reset-WireGuardConfiguration
+
+```powershell
+Reset-WireGuardConfiguration
+```
+
+Сбрасывает конфигурацию WireGuard до настроек по умолчанию и запрашивает подтверждение перед выполнением.
+
+### Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+
+```powershell
+Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+```
+
+Сбрасывает конфигурацию WireGuard для указанного имени контейнера без запроса подтверждения.
 
 ## Related Links
 

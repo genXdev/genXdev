@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 入力オブジェクトをファイル名やディレクトリ名に展開し、さまざまなフィルタや出力オプションをサポートします。
+
+## Description
+
+この関数は、入力オブジェクト（ファイル、ディレクトリ、またはコレクション）を処理し、ファイル名とディレクトリ名に展開します。フィルタリング、パターンマッチングをサポートし、結果をオブジェクトとして出力できます。この関数はパイプライン入力で動作するよう設計されており、再帰、代替データストリームなどのオプションを提供します。
 
 ## Syntax
 
@@ -48,6 +52,14 @@ ResolveInputObjectFileNames [-Directory] [-FilesAndDirectories] [<CommonParamete
 } |
 | `-IncludeAlternateFileStreams` | SwitchParameter | — | — | Named | — | 代替データストリームを検索結果に含める |
 | `-NoRecurse` | SwitchParameter | — | — | Named | — | サブディレクトリに再帰しない |
+
+## Examples
+
+### ResolveInputObjectFileNames -Input "C:\Temp" -File
+
+```powershell
+ResolveInputObjectFileNames -Input "C:\Temp" -File
+```
 
 ## Related Links
 

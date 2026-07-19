@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 创建一个新的 SQL Server 数据库。
+
+## Description
+
+在指定服务器上创建具有指定名称的新 SQL Server 数据库。需要拥有在目标 SQL Server 实例上创建数据库的适当权限。如果数据库已存在，将跳过此操作。支持使用显式的 .mdf/.ldf 路径基于文件创建数据库。
 
 ## Syntax
 
@@ -28,6 +32,38 @@ New-SQLServerDatabase [-ConsentToThirdPartySoftwareInstallation] [-ForceConsent]
 | `-DataFilePath` | String | — | — | Named | — | 用于基于文件的数据库创建的可选数据文件路径 (.mdf)。 *(Parameter set: )* |
 | `-LogFilePath` | String | — | — | Named | — | 用于基于文件的数据库创建的可选日志文件路径 (.ldf)。 *(Parameter set: )* |
 | `-DetachAfterCreation` | SwitchParameter | — | — | Named | — | 在创建后分离数据库（适用于基于文件的数据库）。 *(Parameter set: )* |
+
+## Examples
+
+### New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyNewDatabase" -Server "localhost"
+```
+
+### New-SQLServerDatabase "MyNewDatabase"
+
+```powershell
+New-SQLServerDatabase "MyNewDatabase"
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -ConnectionString "Server=.;..."
+```
+
+### New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "ImageIndex" -DataFilePath "C:\Data\ImageIndex.mdf" -DetachAfterCreation
+```
+
+### New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+New-SQLServerDatabase -DatabaseName "MyDB" -Server "." -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

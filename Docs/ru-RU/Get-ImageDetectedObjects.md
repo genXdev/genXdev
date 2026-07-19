@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Detects and classifies objects in an uploaded image using DeepStack.
+
+## Description
+
+Эта функция анализирует файл изображения для обнаружения и классификации до 80 различных типов объектов. Она использует локальный API обнаружения объектов DeepStack, работающий на настраиваемом порту, и возвращает классификации объектов с координатами ограничивающих рамок и оценками уверенности. Функция поддерживает ускорение GPU, пользовательские пороги уверенности и управление контейнерами Docker.
 
 ## Syntax
 
@@ -28,6 +32,26 @@ Get-ImageDetectedObjects -ImagePath <String> [-ConfidenceThreshold <Double>] [-C
 | `-Force` | SwitchParameter | — | — | Named | — | Принудительная пересборка Docker контейнера и удаление существующих данных |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Используйте версию с GPU-ускорением (требуется NVIDIA GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Показать окно Docker Desktop во время инициализации |
+
+## Examples
+
+### Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `                          -ConfidenceThreshold 0.5 `                          -ServicePort 5000
+
+```powershell
+Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `
+                         -ConfidenceThreshold 0.5 `
+                         -ServicePort 5000
+```
+
+Detects objects in the specified image with full parameter names.
+
+### Get-ImageDetectedObjects "C:\photos\street.jpg"
+
+```powershell
+Get-ImageDetectedObjects "C:\photos\street.jpg"
+```
+
+обнаруживает объекты с использованием позиционного параметра и настроек по умолчанию.
 
 ## Related Links
 

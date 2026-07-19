@@ -4,7 +4,22 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Fournit un wrapper PowerShell pour l'utilitaire Robust Copy (RoboCopy) de Microsoft.
+
+## Description
+
+Wrapper complet pour l'utilitaire en ligne de commande RoboCopy qui offre des capacités robustes de copie de fichiers et de répertoires. Cette fonction expose l'ensemble étendu des fonctionnalités de RoboCopy via des paramètres conviviaux PowerShell tout en conservant la plupart de ses puissantes fonctionnalités.
+
+Fonctionnalités clés :
+- Synchronisation de répertoires avec options de miroir
+- Prise en charge des chemins très longs (>256 caractères)
+- Préservation des paramètres de sécurité
+- Gestion avancée des attributs de fichiers
+- Gestion des liens symboliques et des points de jonction
+- Mode de surveillance pour la synchronisation continue
+- Optimisation des performances pour les gros fichiers
+- Prise en charge de la compression réseau
+- Mode de récupération pour les périphériques défaillants
 
 ## Syntax
 
@@ -21,11 +36,11 @@ Start-RoboCopy [-CopyJunctionsAsJunctons] [-CopyOnlyDirectoryTreeStructure] [-Di
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Source` | String | ✅ | — | 0 | — | Le répertoire, le chemin d'accès, ou le répertoire+masque de recherche |
-| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | Le répertoire de destination où placer les fichiers et répertoires copiés.
+| `-DestinationDirectory` | String | — | — | 1 | `".$([System.IO.Path]::DirectorySeparatorChar)"` | Le répertoire de destination dans lequel placer les fichiers et dossiers copiés.
             Si ce répertoire n'existe pas encore, tous les répertoires manquants seront créés.
-            Valeur par défaut = ".\" |
-| `-Files` | String[] | — | — | 2 | `@()` | Masque de recherche facultatif pour sélectionner les fichiers à copier.
-Valeur par défaut = '*' 🌐 *Supports wildcards* |
+            Valeur par défaut = "." |
+| `-Files` | String[] | — | — | 2 | `@()` | Masque de recherche optionnel pour sélectionner les fichiers à copier.
+            Valeur par défaut = '*' 🌐 *Supports wildcards* |
 | `-Mirror` | SwitchParameter | — | — | Named | — | Synchronise le contenu des répertoires spécifiés, supprimera également tous les fichiers et répertoires dans la destination qui n'existent pas dans la source |
 | `-Move` | SwitchParameter | — | — | Named | — | Déplacera au lieu de copier tous les fichiers de la source vers la destination |
 | `-IncludeSecurity` | SwitchParameter | — | — | Named | — | Copiera également les informations de propriétaire, les descripteurs de sécurité et les informations d'audit des fichiers et répertoires |
@@ -86,6 +101,24 @@ Supprimer un paramètre :
 Plusieurs remplacements :
 
     -Override "/ReplaceThisSwitchWithValue:'SomeValue' -/RemoveThisSwitch /AddThisSwitch" |
+
+## Examples
+
+### ########################################################################Mirror a directory with security settings Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `     -Mirror -IncludeSecurity
+
+```powershell
+########################################################################Mirror a directory with security settings
+Start-RoboCopy -Source "C:\Projects" -DestinationDirectory "D:\Backup" `
+    -Mirror -IncludeSecurity
+```
+
+### ########################################################################Monitor and sync changes every 10 minutes Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `     -MonitorMode -MonitorModeThresholdMinutes 10
+
+```powershell
+########################################################################Monitor and sync changes every 10 minutes
+Start-RoboCopy -Source "C:\Documents" -DestinationDirectory "\\server\share" `
+    -MonitorMode -MonitorModeThresholdMinutes 10
+```
 
 ## Related Links
 

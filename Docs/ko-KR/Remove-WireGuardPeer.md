@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> WireGuard VPN 피어 구성을 제거합니다.
+
+## Description
+
+이 함수는 Docker 컨테이너에서 실행 중인 서버에서 WireGuard VPN 피어 구성을 제거합니다. 피어의 구성 파일을 삭제하고 WireGuard 서버를 업데이트하여 해당 피어의 연결을 중단합니다. 이 함수는 제거 전에 피어 존재 여부를 확인하고, Force 매개변수가 지정되지 않은 경우 확인 프롬프트를 제공합니다.
 
 ## Syntax
 
@@ -48,6 +52,32 @@ Remove-WireGuardPeer -PeerName <String> [-Bottom] [-Centered] [-ClearSession] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 세션에 저장된 대체 설정을 AI 선호도에 사용 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Remove-WireGuardPeer -PeerName "MyPhone"
+
+```powershell
+Remove-WireGuardPeer -PeerName "MyPhone"
+```
+
+확인 프롬프트와 함께 'MyPhone'이라는 피어를 제거합니다.
+
+### Remove-WireGuardPeer -PeerName "Tablet" -Force
+
+```powershell
+Remove-WireGuardPeer -PeerName "Tablet" -Force
+```
+
+确认删除名为“Tablet”的对等节点。
+
+### Remove-WireGuardPeer "WorkLaptop"
+
+```powershell
+Remove-WireGuardPeer "WorkLaptop"
+```
+
+위치 매개변수 구문을 사용하여 피어를 제거합니다.
 
 ## Related Links
 

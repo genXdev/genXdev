@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI 기반 탐지를 사용하여 텍스트를 분석하고 논리적 오류를 식별합니다.
+
+## Description
+
+이 함수는 위키백과의 오류 목록에서 훈련된 AI 모델을 사용하여 제공된 텍스트에서 논리적 오류를 탐지합니다. 발견된 각 오류에 대해 구체적인 인용문, 오류 이름, 설명, 해설 및 공식 분류를 포함한 상세 정보를 반환합니다. 이 함수는 일관된 출력을 보장하기 위해 구조화된 응답 형식을 사용합니다.
 
 ## Syntax
 
@@ -78,6 +82,33 @@ Get-Fallacy -InputObject <Object> [[-Instructions] <String>] [[-Attachments] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 도구 호출에 대한 최대 콜백 길이입니다. |
+
+## Examples
+
+### Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " + "and he was a politician")
+
+```powershell
+Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " +
+"and he was a politician")
+```
+
+제공된 텍스트에서 논리적 오류를 분석하고 감지된 오류에 대한 구조화된 정보를 반환합니다.
+
+### "This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+
+```powershell
+"This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+```
+
+낮은 온도로 집중 분석을 위해 파이프라인 입력을 사용하여 텍스트를 분석합니다.
+
+### dispicetext "Everyone knows this is true"
+
+```powershell
+dispicetext "Everyone knows this is true"
+```
+
+Uses the alias to analyze text for logical fallacies.
 
 ## Outputs
 

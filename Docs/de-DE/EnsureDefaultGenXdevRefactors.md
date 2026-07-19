@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stellt sicher, dass die standardmäßigen GenXdev-Refactoring-Definitionen verfügbar sind.
+
+## Description
+
+Diese Funktion erstellt und verwaltet standardmäßige Refactoring-Definitionen für GenXdev PowerShell-Module. Sie richtet Refactorings für Dokumentation und Formatierung, C#-Konvertierung sowie Installationszustimmungsaufforderungen ein.
 
 ## Syntax
 
@@ -17,6 +21,20 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-Force` | SwitchParameter | — | — | Named | — | Forces recreation of existing refactor definitions |
+
+## Examples
+
+### EnsureDefaultGenXdevRefactors
+
+```powershell
+EnsureDefaultGenXdevRefactors
+```
+
+### EnsureDefaultGenXdevRefactors -Force
+
+```powershell
+EnsureDefaultGenXdevRefactors -Force
+```
 
 ## Related Links
 

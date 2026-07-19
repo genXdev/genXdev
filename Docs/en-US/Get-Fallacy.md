@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Analyzes text to identify logical fallacies using AI-powered detection.
+
+## Description
+
+This function analyzes provided text to detect logical fallacies using an AI
+model trained on Wikipedia's List of Fallacies. It returns detailed information
+about each fallacy found, including the specific quote, fallacy name,
+description, explanation, and formal classification. The function uses a
+structured response format to ensure consistent output.
 
 ## Syntax
 
@@ -57,6 +65,34 @@ Get-Fallacy -InputObject <Object> [[-Instructions] <String>] [[-Attachments] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximum callback length for tool calls. |
+
+## Examples
+
+### Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " + "and he was a politician")
+
+```powershell
+Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " +
+"and he was a politician")
+```
+
+Analyzes the provided text for logical fallacies and returns structured
+information about any fallacies detected.
+
+### "This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+
+```powershell
+"This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+```
+
+Uses pipeline input to analyze text with low temperature for focused analysis.
+
+### dispicetext "Everyone knows this is true"
+
+```powershell
+dispicetext "Everyone knows this is true"
+```
+
+Uses the alias to analyze text for logical fallacies.
 
 ## Outputs
 

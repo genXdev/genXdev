@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Advances VLC Media Player to the next item in the current playlist.
+
+## Description
+
+Cette fonction envoie la frappe de touche 'n' à VLC Media Player pour passer à l'élément multimédia suivant dans la liste de lecture actuellement chargée. Elle focalise la fenêtre de VLC, envoie la commande de suivant, puis restaure le focus sur la console PowerShell. La fonction inclut la prise en charge de ShouldProcess pour les demandes de confirmation si nécessaire.
 
 ## Syntax
 
@@ -41,6 +45,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerNextInPlaylist
+
+```powershell
+Start-VlcMediaPlayerNextInPlaylist
+```
+
+### vlcnext
+
+```powershell
+vlcnext
 ```
 
 ## Related Links

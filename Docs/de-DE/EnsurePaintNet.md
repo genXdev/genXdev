@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Stellt sicher, dass Paint.NET ordnungsgemäß installiert und im System verfügbar ist.
+
+## Description
+
+Führt umfassende Überprüfungen und die Einrichtung für Paint.NET durch:
+- Überprüft, ob Paint.NET installiert und im PATH verfügbar ist
+- Installiert Paint.NET über WinGet, falls nicht vorhanden
+- Konfiguriert die System-PATH-Umgebungsvariable
+- Stellt sicher, dass paintdotnet.exe für die Befehlszeilenverwendung verfügbar ist
+Die Funktion behandelt alle Voraussetzungen und stellt eine funktionierende Paint.NET-Installation sicher.
 
 ## Syntax
 
@@ -161,6 +170,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsurePaintNet This will verify and setup Paint.NET if needed.
+
+```powershell
+EnsurePaintNet
+This will verify and setup Paint.NET if needed.
 ```
 
 ## Related Links

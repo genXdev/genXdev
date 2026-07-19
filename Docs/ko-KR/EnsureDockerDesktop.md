@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Docker Desktop이 설치되어 있고 컨테이너화 작업에 사용 가능한지 확인합니다.
+
+## Description
+
+시스템에 Docker Desktop이 설치되어 있고 올바르게 구성되었는지 확인합니다.
+찾을 수 없는 경우 WinGet을 사용하여 Docker Desktop을 설치하고 전체 설치 프로세스를 자동으로 처리합니다.
+이 함수는 Docker Desktop 서비스 시작, 데몬 준비 상태 확인, 필요한 경우 인증 요구 사항 처리도 관리합니다.
+이 함수는 시스템 및 사용자 수준 Docker 설치에 대한 포괄적인 경로 관리를 포함합니다.
 
 ## Syntax
 
@@ -43,6 +50,26 @@ EnsureDockerDesktop [[-Monitor] <Int32>] [[-Width] <Int32>] [[-Height] <Int32>] 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-NoDockerInitialization` | SwitchParameter | — | — | Named | — | Docker 초기화를 건너뛰고 즉시 반환 |
+
+## Examples
+
+### EnsureDockerDesktop
+
+```powershell
+EnsureDockerDesktop
+```
+
+### EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+```
+
+### EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+```
 
 ## Related Links
 

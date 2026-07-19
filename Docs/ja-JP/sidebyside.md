@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> デフォルトのサイドバイサイド設定を設定します。
+
+## Description
+
+GenXdev ウィンドウを PowerShell と横に並べて表示するデフォルト動作を設定します。
+これは、シングルモニターのユーザーや、ウィンドウを横に並べて表示することを好むユーザーに便利です。
+コマンドレット 'secondscreen' および 'restoredefaultmonitor' も参照してください。
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> sidebyside
+
+```powershell
+PS> sidebyside
+```
+
+GenXdev のウィンドウを開くときの既定を PowerShell と並べて表示に設定します。
 
 ## Related Links
 

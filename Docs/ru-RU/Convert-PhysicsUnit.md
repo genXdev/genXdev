@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converts a value from one physics unit to another within the same category.
+
+## Description
+
+Эта функция преобразует физические величины между совместимыми единицами в таких категориях, как длина, время, скорость и т.д. Она определяет категорию по единицам измерения и выдает ошибку для несовместимых преобразований.
 
 ## Syntax
 
@@ -19,6 +23,24 @@ Convert-PhysicsUnit -Value <Double> -FromUnit <String> -ToUnit <String> [<Common
 | `-Value` | Double | ✅ | — | 0 | — | The numerical value to convert |
 | `-FromUnit` | String | ✅ | — | 1 | — | The unit of the input value |
 | `-ToUnit` | String | ✅ | — | 2 | — | Желаемая единица вывода |
+
+## Examples
+
+### Convert-PhysicsUnit -Value 100 -FromUnit "meters" -ToUnit "feet"
+
+```powershell
+Convert-PhysicsUnit -Value 100 -FromUnit "meters" -ToUnit "feet"
+```
+
+100 meters is approximately 328.084 feet
+
+### Convert-PhysicsUnit 10 "seconds" "minutes"
+
+```powershell
+Convert-PhysicsUnit 10 "seconds" "minutes"
+```
+
+minutes=$(($1 / 60)); echo "$1 seconds is $minutes minute(s)"
 
 ## Outputs
 

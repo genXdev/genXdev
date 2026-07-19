@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Findet die erste übereinstimmende Datei oder den ersten übereinstimmenden Ordner und setzt den Speicherort darauf.
+
+## Description
+
+Dieses Cmdlet hilft Ihnen, schnell Verzeichnisse zu wechseln, indem es Suchbegriffe verwendet, die den ersten übereinstimmenden Ordner oder (optional) die erste übereinstimmende Datei finden und das Verzeichnis dorthin wechseln. Unterstützt erweiterte Filterung nach Inhalt, Dateiattributen, Größe, Änderungsdaten und vielen anderen Kriterien.
 
 ## Syntax
 
@@ -55,6 +59,48 @@ Set-FoundLocation [[-Content] <String[]>] [-CaseSensitive] [-Culture <String>] [
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Gibt an, dass das Cmdlet einen einfachen Vergleich anstelle eines regulären Ausdrucks verwendet. Bei einem einfachen Vergleich durchsucht Select-String die Eingabe nach dem Text im Parameter Pattern. Es interpretiert den Wert des Parameters Pattern nicht als regulären Ausdruck. *(Parameter set: )* |
 | `-Push` | SwitchParameter | — | — | Named | — | Use Push-Location instead of Set-Location and push the location onto the location stack |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | Wenn gesetzt, werden nur exakte Namensübereinstimmungen berücksichtigt. Standardmäßig wird die Platzhalter-Suche verwendet, es sei denn, der Name enthält Platzhalterzeichen. |
+
+## Examples
+
+### Set-FoundLocation *.Console
+
+```powershell
+Set-FoundLocation *.Console
+```
+
+Änderungen am ersten Verzeichnis, das dem Muster '*.Console' entspricht.
+
+### lcd *.Console
+
+```powershell
+lcd *.Console
+```
+
+Änderungen am ersten Verzeichnis, das dem Muster '*.Console' entspricht, unter Verwendung des Alias.
+
+### Set-FoundLocation -Name "*.ps1" -Content "function"
+
+```powershell
+Set-FoundLocation -Name "*.ps1" -Content "function"
+```
+
+Wechseln in das Verzeichnis, das die erste PowerShell-Datei enthält, die das Wort 'function' enthält.
+
+### Set-FoundLocation *test* -File
+
+```powershell
+Set-FoundLocation *test* -File
+```
+
+Changes to the directory containing the first file with 'test' in its name.
+
+### Set-FoundLocation * '1\.\d+\.2025'
+
+```powershell
+Set-FoundLocation * '1\.\d+\.2025'
+```
+
+Änderungen am Verzeichnis, das die erste Datei enthält, deren Inhalt mit dem Muster '1.\d+\.2025' übereinstimmt.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> IDE에서 클립보드 텍스트가 포함된 파일을 엽니다
+
+## Description
+
+클립보드의 텍스트는 모든 GenXdev 스크립트에서 검색하는 데 사용되며, 발견 시 해당 파일을 Code 또는 Visual Studio에서 엽니다.
 
 ## Syntax
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI를 사용하여 텍스트를 다른 언어로 번역합니다.
+
+## Description
+
+이 함수는 AI 모델을 사용하여 입력 텍스트를 지정된 대상 언어로 번역합니다. 파라미터, 파이프라인 또는 시스템 클립보드를 통해 직접 입력을 받을 수 있습니다. 함수는 번역하는 동안 서식과 스타일을 유지합니다.
 
 ## Syntax
 
@@ -82,6 +86,20 @@ Get-TextTranslation [[-Text] <String>] [[-Instructions] <String>] [[-Attachments
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | 마크업 블록 유형 필터 (LLM에 전달) |
 | `-NoCache` | SwitchParameter | — | — | Named | — | 번역 캐시를 건너뛰고 항상 LLM API를 호출하세요 |
 | `-ClearCache` | SwitchParameter | — | — | Named | — | Clear the entire translation cache for all languages |
+
+## Examples
+
+### Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+
+```powershell
+Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+```
+
+### "Bonjour" | translate -Language "English"
+
+```powershell
+"Bonjour" | translate -Language "English"
+```
 
 ## Outputs
 

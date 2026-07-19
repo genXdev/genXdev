@@ -4,7 +4,12 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre archivos en el IDE que contienen el texto del portapapeles
+
+## Description
+
+El texto en el portapapeles se utiliza para buscar en todos los scripts de GenXdev y, cuando se encuentra, abre ese archivo en Code o Visual Studio
+##############################################################################
 
 ## Syntax
 

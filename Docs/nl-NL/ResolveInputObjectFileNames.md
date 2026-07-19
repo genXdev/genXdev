@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Breidt invoerobjecten uit tot bestands- en mapnamen, met ondersteuning voor verschillende filters en uitvoeropties.
+
+## Description
+
+Deze functie verwerkt invoerobjecten (bestanden, mappen of verzamelingen) en breidt ze uit tot bestands- en mapnamen. Het ondersteunt filteren, patroonherkenning en kan resultaten als objecten uitvoeren. De functie is ontworpen om te werken met pijplijninvoer en biedt opties voor recursie, alternatieve datastromen en meer.
 
 ## Syntax
 
@@ -30,6 +34,14 @@ ResolveInputObjectFileNames [-Directory] [-FilesAndDirectories] [<CommonParamete
 | `-PassThru` | SwitchParameter | — | — | Named | — | Output matched items as objects |
 | `-IncludeAlternateFileStreams` | SwitchParameter | — | — | Named | — | Alternatieve gegevensstromen opnemen in zoekresultaten |
 | `-NoRecurse` | SwitchParameter | — | — | Named | — | Niet recursief in subdirectories |
+
+## Examples
+
+### ResolveInputObjectFileNames -Input "C:\Temp" -File
+
+```powershell
+ResolveInputObjectFileNames -Input "C:\Temp" -File
+```
 
 ## Related Links
 

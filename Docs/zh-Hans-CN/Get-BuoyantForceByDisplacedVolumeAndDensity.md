@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 计算浮力。
+
+## Description
+
+使用 F = ρ V g。
 
 ## Syntax
 

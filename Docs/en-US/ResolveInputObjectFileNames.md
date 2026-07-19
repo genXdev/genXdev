@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Expands input objects into file and directory names, supporting various
+filters and output options.
+
+## Description
+
+This function processes input objects (files, directories, or collections)
+and expands them into file and directory names. It supports filtering,
+pattern matching, and can output results as objects. The function is
+designed to work with pipeline input and provides options for recursion,
+alternate data streams, and more.
 
 ## Syntax
 
@@ -30,6 +39,14 @@ ResolveInputObjectFileNames [-Directory] [-FilesAndDirectories] [<CommonParamete
 | `-PassThru` | SwitchParameter | — | — | Named | — | Output matched items as objects |
 | `-IncludeAlternateFileStreams` | SwitchParameter | — | — | Named | — | Include alternate data streams in search results |
 | `-NoRecurse` | SwitchParameter | — | — | Named | — | Do not recurse into subdirectories |
+
+## Examples
+
+### ResolveInputObjectFileNames -Input "C:\Temp" -File
+
+```powershell
+ResolveInputObjectFileNames -Input "C:\Temp" -File
+```
 
 ## Related Links
 

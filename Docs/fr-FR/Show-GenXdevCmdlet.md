@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Displays GenXdev PowerShell modules with their cmdlets and aliases.
+
+## Description
+
+Répertorie tous les modules PowerShell GenXdev installés ainsi que leurs cmdlets et alias associés. Utilise Get-GenXDevCmdlet pour récupérer les informations sur les cmdlets et éventuellement leurs positions dans les scripts. Offre des options de filtrage et divers affichages.
 
 ## Syntax
 
@@ -31,6 +35,29 @@ Show-GenXdevCmdlet [-IncludeScripts] [<CommonParameters>]
 | `-OnlyAliases` | SwitchParameter | — | — | Named | — | Lorsqu'il est spécifié, affiche uniquement les alias des applets de commande |
 | `-ShowTable` | SwitchParameter | — | — | Named | — | Afficher les résultats sous forme de tableau |
 | `-PassThru` | SwitchParameter | — | — | Named | — | The `-PassThru` parameter. |
+
+## Examples
+
+### Show-GenXdevCmdlet -CmdletName "Get" -ModuleName "Console" -ShowTable Lists all cmdlets starting with "Get" in the Console module as a table
+
+```powershell
+Show-GenXdevCmdlet -CmdletName "Get" -ModuleName "Console" -ShowTable
+Lists all cmdlets starting with "Get" in the Console module as a table
+```
+
+### cmds get -m console Lists all cmdlets starting with "Get" in the Console module
+
+```powershell
+cmds get -m console
+Lists all cmdlets starting with "Get" in the Console module
+```
+
+### Show-GenXdevCmdlet -OnlyReturnModuleNames Returns only unique module names
+
+```powershell
+Show-GenXdevCmdlet -OnlyReturnModuleNames
+Returns only unique module names
+```
 
 ## Outputs
 

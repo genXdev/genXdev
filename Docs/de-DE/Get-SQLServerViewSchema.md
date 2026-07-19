@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ruft die SQL-Schema-Definition für eine SQL Server-Ansicht ab.
+
+## Description
+
+Diese Funktion fragt die Systemtabellen der SQL Server-Datenbank ab, um die SQL-Definition einer angegebenen Ansicht zu extrahieren. Sie unterstützt die Verbindung entweder über eine Verbindungszeichenfolge oder über den Datenbanknamen mit Serverparametern und gibt das vollständige SQL-Schema zurück, das die angeforderte Ansicht definiert.
 
 ## Syntax
 
@@ -24,6 +28,15 @@ Get-SQLServerViewSchema -ViewName <String> [<CommonParameters>]
 | `-DatabaseName` | String | ✅ | — | 0 | — | Der Name der SQL Server-Datenbank. *(Parameter set: )* |
 | `-Server` | String | — | — | 1 | `'localhost'` | Der Name der SQL Server-Instanz. *(Parameter set: )* |
 | `-ViewName` | String | ✅ | — | 2 | — | Der Name der Ansicht. |
+
+## Examples
+
+### Get-SQLServerViewSchema -DatabaseFilePath "C:\Databases\MyApp.sqlite" `                     -ViewName "CustomerOrders"
+
+```powershell
+Get-SQLServerViewSchema -DatabaseFilePath "C:\Databases\MyApp.sqlite" `
+                    -ViewName "CustomerOrders"
+```
 
 ## Related Links
 

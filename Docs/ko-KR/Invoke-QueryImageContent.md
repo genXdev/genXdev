@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI 비전 기능을 사용하여 이미지 콘텐츠 분석
+
+## Description
+
+AI 비전 기능을 사용하여 이미지를 처리하고
+콘텐츠를 분석하며 이미지에 대한 질문에 답변합니다. 이 함수는 응답 무작위성 제어를 위한 온도 조절 및
+출력 길이에 대한 토큰 제한을 포함한 다양한 분석 매개변수를 지원합니다.
 
 ## Syntax
 
@@ -70,6 +76,33 @@ Invoke-QueryImageContent -Query <String> -ImagePath <String> [[-Instructions] <S
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 도구 호출에 대한 최대 콜백 길이입니다. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | ImageSharp 패키지 설치에 대한 기본 설정이 지정되어 있더라도 동의 프롬프트를 강제로 표시합니다. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | ImageSharp 패키지에 대해 타사 소프트웨어 설치에 자동 동의하고 영구 플래그를 설정합니다. |
+
+## Examples
+
+### Invoke-QueryImageContent `     -Query "What objects are in this image?" `     -ImagePath "C:\Images\sample.jpg" `     -Temperature 0.01
+
+```powershell
+Invoke-QueryImageContent `
+    -Query "What objects are in this image?" `
+    -ImagePath "C:\Images\sample.jpg" `
+    -Temperature 0.01
+```
+
+특정 온도와 토큰 제한으로 이미지를 분석합니다.
+
+### Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+Invoke-QueryImageContent -Query "Describe this image" -ImagePath "photo.webp" -ConsentToThirdPartySoftwareInstallation
+```
+
+### Query-Image "Describe this image" "C:\Images\photo.jpg"
+
+```powershell
+Query-Image "Describe this image" "C:\Images\photo.jpg"
+```
+
+별칭과 위치 매개변수를 사용한 간단한 이미지 분석.
 
 ## Related Links
 

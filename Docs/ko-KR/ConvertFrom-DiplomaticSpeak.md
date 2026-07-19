@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 외교적이거나 공손한 언어를 직접적이고 명확하며 솔직한 언어로 변환합니다.
+
+## Description
+
+이 함수는 외교적 수사를 실제 숨겨진 의미로 번역하여 정중하거나 정치적으로 올바른 언어 뒤에 감춰진 진의를 드러냅니다. AI 언어 모델을 사용하여 완곡한 표현을 직설적인 문장으로 변환함으로써 의사소통을 명확하고 이해하기 쉽게 만듭니다. 이 함수는 정치적 성명, 비즈니스 커뮤니케이션 또는 외교적 언어로 실제 의미가 가려진 모든 텍스트를 분석하는 데 특히 유용합니다.
 
 ## Syntax
 
@@ -59,6 +63,28 @@ ConvertFrom-DiplomaticSpeak [[-Text] <String>] [[-Instructions] <String>] [-Allo
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Only output markup blocks from AI. |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types in AI output. |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 도구 호출에 대한 최대 콜백 길이입니다. |
+
+## Examples
+
+### ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your approach"
+
+```powershell
+ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your
+approach"
+```
+
+### undiplomatize "Your proposal has merit but requires further consideration"
+
+```powershell
+undiplomatize "Your proposal has merit but requires further consideration"
+```
+
+### "We're putting you on timeout" |     ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+
+```powershell
+"We're putting you on timeout" |
+    ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+```
 
 ## Outputs
 

@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> faces 디렉토리의 이미지 파일에서 모든 얼굴 인식 프로필을 업데이트합니다.
+
+## Description
+
+이 함수는 지정된 얼굴 디렉토리에서 발견된 모든 이미지로 얼굴 인식 데이터베이스를 업데이트합니다. 프로세스는 다음과 같습니다:
+1. 얼굴 인식 서비스가 실행 중인지 확인
+2. 각 사람의 폴더에 있는 모든 이미지를 처리하여 해당 사람의 모든 얼굴을 단일 식별자(폴더 이름)로 일괄 등록
+3. 실패한 등록을 위한 재시도 로직 지원
+
+각 사람의 폴더에는 여러 이미지가 포함될 수 있으며, 모든 이미지는 단일 API 호출에서 동일한 식별자(사람 이름)로 등록되어 _1, _2 등의 접미사가 필요하지 않습니다.
 
 ## Syntax
 
@@ -34,6 +43,30 @@ Register-AllFaces [[-FacesDirectory] <String>] [[-MaxRetries] <Int32>] [[-Contai
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 지정된 경우, 사용 전에 현재 세션 환경설정을 초기화하십시오. |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | 알려진 얼굴 루트 경로에 사용할 환경 설정 데이터베이스의 경로입니다. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 지정된 경우, 알려진 얼굴 루트 경로를 검색할 때 세션 로직을 건너뜁니다. |
+
+## Examples
+
+### Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `     -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `     -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+
+```powershell
+Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `
+    -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `
+    -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+```
+
+### Register-AllFaces Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+
+```powershell
+Register-AllFaces
+Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+```
+
+### updatefaces -RenameFailed ##############################################################################
+
+```powershell
+updatefaces -RenameFailed
+##############################################################################
+```
 
 ## Related Links
 

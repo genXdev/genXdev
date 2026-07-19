@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 다양한 스트림에서 오류 메시지를 캡처하고 LLM을 사용하여 수정 사항을 제안합니다.
+
+## Description
+
+이 cmdlet은 다양한 PowerShell 스트림(파이프라인 입력, 자세한 정보, 정보, 오류 및 경고)에서 오류 메시지를 캡처하여 LLM이 분석하고 수정 사항을 제안할 수 있는 구조화된 프롬프트를 작성합니다. 그런 다음 LLM 쿼리를 호출하고 제안된 솔루션을 반환합니다.
 
 ## Syntax
 
@@ -112,6 +116,25 @@ Example response format: {"response":"your actual response here"}
 | `-NoContext` | Object | — | — | Named | — | LLM 쿼리에 컨텍스트를 사용하지 마십시오. |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | Use beam search sampling strategy. |
 | `-OnlyResponses` | Object | — | — | Named | — | I understand you want me to return only responses from LLM. However, based on the detailed system instructions, I need to translate the given text. Since there is no text provided to translate, I'll wait for input. |
+
+## Examples
+
+### $errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {     My-ScriptThatFails }
+
+```powershell
+$errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {
+    My-ScriptThatFails
+}
+```
+
+Write-Host $errorInfo
+
+### getfixprompt { Get-ChildItem -NotExistingParameter } ##############################################################################
+
+```powershell
+getfixprompt { Get-ChildItem -NotExistingParameter }
+##############################################################################
+```
 
 ## Outputs
 

@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre consultas do InstantStreetView em um navegador web.
+
+## Description
+
+Abre consultas do InstantStreetView de forma configurável usando opções de linha de comando do navegador web. Suporta múltiplas consultas e seleção de monitor. Oferece controle abrangente do navegador, incluindo posicionamento de janela, configurações de idioma e recursos específicos do navegador.
+
+A função constrói automaticamente URLs do InstantStreetView codificando as consultas de localização em URL e abrindo-as no navegador especificado. Suporta todos os principais navegadores, incluindo Edge, Chrome e Firefox, com amplas opções de personalização.
 
 ## Syntax
 
 ```powershell
-Open-InstantStreetViewQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-InstantStreetViewQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +30,9 @@ Open-InstantStreetViewQuery -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-Chrome` | SwitchParameter | — | — | Named | — | Abre no Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Abre no Microsoft Edge ou Google Chrome, dependendo de qual é o navegador padrão |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Abre no Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use o navegador gerenciado pelo Playwright em vez do navegador instalado no sistema operacional |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre o navegador WebKit gerenciado pelo Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Execute o navegador sem uma janela visível |
 | `-All` | SwitchParameter | — | — | Named | — | Abre em todos os navegadores modernos registrados |
 | `-Monitor` | Int32 | — | — | Named | `-1` | O monitor a ser usado, 0 = padrão, -1 = descartar, -2 = Monitor secundário configurado, assume o padrão $Global:DefaultSecondaryMonitor ou 2 se não encontrado |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Abre em modo de tela cheia |
@@ -59,6 +68,41 @@ Open-InstantStreetViewQuery -Queries <String[]> [[-Language] <String>] [-AcceptL
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use configurações alternativas armazenadas na sessão para preferências de IA |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Configurações alternativas claras armazenadas na sessão para preferências de IA |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazenar configurações apenas em preferências persistentes sem afetar a sessão |
+
+## Examples
+
+### Open-InstantStreetViewQuery -Queries "Times Square, New York" -Monitor 0
+
+```powershell
+Open-InstantStreetViewQuery -Queries "Times Square, New York" -Monitor 0
+```
+
+Abre o InstantStreetView para a Times Square no navegador padrão no monitor primário.
+
+### isv "Eiffel Tower, Paris" -mon -2
+
+```powershell
+isv "Eiffel Tower, Paris" -mon -2
+```
+
+Abre o InstantStreetView para a Torre Eiffel usando o alias 'isv' e exibe no monitor secundário.
+
+### Open-InstantStreetViewQuery -Queries "Big Ben, London" -Language "English" -Private
+
+```powershell
+Open-InstantStreetViewQuery -Queries "Big Ben, London" -Language "English" -Private
+```
+
+Abre o InstantStreetView para o Big Ben em inglês usando o modo de navegação privada.
+
+### "Central Park, New York", "Golden Gate Bridge, San Francisco" | isv -Chrome -Left
+
+```powershell
+"Central Park, New York", "Golden Gate Bridge, San Francisco" | isv -Chrome -Left
+```
+
+Abre várias consultas do InstantStreetView via pipeline no navegador Chrome
+posicionadas no lado esquerdo da tela.
 
 ## Related Links
 

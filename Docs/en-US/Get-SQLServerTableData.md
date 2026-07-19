@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves data from a SQL database table with optional record limiting.
+
+## Description
+
+This function queries data from a SQL database table using either a connection
+string or database file path. It provides flexibility in connecting to the
+database and controlling the amount of data retrieved through the Count parameter.
 
 ## Syntax
 
@@ -25,6 +31,20 @@ Get-SQLServerTableData -TableName <String> [[-Count] <Int32>] [<CommonParameters
 | `-Server` | String | — | — | 1 | `'localhost'` | The SQL Server instance name. *(Parameter set: )* |
 | `-TableName` | String | ✅ | — | 2 | — | The name of the table to query data from. |
 | `-Count` | Int32 | — | — | 3 | `100` | The maximum number of records to return. -1 for all. |
+
+## Examples
+
+### Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+
+```powershell
+Get-SQLServerTableData -DatabaseFilePath "C:\data\users.db" -TableName "Employees" -Count 50
+```
+
+### Get-SQLServerTableData "C:\data\users.db" "Employees"
+
+```powershell
+Get-SQLServerTableData "C:\data\users.db" "Employees"
+```
 
 ## Related Links
 

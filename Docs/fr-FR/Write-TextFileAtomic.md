@@ -8,10 +8,10 @@
 
 ## Description
 
-* Écriture atomique : utilise une stratégie de fichier temporaire + renommage pour garantir que le fichier cible ne se retrouve jamais dans un état corrompu en cas d'interruption du processus.
-* Logique de tentative : réessaie l'écriture jusqu'à MaxRetries fois avec un délai de RetryDelayMs millisecondes entre les tentatives.
+* Écriture atomique : utilise une stratégie de fichier temporaire + renommage pour garantir que le fichier cible ne soit jamais laissé dans un état corrompu si le processus est interrompu.
+* Logique de reprise : réessaie l'écriture jusqu'à MaxRetries fois avec un délai de RetryDelayMs millisecondes entre les tentatives.
 * Prise en charge de l'encodage : accepte un paramètre System.Text.Encoding pour contrôler l'encodage de sortie. Par défaut : UTF-8.
-* Prise en charge du débord : lorsque DebounceMs > 0, les écritures consécutives rapides vers le même fichier sont fusionnées — seul le dernier contenu est écrit une fois que le fichier n'a pas été touché pendant DebounceMs ms.
+* Prise en charge du débouncing : lorsque DebounceMs > 0, les écritures consécutives rapides dans le même fichier sont fusionnées — seul le dernier contenu est écrit une fois que le fichier n'a pas été touché pendant DebounceMs ms.
 * Création de répertoires : crée automatiquement les répertoires parents s'ils n'existent pas.
 
 ## Syntax
@@ -52,7 +52,7 @@ Get-Content server.log -Tail 50 | ForEach-Object {
 Start-Sleep -Seconds 3
 ```
 
-Les tuyaux produisent 50 lignes rapidement ; seule la dernière ligne est conservée après une période de silence de 2 secondes.
+Envoie 50 lignes rapidement ; seule la dernière ligne est conservée après une période de silence de 2 secondes.
 
 ### Example 3
 
@@ -78,7 +78,7 @@ $watcher = Start-ThreadJob -ScriptBlock {
 } -ArgumentList "timestamp.txt"
 ```
 
-Un travail d'arrière-plan écrit des horodatages toutes les 100 ms mais la temporisation les regroupe — une seule écriture par seconde touche réellement le disque.
+Un travail en arrière-plan écrit des horodatages toutes les 100 ms, mais le debounce les fusionne — une seule écriture par seconde atteint réellement le disque.
 
 ## Related Links
 

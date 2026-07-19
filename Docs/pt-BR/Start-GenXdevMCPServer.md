@@ -16,12 +16,12 @@ Start-GenXdevMCPServer [[-Port] <Int32>] [[-ExposedCmdLets] <GenXdev.Helpers.Exp
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Port` | Int32 | — | — | 0 | `2175` | The `-Port` parameter. |
-| `-ExposedCmdLets` | GenXdev.Helpers.ExposedCmdletDefinition[] | — | — | 1 | `@()` | The `-ExposedCmdLets` parameter. |
-| `-NoConfirmationToolFunctionNames` | String[] | — | — | 2 | `@()` | The `-NoConfirmationToolFunctionNames` parameter. |
-| `-StopExisting` | SwitchParameter | — | — | Named | — | The `-StopExisting` parameter. |
-| `-MaxOutputLength` | Int32 | — | — | 3 | `75000` | The `-MaxOutputLength` parameter. |
-| `-Token` | String | — | — | 4 | `$null` | The `-Token` parameter. |
+| `-Port` | Int32 | — | — | 0 | `2175` | A porta na qual o servidor MCP irá escutar (padrão: 2175) |
+| `-ExposedCmdLets` | GenXdev.Helpers.ExposedCmdletDefinition[] | — | — | 1 | `@()` | Matriz de definições de comandos PowerShell para expor como ferramentas MCP |
+| `-NoConfirmationToolFunctionNames` | String[] | — | — | 2 | `@()` | Array de nomes de comandos que podem executar sem confirmação do usuário |
+| `-StopExisting` | SwitchParameter | — | — | Named | — | Pare qualquer servidor MCP existente em execução na porta especificada antes de iniciar um novo |
+| `-MaxOutputLength` | Int32 | — | — | 3 | `75000` | Tamanho máximo da saída da ferramenta em caracteres antes de truncar (padrão: 75000) |
+| `-Token` | String | — | — | 4 | `$null` | Token de autenticação necessário para que os clientes se conectem ao servidor MCP |
 
 ## Related Links
 

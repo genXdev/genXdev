@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Получает список уникальных имен пользователей из активных системных процессов.
+
+## Description
+
+Запрашивает все запущенные процессы в системе, извлекает связанное имя пользователя для каждого процесса и возвращает список уникальных пользователей, у которых есть активные процессы. Это полезно для системного администрирования и мониторинга безопасности.
 
 ## Syntax
 
@@ -92,6 +96,23 @@
                 'Process completed. No active users found or an error occurred.'
         }
     }
+```
+
+## Examples
+
+### Get-ActiveUser Returns a list of all unique usernames with active processes.
+
+```powershell
+Get-ActiveUser
+Returns a list of all unique usernames with active processes.
+```
+
+### gusers Uses the alias to get the same results. ##############################################################################
+
+```powershell
+gusers
+Uses the alias to get the same results.
+##############################################################################
 ```
 
 ## Related Links

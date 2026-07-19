@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Recupera la definición del esquema SQL de una vista de SQL Server.
+
+## Description
+
+Esta función consulta las tablas del sistema de la base de datos SQL Server para extraer la definición SQL de una vista especificada. Permite conectarse mediante una cadena de conexión o un nombre de base de datos con parámetros de servidor y devuelve el esquema SQL completo que define la vista solicitada.
 
 ## Syntax
 
@@ -24,6 +28,15 @@ Get-SQLServerViewSchema -ViewName <String> [<CommonParameters>]
 | `-DatabaseName` | String | ✅ | — | 0 | — | El nombre de la base de datos de SQL Server. *(Parameter set: )* |
 | `-Server` | String | — | — | 1 | `'localhost'` | El nombre de la instancia de SQL Server. *(Parameter set: )* |
 | `-ViewName` | String | ✅ | — | 2 | — | El nombre de la vista. |
+
+## Examples
+
+### Get-SQLServerViewSchema -DatabaseFilePath "C:\Databases\MyApp.sqlite" `                     -ViewName "CustomerOrders"
+
+```powershell
+Get-SQLServerViewSchema -DatabaseFilePath "C:\Databases\MyApp.sqlite" `
+                    -ViewName "CustomerOrders"
+```
 
 ## Related Links
 

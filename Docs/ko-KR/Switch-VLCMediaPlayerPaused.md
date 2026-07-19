@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> VLC 미디어 플레이어의 일시 정지/재생 상태를 전환합니다.
+
+## Description
+
+이 함수는 VLC 미디어 플레이어에 스페이스 키를 보내 일시 정지와 재생 상태를 전환합니다. 키 명령을 보낸 후 원래 창에 포커스를 자동으로 복원합니다.
 
 ## Syntax
 
@@ -32,6 +36,32 @@
 
     }
 ```
+
+## Examples
+
+### Switch-VLCMediaPlayerPaused
+
+```powershell
+Switch-VLCMediaPlayerPaused
+```
+
+VLC 미디어 플레이어의 일시 정지/재생 상태를 전환합니다.
+
+### vlcpause
+
+```powershell
+vlcpause
+```
+
+별칭을 사용하여 일시 중지/재생 상태를 전환합니다.
+
+### vlcplay
+
+```powershell
+vlcplay
+```
+
+별칭을 사용하여 일시 중지/재생 상태를 전환합니다.
 
 ## Related Links
 

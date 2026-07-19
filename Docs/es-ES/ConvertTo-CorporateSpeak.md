@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Certainly! I'd be happy to help transform direct or blunt text into polite, professional corporate language. Please provide the text you'd like me to refine.
+
+## Description
+
+Esta función procesa el texto de entrada para transformar un lenguaje directo o potencialmente duro en comunicaciones corporativas diplomáticas y profesionales. Puede aceptar entrada directamente a través de parámetros, desde la tubería (pipeline) o desde el portapapeles del sistema. La función aprovecha modelos de IA para analizar y reformular el texto preservando la intención original.
 
 ## Syntax
 
@@ -69,6 +73,20 @@ Let me prepare the response.",
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filtrar por tipos de bloques de marcado (pasado a LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longitud máxima de la llamada a la herramienta (pasada a LLMQuery) |
+
+## Examples
+
+### ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+
+```powershell
+ConvertTo-CorporateSpeak -Text "That's a terrible idea" -SetClipboard
+```
+
+### "This makes no sense" | corporatize
+
+```powershell
+"This makes no sense" | corporatize
+```
 
 ## Outputs
 

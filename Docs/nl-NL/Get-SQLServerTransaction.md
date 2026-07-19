@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Maakt een SQL Server-transactieobject aan en retourneert dit voor batchbewerkingen.
+
+## Description
+
+Maakt een SQL Server databaseverbinding en transactieobject aan dat kan worden gebruikt
+voor batchbewerkingen. De aanroeper is verantwoordelijk voor het committen of terugdraaien
+van de transactie. Vereist een bestaande SQL Server database en verbinding.
 
 ## Syntax
 
@@ -26,6 +32,36 @@ Get-SQLServerTransaction [-ConsentToThirdPartySoftwareInstallation] [-ForceConse
 | `-IsolationLevel` | String | — | — | Named | `"ReadCommitted"` | Transaction isolation level. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | Forceer een toestemmingsprompt, zelfs als de voorkeur is ingesteld voor de installatie van SQL Server-pakketten. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Automatisch toestemming geven voor installatie van software van derden en persistente vlag instellen voor SQL Server-pakket. |
+
+## Examples
+
+### $transaction = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDatabase" try {     Invoke-SQLServerQuery -Transaction $transaction -Queries "INSERT INTO Users..."     Invoke-SQLServerQuery -Transaction $transaction -Queries "UPDATE Users..."     $transaction.Commit() } catch {     $transaction.Rollback()     throw } finally {     $transaction.Connection.Close() }
+
+```powershell
+$transaction = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDatabase"
+try {
+    Invoke-SQLServerQuery -Transaction $transaction -Queries "INSERT INTO Users..."
+    Invoke-SQLServerQuery -Transaction $transaction -Queries "UPDATE Users..."
+    $transaction.Commit()
+} catch {
+    $transaction.Rollback()
+    throw
+} finally {
+    $transaction.Connection.Close()
+}
+```
+
+### $transaction = Get-SQLServerTransaction -ConnectionString "Server=localhost;Database=MyDB;Integrated Security=true"
+
+```powershell
+$transaction = Get-SQLServerTransaction -ConnectionString "Server=localhost;Database=MyDB;Integrated Security=true"
+```
+
+### $transaction = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDatabase" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+$transaction = Get-SQLServerTransaction -Server "localhost" -DatabaseName "MyDatabase" -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

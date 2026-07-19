@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Werk alle gezichtsherkenningsprofielen bij op basis van afbeeldingsbestanden in de map faces.
+
+## Description
+
+Deze functie werkt de gezichtsherkenningsdatabase bij met alle afbeeldingen die zijn gevonden in de opgegeven gezichtenmap. Het proces omvat:
+1. Controleren of de gezichtsherkenningsdienst actief is
+2. Het verwerken van alle afbeeldingen in de map van elke persoon, waarbij alle gezichten voor die persoon worden geregistreerd met één enkele identificatie (de mapnaam) in een batchbewerking
+3. Ondersteuning voor herhaalpogingen bij mislukte registraties
+
+Elke persoonsmap kan meerdere afbeeldingen bevatten, en alle afbeeldingen worden geregistreerd onder dezelfde identificatie (persoonsnaam) in één API-aanroep, waardoor de noodzaak voor _1, _2, enz. achtervoegsels vervalt.
 
 ## Syntax
 
@@ -34,6 +43,30 @@ Register-AllFaces [[-FacesDirectory] <String>] [[-MaxRetries] <Int32>] [[-Contai
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Indien gespecificeerd, wis de huidige sessievoorkeuren voor gebruik. |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Pad naar de voorkeuren database die gebruikt moet worden voor het root pad van bekende gezichten. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Indien opgegeven, sla sessielogica over bij het ophalen van het rootpad van bekende gezichten. |
+
+## Examples
+
+### Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `     -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `     -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+
+```powershell
+Register-AllFaces -FacesDirectory "b:\media\faces\" -MaxRetries 3 `
+    -ContainerName "deepstack_face_recognition" -VolumeName "deepstack_face_data" `
+    -ServicePort 5000 -HealthCheckTimeout 60 -HealthCheckInterval 3
+```
+
+### Register-AllFaces Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+
+```powershell
+Register-AllFaces
+Uses the configured faces directory from Set-AIKnownFacesRootpath or defaults to "b:\media\faces\"
+```
+
+### updatefaces -RenameFailed ##############################################################################
+
+```powershell
+updatefaces -RenameFailed
+##############################################################################
+```
 
 ## Related Links
 

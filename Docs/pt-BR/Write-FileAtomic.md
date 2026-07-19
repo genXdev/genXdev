@@ -8,10 +8,10 @@
 
 ## Description
 
-* Escrita atômica: usa uma estratégia de arquivo temporário + renomeação para garantir que o arquivo de destino nunca seja deixado em um estado corrompido se o processo for interrompido.
-* Lógica de repetição: repete a escrita até MaxRetries vezes com um atraso de RetryDelayMs milissegundos entre as tentativas.
-* Suporte a debounce: quando DebounceMs > 0, escritas consecutivas rápidas no mesmo arquivo são coalescidas — apenas o último conteúdo é escrito uma vez que o arquivo não seja tocado por DebounceMs ms.
-* Criação de diretórios: cria diretórios pai automaticamente se eles não existirem.
+* Gravação atômica: usa uma estratégia de arquivo temporário + renomeação para garantir que o arquivo de destino nunca fique em um estado corrompido se o processo for interrompido.
+* Lógica de retentativa: repete a gravação até MaxRetries vezes com um atraso de RetryDelayMs milissegundos entre as tentativas.
+* Suporte a debounce: quando DebounceMs > 0, gravações consecutivas rápidas no mesmo arquivo são coalescidas — apenas o último payload é gravado depois que o arquivo não é tocado por DebounceMs ms.
+* Criação de diretório: cria diretórios pais automaticamente se eles não existirem.
 
 ## Syntax
 
@@ -50,8 +50,7 @@ Escreve um array de bytes em data.bin atomicamente com configurações de repeti
 Start-Sleep -Seconds 6
 ```
 
-Escreve rapidamente 100 vezes, mas apenas o payload final (100) é persistido
-disApós um período de silêncio de 5 segundos.
+Escreve rapidamente 100 vezes, mas apenas o payload final (100) é persistido em disco após um período de silêncio de 5 segundos.
 
 ### Example 3
 

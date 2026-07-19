@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sets focus to the VLC media player window.
+
+## Description
+
+Zoekt een actieve instantie van VLC mediaspeler en brengt het venster naar de
+voorgrond, waardoor het het actieve venster wordt. Als VLC niet actief is, wordt
+stilzwijgend doorgegaan zonder foutmelding. Gebruikt Windows API-aanroepen om
+vensterfocus te manipuleren.
 
 ## Syntax
 
@@ -44,6 +51,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### Set-VLCPlayerFocused Brings the VLC player window to front and gives it focus
+
+```powershell
+Set-VLCPlayerFocused
+Brings the VLC player window to front and gives it focus
+```
+
+### vlcf Same operation using the short alias
+
+```powershell
+vlcf
+Same operation using the short alias
 ```
 
 ## Related Links

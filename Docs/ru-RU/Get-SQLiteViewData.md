@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Извлекает данные из представления базы данных SQLite с возможностью ограничения записей.
+
+## Description
+
+Запрашивает представление базы данных SQLite, используя строку подключения или путь к файлу базы данных. Функция поддерживает ограничение количества возвращаемых записей и предоставляет подробный вывод для отслеживания выполнения запроса.
 
 ## Syntax
 
@@ -24,6 +28,22 @@ Get-SQLiteViewData -ViewName <String> [[-Count] <Int32>] [<CommonParameters>]
 | `-DatabaseFilePath` | String | ✅ | — | 0 | — | Путь к файлу базы данных SQLite. *(Parameter set: )* |
 | `-ViewName` | String | ✅ | — | 1 | — | Имя представления для запроса. |
 | `-Count` | Int32 | — | — | 2 | `100` | Количество возвращаемых записей. -1 для всех записей. |
+
+## Examples
+
+### Get-SQLiteViewData -DatabaseFilePath "C:\MyDb.sqlite" `     -ViewName "CustomerView" `     -Count 50
+
+```powershell
+Get-SQLiteViewData -DatabaseFilePath "C:\MyDb.sqlite" `
+    -ViewName "CustomerView" `
+    -Count 50
+```
+
+### Get-SQLiteViewData "C:\MyDb.sqlite" "CustomerView"
+
+```powershell
+Get-SQLiteViewData "C:\MyDb.sqlite" "CustomerView"
+```
 
 ## Related Links
 

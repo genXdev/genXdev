@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Возобновляет воспроизведение видео на вкладке браузера YouTube.
+
+## Description
+
+Находит активную вкладку YouTube в браузере и возобновляет воспроизведение видео, выполняя метод play() для любых найденных на странице видеоэлементов. Если вкладка YouTube не найдена, функция выдаёт ошибку. Эта функция особенно полезна для автоматизации управления воспроизведением видео в сеансах браузера.
 
 ## Syntax
 
@@ -42,6 +46,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Resume-WebbrowserTabVideo
+
+```powershell
+Resume-WebbrowserTabVideo
+```
+
+### wbvideoplay
+
+```powershell
+wbvideoplay
 ```
 
 ## Related Links

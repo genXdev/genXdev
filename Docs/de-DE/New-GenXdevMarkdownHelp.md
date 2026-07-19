@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Generiert umfangreiche Markdown-Hilfedateien für jedes PowerShell-Modul.
+
+## Description
+
+Generiert eine umfassende Markdown-Hilfeseite für jedes PowerShell-Modul:
+eine .md-Datei pro Cmdlet mit allen Metadatenabschnitten, plus eine README.md
+Index mit Tabellen pro Untermodul, die zu jeder Cmdlet-Datei verlinken.
+
+Die Erkennung von Untermodulen ist portabel: .psm1-Dot-Source-Verzeichnisse für
+Skript-Cmdlets, .NET-Namespaces für kompilierte Cmdlets, mit einer abgestuften
+Fallback-Kette für Module ohne Untermodul-Struktur.
 
 ## Syntax
 
@@ -23,6 +33,33 @@ New-GenXdevMarkdownHelp -ModuleName <String> [-Force] [-Language <String>] [-Lin
 | `-SkipTranslation` | SwitchParameter | — | — | Named | — | Skip LLM translation; keep help in source language |
 | `-LinkPrefix` | String | — | — | Named | — | URL-Präfix für README-Indexlinks (z. B. https://github.com/org/repo/Docs/) |
 | `-TranslationInstructions` | String | — | — | Named | — | Brauchst du Hilfe? |
+
+## Examples
+
+### New-GenXdevMarkdownHelp -ModuleName 'Pester' -SkipTranslation
+
+```powershell
+New-GenXdevMarkdownHelp -ModuleName 'Pester' -SkipTranslation
+```
+
+Generiert den Ordner Docs\ mit einer .md-Datei pro Pester-Cmdlet und einer README.md-Indexdatei.
+
+### New-GenXdevMarkdownHelp -ModuleName 'GenXdev' -Language 'nl-NL' -Force
+
+```powershell
+New-GenXdevMarkdownHelp -ModuleName 'GenXdev' -Language 'nl-NL' -Force
+```
+
+Generiert niederländisch übersetzte Markdown-Hilfe und überschreibt vorhandene Dateien.
+
+### New-GenXdevMarkdownHelp -ModuleName 'GenXdev' -LinkPrefix `     'https://github.com/genXdev/genXdev/Docs/' -SkipTranslation
+
+```powershell
+New-GenXdevMarkdownHelp -ModuleName 'GenXdev' -LinkPrefix `
+    'https://github.com/genXdev/genXdev/Docs/' -SkipTranslation
+```
+
+Generiert Hilfe mit absoluten GitHub-Links im README-Index.
 
 ## Outputs
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXdevモジュール、サブモジュール、またはコマンドレットの単体テストを実行し、インテリジェントなデバッグとAI搭載のエラー解決を行います。
+
+## Description
+
+この関数はGenXdevモジュールのテストフレームワークを提供し、モジュール全体から個々のコマンドレットまで複数レベルのテスト実行を可能にします。PSScriptAnalyzerによる静的コード分析、Pesterによる単体テスト、およびPSScriptAnalyzerによる静的コード分析を統合しています。この関数には、AI駆動の解決機能を備えたインテリジェントなエラーハンドリングと、開発ワークフローのための詳細な進捗レポート機能が含まれています。
 
 ## Syntax
 
@@ -34,6 +38,40 @@ Assert-GenXdevTest [-IncludeScripts] [-SkipModuleImports] [<CommonParameters>]
 | `-SkipModuleImports` | SwitchParameter | — | — | Named | — | テスト前にGenXdevモジュールのインポートをスキップします *(Parameter set: )* |
 | `-SkipPSAnalyzerTests` | SwitchParameter | — | — | Named | — | PSAnalyzer テストの呼び出しをスキップします |
 | `-SkipPesterTests` | SwitchParameter | — | — | Named | — | Pesterテストの呼び出しをスキップします |
+
+## Examples
+
+### Assert-GenXdevTest -ModuleName "GenXdev.AI" Executes all tests for the GenXdev.AI module including PSScriptAnalyzer and Pester tests.
+
+```powershell
+Assert-GenXdevTest -ModuleName "GenXdev.AI"
+Executes all tests for the GenXdev.AI module including PSScriptAnalyzer and
+Pester tests.
+```
+
+### Assert-GenXdevTest -SubModuleName "GenXdev.Coding.PowerShell.Modules" `     -TestFailedAction SolveWithAI Tests the specified sub-module and uses AI to automatically resolve any failures encountered during testing.
+
+```powershell
+Assert-GenXdevTest -SubModuleName "GenXdev.Coding.PowerShell.Modules" `
+    -TestFailedAction SolveWithAI
+Tests the specified sub-module and uses AI to automatically resolve any
+failures encountered during testing.
+```
+
+### Assert-GenXdevTest -CmdletName "Get-GenXDevCmdlet" -Verbosity Detailed Tests the specific cmdlet with detailed output showing all test operations and results.
+
+```powershell
+Assert-GenXdevTest -CmdletName "Get-GenXDevCmdlet" -Verbosity Detailed
+Tests the specific cmdlet with detailed output showing all test operations
+and results.
+```
+
+### testcmdlet Assert-GenXdevTest Uses the alias to test the current cmdlet with default settings.
+
+```powershell
+testcmdlet Assert-GenXdevTest
+Uses the alias to test the current cmdlet with default settings.
+```
 
 ## Related Links
 

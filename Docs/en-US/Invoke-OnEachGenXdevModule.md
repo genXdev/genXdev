@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Executes a script block on each GenXdev module in the workspace.
+
+## Description
+
+This function iterates through GenXdev modules in the workspace and executes
+a provided script block against each module. It can filter modules by name
+pattern, exclude local modules, include only published modules, or process
+scripts instead of modules. The function automatically navigates to the
+correct module directory before executing the script block.
 
 ## Syntax
 
@@ -22,6 +30,27 @@ Invoke-OnEachGenXdevModule -Script <ScriptBlock> [[-ModuleName] <String[]>] [-Fr
 | `-OnlyPublished` | SwitchParameter | — | — | Named | — | Includes only published modules that have LICENSE and README.md files |
 | `-FromScripts` | SwitchParameter | — | — | Named | — | Process scripts directory instead of module directories |
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | Includes the scripts directory in addition to regular modules |
+
+## Examples
+
+### Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+
+```powershell
+Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+```
+
+Lists all GenXdev module names.
+
+### foreach-genxdev-module-do {     param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)     Get-ChildItem } -ModuleName "GenXdev.AI"
+
+```powershell
+foreach-genxdev-module-do {
+    param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)
+    Get-ChildItem
+} -ModuleName "GenXdev.AI"
+```
+
+Uses alias to list contents of the GenXdev.AI module directory.
 
 ## Related Links
 

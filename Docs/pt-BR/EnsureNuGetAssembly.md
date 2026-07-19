@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Faz download e carrega assemblies .NET de pacotes NuGet com base na chave ou ID do pacote.
+
+## Description
+
+Esta função garante que os assemblies dos pacotes NuGet especificados sejam baixados e carregados na sessão atual do PowerShell. Ela suporta detecção e carregamento automáticos com fallback para um manifesto JSON para substituições de configuração, tratando casos extremos como dependências stub (ex.: SQLite). A instalação usa exclusivamente a CLI do dotnet para gerenciamento confiável de pacotes e carrega assemblies diretamente do cache global do NuGet sem copiar. O carregamento preguiçoso verifica se o tipo já está disponível antes de prosseguir.
 
 ## Syntax
 
@@ -26,6 +30,26 @@ EnsureNuGetAssembly -PackageKey <String> [-ConsentToThirdPartySoftwareInstallati
 | `-Publisher` | String | — | — | Named | — | Editor ou fornecedor opcional do software para consentimento. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | Forçar um aviso mesmo se a preferência estiver definida para consentimento. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Consentir automaticamente com a instalação de software de terceiros e definir sinalizador persistente. |
+
+## Examples
+
+### EnsureNuGetAssembly -PackageKey "Microsoft.Data.Sqlite.Core"
+
+```powershell
+EnsureNuGetAssembly -PackageKey "Microsoft.Data.Sqlite.Core"
+```
+
+### EnsureNuGetAssembly -PackageKey "Microsoft.Playwright" -Version "1.54.0" -TypeName "Microsoft.Playwright.Playwright"
+
+```powershell
+EnsureNuGetAssembly -PackageKey "Microsoft.Playwright" -Version "1.54.0" -TypeName "Microsoft.Playwright.Playwright"
+```
+
+### EnsureNuGetAssembly -PackageKey "Microsoft.Data.Sqlite.Core" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+EnsureNuGetAssembly -PackageKey "Microsoft.Data.Sqlite.Core" -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

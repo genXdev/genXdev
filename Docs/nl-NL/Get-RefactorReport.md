@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Genereert een gedetailleerd rapport van refactoringbewerkingen en hun status.
+
+## Description
+
+Analyseert en rapporteert de voortgang van refactoringoperaties door hun huidige status, voltooiingsstatus en getroffen functies te onderzoeken. Geeft uitvoer in gestructureerde hashtabelindeling of leesbare uitgelijnde tekstkolommen. Het rapport omvat refactornaam, promptcode, prioriteit, status, functietelling en voltooiingspercentage.
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-RefactorReport [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-Se
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Indien ingesteld, leeg de sessiecache voor het uitvoeren. |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Indien ingesteld, sla het laden van de sessie-cache over. |
 | `-AsText` | SwitchParameter | — | — | Named | `False` | Output report in text format instead of Hashtable |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-RefactorReport -Name "DatabaseRefactor" -AsText
+```
+
+Genereert een tekstrapport voor refactors die overeenkomen met "DatabaseRefactor".
+
+### Example 2
+
+```powershell
+refactorreport "*"
+```
+
+Genereert hashtabelrapport voor alle refactors met alias.
 
 ## Outputs
 

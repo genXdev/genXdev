@@ -4,19 +4,27 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Gera uma galeria HTML de layout masonry responsiva a partir de dados de imagem.
+
+## Description
+
+Cria uma galeria HTML interativa com layout de grade responsivo estilo masonry para exibir imagens. Os recursos incluem:
+- Layout de grade responsivo que se adapta ao tamanho da tela
+- Dicas de ferramentas nas imagens mostrando descrições e palavras-chave
+- Funcionalidade de clicar para copiar o caminho da imagem
+- Estilo moderno e limpo com efeitos de hover
 
 ## Syntax
 
 ```powershell
-GenerateMasonryLayoutHtml -Images <IEnumerable`1[[GenXdev.Helpers.ImageSearchResult, GenXdev, Version=3.26.2026.0, Culture=neutral, PublicKeyToken=null]]> [[-FilePath] <String>] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-CanDelete] [-CanEdit] [-Description <String>] [-EmbedImages] [-ImageUrlPrefix <String>] [-MaxPrintImages <Int32>] [-PageSize <Int32>] [-RootMargin <String>] [-ShowOnlyPictures] [-SingleColumnMode] [-Threshold <Double>] [-Title <String>] [<CommonParameters>]
+GenerateMasonryLayoutHtml -Images <Object> [[-FilePath] <String>] [-AutoAnimateRectangles] [-AutoScrollPixelsPerSecond <Int32>] [-CanDelete] [-CanEdit] [-Description <String>] [-EmbedImages] [-ImageUrlPrefix <String>] [-MaxPrintImages <Int32>] [-PageSize <Int32>] [-RootMargin <String>] [-ShowOnlyPictures] [-SingleColumnMode] [-Threshold <Double>] [-Title <String>] [<CommonParameters>]
 ```
 
 ## Parameters
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Images` | IEnumerable`1[[GenXdev.Helpers.ImageSearchResult, GenXdev, Version=3.26.2026.0, Culture=neutral, PublicKeyToken=null]] | ✅ | ✅ (ByValue) | 0 | — | The `-Images` parameter. |
+| `-Images` | Object | ✅ | — | 0 | — | The `-Images` parameter. |
 | `-FilePath` | String | — | — | 1 | `$null` | Caminho de saída para o arquivo HTML gerado |
 | `-Title` | String | — | — | Named | `'Photo Gallery'` | Título para a galeria |
 | `-Description` | String | — | — | Named | `'Hover over images to see face recognition, object detection, and scene classification data'` | Descrição para a galeria |
@@ -32,6 +40,32 @@ GenerateMasonryLayoutHtml -Images <IEnumerable`1[[GenXdev.Helpers.ImageSearchRes
 | `-MaxPrintImages` | Int32 | — | — | Named | `50` | Número máximo de imagens a carregar para o modo de impressão |
 | `-RootMargin` | String | — | — | Named | `'1200px'` | IntersectionObserver rootMargin para gatilho de rolagem infinita (ex.: "1200px") |
 | `-Threshold` | Double | — | — | Named | `0.1` | Limiar do IntersectionObserver para disparo de rolagem infinita |
+
+## Examples
+
+### Create gallery from image array and save to file $images = @(     @{         path = "C:\photos\sunset.jpg"         keywords = @("nature", "sunset", "landscape")         description = @{             short_description = "Mountain sunset"             long_description = "Beautiful sunset over mountain range"         }     } ) GenerateMasonryLayoutHtml -Images $images -FilePath "C:\output\gallery.html"
+
+```powershell
+Create gallery from image array and save to file
+$images = @(
+    @{
+        path = "C:\photos\sunset.jpg"
+        keywords = @("nature", "sunset", "landscape")
+        description = @{
+            short_description = "Mountain sunset"
+            long_description = "Beautiful sunset over mountain range"
+        }
+    }
+)
+GenerateMasonryLayoutHtml -Images $images -FilePath "C:\output\gallery.html"
+```
+
+### Generate HTML string without saving $html = GenerateMasonryLayoutHtml $images
+
+```powershell
+Generate HTML string without saving
+$html = GenerateMasonryLayoutHtml $images
+```
 
 ## Outputs
 

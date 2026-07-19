@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Извлекает данные столбцов из SQL-представления с возможным ограничением количества записей.
+
+## Description
+
+Выполняет SELECT-запрос к указанному SQL-представлению для извлечения данных из одного столбца. Поддерживает подключение через строку подключения или путь к файлу базы данных. Позволяет ограничить количество возвращаемых записей или получить все записи.
 
 ## Syntax
 
@@ -26,6 +30,23 @@ Get-SQLServerViewColumnData -ViewName <String> -ColumnName <String> [[-Count] <I
 | `-ViewName` | String | ✅ | — | 2 | — | Имя представления. |
 | `-ColumnName` | String | ✅ | — | 3 | — | Название столбца. |
 | `-Count` | Int32 | — | — | 4 | `100` | Количество записей для возврата. По умолчанию 100. -1 для всех. |
+
+## Examples
+
+### Get-SQLServerViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `     -ViewName "CustomersView" `     -ColumnName "Email" `     -Count 50
+
+```powershell
+Get-SQLServerViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `
+    -ViewName "CustomersView" `
+    -ColumnName "Email" `
+    -Count 50
+```
+
+### Get-SQLServerViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+
+```powershell
+Get-SQLServerViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+```
 
 ## Related Links
 

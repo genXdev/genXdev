@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Legt die standardmäßige Side-by-Side-Konfiguration fest.
+
+## Description
+
+Legt das Standardverhalten für GenXdev-Fensteröffnungen fest, sodass sie nebeneinander mit PowerShell angezeigt werden.
+Dies ist nützlich für Benutzer mit einem einzelnen Monitor oder für diejenigen, die die Anordnung von Fenstern nebeneinander bevorzugen.
+Siehe auch Cmdlet 'secondscreen' und 'restoredefaultmonitor'
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> sidebyside
+
+```powershell
+PS> sidebyside
+```
+
+Sets defaults for GenXdev window openings to be side-by-side with PowerShell
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Создает и возвращает объект транзакции SQLite для пакетных операций.
+
+## Description
+
+Создает объект соединения и транзакции базы данных SQLite, который можно использовать для пакетных операций. Вызывающий отвечает за фиксацию или откат транзакции. Соединение будет автоматически создано, если файл базы данных не существует.
 
 ## Syntax
 
@@ -26,6 +30,36 @@ Get-SQLiteTransaction [-ConsentToThirdPartySoftwareInstallation] [-CreateDatabas
 | `-CreateDatabaseIfNotExists` | Boolean | — | — | Named | `$true` | Создавать ли файл базы данных, если он не существует. |
 | `-ForceConsent` | SwitchParameter | — | — | Named | — | Force a consent prompt even if preference is set for SQLite package installation. |
 | `-ConsentToThirdPartySoftwareInstallation` | SwitchParameter | — | — | Named | — | Автоматически согласиться на установку стороннего программного обеспечения и установить постоянный флаг для пакета SQLite. |
+
+## Examples
+
+### $transaction = Get-SQLiteTransaction -DatabaseFilePath "C:\data.db" try {     Invoke-SQLiteQuery -Transaction $transaction -Queries "INSERT INTO Users..."     Invoke-SQLiteQuery -Transaction $transaction -Queries "UPDATE Users..."     $transaction.Commit() } catch {     $transaction.Rollback()     throw } finally {     $transaction.Connection.Close() }
+
+```powershell
+$transaction = Get-SQLiteTransaction -DatabaseFilePath "C:\data.db"
+try {
+    Invoke-SQLiteQuery -Transaction $transaction -Queries "INSERT INTO Users..."
+    Invoke-SQLiteQuery -Transaction $transaction -Queries "UPDATE Users..."
+    $transaction.Commit()
+} catch {
+    $transaction.Rollback()
+    throw
+} finally {
+    $transaction.Connection.Close()
+}
+```
+
+### $transaction = Get-SQLiteTransaction -ConnectionString "Data Source=C:\data.db"
+
+```powershell
+$transaction = Get-SQLiteTransaction -ConnectionString "Data Source=C:\data.db"
+```
+
+### $transaction = Get-SQLiteTransaction -DatabaseFilePath "C:\data.db" -ConsentToThirdPartySoftwareInstallation
+
+```powershell
+$transaction = Get-SQLiteTransaction -DatabaseFilePath "C:\data.db" -ConsentToThirdPartySoftwareInstallation
+```
 
 ## Related Links
 

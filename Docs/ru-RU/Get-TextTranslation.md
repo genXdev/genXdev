@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Переводит текст на другой язык с помощью ИИ.
+
+## Description
+
+Эта функция переводит входной текст на указанный целевой язык с помощью ИИ
+моделей. Она может принимать ввод напрямую через параметры, из конвейера или
+из системного буфера обмена. Функция сохраняет форматирование и стиль при
+переводе.
 
 ## Syntax
 
@@ -111,6 +118,20 @@ Get-TextTranslation [[-Text] <String>] [[-Instructions] <String>] [[-Attachments
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLM) |
 | `-NoCache` | SwitchParameter | — | — | Named | — | Пропустить кэш перевода; всегда вызывать API LLM |
 | `-ClearCache` | SwitchParameter | — | — | Named | — | 清空所有语言的翻译缓存 |
+
+## Examples
+
+### Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+
+```powershell
+Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+```
+
+### "Bonjour" | translate -Language "English"
+
+```powershell
+"Bonjour" | translate -Language "English"
+```
 
 ## Outputs
 

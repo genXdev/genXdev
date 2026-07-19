@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Calculates the apparent size of an object at arm's length.
+
+## Description
+
+Computes the apparent size using small angle approximation.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-ApparentSizeAtArmLength [-DistanceInMeters] <double> [-SizeInMeters] <double
 | `-SizeInMeters` | Double | ✅ | — | 1 | `0` | The actual size of the object in meters |
 | `-ArmLengthInMeters` | Double | — | — | 2 | `0` | The arm length in meters (default: 0.7) |
 | `-As` | String | — | — | 3 | — | The unit for the output size |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ApparentSizeAtArmLength -DistanceInMeters 10 -SizeInMeters 1 -As "centimeters"
+```
+
+Calculates the apparent size of a 1 meter object at 10 meters distance.
+
+### Example 2
+
+```powershell
+Get-ApparentSizeAtArmLength 10 1
+```
+
+Calculates the apparent size using positional parameters.
 
 ## Related Links
 

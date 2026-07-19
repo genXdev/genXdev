@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Configura os atalhos de teclado do GitHub Copilot Chat no Visual Studio Code.
+
+## Description
+
+Esta função garante que o recurso de anexo de arquivo do GitHub Copilot Chat tenha um atalho de teclado adequado (Ctrl+Shift+Alt+F12) configurado no Visual Studio Code.
+
+Ela removerá quaisquer atalhos de anexo do Copilot existentes e os substituirá pelo comando correto atual (github.copilot.chat.attachFile).
+
+Também adiciona o atalho Alt+` (acento grave) para alternar o painel maximizado.
 
 ## Syntax
 
@@ -108,6 +116,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureCopilotKeyboardShortCut
+
+```powershell
+EnsureCopilotKeyboardShortCut
 ```
 
 ## Related Links

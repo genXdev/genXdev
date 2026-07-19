@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Transcribes an audio file, video file, or a recording device to text
+
+## Description
+
+Транскрибирует аудиофайл, видеофайл или запись с устройства в текст с помощью модели Whisper AI. Функция может обрабатывать различные аудио- и видеоформаты, преобразовывать их в подходящий формат для транскрипции и, при необходимости, переводить результат на другой язык. Поддерживает вывод субтитров в формате SRT и различные параметры обработки аудио для точной настройки качества транскрипции.
 
 ## Syntax
 
@@ -64,6 +68,34 @@ Start-AudioTranscription [[-Input] <Object>] [[-LanguageIn] <String>] [[-Languag
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Удалить альтернативные настройки, сохраненные в сессии, для AI-предпочтений, таких как язык, коллекции изображений и т.д. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Не используйте альтернативные настройки, сохраненные в сессии, для предпочтений ИИ, таких как язык, коллекции изображений и т.д. |
 | `-VOX` | SwitchParameter | — | — | Named | — | Используйте определение тишины, чтобы автоматически остановить запись. |
+
+## Examples
+
+### Start-AudioTranscription -Input "C:\path\to\audio.wav" `     -LanguageIn "English" -LanguageOut "French" -SRT
+
+```powershell
+Start-AudioTranscription -Input "C:\path\to\audio.wav" `
+    -LanguageIn "English" -LanguageOut "French" -SRT
+```
+
+### transcribefile "C:\video.mp4" "English"
+
+```powershell
+transcribefile "C:\video.mp4" "English"
+```
+
+### Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+
+```powershell
+Get-ChildItem "*.mp4" | Start-AudioTranscription -LanguageIn "English"
+```
+
+### Start-AudioTranscription  # Records from microphone when no file specified ##############################################################################
+
+```powershell
+Start-AudioTranscription  # Records from microphone when no file specified
+##############################################################################
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Schaltet den Wiederholungsmodus im VLC Media Player um.
+
+## Description
+
+Diese Funktion sendet den 'r'-Tastenbefehl an den VLC Media Player, um zwischen verschiedenen Wiederholungsmodi (keine Wiederholung, aktuelles wiederholen, alle wiederholen) umzuschalten. Die Funktion öffnet VLC, falls es nicht bereits läuft, und gibt den Fokus nach dem Senden des Befehls an das vorherige Fenster zurück.
 
 ## Syntax
 
@@ -28,6 +32,20 @@
     end {
 
     }
+```
+
+## Examples
+
+### Switch-VlcMediaPlayerRepeat
+
+```powershell
+Switch-VlcMediaPlayerRepeat
+```
+
+### vlcrepeat
+
+```powershell
+vlcrepeat
 ```
 
 ## Related Links

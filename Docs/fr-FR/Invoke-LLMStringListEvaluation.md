@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Extrait ou génère une liste de chaînes pertinentes à partir du texte saisi en utilisant l'analyse IA.
+
+## Description
+
+Cette fonction utilise des modèles d'IA pour analyser le texte saisi et extraire ou générer une liste de chaînes pertinentes. Elle peut traiter le texte pour identifier les points clés, extraire des éléments de listes ou générer des concepts connexes. L'entrée peut être fournie directement via des paramètres, depuis le pipeline ou depuis le presse-papiers système. La fonction renvoie un tableau de chaînes et copie éventuellement les résultats dans le presse-papiers.
 
 ## Syntax
 
@@ -169,6 +173,35 @@ Ce projet est sous licence MIT. |
 | `-WithBeamSearchSamplingStrategy` | SwitchParameter | — | — | Named | — | Utilisez la stratégie d'échantillonnage par recherche en faisceau. |
 | `-OnlyResponses` | SwitchParameter | — | — | Named | — | Répondez uniquement avec des réponses. |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longueur maximale de rappel pour les appels d'outils. |
+
+## Examples
+
+### PS> Invoke-LLMStringListEvaluation -Text ("PowerShell features: object-based " +     "pipeline, integrated scripting environment, backwards compatibility, " +     "and enterprise management.") Returns: @("Object-based pipeline", "Integrated scripting environment",          "Backwards compatibility", "Enterprise management")
+
+```powershell
+PS> Invoke-LLMStringListEvaluation -Text ("PowerShell features: object-based " +
+    "pipeline, integrated scripting environment, backwards compatibility, " +
+    "and enterprise management.")
+Returns: @("Object-based pipeline", "Integrated scripting environment",
+         "Backwards compatibility", "Enterprise management")
+```
+
+### PS> "Make a shopping list with: keyboard, mouse, monitor, headset" |     Invoke-LLMStringListEvaluation Returns: @("Keyboard", "Mouse", "Monitor", "Headset")
+
+```powershell
+PS> "Make a shopping list with: keyboard, mouse, monitor, headset" |
+    Invoke-LLMStringListEvaluation
+Returns: @("Keyboard", "Mouse", "Monitor", "Headset")
+```
+
+### PS> getlist "List common PowerShell commands for file operations" -SetClipboard Returns and copies to clipboard: @("Get-ChildItem", "Copy-Item", "Move-Item",                                   "Remove-Item", "Set-Content", "Get-Content") ##############################################################################
+
+```powershell
+PS> getlist "List common PowerShell commands for file operations" -SetClipboard
+Returns and copies to clipboard: @("Get-ChildItem", "Copy-Item", "Move-Item",
+                                  "Remove-Item", "Set-Content", "Get-Content")
+##############################################################################
+```
 
 ## Outputs
 

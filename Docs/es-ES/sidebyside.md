@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Establece la configuración predeterminada de lado a lado.
+
+## Description
+
+Establece el comportamiento predeterminado para que las ventanas de GenXdev se abran una al lado de la otra con PowerShell.
+Esto es útil para usuarios con un solo monitor o para aquellos que prefieren diseños de ventanas en paralelo.
+Consulte también el cmdlet 'segundapantalla' y 'restaurarmonitorpredeterminado'
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> sidebyside
+
+```powershell
+PS> sidebyside
+```
+
+Establece los valores predeterminados para que las ventanas de GenXdev se abran en paralelo con PowerShell
 
 ## Related Links
 

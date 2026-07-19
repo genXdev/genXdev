@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Vertalen van tekst naar een andere taal met behulp van AI.
+
+## Description
+
+Deze functie vertaalt invoertekst naar een opgegeven doeltaal met behulp van AI-modellen. Het kan invoer accepteren via parameters, uit de pijplijn of uit het systeemklembord. De functie behoudt opmaak en stijl tijdens het vertalen.
 
 ## Syntax
 
@@ -81,6 +85,20 @@ Samenvatting: We zijn op zoek naar een AI-docent voor veiligheidsonderzoek op ma
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter voor markup block types (doorgegeven aan LLM) |
 | `-NoCache` | SwitchParameter | — | — | Named | — | Sla de vertaalcache over; roep altijd de LLM API aan |
 | `-ClearCache` | SwitchParameter | — | — | Named | — | Clear the entire translation cache for all languages |
+
+## Examples
+
+### Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+
+```powershell
+Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+```
+
+### "Bonjour" | translate -Language "English"
+
+```powershell
+"Bonjour" | translate -Language "English"
+```
 
 ## Outputs
 

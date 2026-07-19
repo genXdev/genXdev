@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Définit la configuration côte à côte par défaut.
+
+## Description
+
+Définit le comportement par défaut des ouvertures de fenêtres GenXdev pour qu'elles soient côte à côte avec PowerShell.
+Ceci est utile pour les utilisateurs ayant un seul moniteur ou ceux qui préfèrent des dispositions de fenêtres côte à côte.
+Voir également les applets de commande 'secondscreen' et 'restoredefaultmonitor'
 
 ## Syntax
 
@@ -41,6 +47,16 @@
             'Secondary monitor configuration completed successfully'
     }
 ```
+
+## Examples
+
+### PS> sidebyside
+
+```powershell
+PS> sidebyside
+```
+
+Définit les ouvertures de fenêtres GenXdev par défaut pour qu'elles soient côte à côte avec PowerShell
 
 ## Related Links
 

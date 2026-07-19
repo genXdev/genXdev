@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berekent de opwaartse kracht.
+
+## Description
+
+Gebruikt F = ρ V g.
 
 ## Syntax
 

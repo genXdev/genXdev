@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Elimina todas las caras registradas del sistema de reconocimiento facial DeepStack.
+
+## Description
+
+Esta función borra todas las caras registradas de la base de datos de reconocimiento facial de DeepStack eliminando todos los archivos de caras del directorio de almacenamiento de datos y reiniciando el servicio para recargar un registro de caras vacío. Esta es una operación destructiva que no se puede deshacer y eliminará permanentemente todos los datos de caras registrados.
 
 ## Syntax
 
@@ -27,6 +31,32 @@ Unregister-AllFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | Intervalo en segundos entre intentos de verificación de estado |
 | `-ImageName` | String | — | — | 5 | — | Nombre personalizado de la imagen Docker a utilizar |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Mostrar la ventana de Docker Desktop durante la inicialización |
+
+## Examples
+
+### Unregister-AllFaces
+
+```powershell
+Unregister-AllFaces
+```
+
+Elimina todas las caras registradas con confirmación.
+
+### Unregister-AllFaces -Force
+
+```powershell
+Unregister-AllFaces -Force
+```
+
+Elimina todas las caras registradas sin solicitar confirmación.
+
+### unregall -Force
+
+```powershell
+unregall -Force
+```
+
+Utiliza alias para eliminar todas las caras sin confirmación.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Capture les messages d'erreur provenant de divers flux et utilise un LLM pour suggérer des corrections.
+
+## Description
+
+Cette cmdlet capture les messages d'erreur de différents flux PowerShell (entrée pipeline, verbose, information, erreur et avertissement) et formule une invite structurée pour qu'un LLM analyse et suggère des correctifs. Elle exécute ensuite la requête LLM et renvoie la solution suggérée.
 
 ## Syntax
 
@@ -174,6 +178,25 @@ Ce projet est sous licence MIT. |
 | `-NoContext` | Object | — | — | Named | — | Ne pas utiliser le contexte pour la requête LLM. |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | Utilisez la stratégie d'échantillonnage par recherche en faisceau. |
 | `-OnlyResponses` | Object | — | — | Named | — | Réponse de l'LLM uniquement. |
+
+## Examples
+
+### $errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {     My-ScriptThatFails }
+
+```powershell
+$errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {
+    My-ScriptThatFails
+}
+```
+
+Write-Host $errorInfo
+
+### getfixprompt { Get-ChildItem -NotExistingParameter } ##############################################################################
+
+```powershell
+getfixprompt { Get-ChildItem -NotExistingParameter }
+##############################################################################
+```
 
 ## Outputs
 

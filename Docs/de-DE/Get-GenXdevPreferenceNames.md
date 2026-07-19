@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ruft alle Präferenznamen aus dem Sitzungsspeicher und den Datenbankspeichern ab.
+
+## Description
+
+* Ruft eine eindeutige Liste von Präferenznamen ab, indem Schlüssel aus dem
+  Sitzungsspeicher (globale Variablen) sowie aus dem lokalen und dem Standard-
+  Präferenzspeicher kombiniert werden.
+* Berücksichtigt Parameter für die Sitzungsverwaltung, um zu steuern, welche
+  Quellen abgefragt werden.
 
 ## Syntax
 
@@ -20,6 +28,32 @@ Get-GenXdevPreferenceNames [-SessionOnly] [-ClearSession] [-PreferencesDatabaseP
 | `-ClearSession` | SwitchParameter | — | — | Named | `False` | Sitzungseinstellung (globale Variable) vor dem Abrufen löschen |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Datenbankpfad für Präferenzdatendateien |
 | `-SkipSession` | SwitchParameter | — | — | Named | `False` | Verwenden Sie keine alternativen, in der Sitzung gespeicherten Einstellungen für Datenpräferenzen wie Sprache, Datenbankpfade usw. |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-GenXdevPreferenceNames -PreferencesDatabasePath "C:\Data\prefs.db"
+```
+
+Gibt ein sortiertes Array mit eindeutigen Präferenznamen aus dem Sitzungsspeicher und beiden Speichern unter Verwendung des angegebenen Datenbankpfads zurück.
+
+### Example 2
+
+```powershell
+getPreferenceNames -SessionOnly
+```
+
+Gibt nur Präferenznamen aus dem Sitzungsspeicher zurück.
+
+### Example 3
+
+```powershell
+getPreferenceNames -SkipSession
+```
+
+Gibt nur Präferenznamen aus Datenbankspeichern zurück.
 
 ## Related Links
 

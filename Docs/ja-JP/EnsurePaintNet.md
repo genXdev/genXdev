@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Paint.NET がシステムに適切にインストールされ、アクセス可能であることを確認します。
+
+## Description
+
+Paint.NET 用の包括的なチェックとセットアップを実行します：
+- Paint.NET がインストールされ、PATH にアクセス可能かを確認
+- インストールされていない場合は WinGet を介して Paint.NET をインストール
+- システム PATH 環境変数を設定
+- コマンドラインで使用できるように paintdotnet.exe を確保
+この関数はすべての前提条件を処理し、動作可能な Paint.NET インストールを保証します。
 
 ## Syntax
 
@@ -161,6 +170,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsurePaintNet This will verify and setup Paint.NET if needed.
+
+```powershell
+EnsurePaintNet
+This will verify and setup Paint.NET if needed.
 ```
 
 ## Related Links

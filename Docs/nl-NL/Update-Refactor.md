@@ -4,7 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Werkt refactoring-sets bij en beheert deze, inclusief bestandsselectie en -verwerking.
+
+## Description
+
+Biedt uitgebreid beheer van refactoring sets door:
+- Toevoegen of verwijderen van bestanden uit verwerkingswachtrijen
+- Opruimen van verwijderde bestanden uit de set
+- Beheren van statusinformatie en voortgangsregistratie
+- Afhandelen van LLM-gebaseerde bestandsselectie en -verwerking
+- Ondersteunen van zowel automatisch als handmatig bestandsbeheer
+- Bijhouden van gedetailleerde logboeken van alle bewerkingen
+- Netjes omgaan met verwijderde bestanden (overgeslagen tenzij CleanUpDeletedFiles wordt gebruikt)
 
 ## Syntax
 
@@ -62,6 +73,27 @@ Update-Refactor [[-FilesToAdd] <IO.FileInfo[]>] [[-FilesToRemove] <IO.FileInfo[]
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
+
+## Examples
+
+### Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `     -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+
+```powershell
+Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `
+    -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+```
+
+### Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+
+```powershell
+Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+```
+
+### updaterefactor * -Clear -Reset
+
+```powershell
+updaterefactor * -Clear -Reset
+```
 
 ## Related Links
 

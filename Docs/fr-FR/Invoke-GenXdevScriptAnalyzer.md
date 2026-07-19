@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Invoke l'analyseur de scripts PowerShell pour analyser les scripts PowerShell afin de vérifier leur conformité et leurs meilleures pratiques.
+
+## Description
+
+Cette fonction fournit un wrapper autour de PSScriptAnalyzer pour analyser les scripts PowerShell afin de détecter les problèmes de conformité, les violations des bonnes pratiques et les bogues potentiels. Elle prend en charge à la fois l'analyse basée sur les fichiers et l'analyse de scripts sous forme de chaînes de caractères avec des règles et des paramètres personnalisables.
 
 ## Syntax
 
@@ -26,6 +30,26 @@ Invoke-GenXdevScriptAnalyzer [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<
 | `-Fix` | SwitchParameter | — | — | Named | — | Active la correction automatique des violations. |
 | `-Recurse` | SwitchParameter | — | — | Named | — | Traiter les fichiers de manière récursive. |
 | `-ReportSummary` | SwitchParameter | — | — | Named | — | Rapporte un résumé après analyse. |
+
+## Examples
+
+### Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\MyScript.ps1"
+
+```powershell
+Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\MyScript.ps1"
+```
+
+### Invoke-GenXdevScriptAnalyzer -ScriptDefinition "Get-Process | Where-Object {$_.Name -eq 'notepad'}"
+
+```powershell
+Invoke-GenXdevScriptAnalyzer -ScriptDefinition "Get-Process | Where-Object {$_.Name -eq 'notepad'}"
+```
+
+### Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\" -Recurse -Fix
+
+```powershell
+Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\" -Recurse -Fix
+```
 
 ## Related Links
 

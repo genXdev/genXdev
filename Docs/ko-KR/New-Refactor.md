@@ -4,7 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 코드 변환 작업을 위한 새로운 리팩토링 세트를 생성합니다.
+
+## Description
+
+LLM 기반 코드 변환을 위한 새로운 리팩토링 정의를 생성하고 구성합니다. 이 함수는 다음을 처리합니다:
+- 리팩토링 구성 설정
+- 선택 기준 및 프롬프트 구성
+- LLM 모델 설정 관리
+- 개발 환경과의 통합
+- 리팩토링 정의 지속
 
 ## Syntax
 
@@ -40,6 +49,22 @@ New-Refactor -Name <String> -PromptKey <String> [[-Prompt] <String>] [[-Selectio
 | `-Code` | SwitchParameter | — | — | Named | — | Visual Studio Code에서 파일 열기 |
 | `-VisualStudio` | SwitchParameter | — | — | Named | — | Open in Visual Studio |
 | `-KeysToSend` | String[] | — | — | Named | `@()` | 파일을 연 후 보낼 키 입력 |
+
+## Examples
+
+### New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `     -SelectionScript "Get-LoggingMethods" -Priority 1 `     -Code
+
+```powershell
+New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `
+    -SelectionScript "Get-LoggingMethods" -Priority 1 `
+    -Code
+```
+
+### newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+
+```powershell
+newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
+```
 
 ## Related Links
 

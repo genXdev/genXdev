@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I would like to respectfully share a different perspective on this matter.
+
+## Description
+
+Cette fonction transforme les formulations directes ou brusques des utilisateurs en un langage diplomatique et plein de tact, adapté aux discussions de haut niveau, aux négociations ou aux communications formelles. La fonction utilise des modèles de langage d'IA pour préserver l'intention initiale tout en adoucissant le ton et en rendant le message plus diplomatique et professionnel.
 
 ## Syntax
 
@@ -157,6 +161,21 @@ Ce projet est sous licence MIT. |
 | `-OutputMarkdownBlocksOnly` | SwitchParameter | — | — | Named | — | Output only markup blocks (passed to LLMQuery) |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longueur maximale de rappel d'outil (transmise à LLMQuery) |
+
+## Examples
+
+### ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `     -SetClipboard
+
+```powershell
+ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `
+    -SetClipboard
+```
+
+### diplomatize "Your code is full of bugs"
+
+```powershell
+diplomatize "Your code is full of bugs"
+```
 
 ## Outputs
 

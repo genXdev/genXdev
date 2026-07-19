@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Garante que o GitHub CLI esteja devidamente instalado e configurado no sistema.
+
+## Description
+
+Realiza verificações e configuração abrangentes para o GitHub CLI (gh):
+- Verifica se o GitHub CLI está instalado e acessível no PATH
+- Instala o GitHub CLI via WinGet se não estiver presente
+- Configura a variável de ambiente PATH do sistema
+- Instala a extensão GitHub Copilot
+- Configura a autenticação do GitHub
+A função lida com todos os pré-requisitos e garante uma configuração funcional do GitHub CLI.
 
 ## Syntax
 
@@ -175,6 +185,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsureGithubCLIInstalled This will verify and setup GitHub CLI if needed.
+
+```powershell
+EnsureGithubCLIInstalled
+This will verify and setup GitHub CLI if needed.
 ```
 
 ## Related Links

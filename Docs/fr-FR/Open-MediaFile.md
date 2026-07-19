@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ouvre et lit des fichiers multimédia avec le lecteur VLC, offrant des options avancées de filtrage et de configuration.
+
+## Description
+
+Cette fonction recherche des fichiers média selon des motifs, crée une liste de lecture et lance le lecteur multimédia VLC avec des options de configuration complètes. Elle prend en charge les vidéos, fichiers audio et images, avec installation automatique de VLC si nécessaire. La fonction offre un contrôle étendu sur le comportement de lecture, le positionnement de la fenêtre, les paramètres audio/vidéo et la gestion des sous-titres.
 
 ## Syntax
 
@@ -111,6 +115,32 @@ Open-MediaFile [[-Name] <String[]>] [[-Width] <Int32>] [[-Height] <Int32>] [[-X]
 | `-PassThru` | SwitchParameter | — | — | Named | — | Retourne les fichiers trouvés par la recherche |
 | `-PassThruNoOpen` | SwitchParameter | — | — | Named | — | Retourne les fichiers trouvés par la recherche sans ouvrir VLC |
 | `-PassThruWindow` | SwitchParameter | — | — | Named | — | Renvoie l'assistant fenêtre pour chaque processus |
+
+## Examples
+
+### Open-MediaFile
+
+```powershell
+Open-MediaFile
+```
+
+Ouvre tous les fichiers multimédia du répertoire courant en utilisant les paramètres par défaut de VLC.
+
+### vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+
+```powershell
+vlcmedia ~\Pictures -OnlyPictures -Fullscreen
+```
+
+Ouvre uniquement les fichiers image du dossier Images en mode plein écran en utilisant l'alias 'vlcmedia'.
+
+### media ~\Videos -OnlyVideos -Loop
+
+```powershell
+media ~\Videos -OnlyVideos -Loop
+```
+
+Ouvre les fichiers vidéo avec la lecture en boucle activée via l'alias 'media'.
 
 ## Related Links
 

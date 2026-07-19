@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Haalt de huidige UTC-datum en -tijd op.
+
+## Description
+
+Geeft de huidige UTC-datum en -tijd terug als een System.DateTime-object. Deze functie biedt een gestandaardiseerde manier om UTC-tijd op te halen over verschillende systemen en tijdzones heen. Het geretourneerde DateTime-object kan worden gebruikt voor tijdsynchronisatie, logboekregistratie en tijdzoneoverschrijdende bewerkingen.
 
 ## Syntax
 
@@ -29,6 +33,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### $currentUtc = UtcNow Returns the current UTC time as a DateTime object.
+
+```powershell
+$currentUtc = UtcNow
+Returns the current UTC time as a DateTime object.
+```
+
+### $timestamp = (UtcNow).ToString("yyyy-MM-dd HH:mm:ss") Gets the current UTC time and formats it as a string.
+
+```powershell
+$timestamp = (UtcNow).ToString("yyyy-MM-dd HH:mm:ss")
+Gets the current UTC time and formats it as a string.
 ```
 
 ## Outputs

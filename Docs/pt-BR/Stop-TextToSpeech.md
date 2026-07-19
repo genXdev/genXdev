@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Interrompe imediatamente qualquer saída de texto-para-fala em andamento.
+
+## Description
+
+Interrompe toda a síntese de fala ativa e na fila, cancelando operações de fala padrão e personalizadas. Isso proporciona silêncio imediato para quaisquer atividades de conversão de texto em fala em andamento.
 
 ## Syntax
 
@@ -40,6 +44,22 @@
 
     end {
     }
+```
+
+## Examples
+
+### PS C:\> Stop-TextToSpeech Immediately stops any ongoing speech
+
+```powershell
+PS C:\> Stop-TextToSpeech
+Immediately stops any ongoing speech
+```
+
+### PS C:\> say "Hello world"; sst Starts speaking but gets interrupted immediately
+
+```powershell
+PS C:\> say "Hello world"; sst
+Starts speaking but gets interrupted immediately
 ```
 
 ## Related Links

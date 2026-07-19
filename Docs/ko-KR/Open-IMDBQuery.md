@@ -4,12 +4,20 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 웹 브라우저에서 IMDB 검색어를 엽니다.
+
+## Description
+
+웹 브라우저에서 "Internet Movie Database" 검색을 다양한 구성 옵션과 함께 엽니다. 이 함수는 IMDB 검색 기능에 대한 편리한 래퍼를 제공하여 PowerShell에서 직접 영화, TV 프로그램, 배우 및 기타 엔터테인먼트 콘텐츠를 검색할 수 있도록 합니다.
+
+이 함수는 검색어를 받아 적절한 IMDB 검색 URL을 구성한 후, 사용자 지정 창 위치, 브라우저 선택 및 디스플레이 옵션을 사용하여 지정된 웹 브라우저에서 엽니다. Edge, Chrome, Firefox를 포함한 모든 주요 브라우저를 지원하며, 프라이빗 브라우징, 전체 화면 모드 및 창 관리 기능을 제공합니다.
+
+주요 기능으로는 다중 모니터 지원, 언어 지역화, 키보드 자동화 및 포괄적인 브라우저 구성 옵션이 있습니다. 이 함수는 여러 검색 쿼리를 동시에 처리할 수 있으며, 대화형 사용 및 자동화된 워크플로우 모두에 대한 옵션을 제공합니다.
 
 ## Syntax
 
 ```powershell
-Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -31,6 +39,9 @@ Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Google Chrome에서 열기 |
 | `-Chromium` | SwitchParameter | — | — | Named | — | 기본 브라우저에 따라 Microsoft Edge 또는 Google Chrome에서 열립니다. |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Firefox에서 열기 |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Playwright에서 관리하는 브라우저를 OS에 설치된 브라우저 대신 사용합니다 |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Playwright로 관리되는 WebKit 브라우저를 엽니다. -PlayWright를 암시합니다. |
+| `-Headless` | SwitchParameter | — | — | Named | — | 보이는 창 없이 브라우저 실행 |
 | `-All` | SwitchParameter | — | — | Named | — | 모든 등록된 최신 브라우저에서 열림 |
 | `-Left` | SwitchParameter | — | — | Named | — | 브라우저 창을 화면 왼쪽에 배치합니다. |
 | `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen |
@@ -59,6 +70,40 @@ Open-IMDBQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>]
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Open browser windows side by side |
+
+## Examples
+
+### Open-IMDBQuery -Queries "The Matrix" -Monitor 0
+
+```powershell
+Open-IMDBQuery -Queries "The Matrix" -Monitor 0
+```
+
+기본 모니터에서 "매트릭스"에 대한 IMDB 검색을 엽니다.
+
+### imdb "The Matrix" -m 0
+
+```powershell
+imdb "The Matrix" -m 0
+```
+
+IMDB에서 "The Matrix"를 검색할 때는 별칭과 단축 파라미터를 사용하세요.
+
+### "Inception", "Interstellar" | Open-IMDBQuery -Language "French" -Chrome
+
+```powershell
+"Inception", "Interstellar" | Open-IMDBQuery -Language "French" -Chrome
+```
+
+특정 영화 다수(복수)를 크롬 브라우저에서 IMDB에 프랑스어 결과로 검색합니다.
+
+### Open-IMDBQuery -Queries "Tom Hanks" -FullScreen -RestoreFocus
+
+```powershell
+Open-IMDBQuery -Queries "Tom Hanks" -FullScreen -RestoreFocus
+```
+
+IMDB에서 전체 화면 모드로 톰 행크스를 검색한 다음, 포커스를 PowerShell로 되돌립니다.
 
 ## Related Links
 

@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Herstelt standaard secundaire monitorconfiguratie.
+
+## Description
+
+Dit script herstelt de standaard secundaire monitorconfiguratie voor het systeem,
+waarbij de secundaire monitor wordt ingesteld op de oorspronkelijke standaardwaarde.
+Dit is nuttig voor gebruikers die willen terugkeren naar hun vorige multi-monitoropstelling na het gebruik van naast-elkaar-configuraties.
+Zie ook: de functie 'sidebyside' om over te schakelen naar de naast-elkaar-modus voor nieuwe vensters.
 
 ## Syntax
 
@@ -42,6 +49,16 @@
             'Secondary monitor configuration completed'
     }
 ```
+
+## Examples
+
+### secondscreen
+
+```powershell
+secondscreen
+```
+
+Herstelt de standaard secundaire monitorconfiguratie voor het systeem.
 
 ## Related Links
 

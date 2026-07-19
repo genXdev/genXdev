@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 시리얼 포트에 문자열을 전송합니다
+
+## Description
+
+시리얼 통신 포트로 문자열을 보낼 수 있습니다.
 
 ## Syntax
 

@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ouvre les signets du navigateur qui correspondent aux critères de recherche spécifiés.
+
+## Description
+
+Recherche les marque-pages dans Microsoft Edge, Google Chrome et Mozilla Firefox en fonction des requêtes de recherche fournies. Ouvre les marque-pages correspondants dans le navigateur sélectionné avec des paramètres de fenêtre et des modes de navigateur configurables.
+
+Cette fonction fournit une interface complète pour trouver et ouvrir les marque-pages du navigateur avec des options de filtrage et d'affichage avancées. Elle prend en charge plusieurs critères de recherche et peut ouvrir les résultats dans n'importe quel navigateur installé avec une personnalisation étendue du positionnement et du comportement de la fenêtre.
 
 ## Syntax
 
 ```powershell
-Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Minimize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PlayWright] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-ShowWindow] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -48,6 +54,9 @@ Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <S
 | `-RestoreFocus` | SwitchParameter | — | — | Named | — | Restaurer le focus de la fenêtre PowerShell |
 | `-NewWindow` | SwitchParameter | — | — | Named | — | Ne pas réutiliser la fenêtre de navigateur existante, mais en créer une nouvelle à la place |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Ouvre dans Microsoft Edge ou Google Chrome, selon le navigateur par défaut |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utiliser le navigateur géré par Playwright au lieu du navigateur installé sur le système d'exploitation |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Ouvre le navigateur WebKit géré par Playwright. Implique -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Exécutez le navigateur sans fenêtre visible |
 | `-All` | SwitchParameter | — | — | Named | — | S'ouvre dans tous les navigateurs modernes enregistrés |
 | `-DisablePopupBlocker` | SwitchParameter | — | — | Named | — | Désactiver le bloqueur de pop-ups |
 | `-SendKeyEscape` | SwitchParameter | — | — | Named | — | Échapper les caractères de contrôle lors de l'envoi de touches |
@@ -58,6 +67,32 @@ Open-BrowserBookmarks [[-Queries] <String[]>] [[-Count] <Int32>] [-AcceptLang <S
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Utiliser les paramètres alternatifs stockés dans la session pour les préférences IA |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Open-BrowserBookmarks -Queries "github" -Edge -Count 5
+
+```powershell
+Open-BrowserBookmarks -Queries "github" -Edge -Count 5
+```
+
+Recherche les signets contenant "github" dans Microsoft Edge et ouvre les 5 premiers résultats dans le navigateur par défaut.
+
+### sites gh -e -c 5
+
+```powershell
+sites gh -e -c 5
+```
+
+Identique à ce qui précède en utilisant des alias - recherche les signets Edge pour "gh" et ouvre 5 résultats dans le navigateur par défaut.
+
+### Open-BrowserBookmarks -Queries "development", "tools" -Chrome -Firefox -Left -Count 10
+
+```powershell
+Open-BrowserBookmarks -Queries "development", "tools" -Chrome -Firefox -Left -Count 10
+```
+
+Recherche dans les marque-pages Chrome "development" et "tools", ouvre les 10 premiers résultats dans Firefox positionné sur le côté gauche de l'écran.
 
 ## Related Links
 

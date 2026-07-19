@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет резонансную частоту для закрытой трубы.
+
+## Description
+
+Использует f = v / (4 L) для основной частоты.
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-ResonantFrequencyByLengthAndSpeed [-LengthInMeters] <double> [-Medium] <stri
 | `-SpeedInMetersPerSecond` | Double | ✅ | — | 1 | `0` | Скорость волны в м/с *(Parameter set: )* |
 | `-Medium` | String | ✅ | — | 1 | — | Среда *(Parameter set: )* |
 | `-As` | String | — | — | 2 | — | Output unit for frequency |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ResonantFrequencyByLengthAndSpeed -LengthInMeters 0.5 -Medium "air" -As "kilohertz"
+```
+
+Рассчитывает резонансную частоту для трубы длиной 0.5 метра в воздухе, результат в килогерцах.
+
+### Example 2
+
+```powershell
+Get-ResonantFrequencyByLengthAndSpeed 1 -SpeedInMetersPerSecond 343
+```
+
+Рассчитывает резонансную частоту для трубы длиной 1 метр со скоростью звука 343 м/с.
 
 ## Related Links
 

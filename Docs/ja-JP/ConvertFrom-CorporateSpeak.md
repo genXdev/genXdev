@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Transforms indirect, formal corporate language into straightforward, clear statements using AI.
+
+## Description
+
+この関数は、外交的または企業向けのコミュニケーションをより直接的で明確な表現に変換するために、入力テキストを処理します。パラメータ、パイプライン、またはシステムのクリップボードから直接入力を受け付けることができます。この関数は、AIモデルを活用してテキストを分析し言い換えながら、元の意図を保持します。
 
 ## Syntax
 
@@ -65,6 +69,21 @@ ConvertFrom-CorporateSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-Allo
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | フィルター用マークアップブロックタイプ（LLMQueryに渡される） |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 最大ツールコールバック長（LLMQueryに渡される） |
+
+## Examples
+
+### ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+
+```powershell
+ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+```
+
+### "We should circle back" | uncorporatize ###############################################################################
+
+```powershell
+"We should circle back" | uncorporatize
+###############################################################################
+```
 
 ## Outputs
 

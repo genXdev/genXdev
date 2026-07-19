@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Оценивает исходные файлы на пригодность к рефакторингу с помощью анализа LLM.
+
+## Description
+
+Использует анализ модели языкового обучения (LLM) для определения того, следует ли выбрать исходный файл кода для рефакторинга на основе заданных критериев. Функция обрабатывает содержимое файла через запрос LLM и возвращает логический ответ.
 
 ## Syntax
 
@@ -18,6 +22,20 @@ Test-RefactorLLMSelection -RefactorDefinition <GenXdev.Helpers.RefactorDefinitio
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-RefactorDefinition` | GenXdev.Helpers.RefactorDefinition | ✅ | — | 0 | — | Определение рефакторинга, содержащее настройки LLM |
 | `-Path` | String | ✅ | — | 1 | — | Путь к исходному файлу для оценки |
+
+## Examples
+
+### Test-RefactorLLMSelection -RefactorDefinition $refDef -Path "C:\source.ps1"
+
+```powershell
+Test-RefactorLLMSelection -RefactorDefinition $refDef -Path "C:\source.ps1"
+```
+
+### $def | Test-RefactorLLMSelection -Path source.ps1
+
+```powershell
+$def | Test-RefactorLLMSelection -Path source.ps1
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Convertit le langage diplomatique ou mesuré en un langage direct, clair et sans détour.
+
+## Description
+
+Cette fonction prend le langage diplomatique et le traduit pour révéler la véritable signification derrière les paroles polies ou politiquement correctes. Elle utilise des modèles de langage IA pour transformer les expressions euphémisées en déclarations directes, rendant la communication sans ambiguïté et facile à comprendre. La fonction est particulièrement utile pour analyser les déclarations politiques, les communications d'entreprise ou tout texte dont le sens réel pourrait être obscurci par un langage diplomatique.
 
 ## Syntax
 
@@ -75,6 +79,28 @@ ConvertFrom-DiplomaticSpeak [[-Text] <String>] [[-Instructions] <String>] [-Allo
   }
 } |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Longueur maximale de rappel pour les appels d'outils. |
+
+## Examples
+
+### ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your approach"
+
+```powershell
+ConvertFrom-DiplomaticSpeak -Text "We have some concerns about your
+approach"
+```
+
+### undiplomatize "Your proposal has merit but requires further consideration"
+
+```powershell
+undiplomatize "Your proposal has merit but requires further consideration"
+```
+
+### "We're putting you on timeout" |     ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+
+```powershell
+"We're putting you on timeout" |
+    ConvertFrom-DiplomaticSpeak -SetClipboard -Temperature 0.2
+```
 
 ## Outputs
 

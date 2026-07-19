@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Verzendt een Wake-on-LAN magisch pakket om externe computers op het netwerk te activeren.
+
+## Description
+
+Construeert en verstuurt een Wake-on-LAN (WOL) magisch pakket naar de opgegeven MAC-adres(sen). Het magische pakket is een UDP-uitzending die het doel-MAC-adres 16 keer herhaalt, waardoor ondersteunde netwerkinterfaces de computer kunnen inschakelen. Ondersteunt aangepaste broadcast-adressen en poorten.
 
 ## Syntax
 
@@ -16,9 +20,27 @@ Send-WakeOnLan -MacAddress <String[]> [[-BroadcastAddress] <String>] [[-Port] <I
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-MacAddress` | String[] | ✅ | ✅ (ByValue, ByPropertyName) | 0 | — | The `-MacAddress` parameter. |
-| `-BroadcastAddress` | String | — | — | 1 | `"255.255.255.255"` | The `-BroadcastAddress` parameter. |
-| `-Port` | Int32 | — | — | 2 | `4000` | The `-Port` parameter. |
+| `-MacAddress` | String[] | ✅ | ✅ (ByValue, ByPropertyName) | 0 | — | Een of meer MAC-adressen om het magische pakket naartoe te sturen (bijv. 00:11:22:33:44:55) |
+| `-BroadcastAddress` | String | — | — | 1 | `"255.255.255.255"` | Het broadcast-IP-adres om het magische pakket naartoe te sturen (standaard: 255.255.255.255) |
+| `-Port` | Int32 | — | — | 2 | `4000` | De UDP-poort om het magische pakket naartoe te sturen (standaard: 4000) |
+
+## Examples
+
+### Send-WakeOnLan -MacAddress "00:11:22:33:44:55"
+
+```powershell
+Send-WakeOnLan -MacAddress "00:11:22:33:44:55"
+```
+
+Stuurt een magisch pakket om de computer met het opgegeven MAC-adres te wekken.
+
+### "00:11:22:33:44:55", "AA:BB:CC:DD:EE:FF" | Send-WakeOnLan -Port 9
+
+```powershell
+"00:11:22:33:44:55", "AA:BB:CC:DD:EE:FF" | Send-WakeOnLan -Port 9
+```
+
+Stuurt magische pakketten naar meerdere computers op poort 9 via pijplijninvoer.
 
 ## Related Links
 

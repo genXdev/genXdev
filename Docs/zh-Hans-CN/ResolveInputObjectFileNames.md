@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 将输入对象扩展为文件和目录名称，支持多种过滤器和输出选项。
+
+## Description
+
+该函数处理输入对象（文件、目录或集合），并将其扩展为文件和目录名称。它支持过滤、模式匹配，并可以将结果作为对象输出。该函数设计用于管道输入，并提供递归、备用数据流等选项。
 
 ## Syntax
 
@@ -30,6 +34,14 @@ ResolveInputObjectFileNames [-Directory] [-FilesAndDirectories] [<CommonParamete
 | `-PassThru` | SwitchParameter | — | — | Named | — | Output matched items as objects |
 | `-IncludeAlternateFileStreams` | SwitchParameter | — | — | Named | — | 在搜索结果中包含备用数据流 |
 | `-NoRecurse` | SwitchParameter | — | — | Named | — | 不递归到子目录 |
+
+## Examples
+
+### ResolveInputObjectFileNames -Input "C:\Temp" -File
+
+```powershell
+ResolveInputObjectFileNames -Input "C:\Temp" -File
+```
 
 ## Related Links
 

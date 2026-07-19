@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ouvre l'applet de commande GenXdev spécifiée dans Visual Studio Code.
+
+## Description
+
+Cette fonction récupère le fichier de script et le numéro de ligne pour l'applet de commande GenXdev spécifiée et l'ouvre dans Visual Studio Code. Elle peut ouvrir soit l'implémentation de la fonction principale, soit ses tests unitaires associés, selon le paramètre de commutateur UnitTests.
 
 ## Syntax
 
@@ -71,6 +75,22 @@ le répertoire de la cmdlette respective |
 - Ensure the cmdlet follows PowerShell best practices (e.g., use approved verbs, support -WhatIf and -Confirm if applicable).
 - The cmdlet should be syntactically correct and ready to use. |
 | `-EditPrompt` | SwitchParameter | — | — | Named | — | Only edit the AI prompt without creating the cmdlet |
+
+## Examples
+
+### Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo" Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+
+```powershell
+Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo"
+Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+```
+
+### editcmdlet Get-GenXDevModuleInfo -UnitTests Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+
+```powershell
+editcmdlet Get-GenXDevModuleInfo -UnitTests
+Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converts .NET type names to LLM (Language Model) type names.
+
+## Description
+
+Takes a .NET type name as input and returns the corresponding simplified type name used in Language Models. It handles common .NET types and provides appropriate type mappings.
 
 ## Syntax
 
@@ -17,6 +21,16 @@ Convert-DotNetTypeToLLMType [-DotNetType] <string> [<CommonParameters>]
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
 | `-DotNetType` | String | ✅ | — | 0 | — | The .NET type name to convert to an LLM type name |
+
+## Examples
+
+### Example 1
+
+```powershell
+Convert-DotNetTypeToLLMType -DotNetType "System.String"
+```
+
+Converts a System.String type to its LLM equivalent.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> さまざまなストリームからエラーメッセージをキャプチャし、LLMを使用して修正を提案します。
+
+## Description
+
+このコマンドレットは、様々なPowerShellストリーム（パイプライン入力、詳細、情報、エラー、警告）からエラーメッセージを取得し、LLMが分析して修正案を提案するための構造化プロンプトを生成します。その後、LLMクエリを呼び出し、提案された解決策を返します。
 
 ## Syntax
 
@@ -96,6 +100,25 @@ Get-ScriptExecutionErrorFixPrompt -Script <ScriptBlock> [-ApiEndpoint <String>] 
 | `-NoContext` | Object | — | — | Named | — | LLMクエリにコンテキストを使用しないでください。 |
 | `-WithBeamSearchSamplingStrategy` | Object | — | — | Named | — | ビームサーチ方式です。 |
 | `-OnlyResponses` | Object | — | — | Named | — | LLMのみからの応答を返します。 |
+
+## Examples
+
+### $errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {     My-ScriptThatFails }
+
+```powershell
+$errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {
+    My-ScriptThatFails
+}
+```
+
+書き込みホスト $errorInfo
+
+### getfixprompt { Get-ChildItem -NotExistingParameter } ##############################################################################
+
+```powershell
+getfixprompt { Get-ChildItem -NotExistingParameter }
+##############################################################################
+```
 
 ## Outputs
 

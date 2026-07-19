@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Schakelt de herhaalmodus in VLC Media Player in of uit.
+
+## Description
+
+Deze functie verzendt het commando 'r' naar VLC Media Player om te schakelen tussen verschillende herhaalmodi (geen herhaling, herhaal huidige, herhaal alles). De functie opent VLC als het nog niet actief is en herstelt de focus naar het vorige venster na het verzenden van het commando.
 
 ## Syntax
 
@@ -28,6 +32,20 @@
     end {
 
     }
+```
+
+## Examples
+
+### Switch-VlcMediaPlayerRepeat
+
+```powershell
+Switch-VlcMediaPlayerRepeat
+```
+
+### vlcrepeat
+
+```powershell
+vlcrepeat
 ```
 
 ## Related Links

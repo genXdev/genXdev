@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> I would like to respectfully suggest that there may be alternative approaches worth considering.
+
+## Description
+
+この関数は、ユーザー入力を直接的または率直な表現から、ハイレベルな議論、交渉、または公式なコミュニケーションに適した外交的で丁寧な言葉に変換します。この関数はAI言語モデルを使用して、元の意図を維持しながらトーンを和らげ、メッセージをより外交的かつ専門的にします。
 
 ## Syntax
 
@@ -65,6 +69,21 @@ ConvertTo-DiplomaticSpeak [[-Text] <String>] [[-Attachments] <String[]>] [-Allow
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | フィルター用マークアップブロックタイプ（LLMQueryに渡される） |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | 最大ツールコールバック長（LLMQueryに渡される） |
+
+## Examples
+
+### ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `     -SetClipboard
+
+```powershell
+ConvertTo-DiplomaticSpeak -Text "Your proposal is terrible" -Temperature 0.2 `
+    -SetClipboard
+```
+
+### diplomatize "Your code is full of bugs"
+
+```powershell
+diplomatize "Your code is full of bugs"
+```
 
 ## Outputs
 

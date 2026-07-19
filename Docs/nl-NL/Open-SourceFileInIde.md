@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent een bronbestand in de voorkeurs-IDE (Visual Studio Code of Visual Studio).
+
+## Description
+
+Deze functie opent een opgegeven bronbestand in Visual Studio Code of Visual Studio. Het kan direct naar een specifiek regelnummer navigeren en optioneel toetsenbordinvoer naar de IDE sturen na het openen van het bestand. De functie probeert te bepalen welke IDE te gebruiken op basis van het huidige hostproces, actieve toepassingen of gebruikersselectie.
 
 ## Syntax
 
@@ -25,6 +29,20 @@ Open-SourceFileInIde -Path <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]
 | `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | Toetsenbordfocus behouden op doelvenster |
 | `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Gebruik Shift+Enter in plaats van Enter |
 | `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | Vertraging tussen verschillende invoerstrings in milliseconden |
+
+## Examples
+
+### Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+
+```powershell
+Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+```
+
+### editcode "C:\Projects\MyScript.ps1" 25
+
+```powershell
+editcode "C:\Projects\MyScript.ps1" 25
+```
 
 ## Related Links
 

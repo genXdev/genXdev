@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> DeepStack를 사용하여 두 개의 다른 이미지에서 얼굴을 비교하고 유사성을 반환합니다.
+
+## Description
+
+이 함수는 두 이미지 간의 얼굴을 비교하여 유사도를 결정합니다. 구성 가능한 포트에서 실행되는 로컬 DeepStack 얼굴 매칭 API를 사용하며 0.0에서 1.0 사이의 유사도 점수를 반환합니다. 이는 일반적으로 신분증 사진과 사람의 실제 사진을 매칭하거나 두 사진이 동일 인물인지 확인하는 데 사용됩니다.
 
 ## Syntax
 
@@ -28,6 +32,25 @@ Compare-ImageFaces -ImagePath1 <String> -ImagePath2 <String> [[-ContainerName] <
 | `-Force` | SwitchParameter | — | — | Named | — | Docker 컨테이너를 강제로 재구축하고 기존 데이터를 제거합니다 |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | GPU 가속 버전 사용 (NVIDIA GPU 필요) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | 초기화 중에 Docker Desktop 창 표시 |
+
+## Examples
+
+### Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `                    -ImagePath2 "C:\Users\YourName\photo2.jpg"
+
+```powershell
+Compare-ImageFaces -ImagePath1 "C:\Users\YourName\photo1.jpg" `
+                   -ImagePath2 "C:\Users\YourName\photo2.jpg"
+```
+
+기본 설정을 사용하여 두 이미지 간의 얼굴을 비교합니다.
+
+### comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+
+```powershell
+comparefaces "C:\docs\id_photo.jpg" "C:\photos\person.jpg" -UseGPU
+```
+
+GPU 가속을 사용하여 얼굴을 비교하고 신원을 확인합니다. 별칭 및 위치 매개변수를 지원합니다.
 
 ## Outputs
 

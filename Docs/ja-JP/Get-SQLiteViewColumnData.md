@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> SQLiteビューからカラムデータを取得します。レコード数を制限することも可能です。
+
+## Description
+
+指定されたSQLiteビューに対してSELECTクエリを実行し、単一のカラムからデータを取得します。接続文字列またはデータベースファイルパスのいずれかを使用した接続をサポートします。返されるレコード数を制限するか、すべてのレコードを取得することができます。
 
 ## Syntax
 
@@ -25,6 +29,23 @@ Get-SQLiteViewColumnData -ViewName <String> -ColumnName <String> [[-Count] <Int3
 | `-ViewName` | String | ✅ | — | 1 | — | ビューの名前。 |
 | `-ColumnName` | String | ✅ | — | 2 | — | 列名。 |
 | `-Count` | Int32 | — | — | 3 | `100` | 返すレコード数です。デフォルトは100です。-1はすべてを意味します。 |
+
+## Examples
+
+### Get-SQLiteViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `     -ViewName "CustomersView" `     -ColumnName "Email" `     -Count 50
+
+```powershell
+Get-SQLiteViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `
+    -ViewName "CustomersView" `
+    -ColumnName "Email" `
+    -Count 50
+```
+
+### Get-SQLiteViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+
+```powershell
+Get-SQLiteViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+```
 
 ## Related Links
 

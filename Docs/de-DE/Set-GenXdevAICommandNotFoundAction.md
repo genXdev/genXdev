@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Richtet die benutzerdefinierte Behandlung von nicht gefundenen Befehlen mit KI-Unterstützung ein.
+
+## Description
+
+Konfiguriert PowerShell so, dass unbekannte Befehle entweder durch Navigieren zu Verzeichnissen oder durch KI-gestützte Interpretation der Benutzerabsicht behandelt werden. Der Handler versucht zuerst einen vorhandenen Handler für nicht gefundene Befehle, prüft dann, ob der Befehl ein gültiger Pfad zur Navigation ist, und bietet schließlich KI-Unterstützung für unbekannte Befehle an.
 
 ## Syntax
 
@@ -179,6 +183,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

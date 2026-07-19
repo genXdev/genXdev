@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Resumes video playback in a YouTube browser tab.
+
+## Description
+
+Finds the active YouTube browser tab and resumes video playback by executing the
+play() method on any video elements found in the page. If no YouTube tab is
+found, the function throws an error. This function is particularly useful for
+automating video playback control in browser sessions.
 
 ## Syntax
 
@@ -42,6 +49,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Resume-WebbrowserTabVideo
+
+```powershell
+Resume-WebbrowserTabVideo
+```
+
+### wbvideoplay
+
+```powershell
+wbvideoplay
 ```
 
 ## Related Links

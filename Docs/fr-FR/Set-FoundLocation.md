@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Trouve le premier fichier ou dossier correspondant et définit l'emplacement sur celui-ci.
+
+## Description
+
+Cette cmdlet vous aidera à changer rapidement de répertoire en utilisant des phrases de recherche qui trouveront le premier dossier ou fichier correspondant (optionnel) et changera le répertoire vers celui-ci. Prend en charge le filtrage avancé par contenu, attributs de fichier, taille, dates de modification et de nombreux autres critères.
 
 ## Syntax
 
@@ -55,6 +59,48 @@ Set-FoundLocation [[-Content] <String[]>] [-CaseSensitive] [-Culture <String>] [
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Indique que la cmdlet utilise une correspondance simple plutôt qu'une correspondance d'expression régulière. Dans une correspondance simple, Select-String recherche dans l'entrée le texte spécifié dans le paramètre Pattern. Il n'interprète pas la valeur du paramètre Pattern comme une instruction d'expression régulière. *(Parameter set: )* |
 | `-Push` | SwitchParameter | — | — | Named | — | Use Push-Location instead of Set-Location and push the location onto the location stack |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | Lorsqu'il est défini, seules les correspondances exactes de nom sont prises en compte. Par défaut, la correspondance avec caractères génériques est utilisée à moins que le Nom ne contienne des caractères génériques. |
+
+## Examples
+
+### Set-FoundLocation *.Console
+
+```powershell
+Set-FoundLocation *.Console
+```
+
+Modifications apportées au premier répertoire correspondant au motif '*.Console'.
+
+### lcd *.Console
+
+```powershell
+lcd *.Console
+```
+
+Modifications apportées au premier répertoire correspondant au modèle '*.Console' en utilisant l'alias.
+
+### Set-FoundLocation -Name "*.ps1" -Content "function"
+
+```powershell
+Set-FoundLocation -Name "*.ps1" -Content "function"
+```
+
+Modifications apportées au répertoire contenant le premier fichier PowerShell qui contient le mot 'function'.
+
+### Set-FoundLocation *test* -File
+
+```powershell
+Set-FoundLocation *test* -File
+```
+
+Modifications apportées au répertoire contenant le premier fichier avec 'test' dans son nom.
+
+### Set-FoundLocation * '1\.\d+\.2025'
+
+```powershell
+Set-FoundLocation * '1\.\d+\.2025'
+```
+
+Modifications apportées au répertoire contenant le premier fichier dont le contenu correspond au motif '1.\d+\.2025'.
 
 ## Related Links
 

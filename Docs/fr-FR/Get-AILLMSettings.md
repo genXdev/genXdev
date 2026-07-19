@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Récupère les paramètres du LLM pour les opérations d'IA dans GenXdev.AI.
+
+## Description
+
+Cette fonction récupère les paramètres LLM (Large Language Model) utilisés par le module GenXdev.AI pour diverses opérations d'IA. Les paramètres sont récupérés à partir des variables de session, des préférences persistantes ou du fichier de paramètres par défaut, dans cet ordre de priorité. La fonction prend en charge la sélection automatique de la configuration en fonction des ressources mémoire système disponibles.
+
+La stratégie de sélection de la mémoire est déterminée automatiquement en fonction des paramètres Gpu et Cpu fournis :
+- Si les paramètres Gpu et Cpu sont spécifiés : utilise la mémoire combinée CPU + GPU
+- Si seul le paramètre Gpu est spécifié : préfère la mémoire GPU (avec repli sur la RAM système)
+- Si seul le paramètre Cpu est spécifié : utilise uniquement la RAM système
+- Si aucun paramètre n'est spécifié : utilise la mémoire combinée CPU + GPU (par défaut)
 
 ## Syntax
 
@@ -27,6 +37,38 @@ Get-AILLMSettings [[-LLMQueryType] <String>] [-ApiEndpoint <String>] [-ApiKey <S
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Effacer le paramètre de session (variable globale) avant de récupérer |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Chemin de la base de données pour les fichiers de données de préférence |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Skip session settings and get from preferences or defaults only |
+
+## Examples
+
+### Get-AILLMSettings
+
+```powershell
+Get-AILLMSettings
+```
+
+Obtient les paramètres LLM pour le type de requête SimpleIntelligence (par défaut).
+
+### Get-AILLMSettings -LLMQueryType "Coding"
+
+```powershell
+Get-AILLMSettings -LLMQueryType "Coding"
+```
+
+Obtient les paramètres LLM pour le type de requête Coding.
+
+### Get-AILLMSettings -SkipSession
+
+```powershell
+Get-AILLMSettings -SkipSession
+```
+
+Récupère les paramètres LLM à partir des préférences ou des valeurs par défaut uniquement, en ignorant les paramètres de session.
+
+### Get-AILLMSettings "Knowledge"
+
+```powershell
+Get-AILLMSettings "Knowledge"
+```
 
 ## Outputs
 

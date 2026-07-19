@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Updates EXIF metadata for images in a directory.
+
+## Description
+
+This function extracts and updates EXIF metadata for images in specified directories.
+It processes each image to extract detailed EXIF metadata including camera details,
+GPS coordinates, exposure settings, and other technical information. The metadata
+is stored in alternate NTFS streams as :EXIF.json for later use by indexing and
+search functions.
 
 ## Syntax
 
@@ -26,6 +34,20 @@ Invoke-ImageMetadataUpdate [[-ImageDirectories] <String[]>] [-ClearSession] [-Fo
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Don't use alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Database path for preference data files |
+
+## Examples
+
+### Invoke-ImageMetadataUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Force
+
+```powershell
+Invoke-ImageMetadataUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Force
+```
+
+### Invoke-ImageMetadataUpdate @("C:\Photos", "C:\Archive") -Force -PassThru | Export-Csv -Path metadata-log.csv
+
+```powershell
+Invoke-ImageMetadataUpdate @("C:\Photos", "C:\Archive") -Force -PassThru | Export-Csv -Path metadata-log.csv
+```
 
 ## Related Links
 

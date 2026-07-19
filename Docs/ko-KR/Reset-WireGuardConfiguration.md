@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> WireGuard VPN 서버 구성을 재설정하여 모든 피어를 제거합니다.
+
+## Description
+
+이 함수는 Docker 컨테이너에서 실행 중인 WireGuard VPN 서버 구성을 재설정하여 모든 피어를 제거하고 새로운 서버 구성을 생성합니다. 이는 되돌릴 수 없는 파괴적인 작업으로, 모든 피어 구성이 영구적으로 삭제됩니다. 함수는 WireGuard 서비스를 중지하고, 모든 피어 디렉토리와 구성 파일을 제거하며, 서버 키를 삭제하고, 컨테이너를 다시 시작한 후 새 구성이 생성되었는지 확인합니다.
 
 ## Syntax
 
@@ -27,6 +31,24 @@ Reset-WireGuardConfiguration [[-ContainerName] <String>] [[-VolumeName] <String>
 | `-TimeZone` | String | — | — | 8 | `'Etc/UTC'` | 컨테이너에 사용할 시간대 |
 | `-NoDockerInitialize` | SwitchParameter | — | — | Named | — | Docker 초기화 건너뛰기 (상위 함수에서 이미 호출된 경우 사용) |
 | `-Force` | SwitchParameter | — | — | Named | — | 확인 없이 강제 재시작 |
+
+## Examples
+
+### Reset-WireGuardConfiguration
+
+```powershell
+Reset-WireGuardConfiguration
+```
+
+기본 설정으로 WireGuard 구성을 재설정하며, 진행하기 전에 확인을 요청합니다.
+
+### Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+
+```powershell
+Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+```
+
+사용자 정의 컨테이너 이름에 대한 WireGuard 구성을 확인 프롬프트 없이 재설정합니다.
 
 ## Related Links
 

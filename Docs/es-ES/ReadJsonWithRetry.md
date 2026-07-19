@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Lee el archivo JSON con lógica de reintento y limpieza automática de bloqueo.
+
+## Description
+
+Intenta leer un archivo JSON con lógica de reintento para manejar el acceso concurrente. Implementa la limpieza automática de archivos de bloqueo obsoletos. Devuelve una tabla hash vacía si el archivo no existe.
 
 ## Syntax
 

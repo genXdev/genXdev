@@ -4,7 +4,13 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Retrieves refactor definitions from GenXdev preferences based on name patterns.
+
+## Description
+
+Searches for and loads refactor definition sets stored in GenXdev preferences.
+Each refactor set is stored as a JSON string in a preference with name starting
+with 'refactor_set_'. The function deserializes matching sets into objects.
 
 ## Syntax
 
@@ -22,6 +28,22 @@ Get-Refactor [[-Name] <String[]>] [-ClearSession] [-DefaultValue <String>] [-Pre
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for Data preferences like Language, Database paths, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear the session setting (Global variable) before retrieving |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc |
+
+## Examples
+
+### Get-Refactor -Name "CodeStyle*" Returns refactor definitions matching pattern "CodeStyle*"
+
+```powershell
+Get-Refactor -Name "CodeStyle*"
+Returns refactor definitions matching pattern "CodeStyle*"
+```
+
+### refactor "UnitTest" Uses alias to find refactor definitions containing "UnitTest"
+
+```powershell
+refactor "UnitTest"
+Uses alias to find refactor definitions containing "UnitTest"
+```
 
 ## Outputs
 

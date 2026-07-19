@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 读取JSON文件，包含重试逻辑和自动锁清理。
+
+## Description
+
+尝试使用重试逻辑读取JSON文件以处理并发访问。实现自动清理过期的锁文件。如果文件不存在，则返回空哈希表。
 
 ## Syntax
 

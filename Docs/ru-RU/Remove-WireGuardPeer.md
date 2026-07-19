@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Удаляет конфигурацию пира WireGuard VPN.
+
+## Description
+
+Эта функция удаляет конфигурацию пира WireGuard VPN с сервера, работающего в контейнере Docker. Она удаляет файлы конфигурации пира и обновляет сервер WireGuard, чтобы прекратить прием соединений от этого пира. Функция проверяет существование пира перед удалением и запрашивает подтверждение, если не указан параметр Force.
 
 ## Syntax
 
@@ -48,6 +52,32 @@ Remove-WireGuardPeer -PeerName <String> [-Bottom] [-Centered] [-ClearSession] [-
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Remove-WireGuardPeer -PeerName "MyPhone"
+
+```powershell
+Remove-WireGuardPeer -PeerName "MyPhone"
+```
+
+Удаляет пира с именем "MyPhone" с запросом подтверждения.
+
+### Remove-WireGuardPeer -PeerName "Tablet" -Force
+
+```powershell
+Remove-WireGuardPeer -PeerName "Tablet" -Force
+```
+
+Removes the peer named "Tablet" without confirmation prompt.
+
+### Remove-WireGuardPeer "WorkLaptop"
+
+```powershell
+Remove-WireGuardPeer "WorkLaptop"
+```
+
+Удаляет пира с использованием синтаксиса позиционных параметров.
 
 ## Related Links
 

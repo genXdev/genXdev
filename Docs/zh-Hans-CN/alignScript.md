@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 返回一个提供脚本块字符串的字符串（带有更改的缩进）
+
+## Description
+
+调整脚本块字符串的缩进，同时保留原始代码块的缩进
 
 ## Syntax
 

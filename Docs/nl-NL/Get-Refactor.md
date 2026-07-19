@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Haalt herstructureringsdefinities op uit GenXdev-voorkeuren op basis van naampatronen.
+
+## Description
+
+Zoekt naar en laadt refactor definitiesets opgeslagen in GenXdev-voorkeuren. Elke refactorset wordt opgeslagen als een JSON-string in een voorkeur met naam beginnend met 'refactor_set_'. De functie deserialiseert overeenkomende sets naar objecten.
 
 ## Syntax
 
@@ -22,6 +26,22 @@ Get-Refactor [[-Name] <String[]>] [-ClearSession] [-DefaultValue <String>] [-Pre
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen opgeslagen in sessie voor Data voorkeuren zoals Taal, Database paden, etc. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Het sessie-instelling (Globale variabele) wissen voordat u ophaalt |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Gebruik geen alternatieve instellingen opgeslagen in sessie voor Data-voorkeuren zoals Taal, Database-paden, etc. |
+
+## Examples
+
+### Get-Refactor -Name "CodeStyle*" Returns refactor definitions matching pattern "CodeStyle*"
+
+```powershell
+Get-Refactor -Name "CodeStyle*"
+Returns refactor definitions matching pattern "CodeStyle*"
+```
+
+### refactor "UnitTest" Uses alias to find refactor definitions containing "UnitTest"
+
+```powershell
+refactor "UnitTest"
+Uses alias to find refactor definitions containing "UnitTest"
+```
 
 ## Outputs
 

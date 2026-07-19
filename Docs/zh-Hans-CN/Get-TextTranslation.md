@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 使用AI将文本翻译成另一种语言。
+
+## Description
+
+该函数利用AI模型将输入文本翻译成指定的目标语言。它可以通过参数直接接收输入，也可以从管道中获取，或者从系统剪贴板中获取。在翻译过程中，函数会保留原文的格式和风格。
 
 ## Syntax
 
@@ -70,6 +74,20 @@ Get-TextTranslation [[-Text] <String>] [[-Instructions] <String>] [[-Attachments
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLM) |
 | `-NoCache` | SwitchParameter | — | — | Named | — | 跳过翻译缓存；始终调用LLM API |
 | `-ClearCache` | SwitchParameter | — | — | Named | — | 清除所有语言的翻译缓存 |
+
+## Examples
+
+### Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+
+```powershell
+Get-TextTranslation -Text "Hello world" -Language "French" -Model "qwen"
+```
+
+### "Bonjour" | translate -Language "English"
+
+```powershell
+"Bonjour" | translate -Language "English"
+```
 
 ## Outputs
 

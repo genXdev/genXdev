@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Captura mensagens de erro de vários fluxos e usa LLM para sugerir correções.
+
+## Description
+
+Este cmdlet captura mensagens de erro de vários fluxos do PowerShell (entrada de pipeline, detalhado, informação, erro e aviso) e formula um prompt estruturado para um LLM analisar e sugerir correções. Em seguida, ele invoca a consulta LLM e retorna a solução sugerida.
 
 ## Syntax
 
@@ -119,6 +123,25 @@ Por favor, forneça seu texto e as instruções para transformação da tag HTML
     }
   }
 } |
+
+## Examples
+
+### $errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {     My-ScriptThatFails }
+
+```powershell
+$errorInfo = Get-ScriptExecutionErrorFixPrompt -Script {
+    My-ScriptThatFails
+}
+```
+
+Write-Host $errorInfo
+
+### getfixprompt { Get-ChildItem -NotExistingParameter } ##############################################################################
+
+```powershell
+getfixprompt { Get-ChildItem -NotExistingParameter }
+##############################################################################
+```
 
 ## Outputs
 

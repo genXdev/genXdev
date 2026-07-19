@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> OpenAI Whisperを使用してオーディオおよびビデオファイルの字幕ファイルを生成します。
+
+## Description
+
+指定されたディレクトリ内のメディアファイルを再帰的に検索し、ローカルのOpenAI Whisperモデルを使用してSRT形式の字幕ファイルを生成します。この関数は複数の音声/動画フォーマットをサポートし、必要に応じてLLMクエリを使用して字幕を別の言語に翻訳することもできます。ファイル名は言語コードを含む標準化されたパターン（例：video.mp4.en.srt）に従います。
 
 ## Syntax
 
@@ -54,6 +58,20 @@ Save-Transcriptions [[-DirectoryPath] <String>] [[-LanguageIn] <String>] [[-Lang
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | セッションに保存されている代替設定を使用して、AIの言語や画像コレクションなどの設定を変更します。 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 言語、画像コレクションなどのAI設定用にセッションに保存されている代替設定をクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | AIの設定（言語、画像コレクションなど）にセッションに保存された代替設定を使用しない |
+
+## Examples
+
+### Save-Transcriptions -DirectoryPath "C:\Videos" -LanguageIn "English"
+
+```powershell
+Save-Transcriptions -DirectoryPath "C:\Videos" -LanguageIn "English"
+```
+
+### Save-Transcriptions "C:\Media" "Japanese" "English"
+
+```powershell
+Save-Transcriptions "C:\Media" "Japanese" "English"
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 腕の長さで物体の見かけの大きさを計算します。
+
+## Description
+
+見かけのサイズを小角近似を用いて計算します。
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-ApparentSizeAtArmLength [-DistanceInMeters] <double> [-SizeInMeters] <double
 | `-SizeInMeters` | Double | ✅ | — | 1 | `0` | オブジェクトの実際のサイズ（メートル） |
 | `-ArmLengthInMeters` | Double | — | — | 2 | `0` | アームの長さ（メートル、デフォルト：0.7） |
 | `-As` | String | — | — | 3 | — | 出力サイズの単位 |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ApparentSizeAtArmLength -DistanceInMeters 10 -SizeInMeters 1 -As "centimeters"
+```
+
+10メートルの距離にある1メートルの物体の見かけの大きさを計算します。
+
+### Example 2
+
+```powershell
+Get-ApparentSizeAtArmLength 10 1
+```
+
+位置パラメータを使用して見かけのサイズを計算します。
 
 ## Related Links
 

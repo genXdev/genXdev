@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Visual Studio Code で GitHub Copilot Chat のキーボードショートカットを設定します。
+
+## Description
+
+この関数は、GitHub Copilot Chatのファイル添付機能にVisual Studio Code内で適切なキーボードショートカット（Ctrl+Shift+Alt+F12）が設定されていることを確認します。
+
+既存のCopilot添付ショートカットをすべて削除し、現在の正しいコマンド（github.copilot.chat.attachFile）に置き換えます。
+
+また、最大化パネルの切り替え用にAlt+`（バッククォート）ショートカットを追加します。
 
 ## Syntax
 
@@ -108,6 +116,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureCopilotKeyboardShortCut
+
+```powershell
+EnsureCopilotKeyboardShortCut
 ```
 
 ## Related Links

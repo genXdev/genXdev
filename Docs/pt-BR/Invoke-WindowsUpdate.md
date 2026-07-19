@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Verifica se o Windows está atualizado e opcionalmente instala as atualizações disponíveis.
+
+## Description
+
+Esta função verifica atualizações do Windows, atualizações de pacotes do winget e atualizações de módulos do PowerShell. Ela pode exibir as atualizações disponíveis ou instalá-las automaticamente. A função requer privilégios administrativos para instalar atualizações do Windows e pode opcionalmente reiniciar o sistema se as atualizações exigirem uma reinicialização.
 
 ## Syntax
 
@@ -23,6 +27,48 @@ Invoke-WindowsUpdate [[-Criteria] <String>] [-AutoReboot] [-GroupByCategory] [-I
 | `-GroupByCategory` | SwitchParameter | — | — | Named | — | Agrupar e colorir saída por categoria de atualização |
 | `-NoBanner` | SwitchParameter | — | — | Named | — | Desativar saída de banner/status |
 | `-NoRebootCheck` | SwitchParameter | — | — | Named | — | Pular verificação/relato de requisito de reinicialização |
+
+## Examples
+
+### Invoke-WindowsUpdate
+
+```powershell
+Invoke-WindowsUpdate
+```
+
+Verifica se há atualizações disponíveis do Windows e do winget sem instalá-las.
+
+### Invoke-WindowsUpdate -Install
+
+```powershell
+Invoke-WindowsUpdate -Install
+```
+
+Instala automaticamente todas as atualizações disponíveis do Windows e winget.
+
+### updatewindows -Install -AutoReboot
+
+```powershell
+updatewindows -Install -AutoReboot
+```
+
+Instala todas as atualizações e reinicia automaticamente, se necessário, usando o alias.
+
+### Invoke-WindowsUpdate -GroupByCategory
+
+```powershell
+Invoke-WindowsUpdate -GroupByCategory
+```
+
+Exibe as atualizações disponíveis agrupadas por categoria para melhor organização.
+
+### Invoke-WindowsUpdate -IncludeDrivers -Criteria "IsInstalled=0"
+
+```powershell
+Invoke-WindowsUpdate -IncludeDrivers -Criteria "IsInstalled=0"
+```
+
+Verifica atualizações incluindo drivers com critérios de pesquisa personalizados.
 
 ## Related Links
 

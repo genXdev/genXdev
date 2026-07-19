@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 지정된 디렉토리에 있는 이미지 파일의 장면 분류 메타데이터를 업데이트합니다.
+
+## Description
+
+이 함수는 인공지능을 사용하여 지정된 디렉토리의 이미지를 분류하는 장면 분류 기능을 처리합니다. 장면 분류, 신뢰도 점수 및 레이블을 포함하는 JSON 메타데이터 파일을 생성합니다. 이 함수는 구성 가능한 신뢰도 임계값으로 배치 처리를 지원하며, 선택적으로 기존 메타데이터 파일을 건너뛰거나 이전에 실패한 분류를 재시도할 수 있습니다.
 
 ## Syntax
 
@@ -42,6 +46,40 @@ Invoke-ImageScenesUpdate [[-ImageDirectories] <String[]>] [-ApiKey <String>] [-A
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | AI 기본 설정(예: 언어, 이미지 컬렉션 등)을 세션에 저장된 대체 설정으로 사용합니다. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 지웁니다. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 세션에 저장된 AI 환경설정(언어, 이미지 컬렉션 등)의 대체 설정을 사용하지 마세요 |
+
+## Examples
+
+### Invoke-ImageScenesUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories @("C:\Photos", "D:\Pictures") -Recurse
+```
+
+C:\Photos 및 D:\Pictures 디렉터리와 하위 디렉터리에 있는 모든 이미지를 장면 분류를 위해 처리합니다.
+
+### scenerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+
+```powershell
+scenerecognition @("C:\Photos", "C:\Archive") -RetryFailed -OnlyNew
+```
+
+별칭을 사용하여 실패한 분류를 재시도하고 여러 디렉토리의 새 이미지만 처리합니다.
+
+### Invoke-ImageScenesUpdate -ImageDirectories ".\MyImages" -Force -UseGPU
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories ".\MyImages" -Force -UseGPU
+```
+
+컨테이너 재구축을 강제하고 GPU 가속을 사용하여 처리 속도를 높입니다.
+
+### Invoke-ImageScenesUpdate -ImageDirectories "C:\Photos" -ConfidenceThreshold 0.6 -Recurse
+
+```powershell
+Invoke-ImageScenesUpdate -ImageDirectories "C:\Photos" -ConfidenceThreshold 0.6 -Recurse
+```
+
+모든 이미지를 재귀적으로 처리하고 신뢰도가 60% 이상인 장면 분류만 저장합니다.
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Открывает исходный файл в предпочтительной IDE (Visual Studio Code или Visual Studio).
+
+## Description
+
+Эта функция открывает указанный исходный файл либо в Visual Studio Code, либо в Visual Studio. Она может перейти непосредственно к конкретной строке и, при необходимости, отправить ввод с клавиатуры в IDE после открытия файла. Функция пытается определить, какую IDE использовать, основываясь на текущем хост-процессе, запущенных приложениях или выборе пользователя.
 
 ## Syntax
 
@@ -25,6 +29,20 @@ Open-SourceFileInIde -Path <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]
 | `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | Удержание фокуса клавиатуры на целевом окне |
 | `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Используйте Shift+Enter вместо Enter |
 | `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | Задержка между различными входными строками в миллисекундах |
+
+## Examples
+
+### Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+
+```powershell
+Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
+```
+
+### editcode "C:\Projects\MyScript.ps1" 25
+
+```powershell
+editcode "C:\Projects\MyScript.ps1" 25
+```
 
 ## Related Links
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Speichert zugeschnittene Gesichtsbilder aus indizierten Bildsuchergebnissen.
+
+## Description
+
+Diese Funktion nimmt Bildsuchergebnisse entgegen und extrahiert/speichert einzelne Gesichtsbereiche als separate Bilddateien. Sie kann mithilfe verschiedener Kriterien nach Gesichtern suchen und diese in einem angegebenen Ausgabeverzeichnis speichern. Die Funktion unterstützt die Suche nach Beschreibung, Schlüsselwörtern, Personen, Objekten, Szenen, Bildtyp, Stil und Gesamtstimmung. Sie kann auch nach Nacktheit und explizitem Inhalt filtern.
 
 ## Syntax
 
@@ -42,6 +46,20 @@ Save-FoundImageFaces [[-Any] <String[]>] [-ClearSession] [-DatabaseFilePath <Str
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Use alternative settings stored in session for AI preferences like Language, Image collections, etc |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Deutliche Alternativ-Einstellungen, die in der Sitzung gespeichert sind, für KI-Präferenzen wie Sprache, Bildersammlungen usw. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Verwenden Sie keine alternativen in der Sitzung gespeicherten Einstellungen für KI-Präferenzen wie Sprache, Bildsammlungen usw. |
+
+## Examples
+
+### Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+
+```powershell
+Save-FoundImageFaces -People "John*" -OutputDirectory "C:\Faces"
+```
+
+### saveimagefaces -Any "vacation" -SaveUnknownPersons
+
+```powershell
+saveimagefaces -Any "vacation" -SaveUnknownPersons
+```
 
 ## Outputs
 

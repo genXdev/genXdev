@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> システム上で設定されているすべてのWireGuard VPNピアに関する情報を取得します。
+
+## Description
+
+この関数は、Dockerコンテナ内で動作するサーバーに設定されているすべてのWireGuard VPNピアの包括的な情報を取得します。ピア名、公開鍵、許可IPアドレス、接続エンドポイント、ハンドシェイクステータス、データ転送統計、現在の接続ステータスなどの詳細情報を提供します。この関数は、親関数と連携して動作することも、Dockerコンテナの初期化を独立して管理することもできます。
 
 ## Syntax
 
@@ -47,6 +51,21 @@ Get-WireGuardPeers [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Servi
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Docker ウィンドウでのみセッションを使用する |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Docker ウィンドウを実行する前にセッションをクリアしてください |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Dockerウィンドウのセッションをスキップ |
+
+## Examples
+
+### Get-WireGuardPeers
+
+```powershell
+Get-WireGuardPeers
+```
+
+### Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `                    -ServicePort 55555
+
+```powershell
+Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `
+                   -ServicePort 55555
+```
 
 ## Related Links
 

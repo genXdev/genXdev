@@ -4,7 +4,14 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Finds the first matching file or folder and sets the location to it.
+
+## Description
+
+This cmdlet will help you change directories quickly by using search phrases
+that will find the first matching folder or file (optional) and changes
+directory to it. Supports advanced filtering by content, file attributes,
+size, modification dates, and many other criteria.
 
 ## Syntax
 
@@ -55,6 +62,49 @@ Set-FoundLocation [[-Content] <String[]>] [-CaseSensitive] [-Culture <String>] [
 | `-SimpleMatch` | SwitchParameter | — | — | Named | — | Indicates that the cmdlet uses a simple match rather than a regular expression match. In a simple match, Select-String searches the input for the text in the Pattern parameter. It doesn't interpret the value of the Pattern parameter as a regular expression statement. *(Parameter set: )* |
 | `-Push` | SwitchParameter | — | — | Named | — | Use Push-Location instead of Set-Location and push the location onto the location stack |
 | `-ExactMatch` | SwitchParameter | — | — | Named | — | When set, only exact name matches are considered. By default, wildcard matching is used unless the Name contains wildcard characters. |
+
+## Examples
+
+### Set-FoundLocation *.Console
+
+```powershell
+Set-FoundLocation *.Console
+```
+
+Changes to the first directory matching the pattern '*.Console'.
+
+### lcd *.Console
+
+```powershell
+lcd *.Console
+```
+
+Changes to the first directory matching the pattern '*.Console' using the alias.
+
+### Set-FoundLocation -Name "*.ps1" -Content "function"
+
+```powershell
+Set-FoundLocation -Name "*.ps1" -Content "function"
+```
+
+Changes to the directory containing the first PowerShell file that contains
+the word 'function'.
+
+### Set-FoundLocation *test* -File
+
+```powershell
+Set-FoundLocation *test* -File
+```
+
+Changes to the directory containing the first file with 'test' in its name.
+
+### Set-FoundLocation * '1\.\d+\.2025'
+
+```powershell
+Set-FoundLocation * '1\.\d+\.2025'
+```
+
+Changes to the directory containing the first file which content  matches the pattern '1.\d+\.2025'.
 
 ## Related Links
 

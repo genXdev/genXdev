@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> GenXwin コマンドレットの不足している単体テストを追加します。
+
+## Description
+
+この関数は、すべてのGenXdevコマンドレットをスキャンし、まだテストがないものに対して基本的な単体テストファイルを作成します。テストにはPSScriptAnalyzerのルールチェックが含まれます。
 
 ## Syntax
 
@@ -78,6 +82,14 @@ The following PSScriptAnalyzer rules are being violated:
         Microsoft.PowerShell.Utility\Write-Verbose "Created test file: $($genXdevCmdlet.ScriptTestFilePath)"
         Microsoft.PowerShell.Utility\Write-Output $prompt
     }
+```
+
+## Examples
+
+### Add-MissingGenXdevUnitTests
+
+```powershell
+Add-MissingGenXdevUnitTests
 ```
 
 ## Related Links

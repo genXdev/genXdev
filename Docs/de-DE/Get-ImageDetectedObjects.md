@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Erkennt und klassifiziert Objekte in einem hochgeladenen Bild mittels DeepStack.
+
+## Description
+
+Diese Funktion analysiert eine Bilddatei, um bis zu 80 verschiedene Objektarten zu erkennen und zu klassifizieren. Sie verwendet eine lokale DeepStack-Objekterkennungs-API, die auf einem konfigurierbaren Port läuft, und gibt Objektklassifikationen mit ihren Begrenzungsrahmenkoordinaten und Konfidenzwerten zurück. Die Funktion unterstützt GPU-Beschleunigung, benutzerdefinierte Konfidenzschwellen und Docker-Container-Verwaltung.
 
 ## Syntax
 
@@ -28,6 +32,26 @@ Get-ImageDetectedObjects -ImagePath <String> [-ConfidenceThreshold <Double>] [-C
 | `-Force` | SwitchParameter | — | — | Named | — | Erzwungener Neubau des Docker-Containers und Entfernung vorhandener Daten |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Nutzung der GPU-beschleunigten Version (erfordert NVIDIA-GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Docker Desktop-Fenster während der Initialisierung anzeigen |
+
+## Examples
+
+### Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `                          -ConfidenceThreshold 0.5 `                          -ServicePort 5000
+
+```powershell
+Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `
+                         -ConfidenceThreshold 0.5 `
+                         -ServicePort 5000
+```
+
+Erkennt Objekte im angegebenen Bild mit vollständigen Parameternamen.
+
+### Get-ImageDetectedObjects "C:\photos\street.jpg"
+
+```powershell
+Get-ImageDetectedObjects "C:\photos\street.jpg"
+```
+
+Detects objects using positional parameter and default settings.
 
 ## Related Links
 

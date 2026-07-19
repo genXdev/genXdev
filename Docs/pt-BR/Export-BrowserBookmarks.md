@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Exporta favoritos do navegador para um arquivo JSON.
+
+## Description
+
+O cmdlet Export-BrowserBookmarks exporta favoritos de um navegador da web especificado (Microsoft Edge, Google Chrome ou Mozilla Firefox) para um arquivo JSON. Apenas um tipo de navegador pode ser especificado por vez. Os favoritos são exportados com preservação total de sua estrutura e metadados.
 
 ## Syntax
 
@@ -22,6 +26,20 @@ Export-BrowserBookmarks [-Firefox] [<CommonParameters>]
 | `-Chrome` | SwitchParameter | — | — | Named | — | Exportar favoritos do Google Chrome |
 | `-Edge` | SwitchParameter | — | — | Named | — | Exportar favoritos do Microsoft Edge |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Exportar favoritos do Mozilla Firefox *(Parameter set: )* |
+
+## Examples
+
+### Export-BrowserBookmarks -OutputFile "C:\MyBookmarks.json" -Edge
+
+```powershell
+Export-BrowserBookmarks -OutputFile "C:\MyBookmarks.json" -Edge
+```
+
+### Export-BrowserBookmarks "C:\MyBookmarks.json" -Chrome
+
+```powershell
+Export-BrowserBookmarks "C:\MyBookmarks.json" -Chrome
+```
 
 ## Related Links
 

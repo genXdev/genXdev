@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Converts polite corporate language into direct, clear language.
+
+## Description
+
+Deze functie verwerkt invoertekst om diplomatieke, zakelijke communicatie te transformeren naar directere en duidelijkere taal. Het kan invoer accepteren via parameters, vanuit de pipeline, of vanuit het systeemklembord. De functie maakt gebruik van AI-modellen om tekst te analyseren en te herformuleren terwijl de oorspronkelijke intentie behouden blijft.
 
 ## Syntax
 
@@ -87,6 +91,21 @@ This is a sample block that could be passed to an LLMQuery.
 ``` |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter voor markup-bloktypen (doorgegeven aan LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale toolcallback-lengte (doorgegeven aan LLMQuery) |
+
+## Examples
+
+### ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+
+```powershell
+ConvertFrom-CorporateSpeak -Text "I would greatly appreciate your timely response" -SetClipboard
+```
+
+### "We should circle back" | uncorporatize ###############################################################################
+
+```powershell
+"We should circle back" | uncorporatize
+###############################################################################
+```
 
 ## Outputs
 

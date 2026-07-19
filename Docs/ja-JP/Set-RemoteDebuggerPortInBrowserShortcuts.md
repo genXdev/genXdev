@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> ブラウザのショートカットを更新して、リモートデバッグポートを有効にします。
+
+## Description
+
+ChromeおよびEdgeブラウザのショートカットを変更し、リモートデバッグポートのパラメータを含めます。これにより、自動化スクリプトがデバッグインターフェースを介してブラウザと対話できるようになります。ユーザー固有およびシステム全体のショートカットを処理します。
+
+機能:
+- 既存のデバッグポートパラメータを削除
+- ChromeとEdgeの現在のデバッグポートを追加
+- 一般的な場所（デスクトップ、スタートメニュー、クイック起動）のショートカットを更新
+- システム全体のショートカットには管理者権限が必要
 
 ## Syntax
 
@@ -165,6 +175,15 @@
 
             end {
             }
+```
+
+## Examples
+
+### Set-RemoteDebuggerPortInBrowserShortcuts Updates all Chrome and Edge shortcuts with their respective debugging ports.
+
+```powershell
+Set-RemoteDebuggerPortInBrowserShortcuts
+Updates all Chrome and Edge shortcuts with their respective debugging ports.
 ```
 
 ## Related Links

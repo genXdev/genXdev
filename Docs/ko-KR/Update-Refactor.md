@@ -4,7 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 파일 선택 및 처리를 포함한 리팩토링 세트를 업데이트하고 관리합니다.
+
+## Description
+
+리팩터링 세트를 포괄적으로 관리하는 기능:
+- 처리 큐에서 파일 추가 또는 제거
+- 세트에서 삭제된 파일 정리
+- 상태 정보 및 진행 상황 추적 관리
+- LLM 기반 파일 선택 및 처리 지원
+- 자동 및 수동 파일 관리 모두 지원
+- 모든 작업에 대한 상세 로그 유지
+- 삭제된 파일은 CleanUpDeletedFiles를 사용하지 않는 한 건너뛰며 정상 처리
 
 ## Syntax
 
@@ -89,6 +100,27 @@ JSON만 응답해야 합니다. 다른 텍스트는 허용되지 않습니다.
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | 세션에 저장된 대체 설정을 AI 선호도에 사용 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | AI 선호도를 위해 세션에 저장된 대체 설정을 초기화합니다 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `     -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+
+```powershell
+Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `
+    -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
+```
+
+### Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+
+```powershell
+Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+```
+
+### updaterefactor * -Clear -Reset
+
+```powershell
+updaterefactor * -Clear -Reset
+```
 
 ## Related Links
 

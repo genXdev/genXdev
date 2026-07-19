@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Detecteert en classificeert objecten in een geüploade afbeelding met behulp van DeepStack.
+
+## Description
+
+Deze functie analyseert een afbeeldingsbestand om tot 80 verschillende soorten objecten te detecteren en classificeren. Het gebruikt een lokale DeepStack-objectdetectie-API die draait op een configureerbare poort en retourneert objectclassificaties met hun begrenzingskadcoördinaten en betrouwbaarheidsscores. De functie ondersteunt GPU-versnelling, aangepaste betrouwbaarheidsdrempels en Docker-containerbeheer.
 
 ## Syntax
 
@@ -28,6 +32,26 @@ Get-ImageDetectedObjects -ImagePath <String> [-ConfidenceThreshold <Double>] [-C
 | `-Force` | SwitchParameter | — | — | Named | — | Force rebuild of Docker container and remove existing data |
 | `-UseGPU` | SwitchParameter | — | — | Named | — | Gebruik GPU-versnelde versie (vereist NVIDIA GPU) |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Toon Docker Desktop-venster tijdens initialisatie |
+
+## Examples
+
+### Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `                          -ConfidenceThreshold 0.5 `                          -ServicePort 5000
+
+```powershell
+Get-ImageDetectedObjects -ImagePath "C:\Users\YourName\test.jpg" `
+                         -ConfidenceThreshold 0.5 `
+                         -ServicePort 5000
+```
+
+Detecteert objecten in de opgegeven afbeelding met volledige parameternamen.
+
+### Get-ImageDetectedObjects "C:\photos\street.jpg"
+
+```powershell
+Get-ImageDetectedObjects "C:\photos\street.jpg"
+```
+
+Detecteert objecten met behulp van positionele parameter en standaardinstellingen.
 
 ## Related Links
 

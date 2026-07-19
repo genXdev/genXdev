@@ -4,12 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent een Grokipedia-query in een webbrowser.
+
+## Description
+
+Opent een of meerdere Grokipedia-zoekopdrachten in een webbrowser met uitgebreide configuratiemogelijkheden. Ondersteunt configureerbaar browsergedrag, monitorselectie en vensterpositionering. Query's worden URL-gecodeerd en geopend via het Grokipedia-domein van de opgegeven taal met volledige lokalisatieondersteuning.
+
+De functie biedt uitgebreide browsercontrole, waaronder privénavigatiemodi, vensterpositionering, toetsenbordautomatisering en ondersteuning voor meerdere monitoren. Het verwerkt automatisch URL-codering en taalcodetoewijzing voor internationale Grokipedia-domeinen.
 
 ## Syntax
 
 ```powershell
-Open-GrokipediaQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GrokipediaQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -23,6 +29,9 @@ Open-GrokipediaQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applica
 | `-Chrome` | SwitchParameter | — | — | Named | — | Opent in Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Wordt geopend in Microsoft Edge of Google Chrome, afhankelijk van wat de standaardbrowser is |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Openen in Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Gebruik de door Playwright beheerde browser in plaats van de in het besturingssysteem geïnstalleerde browser |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Opent de door Playwright beheerde WebKit-browser. Impliceert -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Voer de browser uit zonder een zichtbaar venster |
 | `-All` | SwitchParameter | — | — | Named | — | Opent in alle geregistreerde moderne browsers |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Te gebruiken monitor, 0 = standaard, -1 = negeren, -2 = geconfigureerd secundair scherm |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Opent in volledig scherm |
@@ -58,6 +67,32 @@ Open-GrokipediaQuery -Queries <String[]> [-AcceptLang <String>] [-All] [-Applica
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Gebruik alternatieve instellingen die in de sessie zijn opgeslagen voor AI-voorkeuren. |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wissen Sie, dass alternative Einstellungen, die in der Sitzung gespeichert sind, für KI-Präferenzen gelöscht wurden. |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session. |
+
+## Examples
+
+### Open-GrokipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+
+```powershell
+Open-GrokipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
+```
+
+Opent een Grokipedia-zoekopdracht voor "PowerShell" in het Engels op het standaardscherm.
+
+### wiki "PowerShell" -mon 0
+
+```powershell
+wiki "PowerShell" -mon 0
+```
+
+Opent een Grokipedia-zoekopdracht met het alias en positionele parameters.
+
+### "PowerShell", "Windows" | Open-GrokipediaQuery -Private
+
+```powershell
+"PowerShell", "Windows" | Open-GrokipediaQuery -Private
+```
+
+Searches for multiple terms in Grokipedia using private browsing mode.
 
 ## Related Links
 

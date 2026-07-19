@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет линейный импульс.
+
+## Description
+
+Используется p = m v.
 
 ## Syntax
 

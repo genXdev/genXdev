@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Réinitialise la configuration du serveur VPN WireGuard, en supprimant tous les pairs.
+
+## Description
+
+Cette fonction réinitialise la configuration du serveur VPN WireGuard s'exécutant dans un conteneur Docker en supprimant tous les pairs et en générant une nouvelle configuration de serveur. Il s'agit d'une opération destructrice qui ne peut pas être annulée et qui supprimera définitivement toutes les configurations des pairs. La fonction arrête le service WireGuard, supprime tous les répertoires et fichiers de configuration des pairs, supprime les clés du serveur, redémarre le conteneur et vérifie qu'une nouvelle configuration est générée.
 
 ## Syntax
 
@@ -27,6 +31,24 @@ Reset-WireGuardConfiguration [[-ContainerName] <String>] [[-VolumeName] <String>
 | `-TimeZone` | String | — | — | 8 | `'Etc/UTC'` | Fuseau horaire à utiliser pour le conteneur |
 | `-NoDockerInitialize` | SwitchParameter | — | — | Named | — | Ignorer l'initialisation Docker (utilisée lorsqu'elle est déjà appelée par la fonction parente) |
 | `-Force` | SwitchParameter | — | — | Named | — | Réinitialisation forcée sans confirmation |
+
+## Examples
+
+### Reset-WireGuardConfiguration
+
+```powershell
+Reset-WireGuardConfiguration
+```
+
+Réinitialise la configuration WireGuard avec les paramètres par défaut et demande confirmation avant de procéder.
+
+### Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+
+```powershell
+Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
+```
+
+Réinitialise la configuration WireGuard pour un nom de conteneur personnalisé sans invites de confirmation.
 
 ## Related Links
 

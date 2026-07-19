@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Возвращает настроенный порт удаленной отладки для браузера Microsoft Edge.
+
+## Description
+
+Получает номер порта удаленной отладки, используемый для подключения к интерфейсу отладки браузера Microsoft Edge. Если через глобальную переменную $Global:EdgeDebugPort не настроен пользовательский порт, возвращается порт по умолчанию 9223. Функция проверяет любые пользовательские настройки порта и возвращается к значению по умолчанию, если они недействительны.
 
 ## Syntax
 
@@ -54,8 +58,19 @@
     }
 ```
 
+## Examples
+
+### Get-EdgeRemoteDebuggingPort Returns the configured debug port (default 9223 if not configured)
+
+```powershell
+Get-EdgeRemoteDebuggingPort
+Returns the configured debug port (default 9223 if not configured)
+```
+
 ## Outputs
 
+- `Int32
+Returns the port number to use for Edge remote debugging`
 - `Int32`
 
 ## Related Links

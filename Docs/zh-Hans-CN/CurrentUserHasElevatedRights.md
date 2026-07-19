@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 检查当前用户是否拥有提升的权限。
+
+## Description
+
+通过检查当前Windows用户的安全主体角色，确定其是否具有管理员或备份操作员权限。如果用户拥有提升的权限则返回true，否则返回false。实现了针对安全及访问相关问题的健壮错误处理。
 
 ## Syntax
 
@@ -89,8 +93,19 @@
     }
 ```
 
+## Examples
+
+### $hasRights = CurrentUserHasElevatedRights ##############################################################################
+
+```powershell
+$hasRights = CurrentUserHasElevatedRights
+##############################################################################
+```
+
 ## Outputs
 
+- `Boolean
+Returns true if user has admin or backup operator rights, false otherwise.`
 - `Boolean`
 
 ## Related Links

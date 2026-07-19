@@ -4,12 +4,30 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Ouvre les requêtes Google dans un navigateur Web avec des paramètres configurables et des options de personnalisation étendues.
+
+## Description
+
+Ouvre une ou plusieurs requêtes Google dans un navigateur web avec une prise en charge complète des multiples langues, de la sélection de moniteur, du positionnement des fenêtres, du choix du navigateur et de l'automatisation du clavier. La fonction offre une interface riche en fonctionnalités pour effectuer des recherches Google avec un contrôle précis du comportement et de l'apparence du navigateur.
+
+Principales fonctionnalités :
+- Prise en charge de plus de 100 langues via le filtrage linguistique de Google
+- Support multi-moniteurs avec sélection automatique ou manuelle du moniteur
+- Positionnement des fenêtres (gauche, droite, haut, bas, centré, plein écran)
+- Mode de navigation privée/incognito
+- Mode application pour une navigation sans distraction
+- Options de blocage des extensions et des popups
+- Gestion du focus et manipulation des fenêtres
+- Traitement par lots de requêtes avec support de pipeline
+- Automatisation des frappes clavier vers les fenêtres du navigateur
+- Passage intelligent des paramètres aux fonctions sous-jacentes du navigateur
+
+La fonction formate automatiquement les requêtes de recherche pour le moteur de recherche Google et applique le filtrage linguistique lorsqu'il est spécifié. Toutes les fonctionnalités de positionnement et de gestion du navigateur sont héritées de la fonction sous-jacente Open-Webbrowser.
 
 ## Syntax
 
 ```powershell
-Open-GoogleQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GoogleQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +42,9 @@ Open-GoogleQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String
 | `-Chrome` | SwitchParameter | — | — | Named | — | S'ouvre dans Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Ouvre dans Microsoft Edge ou Google Chrome, selon le navigateur par défaut |
 | `-Firefox` | SwitchParameter | — | — | Named | — | S'ouvre dans Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Utiliser le navigateur géré par Playwright au lieu du navigateur installé sur le système d'exploitation |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Ouvre le navigateur WebKit géré par Playwright. Implique -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Exécutez le navigateur sans fenêtre visible |
 | `-All` | SwitchParameter | — | — | Named | — | S'ouvre dans tous les navigateurs modernes enregistrés |
 | `-Monitor` | Int32 | — | — | Named | `-1` | Le moniteur à utiliser, 0 = par défaut, -1 signifie ignorer, -2 = moniteur secondaire configuré, par défaut -1 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | S'ouvre en mode plein écran |
@@ -59,6 +80,48 @@ Open-GoogleQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Positionner la fenêtre du navigateur soit en plein écran sur un moniteur différent de PowerShell, soit côte à côte avec PowerShell sur le même moniteur. |
+
+## Examples
+
+### Open-GoogleQuery -Queries "PowerShell scripting" -Language "English" -Monitor 0
+
+```powershell
+Open-GoogleQuery -Queries "PowerShell scripting" -Language "English" -Monitor 0
+```
+
+Ouvre une recherche Google pour "PowerShell scripting" en anglais sur l'écran principal.
+
+### q "machine learning algorithms" -m 2 -fs
+
+```powershell
+q "machine learning algorithms" -m 2 -fs
+```
+
+Ouvre une recherche Google pour "algorithmes d'apprentissage automatique" en mode plein écran sur le moniteur 2 en utilisant des alias.
+
+### "PowerShell", "Python", "JavaScript" | Open-GoogleQuery -Language "English" -Chrome
+
+```powershell
+"PowerShell", "Python", "JavaScript" | Open-GoogleQuery -Language "English" -Chrome
+```
+
+Ouvre plusieurs recherches Google dans Chrome via l'entrée pipeline, chacune en anglais.
+
+### Open-GoogleQuery -Queries "artificial intelligence" -Private -NewWindow
+
+```powershell
+Open-GoogleQuery -Queries "artificial intelligence" -Private -NewWindow
+```
+
+Ouvre une recherche en navigation privée pour « intelligence artificielle » dans une nouvelle fenêtre.
+
+### Open-GoogleQuery -Queries "web development" -ApplicationMode -Centered
+
+```powershell
+Open-GoogleQuery -Queries "web development" -ApplicationMode -Centered
+```
+
+Ouvre une recherche en mode application (sans contrôles de navigateur) centrée sur l'écran.
 
 ## Related Links
 

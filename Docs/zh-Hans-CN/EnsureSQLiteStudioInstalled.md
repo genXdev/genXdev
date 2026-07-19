@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 确保SQLiteStudio已安装并可从命令行访问。
+
+## Description
+
+验证SQLiteStudio是否已安装并可在系统PATH中使用。如果未找到，首先检查PATH环境变量是否需要更新。如果这不能解决问题，则使用WinGet安装SQLiteStudio并配置PATH环境变量。
 
 ## Syntax
 
@@ -119,6 +123,15 @@
     }
 
     end {}
+```
+
+## Examples
+
+### EnsureSQLiteStudioInstalled Checks and ensures SQLiteStudio is installed and accessible.
+
+```powershell
+EnsureSQLiteStudioInstalled
+Checks and ensures SQLiteStudio is installed and accessible.
 ```
 
 ## Related Links

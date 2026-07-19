@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> ワークスペース内の各GenXdevモジュールでスクリプトブロックを実行します。
+
+## Description
+
+この関数は、ワークスペース内のGenXdevモジュールを反復処理し、各モジュールに対して指定されたスクリプトブロックを実行します。名前パターンでモジュールをフィルタリングしたり、ローカルモジュールを除外したり、公開済みモジュールのみを含めたり、モジュールの代わりにスクリプトを処理したりできます。この関数は、スクリプトブロックを実行する前に、正しいモジュールディレクトリに自動的に移動します。
 
 ## Syntax
 
@@ -22,6 +26,27 @@ Invoke-OnEachGenXdevModule -Script <ScriptBlock> [[-ModuleName] <String[]>] [-Fr
 | `-OnlyPublished` | SwitchParameter | — | — | Named | — | 公開済みで、LICENSE ファイルと README.md ファイルの両方を含むモジュールのみを含む |
 | `-FromScripts` | SwitchParameter | — | — | Named | — | モジュールディレクトリの代わりにスクリプトディレクトリを処理する |
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | 通常のモジュールに加えて、scriptsディレクトリも含まれています。 |
+
+## Examples
+
+### Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+
+```powershell
+Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+```
+
+GenXdev modules include: GenXdev, GenXdev.UI, GenXdev.Console, GenXdev.WebAPI, GenXdev.Rendering, GenXdev.Input, GenXdev.Files, GenXdev.Helpers, GenXdev.Math, GenXdev.Networking, GenXdev.Security, GenXdev.Logging, GenXdev.Serialization, GenXdev.Data, GenXdev.AI, GenXdev.Testing.
+
+### foreach-genxdev-module-do {     param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)     Get-ChildItem } -ModuleName "GenXdev.AI"
+
+```powershell
+foreach-genxdev-module-do {
+    param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)
+    Get-ChildItem
+} -ModuleName "GenXdev.AI"
+```
+
+エイリアスを使用してGenXdev.AIモジュールディレクトリの内容を一覧表示します。
 
 ## Related Links
 

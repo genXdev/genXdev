@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AIを活用した検出により、テキストを分析して論理的誤謬を特定します。
+
+## Description
+
+この関数は、Wikipediaの誤謬一覧で訓練されたAIモデルを使用して、提供されたテキストを分析し、論理的誤謬を検出します。見つかった各誤謬について、具体的な引用、誤謬名、説明、解説、および形式的な分類を含む詳細情報を返します。この関数は構造化された応答形式を使用して、一貫性のある出力を保証します。
 
 ## Syntax
 
@@ -57,6 +61,33 @@ Get-Fallacy -InputObject <Object> [[-Instructions] <String>] [[-Attachments] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | セッションに保存されたAI設定の代替オプションをクリア |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | 設定はセッションに影響を与えず、永続的な設定のみに保存します。 |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | ツールコールの最大コールバック長。 |
+
+## Examples
+
+### Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " + "and he was a politician")
+
+```powershell
+Get-Fallacy -Text ("All politicians are corrupt because John was corrupt " +
+"and he was a politician")
+```
+
+提供されたテキストを論理的誤謬について分析し、検出された誤謬に関する構造化情報を返します。
+
+### "This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+
+```powershell
+"This product is the best because everyone uses it" | Get-Fallacy -Temperature 0.1
+```
+
+パイプライン入力を使用してテキストを低温で分析し、集中的な分析を行います。
+
+### dispicetext "Everyone knows this is true"
+
+```powershell
+dispicetext "Everyone knows this is true"
+```
+
+エイリアスを使用して、テキスト内の論理的誤謬を分析します。
 
 ## Outputs
 

@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> AI 支援によるカスタムコマンド未検出ハンドリングを設定します。
+
+## Description
+
+PowerShellを設定して、不明なコマンドを処理する際に、ディレクトリに移動するかAIを使ってユーザーの意図を解釈するようにします。このハンドラーは、まず既存のコマンドが見つからないハンドラーを試し、次にコマンドが有効なパスであるかどうかをチェックし、最後に不明なコマンドに対してAIアシスタンスを提供します。
 
 ## Syntax
 
@@ -179,6 +183,14 @@
     end {
         Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
     }
+```
+
+## Examples
+
+### Set-GenXdevAICommandNotFoundAction
+
+```powershell
+Set-GenXdevAICommandNotFoundAction
 ```
 
 ## Related Links

@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Adds a ReleaseNote line to the README file with a timestamp.
+
+## Description
+
+Добавляет строку примечания к выпуску (ReleaseNote) в указанный файл README с префиксом текущей даты в формате yyyyMMdd. Строка может быть отформатирована как код и, при необходимости, отображаться.
 
 ## Syntax
 
 ```powershell
-Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
+Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Ascending] [-Code] [-First <Int32>] [-Priority <Int32>] [-Show] [-SortByDate] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -151,6 +155,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=150&section=footer" /> |
 | `-UseHomeREADME` | SwitchParameter | — | — | Named | — | Используйте README в домашнем каталоге |
 | `-UseOneDriveREADME` | SwitchParameter | — | — | Named | — | Use README in OneDrive directory |
+| `-Priority` | Int32 | — | — | Named | `1` | Приоритет сортировки (выше = отображается первым, по умолчанию 1) |
+| `-SortByDate` | SwitchParameter | — | — | Named | — | Сортировать строки по дате (префикс yyyyMMdd) вместо приоритета |
+| `-Ascending` | SwitchParameter | — | — | Named | — | Изменить порядок сортировки на обратный (по возрастанию вместо по убыванию) |
+| `-First` | Int32 | — | — | Named | `0` | Лимит - Показать вывод только первых N строк |
+
+## Examples
+
+### Add-ReleaseNoteLineToREADME -Line "Added new Git ReleaseNote"
+
+```powershell
+Add-ReleaseNoteLineToREADME -Line "Added new Git ReleaseNote"
+```
+
+### ReleaseNote "Added new Git ReleaseNote" -Code -Show
+
+```powershell
+ReleaseNote "Added new Git ReleaseNote" -Code -Show
+```
 
 ## Related Links
 

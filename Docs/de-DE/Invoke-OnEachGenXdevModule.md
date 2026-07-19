@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Führt einen Skriptblock für jedes GenXdev-Modul im Arbeitsbereich aus.
+
+## Description
+
+Diese Funktion durchläuft GenXdev-Module im Arbeitsbereich und führt einen bereitgestellten Skriptblock für jedes Modul aus. Sie kann Module nach Namensmuster filtern, lokale Module ausschließen, nur veröffentlichte Module einschließen oder Skripte anstelle von Modulen verarbeiten. Die Funktion navigiert automatisch zum richtigen Modulverzeichnis, bevor der Skriptblock ausgeführt wird.
 
 ## Syntax
 
@@ -22,6 +26,27 @@ Invoke-OnEachGenXdevModule -Script <ScriptBlock> [[-ModuleName] <String[]>] [-Fr
 | `-OnlyPublished` | SwitchParameter | — | — | Named | — | Enthält nur veröffentlichte Module, die über LICENSE- und README.md-Dateien verfügen |
 | `-FromScripts` | SwitchParameter | — | — | Named | — | Prozess-Skriptverzeichnis anstelle von Modulverzeichnissen |
 | `-IncludeScripts` | SwitchParameter | — | — | Named | — | Enthält zusätzlich zu den regulären Modulen das Scripts-Verzeichnis |
+
+## Examples
+
+### Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+
+```powershell
+Invoke-OnEachGenXdevModule -Script { Write-Host $args[0].Name }
+```
+
+GenXdev module names include: GenXdev.Coding, GenXdev.Data, GenXdev.Financials, GenXdev.Helpers, GenXdev.IO, GenXdev.Licensing, GenXdev.Logging, GenXdev.Mobile, GenXdev.Networking, GenXdev.Serialization, GenXdev.UI, GenXdev.Web, GenXdev.WPF, and others.
+
+### foreach-genxdev-module-do {     param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)     Get-ChildItem } -ModuleName "GenXdev.AI"
+
+```powershell
+foreach-genxdev-module-do {
+    param($ModuleObj, $isScriptsFolder, $isSubModule, $subModuleName)
+    Get-ChildItem
+} -ModuleName "GenXdev.AI"
+```
+
+Verwendet Alias, um den Inhalt des GenXdev.AI-Modulverzeichnisses aufzulisten.
 
 ## Related Links
 

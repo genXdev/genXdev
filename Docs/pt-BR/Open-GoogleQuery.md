@@ -4,12 +4,37 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Abre consultas do Google em um navegador da web com configurações ajustáveis e amplas opções de personalização.
+
+## Description
+
+Abre uma ou mais consultas do Google em um navegador web com suporte abrangente
+para múltiplos idiomas, seleção de monitor, posicionamento de janela, seleção
+de navegador e automação de teclado. A função fornece uma interface rica em
+recursos para realizar pesquisas no Google com controle preciso sobre o comportamento
+e a aparência do navegador.
+
+Principais recursos incluem:
+- Suporte a mais de 100 idiomas via filtro de idioma do Google
+- Suporte a múltiplos monitores com seleção automática ou manual
+- Posicionamento de janela (esquerda, direita, topo, fundo, centralizado, tela cheia)
+- Modo de navegação privativa/anônima
+- Modo aplicativo para navegação sem distrações
+- Opções de bloqueio de extensões e pop-ups
+- Gerenciamento de foco e manipulação de janelas
+- Processamento de consultas em lote com suporte a pipeline
+- Automação de teclas para janelas do navegador
+- Passagem inteligente de parâmetros para funções de navegador subjacentes
+
+A função formata automaticamente as consultas de pesquisa para o mecanismo de busca
+do Google e aplica filtragem de idioma quando especificado. Todos os recursos de
+posicionamento e gerenciamento de navegador são herdados da função Open-Webbrowser
+subjacente.
 
 ## Syntax
 
 ```powershell
-Open-GoogleQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Open-GoogleQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-ClearSession] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Headless] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBorders] [-NoBrowserExtensions] [-PassThru] [-PlayWright] [-Private] [-RestoreFocus] [-ReturnOnlyURL] [-ReturnURL] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-SetForeground] [-SetRestored] [-SideBySide] [-SkipSession] [-Top] [-Webkit] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -24,6 +49,9 @@ Open-GoogleQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String
 | `-Chrome` | SwitchParameter | — | — | Named | — | Abre no Google Chrome |
 | `-Chromium` | SwitchParameter | — | — | Named | — | Abre no Microsoft Edge ou Google Chrome, dependendo de qual é o navegador padrão |
 | `-Firefox` | SwitchParameter | — | — | Named | — | Abre no Firefox |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Use o navegador gerenciado pelo Playwright em vez do navegador instalado no sistema operacional |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Abre o navegador WebKit gerenciado pelo Playwright. Implica -PlayWright |
+| `-Headless` | SwitchParameter | — | — | Named | — | Execute o navegador sem uma janela visível |
 | `-All` | SwitchParameter | — | — | Named | — | Abre em todos os navegadores modernos registrados |
 | `-Monitor` | Int32 | — | — | Named | `-1` | O monitor a ser usado, 0 = padrão, -1 é descartar, -2 = Monitor secundário configurado, o padrão é -1 |
 | `-FullScreen` | SwitchParameter | — | — | Named | — | Abre em modo de tela cheia |
@@ -59,6 +87,48 @@ Open-GoogleQuery -Queries <String[]> [[-Language] <String>] [-AcceptLang <String
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Configurações alternativas claras armazenadas na sessão para preferências de IA |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Armazenar configurações apenas em preferências persistentes sem afetar a sessão |
 | `-SideBySide` | SwitchParameter | — | — | Named | — | Posicione a janela do navegador em tela cheia em um monitor diferente do PowerShell, ou lado a lado com o PowerShell no mesmo monitor. |
+
+## Examples
+
+### Open-GoogleQuery -Queries "PowerShell scripting" -Language "English" -Monitor 0
+
+```powershell
+Open-GoogleQuery -Queries "PowerShell scripting" -Language "English" -Monitor 0
+```
+
+Abre uma pesquisa no Google por "PowerShell scripting" em inglês no monitor principal.
+
+### q "machine learning algorithms" -m 2 -fs
+
+```powershell
+q "machine learning algorithms" -m 2 -fs
+```
+
+Abre uma pesquisa no Google por "machine learning algorithms" em modo tela cheia no monitor 2 usando aliases.
+
+### "PowerShell", "Python", "JavaScript" | Open-GoogleQuery -Language "English" -Chrome
+
+```powershell
+"PowerShell", "Python", "JavaScript" | Open-GoogleQuery -Language "English" -Chrome
+```
+
+Abre várias pesquisas no Google no Chrome via entrada de pipeline, cada uma em inglês.
+
+### Open-GoogleQuery -Queries "artificial intelligence" -Private -NewWindow
+
+```powershell
+Open-GoogleQuery -Queries "artificial intelligence" -Private -NewWindow
+```
+
+Abre uma pesquisa de navegação privada para "inteligência artificial" em uma nova janela.
+
+### Open-GoogleQuery -Queries "web development" -ApplicationMode -Centered
+
+```powershell
+Open-GoogleQuery -Queries "web development" -ApplicationMode -Centered
+```
+
+Abre uma pesquisa em modo aplicativo (sem controles do navegador) centralizada na tela.
 
 ## Related Links
 

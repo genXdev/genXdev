@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Zorgt ervoor dat Docker Desktop is geïnstalleerd en beschikbaar is voor containerisatiebewerkingen.
+
+## Description
+
+Controleert of Docker Desktop is geïnstalleerd en correct is geconfigureerd op het systeem.
+Als het niet wordt gevonden, installeert het Docker Desktop via WinGet en verwerkt het volledige
+installatieproces automatisch. Deze functie beheert ook het opstarten van de Docker Desktop-service,
+controle van de daemon-gereedheid en behandelt authenticatievereisten indien nodig. De functie bevat
+uitgebreid padbeheer voor zowel systeem- als gebruikersniveau Docker-installaties.
 
 ## Syntax
 
@@ -43,6 +51,26 @@ EnsureDockerDesktop [[-Monitor] <Int32>] [[-Width] <Int32>] [[-Height] <Int32>] 
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Wis alternatieve instellingen opgeslagen in sessie voor AI-voorkeuren |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Instellingen alleen in permanente voorkeuren opslaan zonder de sessie te beïnvloeden |
 | `-NoDockerInitialization` | SwitchParameter | — | — | Named | — | Docker-initialisatie overslaan en onmiddellijk terugkeren |
+
+## Examples
+
+### EnsureDockerDesktop
+
+```powershell
+EnsureDockerDesktop
+```
+
+### EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Centered -NoBorders
+```
+
+### EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+
+```powershell
+EnsureDockerDesktop -ShowWindow -Monitor 1 -Left -Width 800 -Height 600
+```
 
 ## Related Links
 

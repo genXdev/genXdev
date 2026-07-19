@@ -4,7 +4,15 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Visual Studio Code에서 GitHub Copilot Chat 키보드 단축키를 구성합니다.
+
+## Description
+
+이 함수는 GitHub Copilot Chat의 파일 첨부 기능이 Visual Studio Code에서 적절한 키보드 단축키(Ctrl+Shift+Alt+F12)를 가지도록 보장합니다.
+
+기존의 Copilot 첨부 단축키를 모두 제거하고 현재 올바른 명령(github.copilot.chat.attachFile)으로 대체합니다.
+
+또한 최대화된 패널을 전환하기 위해 Alt+` (백틱) 단축키를 추가합니다.
 
 ## Syntax
 
@@ -108,6 +116,14 @@
 
     end {
     }
+```
+
+## Examples
+
+### EnsureCopilotKeyboardShortCut
+
+```powershell
+EnsureCopilotKeyboardShortCut
 ```
 
 ## Related Links

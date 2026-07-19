@@ -4,7 +4,18 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Selects a browser tab from running Playwright-managed browsers.
+
+## Description
+
+Lists and selects browser tabs from all running Playwright-managed
+browser instances. When called without selection criteria, displays
+a table of all available tabs across all browser types. Supports
+selection by numeric index, URL pattern, or direct page reference.
+
+When a tab is selected, sets $Global:chromeController and
+$Global:chromeSession for backward compatibility with other
+Webbrowser cmdlets.
 
 ## Syntax
 
@@ -13,55 +24,59 @@ Select-WebbrowserTab [[-Id] <Int32>] [<CommonParameters>]
 
 Select-WebbrowserTab -Name <String> [<CommonParameters>]
 
-Select-WebbrowserTab -ByReference <PSObject> [<CommonParameters>]
+Select-WebbrowserTab -ByReference <Object> [<CommonParameters>]
 
-Select-WebbrowserTab [-AcceptLang <String>] [-All] [-ApplicationMode] [-Bottom] [-Centered] [-Chrome] [-Chromium] [-DisablePopupBlocker] [-Edge] [-Firefox] [-FocusWindow] [-Force] [-FullScreen] [-Height <Int32>] [-KeysToSend <String[]>] [-Left] [-Maximize] [-Monitor <Int32>] [-NewWindow] [-NoBrowserExtensions] [-Private] [-RestoreFocus] [-Right] [-SendKeyDelayMilliSeconds <Int32>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SetForeground] [-SetRestored] [-Top] [-Width <Int32>] [-X <Int32>] [-Y <Int32>] [<CommonParameters>]
+Select-WebbrowserTab [-All] [-Chrome] [-Chromium] [-Edge] [-Firefox] [-Force] [-PlayWright] [-Webkit] [<CommonParameters>]
 ```
 
 ## Parameters
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Id` | Int32 | — | — | 0 | `-1` | Tab identifier from the shown list *(Parameter set: )* |
-| `-Name` | String | ✅ | — | 0 | — | Selects first tab containing this name in URL *(Parameter set: )* 🌐 *Supports wildcards* |
-| `-ByReference` | PSObject | ✅ | — | Named | — | Select tab using reference from Get-ChromiumSessionReference *(Parameter set: )* |
-| `-Monitor` | Int32 | — | — | Named | `-1` | The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to $Global:DefaultSecondaryMonitor or 2 if not found |
-| `-Width` | Int32 | — | — | Named | `-1` | The initial width of the webbrowser window |
-| `-Height` | Int32 | — | — | Named | `-1` | The initial height of the webbrowser window |
-| `-X` | Int32 | — | — | Named | `-999999` | The initial X position of the webbrowser window |
-| `-Y` | Int32 | — | — | Named | `-999999` | The initial Y position of the webbrowser window |
-| `-AcceptLang` | String | — | — | Named | — | Set the browser accept-lang http header |
-| `-FullScreen` | SwitchParameter | — | — | Named | — | Opens in fullscreen mode |
-| `-Private` | SwitchParameter | — | — | Named | — | Opens in incognito/private browsing mode |
-| `-Chromium` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge or Google Chrome, depending on what the default browser is |
-| `-Firefox` | SwitchParameter | — | — | Named | — | Opens in Firefox |
-| `-All` | SwitchParameter | — | — | Named | — | Opens in all registered modern browsers |
-| `-Left` | SwitchParameter | — | — | Named | — | Place browser window on the left side of the screen |
-| `-Right` | SwitchParameter | — | — | Named | — | Place browser window on the right side of the screen |
-| `-Top` | SwitchParameter | — | — | Named | — | Place browser window on the top side of the screen |
-| `-Bottom` | SwitchParameter | — | — | Named | — | Place browser window on the bottom side of the screen |
-| `-Centered` | SwitchParameter | — | — | Named | — | Place browser window in the center of the screen |
-| `-ApplicationMode` | SwitchParameter | — | — | Named | — | Hide the browser controls |
-| `-NoBrowserExtensions` | SwitchParameter | — | — | Named | — | Prevent loading of browser extensions |
-| `-DisablePopupBlocker` | SwitchParameter | — | — | Named | — | Disable the popup blocker |
-| `-RestoreFocus` | SwitchParameter | — | — | Named | — | Restore PowerShell window focus |
-| `-NewWindow` | SwitchParameter | — | — | Named | — | Don't re-use existing browser window, instead, create a new one |
-| `-FocusWindow` | SwitchParameter | — | — | Named | — | Focus the browser window after opening |
-| `-SetForeground` | SwitchParameter | — | — | Named | — | Set the browser window to foreground after opening |
-| `-Maximize` | SwitchParameter | — | — | Named | — | Maximize the window after positioning |
-| `-SetRestored` | SwitchParameter | — | — | Named | — | Restore the window to normal state after positioning |
-| `-KeysToSend` | String[] | — | — | Named | — | Keystrokes to send to the Browser window, see documentation for cmdlet GenXdev\Send-Key |
-| `-SendKeyEscape` | SwitchParameter | — | — | Named | — | Escape control characters when sending keys |
-| `-SendKeyHoldKeyboardFocus` | SwitchParameter | — | — | Named | — | Prevent returning keyboard focus to PowerShell after sending keys |
-| `-SendKeyUseShiftEnter` | SwitchParameter | — | — | Named | — | Send Shift+Enter instead of regular Enter for line breaks |
-| `-SendKeyDelayMilliSeconds` | Int32 | — | — | Named | — | Delay between sending different key sequences in milliseconds |
-| `-Edge` | SwitchParameter | — | — | Named | — | Opens in Microsoft Edge |
-| `-Chrome` | SwitchParameter | — | — | Named | — | Opens in Google Chrome |
-| `-Force` | SwitchParameter | — | — | Named | — | Forces browser restart if needed |
+| `-Id` | Int32 | — | — | 0 | `-1` | Tab index from the shown list *(Parameter set: )* |
+| `-Name` | String | ✅ | — | 0 | — | Selects first tab containing this text in its URL *(Parameter set: )* 🌐 *Supports wildcards* |
+| `-ByReference` | Object | ✅ | — | Named | — | Direct page reference from a Playwright browser state *(Parameter set: )* |
+| `-Edge` | SwitchParameter | — | — | Named | — | Filter tabs to Microsoft Edge browser instances |
+| `-Chrome` | SwitchParameter | — | — | Named | — | Filter tabs to Google Chrome browser instances |
+| `-Chromium` | SwitchParameter | — | — | Named | — | Filter tabs to Chromium-based browser instances (Edge or Chrome) |
+| `-Firefox` | SwitchParameter | — | — | Named | — | Filter tabs to Firefox browser instances |
+| `-PlayWright` | SwitchParameter | — | — | Named | — | Filter tabs to all Playwright-managed browser types |
+| `-Webkit` | SwitchParameter | — | — | Named | — | Filter tabs to WebKit browser instances |
+| `-All` | SwitchParameter | — | — | Named | — | Show tabs from all browser types (no filtering) |
+| `-Force` | SwitchParameter | — | — | Named | — | Skip confirmation and select first matching tab |
+
+## Examples
+
+### Select-WebbrowserTab Lists all open tabs across all Playwright browser types.
+
+```powershell
+Select-WebbrowserTab
+Lists all open tabs across all Playwright browser types.
+```
+
+### Select-WebbrowserTab -Id 2 Selects the tab at index 2 from the list.
+
+```powershell
+Select-WebbrowserTab -Id 2
+Selects the tab at index 2 from the list.
+```
+
+### st -Name "github.com" Selects the first tab whose URL contains "github.com".
+
+```powershell
+st -Name "github.com"
+Selects the first tab whose URL contains "github.com".
+```
+
+### st -Firefox -Id 0 Selects the first tab from the Firefox browser.
+
+```powershell
+st -Firefox -Id 0
+Selects the first tab from the Firefox browser.
+```
 
 ## Outputs
 
-- `String`
 - `PSObject`
 
 ## Related Links

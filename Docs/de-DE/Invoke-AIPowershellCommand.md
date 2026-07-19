@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Generiert und führt PowerShell-Befehle mithilfe von KI-Unterstützung aus.
+
+## Description
+
+Verwendet KI-Modelle, um PowerShell-Befehle basierend auf Abfragen in natürlicher Sprache zu generieren. Die Funktion kann Befehle entweder direkt an das PowerShell-Fenster senden oder in die Zwischenablage kopieren. Sie nutzt KI-Modelle, um natürliche Sprache zu interpretieren und in ausführbare PowerShell-Befehle umzuwandeln, mit umfassender Parameterunterstützung für verschiedene KI-Backends.
 
 ## Syntax
 
@@ -114,6 +118,32 @@ Invoke-AIPowershellCommand -Query <String> [[-Attachments] <String[]>] [-AllowDe
 } |
 | `-MarkupBlocksTypeFilter` | String[] | — | — | Named | — | Filter for markup block types (passed to LLMQuery) |
 | `-MaxToolcallBackLength` | Int32 | — | — | Named | — | Maximale Tool-Rückrufflänge (an LLMQuery übergeben) |
+
+## Examples
+
+### Invoke-AIPowershellCommand -Query "list all running processes"
+
+```powershell
+Invoke-AIPowershellCommand -Query "list all running processes"
+```
+
+Generiert einen PowerShell-Befehl zum Auflisten laufender Prozesse
+
+### hint "list files modified today"
+
+```powershell
+hint "list files modified today"
+```
+
+Verwendet den Alias, um einen Befehl zum Finden von heute geänderten Dateien zu generieren.
+
+### Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+
+```powershell
+Invoke-AIPowershellCommand -Query "stop service" -Clipboard
+```
+
+Erzeugt einen Befehl zum Stoppen eines Dienstes und kopiert ihn in die Zwischenablage.
 
 ## Outputs
 

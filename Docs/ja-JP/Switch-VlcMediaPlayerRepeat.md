@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> VLCメディアプレーヤーでリピートモードを切り替えます。
+
+## Description
+
+この関数は、VLCメディアプレーヤーに「r」キーコマンドを送信して、異なるリピートモード（リピートなし、現在の項目をリピート、すべてをリピート）を切り替えます。この関数は、VLCがまだ起動していない場合は起動し、コマンド送信後は前のウィンドウにフォーカスを戻します。
 
 ## Syntax
 
@@ -28,6 +32,20 @@
     end {
 
     }
+```
+
+## Examples
+
+### Switch-VlcMediaPlayerRepeat
+
+```powershell
+Switch-VlcMediaPlayerRepeat
+```
+
+### vlcrepeat
+
+```powershell
+vlcrepeat
 ```
 
 ## Related Links

@@ -4,7 +4,17 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 브라우저 단축키를 업데이트하여 원격 디버깅 포트를 활성화합니다.
+
+## Description
+
+Chrome 및 Edge 브라우저 바로 가기를 수정하여 원격 디버깅 포트 매개변수를 포함시킵니다. 이를 통해 자동화 스크립트가 브라우저의 디버깅 인터페이스를 통해 상호 작용할 수 있습니다. 사용자별 바로 가기와 시스템 전체 바로 가기를 모두 처리합니다.
+
+이 함수는:
+- 기존 디버깅 포트 매개변수를 제거합니다.
+- Chrome 및 Edge의 현재 디버깅 포트를 추가합니다.
+- 일반적인 위치(바탕 화면, 시작 메뉴, 빠른 실행)에서 바로 가기를 업데이트합니다.
+- 시스템 전체 바로 가기에는 관리자 권한이 필요합니다.
 
 ## Syntax
 
@@ -165,6 +175,15 @@
 
             end {
             }
+```
+
+## Examples
+
+### Set-RemoteDebuggerPortInBrowserShortcuts Updates all Chrome and Edge shortcuts with their respective debugging ports.
+
+```powershell
+Set-RemoteDebuggerPortInBrowserShortcuts
+Updates all Chrome and Edge shortcuts with their respective debugging ports.
 ```
 
 ## Related Links

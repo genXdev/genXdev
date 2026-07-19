@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Move para o item anterior na lista de reprodução do VLC Media Player.
+
+## Description
+
+Esta função envia o comando da tecla 'p' para o VLC Media Player para navegar até o item anterior na playlist atual. A função suporta operações WhatIf e restaurará o foco após enviar o comando.
 
 ## Syntax
 
@@ -33,6 +37,26 @@
     end {
 
     }
+```
+
+## Examples
+
+### Start-VlcMediaPlayerPreviousInPlaylist
+
+```powershell
+Start-VlcMediaPlayerPreviousInPlaylist
+```
+
+### vlcprev
+
+```powershell
+vlcprev
+```
+
+### vlcback
+
+```powershell
+vlcback
 ```
 
 ## Related Links

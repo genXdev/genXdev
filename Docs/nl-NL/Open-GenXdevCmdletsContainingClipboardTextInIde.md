@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Opent bestanden in de IDE die klembordtekst bevatten
+
+## Description
+
+De tekst in het klembord wordt gebruikt om te zoeken in alle GenXdev-scripts en opent dat bestand in Code of Visual Studio wanneer het wordt gevonden
 
 ## Syntax
 

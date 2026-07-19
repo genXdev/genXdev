@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Entfernt alle registrierten Gesichter aus dem DeepStack-Gesichtserkennungssystem.
+
+## Description
+
+Diese Funktion löscht alle registrierten Gesichter aus der Gesichtserkennungsdatenbank von DeepStack, indem sie alle Gesichtsdateien aus dem Datenspeicherverzeichnis entfernt und den Dienst neu startet, um ein leeres Gesichtsregister zu laden. Dies ist ein destruktiver Vorgang, der nicht rückgängig gemacht werden kann und alle registrierten Gesichtsdaten dauerhaft entfernt.
 
 ## Syntax
 
@@ -27,6 +31,32 @@ Unregister-AllFaces [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Serv
 | `-HealthCheckInterval` | Int32 | — | — | 4 | `3` | Intervall in Sekunden zwischen den Gesundheitsüberprüfungen |
 | `-ImageName` | String | — | — | 5 | — | Benutzerdefinierter Docker-Image-Name zur Verwendung |
 | `-ShowWindow` | SwitchParameter | — | — | Named | — | Docker Desktop-Fenster während der Initialisierung anzeigen |
+
+## Examples
+
+### Unregister-AllFaces
+
+```powershell
+Unregister-AllFaces
+```
+
+Entfernt alle registrierten Gesichter mit Bestätigungsaufforderung.
+
+### Unregister-AllFaces -Force
+
+```powershell
+Unregister-AllFaces -Force
+```
+
+Entfernt alle registrierten Gesichter ohne Bestätigungsaufforderung.
+
+### unregall -Force
+
+```powershell
+unregall -Force
+```
+
+Uses alias to remove all faces without confirmation.
 
 ## Related Links
 

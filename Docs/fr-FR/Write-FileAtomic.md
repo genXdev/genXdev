@@ -8,9 +8,9 @@
 
 ## Description
 
-* Écriture atomique : utilise une stratégie de fichier temporaire + renommer pour garantir que le fichier cible n'est jamais laissé dans un état corrompu si le processus est interrompu.
-* Logique de nouvelle tentative : réessaie l'écriture jusqu'à MaxRetries fois avec un délai de RetryDelayMs millisecondes entre les tentatives.
-* Support du débounce : lorsque DebounceMs > 0, les écritures consécutives rapides dans le même fichier sont fusionnées — seul le dernier contenu est écrit une fois que le fichier n'a pas été touché pendant DebounceMs ms.
+* Écriture atomique : utilise une stratégie de fichier temporaire + renommage pour garantir que le fichier cible ne soit jamais laissé dans un état corrompu si le processus est interrompu.
+* Logique de réessai : réessaie l'écriture jusqu'à MaxRetries fois avec un délai de RetryDelayMs millisecondes entre les tentatives.
+* Support du débouncing : lorsque DebounceMs > 0, les écritures rapides et consécutives vers le même fichier sont regroupées — seul le dernier contenu est écrit une fois que le fichier n'a pas été touché pendant DebounceMs ms.
 * Création de répertoires : crée automatiquement les répertoires parents s'ils n'existent pas.
 
 ## Syntax

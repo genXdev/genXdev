@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 시스템에 구성된 모든 WireGuard VPN 피어에 대한 정보를 가져옵니다.
+
+## Description
+
+이 함수는 Docker 컨테이너에서 실행 중인 서버에 구성된 모든 WireGuard VPN 피어에 대한 포괄적인 정보를 검색합니다. 피어 이름, 공개 키, 허용된 IP 주소, 연결 엔드포인트, 핸드셰이크 상태, 데이터 전송 통계 및 현재 연결 상태를 포함한 상세 정보를 제공합니다. 이 함수는 상위 함수와 함께 작동하거나 독립적으로 Docker 컨테이너 초기화를 관리할 수 있습니다.
 
 ## Syntax
 
@@ -47,6 +51,21 @@ Get-WireGuardPeers [[-ContainerName] <String>] [[-VolumeName] <String>] [[-Servi
 | `-SessionOnly` | SwitchParameter | — | — | Named | — | Docker 창에만 세션 사용 |
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Docker 창의 세션을 실행 전에 지우십시오 |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Docker 윈도우 세션 건너뛰기 |
+
+## Examples
+
+### Get-WireGuardPeers
+
+```powershell
+Get-WireGuardPeers
+```
+
+### Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `                    -ServicePort 55555
+
+```powershell
+Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `
+                   -ServicePort 55555
+```
 
 ## Related Links
 

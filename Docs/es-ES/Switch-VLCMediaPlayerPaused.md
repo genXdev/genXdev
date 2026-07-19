@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Alterna el estado de pausa/reproducción del VLC Media Player.
+
+## Description
+
+Esta función envía una tecla de espacio a VLC Media Player para alternar entre los estados de pausa y reproducción. Restaura automáticamente el foco a la ventana original después de enviar el comando de tecla.
 
 ## Syntax
 
@@ -32,6 +36,32 @@
 
     }
 ```
+
+## Examples
+
+### Switch-VLCMediaPlayerPaused
+
+```powershell
+Switch-VLCMediaPlayerPaused
+```
+
+Alterna el estado de reproducción/pausa de VLC Media Player.
+
+### vlcpause
+
+```powershell
+vlcpause
+```
+
+Utiliza el alias para alternar entre pausa y reproducción.
+
+### vlcplay
+
+```powershell
+vlcplay
+```
+
+Usa el alias alternativo para alternar el estado de pausa/reproducción.
 
 ## Related Links
 

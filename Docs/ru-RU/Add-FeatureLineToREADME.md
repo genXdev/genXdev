@@ -4,12 +4,16 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Adds a feature line to the README file with a timestamp.
+
+## Description
+
+Добавляет строку функции в указанный файл README с префиксом текущей даты в формате yyyyMMdd. Строка может быть отформатирована как код и опционально отображаться.
 
 ## Syntax
 
 ```powershell
-Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
+Add-FeatureLineToREADME [[-Line] <String>] [-Ascending] [-Code] [-First <Int32>] [-Priority <Int32>] [-Show] [-SortByDate] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -151,6 +155,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=150&section=footer" /> |
 | `-UseHomeREADME` | SwitchParameter | — | — | Named | — | Используйте README в домашнем каталоге |
 | `-UseOneDriveREADME` | SwitchParameter | — | — | Named | — | Use README in OneDrive directory |
+| `-Priority` | Int32 | — | — | Named | `1` | Приоритет сортировки (выше = отображается первым, по умолчанию 1) |
+| `-SortByDate` | SwitchParameter | — | — | Named | — | Сортировать строки по дате (префикс yyyyMMdd) вместо приоритета |
+| `-Ascending` | SwitchParameter | — | — | Named | — | Изменить порядок сортировки на обратный (по возрастанию вместо по убыванию) |
+| `-First` | Int32 | — | — | Named | `0` | Лимит - Показать вывод только первых N строк |
+
+## Examples
+
+### Add-FeatureLineToREADME -Line "Added new Git feature"
+
+```powershell
+Add-FeatureLineToREADME -Line "Added new Git feature"
+```
+
+### feature "Added new Git feature" -Code -Show
+
+```powershell
+feature "Added new Git feature" -Code -Show
+```
 
 ## Related Links
 

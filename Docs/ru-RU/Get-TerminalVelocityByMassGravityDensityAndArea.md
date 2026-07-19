@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Вычисляет терминальную скорость.
+
+## Description
+
+Используется v = sqrt(2 m g / (ρ A C)).
 
 ## Syntax
 
@@ -22,6 +26,24 @@ Get-TerminalVelocityByMassGravityDensityAndArea [-MassInKilograms] <double> [[-G
 | `-AreaInSquareMeters` | Double | ✅ | — | 3 | `0` | Площадь поперечного сечения в м² |
 | `-DragCoefficient` | Double | — | — | 4 | `0` | Коэффициент лобового сопротивления (по умолчанию: 0.5) |
 | `-As` | String | — | — | 5 | — | Единица измерения скорости |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-TerminalVelocityByMassGravityDensityAndArea -MassInKilograms 80 -DensityInKilogramsPerCubicMeter 1.225 -AreaInSquareMeters 0.7 -DragCoefficient 1.0 -As "mph"
+```
+
+Вычисляет конечную скорость для массы 80 кг в воздухе с коэффициентом лобового сопротивления 1,0, выводя результат в милях в час.
+
+### Example 2
+
+```powershell
+Get-TerminalVelocityByMassGravityDensityAndArea 70 1.225 0.8 0.8
+```
+
+Использует позиционные параметры для расчета конечной скорости.
 
 ## Related Links
 

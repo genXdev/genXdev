@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Haalt kolomgegevens op uit een SQL-view met optionele recordbeperking.
+
+## Description
+
+Voert een SELECT-query uit tegen een opgegeven SQL-weergave om gegevens uit één kolom op te halen. Ondersteunt verbinding via een verbindingstekenreeks of een databasebestandspad. Hiermee kunt u het aantal geretourneerde records beperken of alle records ophalen.
 
 ## Syntax
 
@@ -26,6 +30,23 @@ Get-SQLServerViewColumnData -ViewName <String> -ColumnName <String> [[-Count] <I
 | `-ViewName` | String | ✅ | — | 2 | — | De naam van de weergave. |
 | `-ColumnName` | String | ✅ | — | 3 | — | De naam van de kolom. |
 | `-Count` | Int32 | — | — | 4 | `100` | Het aantal records om terug te geven. Standaard is 100. -1 voor alle. |
+
+## Examples
+
+### Get-SQLServerViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `     -ViewName "CustomersView" `     -ColumnName "Email" `     -Count 50
+
+```powershell
+Get-SQLServerViewColumnData -DatabaseFilePath "C:\MyDB.sqlite" `
+    -ViewName "CustomersView" `
+    -ColumnName "Email" `
+    -Count 50
+```
+
+### Get-SQLServerViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+
+```powershell
+Get-SQLServerViewColumnData "C:\MyDB.sqlite" "CustomersView" "Email"
+```
 
 ## Related Links
 

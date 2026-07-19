@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 지정된 GenXdev cmdlet을 Visual Studio Code에서 엽니다.
+
+## Description
+
+이 함수는 지정된 GenXdev cmdlet에 대한 스크립트 파일과 줄 번호를 검색하여 Visual Studio Code에서 엽니다. UnitTests 스위치 매개변수에 따라 기본 함수 구현 또는 관련 단위 테스트를 열 수 있습니다.
 
 ## Syntax
 
@@ -63,6 +67,22 @@ if __name__ == '__main__':
 | `-PromptKey` | String | — | — | Named | — | 템플릿 선택에 사용할 AI 프롬프트 키 *(Parameter set: )* |
 | `-Prompt` | String | — | — | Named | `"Create a boilerplate GenXdev cmdlet that does what it's name suggests"` | Custom AI prompt text to use for cmdlet generation |
 | `-EditPrompt` | SwitchParameter | — | — | Named | — | Only edit the AI prompt without creating the cmdlet |
+
+## Examples
+
+### Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo" Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+
+```powershell
+Show-GenXdevCmdLetInIde -CmdletName "Get-GenXDevModuleInfo"
+Opens the implementation of Get-GenXDevModuleInfo in VSCode.
+```
+
+### editcmdlet Get-GenXDevModuleInfo -UnitTests Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+
+```powershell
+editcmdlet Get-GenXDevModuleInfo -UnitTests
+Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+```
 
 ## Related Links
 

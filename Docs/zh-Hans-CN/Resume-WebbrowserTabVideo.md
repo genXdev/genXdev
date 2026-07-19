@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> 在YouTube浏览器标签页中恢复视频播放。
+
+## Description
+
+查找活动的 YouTube 浏览器标签页，并通过在页面中找到的任何视频元素上执行 play() 方法来恢复视频播放。如果没有找到 YouTube 标签页，该函数会抛出错误。这个函数对于在浏览器会话中自动化视频播放控制特别有用。
 
 ## Syntax
 
@@ -42,6 +46,20 @@
 
     end {
     }
+```
+
+## Examples
+
+### Resume-WebbrowserTabVideo
+
+```powershell
+Resume-WebbrowserTabVideo
+```
+
+### wbvideoplay
+
+```powershell
+wbvideoplay
 ```
 
 ## Related Links

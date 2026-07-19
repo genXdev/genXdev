@@ -4,7 +4,11 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Berechnet die Reichweite eines Projektils.
+
+## Description
+
+Verwendet die Formel R = (v² sin(2θ)) / g für die ideale Projektilbewegung.
 
 ## Syntax
 
@@ -20,6 +24,24 @@ Get-ProjectileRangeByInitialSpeedAndAngle [-InitialSpeedInMetersPerSecond] <doub
 | `-AngleInDegrees` | Double | ✅ | — | 1 | `0` | Startwinkel in Grad |
 | `-GravityInMetersPerSecondSquared` | Double | — | — | 2 | `0` | Schwerkraft in m/s² (Standard: 9,81) |
 | `-As` | String | — | — | 3 | — | Output unit for range |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-ProjectileRangeByInitialSpeedAndAngle -InitialSpeedInMetersPerSecond 20 -AngleInDegrees 45 -As "feet"
+```
+
+Berechnet die Reichweite mithilfe der Formel für die Wurfparabel.
+
+### Example 2
+
+```powershell
+Get-ProjectileRangeByInitialSpeedAndAngle 30 30
+```
+
+Berechnet den Bereich mit Positionsparametern.
 
 ## Related Links
 

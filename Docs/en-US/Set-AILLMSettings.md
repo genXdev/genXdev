@@ -4,7 +4,47 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Sets the LLM settings for AI operations in GenXdev.AI.
+
+## Description
+
+This f        [int] $TimeoutSeconds,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Whether the endpoint does not support json_schema response format'
+        )]
+        [switch] $NoSupportForJsonSchema,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Whether the endpoint does not support image upload functionality'
+        )]
+        [switch] $NoSupportForImageUpload,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Whether the endpoint does not support tool calling functionality'
+        )]
+        [switch] $NoSupportForToolCalls,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('Store the settings only in the current session without ' +
+                'persisting')
+        )]
+        [switch] $SessionOnly,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('Clear alternative settings stored in session for AI ' +
+                'preferences')
+        )]
+        [switch] $ClearSession,res the LLM (Large Language Model) settings used by the
+GenXdev.AI module for various AI operations. Settings can be stored persistently
+in preferences (default), only in the current session (using -SessionOnly), or
+cleared from the session (using -ClearSession). The function validates that at
+least one setting parameter is provided unless clearing session settings.
 
 ## Syntax
 
@@ -27,6 +67,43 @@ Set-AILLMSettings -LLMQueryType <String> [[-Model] <String>] [[-ApiEndpoint] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | Clear alternative settings stored in session for AI preferences |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Database path for preference data files |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Store settings only in persistent preferences without affecting session |
+
+## Examples
+
+### Set-AILLMSettings -LLMQueryType "Coding" -Model "*Qwen*14B*"
+
+```powershell
+Set-AILLMSettings -LLMQueryType "Coding" -Model "*Qwen*14B*"
+```
+
+Sets the LLM settings for Coding query type persistently in preferences.
+
+### Set-AILLMSettings -LLMQueryType "SimpleIntelligence" -Model "maziyarpanahi/llama-3-groq-8b-tool-use" -SessionOnly
+
+```powershell
+Set-AILLMSettings -LLMQueryType "SimpleIntelligence" -Model "maziyarpanahi/llama-3-groq-8b-tool-use" -SessionOnly
+```
+
+Sets the LLM settings for SimpleIntelligence only for the current
+session.
+
+### Set-AILLMSettings -LLMQueryType "Pictures" -ClearSession
+
+```powershell
+Set-AILLMSettings -LLMQueryType "Pictures" -ClearSession
+```
+
+Clears the session LLM settings for Pictures query type without affecting
+persistent preferences.
+
+### Set-AILLMSettings "Coding" "*Qwen*14B*"
+
+```powershell
+Set-AILLMSettings "Coding" "*Qwen*14B*"
+```
+
+Sets the LLM settings for Coding query type using positional parameters.
+##############################################################################
 
 ## Related Links
 

@@ -4,7 +4,47 @@
 
 ## Synopsis
 
-> *(No synopsis provided)*
+> Legt die LLM-Einstellungen für KI-Operationen in GenXdev.AI fest.
+
+## Description
+
+[int] $TimeoutSeconds,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Gibt an, dass der Endpunkt das json_schema-Antwortformat nicht unterstützt'
+        )]
+        [switch] $NoSupportForJsonSchema,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Gibt an, dass der Endpunkt das Hochladen von Bildern nicht unterstützt'
+        )]
+        [switch] $NoSupportForImageUpload,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Gibt an, dass der Endpunkt die Funktion zum Aufrufen von Tools nicht unterstützt'
+        )]
+        [switch] $NoSupportForToolCalls,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('Speichert die Einstellungen nur in der aktuellen Sitzung, ohne ' +
+                'sie dauerhaft zu speichern')
+        )]
+        [switch] $SessionOnly,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('Löscht alternative Einstellungen, die in der Sitzung für KI-' +
+                'Präferenzen gespeichert wurden')
+        )]
+        [switch] $ClearSession, verwaltet die LLM-Einstellungen (Large Language Model), die vom
+GenXdev.AI-Modul für verschiedene KI-Operationen verwendet werden. Einstellungen können dauerhaft
+in den Voreinstellungen (Standard), nur in der aktuellen Sitzung (mit -SessionOnly) oder
+aus der Sitzung gelöscht (mit -ClearSession) gespeichert werden. Die Funktion stellt sicher, dass
+mindestens ein Einstellungsparameter angegeben wird, es sei denn, die Sitzungseinstellungen werden gelöscht.
 
 ## Syntax
 
@@ -27,6 +67,42 @@ Set-AILLMSettings -LLMQueryType <String> [[-Model] <String>] [[-ApiEndpoint] <St
 | `-ClearSession` | SwitchParameter | — | — | Named | — | In der Sitzung gespeicherte alternative Einstellungen für KI-Präferenzen löschen |
 | `-PreferencesDatabasePath` | String | — | — | Named | — | Datenbankpfad für Präferenzdatendateien |
 | `-SkipSession` | SwitchParameter | — | — | Named | — | Nur Einstellungen in dauerhaften Präferenzen speichern, ohne die Sitzung zu beeinflussen |
+
+## Examples
+
+### Set-AILLMSettings -LLMQueryType "Coding" -Model "*Qwen*14B*"
+
+```powershell
+Set-AILLMSettings -LLMQueryType "Coding" -Model "*Qwen*14B*"
+```
+
+Legt die LLM-Einstellungen für den Abfragetyp "Coding" dauerhaft in den Voreinstellungen fest.
+
+### Set-AILLMSettings -LLMQueryType "SimpleIntelligence" -Model "maziyarpanahi/llama-3-groq-8b-tool-use" -SessionOnly
+
+```powershell
+Set-AILLMSettings -LLMQueryType "SimpleIntelligence" -Model "maziyarpanahi/llama-3-groq-8b-tool-use" -SessionOnly
+```
+
+Setzt die LLM-Einstellungen für SimpleIntelligence nur für die aktuelle
+Sitzung.
+
+### Set-AILLMSettings -LLMQueryType "Pictures" -ClearSession
+
+```powershell
+Set-AILLMSettings -LLMQueryType "Pictures" -ClearSession
+```
+
+Löscht die Sitzungs-LLM-Einstellungen für den Bildabfragetyp, ohne dauerhafte Einstellungen zu beeinflussen.
+
+### Set-AILLMSettings "Coding" "*Qwen*14B*"
+
+```powershell
+Set-AILLMSettings "Coding" "*Qwen*14B*"
+```
+
+Legt die LLM-Einstellungen für den Abfragetyp "Coding" mithilfe von Positionsparametern fest.
+##############################################################################
 
 ## Related Links
 
