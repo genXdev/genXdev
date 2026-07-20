@@ -1,6 +1,6 @@
 # Unprotect-WebbrowserTab
 
-> **Module:** GenXdev.Webbrowser.Playwright | **Type:** Function | **Aliases:** `wbctrl
+> **Module:** GenXdev.Webbrowser.Playwright | **Type:** Function | **Aliases:** `wbctrl`
 
 ## Synopsis
 
@@ -40,6 +40,43 @@ Unprotect-WebbrowserTab -UseCurrent
 wbctrl -Force
 ```
 
+## Parameter Details
+
+### `-UseCurrent`
+
+> Use current tab instead of selecting a new one
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `current` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Default |
+
+<hr/>
+### `-Force`
+
+> Restart browser if no debugging server detected
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Default |
+
+<hr/>
 ## Related Links
 
-- [Unprotect-WebbrowserTab on GitHub](https://github.com/genXdev/genXdev)
+- [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Connect-PlaywrightViaDebuggingPort.md)
+- [ensurePlaywright](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ensurePlaywright.md)
+- [Get-PlaywrightProfileDirectory](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PlaywrightProfileDirectory.md)
+- [Open-PlayWrightBrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-PlayWrightBrowser.md)
+- [Resume-WebbrowserTabVideo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Resume-WebbrowserTabVideo.md)
+- [Stop-WebbrowserVideos](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Stop-WebbrowserVideos.md)

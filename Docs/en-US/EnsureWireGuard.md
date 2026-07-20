@@ -91,10 +91,437 @@ EnsureWireGuard -PUID 1001 -PGID 1001 -TimeZone "America/New_York"
 EnsureWireGuard -Force
 ```
 
+## Parameter Details
+
+### `-ContainerName <String>`
+
+> The name for the Docker container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | `'wireguard'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-VolumeName <String>`
+
+> The name for the Docker volume for persistent storage
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | `'wireguard_data'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ServicePort <Int32>`
+
+> The port number for the WireGuard service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | `51839` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-HealthCheckTimeout <Int32>`
+
+> Maximum time in seconds to wait for service health check
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 3 |
+| **Default value** | `60` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-HealthCheckInterval <Int32>`
+
+> Interval in seconds between health check attempts
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 4 |
+| **Default value** | `3` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ImageName <String>`
+
+> Custom Docker image name to use
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 5 |
+| **Default value** | `'linuxserver/wireguard'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PUID <String>`
+
+> User ID for permissions in the container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 6 |
+| **Default value** | `'1000'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PGID <String>`
+
+> Group ID for permissions in the container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 7 |
+| **Default value** | `'1000'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-TimeZone <String>`
+
+> Timezone to use for the container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 8 |
+| **Default value** | `'Etc/UTC'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ShowWindow`
+
+> Show Docker Desktop window during initialization
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoBorders`
+
+> Removes the borders of the window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `nb` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Width <Int32>`
+
+> The initial width of the window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Height <Int32>`
+
+> The initial height of the window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Left`
+
+> Place window on the left side of the screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Right`
+
+> Place window on the right side of the screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Bottom`
+
+> Place window on the bottom side of the screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Centered`
+
+> Place window in the center of the screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Fullscreen`
+
+> Maximize the window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fs` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-RestoreFocus`
+
+> Restore PowerShell window focus
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `rf`, `bg` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SideBySide`
+
+> Will either set the window fullscreen on a different monitor than Powershell, or side by side with Powershell on the same monitor
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `sbs` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-FocusWindow`
+
+> Focus the window after opening
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fw`, `focus` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SetForeground`
+
+> Set the window to foreground after opening
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fg` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyEscape`
+
+> Escape control characters and modifiers when sending keys
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `Escape` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyHoldKeyboardFocus`
+
+> Hold keyboard focus on target window when sending keys
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `HoldKeyboardFocus` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyUseShiftEnter`
+
+> Use Shift+Enter instead of Enter when sending keys
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `UseShiftEnter` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyDelayMilliSeconds <Int32>`
+
+> Delay between different input strings in milliseconds when sending keys
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `DelayMilliSeconds` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SessionOnly`
+
+> Use alternative settings stored in session for AI preferences
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ClearSession`
+
+> Clear alternative settings stored in session for AI preferences
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SkipSession`
+
+> Store settings only in persistent preferences without affecting session
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `FromPreferences` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Force`
+
+> Force rebuild of Docker container and remove existing data
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ForceRebuild` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Outputs
 
 - `Boolean`
 
 ## Related Links
 
-- [EnsureWireGuard on GitHub](https://github.com/genXdev/genXdev)
+- [Add-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-WireGuardPeer.md)
+- [Get-WireGuardPeerQRCode](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardPeerQRCode.md)
+- [Get-WireGuardPeers](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardPeers.md)
+- [Get-WireGuardStatus](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardStatus.md)
+- [Remove-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-WireGuardPeer.md)
+- [Reset-WireGuardConfiguration](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Reset-WireGuardConfiguration.md)

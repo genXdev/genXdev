@@ -1,6 +1,6 @@
 # Add-IdeaLineToREADME
 
-> **Module:** GenXdev.Coding | **Type:** Function | **Aliases:** `idea
+> **Module:** GenXdev.Coding | **Type:** Function | **Aliases:** `idea`
 
 ## Synopsis
 
@@ -45,6 +45,147 @@ Add-IdeaLineToREADME -Line "Create new PowerShell module" -Show
 idea "New feature idea" -UseOneDriveREADME
 ```
 
+## Parameter Details
+
+### `-Line <String>`
+
+> The idea text to add
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | `''` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Code`
+
+> Open README in Visual Studio Code
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Show`
+
+> Show the modified section
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-UseHomeREADME`
+
+> Use README in PowerShell profile directory
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-UseOneDriveREADME`
+
+> Use README in OneDrive directory
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Priority <Int32>`
+
+> Priority for sorting (higher = shown first, default 1)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SortByDate`
+
+> Sort lines by date (yyyyMMdd prefix) instead of priority
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Ascending`
+
+> Reverse the sort order (ascending instead of descending)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-First <Int32>`
+
+> Limit -Show output to the first N lines
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Add-IdeaLineToREADME on GitHub](https://github.com/genXdev/genXdev)
+- [Add-FeatureLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-FeatureLineToREADME.md)
+- [Add-IssueLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-IssueLineToREADME.md)
+- [Add-LineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-LineToREADME.md)
+- [Add-ReleaseNoteLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-ReleaseNoteLineToREADME.md)
+- [Add-TodoLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-TodoLineToREADME.md)
+- [EnsureVSCodeInstallation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureVSCodeInstallation.md)
+- [Get-Features](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Features.md)
+- [Get-Ideas](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Ideas.md)
+- [Get-Issues](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Issues.md)
+- [Get-ReleaseNotes](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ReleaseNotes.md)
+- [Get-Todoos](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Todoos.md)
+- [Open-SourceFileInIde](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-SourceFileInIde.md)
+- [Publish-ReleaseNotesToManifest](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Publish-ReleaseNotesToManifest.md)
+- [VSCode](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/VSCode.md)

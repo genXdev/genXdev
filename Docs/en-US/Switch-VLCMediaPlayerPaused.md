@@ -1,6 +1,6 @@
 # Switch-VLCMediaPlayerPaused
 
-> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcpause, `vlcplay
+> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcpause`, `vlcplay`
 
 ## Synopsis
 
@@ -15,28 +15,7 @@ after sending the key command.
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    [Alias('vlcpause', 'vlcplay')]
-
-    param (
-    )
-
-    begin {
-
-    }
-
-    process {
-
-        # send space key to vlc media player to toggle pause/play state
-        Microsoft.PowerShell.Utility\Write-Verbose "Toggling VLC Media Player pause/play state"
-
-        # send the space key command and restore focus to original window
-        GenXdev\Open-VlcMediaPlayer -KeysToSend ' ' -RestoreFocus
-    }
-
-    end {
-
-    }
+Switch-VLCMediaPlayerPaused [<CommonParameters>]
 ```
 
 ## Examples
@@ -67,4 +46,9 @@ Uses the alternate alias to toggle the pause/play state.
 
 ## Related Links
 
-- [Switch-VLCMediaPlayerPaused on GitHub](https://github.com/genXdev/genXdev)
+- [Open-VlcMediaPlayer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayer.md)
+- [Open-VlcMediaPlayerLyrics](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayerLyrics.md)
+- [Start-VlcMediaPlayerNextInPlaylist](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-VlcMediaPlayerNextInPlaylist.md)
+- [Start-VlcMediaPlayerPreviousInPlaylist](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-VlcMediaPlayerPreviousInPlaylist.md)
+- [Switch-VlcMediaPlayerMute](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VlcMediaPlayerMute.md)
+- [Switch-VlcMediaPlayerRepeat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VlcMediaPlayerRepeat.md)

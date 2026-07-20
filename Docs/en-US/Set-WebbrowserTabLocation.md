@@ -1,6 +1,6 @@
 # Set-WebbrowserTabLocation
 
-> **Module:** GenXdev.Webbrowser | **Type:** Function | **Aliases:** `lt, `Nav
+> **Module:** GenXdev.Webbrowser | **Type:** Function | **Aliases:** `lt`, `Nav`
 
 ## Synopsis
 
@@ -50,6 +50,154 @@ Set-WebbrowserTabLocation -Url "https://github.com/microsoft" -Edge
 "https://github.com/microsoft" | lt -ch
 ```
 
+## Parameter Details
+
+### `-Url <String>`
+
+> The URL to navigate to
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoAutoSelectTab`
+
+> Prevent automatic tab selection
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Edge`
+
+> Navigate using Microsoft Edge browser
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `e` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Edge |
+
+<hr/>
+### `-Chrome`
+
+> Navigate using Google Chrome browser
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ch` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Chrome |
+
+<hr/>
+### `-Chromium`
+
+> Navigate using Microsoft Edge or Google Chrome, depending on what the default browser is
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `c` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Firefox`
+
+> Navigate using Firefox browser
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ff` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Webkit`
+
+> Navigate using the Playwright-managed WebKit browser
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `wk` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Page <Object>`
+
+> Browser page object reference
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ByReference <PSObject>`
+
+> Browser session reference object
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Set-WebbrowserTabLocation on GitHub](https://github.com/genXdev/genXdev)
+- [Clear-WebbrowserTabSiteApplicationData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Clear-WebbrowserTabSiteApplicationData.md)
+- [Close-Webbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Close-Webbrowser.md)
+- [Close-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Close-WebbrowserTab.md)
+- [Export-BrowserBookmarks](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Export-BrowserBookmarks.md)
+- [Find-BrowserBookmark](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Find-BrowserBookmark.md)
+- [Get-BrowserBookmark](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-BrowserBookmark.md)
+- [Get-DefaultWebbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-DefaultWebbrowser.md)
+- [Get-PlaywrightSessionReference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PlaywrightSessionReference.md)
+- [Get-Webbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Webbrowser.md)
+- [Get-WebbrowserTabDomNodes](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WebbrowserTabDomNodes.md)
+- [Import-BrowserBookmarks](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Import-BrowserBookmarks.md)
+- [Import-GenXdevBookmarkletMenu](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Import-GenXdevBookmarkletMenu.md)
+- [Invoke-WebbrowserEvaluation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-WebbrowserEvaluation.md)
+- [Open-BrowserBookmarks](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-BrowserBookmarks.md)
+- [Open-Webbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-Webbrowser.md)
+- [Open-WebbrowserSideBySide](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WebbrowserSideBySide.md)
+- [Select-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Select-WebbrowserTab.md)
+- [Set-BrowserVideoFullscreen](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-BrowserVideoFullscreen.md)
+- [Show-WebsiteInAllBrowsers](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Show-WebsiteInAllBrowsers.md)

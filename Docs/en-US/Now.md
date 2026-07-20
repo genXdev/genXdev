@@ -15,26 +15,7 @@ datetime calculations, formatting, and comparisons.
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    [OutputType([System.DateTime])]
-    param()
-
-    begin {
-
-        # log function start with verbose output
-        Microsoft.PowerShell.Utility\Write-Verbose 'Starting Now function to retrieve system date and time'
-    }
-
-
-    process {
-
-        # return the current system datetime using .NET DateTime.Now property
-        # this provides high-precision timestamp including date and time
-        return [DateTime]::Now
-    }
-
-    end {
-    }
+Now [<CommonParameters>]
 ```
 
 ## Examples
@@ -59,4 +40,16 @@ Stores the current date and time in a variable for later use
 
 ## Related Links
 
-- [Now on GitHub](https://github.com/genXdev/genXdev)
+- [Enable-Screensaver](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Enable-Screensaver.md)
+- [Get-IsSpeaking](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-IsSpeaking.md)
+- [New-MicrosoftShellTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-MicrosoftShellTab.md)
+- [Open-MediaFile](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-MediaFile.md)
+- [SayDate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/SayDate.md)
+- [SayTime](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/SayTime.md)
+- [Set-MonitorPowerOff](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-MonitorPowerOff.md)
+- [Set-MonitorPowerOn](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-MonitorPowerOn.md)
+- [Set-VLCPlayerFocused](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-VLCPlayerFocused.md)
+- [Start-SnakeGame](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-SnakeGame.md)
+- [Start-TextToSpeech](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-TextToSpeech.md)
+- [Stop-TextToSpeech](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Stop-TextToSpeech.md)
+- [UtcNow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/UtcNow.md)

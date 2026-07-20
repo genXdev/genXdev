@@ -66,6 +66,185 @@ Classifies the scene using GPU acceleration for faster processing.
 Pipeline support for processing multiple images.
 ```
 
+## Parameter Details
+
+### `-ImagePath <String>`
+
+> The local path to the image file to analyze
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ConfidenceThreshold <Double>`
+
+> Minimum confidence threshold (0.0-1.0). Default is 0.0
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | `0.0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ContainerName <String>`
+
+> The name for the Docker container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | `'deepstack_face_recognition'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-VolumeName <String>`
+
+> The name for the Docker volume for persistent storage
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 3 |
+| **Default value** | `'deepstack_face_data'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ServicePort <Int32>`
+
+> The port number for the DeepStack service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 4 |
+| **Default value** | `5000` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-HealthCheckTimeout <Int32>`
+
+> Maximum time in seconds to wait for service health check
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 5 |
+| **Default value** | `60` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-HealthCheckInterval <Int32>`
+
+> Interval in seconds between health check attempts
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 6 |
+| **Default value** | `3` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ImageName <String>`
+
+> Custom Docker image name to use
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoDockerInitialize`
+
+> Skip Docker initialization (used when already called by parent function)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Force`
+
+> Force rebuild of Docker container and remove existing data
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ForceRebuild` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-UseGPU`
+
+> Use GPU-accelerated version (requires NVIDIA GPU)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ShowWindow`
+
+> Show Docker Desktop window during initialization
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `sw` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Get-ImageDetectedScenes on GitHub](https://github.com/genXdev/genXdev)
+- [Compare-ImageFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Compare-ImageFaces.md)
+- [EnsureDeepStack](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureDeepStack.md)
+- [Get-ImageDetectedFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ImageDetectedFaces.md)
+- [Get-ImageDetectedObjects](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ImageDetectedObjects.md)
+- [Get-RegisteredFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-RegisteredFaces.md)
+- [Invoke-ImageEnhancement](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-ImageEnhancement.md)
+- [Register-AllFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Register-AllFaces.md)
+- [Register-Face](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Register-Face.md)
+- [Unregister-AllFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unregister-AllFaces.md)
+- [Unregister-Face](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unregister-Face.md)

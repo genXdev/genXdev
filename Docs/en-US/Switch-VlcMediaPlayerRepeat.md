@@ -1,6 +1,6 @@
 # Switch-VlcMediaPlayerRepeat
 
-> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcrepeat
+> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcrepeat`
 
 ## Synopsis
 
@@ -16,25 +16,7 @@ window after sending the command.
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    [Alias('vlcrepeat')]
-
-    param(
-    )
-
-    begin {
-
-    }
-
-    process {
-
-        # send the repeat toggle key ('r') to vlc media player
-        GenXdev\Open-VlcMediaPlayer -KeysToSend 'r' -RestoreFocus
-    }
-
-    end {
-
-    }
+Switch-VlcMediaPlayerRepeat [<CommonParameters>]
 ```
 
 ## Examples
@@ -53,4 +35,9 @@ vlcrepeat
 
 ## Related Links
 
-- [Switch-VlcMediaPlayerRepeat on GitHub](https://github.com/genXdev/genXdev)
+- [Open-VlcMediaPlayer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayer.md)
+- [Open-VlcMediaPlayerLyrics](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayerLyrics.md)
+- [Start-VlcMediaPlayerNextInPlaylist](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-VlcMediaPlayerNextInPlaylist.md)
+- [Start-VlcMediaPlayerPreviousInPlaylist](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-VlcMediaPlayerPreviousInPlaylist.md)
+- [Switch-VlcMediaPlayerMute](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VlcMediaPlayerMute.md)
+- [Switch-VLCMediaPlayerPaused](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VLCMediaPlayerPaused.md)

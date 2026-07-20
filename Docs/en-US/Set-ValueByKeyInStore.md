@@ -1,6 +1,6 @@
 # Set-ValueByKeyInStore
 
-> **Module:** GenXdev.Data.KeyValueStore | **Type:** Cmdlet | **Aliases:** `setvalue
+> **Module:** GenXdev.Data.KeyValueStore | **Type:** Cmdlet | **Aliases:** `setvalue`
 
 ## Synopsis
 
@@ -13,7 +13,7 @@ Provides persistent storage for key-value pairs using JSON files. Handles both i
 ## Syntax
 
 ```powershell
-Set-ValueByKeyInStore [-StoreName] <string> [-KeyName] <string> [[-Value] <string>] [[-SynchronizationKey] <string>] [-DatabasePath <string>] [<CommonParameters>]
+Set-ValueByKeyInStore -StoreName <String> -KeyName <String> [[-Value] <String>] [[-SynchronizationKey] <String>] [-DatabasePath <String>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -45,6 +45,85 @@ setvalue ConfigStore ApiEndpoint "https://api.example.com"
 
 Use the alias to set a value.
 
+## Parameter Details
+
+### `-StoreName <String>`
+
+> Store name for the key-value pair
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-KeyName <String>`
+
+> Name of the key to set or update
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 1 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Value <String>`
+
+> Value to be stored
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SynchronizationKey <String>`
+
+> Key to identify synchronization scope
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 3 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-DatabasePath <String>`
+
+> Database path for key-value store data files
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Set-ValueByKeyInStore on GitHub](https://github.com/genXdev/genXdev)
+- [Get-KeyValueStoreNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-KeyValueStoreNames.md)
+- [Get-KeyValueStorePath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-KeyValueStorePath.md)
+- [Get-StoreKeys](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-StoreKeys.md)
+- [Get-ValueByKeyFromStore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ValueByKeyFromStore.md)
+- [Initialize-KeyValueStores](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Initialize-KeyValueStores.md)
+- [Remove-KeyFromStore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-KeyFromStore.md)
+- [Remove-KeyValueStore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-KeyValueStore.md)
+- [Sync-KeyValueStore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Sync-KeyValueStore.md)

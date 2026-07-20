@@ -1,6 +1,6 @@
 # Get-GitChangedFiles
 
-> **Module:** GenXdev.Coding.Git | **Type:** Cmdlet | **Aliases:** `gitchanged
+> **Module:** GenXdev.Coding.Git | **Type:** Cmdlet | **Aliases:** `gitchanged`
 
 ## Synopsis
 
@@ -40,9 +40,26 @@ Get-GitChangedFiles -PassThru
 
 Returns FileInfo objects for each changed file.
 
+## Parameter Details
+
+### `-PassThru`
+
+> Returns FileInfo objects (like Get-ChildItem) instead of path strings.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Outputs
 
 
 ## Related Links
 
-- [Get-GitChangedFiles on GitHub](https://github.com/genXdev/genXdev)
+- [New-GitCommit](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-GitCommit.md)
+- [PermanentlyDeleteGitFolders](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/PermanentlyDeleteGitFolders.md)

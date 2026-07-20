@@ -1,6 +1,6 @@
 # Get-SQLiteTransaction
 
-> **Module:** GenXdev.Data.SQLite | **Type:** Function | **Aliases:** `getsqltx, `newsqltx
+> **Module:** GenXdev.Data.SQLite | **Type:** Function | **Aliases:** `getsqltx`, `newsqltx`
 
 ## Synopsis
 
@@ -64,6 +64,106 @@ $transaction = Get-SQLiteTransaction -ConnectionString "Data Source=C:\data.db"
 $transaction = Get-SQLiteTransaction -DatabaseFilePath "C:\data.db" -ConsentToThirdPartySoftwareInstallation
 ```
 
+## Parameter Details
+
+### `-ConnectionString <String>`
+
+> The connection string to the SQLite database.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | ConnectionString |
+
+<hr/>
+### `-DatabaseFilePath <String>`
+
+> The path to the SQLite database file.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `dbpath`, `indexpath` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | DatabaseFilePath |
+
+<hr/>
+### `-IsolationLevel <String>`
+
+> Transaction isolation level.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `"ReadCommitted"` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-CreateDatabaseIfNotExists <Boolean>`
+
+> Whether to create the database file if it does not exist.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `$true` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ForceConsent`
+
+> Force a consent prompt even if preference is set for SQLite package installation.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ConsentToThirdPartySoftwareInstallation`
+
+> Automatically consent to third-party software installation and set persistent flag for SQLite package.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Get-SQLiteTransaction on GitHub](https://github.com/genXdev/genXdev)
+- [EnsureSQLiteStudioInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureSQLiteStudioInstalled.md)
+- [Get-SQLiteSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteSchema.md)
+- [Get-SQLiteTableColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteTableColumnData.md)
+- [Get-SQLiteTableData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteTableData.md)
+- [Get-SQLiteTables](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteTables.md)
+- [Get-SQLiteTableSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteTableSchema.md)
+- [Get-SQLiteViewColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteViewColumnData.md)
+- [Get-SQLiteViewData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteViewData.md)
+- [Get-SQLiteViews](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteViews.md)
+- [Get-SQLiteViewSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteViewSchema.md)
+- [Invoke-SQLiteQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-SQLiteQuery.md)
+- [Invoke-SQLiteStudio](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-SQLiteStudio.md)
+- [New-SQLiteDatabase](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-SQLiteDatabase.md)

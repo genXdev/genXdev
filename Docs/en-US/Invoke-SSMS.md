@@ -1,6 +1,6 @@
 # Invoke-SSMS
 
-> **Module:** GenXdev.Data.SqlServer | **Type:** Function | **Aliases:** `ssms, `sqlservermanagementstudio
+> **Module:** GenXdev.Data.SqlServer | **Type:** Function | **Aliases:** `ssms`, `sqlservermanagementstudio`
 
 ## Synopsis
 
@@ -18,34 +18,7 @@ Provides a PowerShell interface for executing SQL Server queries with support fo
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    [Alias("ssms", "sqlservermanagementstudio")]
-    param (
-    )
-
-    begin {
-
-        EnsureSSMS
-    }
-
-
-    process {
-
-
-    }
-
-    end {
-        $searchPath  = GenXdev\Find-Item `
-             "${Env:ProgramFiles(x86)}\*SQL Server Management*\Ssms.exe",
-             "${Env:ProgramFiles}\*SQL Server Management*\Ssms.exe" |
-             Microsoft.PowerShell.Utility\Sort-Object LastWriteTime -Descending | Microsoft.PowerShell.Utility\Select-Object -First 1
-
-        if (-not $searchPath) {
-            Throw "SSMS not found after installation attempt."
-        }
-
-        & $searchPath
-    }
+Invoke-SSMS [<CommonParameters>]
 ```
 
 ## Examples
@@ -67,4 +40,16 @@ Invoke-SSMS `
 
 ## Related Links
 
-- [Invoke-SSMS on GitHub](https://github.com/genXdev/genXdev)
+- [EnsureSSMSInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureSSMSInstalled.md)
+- [Get-SQLServerSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerSchema.md)
+- [Get-SQLServerTableColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTableColumnData.md)
+- [Get-SQLServerTableData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTableData.md)
+- [Get-SQLServerTables](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTables.md)
+- [Get-SQLServerTableSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTableSchema.md)
+- [Get-SQLServerTransaction](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTransaction.md)
+- [Get-SQLServerViewColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViewColumnData.md)
+- [Get-SQLServerViewData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViewData.md)
+- [Get-SQLServerViews](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViews.md)
+- [Get-SQLServerViewSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViewSchema.md)
+- [Invoke-SQLServerQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-SQLServerQuery.md)
+- [New-SQLServerDatabase](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-SQLServerDatabase.md)

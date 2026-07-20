@@ -57,6 +57,167 @@ Reset-WireGuardConfiguration -Force -ContainerName "my-wireguard"
 Resets the WireGuard configuration for a custom container name without
 confirmation prompts.
 
+## Parameter Details
+
+### `-ContainerName <String>`
+
+> The name for the Docker container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | `'wireguard'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-VolumeName <String>`
+
+> The name for the Docker volume for persistent storage
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | `'wireguard_data'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ServicePort <Int32>`
+
+> The port number for the WireGuard service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | `51839` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-HealthCheckTimeout <Int32>`
+
+> Maximum time in seconds to wait for service health check
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 3 |
+| **Default value** | `60` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-HealthCheckInterval <Int32>`
+
+> Interval in seconds between health check attempts
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 4 |
+| **Default value** | `3` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ImageName <String>`
+
+> Custom Docker image name to use
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 5 |
+| **Default value** | `'linuxserver/wireguard'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PUID <String>`
+
+> User ID for permissions in the container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 6 |
+| **Default value** | `'1000'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PGID <String>`
+
+> Group ID for permissions in the container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 7 |
+| **Default value** | `'1000'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-TimeZone <String>`
+
+> Timezone to use for the container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 8 |
+| **Default value** | `'Etc/UTC'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoDockerInitialize`
+
+> Skip Docker initialization (used when already called by parent function)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Force`
+
+> Force reset without confirmation
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Reset-WireGuardConfiguration on GitHub](https://github.com/genXdev/genXdev)
+- [Add-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-WireGuardPeer.md)
+- [EnsureWireGuard](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureWireGuard.md)
+- [Get-WireGuardPeerQRCode](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardPeerQRCode.md)
+- [Get-WireGuardPeers](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardPeers.md)
+- [Get-WireGuardStatus](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardStatus.md)
+- [Remove-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-WireGuardPeer.md)

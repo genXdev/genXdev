@@ -18,158 +18,7 @@ The function handles all prerequisites and ensures a working Paint.NET installat
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
-    param()
-
-    begin {
-        # ensure graphics assembly is loaded for image processing
-        if (-not [System.Drawing.Rectangle]) {
-
-            Microsoft.PowerShell.Utility\Add-Type -AssemblyName System.Drawing
-        }
-
-        ########################################################################
-        <#
-        .SYNOPSIS
-        Verifies if WinGet PowerShell module is installed.
-
-        .DESCRIPTION
-        Attempts to import WinGet module and checks if it's available.
-
-        .OUTPUTS
-        System.Boolean. Returns true if WinGet is installed, false otherwise.
-        #>
-        function IsWinGetInstalled {
-            try {
-                Microsoft.PowerShell.Core\Import-Module 'Microsoft.WinGet.Client' -ErrorAction Stop
-                $ModuleObj = Microsoft.PowerShell.Core\Get-Module 'Microsoft.WinGet.Client' -ErrorAction Stop
-                return $null -ne $ModuleObj
-            }
-            catch [System.IO.FileNotFoundException] {
-                Microsoft.PowerShell.Utility\Write-Verbose 'WinGet module not found'
-                return $false
-            }
-            catch {
-                Microsoft.PowerShell.Utility\Write-Verbose "Error checking WinGet installation: $_"
-                return $false
-            }
-        }
-
-        ########################################################################
-        <#
-        .SYNOPSIS
-        Installs the WinGet PowerShell module.
-
-        .DESCRIPTION
-        Forces installation of the Microsoft.WinGet.Client module and imports it.
-        #>
-        function InstallWinGet {
-            try {
-                # Request consent before installing WinGet PowerShell module
-                $wingetConsent = GenXdev\Confirm-InstallationConsent `
-                    -ApplicationName 'Microsoft.WinGet.Client PowerShell Module' `
-                    -Source 'PowerShell Gallery' `
-                    -Description 'Required for automated software package management via WinGet' `
-                    -Publisher 'Microsoft'
-
-                if (-not $wingetConsent) {
-                    throw 'User declined installation of Microsoft.WinGet.Client PowerShell module'
-                }
-
-                Microsoft.PowerShell.Utility\Write-Verbose 'Installing WinGet PowerShell client...'
-                PowerShellGet\Install-Module 'Microsoft.WinGet.Client' -Force -AllowClobber -ErrorAction Stop
-                Microsoft.PowerShell.Core\Import-Module 'Microsoft.WinGet.Client' -ErrorAction Stop
-            }
-            catch [System.UnauthorizedAccessException] {
-                throw "Insufficient permissions to install WinGet module. Run as administrator: $_"
-            }
-            catch {
-                throw "Failed to install WinGet module: $_"
-            }
-        }
-    }
-    process {
-        try {
-            # First, ensure current session PATH is up to date with both Machine and User PATH
-            $paintNetPath = 'C:\Program Files\paint.net'
-
-            # Only add Paint.NET path to user PATH if it's not already present
-            $userPath = [Environment]::GetEnvironmentVariable('PATH', 'User')
-            if ($userPath -notlike "*$paintNetPath*") {
-                $userPath = "$userPath;$paintNetPath"
-                [System.Environment]::SetEnvironmentVariable('PATH', $userPath, 'User')
-            }
-
-            # Only update session PATH if Paint.NET path is not already in current session
-            if ($env:PATH -notlike "*$paintNetPath*") {
-                $env:PATH = "$env:PATH;$paintNetPath"
-            }
-
-            # Check if Paint.NET is already accessible
-            Microsoft.PowerShell.Utility\Write-Verbose 'Paint.NET not found in PATH, checking installation...'
-
-            # Check again after updating PATH
-            if (@(Microsoft.PowerShell.Core\Get-Command 'paintdotnet.exe' -ErrorAction SilentlyContinue).Length -eq 0) {
-
-                # Request consent before installing Paint.NET
-                $paintNetConsent = GenXdev\Confirm-InstallationConsent `
-                    -ApplicationName 'Paint.NET' `
-                    -Source 'WinGet' `
-                    -Description 'Image editing software required for graphics processing operations' `
-                    -Publisher 'dotPDN LLC'
-
-                if (-not $paintNetConsent) {
-                    throw 'User declined installation of Paint.NET. Cannot proceed without image editing capabilities.'
-                }
-
-                Microsoft.PowerShell.Utility\Write-Verbose 'Installing Paint.NET...'
-
-                if (-not (IsWinGetInstalled)) {
-
-                    InstallWinGet
-                }
-
-                try {
-                    $null = Microsoft.WinGet.Client\Install-WinGetPackage -Id 'dotPDN.PaintDotNet' -Force
-                }
-                catch {
-                    throw "Failed to install Paint.NET via WinGet: $_"
-                }                    # Update PATH after installation
-                $userPath = [Environment]::GetEnvironmentVariable('PATH', 'User')
-                if ($userPath -notlike "*$paintNetPath*") {
-                    try {
-                        Microsoft.PowerShell.Utility\Write-Verbose 'Adding Paint.NET to User PATH after installation...'
-                        [Environment]::SetEnvironmentVariable(
-                            'PATH',
-                            "$userPath;$paintNetPath",
-                            'User')
-                        # Update current session PATH only if not already present
-                        if ($env:PATH -notlike "*$paintNetPath*") {
-                            $env:PATH = "$env:PATH;$paintNetPath"
-                        }
-                    }
-                    catch [System.Security.SecurityException] {
-                        throw "Access denied while updating PATH environment variable: $_"
-                    }
-                }
-
-                if (-not (Microsoft.PowerShell.Core\Get-Command 'paintdotnet.exe' -ErrorAction SilentlyContinue)) {
-                    throw 'Paint.NET installation failed: paintdotnet.exe not found after installation'
-                }
-            }
-
-            Microsoft.PowerShell.Utility\Write-Verbose "Paint.NET is now available at: $(Microsoft.PowerShell.Core\Get-Command 'paintdotnet.exe' -ErrorAction SilentlyContinue | Microsoft.PowerShell.Utility\Select-Object -ExpandProperty Source)"
-        }
-        catch {
-            $errorMessage = "Failed to setup Paint.NET: $($_.Exception.Message)"
-            Microsoft.PowerShell.Utility\Write-Error -Exception $_.Exception -Message $errorMessage -Category OperationStopped
-            throw
-        }
-    }
-
-    end {}
+EnsurePaintNet [<CommonParameters>]
 ```
 
 ## Examples
@@ -183,4 +32,38 @@ This will verify and setup Paint.NET if needed.
 
 ## Related Links
 
-- [EnsurePaintNet on GitHub](https://github.com/genXdev/genXdev)
+- [Approve-NewTextFileContent](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Approve-NewTextFileContent.md)
+- [Convert-DotNetTypeToLLMType](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Convert-DotNetTypeToLLMType.md)
+- [ConvertTo-LLMOpenAIApiFunctionDefinition](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ConvertTo-LLMOpenAIApiFunctionDefinition.md)
+- [EnsureGithubCLIInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureGithubCLIInstalled.md)
+- [EnsureHuggingFace](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureHuggingFace.md)
+- [EnsurePip](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePip.md)
+- [EnsurePython](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePython.md)
+- [EnsureWinMergeInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureWinMergeInstalled.md)
+- [GenerateMasonryLayoutHtml](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/GenerateMasonryLayoutHtml.md)
+- [Get-AIDefaultLLMSettings](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-AIDefaultLLMSettings.md)
+- [Get-AILLMSettings](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-AILLMSettings.md)
+- [Get-AudioDeviceNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-AudioDeviceNames.md)
+- [Get-CpuCore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-CpuCore.md)
+- [Get-HasCapableGpu](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-HasCapableGpu.md)
+- [Get-NumberOfCpuCores](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-NumberOfCpuCores.md)
+- [Get-SpeechToText](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SpeechToText.md)
+- [Get-TextTranslation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-TextTranslation.md)
+- [Get-VectorSimilarity](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-VectorSimilarity.md)
+- [Invoke-CommandFromToolCall](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-CommandFromToolCall.md)
+- [Invoke-HuggingFaceCli](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-HuggingFaceCli.md)
+- [Invoke-LLMBooleanEvaluation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-LLMBooleanEvaluation.md)
+- [Invoke-LLMQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-LLMQuery.md)
+- [Invoke-LLMStringListEvaluation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-LLMStringListEvaluation.md)
+- [Invoke-LLMTextTransformation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-LLMTextTransformation.md)
+- [Invoke-WinMerge](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-WinMerge.md)
+- [Merge-TranslationCache](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Merge-TranslationCache.md)
+- [New-GenXdevMCPToken](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-GenXdevMCPToken.md)
+- [New-LLMAudioChat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-LLMAudioChat.md)
+- [New-LLMTextChat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-LLMTextChat.md)
+- [Receive-RealTimeSpeechToText](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Receive-RealTimeSpeechToText.md)
+- [Set-AILLMSettings](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-AILLMSettings.md)
+- [Set-GenXdevAICommandNotFoundAction](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevAICommandNotFoundAction.md)
+- [Start-GenXdevMCPServer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-GenXdevMCPServer.md)
+- [Test-CpuAvx](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Test-CpuAvx.md)
+- [Test-DeepLinkImageFile](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Test-DeepLinkImageFile.md)

@@ -1,6 +1,6 @@
 # Remove-GenXdevPreference
 
-> **Module:** GenXdev.Data.Preferences | **Type:** Cmdlet | **Aliases:** `removePreference
+> **Module:** GenXdev.Data.Preferences | **Type:** Cmdlet | **Aliases:** `removePreference`
 
 ## Synopsis
 
@@ -17,7 +17,7 @@
 ## Syntax
 
 ```powershell
-Remove-GenXdevPreference [-Name] <string> [-RemoveDefault] [-SessionOnly] [-ClearSession] [-PreferencesDatabasePath <string>] [-SkipSession] [<CommonParameters>]
+Remove-GenXdevPreference -Name <String> [-ClearSession] [-PreferencesDatabasePath <String>] [-RemoveDefault] [-SessionOnly] [-SkipSession] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -49,6 +49,97 @@ removePreference "Theme" -RemoveDefault
 
 Removes the "Theme" preference from both local and default stores.
 
+## Parameter Details
+
+### `-Name <String>`
+
+> The name of the preference to remove
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-RemoveDefault`
+
+> Switch to also remove the preference from defaults
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SessionOnly`
+
+> Use alternative settings stored in session for Data preferences like Language, Database paths, etc
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ClearSession`
+
+> Clear the session setting (Global variable) before retrieving
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PreferencesDatabasePath <String>`
+
+> Database path for preference data files
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `DatabasePath` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SkipSession`
+
+> Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Remove-GenXdevPreference on GitHub](https://github.com/genXdev/genXdev)
+- [Get-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevPreference.md)
+- [Get-GenXdevPreferenceNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevPreferenceNames.md)
+- [Get-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevPreferencesDatabasePath.md)
+- [Set-GenXdevDefaultPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevDefaultPreference.md)
+- [Set-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevPreference.md)
+- [Set-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevPreferencesDatabasePath.md)

@@ -16,57 +16,7 @@ Pester testing capabilities are available when needed.
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    param()
-
-    begin {
-
-        # inform user that we're checking pester installation
-        Microsoft.PowerShell.Utility\Write-Verbose 'Checking for Pester module installation...'
-    }
-
-
-    process {
-
-        # attempt silent import of pester to check if it's available
-        Microsoft.PowerShell.Core\Import-Module -Name Pester -ErrorAction SilentlyContinue
-
-        $found = (Microsoft.PowerShell.Core\Get-Module -Name Pester -ErrorAction SilentlyContinue);
-
-        # verify if pester module is now loaded in the current session
-        if ((-not $found) -or ($found.Version -lt '5.7.0')) {
-
-            # notify about installation attempt through verbose and regular output
-            Microsoft.PowerShell.Utility\Write-Verbose 'Pester module not found, attempting installation...'
-            Microsoft.PowerShell.Utility\Write-Host 'Pester not found. Installing Pester...'
-
-            try {
-                # install pester module from the powershell gallery
-                $null = PowerShellGet\Install-Module -Name Pester `
-                    -Force `
-                    -SkipPublisherCheck
-
-                # load the newly installed pester module
-                $null = Microsoft.PowerShell.Core\Import-Module -Name Pester -Force
-
-                # confirm successful installation
-                Microsoft.PowerShell.Utility\Write-Host 'Pester installed successfully.'
-                Microsoft.PowerShell.Utility\Write-Verbose 'Pester module installation and import completed.'
-            }
-            catch {
-                # report any installation failures
-                Microsoft.PowerShell.Utility\Write-Error "Failed to install Pester. Error: $PSItem"
-                Microsoft.PowerShell.Utility\Write-Verbose 'Pester installation failed with error.'
-            }
-        }
-        else {
-            # inform that pester is already available
-            Microsoft.PowerShell.Utility\Write-Verbose 'Pester module already installed and imported.'
-        }
-    }
-
-    end {
-    }
+EnsurePester [<CommonParameters>]
 ```
 
 ## Examples
@@ -80,4 +30,31 @@ This ensures Pester is installed and ready for use
 
 ## Related Links
 
-- [EnsurePester on GitHub](https://github.com/genXdev/genXdev)
+- [Confirm-InstallationConsent](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Confirm-InstallationConsent.md)
+- [Copy-FilesToDateFolder](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Copy-FilesToDateFolder.md)
+- [Copy-IdenticalParamValues](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Copy-IdenticalParamValues.md)
+- [Expand-Path](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Expand-Path.md)
+- [Find-DuplicateFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Find-DuplicateFiles.md)
+- [Find-Item](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Find-Item.md)
+- [Get-MediaFileCreationDate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-MediaFileCreationDate.md)
+- [Invoke-Fasti](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-Fasti.md)
+- [Move-FilesToDateFolder](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Move-FilesToDateFolder.md)
+- [Move-ItemWithTracking](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Move-ItemWithTracking.md)
+- [Move-ToRecycleBin](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Move-ToRecycleBin.md)
+- [ReadJsonWithRetry](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ReadJsonWithRetry.md)
+- [Remove-AllItems](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-AllItems.md)
+- [Remove-ItemWithFallback](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-ItemWithFallback.md)
+- [Remove-OnReboot](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-OnReboot.md)
+- [Rename-InProject](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Rename-InProject.md)
+- [ResolveInputObjectFileNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ResolveInputObjectFileNames.md)
+- [Set-FoundLocation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-FoundLocation.md)
+- [Set-LocationParent](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent.md)
+- [Set-LocationParent2](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent2.md)
+- [Set-LocationParent3](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent3.md)
+- [Set-LocationParent4](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent4.md)
+- [Set-LocationParent5](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent5.md)
+- [Start-RoboCopy](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-RoboCopy.md)
+- [Write-FileAtomic](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Write-FileAtomic.md)
+- [Write-JsonFileAtomic](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Write-JsonFileAtomic.md)
+- [Write-TextFileAtomic](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Write-TextFileAtomic.md)
+- [WriteFileOutput](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/WriteFileOutput.md)

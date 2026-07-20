@@ -1,6 +1,6 @@
 # New-GitCommit
 
-> **Module:** GenXdev.Coding.Git | **Type:** Cmdlet | **Aliases:** `commit
+> **Module:** GenXdev.Coding.Git | **Type:** Cmdlet | **Aliases:** `commit`
 
 ## Synopsis
 
@@ -13,7 +13,7 @@ Stages all changes in the current git repository, creates a commit with the spec
 ## Syntax
 
 ```powershell
-New-GitCommit [[-Title] <string>] [<CommonParameters>]
+New-GitCommit [[-Title] <String>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -40,6 +40,23 @@ commit "Hotfix for login issue"
 
 Create a commit using the 'commit' alias with default message.
 
+## Parameter Details
+
+### `-Title <String>`
+
+> The commit message title to use
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [New-GitCommit on GitHub](https://github.com/genXdev/genXdev)
+- [Get-GitChangedFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GitChangedFiles.md)
+- [PermanentlyDeleteGitFolders](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/PermanentlyDeleteGitFolders.md)

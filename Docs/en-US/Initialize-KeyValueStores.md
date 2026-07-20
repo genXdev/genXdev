@@ -13,7 +13,7 @@ Creates directory structure for JSON-based key-value stores in two locations: lo
 ## Syntax
 
 ```powershell
-Initialize-KeyValueStores [[-DatabasePath] <string>] [<CommonParameters>]
+Initialize-KeyValueStores [[-DatabasePath] <String>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -40,6 +40,29 @@ Initialize-KeyValueStores -DatabasePath "C:\MyStores"
 
 Creates key-value store directories under the specified custom path.
 
+## Parameter Details
+
+### `-DatabasePath <String>`
+
+> Database path for key-value store data files
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Initialize-KeyValueStores on GitHub](https://github.com/genXdev/genXdev)
+- [Get-KeyValueStoreNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-KeyValueStoreNames.md)
+- [Get-KeyValueStorePath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-KeyValueStorePath.md)
+- [Get-StoreKeys](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-StoreKeys.md)
+- [Get-ValueByKeyFromStore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ValueByKeyFromStore.md)
+- [Remove-KeyFromStore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-KeyFromStore.md)
+- [Remove-KeyValueStore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-KeyValueStore.md)
+- [Set-ValueByKeyInStore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-ValueByKeyInStore.md)
+- [Sync-KeyValueStore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Sync-KeyValueStore.md)

@@ -37,10 +37,55 @@ PermanentlyDeleteGitFolders `
     -Folders "bin", "obj"
 ```
 
+## Parameter Details
+
+### `-RepoUri <String>`
+
+> The URI of the Git repository to clean
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Folders <String[]>`
+
+> Array of folder paths to permanently remove
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 1 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-tempPath <String>`
+
+> The `-tempPath` parameter.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `"~\convert.tmp\"` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Outputs
 
 - `String[]`
 
 ## Related Links
 
-- [PermanentlyDeleteGitFolders on GitHub](https://github.com/genXdev/genXdev)
+- [Get-GitChangedFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GitChangedFiles.md)
+- [New-GitCommit](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-GitCommit.md)

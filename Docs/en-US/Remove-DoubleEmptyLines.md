@@ -45,10 +45,40 @@ Remove-DoubleEmptyLines -code $sourceCode -Reformat
 
 Removes double empty lines and applies additional formatting.
 
+## Parameter Details
+
+### `-code <String>`
+
+> The source code or text string to process for double empty line removal
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Reformat`
+
+> Apply additional formatting rules beyond double empty line removal
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Outputs
 
 - `String`
 
 ## Related Links
 
-- [Remove-DoubleEmptyLines on GitHub](https://github.com/genXdev/genXdev)
+- [Add-ArrayTemplate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-ArrayTemplate.md)

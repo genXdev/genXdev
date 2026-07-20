@@ -1,6 +1,6 @@
 # Get-ActiveUser
 
-> **Module:** GenXdev.Windows | **Type:** Function | **Aliases:** `gusers
+> **Module:** GenXdev.Windows | **Type:** Function | **Aliases:** `gusers`
 
 ## Synopsis
 
@@ -15,89 +15,7 @@ This is useful for system administration and security monitoring.
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    [Alias('gusers')]
-    param()
-
-    begin {
-
-        # store original error preferences for restoration
-        $originalEAP = $ErrorActionPreference
-        $originalErrorView = $ErrorView
-
-        # set strict error handling
-        $ErrorActionPreference = 'Stop'
-        $ErrorView = 'DetailedView'
-
-        # inform about the start of process enumeration
-        Microsoft.PowerShell.Utility\Write-Verbose 'Starting to enumerate all system processes...'
-    }
-
-
-    process {
-
-        try {
-
-            # get all processes with associated usernames (requires admin privileges)
-            $processes = Microsoft.PowerShell.Management\Get-Process * `
-                -IncludeUserName `
-                -ErrorAction Stop
-
-            # extract and deduplicate usernames from process list
-            $users = $processes |
-                Microsoft.PowerShell.Core\ForEach-Object UserName |
-                Microsoft.PowerShell.Utility\Select-Object -Unique
-
-            # return the filtered list
-            $users
-        }
-        catch [System.UnauthorizedAccessException] {
-
-            Microsoft.PowerShell.Utility\Write-Error `
-                -Message 'Access denied while retrieving processes. Run with elevated privileges.' `
-                -Exception $_.Exception `
-                -Category PermissionDenied `
-                -ErrorId 'ActiveUserAccessDenied'
-            throw
-        }
-        catch [System.ArgumentException] {
-
-            Microsoft.PowerShell.Utility\Write-Error `
-                -Message 'Invalid argument provided when retrieving processes.' `
-                -Exception $_.Exception `
-                -Category InvalidArgument `
-                -ErrorId 'ActiveUserInvalidArgument'
-            throw
-        }
-        catch {
-
-            Microsoft.PowerShell.Utility\Write-Error `
-                -Message "Unexpected error while retrieving active users: $_" `
-                -Exception $_.Exception `
-                -Category OperationStopped `
-                -ErrorId 'ActiveUserUnexpectedError'
-            throw
-        }
-    }
-
-    end {
-
-        # restore original error handling settings
-        $ErrorActionPreference = $originalEAP
-        $ErrorView = $originalErrorView
-
-        # output completion status if users were found
-        if ($null -ne $users) {
-
-            Microsoft.PowerShell.Utility\Write-Verbose `
-                "Process completed. Found $($users.Count) unique active users."
-        }
-        else {
-
-            Microsoft.PowerShell.Utility\Write-Verbose `
-                'Process completed. No active users found or an error occurred.'
-        }
-    }
+Get-ActiveUser [<CommonParameters>]
 ```
 
 ## Examples
@@ -119,4 +37,35 @@ Uses the alias to get the same results.
 
 ## Related Links
 
-- [Get-ActiveUser on GitHub](https://github.com/genXdev/genXdev)
+- [CurrentUserHasElevatedRights](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/CurrentUserHasElevatedRights.md)
+- [EnsureDockerDesktop](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureDockerDesktop.md)
+- [EnsurePSTools](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePSTools.md)
+- [Get-ChildProcesses](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ChildProcesses.md)
+- [Get-ClipboardFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ClipboardFiles.md)
+- [Get-CurrentFocusedProcess](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-CurrentFocusedProcess.md)
+- [Get-DesktopScalingFactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-DesktopScalingFactor.md)
+- [Get-ForegroundWindow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ForegroundWindow.md)
+- [Get-KnownFolderPath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-KnownFolderPath.md)
+- [Get-MonitorCount](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-MonitorCount.md)
+- [Get-MpCmdRunPath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-MpCmdRunPath.md)
+- [Get-OpenedFileHandleProcesses](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-OpenedFileHandleProcesses.md)
+- [Get-PowershellMainWindow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PowershellMainWindow.md)
+- [Get-PowershellMainWindowProcess](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PowershellMainWindowProcess.md)
+- [Get-Window](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Window.md)
+- [Get-WindowPosition](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WindowPosition.md)
+- [Initialize-ScheduledTaskScripts](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Initialize-ScheduledTaskScripts.md)
+- [Invoke-WindowsUpdate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-WindowsUpdate.md)
+- [Pop-Window](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Pop-Window.md)
+- [Push-Window](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Push-Window.md)
+- [Save-DesktopScreenShot](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Save-DesktopScreenShot.md)
+- [Send-Key](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Send-Key.md)
+- [Send-WakeOnLan](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Send-WakeOnLan.md)
+- [Set-ClipboardFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-ClipboardFiles.md)
+- [Set-ForegroundWindow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-ForegroundWindow.md)
+- [Set-KnownFolderPath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-KnownFolderPath.md)
+- [Set-TaskbarAlignment](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-TaskbarAlignment.md)
+- [Set-WindowPosition](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-WindowPosition.md)
+- [Set-WindowPositionForSecondary](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-WindowPositionForSecondary.md)
+- [Set-WindowsWallpaper](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-WindowsWallpaper.md)
+- [Start-ProcessWithPriority](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-ProcessWithPriority.md)
+- [Test-PathUsingWindowsDefender](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Test-PathUsingWindowsDefender.md)

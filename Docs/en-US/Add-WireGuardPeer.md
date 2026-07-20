@@ -82,6 +82,531 @@ Add-WireGuardPeer -PeerName "MyPhone" -AllowedIPs "0.0.0.0/0, ::/0" `
 Add-WireGuardPeer "MyTablet" -ShowQRCode
 ```
 
+## Parameter Details
+
+### `-PeerName <String>`
+
+> A unique name for the peer
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-AllowedIPs <String>`
+
+> The IP ranges that will be routed through the VPN
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | `'0.0.0.0/0, ::/0'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-DNS <String>`
+
+> DNS servers to use for this peer
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | `'1.1.1.1, 1.0.0.1'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-OutputPath <String>`
+
+> The path where the peer configuration file should be saved
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 3 |
+| **Default value** | `"$env:USERPROFILE\WireGuardConfigs"` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `outfile`, `OutputFile` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ContainerName <String>`
+
+> The name for the Docker container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 4 |
+| **Default value** | `'wireguard'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-VolumeName <String>`
+
+> The name for the Docker volume for persistent storage
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 5 |
+| **Default value** | `'wireguard_data'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ServicePort <Int32>`
+
+> The port number for the WireGuard service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 6 |
+| **Default value** | `51839` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-HealthCheckTimeout <Int32>`
+
+> Maximum time in seconds to wait for service health check
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 7 |
+| **Default value** | `60` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-HealthCheckInterval <Int32>`
+
+> Interval in seconds between health check attempts
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 8 |
+| **Default value** | `3` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ImageName <String>`
+
+> Custom Docker image name to use
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 9 |
+| **Default value** | `'linuxserver/wireguard'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PUID <String>`
+
+> User ID for permissions in the container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 10 |
+| **Default value** | `'1000'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PGID <String>`
+
+> Group ID for permissions in the container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 11 |
+| **Default value** | `'1000'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-TimeZone <String>`
+
+> Timezone to use for the container
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 12 |
+| **Default value** | `'Etc/UTC'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SaveConfig`
+
+> Save the peer configuration to a file
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ShowWindow`
+
+> Show the WireGuard window when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoBorders`
+
+> Remove window borders when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `nb` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Width <Int32>`
+
+> Set the window width when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Height <Int32>`
+
+> Set the window height when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Left <Int32>`
+
+> Set the window left position when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Right <Int32>`
+
+> Set the window right position when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Bottom <Int32>`
+
+> Set the window bottom position when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Centered`
+
+> Center the window when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Fullscreen`
+
+> Start the service in fullscreen mode
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fs` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-RestoreFocus`
+
+> Restore focus to the window after initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `rf`, `bg` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SideBySide`
+
+> Show the window side by side when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `sbs` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-FocusWindow`
+
+> Focus the window after initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fw`, `focus` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SetForeground`
+
+> Set the window to foreground after initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fg` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyEscape`
+
+> Send Escape key to the window after initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `Escape` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyHoldKeyboardFocus`
+
+> Hold keyboard focus when sending keys after initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `HoldKeyboardFocus` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyUseShiftEnter`
+
+> Use Shift+Enter when sending keys after initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `UseShiftEnter` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyDelayMilliSeconds <Int32>`
+
+> Delay in milliseconds when sending keys after initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `DelayMilliSeconds` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SessionOnly`
+
+> Use session only for the WireGuard service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ClearSession`
+
+> Clear session when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SkipSession`
+
+> Skip session when initializing the service
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `FromPreferences` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ShowQRCode`
+
+> Generate QR code for easy mobile setup
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoDockerInitialize`
+
+> Skip Docker initialization (used when already called by parent function)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Force`
+
+> Force rebuild of Docker container and remove existing data
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ForceRebuild` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Add-WireGuardPeer on GitHub](https://github.com/genXdev/genXdev)
+- [EnsureWireGuard](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureWireGuard.md)
+- [Get-WireGuardPeerQRCode](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardPeerQRCode.md)
+- [Get-WireGuardPeers](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardPeers.md)
+- [Get-WireGuardStatus](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardStatus.md)
+- [Remove-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-WireGuardPeer.md)
+- [Reset-WireGuardConfiguration](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Reset-WireGuardConfiguration.md)

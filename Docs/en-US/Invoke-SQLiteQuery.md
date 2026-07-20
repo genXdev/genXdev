@@ -70,6 +70,136 @@ try {
 Invoke-SQLiteQuery -DatabaseFilePath "C:\data.db" -Queries "SELECT * FROM Users" -ConsentToThirdPartySoftwareInstallation
 ```
 
+## Parameter Details
+
+### `-ConnectionString <String>`
+
+> The connection string to the SQLite database.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-DatabaseFilePath <String>`
+
+> The path to the SQLite database file.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `dbpath`, `indexpath` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Transaction <Object>`
+
+> An existing SQLite transaction to use for the queries.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Queries <String[]>`
+
+> The query or queries to execute.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 3 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | `q`, `Value`, `Name`, `Text`, `Query` |
+| **Accept wildcard characters?** | No |
+
+> This parameter accepts all remaining arguments.
+
+<hr/>
+### `-SqlParameters <Collections.Hashtable[]>`
+
+> Query parameters as hashtables.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 4 |
+| **Default value** | `@()` |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | `data`, `parameters`, `args` |
+| **Accept wildcard characters?** | No |
+
+> This parameter accepts all remaining arguments.
+
+<hr/>
+### `-IsolationLevel <String>`
+
+> The isolation level to use. default is ReadCommitted.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `"ReadCommitted"` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ForceConsent`
+
+> Force a consent prompt even if preference is set for SQLite package installation.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ConsentToThirdPartySoftwareInstallation`
+
+> Automatically consent to third-party software installation and set persistent flag for SQLite package.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Invoke-SQLiteQuery on GitHub](https://github.com/genXdev/genXdev)
+- [EnsureSQLiteStudioInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureSQLiteStudioInstalled.md)
+- [Get-SQLiteSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteSchema.md)
+- [Get-SQLiteTableColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteTableColumnData.md)
+- [Get-SQLiteTableData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteTableData.md)
+- [Get-SQLiteTables](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteTables.md)
+- [Get-SQLiteTableSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteTableSchema.md)
+- [Get-SQLiteTransaction](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteTransaction.md)
+- [Get-SQLiteViewColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteViewColumnData.md)
+- [Get-SQLiteViewData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteViewData.md)
+- [Get-SQLiteViews](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteViews.md)
+- [Get-SQLiteViewSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLiteViewSchema.md)
+- [Invoke-SQLiteStudio](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-SQLiteStudio.md)
+- [New-SQLiteDatabase](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-SQLiteDatabase.md)

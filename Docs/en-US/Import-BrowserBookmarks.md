@@ -55,6 +55,98 @@ Import-BrowserBookmarks -Bookmarks $bookmarks -Chrome
 Imports a collection of bookmarks into Google Chrome.
 ```
 
+## Parameter Details
+
+### `-InputFile <String>`
+
+> Path to CSV file with bookmarks to import
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | FromFile |
+
+<hr/>
+### `-Bookmarks <Array>`
+
+> Collection of bookmarks to import
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | FromCollection |
+
+<hr/>
+### `-Chrome`
+
+> Import into Google Chrome
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ch` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Edge`
+
+> Import into Microsoft Edge
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `e` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Firefox`
+
+> Import into Firefox (not supported)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ff` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Import-BrowserBookmarks on GitHub](https://github.com/genXdev/genXdev)
+- [Clear-WebbrowserTabSiteApplicationData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Clear-WebbrowserTabSiteApplicationData.md)
+- [Close-Webbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Close-Webbrowser.md)
+- [Close-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Close-WebbrowserTab.md)
+- [Export-BrowserBookmarks](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Export-BrowserBookmarks.md)
+- [Find-BrowserBookmark](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Find-BrowserBookmark.md)
+- [Get-BrowserBookmark](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-BrowserBookmark.md)
+- [Get-DefaultWebbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-DefaultWebbrowser.md)
+- [Get-PlaywrightSessionReference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PlaywrightSessionReference.md)
+- [Get-Webbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Webbrowser.md)
+- [Get-WebbrowserTabDomNodes](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WebbrowserTabDomNodes.md)
+- [Import-GenXdevBookmarkletMenu](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Import-GenXdevBookmarkletMenu.md)
+- [Invoke-WebbrowserEvaluation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-WebbrowserEvaluation.md)
+- [Open-BrowserBookmarks](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-BrowserBookmarks.md)
+- [Open-Webbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-Webbrowser.md)
+- [Open-WebbrowserSideBySide](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WebbrowserSideBySide.md)
+- [Select-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Select-WebbrowserTab.md)
+- [Set-BrowserVideoFullscreen](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-BrowserVideoFullscreen.md)
+- [Set-WebbrowserTabLocation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-WebbrowserTabLocation.md)
+- [Show-WebsiteInAllBrowsers](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Show-WebsiteInAllBrowsers.md)

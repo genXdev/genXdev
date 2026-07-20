@@ -16,176 +16,7 @@ for navigation, and finally offers AI assistance for unknown commands.
 ## Syntax
 
 ```powershell
-[CmdletBinding(SupportsShouldProcess)]
-    param()
-
-    begin {
-
-        Microsoft.PowerShell.Utility\Write-Verbose 'Starting Set-GenXdevAICommandNotFoundAction'
-
-        # store reference to existing handler if it's not already our handler
-        $script:originalHandler = $null
-        $currentHandler = $ExecutionContext.InvokeCommand.CommandNotFoundAction
-
-        # check if handler is already installed
-        if ($null -ne $currentHandler) {
-
-            $handlerString = $currentHandler.ToString()
-            if ($handlerString.Contains('Do you want AI to figure out')) {
-
-                Microsoft.PowerShell.Utility\Write-Verbose 'AI Command handler already installed - exiting'
-                return
-            }
-
-            $script:originalHandler = $currentHandler
-            Microsoft.PowerShell.Utility\Write-Verbose 'Stored original command handler for chaining'
-        }
-    }
-
-    process {
-
-        if (-not $PSCmdlet.ShouldProcess('Command not found handling',
-                'Set AI assistance handler')) {
-            return
-        }
-
-        try {
-            # Add flag to prevent recursion
-            $script:insideCommandHandler = $false
-
-            Microsoft.PowerShell.Utility\Write-Verbose 'Configuring new CommandNotFoundAction handler'
-
-            # define the command not found action handler
-            $ExecutionContext.InvokeCommand.CommandNotFoundAction = {
-                param($CommandName, $CommandLookupEventArgs)
-
-                # prevent recursion
-                if ($script:insideCommandHandler) {
-
-                    Microsoft.PowerShell.Utility\Write-Debug "Preventing recursive call for command: $CommandName"
-                    return
-                }
-
-                $script:insideCommandHandler = $true
-
-                $origPSDebugPreference = $PSDebugPreference
-                $origErrorActionPreference = $ErrorActionPreference
-                $origVerbosePreference = $VerbosePreference
-                $origWarningPreference = $WarningPreference
-
-                try {
-                    # suppress unnecessary output during handler execution
-                    $PSDebugPreference = 'continue'
-                    $ErrorActionPreference = 'SilentlyContinue'
-                    $VerbosePreference = 'SilentlyContinue'
-                    $WarningPreference = 'SilentlyContinue'
-
-                    # skip .NET method calls
-                    if ($CommandName -match '^\[.*\]::') {
-                        return
-                    }
-
-                    # try original handler first
-                    if ($null -ne $script:originalHandler) {
-                        try {
-                            & $script:originalHandler $CommandName $CommandLookupEventArgs
-
-                            if ($CommandLookupEventArgs.StopSearch) {
-                                return
-                            }
-                        }
-                        catch {
-                            Microsoft.PowerShell.Utility\Write-Debug "Original handler failed: $_"
-                        }
-                    }
-                }
-                finally {
-                    # restore original preferences
-                    $PSDebugPreference = $origPSDebugPreference
-                    $ErrorActionPreference = $origErrorActionPreference
-                    $VerbosePreference = $origVerbosePreference
-                    $WarningPreference = $origWarningPreference
-                    $script:insideCommandHandler = $false
-                }
-
-                # handle directory navigation
-                if (Microsoft.PowerShell.Management\Test-Path -LiteralPath $CommandName -PathType Container) {
-
-                    $CommandLookupEventArgs.CommandScriptBlock = {
-                        Microsoft.PowerShell.Management\Set-Location -LiteralPath $CommandName
-                        Microsoft.PowerShell.Management\Get-ChildItem
-                    }.GetNewClosure()
-
-                    $CommandLookupEventArgs.StopSearch = $true
-                    return
-                }
-
-                # skip internal and get- commands
-                if ($CommandLookupEventArgs.CommandOrigin -eq 'Internal' -or
-                    $CommandName -like 'get-*') {
-                    return
-                }
-
-                if ($CommandName -like '-' -or $CommandName -like "cd -" -or $CommandName -like "Set-Location +") {
-
-                    $CommandLookupEventArgs.CommandScriptBlock = {
-                        Microsoft.PowerShell.Management\Set-Location "-"
-                    }
-
-                    $CommandLookupEventArgs.StopSearch = $true
-                    return
-                }
-
-                if ($CommandName -like '+' -or $CommandName -like "cd +" -or $CommandName -like "Set-Location -") {
-
-                    $CommandLookupEventArgs.CommandScriptBlock = {
-
-                        Microsoft.PowerShell.Management\Set-Location "+"
-                    }
-
-                    $CommandLookupEventArgs.StopSearch = $true
-                    return
-                }
-
-                # configure AI assistance
-                $CommandLookupEventArgs.CommandScriptBlock = {
-
-                    $userChoice = $host.ui.PromptForChoice(
-                        'Command not found',
-                        'Do you want AI to figure out what you want?',
-                        @('&Nah', '&Yes'),
-                        0)
-
-                    if ($userChoice -eq 0) { return }
-
-                    GenXdev\Send-Key ($MyInvocation.line) -Escape
-
-                    Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Yellow 'What did you want to do?'
-
-                    [System.Console]::Write('> ')
-                    $userIntent = [System.Console]::ReadLine()
-                    Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Green 'Ok, hold on a sec..'
-
-                    # prepare AI hint
-                    $aiPrompt = ('Generate a Powershell commandline that would ' +
-                        'be what user might have meant, but what triggered the ' +
-                        "`$ExecutionContext.InvokeCommand.CommandNotFoundAction " +
-                        "with her prompt being: $userIntent")
-
-                    GenXdev\Invoke-AIPowershellCommand $aiPrompt
-                }.GetNewClosure()
-
-                $CommandLookupEventArgs.StopSearch = $true
-            }
-        }
-        catch {
-            Microsoft.PowerShell.Utility\Write-Error "Failed to set up command not found handler: $_"
-        }
-    }
-
-    end {
-        Microsoft.PowerShell.Utility\Write-Verbose 'Command not found handler configuration completed'
-    }
+Set-GenXdevAICommandNotFoundAction [<CommonParameters>]
 ```
 
 ## Examples
@@ -198,4 +29,38 @@ Set-GenXdevAICommandNotFoundAction
 
 ## Related Links
 
-- [Set-GenXdevAICommandNotFoundAction on GitHub](https://github.com/genXdev/genXdev)
+- [Approve-NewTextFileContent](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Approve-NewTextFileContent.md)
+- [Convert-DotNetTypeToLLMType](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Convert-DotNetTypeToLLMType.md)
+- [ConvertTo-LLMOpenAIApiFunctionDefinition](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ConvertTo-LLMOpenAIApiFunctionDefinition.md)
+- [EnsureGithubCLIInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureGithubCLIInstalled.md)
+- [EnsureHuggingFace](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureHuggingFace.md)
+- [EnsurePaintNet](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePaintNet.md)
+- [EnsurePip](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePip.md)
+- [EnsurePython](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePython.md)
+- [EnsureWinMergeInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureWinMergeInstalled.md)
+- [GenerateMasonryLayoutHtml](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/GenerateMasonryLayoutHtml.md)
+- [Get-AIDefaultLLMSettings](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-AIDefaultLLMSettings.md)
+- [Get-AILLMSettings](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-AILLMSettings.md)
+- [Get-AudioDeviceNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-AudioDeviceNames.md)
+- [Get-CpuCore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-CpuCore.md)
+- [Get-HasCapableGpu](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-HasCapableGpu.md)
+- [Get-NumberOfCpuCores](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-NumberOfCpuCores.md)
+- [Get-SpeechToText](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SpeechToText.md)
+- [Get-TextTranslation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-TextTranslation.md)
+- [Get-VectorSimilarity](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-VectorSimilarity.md)
+- [Invoke-CommandFromToolCall](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-CommandFromToolCall.md)
+- [Invoke-HuggingFaceCli](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-HuggingFaceCli.md)
+- [Invoke-LLMBooleanEvaluation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-LLMBooleanEvaluation.md)
+- [Invoke-LLMQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-LLMQuery.md)
+- [Invoke-LLMStringListEvaluation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-LLMStringListEvaluation.md)
+- [Invoke-LLMTextTransformation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-LLMTextTransformation.md)
+- [Invoke-WinMerge](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-WinMerge.md)
+- [Merge-TranslationCache](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Merge-TranslationCache.md)
+- [New-GenXdevMCPToken](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-GenXdevMCPToken.md)
+- [New-LLMAudioChat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-LLMAudioChat.md)
+- [New-LLMTextChat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-LLMTextChat.md)
+- [Receive-RealTimeSpeechToText](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Receive-RealTimeSpeechToText.md)
+- [Set-AILLMSettings](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-AILLMSettings.md)
+- [Start-GenXdevMCPServer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-GenXdevMCPServer.md)
+- [Test-CpuAvx](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Test-CpuAvx.md)
+- [Test-DeepLinkImageFile](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Test-DeepLinkImageFile.md)

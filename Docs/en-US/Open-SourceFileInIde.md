@@ -1,6 +1,6 @@
 # Open-SourceFileInIde
 
-> **Module:** GenXdev.Coding | **Type:** Function | **Aliases:** `editcode
+> **Module:** GenXdev.Coding | **Type:** Function | **Aliases:** `editcode`
 
 ## Synopsis
 
@@ -48,6 +48,147 @@ Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
 editcode "C:\Projects\MyScript.ps1" 25
 ```
 
+## Parameter Details
+
+### `-Path <String>`
+
+> The path to the sourcefile to open
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | `FullName` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-LineNo <Int32>`
+
+> The line number to navigate to
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-KeysToSend <String[]>`
+
+> Array of keyboard inputs to send to the application
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | `@()` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `keys` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Code`
+
+> The ide to open the file in
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `c` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-VisualStudio`
+
+> Open in Visual Studio
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `vs` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyEscape`
+
+> Escape control characters and modifiers
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `Escape` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyHoldKeyboardFocus`
+
+> Hold keyboard focus on target window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `HoldKeyboardFocus` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyUseShiftEnter`
+
+> Use Shift+Enter instead of Enter
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `UseShiftEnter` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyDelayMilliSeconds <Int32>`
+
+> Delay between different input strings in milliseconds
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `DelayMilliSeconds` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Open-SourceFileInIde on GitHub](https://github.com/genXdev/genXdev)
+- [Add-FeatureLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-FeatureLineToREADME.md)
+- [Add-IdeaLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-IdeaLineToREADME.md)
+- [Add-IssueLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-IssueLineToREADME.md)
+- [Add-LineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-LineToREADME.md)
+- [Add-ReleaseNoteLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-ReleaseNoteLineToREADME.md)
+- [Add-TodoLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-TodoLineToREADME.md)
+- [EnsureVSCodeInstallation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureVSCodeInstallation.md)
+- [Get-Features](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Features.md)
+- [Get-Ideas](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Ideas.md)
+- [Get-Issues](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Issues.md)
+- [Get-ReleaseNotes](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ReleaseNotes.md)
+- [Get-Todoos](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Todoos.md)
+- [Publish-ReleaseNotesToManifest](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Publish-ReleaseNotesToManifest.md)
+- [VSCode](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/VSCode.md)

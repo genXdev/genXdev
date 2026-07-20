@@ -17,7 +17,7 @@ GenXdev.Data operations.
 ## Syntax
 
 ```powershell
-Get-GenXdevPreferencesDatabasePath [[-PreferencesDatabasePath] <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>]
+Get-GenXdevPreferencesDatabasePath [[-PreferencesDatabasePath] <String>] [-ClearSession] [-SessionOnly] [-SkipSession] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -55,6 +55,69 @@ Get-GenXdevPreferencesDatabasePath -ClearSession
 
 Clears the session setting before retrieving the path.
 
+## Parameter Details
+
+### `-PreferencesDatabasePath <String>`
+
+> Optional database path override
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `DatabasePath` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SessionOnly`
+
+> Use alternative settings stored in session for Data preferences like Language, Database paths, etc
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ClearSession`
+
+> Clear the session setting (Global variable) before retrieving
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SkipSession`
+
+> Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `FromPreferences` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Get-GenXdevPreferencesDatabasePath on GitHub](https://github.com/genXdev/genXdev)
+- [Get-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevPreference.md)
+- [Get-GenXdevPreferenceNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevPreferenceNames.md)
+- [Remove-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-GenXdevPreference.md)
+- [Set-GenXdevDefaultPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevDefaultPreference.md)
+- [Set-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevPreference.md)
+- [Set-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevPreferencesDatabasePath.md)

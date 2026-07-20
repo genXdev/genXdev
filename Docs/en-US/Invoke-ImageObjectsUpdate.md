@@ -1,6 +1,6 @@
 # Invoke-ImageObjectsUpdate
 
-> **Module:** GenXdev.AI.Queries | **Type:** Function | **Aliases:** `imageobjectdetection
+> **Module:** GenXdev.AI.Queries | **Type:** Function | **Aliases:** `imageobjectdetection`
 
 ## Synopsis
 
@@ -67,6 +67,200 @@ Invoke-ImageObjectsUpdate -ImageDirectories "C:\Photos" -UseGPU `
 This example uses GPU acceleration with higher confidence threshold of 0.7
 for more accurate but fewer object detections.
 
+## Parameter Details
+
+### `-ImageDirectories <String[]>`
+
+> The directory paths containing images to process
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | `@('.\')` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Recurse`
+
+> Process images in specified directory and all subdirectories
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-OnlyNew`
+
+> Only process images that don't already have face metadata files
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-RetryFailed`
+
+> Will retry previously failed image keyword updates
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Language <String>`
+
+> The language for generated descriptions and keywords
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-LLMQueryType <String>`
+
+> The type of LLM query
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `'SimpleIntelligence'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Model <String>`
+
+> The model identifier or pattern to use for AI operations
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-TimeoutSeconds <Int32>`
+
+> The timeout in seconds for AI operations
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PreferencesDatabasePath <String>`
+
+> Database path for preference data files
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `DatabasePath` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SessionOnly`
+
+> Use alternative settings stored in session for AI preferences
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ClearSession`
+
+> Clear alternative settings stored in session for AI preferences
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SkipSession`
+
+> Store settings only in persistent preferences without affecting session
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `FromPreferences` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Invoke-ImageObjectsUpdate on GitHub](https://github.com/genXdev/genXdev)
+- [Add-EmoticonsToText](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-EmoticonsToText.md)
+- [ConvertFrom-CorporateSpeak](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ConvertFrom-CorporateSpeak.md)
+- [ConvertFrom-DiplomaticSpeak](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ConvertFrom-DiplomaticSpeak.md)
+- [ConvertTo-CorporateSpeak](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ConvertTo-CorporateSpeak.md)
+- [ConvertTo-DiplomaticSpeak](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ConvertTo-DiplomaticSpeak.md)
+- [Find-Image](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Find-Image.md)
+- [Get-AIKnownFacesRootpath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-AIKnownFacesRootpath.md)
+- [Get-AIMetaLanguage](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-AIMetaLanguage.md)
+- [Get-Fallacy](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Fallacy.md)
+- [Get-ScriptExecutionErrorFixPrompt](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ScriptExecutionErrorFixPrompt.md)
+- [Get-SimularMovieTitles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SimularMovieTitles.md)
+- [Invoke-AIPowershellCommand](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-AIPowershellCommand.md)
+- [Invoke-ImageFacesUpdate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-ImageFacesUpdate.md)
+- [Invoke-ImageKeywordUpdate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-ImageKeywordUpdate.md)
+- [Invoke-ImageMetadataUpdate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-ImageMetadataUpdate.md)
+- [Invoke-ImageScenesUpdate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-ImageScenesUpdate.md)
+- [Invoke-QueryImageContent](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-QueryImageContent.md)
+- [Remove-ImageMetaData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-ImageMetaData.md)
+- [Save-FoundImageFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Save-FoundImageFaces.md)
+- [Save-Transcriptions](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Save-Transcriptions.md)
+- [Set-AIKnownFacesRootpath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-AIKnownFacesRootpath.md)
+- [Set-AIMetaLanguage](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-AIMetaLanguage.md)
+- [Show-FoundImagesInBrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Show-FoundImagesInBrowser.md)
+- [Start-AudioTranscription](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-AudioTranscription.md)
+- [Update-AllImageMetaData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Update-AllImageMetaData.md)

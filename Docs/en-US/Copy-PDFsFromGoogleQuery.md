@@ -38,6 +38,68 @@ Set-Location pdfs
 Copy-PDFsFromGoogleQuery "scientific paper co2" -Max 50 -Language "English"
 ```
 
+## Parameter Details
+
+### `-Queries <String[]>`
+
+> The search terms to query Google for PDF files
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | `q`, `Name`, `Text`, `Query` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Max <Int32>`
+
+> Maximum number of results to retrieve (default: 200)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | `200` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Language <String>`
+
+> Optional language filter for search results
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Copy-PDFsFromGoogleQuery on GitHub](https://github.com/genXdev/genXdev)
+- [Open-BingQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-BingQuery.md)
+- [Open-BuiltWithSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-BuiltWithSiteInfo.md)
+- [Open-GithubQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GithubQuery.md)
+- [Open-GoogleQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GoogleQuery.md)
+- [Open-GoogleSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GoogleSiteInfo.md)
+- [Open-GrokipediaQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GrokipediaQuery.md)
+- [Open-IMDBQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-IMDBQuery.md)
+- [Open-InstantStreetViewQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-InstantStreetViewQuery.md)
+- [Open-MovieQuote](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-MovieQuote.md)
+- [Open-SearchEngine](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-SearchEngine.md)
+- [Open-SimularWebSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-SimularWebSiteInfo.md)
+- [Open-StackOverflowQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-StackOverflowQuery.md)
+- [Open-WaybackMachineSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WaybackMachineSiteInfo.md)
+- [Open-WebsiteAndPerformQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WebsiteAndPerformQuery.md)
+- [Open-WhoisHostSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WhoisHostSiteInfo.md)
+- [Open-WikipediaNLQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WikipediaNLQuery.md)
+- [Open-WikipediaQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WikipediaQuery.md)
+- [Open-WolframAlphaQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WolframAlphaQuery.md)
+- [Open-YoutubeQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-YoutubeQuery.md)

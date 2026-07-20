@@ -1,6 +1,6 @@
 # Find-Item
 
-> **Module:** GenXdev.FileSystem | **Type:** Cmdlet | **Aliases:** `l
+> **Module:** GenXdev.FileSystem | **Type:** Cmdlet | **Aliases:** `l`
 
 ## Synopsis
 
@@ -8,6 +8,7 @@
 
 ## Description
 
+```text
 * Find files with Find-Item -> l
         * Fast multi-threaded search: utilizes parallel and asynchronous
               IO processing with configurable maximum degree of parallelism
@@ -58,13 +59,13 @@
               and follows symlinks/junctions.
         * Safety Features: Timeout support(-TimeoutSeconds), ignores inaccessible items,
               skips system attributes by default, and prevents infinite loops with visited node tracking.
-
+```
 ## Syntax
 
 ```powershell
-Find-Item [[-Name] <string[]>] [[-RelativeBasePath] <string>] [-Input <Object>] [-Category <string[]>] [-MaxDegreeOfParallelism <int>] [-TimeoutSeconds <int>] [-AllDrives] [-Directory] [-FilesAndDirectories] [-PassThru] [-IncludeAlternateFileStreams] [-NoRecurse] [-FollowSymlinkAndJunctions] [-IncludeOpticalDiskDrives] [-SearchDrives <string[]>] [-DriveLetter <char[]>] [-Root <string[]>] [-LimitToRoot] [-IncludeNonTextFileMatching] [-NoLinks] [-CaseNameMatching <MatchCasing>] [-SearchADSContent] [-MaxRecursionDepth <int>] [-MaxSearchUpDepth <int>] [-MaxFileSize <long>] [-MinFileSize <long>] [-ModifiedAfter <datetime>] [-ModifiedBefore <datetime>] [-AttributesToSkip <FileAttributes>] [-Exclude <string[]>] [<CommonParameters>]
+Find-Item [[-Name] <String[]>] [[-RelativeBasePath] <String>] [-AllDrives] [-AttributesToSkip <IO.FileAttributes>] [-CaseNameMatching <IO.MatchCasing>] [-Category <String[]>] [-Directory] [-DriveLetter <Char[]>] [-Exclude <String[]>] [-FilesAndDirectories] [-FollowSymlinkAndJunctions] [-IncludeAlternateFileStreams] [-IncludeNonTextFileMatching] [-IncludeOpticalDiskDrives] [-Input <Object>] [-LimitToRoot] [-MaxDegreeOfParallelism <Int32>] [-MaxFileSize <Int64>] [-MaxRecursionDepth <Int32>] [-MaxSearchUpDepth <Int32>] [-MinFileSize <Int64>] [-ModifiedAfter <Nullable`1[[System.DateTime, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]>] [-ModifiedBefore <Nullable`1[[System.DateTime, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]>] [-NoLinks] [-NoRecurse] [-PassThru] [-Root <String[]>] [-SearchADSContent] [-SearchDrives <String[]>] [-TimeoutSeconds <Nullable`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]>] [<CommonParameters>]
 
-Find-Item [[-Name] <string[]>] [[-Content] <string[]>] [[-RelativeBasePath] <string>] [-Input <Object>] [-Category <string[]>] [-MaxDegreeOfParallelism <int>] [-TimeoutSeconds <int>] [-AllDrives] [-Directory] [-FilesAndDirectories] [-PassThru] [-IncludeAlternateFileStreams] [-NoRecurse] [-FollowSymlinkAndJunctions] [-IncludeOpticalDiskDrives] [-SearchDrives <string[]>] [-DriveLetter <char[]>] [-Root <string[]>] [-LimitToRoot] [-IncludeNonTextFileMatching] [-NoLinks] [-CaseNameMatching <MatchCasing>] [-SearchADSContent] [-MaxRecursionDepth <int>] [-MaxSearchUpDepth <int>] [-MaxFileSize <long>] [-MinFileSize <long>] [-ModifiedAfter <datetime>] [-ModifiedBefore <datetime>] [-AttributesToSkip <FileAttributes>] [-Exclude <string[]>] [-AllMatches] [-CaseSensitive] [-Context <int[]>] [-Culture <string>] [-Encoding <string>] [-List] [-NoEmphasis] [-NotMatch] [-Quiet] [-Raw] [-SimpleMatch] [<CommonParameters>]
+Find-Item [[-Content] <String[]>] [-AllMatches] [-CaseSensitive] [-Context <Int32[]>] [-Culture <String>] [-Encoding <String>] [-List] [-NoEmphasis] [-NotMatch] [-Quiet] [-Raw] [-SimpleMatch] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -416,6 +417,635 @@ l *.log -mc "exception" -minsize 1024 -after "2025-01-01" -maxdepth 3
 Complex content search with file filters
 Combine file size, date, and content filters for precise searches.
 
+## Parameter Details
+
+### `-Name <String[]>`
+
+> File name or pattern to search for. Default is '*'
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `like`, `Path`, `LiteralPath`, `Query`, `SearchMask`, `Include` |
+| **Accept wildcard characters?** | Yes |
+
+<hr/>
+### `-Input <Object>`
+
+> File name or pattern to search for. Default is '*'
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | `FullName` |
+| **Accept wildcard characters?** | Yes |
+
+<hr/>
+### `-Content <String[]>`
+
+> Regular expression pattern to search within content
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `mc`, `matchcontent`, `regex`, `Pattern` |
+| **Accept wildcard characters?** | Yes |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-RelativeBasePath <String>`
+
+> Base path for resolving relative paths in output
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `base` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Category <String[]>`
+
+> The `-Category` parameter.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `filetype` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-MaxDegreeOfParallelism <Int32>`
+
+> Maximum degree of parallelism for directory tasks
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `threads` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-TimeoutSeconds <Nullable`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]>`
+
+> Optional: cancellation timeout in seconds
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `maxseconds` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-AllDrives`
+
+> Search across all available drives
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Directory`
+
+> Search for directories only
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `dir` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-FilesAndDirectories`
+
+> Include both files and directories
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `both`, `DirectoriesAndFiles` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PassThru`
+
+> Output matched items as objects
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `pt` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-IncludeAlternateFileStreams`
+
+> Include alternate data streams in search results
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ads` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoRecurse`
+
+> Do not recurse into subdirectories
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `nr` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-FollowSymlinkAndJunctions`
+
+> Follow symlinks and junctions during directory traversal
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `symlinks`, `sl` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-IncludeOpticalDiskDrives`
+
+> Include optical disk drives
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SearchDrives <String[]>`
+
+> Optional: search specific drives
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `drives` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-DriveLetter <Char[]>`
+
+> Optional: search specific drives
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Root <String[]>`
+
+> Optional: search specific directories
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-LimitToRoot`
+
+> Enforces searching only within Root directories by stripping directory components from Name inputs
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `limit` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-IncludeNonTextFileMatching`
+
+> Include non-text files when searching file contents
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `binary` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoLinks`
+
+> Forces unattended mode and will not generate links
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `nl`, `ForceUnattenedMode` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-CaseNameMatching <IO.MatchCasing>`
+
+> Gets or sets the case-sensitivity for files and directories
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `PlatformDefault` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `casing`, `CaseSearchMaskMatching ` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SearchADSContent`
+
+> When set, performs content search within alternate data streams (ADS). When not set, outputs ADS file info without searching their content.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `sads` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-MaxRecursionDepth <Int32>`
+
+> Maximum recursion depth for directory traversal. 0 means unlimited.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `md`, `depth`, `maxdepth` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-MaxSearchUpDepth <Int32>`
+
+> Maximum recursion depth for continuing searching upwards the tree for relative searches, while no items are found. 0 means disabled.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `maxupward` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-MaxFileSize <Int64>`
+
+> Maximum file size in bytes to include in results. 0 means unlimited.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `maxlength`, `maxsize` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-MinFileSize <Int64>`
+
+> Minimum file size in bytes to include in results. 0 means no minimum.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `minsize`, `minlength` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ModifiedAfter <Nullable`1[[System.DateTime, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]>`
+
+> Only include files modified after this date/time (UTC).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ma`, `after` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ModifiedBefore <Nullable`1[[System.DateTime, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]>`
+
+> Only include files modified before this date/time (UTC).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `before`, `mb` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-AttributesToSkip <IO.FileAttributes>`
+
+> File attributes to skip (e.g., System, Hidden or None).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `None` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `skipattr` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Exclude <String[]>`
+
+> Exclude files or directories matching these wildcard patterns (e.g., *.tmp, *\bin\*).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `skiplike` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-AllMatches`
+
+> Indicates that the cmdlet searches for more than one match in each line of text. Without this parameter, Select-String finds only the first match in each line of text.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-CaseSensitive`
+
+> Indicates that the cmdlet matches are case-sensitive. By default, matches aren't case-sensitive.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-Context <Int32[]>`
+
+> Captures the specified number of lines before and after the line that matches the pattern.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-Culture <String>`
+
+> Specifies a culture name to match the specified pattern. The Culture parameter must be used with the SimpleMatch parameter. The default behavior uses the culture of the current PowerShell runspace (session).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-Encoding <String>`
+
+> Specifies the type of encoding for the target file. Supports Select-String compatible values and extended .NET encodings.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-List`
+
+> Only the first instance of matching text is returned from each input file. This is the most efficient way to retrieve a list of files that have contents matching the regular expression.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-NoEmphasis`
+
+> Disables highlighting of matching strings in output.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-NotMatch`
+
+> The NotMatch parameter finds text that doesn't match the specified pattern.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-Quiet`
+
+> Indicates that the cmdlet returns a simple response instead of a MatchInfo object. The returned value is $true if the pattern is found or $null if the pattern is not found.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-Raw`
+
+> Causes the cmdlet to output only the matching strings, rather than MatchInfo objects. This is the results in behavior that's the most similar to the Unix grep or Windows findstr.exe commands.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
+### `-SimpleMatch`
+
+> Indicates that the cmdlet uses a simple match rather than a regular expression match. In a simple match, Select-String searches the input for the text in the Pattern parameter. It doesn't interpret the value of the Pattern parameter as a regular expression statement.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | WithPattern |
+
+<hr/>
 ## Related Links
 
-- [Find-Item on GitHub](https://github.com/genXdev/genXdev)
+- [Confirm-InstallationConsent](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Confirm-InstallationConsent.md)
+- [Copy-FilesToDateFolder](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Copy-FilesToDateFolder.md)
+- [Copy-IdenticalParamValues](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Copy-IdenticalParamValues.md)
+- [EnsurePester](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePester.md)
+- [Expand-Path](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Expand-Path.md)
+- [Find-DuplicateFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Find-DuplicateFiles.md)
+- [Get-MediaFileCreationDate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-MediaFileCreationDate.md)
+- [Invoke-Fasti](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-Fasti.md)
+- [Move-FilesToDateFolder](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Move-FilesToDateFolder.md)
+- [Move-ItemWithTracking](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Move-ItemWithTracking.md)
+- [Move-ToRecycleBin](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Move-ToRecycleBin.md)
+- [ReadJsonWithRetry](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ReadJsonWithRetry.md)
+- [Remove-AllItems](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-AllItems.md)
+- [Remove-ItemWithFallback](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-ItemWithFallback.md)
+- [Remove-OnReboot](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-OnReboot.md)
+- [Rename-InProject](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Rename-InProject.md)
+- [ResolveInputObjectFileNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ResolveInputObjectFileNames.md)
+- [Set-FoundLocation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-FoundLocation.md)
+- [Set-LocationParent](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent.md)
+- [Set-LocationParent2](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent2.md)
+- [Set-LocationParent3](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent3.md)
+- [Set-LocationParent4](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent4.md)
+- [Set-LocationParent5](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-LocationParent5.md)
+- [Start-RoboCopy](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-RoboCopy.md)
+- [Write-FileAtomic](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Write-FileAtomic.md)
+- [Write-JsonFileAtomic](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Write-JsonFileAtomic.md)
+- [Write-TextFileAtomic](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Write-TextFileAtomic.md)
+- [WriteFileOutput](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/WriteFileOutput.md)

@@ -15,7 +15,7 @@
 ## Syntax
 
 ```powershell
-ConvertTo-Uris [[-Text] <string[]>] [<CommonParameters>]
+ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -42,6 +42,22 @@ Parses the provided text string for URIs and returns Uri objects.
 
 Pipes a text string to the cmdlet for URI parsing.
 
+## Parameter Details
+
+### `-Text <String[]>`
+
+> Text input that may contain URIs
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue) |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [ConvertTo-Uris on GitHub](https://github.com/genXdev/genXdev)
+- [Open-AllPossibleQueries](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-AllPossibleQueries.md)

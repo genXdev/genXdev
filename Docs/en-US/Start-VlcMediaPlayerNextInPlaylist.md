@@ -1,6 +1,6 @@
 # Start-VlcMediaPlayerNextInPlaylist
 
-> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcnext
+> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcnext`
 
 ## Synopsis
 
@@ -16,38 +16,7 @@ function includes ShouldProcess support for confirmation prompts when needed.
 ## Syntax
 
 ```powershell
-[CmdletBinding(SupportsShouldProcess)]
-    [Alias('vlcnext')]
-
-    param(
-    )
-
-    begin {
-
-        # check if shouldprocess is enabled and user wants to proceed
-        Microsoft.PowerShell.Utility\Write-Verbose `
-            'Preparing to advance VLC Media Player to next playlist item'
-    }
-
-    process {
-
-        # verify user confirmation before sending next command to vlc
-        if ($PSCmdlet.ShouldProcess('VLC Media Player', 'Next in playlist')) {
-
-            Microsoft.PowerShell.Utility\Write-Verbose `
-                'Sending next command to VLC Media Player'
-
-            # send the 'n' key to vlc to advance to next playlist item
-            # restore focus ensures powershell regains control after command
-            GenXdev\Open-VlcMediaPlayer -KeysToSend 'n' -RestoreFocus
-
-            Microsoft.PowerShell.Utility\Write-Verbose `
-                'Successfully sent next command to VLC Media Player'
-        }
-    }
-
-    end {
-    }
+Start-VlcMediaPlayerNextInPlaylist [<CommonParameters>]
 ```
 
 ## Examples
@@ -66,4 +35,9 @@ vlcnext
 
 ## Related Links
 
-- [Start-VlcMediaPlayerNextInPlaylist on GitHub](https://github.com/genXdev/genXdev)
+- [Open-VlcMediaPlayer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayer.md)
+- [Open-VlcMediaPlayerLyrics](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayerLyrics.md)
+- [Start-VlcMediaPlayerPreviousInPlaylist](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-VlcMediaPlayerPreviousInPlaylist.md)
+- [Switch-VlcMediaPlayerMute](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VlcMediaPlayerMute.md)
+- [Switch-VLCMediaPlayerPaused](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VLCMediaPlayerPaused.md)
+- [Switch-VlcMediaPlayerRepeat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VlcMediaPlayerRepeat.md)

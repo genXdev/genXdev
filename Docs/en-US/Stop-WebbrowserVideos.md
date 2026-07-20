@@ -1,6 +1,6 @@
 # Stop-WebbrowserVideos
 
-> **Module:** GenXdev.Webbrowser.Playwright | **Type:** Function | **Aliases:** `wbsst, `ssst, `wbvideostop
+> **Module:** GenXdev.Webbrowser.Playwright | **Type:** Function | **Aliases:** `wbsst`, `ssst`, `wbvideostop`
 
 ## Synopsis
 
@@ -43,6 +43,83 @@ wbsst
 ##############################################################################
 ```
 
+## Parameter Details
+
+### `-Edge`
+
+> Opens in Microsoft Edge
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `e` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Chrome`
+
+> Opens in Google Chrome
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ch` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Chromium`
+
+> Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `c` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Firefox`
+
+> Opens in Firefox
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ff` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Webkit`
+
+> Uses the Playwright-managed WebKit browser
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `wk` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Stop-WebbrowserVideos on GitHub](https://github.com/genXdev/genXdev)
+- [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Connect-PlaywrightViaDebuggingPort.md)
+- [ensurePlaywright](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ensurePlaywright.md)
+- [Get-PlaywrightProfileDirectory](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PlaywrightProfileDirectory.md)
+- [Open-PlayWrightBrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-PlayWrightBrowser.md)
+- [Resume-WebbrowserTabVideo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Resume-WebbrowserTabVideo.md)
+- [Unprotect-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unprotect-WebbrowserTab.md)

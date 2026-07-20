@@ -71,6 +71,146 @@ try {
 Invoke-SQLServerQuery -Server "localhost" -DatabaseName "MyDB" -Queries "SELECT * FROM Users" -ConsentToThirdPartySoftwareInstallation
 ```
 
+## Parameter Details
+
+### `-Queries <String[]>`
+
+> The query or queries to execute.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | `q`, `Value`, `Name`, `Text`, `Query` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-DatabaseName <String>`
+
+> The name of the SQL Server database.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | `'master'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Server <String>`
+
+> The SQL Server instance name.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | `'.'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Transaction <Object>`
+
+> An existing SQL Server transaction to use for the queries.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 3 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ConnectionString <String>`
+
+> The connection string to the SQL database.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 4 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SqlParameters <Collections.Hashtable[]>`
+
+> Query parameters as hashtables.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 5 |
+| **Default value** | `@()` |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | `data`, `parameters`, `args` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-IsolationLevel <String>`
+
+> The isolation level to use. default is ReadCommitted.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `"ReadCommitted"` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ForceConsent`
+
+> Force a consent prompt even if preference is set for SQL Server package installation.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ConsentToThirdPartySoftwareInstallation`
+
+> Automatically consent to third-party software installation and set persistent flag for SQL Server package.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Invoke-SQLServerQuery on GitHub](https://github.com/genXdev/genXdev)
+- [EnsureSSMSInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureSSMSInstalled.md)
+- [Get-SQLServerSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerSchema.md)
+- [Get-SQLServerTableColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTableColumnData.md)
+- [Get-SQLServerTableData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTableData.md)
+- [Get-SQLServerTables](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTables.md)
+- [Get-SQLServerTableSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTableSchema.md)
+- [Get-SQLServerTransaction](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTransaction.md)
+- [Get-SQLServerViewColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViewColumnData.md)
+- [Get-SQLServerViewData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViewData.md)
+- [Get-SQLServerViews](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViews.md)
+- [Get-SQLServerViewSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViewSchema.md)
+- [Invoke-SSMS](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-SSMS.md)
+- [New-SQLServerDatabase](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-SQLServerDatabase.md)

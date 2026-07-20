@@ -1,6 +1,6 @@
 # Switch-VlcMediaPlayerMute
 
-> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcmute, `vlcunmute
+> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcmute`, `vlcunmute`
 
 ## Synopsis
 
@@ -15,25 +15,7 @@ command, and then restores focus to the previously active window.
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    [Alias('vlcmute', 'vlcunmute')]
-
-    param (
-    )
-
-    begin {
-
-    }
-
-    process {
-
-        # send the 'm' key to vlc media player to toggle mute state
-        GenXdev\Open-VlcMediaPlayer -KeysToSend 'm' -RestoreFocus
-    }
-
-    end {
-
-    }
+Switch-VlcMediaPlayerMute [<CommonParameters>]
 ```
 
 ## Examples
@@ -56,4 +38,9 @@ Toggles the mute state of VLC Media Player using the short alias.
 
 ## Related Links
 
-- [Switch-VlcMediaPlayerMute on GitHub](https://github.com/genXdev/genXdev)
+- [Open-VlcMediaPlayer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayer.md)
+- [Open-VlcMediaPlayerLyrics](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayerLyrics.md)
+- [Start-VlcMediaPlayerNextInPlaylist](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-VlcMediaPlayerNextInPlaylist.md)
+- [Start-VlcMediaPlayerPreviousInPlaylist](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-VlcMediaPlayerPreviousInPlaylist.md)
+- [Switch-VLCMediaPlayerPaused](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VLCMediaPlayerPaused.md)
+- [Switch-VlcMediaPlayerRepeat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VlcMediaPlayerRepeat.md)

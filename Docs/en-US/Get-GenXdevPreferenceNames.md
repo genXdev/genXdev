@@ -1,6 +1,6 @@
 # Get-GenXdevPreferenceNames
 
-> **Module:** GenXdev.Data.Preferences | **Type:** Cmdlet | **Aliases:** `getPreferenceNames
+> **Module:** GenXdev.Data.Preferences | **Type:** Cmdlet | **Aliases:** `getPreferenceNames`
 
 ## Synopsis
 
@@ -17,7 +17,7 @@
 ## Syntax
 
 ```powershell
-Get-GenXdevPreferenceNames [-SessionOnly] [-ClearSession] [-PreferencesDatabasePath <string>] [-SkipSession] [<CommonParameters>]
+Get-GenXdevPreferenceNames [-ClearSession] [-PreferencesDatabasePath <String>] [-SessionOnly] [-SkipSession] [<CommonParameters>]
 ```
 
 ## Parameters
@@ -56,6 +56,69 @@ getPreferenceNames -SkipSession
 
 Returns only preference names from database stores.
 
+## Parameter Details
+
+### `-SessionOnly`
+
+> Use alternative settings stored in session for Data preferences like Language, Database paths, etc
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ClearSession`
+
+> Clear the session setting (Global variable) before retrieving
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PreferencesDatabasePath <String>`
+
+> Database path for preference data files
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `DatabasePath` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SkipSession`
+
+> Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `FromPreferences` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Get-GenXdevPreferenceNames on GitHub](https://github.com/genXdev/genXdev)
+- [Get-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevPreference.md)
+- [Get-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevPreferencesDatabasePath.md)
+- [Remove-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-GenXdevPreference.md)
+- [Set-GenXdevDefaultPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevDefaultPreference.md)
+- [Set-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevPreference.md)
+- [Set-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevPreferencesDatabasePath.md)

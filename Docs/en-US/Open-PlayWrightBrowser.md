@@ -1,6 +1,6 @@
 # Open-PlayWrightBrowser
 
-> **Module:** GenXdev.Webbrowser.Playwright | **Type:** Function | **Aliases:** `spb
+> **Module:** GenXdev.Webbrowser.Playwright | **Type:** Function | **Aliases:** `spb`
 
 ## Synopsis
 
@@ -11,27 +11,28 @@
 <details>
 <summary><b>Expand description</b></summary>
 
-Launches a standalone browser instance powered by Playwright's built-in
-Chromium, Firefox, or WebKit binaries — completely independent of any
-OS-installed browser. The browser uses a persistent user profile stored
-under GenXdev AppData, so cookies, localStorage, and sessions survive
-across restarts.
+Launches a browser instance powered by Playwright. The BrowserType
+parameter determines which browser engine and launch mode to use:
 
-This cmdlet replaces the old CDP/debugging-port approach that broke in
-Chrome 136+. Instead of attaching to a system browser via a debugging port,
-Playwright manages its own browser lifecycle directly.
+- ChromeNormal / EdgeNormal: Launches your OS-installed Chrome or Edge
+  via Playwright's Channel API, avoiding the "controlled by automation"
+  infobar and anti-bot detection problems.
+- ChromiumNormal: Auto-detects Chrome or Edge (whichever is installed
+  and set as the system default) and uses the Channel API. Falls back
+  to the bundled Playwright Chromium if neither is installed.
+- ChromiumPlaywright: Always uses Playwright's bundled Chromium binary
+  (never the OS-installed browser).
+- FirefoxPlaywright: Uses Playwright's bundled Firefox binary. Channel
+  API is not available for Firefox in the Playwright .NET bindings.
+- WebKitPlaywright: Uses Playwright's bundled WebKit binary.
 
-Key features:
-- Persistent profiles per browser type (Chromium, Firefox, WebKit)
-- Configurable viewport size and window position
-- Headless mode for automation
-- Proxy server support
-- Custom Accept-Language header
-- Incognito/private context option
-- Browser extension control
-- Viewport sizing and positioning via -Width, -Height, -Left, -Right, etc.
-- Force-restart to close existing instance and start fresh
+Anti-detection measures applied for Chromium-based browsers:
+- Disables blink automation flags (removes infobar)
+- Sets viewport to null and starts maximized for native window sizing
+- Uses 'no-preference' color scheme to avoid white background
+- Sets standard browser args (no-first-run, no-default-browser-check)
 
+Persistent profiles per BrowserType are stored under GenXdev AppData.
 The launched browser and its context/page are stored in
 $Global:GenXdevPlaywright for use by other cmdlets.
 
@@ -46,7 +47,7 @@ Open-PlayWrightBrowser [[-BrowserType] <String>] [-AcceptLang <String>] [-Bottom
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-BrowserType` | String | — | — | 0 | `'Chromium'` | The browser engine to launch: Chromium, Firefox, or WebKit |
+| `-BrowserType` | String | — | — | 0 | `'ChromiumNormal'` | The browser to launch: Chrome, Edge, Chromium (auto-detects Chrome or Edge), Firefox, or WebKit |
 | `-Headless` | SwitchParameter | — | — | Named | — | Run the browser without a visible window |
 | `-Proxy` | String | — | — | Named | — | Proxy server URL (e.g. http://proxy:8080) |
 | `-AcceptLang` | String | — | — | Named | — | Set the browser Accept-Language HTTP header |
@@ -85,18 +86,33 @@ Open-PlayWrightBrowser [[-BrowserType] <String>] [-AcceptLang <String>] [-Bottom
 
 ## Examples
 
-### Open-PlayWrightBrowser Launches a persistent Chromium browser with the default profile.
+### Open-PlayWrightBrowser Launches your OS-installed Chrome or Edge (auto-detected) with a persistent profile and anti-detection measures.
 
 ```powershell
 Open-PlayWrightBrowser
-Launches a persistent Chromium browser with the default profile.
+Launches your OS-installed Chrome or Edge (auto-detected) with a
+persistent profile and anti-detection measures.
 ```
 
-### Open-PlayWrightBrowser -BrowserType Firefox -Headless Launches Firefox in headless mode.
+### Open-PlayWrightBrowser -BrowserType EdgeNormal Launches Microsoft Edge via Playwright's Channel API.
 
 ```powershell
-Open-PlayWrightBrowser -BrowserType Firefox -Headless
-Launches Firefox in headless mode.
+Open-PlayWrightBrowser -BrowserType EdgeNormal
+Launches Microsoft Edge via Playwright's Channel API.
+```
+
+### Open-PlayWrightBrowser -BrowserType ChromiumPlaywright Uses the bundled Playwright Chromium binary.
+
+```powershell
+Open-PlayWrightBrowser -BrowserType ChromiumPlaywright
+Uses the bundled Playwright Chromium binary.
+```
+
+### Open-PlayWrightBrowser -BrowserType FirefoxPlaywright -Headless Launches the bundled Firefox in headless mode.
+
+```powershell
+Open-PlayWrightBrowser -BrowserType FirefoxPlaywright -Headless
+Launches the bundled Firefox in headless mode.
 ```
 
 ### Open-PlayWrightBrowser -Width 1280 -Height 720 -Force Restarts the browser with a 1280x720 viewport.
@@ -106,17 +122,521 @@ Open-PlayWrightBrowser -Width 1280 -Height 720 -Force
 Restarts the browser with a 1280x720 viewport.
 ```
 
-### Open-PlayWrightBrowser -Left -Monitor 1 -NoBorders Launches Chromium on the left half of monitor 1 without window borders.
+## Parameter Details
 
-```powershell
-Open-PlayWrightBrowser -Left -Monitor 1 -NoBorders
-Launches Chromium on the left half of monitor 1 without window borders.
-```
+### `-BrowserType <String>`
 
+> The browser to launch: Chrome, Edge, Chromium (auto-detects Chrome or Edge), Firefox, or WebKit
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | `'ChromiumNormal'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Headless`
+
+> Run the browser without a visible window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `hl` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Proxy <String>`
+
+> Proxy server URL (e.g. http://proxy:8080)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-AcceptLang <String>`
+
+> Set the browser Accept-Language HTTP header
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `lang`, `locale` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Width <Int32>`
+
+> Initial viewport width in pixels
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `w` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Height <Int32>`
+
+> Initial viewport height in pixels
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `h` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Force`
+
+> Close existing browser and start fresh
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `f` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ForceConsent`
+
+> Force re-prompting of the installation consent dialog
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ConsentToThirdPartySoftwareInstallation`
+
+> Automatically consent to third-party software installation (Playwright browsers)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `Consent` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Monitor <Int32>`
+
+> The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to $Global:DefaultSecondaryMonitor or 2 if not found
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `m`, `mon` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-X <Int32>`
+
+> The initial X position of the webbrowser window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-999999` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Y <Int32>`
+
+> The initial Y position of the webbrowser window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-999999` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Left`
+
+> Place browser window on the left side of the screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Right`
+
+> Place browser window on the right side of the screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Top`
+
+> Place browser window on the top side of the screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Bottom`
+
+> Place browser window on the bottom side of the screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Centered`
+
+> Place browser window in the center of the screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Fullscreen`
+
+> Maximizes window to fill entire screen
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fs` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoBorders`
+
+> Removes the borders of the window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `nb` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-RestoreFocus`
+
+> Restore PowerShell window focus
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `rf`, `bg` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SideBySide`
+
+> Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `sbs` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-FocusWindow`
+
+> Focus the browser window after opening
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fw`, `focus` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SetForeground`
+
+> Set the browser window to foreground after opening
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fg` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Minimize`
+
+> Minimizes the window after positioning
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Maximize`
+
+> Maximize the window after positioning
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SetRestored`
+
+> Restore the window to normal state after positioning
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-KeysToSend <String[]>`
+
+> Keystrokes to send to the Window, see documentation for cmdlet GenXdev\Send-Key
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyEscape`
+
+> Escape control characters and modifiers when sending keys
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `Escape` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyHoldKeyboardFocus`
+
+> Hold keyboard focus on target window when sending keys
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `HoldKeyboardFocus` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyUseShiftEnter`
+
+> Use Shift+Enter instead of Enter when sending keys
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `UseShiftEnter` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyDelayMilliSeconds <Int32>`
+
+> Delay between different input strings in milliseconds when sending keys
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `DelayMilliSeconds` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PassThru`
+
+> Returns window helper object for further manipulation
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `pt` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SessionOnly`
+
+> Use alternative settings stored in session for AI preferences
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ClearSession`
+
+> Clear alternative settings stored in session for AI preferences
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SkipSession`
+
+> Store settings only in persistent preferences without affecting session
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `FromPreferences` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-OnlyOutputCoords`
+
+> Only output the calculated coordinates and size without actually positioning the window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Outputs
 
 - `Collections.Hashtable`
 
 ## Related Links
 
-- [Open-PlayWrightBrowser on GitHub](https://github.com/genXdev/genXdev)
+- [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Connect-PlaywrightViaDebuggingPort.md)
+- [ensurePlaywright](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ensurePlaywright.md)
+- [Get-PlaywrightProfileDirectory](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PlaywrightProfileDirectory.md)
+- [Resume-WebbrowserTabVideo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Resume-WebbrowserTabVideo.md)
+- [Stop-WebbrowserVideos](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Stop-WebbrowserVideos.md)
+- [Unprotect-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unprotect-WebbrowserTab.md)

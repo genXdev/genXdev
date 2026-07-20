@@ -16,84 +16,7 @@ security and access-related issues.
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    [OutputType([System.Boolean])]
-    param()
-
-    begin {
-
-        # store original error preferences for restoration
-        $originalEAP = $ErrorActionPreference
-        $originalErrorView = $ErrorView
-
-        # set strict error handling
-        $ErrorActionPreference = 'Stop'
-        $ErrorView = 'DetailedView'
-
-        Microsoft.PowerShell.Utility\Write-Verbose "Checking current user's security privileges..."
-    }
-
-
-    process {
-
-        try {
-
-            # get the current windows identity with error handling
-            $identity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
-
-            # create a new principal object from the identity
-            $principal = Microsoft.PowerShell.Utility\New-Object `
-                -TypeName System.Security.Principal.WindowsPrincipal `
-                -ArgumentList $identity
-
-            # check for administrative or backup operator privileges
-            if ($principal.IsInRole(
-                    [System.Security.Principal.WindowsBuiltInRole]::Administrator) -or
-                $principal.IsInRole(
-                    [System.Security.Principal.WindowsBuiltInRole]::BackupOperator)) {
-
-                Microsoft.PowerShell.Utility\Write-Verbose 'User has elevated rights'
-                return $true
-            }
-
-            Microsoft.PowerShell.Utility\Write-Verbose 'User does not have elevated rights'
-            return $false
-        }
-        catch [System.Security.SecurityException] {
-
-            Microsoft.PowerShell.Utility\Write-Error `
-                -Message 'Security violation checking user rights' `
-                -Exception $_.Exception `
-                -Category SecurityError `
-                -ErrorId 'SecurityViolation'
-            throw
-        }
-        catch [System.UnauthorizedAccessException] {
-
-            Microsoft.PowerShell.Utility\Write-Error `
-                -Message 'Access denied while verifying user privileges' `
-                -Exception $_.Exception `
-                -Category PermissionDenied `
-                -ErrorId 'AccessDenied'
-            throw
-        }
-        catch {
-
-            Microsoft.PowerShell.Utility\Write-Error `
-                -Message 'Unexpected error during rights verification' `
-                -Exception $_.Exception `
-                -Category OperationStopped `
-                -ErrorId 'UnexpectedError'
-            throw
-        }
-    }
-
-    end {
-
-        # restore original error handling settings
-        $ErrorActionPreference = $originalEAP
-        $ErrorView = $originalErrorView
-    }
+CurrentUserHasElevatedRights [<CommonParameters>]
 ```
 
 ## Examples
@@ -113,4 +36,35 @@ Returns true if user has admin or backup operator rights, false otherwise.`
 
 ## Related Links
 
-- [CurrentUserHasElevatedRights on GitHub](https://github.com/genXdev/genXdev)
+- [EnsureDockerDesktop](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureDockerDesktop.md)
+- [EnsurePSTools](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePSTools.md)
+- [Get-ActiveUser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ActiveUser.md)
+- [Get-ChildProcesses](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ChildProcesses.md)
+- [Get-ClipboardFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ClipboardFiles.md)
+- [Get-CurrentFocusedProcess](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-CurrentFocusedProcess.md)
+- [Get-DesktopScalingFactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-DesktopScalingFactor.md)
+- [Get-ForegroundWindow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ForegroundWindow.md)
+- [Get-KnownFolderPath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-KnownFolderPath.md)
+- [Get-MonitorCount](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-MonitorCount.md)
+- [Get-MpCmdRunPath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-MpCmdRunPath.md)
+- [Get-OpenedFileHandleProcesses](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-OpenedFileHandleProcesses.md)
+- [Get-PowershellMainWindow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PowershellMainWindow.md)
+- [Get-PowershellMainWindowProcess](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PowershellMainWindowProcess.md)
+- [Get-Window](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Window.md)
+- [Get-WindowPosition](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WindowPosition.md)
+- [Initialize-ScheduledTaskScripts](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Initialize-ScheduledTaskScripts.md)
+- [Invoke-WindowsUpdate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-WindowsUpdate.md)
+- [Pop-Window](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Pop-Window.md)
+- [Push-Window](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Push-Window.md)
+- [Save-DesktopScreenShot](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Save-DesktopScreenShot.md)
+- [Send-Key](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Send-Key.md)
+- [Send-WakeOnLan](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Send-WakeOnLan.md)
+- [Set-ClipboardFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-ClipboardFiles.md)
+- [Set-ForegroundWindow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-ForegroundWindow.md)
+- [Set-KnownFolderPath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-KnownFolderPath.md)
+- [Set-TaskbarAlignment](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-TaskbarAlignment.md)
+- [Set-WindowPosition](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-WindowPosition.md)
+- [Set-WindowPositionForSecondary](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-WindowPositionForSecondary.md)
+- [Set-WindowsWallpaper](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-WindowsWallpaper.md)
+- [Start-ProcessWithPriority](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-ProcessWithPriority.md)
+- [Test-PathUsingWindowsDefender](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Test-PathUsingWindowsDefender.md)

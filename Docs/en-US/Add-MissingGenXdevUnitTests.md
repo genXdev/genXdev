@@ -15,75 +15,7 @@ This function scans all GenXdev cmdlets and creates basic unit test files
 ## Syntax
 
 ```powershell
-# dont remove this line [dontrefactor]
-
-    [CmdletBinding()]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', 'Add-MissingGenXdevUnitTests')]
-    param()
-
-    return;
-
-    # get all cmdlets that need unit tests
-    GenXdev\Get-GenXDevCmdlet | Microsoft.PowerShell.Core\ForEach-Object {
-
-        $genXdevCmdlet = $_
-
-        # skip if test file already exists and has content
-        if ([IO.File]::Exists($_.ScriptTestFilePath) -and
-            ([IO.File]::ReadAllText($_.ScriptTestFilePath).Trim() -ne '')) {
-
-            return
-        }
-
-        # create test file content
-        $prompt = (@"
-###############################################################################
-Describe `"`$CmdletName`" {
-
-    It `"should pass PSScriptAnalyzer rules`" {
-
-# get the script path for analysis
-        `$scriptPath = GenXdev\Expand-Path `"`$($MyInvocation.MyCommand.Module.ModuleBase)\Functions\`$FullModuleName\`$CmdLetNoTestName.ps1`"
-
-# run analyzer with explicit settings
-        `$analyzerResults = GenXdev\Invoke-GenXdevScriptAnalyzer ``
-            -Path `$scriptPath
-
-        [string] `$message = `"`"
-        `$analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
-
-            `$message = `$message + @`"
---------------------------------------------------
-Rule: `$(`$_.RuleName)``
-Description: `$(`$_.Description)
-Message: `$(`$_.Message)
-``r``n
-`"@
-        }
-
-        `$analyzerResults.Count | Should -Be 0 -Because @`"
-The following PSScriptAnalyzer rules are being violated:
-`$message
-`"@;
-    }
-}
-###############################################################################
-"@).Replace(
-            "`$CmdletName", $genXdevCmdlet.Name
-        ).Replace(
-            "`$FullModuleName", $genXdevCmdlet.ModuleName
-        ).Replace(
-            "`$CmdLetNoTestName", $genXdevCmdlet.Name
-        )
-
-        # write test file
-        $null = $prompt | Microsoft.PowerShell.Utility\Out-File (
-            (GenXdev\Expand-Path ($genXdevCmdlet.ScriptTestFilePath) -CreateDirectory)
-        ) -Force
-
-        Microsoft.PowerShell.Utility\Write-Verbose "Created test file: $($genXdevCmdlet.ScriptTestFilePath)"
-        Microsoft.PowerShell.Utility\Write-Output $prompt
-    }
+Add-MissingGenXdevUnitTests [<CommonParameters>]
 ```
 
 ## Examples
@@ -96,4 +28,31 @@ Add-MissingGenXdevUnitTests
 
 ## Related Links
 
-- [Add-MissingGenXdevUnitTests on GitHub](https://github.com/genXdev/genXdev)
+- [Assert-GenXdevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Assert-GenXdevCmdlet.md)
+- [Assert-GenXdevCmdletTests](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Assert-GenXdevCmdletTests.md)
+- [Assert-GenXdevDependencyUsage](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Assert-GenXdevDependencyUsage.md)
+- [Assert-GenXdevTest](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Assert-GenXdevTest.md)
+- [Assert-ModuleDefinition](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Assert-ModuleDefinition.md)
+- [Assert-RefactorFile](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Assert-RefactorFile.md)
+- [EnsureCopilotKeyboardShortCut](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureCopilotKeyboardShortCut.md)
+- [EnsureDefaultGenXdevRefactors](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureDefaultGenXdevRefactors.md)
+- [Get-CmdletMetaData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-CmdletMetaData.md)
+- [Get-GenXdevCmdletUsageAnalysis](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevCmdletUsageAnalysis.md)
+- [Get-GenXDevModule](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXDevModule.md)
+- [Get-GenXDevModuleInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXDevModuleInfo.md)
+- [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXDevNewModulesInOrderOfDependency.md)
+- [Get-ModuleCmdletMetaData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ModuleCmdletMetaData.md)
+- [Get-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Refactor.md)
+- [Get-RefactorReport](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-RefactorReport.md)
+- [Invoke-GenXdevPSFormatter](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-GenXdevPSFormatter.md)
+- [Invoke-GenXdevScriptAnalyzer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-GenXdevScriptAnalyzer.md)
+- [New-ModuleMarkdownHelp](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-ModuleMarkdownHelp.md)
+- [New-ModuleXmlHelp](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-ModuleXmlHelp.md)
+- [New-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-Refactor.md)
+- [Open-GenXdevCmdletsContainingClipboardTextInIde](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GenXdevCmdletsContainingClipboardTextInIde.md)
+- [Remove-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-Refactor.md)
+- [Search-GenXdevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Search-GenXdevCmdlet.md)
+- [Show-GenXdevCmdLetInIde](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Show-GenXdevCmdLetInIde.md)
+- [Start-NextRefactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-NextRefactor.md)
+- [Test-RefactorLLMSelection](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Test-RefactorLLMSelection.md)
+- [Update-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Update-Refactor.md)

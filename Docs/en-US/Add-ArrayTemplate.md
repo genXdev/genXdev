@@ -1,6 +1,6 @@
 # Add-ArrayTemplate
 
-> **Module:** GenXdev.Coding.Templating | **Type:** Function | **Aliases:** `FormatArray
+> **Module:** GenXdev.Coding.Templating | **Type:** Function | **Aliases:** `FormatArray`
 
 ## Synopsis
 
@@ -59,10 +59,96 @@ $items | FormatArray -Template "  - {Name}" -Delimiter ", " -Indentation 1
 
 Uses the FormatArray alias with indentation and a custom delimiter.
 
+## Parameter Details
+
+### `-InputObject <Collections.IEnumerable>`
+
+> The collection of objects to format
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue) |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Template <String>`
+
+> The template string with {PropertyName} or {PropertyName:format} placeholders
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 1 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Delimiter <String>`
+
+> The delimiter string to insert between formatted items
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 2 |
+| **Default value** | `"`n"` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Indentation <Int32>`
+
+> The number of indentation levels (4 spaces per level) to apply
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 3 |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NewLine`
+
+> Appends a trailing delimiter after the final item
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `$false` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-EndDelimiter`
+
+> Add delimiter at end when array not empty
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `$false` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Outputs
 
 - `String`
 
 ## Related Links
 
-- [Add-ArrayTemplate on GitHub](https://github.com/genXdev/genXdev)
+- [Remove-DoubleEmptyLines](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-DoubleEmptyLines.md)

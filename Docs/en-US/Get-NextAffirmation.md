@@ -1,6 +1,6 @@
 # Get-NextAffirmation
 
-> **Module:** GenXdev.Queries.Text | **Type:** Cmdlet | **Aliases:** `WhatAboutIt
+> **Module:** GenXdev.Queries.Text | **Type:** Cmdlet | **Aliases:** `WhatAboutIt`
 
 ## Synopsis
 
@@ -41,6 +41,22 @@ Get-NextAffirmation -Speak
 
 Retrieves a random affirmation and speaks it using text-to-speech.
 
+## Parameter Details
+
+### `-Speak`
+
+> Use text-to-speech to speak the affirmation
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Get-NextAffirmation on GitHub](https://github.com/genXdev/genXdev)
+- [Get-WikipediaSummary](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WikipediaSummary.md)

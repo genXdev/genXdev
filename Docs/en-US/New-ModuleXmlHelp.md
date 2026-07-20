@@ -1,100 +1,107 @@
-# Start-NextRefactor
+# New-ModuleXmlHelp
 
-> **Module:** GenXdev.Coding.PowerShell.Modules | **Type:** Function | **Aliases:** `nextrefactor`
+> **Module:** GenXdev.Coding.PowerShell.Modules | **Type:** Function | **Aliases:** —
 
 ## Synopsis
 
-> Continues or restarts a code refactoring session.
+> Generates MAML XML help files for any PowerShell module.
 
 ## Description
 
-Manages code refactoring operations by processing refactor definitions in
-priority order. Handles file selection, progress tracking, error handling, and
-provides interactive user control over the refactoring process.
+Generates MAML XML help files for any PowerShell module by extracting
+metadata from all cmdlets in a module using Get-CmdletMetaData and producing
+both ModuleName.dll-Help.xml (for C# cmdlets) and ModuleName-help.xml (for
 
 ## Syntax
 
 ```powershell
-Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <IO.FileInfo[]>] [[-FilesToRemove] <IO.FileInfo[]>] [-CleanUpDeletedFiles] [-MarkAllCompleted] [-RedoLast] [-Reset] [-ResetLMSelections] [-Speak] [<CommonParameters>]
+New-ModuleXmlHelp -ModuleName <String> [-ApiEndpoint <String>] [-ApiKey <String>] [-Force] [-Language <String>] [-LinkPrefix <String>] [-Model <String>] [-NoSupportForJsonSchema <String>] [-SkipTranslation] [-TranslationInstructions <String>] [<CommonParameters>]
 ```
 
 ## Parameters
 
 | Name | Type | Required | Pipeline | Position | Default | Description |
 |:---|:---|:---:|:---|:---:|:---|:---|
-| `-Name` | String[] | — | ✅ (ByValue, ByPropertyName) | 0 | `@('*')` | The name of the refactor, accepts wildcards 🌐 *Supports wildcards* |
-| `-FilesToAdd` | IO.FileInfo[] | — | — | 1 | `@()` | Filenames to add |
-| `-FilesToRemove` | IO.FileInfo[] | — | — | 2 | `@()` | Filenames to remove |
-| `-CleanUpDeletedFiles` | SwitchParameter | — | — | Named | — | Clean up deleted files |
-| `-Reset` | SwitchParameter | — | — | Named | — | Start from the beginning of the refactor set |
-| `-ResetLMSelections` | SwitchParameter | — | — | Named | — | Restart all LLM selections |
-| `-MarkAllCompleted` | SwitchParameter | — | — | Named | — | Mark all files as refactored |
-| `-RedoLast` | SwitchParameter | — | — | Named | — | Redo the last refactor |
-| `-Speak` | SwitchParameter | — | — | Named | — | Speak out the details of next refactor |
+| `-ModuleName` | String | ✅ | — | 0 | — | The name of the PowerShell module to generate help for |
+| `-Language` | String | — | — | Named | `'en-US'` | BCP 47 language tag for the generated help (e.g., en-US, nl-NL, de-DE) |
+| `-Force` | SwitchParameter | — | — | Named | — | Overwrite existing help XML files without prompting |
+| `-SkipTranslation` | SwitchParameter | — | — | Named | — | Skip LLM translation; keep help in source language |
+| `-Model` | String | — | — | Named | — | The model identifier or pattern to use for AI translations |
+| `-ApiEndpoint` | String | — | — | Named | — | The API endpoint URL for AI translations |
+| `-ApiKey` | String | — | — | Named | — | The API key for authenticated AI translations |
+| `-NoSupportForJsonSchema` | String | — | — | Named | — | Indicates that LLM has no support for JSON schemas |
+| `-LinkPrefix` | String | — | — | Named | — | URL prefix for the Online Version link in each cmdlet related links (e.g., https://github.com/genXdev/genXdev/blob/main/Docs/en-US/) |
+| `-TranslationInstructions` | String | — | — | Named | — | Custom instructions for the LLM translation (passed to Get-TextTranslation) |
 
 ## Examples
 
-### Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles Restarts refactoring for "RefactorProject" and removes deleted files.
+### New-ModuleXmlHelp -ModuleName 'Pester'
 
 ```powershell
-Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles
-Restarts refactoring for "RefactorProject" and removes deleted files.
+New-ModuleXmlHelp -ModuleName 'Pester'
 ```
 
-### nextrefactor -Name "*Test*" -Speak Processes all refactor sets matching "*Test*" pattern with speech enabled.
+Generates English help XML for the Pester module in en-US\.
+
+### New-ModuleXmlHelp -ModuleName 'GenXdev' -Language 'nl-NL' -Force  -Model 'deepseek-v4-pro' -ApiKey 'your-api-key' -ApiEndpoint 'https://api.deepseek.com/chat/completions'
 
 ```powershell
-nextrefactor -Name "*Test*" -Speak
-Processes all refactor sets matching "*Test*" pattern with speech enabled.
+New-ModuleXmlHelp -ModuleName 'GenXdev' -Language 'nl-NL' -Force  -Model 'deepseek-v4-pro' -ApiKey 'your-api-key' -ApiEndpoint 'https://api.deepseek.com/chat/completions'
 ```
+
+Generates Dutch help XML for GenXdev, overwriting existing files.
+
+### New-ModuleXmlHelp -ModuleName 'PSReadLine' -WhatIf
+
+```powershell
+New-ModuleXmlHelp -ModuleName 'PSReadLine' -WhatIf
+```
+
+Shows what files would be created without actually writing them.
+
+### New-ModuleXmlHelp -ModuleName 'GenXdev' -LinkPrefix `     'https://github.com/genXdev/genXdev/blob/main/Docs/en-US/' -Force
+
+```powershell
+New-ModuleXmlHelp -ModuleName 'GenXdev' -LinkPrefix `
+    'https://github.com/genXdev/genXdev/blob/main/Docs/en-US/' -Force
+```
+
+Generates English help XML with per-cmdlet Online Version URLs pointing
+to GitHub Markdown docs. Get-Help <cmdlet> -Online opens the browser.
 
 ## Parameter Details
 
-### `-Name <String[]>`
+### `-ModuleName <String>`
 
-> The name of the refactor, accepts wildcards
+> The name of the PowerShell module to generate help for
 
 | Property | Value |
 |:---|:---|
-| **Required?** | No |
+| **Required?** | Yes |
 | **Position?** | 0 |
-| **Default value** | `@('*')` |
-| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
-| **Aliases** | *(none)* |
-| **Accept wildcard characters?** | Yes |
-
-<hr/>
-### `-FilesToAdd <IO.FileInfo[]>`
-
-> Filenames to add
-
-| Property | Value |
-|:---|:---|
-| **Required?** | No |
-| **Position?** | 1 |
-| **Default value** | `@()` |
+| **Default value** | *(none)* |
 | **Accept pipeline input?** | False |
 | **Aliases** | *(none)* |
 | **Accept wildcard characters?** | No |
 
 <hr/>
-### `-FilesToRemove <IO.FileInfo[]>`
+### `-Language <String>`
 
-> Filenames to remove
+> BCP 47 language tag for the generated help (e.g., en-US, nl-NL, de-DE)
 
 | Property | Value |
 |:---|:---|
 | **Required?** | No |
-| **Position?** | 2 |
-| **Default value** | `@()` |
+| **Position?** | Named |
+| **Default value** | `'en-US'` |
 | **Accept pipeline input?** | False |
 | **Aliases** | *(none)* |
 | **Accept wildcard characters?** | No |
 
 <hr/>
-### `-CleanUpDeletedFiles`
+### `-Force`
 
-> Clean up deleted files
+> Overwrite existing help XML files without prompting
 
 | Property | Value |
 |:---|:---|
@@ -106,23 +113,9 @@ Processes all refactor sets matching "*Test*" pattern with speech enabled.
 | **Accept wildcard characters?** | No |
 
 <hr/>
-### `-Reset`
+### `-SkipTranslation`
 
-> Start from the beginning of the refactor set
-
-| Property | Value |
-|:---|:---|
-| **Required?** | No |
-| **Position?** | Named |
-| **Default value** | *(none)* |
-| **Accept pipeline input?** | False |
-| **Aliases** | *(none)* |
-| **Accept wildcard characters?** | No |
-
-<hr/>
-### `-ResetLMSelections`
-
-> Restart all LLM selections
+> Skip LLM translation; keep help in source language
 
 | Property | Value |
 |:---|:---|
@@ -134,23 +127,9 @@ Processes all refactor sets matching "*Test*" pattern with speech enabled.
 | **Accept wildcard characters?** | No |
 
 <hr/>
-### `-MarkAllCompleted`
+### `-Model <String>`
 
-> Mark all files as refactored
-
-| Property | Value |
-|:---|:---|
-| **Required?** | No |
-| **Position?** | Named |
-| **Default value** | *(none)* |
-| **Accept pipeline input?** | False |
-| **Aliases** | *(none)* |
-| **Accept wildcard characters?** | No |
-
-<hr/>
-### `-RedoLast`
-
-> Redo the last refactor
+> The model identifier or pattern to use for AI translations
 
 | Property | Value |
 |:---|:---|
@@ -162,9 +141,9 @@ Processes all refactor sets matching "*Test*" pattern with speech enabled.
 | **Accept wildcard characters?** | No |
 
 <hr/>
-### `-Speak`
+### `-ApiEndpoint <String>`
 
-> Speak out the details of next refactor
+> The API endpoint URL for AI translations
 
 | Property | Value |
 |:---|:---|
@@ -176,6 +155,66 @@ Processes all refactor sets matching "*Test*" pattern with speech enabled.
 | **Accept wildcard characters?** | No |
 
 <hr/>
+### `-ApiKey <String>`
+
+> The API key for authenticated AI translations
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoSupportForJsonSchema <String>`
+
+> Indicates that LLM has no support for JSON schemas
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-LinkPrefix <String>`
+
+> URL prefix for the Online Version link in each cmdlet related links (e.g., https://github.com/genXdev/genXdev/blob/main/Docs/en-US/)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-TranslationInstructions <String>`
+
+> Custom instructions for the LLM translation (passed to Get-TextTranslation)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+## Outputs
+
+- `IO.FileInfo[]`
+
 ## Related Links
 
 - [Add-MissingGenXdevUnitTests](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-MissingGenXdevUnitTests.md)
@@ -198,11 +237,11 @@ Processes all refactor sets matching "*Test*" pattern with speech enabled.
 - [Invoke-GenXdevPSFormatter](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-GenXdevPSFormatter.md)
 - [Invoke-GenXdevScriptAnalyzer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-GenXdevScriptAnalyzer.md)
 - [New-ModuleMarkdownHelp](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-ModuleMarkdownHelp.md)
-- [New-ModuleXmlHelp](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-ModuleXmlHelp.md)
 - [New-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-Refactor.md)
 - [Open-GenXdevCmdletsContainingClipboardTextInIde](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GenXdevCmdletsContainingClipboardTextInIde.md)
 - [Remove-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-Refactor.md)
 - [Search-GenXdevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Search-GenXdevCmdlet.md)
 - [Show-GenXdevCmdLetInIde](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Show-GenXdevCmdLetInIde.md)
+- [Start-NextRefactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-NextRefactor.md)
 - [Test-RefactorLLMSelection](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Test-RefactorLLMSelection.md)
 - [Update-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Update-Refactor.md)

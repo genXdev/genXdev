@@ -1,6 +1,6 @@
 # Open-GithubQuery
 
-> **Module:** GenXdev.Queries.Webbrowser | **Type:** Function | **Aliases:** `qgithub, `qgh
+> **Module:** GenXdev.Queries.Webbrowser | **Type:** Function | **Aliases:** `qgithub`, `qgh`
 
 ## Synopsis
 
@@ -170,10 +170,1031 @@ Open-GithubQuery -Type Repository -Query PowerShell -SortBy stars -Order desc
 API mode for repository search.
 ```
 
+## Parameter Details
+
+### `-Query <String[]>`
+
+> The search queries to execute on Github. Supports multiple queries and pipeline input for batch searching. Each query will be URL-encoded and used to search Github.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | `q`, `Name`, `Text`, `Queries` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Type <String>`
+
+> The major category to search. Defaults to 'Code'.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `'Code'` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-In <String[]>`
+
+> Field(s) to search. Only valid options for the selected Type will be accepted.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-User <String>`
+
+> Restrict the search to a user's resources (repos, code, issues, etc.).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Org <String>`
+
+> Restrict search to an organization.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Repo <String>`
+
+> Restrict search to a named repository ('owner/repo').
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Path <String>`
+
+> Restrict code search to specific file or directory paths (supports wildcards per GitHub Search Syntax).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Code |
+
+<hr/>
+### `-Filename <String>`
+
+> Filter results by the filename (not path).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Code |
+
+<hr/>
+### `-Extension <String>`
+
+> Restrict code search to file extensions.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Code |
+
+<hr/>
+### `-Language <String>`
+
+> Filter by programming language.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Size <String>`
+
+> File/repo size. Supports numeric and range syntax (see examples).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-State <String>`
+
+> For issues/PR.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Issue |
+
+<hr/>
+### `-Author <String>`
+
+> Issues/PR: limit to those created by a specified user.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Issue |
+
+<hr/>
+### `-Assignee <String>`
+
+> Issues/PR: limit to those assigned a user.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Issue |
+
+<hr/>
+### `-Labels <String[]>`
+
+> Issues/PR: must be labeled with all specified strings.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Issue |
+
+<hr/>
+### `-No <String[]>`
+
+> Issues/PR: must lack certain metadata (e.g., label, milestone).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Issue |
+
+<hr/>
+### `-SortBy <String>`
+
+> Sort field (depends on Type). E.g., "stars", "forks", "updated", etc.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Order <String>`
+
+> "asc" or "desc" order for sorting.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-PerPage <Int32>`
+
+> Page size (max 100).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `10` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Page <Int32>`
+
+> Page number for paged results.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Token <String>`
+
+> GitHub OAuth or Personal Access Token. If not supplied, uses GITHUB_TOKEN or environment variable.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Api |
+
+<hr/>
+### `-AcceptLang <String>`
+
+> Set the browser accept-lang http header.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `$null` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `lang`, `locale` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SendKeyDelayMilliSeconds <Int32>`
+
+> Delay between sending different key sequences in milliseconds.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `DelayMilliSeconds` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Monitor <Int32>`
+
+> The monitor to display results on. 0 = default, -1 = discard, -2 = secondary.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `m`, `mon` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Width <Int32>`
+
+> The initial width of the browser window.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Height <Int32>`
+
+> The initial height of the browser window.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-X <Int32>`
+
+> The initial X position of the browser window.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-999999` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Y <Int32>`
+
+> The initial Y position of the browser window.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `-999999` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-KeysToSend <String[]>`
+
+> Keystrokes to send to the browser window, see documentation for cmdlet GenXdev\Send-Key.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-CaseSensitive`
+
+> Only match case-sensitive results (where supported).
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-AsJob`
+
+> Run the search asynchronously as a PowerShell job.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Api |
+
+<hr/>
+### `-RawResponse`
+
+> Output raw JSON result from the API.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Api |
+
+<hr/>
+### `-Api`
+
+> Use API mode instead of opening in web browser.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Api |
+
+<hr/>
+### `-Private`
+
+> Opens the browser in private/incognito browsing mode for anonymous searching.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `incognito`, `inprivate` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Force`
+
+> Force enable debugging port, stopping existing browsers if needed.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Edge`
+
+> Opens the search results in Microsoft Edge browser.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `e` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Chrome`
+
+> Opens the search results in Google Chrome browser.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ch` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Chromium`
+
+> Opens the search results in Microsoft Edge or Google Chrome, depending on what the default browser is.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `c` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Firefox`
+
+> Opens the search results in Mozilla Firefox browser.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ff` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-PlayWright`
+
+> Use Playwright-managed browser instead of the OS-installed browser
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `pw` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Webkit`
+
+> Opens the Playwright-managed WebKit browser. Implies -PlayWright
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `wk` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Headless`
+
+> Run the browser without a visible window
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `hl` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-All`
+
+> Opens in all registered modern browsers
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-FullScreen`
+
+> Opens the browser in fullscreen mode.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fs`, `f` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Left`
+
+> Place browser window on the left side of the screen.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Right`
+
+> Place browser window on the right side of the screen.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Top`
+
+> Place browser window on the top side of the screen.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Bottom`
+
+> Place browser window on the bottom side of the screen.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Centered`
+
+> Place browser window in the center of the screen.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-ApplicationMode`
+
+> Hide the browser controls.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `a`, `app`, `appmode` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-NoBrowserExtensions`
+
+> Prevent loading of browser extensions.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `de`, `ne`, `NoExtensions` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-DisablePopupBlocker`
+
+> Disable the popup blocker in the browser.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `allowpopups` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-FocusWindow`
+
+> Focus the browser window after opening.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fw`, `focus` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-SetForeground`
+
+> Set the browser window to foreground after opening.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `fg` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-Maximize`
+
+> Maximize the window after positioning.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-RestoreFocus`
+
+> Restore PowerShell window focus.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `rf`, `bg` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-NewWindow`
+
+> Don't re-use existing browser window, instead, create a new one.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `nw`, `new` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-PassThru`
+
+> Returns a [System.Diagnostics.Process] object of the browserprocess in web mode or query object in API mode.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `pt` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ReturnURL`
+
+> Don't open webbrowser, just return the url.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-ReturnOnlyURL`
+
+> After opening webbrowser, return the url.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-SendKeyEscape`
+
+> Escape control characters when sending keys.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `Escape` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-SendKeyHoldKeyboardFocus`
+
+> Prevent returning keyboard focus to PowerShell after sending keys.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `HoldKeyboardFocus` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-SendKeyUseShiftEnter`
+
+> Send Shift+Enter instead of regular Enter for line breaks.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `UseShiftEnter` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-NoBorders`
+
+> Remove window borders and title bar for a cleaner appearance.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `nb` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-SideBySide`
+
+> Place browser window side by side with PowerShell on the same monitor.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `sbs` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-SessionOnly`
+
+> Use alternative settings stored in session for preferences.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-ClearSession`
+
+> Clear alternative settings stored in session for preferences.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
+### `-SkipSession`
+
+> Store settings only in persistent preferences without affecting session.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | `FromPreferences` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Web |
+
+<hr/>
 ## Outputs
 
 - `PSObject`
 
 ## Related Links
 
-- [Open-GithubQuery on GitHub](https://github.com/genXdev/genXdev)
+- [Copy-PDFsFromGoogleQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Copy-PDFsFromGoogleQuery.md)
+- [Open-BingQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-BingQuery.md)
+- [Open-BuiltWithSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-BuiltWithSiteInfo.md)
+- [Open-GoogleQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GoogleQuery.md)
+- [Open-GoogleSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GoogleSiteInfo.md)
+- [Open-GrokipediaQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GrokipediaQuery.md)
+- [Open-IMDBQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-IMDBQuery.md)
+- [Open-InstantStreetViewQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-InstantStreetViewQuery.md)
+- [Open-MovieQuote](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-MovieQuote.md)
+- [Open-SearchEngine](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-SearchEngine.md)
+- [Open-SimularWebSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-SimularWebSiteInfo.md)
+- [Open-StackOverflowQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-StackOverflowQuery.md)
+- [Open-WaybackMachineSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WaybackMachineSiteInfo.md)
+- [Open-WebsiteAndPerformQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WebsiteAndPerformQuery.md)
+- [Open-WhoisHostSiteInfo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WhoisHostSiteInfo.md)
+- [Open-WikipediaNLQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WikipediaNLQuery.md)
+- [Open-WikipediaQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WikipediaQuery.md)
+- [Open-WolframAlphaQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-WolframAlphaQuery.md)
+- [Open-YoutubeQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-YoutubeQuery.md)

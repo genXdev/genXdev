@@ -1,6 +1,6 @@
 # Start-VlcMediaPlayerPreviousInPlaylist
 
-> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcprev, `vlcback
+> **Module:** GenXdev.Console.Vlc | **Type:** Function | **Aliases:** `vlcprev`, `vlcback`
 
 ## Synopsis
 
@@ -15,30 +15,7 @@ and will restore focus after sending the command.
 ## Syntax
 
 ```powershell
-[CmdletBinding(SupportsShouldProcess)]
-    [Alias('vlcprev', 'vlcback')]
-
-    param (
-    )
-
-    begin {
-
-    }
-
-    process {
-
-        # check if the user wants to proceed with the operation
-        if ($PSCmdlet.ShouldProcess('VLC Media Player',
-            'Go to previous item in playlist')) {
-
-            # send the 'p' key to vlc media player to go to previous playlist item
-            GenXdev\Open-VlcMediaPlayer -KeysToSend 'p' -RestoreFocus
-        }
-    }
-
-    end {
-
-    }
+Start-VlcMediaPlayerPreviousInPlaylist [<CommonParameters>]
 ```
 
 ## Examples
@@ -63,4 +40,9 @@ vlcback
 
 ## Related Links
 
-- [Start-VlcMediaPlayerPreviousInPlaylist on GitHub](https://github.com/genXdev/genXdev)
+- [Open-VlcMediaPlayer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayer.md)
+- [Open-VlcMediaPlayerLyrics](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-VlcMediaPlayerLyrics.md)
+- [Start-VlcMediaPlayerNextInPlaylist](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-VlcMediaPlayerNextInPlaylist.md)
+- [Switch-VlcMediaPlayerMute](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VlcMediaPlayerMute.md)
+- [Switch-VLCMediaPlayerPaused](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VLCMediaPlayerPaused.md)
+- [Switch-VlcMediaPlayerRepeat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Switch-VlcMediaPlayerRepeat.md)

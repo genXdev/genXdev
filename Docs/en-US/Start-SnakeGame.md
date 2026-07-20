@@ -1,6 +1,6 @@
 # Start-SnakeGame
 
-> **Module:** GenXdev.Console | **Type:** Function | **Aliases:** `snake
+> **Module:** GenXdev.Console | **Type:** Function | **Aliases:** `snake`
 
 ## Synopsis
 
@@ -84,6 +84,104 @@ Start-SnakeGame -WithMaze -MazeWidth 5
 Starts the Snake game with a maze that has wider pathways (minimum 5 spaces)
 for easier navigation.
 
+## Parameter Details
+
+### `-InitialLength <Int32>`
+
+> Initial length of the snake (default: 5)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | `5` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Speed <Int32>`
+
+> Game speed in milliseconds between moves (default: 300)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 1 |
+| **Default value** | `300` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoClear`
+
+> Prevents clearing the console before starting the game
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-WithMaze`
+
+> Draws a maze within the playfield using ASCII drawing characters for walls and lines, similar to the border
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ShowRoute`
+
+> Displays the shortest path from the snake's head to the food using small green centered dots
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-MazeWidth <Int32>`
+
+> Minimum pathway width for the maze (1-10, default: 2)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `2` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
 ## Related Links
 
-- [Start-SnakeGame on GitHub](https://github.com/genXdev/genXdev)
+- [Enable-Screensaver](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Enable-Screensaver.md)
+- [Get-IsSpeaking](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-IsSpeaking.md)
+- [New-MicrosoftShellTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-MicrosoftShellTab.md)
+- [Now](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Now.md)
+- [Open-MediaFile](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-MediaFile.md)
+- [SayDate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/SayDate.md)
+- [SayTime](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/SayTime.md)
+- [Set-MonitorPowerOff](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-MonitorPowerOff.md)
+- [Set-MonitorPowerOn](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-MonitorPowerOn.md)
+- [Set-VLCPlayerFocused](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-VLCPlayerFocused.md)
+- [Start-TextToSpeech](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-TextToSpeech.md)
+- [Stop-TextToSpeech](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Stop-TextToSpeech.md)
+- [UtcNow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/UtcNow.md)

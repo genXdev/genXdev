@@ -32,6 +32,20 @@ Stabilize-Video                  # stabilizes the most recent .mp4
     Stabilize-Video shaky.mp4         # specific file
 ```
 
-## Related Links
+## Parameter Details
 
-- [StabilizeVideo on GitHub](https://github.com/genXdev/genXdev)
+### `-InputFile <String>`
+
+> The `-InputFile` parameter.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+## Related Links

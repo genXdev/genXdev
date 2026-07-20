@@ -15,29 +15,7 @@ the system's text-to-speech engine. The date is spoken in the format:
 ## Syntax
 
 ```powershell
-[CmdletBinding()]
-    param()
-
-    begin {
-
-        # format current date into natural speech pattern
-        # e.g. "It is Monday, January 1 2024"
-        $dateText = 'It is ' + [DateTime]::Now.ToString('dddd, MMMM d yyyy')
-
-        # log the text that will be spoken
-        Microsoft.PowerShell.Utility\Write-Verbose "Preparing to speak: $dateText"
-    }
-
-
-    process {
-
-        # use text-to-speech engine to announce the date
-        # suppress output by assigning to $null
-        $null = GenXdev\Start-TextToSpeech $dateText
-    }
-
-    end {
-    }
+SayDate [<CommonParameters>]
 ```
 
 ## Examples
@@ -51,4 +29,16 @@ Announces today's date using text-to-speech
 
 ## Related Links
 
-- [SayDate on GitHub](https://github.com/genXdev/genXdev)
+- [Enable-Screensaver](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Enable-Screensaver.md)
+- [Get-IsSpeaking](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-IsSpeaking.md)
+- [New-MicrosoftShellTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-MicrosoftShellTab.md)
+- [Now](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Now.md)
+- [Open-MediaFile](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-MediaFile.md)
+- [SayTime](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/SayTime.md)
+- [Set-MonitorPowerOff](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-MonitorPowerOff.md)
+- [Set-MonitorPowerOn](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-MonitorPowerOn.md)
+- [Set-VLCPlayerFocused](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-VLCPlayerFocused.md)
+- [Start-SnakeGame](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-SnakeGame.md)
+- [Start-TextToSpeech](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-TextToSpeech.md)
+- [Stop-TextToSpeech](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Stop-TextToSpeech.md)
+- [UtcNow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/UtcNow.md)

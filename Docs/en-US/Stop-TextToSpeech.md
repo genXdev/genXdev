@@ -1,6 +1,6 @@
 # Stop-TextToSpeech
 
-> **Module:** GenXdev.Console | **Type:** Function | **Aliases:** `sst
+> **Module:** GenXdev.Console | **Type:** Function | **Aliases:** `sst`
 
 ## Synopsis
 
@@ -15,37 +15,7 @@ text-to-speech activities.
 ## Syntax
 
 ```powershell
-[CmdletBinding(SupportsShouldProcess = $true)]
-    [Alias('sst')]
-    param()
-
-    begin {
-
-        Microsoft.PowerShell.Utility\Write-Verbose 'Initiating speech cancellation request'
-    }
-
-
-    process {
-
-        try {
-            if ($PSCmdlet.ShouldProcess('Text-to-speech output', 'Stop')) {
-                # cancel all pending standard speech operations
-                $null = [GenXdev.Helpers.Misc]::Speech.SpeakAsyncCancelAll()
-
-                # cancel all pending customized speech operations
-                $null = [GenXdev.Helpers.Misc]::SpeechCustomized.SpeakAsyncCancelAll()
-
-                Microsoft.PowerShell.Utility\Write-Verbose 'Successfully cancelled all speech operations'
-            }
-        }
-        catch {
-            # silently handle any speech cancellation errors
-            Microsoft.PowerShell.Utility\Write-Verbose 'Error occurred while attempting to cancel speech'
-        }
-    }
-
-    end {
-    }
+Stop-TextToSpeech [<CommonParameters>]
 ```
 
 ## Examples
@@ -66,4 +36,16 @@ Starts speaking but gets interrupted immediately
 
 ## Related Links
 
-- [Stop-TextToSpeech on GitHub](https://github.com/genXdev/genXdev)
+- [Enable-Screensaver](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Enable-Screensaver.md)
+- [Get-IsSpeaking](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-IsSpeaking.md)
+- [New-MicrosoftShellTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-MicrosoftShellTab.md)
+- [Now](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Now.md)
+- [Open-MediaFile](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-MediaFile.md)
+- [SayDate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/SayDate.md)
+- [SayTime](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/SayTime.md)
+- [Set-MonitorPowerOff](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-MonitorPowerOff.md)
+- [Set-MonitorPowerOn](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-MonitorPowerOn.md)
+- [Set-VLCPlayerFocused](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-VLCPlayerFocused.md)
+- [Start-SnakeGame](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-SnakeGame.md)
+- [Start-TextToSpeech](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Start-TextToSpeech.md)
+- [UtcNow](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/UtcNow.md)
