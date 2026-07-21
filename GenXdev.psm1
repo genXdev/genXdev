@@ -1,10 +1,865 @@
-if (-not $IsWindows) {
-    throw "This module only supports Windows 10+ x64 with PowerShell 7.5+ x64"
-}
+<##############################################################################
+Part of PowerShell module : GenXdev
+Original cmdlet filename  : Get-GenXDevCmdlet.ps1
+Original author           : René Vaessen / GenXdev
+Version                   : 3.26.2026
+Copyright (c) 2026 René Vaessen / GenXdev
 
-$osVersion = [System.Environment]::OSVersion.Version
-$major = $osVersion.Major
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-if ($major -ne 10) {
-    throw "This module only supports Windows 10+ x64 with PowerShell 7.5+ x64"
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+################################################################################>
+
+<#
+.SYNOPSIS
+Retrieves and lists all GenXdev cmdlets and their details.
+
+.DESCRIPTION
+Searches through installed GenXdev modules and script files to find cmdlets,
+their aliases, and descriptions. Can filter by name pattern and module name.
+Supports filtering by cmdlet definitions and provides flexible search options
+across both local and published module paths.
+
+.PARAMETER CmdletName
+Search pattern to filter cmdlets. Supports wildcards (*) and exact matching.
+When ExactMatch is false, automatically wraps simple strings with wildcards.
+
+.PARAMETER DefinitionMatches
+Regular expression to match cmdlet definitions. Used to filter cmdlets based
+on their function content or implementation details.
+
+.PARAMETER ModuleName
+One or more GenXdev module names to search. Can omit GenXdev prefix. Supports
+wildcards and validates module name patterns for GenXdev modules.
+
+.PARAMETER NoLocal
+Skip searching in local module paths. When specified, only searches in
+published or system module locations.
+
+.PARAMETER OnlyPublished
+Limit search to published module paths only. Excludes local development
+modules and focuses on released versions.
+
+.PARAMETER FromScripts
+Search in script files instead of module files. Changes the search target
+from PowerShell modules to standalone script files.
+
+.PARAMETER IncludeScripts
+Includes the scripts directory in addition to regular modules. Expands the
+search scope to cover both modules and scripts simultaneously.
+
+.PARAMETER OnlyReturnModuleNames
+Only return unique module names instead of full cmdlet details. Provides a
+summary view of available modules rather than detailed cmdlet information.
+
+.PARAMETER ExactMatch
+Perform exact matching instead of wildcard matching. When specified, disables
+automatic wildcard wrapping for simple search patterns.
+
+.EXAMPLE
+Get-GenXDevCmdlet -CmdletName "Get-*" -ModuleName "Console" -NoLocal
+
+.EXAMPLE
+gcmds Get-*
+
+.EXAMPLE
+Get-GenXDevCmdlet -OnlyReturnModuleNames
+#>
+function Get-GenXDevCmdlet {
+
+    [CmdletBinding()]
+    [OutputType([GenXdev.Helpers.GenXdevCmdletInfo], [string])]
+    [Alias('gcmds')]
+
+    param(
+        [Parameter(
+            Position = 0,
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Search pattern to filter cmdlets'
+        )]
+        [ValidateNotNullOrEmpty()]
+        [Alias('Filter', 'CmdLet', 'Cmd', 'FunctionName', 'Name')]
+        [SupportsWildcards()]
+        [string[]] $CmdletName,
+        [Parameter(
+            Position = 1,
+            Mandatory = $false,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Regular expression to match cmdlet definitions'
+        )]
+        [ValidateNotNullOrEmpty()]
+        [string] $DefinitionMatches,
+        [Parameter(
+            Position = 2,
+            Mandatory = $false,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'GenXdev module names to search'
+        )]
+        [ValidateNotNullOrEmpty()]
+        [Alias('Module', 'BaseModuleName', 'SubModuleName')]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.[\w\*\[\]\?]*)+)+$')]
+        [SupportsWildcards()]
+        [string[]] $ModuleName,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Skip searching in local module paths'
+        )]
+        [switch] $NoLocal,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Only search in published module paths'
+        )]
+        [switch] $OnlyPublished,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Search in script files instead of modules'
+        )]
+        [switch] $FromScripts,
+        [Parameter(
+            ParameterSetName = "ModuleName",
+            Mandatory = $false,
+            HelpMessage = ('Includes the scripts directory in addition to ' +
+                'regular modules')
+        )]
+        [switch] $IncludeScripts,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Only return unique module names'
+        )]
+        [switch] $OnlyReturnModuleNames,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Perform exact matching instead of wildcard matching'
+        )]
+        [switch] $ExactMatch
+    )
+
+    begin {
+
+        # # get ps root path
+        # $psRootPath = GenXdev\Expand-Path "$($MyInvocation.MyCommand.Module.ModuleBase)\..\..\..\"
+
+        # store current location to restore later and prevent side effects
+        $originalLocation = Microsoft.PowerShell.Management\Get-Location
+
+        # initialize collection to store found cmdlets
+        $cmdletCollection = [System.Collections.Generic.List[GenXdev.Helpers.GenXdevCmdletInfo]]::new()
+
+        # output verbose information about search parameters
+        Microsoft.PowerShell.Utility\Write-Verbose (
+            "Starting cmdlet search with CmdletName: ${CmdletName}, " +
+            "ModuleName: ${ModuleName}, ExactMatch: ${ExactMatch}"
+        )
+    }
+
+    process {
+
+        # Helper: test if a value matches any pattern in an array using
+        # -like (wildcard) or -eq (exact match)
+        function Test-MatchesAnyPattern {
+            param($Value, [string[]] $Patterns, [bool] $Exact)
+
+            if (-not $Patterns -or $Patterns.Count -eq 0) { return $true }
+
+            foreach ($p in $Patterns) {
+                $pattern = $p
+                if (-not $Exact -and
+                    $pattern.IndexOfAny('*?[]'.ToCharArray()) -lt 0) {
+                    $pattern = "*$pattern*"
+                }
+                if ($Value -like $pattern) { return $true }
+            }
+            return $false
+        }
+
+        # Resolve modules via direct directory scan (avoids PS7.x
+        # AnalysisCache stack overflow in Get-Module -ListAvailable)
+        $moduleDirs = [System.Collections.Generic.List[hashtable]]::new()
+
+        foreach ($psPath in $env:PSModulePath.Split(';')) {
+            if (-not [IO.Directory]::Exists($psPath)) { continue }
+            foreach ($dir in [IO.Directory]::EnumerateDirectories(
+                $psPath, 'GenXdev*')) {
+
+                $dirName = [IO.Path]::GetFileName($dir)
+
+                # Apply NoLocal filter early
+                if ($NoLocal -and $dirName -like 'GenXdev.Local*') {
+                    continue
+                }
+
+                # Apply ModuleName filter early where possible
+                if ($ModuleName -and $ModuleName.Count -gt 0) {
+                    $match = $false
+                    foreach ($mn in $ModuleName) {
+                        $pattern = $mn
+                        if (-not $ExactMatch -and
+                            $pattern.IndexOfAny('*?[]'.ToCharArray()) -lt 0) {
+                            $pattern = "*$pattern*"
+                        }
+                        if ($dirName -like $pattern) {
+                            $match = $true; break
+                        }
+                        if ($mn.StartsWith($dirName + '.')) {
+                            $match = $true; break
+                        }
+                    }
+                    if (-not $match) { continue }
+                }
+
+                # Find latest version subdirectory
+                $latestVersionDir = $null
+                $latestVersion = [version]'0.0'
+                foreach ($verDir in [IO.Directory]::EnumerateDirectories(
+                    $dir)) {
+                    $verName = [IO.Path]::GetFileName($verDir)
+                    if ($verName -notmatch
+                        '^(\d+)\.(\d+)\.(\d+\.?\d*)$') { continue }
+                    $ver = [version]$verName
+                    if ($ver -gt $latestVersion) {
+                        $latestVersion = $ver
+                        $latestVersionDir = $verDir
+                    }
+                }
+
+                if (-not $latestVersionDir) { continue }
+
+                $jsonPath = [IO.Path]::Combine($latestVersionDir,
+                    'cmdlets-meta.json')
+
+                # Apply OnlyPublished filter
+                if ($OnlyPublished) {
+                    if (-not [IO.File]::Exists([IO.Path]::Combine(
+                        $latestVersionDir, 'README.md'))) { continue }
+                }
+
+                if (-not [IO.File]::Exists($jsonPath)) { continue }
+
+                $null = $moduleDirs.Add(@{
+                        BaseModuleName = $dirName
+                        VersionDir     = $latestVersionDir
+                        JsonPath       = $jsonPath
+                    })
+            }
+        }
+
+        # Build list of { baseModuleName, versionDir, jsonPath } tuples
+        $jsonModuleData = @($moduleDirs |
+            Microsoft.PowerShell.Core\ForEach-Object {
+                [PSCustomObject]$_
+            })
+
+        # Process each cmdlets-meta.json file
+        foreach ($moduleData in $jsonModuleData) {
+            $baseModuleName = $moduleData.BaseModuleName
+            $versionDir = $moduleData.VersionDir
+
+            # Check script-scoped memory cache first
+            $cacheVarName = ($baseModuleName).Replace('.', '_') +
+            'CmdletMeta'
+            $entries = Microsoft.PowerShell.Utility\Get-Variable `
+                -Name $cacheVarName `
+                -Scope Script `
+                -ValueOnly `
+                -ErrorAction SilentlyContinue
+
+            if ($null -eq $entries) {
+                try {
+                    $entries = Microsoft.PowerShell.Utility\ConvertFrom-Json `
+                        -InputObject ([IO.File]::ReadAllText(
+                            $moduleData.JsonPath))
+                }
+                catch {
+                    Microsoft.PowerShell.Utility\Write-Warning `
+                        "Failed to read $($moduleData.JsonPath): $_"
+                    continue
+                }
+                Microsoft.PowerShell.Utility\Set-Variable `
+                    -Name $cacheVarName `
+                    -Scope Script `
+                    -Value $entries
+            }
+
+            foreach ($entry in $entries) {
+
+                # Filter by SubModuleName (in addition to base module)
+                if ($ModuleName -and $ModuleName.Count -gt 0) {
+                    if (-not (Test-MatchesAnyPattern `
+                                -Value $entry.SubModuleName `
+                                -Patterns $ModuleName `
+                                -Exact $ExactMatch)) { continue }
+                }
+
+                # Filter by CmdletName
+                if ($CmdletName -and $CmdletName.Count -gt 0) {
+                    # Split into qualified (Module\Name) and bare patterns
+                    $qPatterns = @($CmdletName |
+                        Microsoft.PowerShell.Core\Where-Object {
+                            $_ -match '\\'
+                        })
+                    $bPatterns = @($CmdletName |
+                        Microsoft.PowerShell.Core\Where-Object {
+                            $_ -notmatch '\\'
+                        })
+
+                    $nameMatch = $false
+
+                    # Check qualified patterns (ModuleQualifier\CmdletName)
+                    if ($qPatterns.Count -gt 0) {
+                        foreach ($qp in $qPatterns) {
+                            $ix = $qp.LastIndexOf('\')
+                            $qMod = $qp.Substring(0, $ix)
+                            $qName = $qp.Substring($ix + 1)
+                            if ((Test-MatchesAnyPattern `
+                                    -Value $baseModuleName `
+                                    -Patterns @($qMod) `
+                                    -Exact $ExactMatch) -and
+                                (Test-MatchesAnyPattern `
+                                    -Value $entry.CmdletName `
+                                    -Patterns @($qName) `
+                                    -Exact $ExactMatch)) {
+                                $nameMatch = $true
+                                break
+                            }
+                        }
+                    }
+
+                    # Check bare patterns (original behavior)
+                    if (-not $nameMatch -and $bPatterns.Count -gt 0) {
+                        $nameMatch = Test-MatchesAnyPattern `
+                            -Value $entry.CmdletName `
+                            -Patterns $bPatterns `
+                            -Exact $ExactMatch
+                    }
+
+                    # Also check aliases (bare patterns only)
+                    if (-not $nameMatch -and $bPatterns.Count -gt 0) {
+                        foreach ($alias in $entry.Aliases) {
+                            if (Test-MatchesAnyPattern `
+                                    -Value $alias `
+                                    -Patterns $bPatterns `
+                                    -Exact $ExactMatch) {
+                                $nameMatch = $true
+                                break
+                            }
+                        }
+                    }
+                    if (-not $nameMatch) { continue }
+                }
+
+                # Determine source file path.
+                # Most C# cmdlets use plain .cs. Cmdlets with partial
+                # classes (like Find-Item) use .Cmdlet.cs for the main
+                # file. Try .cs first, fall back to .Cmdlet.cs.
+                $srcFilePath = if ($entry.CmdletType -eq 'Function') {
+                    "$versionDir\Functions\$($entry.SubModuleName)\$($entry.CmdletName).ps1"
+                }
+                else {
+                    $csPath = "$versionDir\Functions\$($entry.SubModuleName)\$($entry.CmdletName).cs"
+                    if ([IO.File]::Exists($csPath)) {
+                        $csPath
+                    }
+                    else {
+                        "$versionDir\Functions\$($entry.SubModuleName)\$($entry.CmdletName).Cmdlet.cs"
+                    }
+                }
+
+                # Apply DefinitionMatches filter (read source when needed)
+                if ($DefinitionMatches) {
+                    if ([IO.File]::Exists($srcFilePath)) {
+                        $content = [IO.File]::ReadAllText($srcFilePath)
+                        if ($content -notmatch $DefinitionMatches) {
+                            continue
+                        }
+                    }
+                    else { continue }
+                }
+
+                # Build GenXdevCmdletInfo
+                $cmdletInfo = [GenXdev.Helpers.GenXdevCmdletInfo]@{
+                    Name               = $entry.CmdletName
+                    ModuleName         = $entry.SubModuleName
+                    BaseModule         = $baseModuleName
+                    LineNo             = 0
+                    Description        = $entry.Description
+                    Aliases            = $entry.Aliases -join ', '
+                    ScriptFilePath     = $srcFilePath
+                    ScriptTestFilePath = (
+                        "$versionDir\Tests\$($entry.SubModuleName)\$($entry.CmdletName).Tests.ps1"
+                    )
+                }
+
+                $null = $cmdletCollection.Add($cmdletInfo)
+            }
+        }
+
+        # Handle scripts (-FromScripts / -IncludeScripts) using legacy path
+        if (-not ($FromScripts -or $IncludeScripts)) { return }
+
+        # resolve the scripts directory path relative to current module
+        $scriptsPath = [IO.Path]::GetFullPath("$($MyInvocation.MyCommand.Module.ModuleBase)\..\..\..\Scripts")
+
+        if (-not [IO.Directory]::Exists($scriptsPath)) {
+
+            mkdir $scriptsPath
+        }
+
+        GenXdev\Find-Item "$scriptsPath\*.ps1" -Passthru |
+            Microsoft.PowerShell.Core\ForEach-Object {
+
+                if ($_.Name -like '_*') { return }
+
+                $cName = [IO.Path]::GetFileNameWithoutExtension(
+                    $_.Name).Replace('.Cmdlet', '').Replace(
+                    '.cmdlet', '')
+
+                # Filter by CmdletName
+                if ($CmdletName -and $CmdletName.Count -gt 0) {
+                    # Split into qualified (Module\Name) and bare patterns
+                    $qPatterns = @($CmdletName |
+                        Microsoft.PowerShell.Core\Where-Object {
+                            $_ -match '\\'
+                        })
+                    $bPatterns = @($CmdletName |
+                        Microsoft.PowerShell.Core\Where-Object {
+                            $_ -notmatch '\\'
+                        })
+
+                    $nameMatch = $false
+
+                    # Check qualified patterns (ModuleQualifier\CmdletName)
+                    if ($qPatterns.Count -gt 0) {
+                        foreach ($qp in $qPatterns) {
+                            $ix = $qp.LastIndexOf('\')
+                            $qMod = $qp.Substring(0, $ix)
+                            $qName = $qp.Substring($ix + 1)
+                            if ((Test-MatchesAnyPattern `
+                                    -Value 'GenXdev.Scripts' `
+                                    -Patterns @($qMod) `
+                                    -Exact $ExactMatch) -and
+                                (Test-MatchesAnyPattern `
+                                    -Value $cName `
+                                    -Patterns @($qName) `
+                                    -Exact $ExactMatch)) {
+                                $nameMatch = $true
+                                break
+                            }
+                        }
+                    }
+
+                    # Check bare patterns (original behavior)
+                    if (-not $nameMatch -and $bPatterns.Count -gt 0) {
+                        if ($ExactMatch) {
+                            if ($cName.ToLowerInvariant() -ne `
+                                    $bPatterns.ToLowerInvariant()) { return }
+                        }
+                        if ($cName -notlike $bPatterns) { return }
+                    }
+
+                    if (-not $nameMatch -and $bPatterns.Count -eq 0) {
+                        return
+                    }
+                }
+
+                # Filter by DefinitionMatches
+                if ($DefinitionMatches) {
+
+                    $content = [IO.File]::ReadAllText($_.FullName)
+                    if ($content -notmatch $DefinitionMatches) {
+                        return
+                    }
+                }
+
+                $cmdletInfo = [GenXdev.Helpers.GenXdevCmdletInfo]@{
+                    Name               = $cName
+                    ModuleName         = 'GenXdev.Scripts'
+                    BaseModule         = 'GenXdev.Scripts'
+                    LineNo             = 0
+                    Description        = ''
+                    Aliases            = ''
+                    ScriptFilePath     = $_.FullName
+                    ScriptTestFilePath = (
+                        GenXdev\Expand-Path "$([IO.Path]::GetDirectoryName($_.FullName))\$($cName).Tests.ps1")
+                }
+
+                $null = $cmdletCollection.Add($cmdletInfo)
+            }
+    }
+
+    end {
+
+        # restore the original location to prevent side effects
+        Microsoft.PowerShell.Management\Set-Location -LiteralPath $originalLocation
+
+        # output verbose completion message
+        Microsoft.PowerShell.Utility\Write-Verbose (
+            "Completed cmdlet search and restored original location"
+        )
+
+        # return results based on OnlyReturnModuleNames parameter
+        if ($OnlyReturnModuleNames) {
+
+            # return unique BaseModule names
+            $cmdletCollection |
+                Microsoft.PowerShell.Core\ForEach-Object { $_.BaseModule } |
+                Microsoft.PowerShell.Utility\Select-Object -Unique |
+                Microsoft.PowerShell.Utility\Sort-Object {
+                    "$($_.BaseModule.Length.ToString("00_"))$($_.BaseModule)"
+                } -Descending ;
+        }
+        else {
+
+            # return full cmdlet information objects
+            $cmdletCollection
+        }
+    }
+
 }
+<##############################################################################
+Part of PowerShell module : GenXdev
+Original cmdlet filename  : Show-GenXdevCmdlet.ps1
+Original author           : René Vaessen / GenXdev
+Version                   : 3.26.2026
+Copyright (c) 2026 René Vaessen / GenXdev
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+################################################################################>
+
+<#
+.SYNOPSIS
+Displays GenXdev PowerShell modules with their cmdlets and aliases.
+
+.DESCRIPTION
+Lists all installed GenXdev PowerShell modules and their associated cmdlets and
+aliases. Uses Get-GenXDevCmdlet to retrieve cmdlet information and optionally
+their script positions. Provides filtering and various display options.
+
+.PARAMETER Filter
+Pattern to filter cmdlets by name. Wildcards (*) are supported and automatically
+added if not present. Example: "Get" becomes "*Get*"
+
+.PARAMETER CmdletName
+Search pattern to filter cmdlets. Supports wildcards (*) and exact matching.
+When ExactMatch is false, automatically wraps simple strings with wildcards.
+
+.PARAMETER DefinitionMatches
+Regular expression to match cmdlet definitions. Used to filter cmdlets based
+on their function content or implementation details.
+
+.PARAMETER ModuleName
+One or more GenXdev module names to search. Can omit GenXdev prefix. Supports
+wildcards and validates module name patterns for GenXdev modules.
+
+.PARAMETER NoLocal
+Skip searching in local module paths. When specified, only searches in
+published or system module locations.
+
+.PARAMETER OnlyPublished
+Limit search to published module paths only. Excludes local development
+modules and focuses on released versions.
+
+.PARAMETER FromScripts
+Search in script files instead of module files. Changes the search target
+from PowerShell modules to standalone script files.
+
+.PARAMETER IncludeScripts
+Includes the scripts directory in addition to regular modules. Expands the
+search scope to cover both modules and scripts simultaneously.
+
+.PARAMETER OnlyReturnModuleNames
+Only return unique module names instead of full cmdlet details. Provides a
+summary view of available modules rather than detailed cmdlet information.
+
+.PARAMETER ExactMatch
+Perform exact matching instead of wildcard matching. When specified, disables
+automatic wildcard wrapping for simple search patterns.
+
+.PARAMETER Online
+When specified, opens the GitHub documentation page instead of console output.
+
+.PARAMETER OnlyAliases
+When specified displays only aliases of cmdlets who have them.
+
+.PARAMETER ShowTable
+When specified, displays results in a table format with Name and Description.
+
+.PARAMETER OnlyReturnModuleNames
+Only return unique module names instead of displaying cmdlet details.
+
+.EXAMPLE
+Show-GenXdevCmdlet -CmdletName "Get" -ModuleName "Console" -ShowTable
+Lists all cmdlets starting with "Get" in the Console module as a table
+
+.EXAMPLE
+cmds get -m console
+Lists all cmdlets starting with "Get" in the Console module
+
+.EXAMPLE
+Show-GenXdevCmdlet -OnlyReturnModuleNames
+Returns only unique module names
+#>
+function Show-GenXdevCmdlet {
+
+    [CmdletBinding()]
+    [Alias('cmds')]
+    [OutputType([System.Collections.ArrayList], [void])]
+
+    param(
+        [Parameter(
+            Position = 0,
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Search pattern to filter cmdlets'
+        )]
+        [ValidateNotNullOrEmpty()]
+        [Alias('Filter', 'CmdLet', 'Cmd', 'FunctionName', 'Name')]
+        [SupportsWildcards()]
+        [string] $CmdletName,
+        [Parameter(
+            Position = 1,
+            Mandatory = $false,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Regular expression to match cmdlet definitions'
+        )]
+        [ValidateNotNullOrEmpty()]
+        [string] $DefinitionMatches,
+        [Parameter(
+            Position = 2,
+            Mandatory = $false,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'GenXdev module names to search'
+        )]
+        [ValidateNotNullOrEmpty()]
+        [Alias('Module', 'BaseModuleName', 'SubModuleName')]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.[\w\*\[\]\?]*)+)+$')]
+        [SupportsWildcards()]
+        [string[]] $ModuleName,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Skip searching in local module paths'
+        )]
+        [switch] $NoLocal,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Only search in published module paths'
+        )]
+        [switch] $OnlyPublished,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Search in script files instead of modules'
+        )]
+        [switch] $FromScripts,
+        [Parameter(
+            ParameterSetName = "ModuleName",
+            Mandatory = $false,
+            HelpMessage = ('Includes the scripts directory in addition to ' +
+                          'regular modules')
+        )]
+        [switch] $IncludeScripts,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Only return unique module names'
+        )]
+        [switch] $OnlyReturnModuleNames,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Perform exact matching instead of wildcard matching'
+        )]
+        [switch] $ExactMatch,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Open GitHub documentation instead of console output'
+        )]
+        [switch] $Online,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'When specified displays only aliases of cmdlets'
+        )]
+        [Alias('aliases', 'nonboring', 'notlame', 'handyonces')]
+        [switch] $OnlyAliases,
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Display results in table format'
+        )]
+        [Alias('table', 'grid')]
+        [switch] $ShowTable,
+        [switch] $PassThru
+    )
+
+    begin {
+        Microsoft.PowerShell.Utility\Write-Verbose 'Initializing Show-GenXdevCmdlet'
+
+        # initialize results collection
+        $results = [System.Collections.ArrayList]::new()
+
+        if (-not ($CmdletName.Contains('*') -or $CmdletName.Contains('?'))) {
+
+            $CmdletName = "*$CmdletName*"
+        }
+    }
+
+
+    process {
+        $wpDone = $false;
+        try {
+            # copy identical parameters between functions for passing to Get-GenXDevCmdlet
+            $invocationParams = GenXdev\Copy-IdenticalParamValues `
+                -FunctionName 'GenXdev\Get-GenXDevCmdlet' `
+                -BoundParameters $PSBoundParameters `
+                -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
+                    -Scope Local `
+                    -ErrorAction SilentlyContinue)
+
+            # if only module names are requested, return them directly
+            if ($OnlyReturnModuleNames) {
+                Microsoft.PowerShell.Utility\Write-Verbose 'Returning unique module names directly'
+                return GenXdev\Get-GenXDevCmdlet @invocationParams -OnlyReturnModuleNames
+            }
+
+            # get cmdlets using Get-GenXDevCmdlet
+            [GenXdev.Helpers.GenXdevCmdletInfo[]] $cmdlets = GenXdev\Get-GenXDevCmdlet @invocationParams
+
+            foreach ($cmdletData in $cmdlets) {
+
+                # handle online documentation
+                if ($Online) {
+
+                    if (@('GenXdev.Local', 'GenXdev.Scripts').IndexOf($cmdlet.BaseModule) -lt 0) {
+
+
+                        $url = "https://github.com/genXdev/$($cmdletData.BaseModule)#$($cmdletData.Name)";
+
+                        if ([string]::IsNullOrWhiteSpace($CmdletName)) {
+
+                            $url = "https://github.com/genXdev/$($cmdletData.ModulBaseModuleName)#Cmdlet+Index)";
+                        }
+
+                        Microsoft.PowerShell.Utility\Write-Verbose "Opening documentation for $($cmdletData.BaseModule)"
+
+                        if (Microsoft.PowerShell.Core\Get-Module GenXdev.Webbrowser -ErrorAction SilentlyContinue) {
+
+                            GenXdev\Open-Webbrowser -Url $url -SideBySide:(!$wpDone) -RestoreFocus -Monitor ($wpDone ? -1 : 0)
+                            $wpDone = $true;
+                        }
+                        else {
+                            Microsoft.PowerShell.Management\Start-Process $url
+                        }
+
+                        if ([string]::IsNullOrWhiteSpace($CmdletName)) {
+
+                            return;
+                        }
+                    }
+
+                    continue
+                }
+
+                # filter aliases if OnlyAliases specified
+                if ($OnlyAliases) {
+
+                    $cmdletData.Aliases = @($cmdletData.Aliases.Split(',') |
+                            Microsoft.PowerShell.Core\ForEach-Object { if ($_.Trim() -notlike '*-*') { $_.Trim() } } |
+                            Microsoft.PowerShell.Utility\Select-Object -First 1) -join ', '
+
+                    if ([string]::IsNullOrWhiteSpace($cmdletData.Aliases)) {
+
+                        $cmdletData.Aliases = ''
+                        continue
+                    }
+                }
+
+                # add to results collection
+                $null = $results.Add([PSCustomObject]$cmdletData)
+            }
+        }
+        catch {
+            Microsoft.PowerShell.Utility\Write-Error "Error processing cmdlets: $_"
+        }
+    }
+
+    end {
+        if ($PassThru) {
+
+            Microsoft.PowerShell.Utility\Write-Verbose 'Returning results as output'
+            return $results
+        }
+        if ($results.Count -eq 0) {
+            Microsoft.PowerShell.Utility\Write-Verbose 'No results found matching criteria'
+            return
+        }
+
+        if ($ShowTable) {
+
+            if ($OnlyAliases) {
+
+                # display as table
+                $results |
+                    Microsoft.PowerShell.Utility\Select-Object ModuleName, Aliases, Description |
+                    Microsoft.PowerShell.Utility\Format-Table -AutoSize
+            }
+            else {
+
+                # display as table
+                $results |
+                    Microsoft.PowerShell.Utility\Select-Object ModuleName, Name, Aliases, Description |
+                    Microsoft.PowerShell.Utility\Format-Table -AutoSize
+            }
+        }
+        else {
+            # group by module and display with formatting
+            $results | Microsoft.PowerShell.Utility\Group-Object ModuleName | Microsoft.PowerShell.Core\ForEach-Object {
+                "`r`n$($_.Name):" | Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Yellow
+
+                $all = @($_.Group | Microsoft.PowerShell.Core\ForEach-Object {
+
+                        if ($OnlyAliases) {
+
+                            $_.Aliases.Split(',') |
+                                Microsoft.PowerShell.Utility\Select-Object -First 1 |
+                                Microsoft.PowerShell.Core\ForEach-Object {
+
+                                    if ($_.Trim() -notlike '*-*') {
+
+                                        $_.Trim()
+                                    }
+                                }
+                            }
+                            elseif (-not [string]::IsNullOrWhiteSpace($_.Aliases)) {
+
+                                "$($_.Name) --> $($_.Aliases)"
+                            }
+                            else {
+
+                                $_.Name
+                            }
+                        })
+
+                    [string]::Join(', ', $all) | Microsoft.PowerShell.Utility\Write-Host -ForegroundColor White
+                }
+            }
+        }
+    }
+

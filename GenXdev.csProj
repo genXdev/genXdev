@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IncludeWindowsSDKRefFrameworkReferences>false</IncludeWindowsSDKRefFrameworkReferences>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <NeutralLanguage>en</NeutralLanguage>
+    <AssemblyVersion>3.26.2026</AssemblyVersion>
+    <FileVersion>3.26.2026</FileVersion>
+    <Description>A Windows PowerShell module with helpers mostly used by other GenXdev modules</Description>
+    <Copyright>Copyright (c) 2024 GenXdev</Copyright>
+    <PackageProjectUrl>https://github.com/genXdev/GenXdev</PackageProjectUrl>
+    <PackageIcon>powershell.jpg</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/genXdev/GenXdev</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>GenXdev, PowerShell, Windows</PackageTags>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>GenXdev</AssemblyName>
+    <RootNamespace>GenXdev</RootNamespace>
+    <OutputPath>./bin/</OutputPath>
+    <IntermediateOutputPath>./obj/</IntermediateOutputPath>
+    <BaseOutputPath>.\bin\</BaseOutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <UserSecretsId>859ba72c-3594-4ef3-8c11-a6cf3bd8f7fd</UserSecretsId>
+    <Title>GenXdev</Title>
+    <EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <SupportedOSPlatformVersion>10.0.26100.0</SupportedOSPlatformVersion>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
+    <PackageReference Include="Microsoft.PowerShell.Commands.Utility" Version="7.6.3" />
+    <PackageReference Include="NAudio" Version="2.3.0" />
+    <PackageReference Include="System.Management.Automation" Version="7.6.3" />
+    <PackageReference Include="EdgeTTS.DotNet" Version="0.4.0" />
+    <PackageReference Include="Whisper.net" Version="1.9.1" />
+    <PackageReference Include="Whisper.net.AllRuntimes" Version="1.9.1" />
+    <PackageReference Include="Whisper.net.Runtime.NoAvx" Version="1.9.1" />
+    <PackageReference Include="WpfScreenHelper" Version="2.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,68 @@
+{
+  "SimpleIntelligence": [
+    {
+      "Model": "gemini-2.5-flash",
+      "ApiEndpoint": "https://generativelanguage.googleapis.com/v1beta/openai/v1/chat/completions",
+      "ApiKey": null,
+      "TimeoutSeconds": 86400,
+      "NoSupportForJsonSchema": false,
+      "NoSupportForImageUpload": false,
+      "NoSupportForToolCalls": false
+    }
+  ],
+  "Knowledge": [
+    {
+      "Model": "gemini-2.5-flash",
+      "ApiEndpoint": "https://generativelanguage.googleapis.com/v1beta/openai/v1/chat/completions",
+      "ApiKey": null,
+      "TimeoutSeconds": 86400,
+      "NoSupportForJsonSchema": false,
+      "NoSupportForImageUpload": false,
+      "NoSupportForToolCalls": false
+    }
+  ],
+  "Pictures": [
+    {
+      "Model": "gemini-2.5-flash",
+      "ApiEndpoint": "https://generativelanguage.googleapis.com/v1beta/openai/v1/chat/completions",
+      "ApiKey": null,
+      "TimeoutSeconds": 86400,
+      "NoSupportForJsonSchema": false,
+      "NoSupportForImageUpload": false,
+      "NoSupportForToolCalls": false
+    }
+  ],
+  "TextTranslation": [
+    {
+      "Model": "gemini-2.5-flash",
+      "ApiEndpoint": "https://generativelanguage.googleapis.com/v1beta/openai/v1/chat/completions",
+      "ApiKey": null,
+      "TimeoutSeconds": 86400,
+      "NoSupportForJsonSchema": false,
+      "NoSupportForImageUpload": false,
+      "NoSupportForToolCalls": false
+    }
+  ],
+  "Coding": [
+    {
+      "Model": "gemini-2.5-flash",
+      "ApiEndpoint": "https://generativelanguage.googleapis.com/v1beta/openai/v1/chat/completions",
+      "ApiKey": null,
+      "TimeoutSeconds": 86400,
+      "NoSupportForJsonSchema": false,
+      "NoSupportForImageUpload": false,
+      "NoSupportForToolCalls": false
+    }
+  ],
+  "ToolUse": [
+    {
+      "Model": "gemini-2.5-flash",
+      "ApiEndpoint": "https://generativelanguage.googleapis.com/v1beta/openai/v1/chat/completions",
+      "ApiKey": null,
+      "TimeoutSeconds": 86400,
+      "NoSupportForJsonSchema": false,
+      "NoSupportForImageUpload": false,
+      "NoSupportForToolCalls": false
+    }
+  ]
+}
