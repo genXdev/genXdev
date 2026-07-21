@@ -1,0 +1,91 @@
+# ConvertTo-HashTable
+
+> **Module:** GenXdev.Helpers | **Type:** Cmdlet | **Aliases:** —
+
+## Synopsis
+
+> Converteert een PSCustomObject recursief naar een HashTable.
+
+## Description
+
+* Deze functie converteert een PSCustomObject en al zijn geneste PSCustomObject-eigenschappen naar HashTables.
+* Het verwerkt matrices en andere verzamelingstypen door elk element recursief te verwerken.
+
+## Syntax
+
+```powershell
+ConvertTo-HashTable -InputObject <Object> [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-InputObject` | Object | ✅ | ✅ (ByValue) | 0 | — | De PSCustomObject om te converteren naar een Hashtabel |
+
+## Examples
+
+### Example 1
+
+```powershell
+$object = [PSCustomObject]@{
+    Name = "John"
+    Age = 30
+    Details = [PSCustomObject]@{
+        City = "New York"
+    }
+}
+$hashTable = ConvertTo-HashTable -InputObject $object
+```
+
+Converteer een PSCustomObject naar een HashTable met geneste eigenschappen.
+
+## Parameter Details
+
+### `-InputObject <Object>`
+
+> De PSCustomObject om te converteren naar een Hashtabel
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue) |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+## Outputs
+
+
+## Related Links
+
+- [alignScript](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/alignScript.md)
+- [Approve-NewTextFileContent](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Approve-NewTextFileContent.md)
+- [Assert-RefactorFile](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Assert-RefactorFile.md)
+- [Confirm-InstallationConsent](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Confirm-InstallationConsent.md)
+- [Convert-DotNetTypeToLLMType](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Convert-DotNetTypeToLLMType.md)
+- [ConvertTo-LLMOpenAIApiFunctionDefinition](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/ConvertTo-LLMOpenAIApiFunctionDefinition.md)
+- [Copy-IdenticalParamValues](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Copy-IdenticalParamValues.md)
+- [EnsureGenXdev](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/EnsureGenXdev.md)
+- [EnsureNuGetAssembly](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/EnsureNuGetAssembly.md)
+- [GenerateMasonryLayoutHtml](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/GenerateMasonryLayoutHtml.md)
+- [Get-AIDefaultLLMSettings](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Get-AIDefaultLLMSettings.md)
+- [Get-BCP47LanguageDictionary](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Get-BCP47LanguageDictionary.md)
+- [Get-DefaultWebLanguage](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Get-DefaultWebLanguage.md)
+- [Get-JsonExampleFromSchema](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Get-JsonExampleFromSchema.md)
+- [Get-LLMJsonOutput](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Get-LLMJsonOutput.md)
+- [Get-PowerShellRoot](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Get-PowerShellRoot.md)
+- [Get-WebLanguageDictionary](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Get-WebLanguageDictionary.md)
+- [Import-GenXdevModules](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Import-GenXdevModules.md)
+- [Initialize-SearchPaths](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Initialize-SearchPaths.md)
+- [Invoke-CommandFromToolCall](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Invoke-CommandFromToolCall.md)
+- [Invoke-OnEachGenXdevModule](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Invoke-OnEachGenXdevModule.md)
+- [Remove-JSONComments](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Remove-JSONComments.md)
+- [resetdefaultmonitor](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/resetdefaultmonitor.md)
+- [ResolveInputObjectFileNames](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/ResolveInputObjectFileNames.md)
+- [Show-Verb](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Show-Verb.md)
+- [Test-RefactorLLMSelection](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Test-RefactorLLMSelection.md)
+- [Test-UnattendedMode](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/Test-UnattendedMode.md)
+- [WriteFileOutput](https://github.com/genXdev/genXdev/blob/main/Docs/nl-NL/WriteFileOutput.md)

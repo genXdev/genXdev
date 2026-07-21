@@ -1,0 +1,90 @@
+# Get-SQLiteTables
+
+> **Module:** GenXdev.Data.SQLite | **Type:** Function | **Aliases:** —
+
+## Synopsis
+
+> Pobiera listę nazw tabel z bazy danych SQLite.
+
+## Description
+
+Wykonuje zapytanie do tabeli systemowej sqlite_master, aby pobrać wszystkie nazwy tabel zdefiniowanych przez użytkownika z bazy danych SQLite. Obsługuje łączenie za pomocą bezpośredniego ciągu połączenia lub ścieżki do pliku bazy danych. Zwraca nazwy tabel jako kolekcję ciągów znaków.
+
+## Syntax
+
+```powershell
+Get-SQLiteTables -ConnectionString <String> [<CommonParameters>]
+
+Get-SQLiteTables -DatabaseFilePath <String> [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-ConnectionString` | String | ✅ | — | 0 | — | Ciąg połączenia do bazy danych SQLite. *(Parameter set: )* |
+| `-DatabaseFilePath` | String | ✅ | — | 0 | — | Ścieżka do pliku bazy danych SQLite. *(Parameter set: )* |
+
+## Examples
+
+### Get-SQLiteTables -DatabaseFilePath "C:\Databases\Inventory.sqlite" Returns all table names from the specified database file
+
+```powershell
+Get-SQLiteTables -DatabaseFilePath "C:\Databases\Inventory.sqlite"
+Returns all table names from the specified database file
+```
+
+### Get-SQLiteTables -ConnectionString "Data Source=C:\DB\Users.sqlite;Version=3;" Returns all table names using a custom connection string ##############################################################################
+
+```powershell
+Get-SQLiteTables -ConnectionString "Data Source=C:\DB\Users.sqlite;Version=3;"
+Returns all table names using a custom connection string
+##############################################################################
+```
+
+## Parameter Details
+
+### `-ConnectionString <String>`
+
+> Ciąg połączenia do bazy danych SQLite.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | ConnectionString |
+
+<hr/>
+### `-DatabaseFilePath <String>`
+
+> Ścieżka do pliku bazy danych SQLite.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | DatabaseFilePath |
+
+<hr/>
+## Related Links
+
+- [Get-SQLiteSchema](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Get-SQLiteSchema.md)
+- [Get-SQLiteTableColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Get-SQLiteTableColumnData.md)
+- [Get-SQLiteTableData](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Get-SQLiteTableData.md)
+- [Get-SQLiteTableSchema](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Get-SQLiteTableSchema.md)
+- [Get-SQLiteTransaction](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Get-SQLiteTransaction.md)
+- [Get-SQLiteViewColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Get-SQLiteViewColumnData.md)
+- [Get-SQLiteViewData](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Get-SQLiteViewData.md)
+- [Get-SQLiteViews](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Get-SQLiteViews.md)
+- [Get-SQLiteViewSchema](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Get-SQLiteViewSchema.md)
+- [Invoke-SQLiteQuery](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Invoke-SQLiteQuery.md)
+- [Invoke-SQLiteStudio](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/Invoke-SQLiteStudio.md)
+- [New-SQLiteDatabase](https://github.com/genXdev/genXdev/blob/main/Docs/pl-PL/New-SQLiteDatabase.md)

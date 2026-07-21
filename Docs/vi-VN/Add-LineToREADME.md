@@ -1,0 +1,230 @@
+# Add-LineToREADME
+
+> **Module:** GenXdev.Coding | **Type:** Function | **Aliases:** —
+
+## Synopsis
+
+> Thêm một dòng vào tệp markdown README.md trong một phần được chỉ định.
+
+## Description
+
+Tìm và sửa đổi tệp README.md bằng cách thêm một dòng mới vào một phần cụ thể.
+Có thể tạo phần nếu không tồn tại. Hỗ trợ định dạng dòng dưới dạng khối
+mã và hiển thị phần đã sửa đổi.
+
+Sẽ tìm kiếm trong thư mục hiện tại trước, sau đó đi lên các thư mục để tìm vị trí
+README. Nếu không tìm thấy, sẽ sử dụng README trong thư mục hồ sơ PowerShell.
+
+## Syntax
+
+```powershell
+Add-LineToREADME -Section <String> [-Ascending] [-Code] [-Done] [-First <Int32>] [-Line <String>] [-Priority <Int32>] [-Show] [-SortByDate] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-Line` | String | — | — | Named | `''` | Dòng để thêm vào README |
+| `-Section` | String | ✅ | — | 0 | — | Phần để thêm dòng vào |
+| `-Code` | SwitchParameter | — | — | Named | — | Mở trong Visual Studio Code sau khi sửa đổi |
+| `-Show` | SwitchParameter | — | — | Named | — | Hiển thị phần đã sửa đổi |
+| `-Done` | SwitchParameter | — | — | Named | — | Đánh dấu mục đã hoàn thành |
+| `-UseHomeREADME` | SwitchParameter | — | — | Named | — | Sử dụng README trong thư mục hồ sơ PowerShell |
+| `-UseOneDriveREADME` | SwitchParameter | — | — | Named | — | Sử dụng README trong thư mục OneDrive |
+| `-Priority` | Int32 | — | — | Named | `1` | Ưu tiên sắp xếp (cao hơn = hiển thị trước, mặc định 1) |
+| `-SortByDate` | SwitchParameter | — | — | Named | — | Sắp xếp dòng theo ngày (tiền tố yyyyMMdd) thay vì ưu tiên |
+| `-Ascending` | SwitchParameter | — | — | Named | — | Đảo ngược thứ tự sắp xếp (tăng dần thay vì giảm dần) |
+| `-First` | Int32 | — | — | Named | `0` | Limit - Chỉ hiển thị đầu ra cho N dòng đầu tiên |
+
+## Examples
+
+### Add-LineToREADME -Line "New feature" -Section "## Features"
+
+```powershell
+Add-LineToREADME -Line "New feature" -Section "## Features"
+```
+
+### Add-LineToREADME "High prio item" "## Issues" -Priority 5
+
+```powershell
+Add-LineToREADME "High prio item" "## Issues" -Priority 5
+```
+
+## Parameter Details
+
+### `-Line <String>`
+
+> Dòng để thêm vào README
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `''` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Section <String>`
+
+> Phần để thêm dòng vào
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Code`
+
+> Mở trong Visual Studio Code sau khi sửa đổi
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Show`
+
+> Hiển thị phần đã sửa đổi
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Done`
+
+> Đánh dấu mục đã hoàn thành
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-UseHomeREADME`
+
+> Sử dụng README trong thư mục hồ sơ PowerShell
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-UseOneDriveREADME`
+
+> Sử dụng README trong thư mục OneDrive
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Priority <Int32>`
+
+> Ưu tiên sắp xếp (cao hơn = hiển thị trước, mặc định 1)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SortByDate`
+
+> Sắp xếp dòng theo ngày (tiền tố yyyyMMdd) thay vì ưu tiên
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Ascending`
+
+> Đảo ngược thứ tự sắp xếp (tăng dần thay vì giảm dần)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-First <Int32>`
+
+> Limit - Chỉ hiển thị đầu ra cho N dòng đầu tiên
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+## Related Links
+
+- [Add-FeatureLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Add-FeatureLineToREADME.md)
+- [Add-IdeaLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Add-IdeaLineToREADME.md)
+- [Add-IssueLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Add-IssueLineToREADME.md)
+- [Add-ReleaseNoteLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Add-ReleaseNoteLineToREADME.md)
+- [Add-TodoLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Add-TodoLineToREADME.md)
+- [Get-Features](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Get-Features.md)
+- [Get-Ideas](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Get-Ideas.md)
+- [Get-Issues](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Get-Issues.md)
+- [Get-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Get-Refactor.md)
+- [Get-RefactorReport](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Get-RefactorReport.md)
+- [Get-ReleaseNotes](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Get-ReleaseNotes.md)
+- [Get-Todoos](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Get-Todoos.md)
+- [New-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/New-Refactor.md)
+- [Open-SourceFileInIde](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Open-SourceFileInIde.md)
+- [Publish-ReleaseNotesToManifest](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Publish-ReleaseNotesToManifest.md)
+- [Remove-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Remove-Refactor.md)
+- [Start-NextRefactor](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Start-NextRefactor.md)
+- [Update-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/Update-Refactor.md)
+- [VSCode](https://github.com/genXdev/genXdev/blob/main/Docs/vi-VN/VSCode.md)

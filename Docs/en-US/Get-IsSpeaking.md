@@ -1,0 +1,48 @@
+# Get-IsSpeaking
+
+> **Module:** GenXdev.Console | **Type:** Cmdlet | **Aliases:** `iss`
+
+## Synopsis
+
+> Returns true if the text-to-speech engine is speaking.
+
+## Description
+
+Checks the state of both the default and customized speech synthesizers to determine if either is currently speaking. Returns true if speech is in progress, false otherwise.
+
+## Syntax
+
+```powershell
+Get-IsSpeaking [<CommonParameters>]
+```
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-IsSpeaking
+```
+
+Returns true if the text-to-speech engine is speaking.
+
+### Example 2
+
+```powershell
+iss
+```
+
+Returns true if the text-to-speech engine is speaking (using alias).
+
+## Related Links
+
+- [New-MicrosoftShellTab](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/New-MicrosoftShellTab.md)
+- [Now](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Now.md)
+- [SayDate](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/SayDate.md)
+- [SayTime](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/SayTime.md)
+- [secondscreen](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/secondscreen.md)
+- [sidebyside](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/sidebyside.md)
+- [Start-SnakeGame](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Start-SnakeGame.md)
+- [Start-TextToSpeech](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Start-TextToSpeech.md)
+- [Stop-TextToSpeech](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Stop-TextToSpeech.md)
+- [UtcNow](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/UtcNow.md)

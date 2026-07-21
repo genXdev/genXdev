@@ -1,0 +1,195 @@
+# Add-FeatureLineToREADME
+
+> **Module:** GenXdev.Coding | **Type:** Function | **Aliases:** `feature`
+
+## Synopsis
+
+> Adiciona uma linha de recurso ao arquivo README com um carimbo de data/hora.
+
+## Description
+
+Adiciona uma linha de recurso ao arquivo README especificado, prefixada com a data atual no formato yyyyMMdd. A linha pode ser formatada como código e exibida opcionalmente.
+
+## Syntax
+
+```powershell
+Add-FeatureLineToREADME [[-Line] <String>] [-Ascending] [-Code] [-First <Int32>] [-Priority <Int32>] [-Show] [-SortByDate] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-Line` | String | — | — | 0 | `''` | O texto de descrição do recurso a adicionar |
+| `-Code` | SwitchParameter | — | — | Named | — | Formatar a linha como código |
+| `-Show` | SwitchParameter | — | — | Named | — | Exiba o README após adicionar a linha |
+| `-UseHomeREADME` | SwitchParameter | — | — | Named | — | Use o README no diretório home |
+| `-UseOneDriveREADME` | SwitchParameter | — | — | Named | — | Use README no diretório do OneDrive |
+| `-Priority` | Int32 | — | — | Named | `1` | Prioridade para classificação (maior = exibido primeiro, padrão 1) |
+| `-SortByDate` | SwitchParameter | — | — | Named | — | Classificar linhas por data (prefixo aaaammdd) em vez de prioridade |
+| `-Ascending` | SwitchParameter | — | — | Named | — | Inverter a ordem de classificação (ascendente em vez de descendente) |
+| `-First` | Int32 | — | — | Named | `0` | Limite - Exibir saída das primeiras N linhas |
+
+## Examples
+
+### Add-FeatureLineToREADME -Line "Added new Git feature"
+
+```powershell
+Add-FeatureLineToREADME -Line "Added new Git feature"
+```
+
+### feature "Added new Git feature" -Code -Show
+
+```powershell
+feature "Added new Git feature" -Code -Show
+```
+
+## Parameter Details
+
+### `-Line <String>`
+
+> O texto de descrição do recurso a adicionar
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | 0 |
+| **Default value** | `''` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Code`
+
+> Formatar a linha como código
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Show`
+
+> Exiba o README após adicionar a linha
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-UseHomeREADME`
+
+> Use o README no diretório home
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-UseOneDriveREADME`
+
+> Use README no diretório do OneDrive
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Priority <Int32>`
+
+> Prioridade para classificação (maior = exibido primeiro, padrão 1)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `1` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SortByDate`
+
+> Classificar linhas por data (prefixo aaaammdd) em vez de prioridade
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Ascending`
+
+> Inverter a ordem de classificação (ascendente em vez de descendente)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-First <Int32>`
+
+> Limite - Exibir saída das primeiras N linhas
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `0` |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+## Related Links
+
+- [Add-IdeaLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Add-IdeaLineToREADME.md)
+- [Add-IssueLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Add-IssueLineToREADME.md)
+- [Add-LineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Add-LineToREADME.md)
+- [Add-ReleaseNoteLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Add-ReleaseNoteLineToREADME.md)
+- [Add-TodoLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Add-TodoLineToREADME.md)
+- [Get-Features](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-Features.md)
+- [Get-Ideas](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-Ideas.md)
+- [Get-Issues](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-Issues.md)
+- [Get-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-Refactor.md)
+- [Get-RefactorReport](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-RefactorReport.md)
+- [Get-ReleaseNotes](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-ReleaseNotes.md)
+- [Get-Todoos](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-Todoos.md)
+- [New-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/New-Refactor.md)
+- [Open-SourceFileInIde](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Open-SourceFileInIde.md)
+- [Publish-ReleaseNotesToManifest](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Publish-ReleaseNotesToManifest.md)
+- [Remove-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Remove-Refactor.md)
+- [Start-NextRefactor](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Start-NextRefactor.md)
+- [Update-Refactor](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Update-Refactor.md)
+- [VSCode](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/VSCode.md)

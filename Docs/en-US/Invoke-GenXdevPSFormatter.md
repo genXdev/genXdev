@@ -1,0 +1,127 @@
+# Invoke-GenXdevPSFormatter
+
+> **Module:** GenXdev.Coding.PowerShell.Modules | **Type:** Function | **Aliases:** —
+
+## Synopsis
+
+> Formats PowerShell script files using PSScriptAnalyzer formatting rules.
+
+## Description
+
+This function applies PowerShell formatting rules to script files using
+PSScriptAnalyzer's Invoke-Formatter cmdlet. It can process individual files or
+recursively format multiple files in directories. The function uses customizable
+formatting settings and provides detailed logging of the formatting process.
+
+## Syntax
+
+```powershell
+Invoke-GenXdevPSFormatter -Path <String> [-Range <Int32[]>] [-Recurse] [-Settings <Object>] [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-Path` | String | ✅ | ✅ (ByValue, ByPropertyName) | 0 | — | Specifies the path to the script file to format. |
+| `-Settings` | Object | — | — | Named | — | A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings. |
+| `-Range` | Int32[] | — | — | Named | — | The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number. |
+| `-Recurse` | SwitchParameter | — | — | Named | — | Recursively process files in subdirectories. |
+
+## Examples
+
+### Invoke-GenXdevPSFormatter -Path "C:\Scripts\MyScript.ps1"
+
+```powershell
+Invoke-GenXdevPSFormatter -Path "C:\Scripts\MyScript.ps1"
+```
+
+### Invoke-GenXdevPSFormatter -Path "C:\Scripts" -Recurse
+
+```powershell
+Invoke-GenXdevPSFormatter -Path "C:\Scripts" -Recurse
+```
+
+### "MyScript.ps1" | Invoke-GenXdevPSFormatter -Settings @{IncludeRules=@('PSUseCorrectCasing')}
+
+```powershell
+"MyScript.ps1" | Invoke-GenXdevPSFormatter -Settings @{IncludeRules=@('PSUseCorrectCasing')}
+```
+
+## Parameter Details
+
+### `-Path <String>`
+
+> Specifies the path to the script file to format.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | True (ByValue, ByPropertyName) |
+| **Aliases** | `Name`, `FullName`, `ImagePath`, `FileName`, `ScriptFileName` |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Settings <Object>`
+
+> A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Range <Int32[]>`
+
+> The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Recurse`
+
+> Recursively process files in subdirectories.
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+## Related Links
+
+- [Assert-GenXdevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-GenXdevCmdlet.md)
+- [Assert-GenXdevCmdletTests](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-GenXdevCmdletTests.md)
+- [Assert-GenXdevDependencyUsage](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-GenXdevDependencyUsage.md)
+- [Assert-GenXdevTest](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-GenXdevTest.md)
+- [Assert-ModuleDefinition](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-ModuleDefinition.md)
+- [EnsureCopilotKeyboardShortCut](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/EnsureCopilotKeyboardShortCut.md)
+- [EnsureDefaultGenXdevRefactors](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/EnsureDefaultGenXdevRefactors.md)
+- [Get-CmdletMetaData](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-CmdletMetaData.md)
+- [Get-GenXDevModule](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GenXDevModule.md)
+- [Get-GenXDevModuleInfo](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GenXDevModuleInfo.md)
+- [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GenXDevNewModulesInOrderOfDependency.md)
+- [Get-ModuleCmdletMetaData](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-ModuleCmdletMetaData.md)
+- [Invoke-GenXdevScriptAnalyzer](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Invoke-GenXdevScriptAnalyzer.md)
+- [New-ModuleMarkdownHelp](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/New-ModuleMarkdownHelp.md)
+- [New-ModuleXmlHelp](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/New-ModuleXmlHelp.md)
+- [Search-GenXdevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Search-GenXdevCmdlet.md)
+- [Show-GenXdevCmdLetInIde](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Show-GenXdevCmdLetInIde.md)

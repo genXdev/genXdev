@@ -1,0 +1,211 @@
+<##############################################################################
+Part of PowerShell module : GenXdev.FileSystem
+Original cmdlet filename  : Invoke-Fasti.ps1
+Original author           : René Vaessen / GenXdev
+Version                   : 3.26.2026
+################################################################################
+Copyright (c) 2026 René Vaessen / GenXdev
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+################################################################################>
+
+# Don't remove this line [dontrefactor]
+
+###############################################################################
+<#
+.SYNOPSIS
+Extracts archive files in the current directory to their own folders and deletes
+them afterwards.
+
+.DESCRIPTION
+Automatically extracts common archive formats (zip, 7z, tar, etc.) found in the
+current directory into individual folders named after each archive. After
+successful extraction, the original archive files are deleted. Requires 7-Zip
+to be installed on the system.
+
+.EXAMPLE
+PS C:\Downloads> Invoke-Fasti
+
+.EXAMPLE
+PS C:\Downloads> fasti
+
+.NOTES
+Supported formats: 7z, zip, rar, tar, iso and many others.
+Requires 7-Zip installation (will attempt auto-install via winget if missing).
+#>
+function Invoke-Fasti {
+
+    [CmdletBinding()]
+    [Alias("fasti")]
+    param(
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Enter the password for the encrypted archive(s)"
+        )]
+        [string] $Password,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Recursively extract archives found within extracted folders"
+        )]
+        [switch] $ExtractOutputToo
+    )
+
+    begin {
+
+        # list of supported archive extensions
+        $extensions = @("*.7z", "*.7z.001", "*.xz", "*.bzip2", "*.gzip", "*.tar", "*.zip", "*.zip.001",
+            "*.wim", "*.ar", "*.arj", "*.cab", "*.chm", "*.cpio", "*.cramfs",
+            "*.dmg", "*.ext", "*.fat", "*.gpt", "*.hfs", "*.ihex", "*.iso",
+            "*.lzh", "*.lzma", "*.mbr", "*.msi", "*.nsis", "*.ntfs", "*.qcow2",
+            "*.rar", "*.rpm", "*.squashfs", "*.udf", "*.uefi", "*.vdi", "*.vhd",
+            "*.vmdk", "*.wim", "*.xar", "*.z")
+    }
+
+
+    process {
+
+        # process each archive file found in current directory
+        Microsoft.PowerShell.Management\Get-ChildItem -Path $extensions -File -ErrorAction SilentlyContinue |
+            Microsoft.PowerShell.Core\ForEach-Object {
+
+                Microsoft.PowerShell.Utility\Write-Verbose "Processing archive: $($PSItem.Name)"
+
+                # initialize 7zip executable path
+                $sevenZip = "7z"
+
+                # get archive details
+                $zipFile = $PSItem.fullname
+                $name = [system.IO.Path]::GetFileNameWithoutExtension($zipFile)
+                $path = [System.IO.Path]::GetDirectoryName($zipFile)
+                $extractPath = [system.Io.Path]::Combine($path, $name)
+
+                # create extraction directory if it doesn"t exist
+                if ([System.IO.Directory]::exists($extractPath) -eq $false) {
+
+                    Microsoft.PowerShell.Utility\Write-Verbose "Creating directory: $extractPath"
+                    [System.IO.Directory]::CreateDirectory($extractPath)
+                }
+
+                # verify 7zip installation or attempt to install it
+                if ((Microsoft.PowerShell.Core\Get-Command $sevenZip -ErrorAction SilentlyContinue).Length -eq 0) {
+
+                    $sevenZip = "${env:ProgramFiles}\7-Zip\7z.exe"
+
+                    if (![IO.File]::Exists($sevenZip)) {
+
+                        if ((Microsoft.PowerShell.Core\Get-Command winget -ErrorAction SilentlyContinue).Length -eq 0) {
+
+                            throw "You need to install 7zip or winget first"
+                        }
+
+                        # request consent before installing 7-Zip
+                        $consent = GenXdev\Confirm-InstallationConsent `
+                            -ApplicationName "7-Zip" `
+                            -Source "Winget" `
+                            -Description "Archive extraction and compression utility required for processing archive files" `
+                            -Publisher "Igor Pavlov"
+
+                        if (-not $consent) {
+                            throw "7-Zip installation was denied by user. Cannot proceed with archive extraction."
+                        }
+
+                        Microsoft.PowerShell.Utility\Write-Verbose "Installing 7-Zip via winget..."
+                        winget install 7zip
+
+                        if (![IO.File]::Exists($sevenZip)) {
+
+                            throw "You need to install 7-zip"
+                        }
+                    }
+                }
+
+                # extract archive contents
+                Microsoft.PowerShell.Utility\Write-Verbose "Extracting to: $extractPath"
+                $pwparam = if ($Password) { "-p$Password" } else { "" }
+                if ([string]::IsNullOrWhiteSpace($Password)) {
+
+                    & $sevenZip x -y "-o$extractPath" $zipFile
+                }
+                else {
+
+                    & $sevenZip x -y $pwparam "-o$extractPath" $zipFile
+                }
+
+                # delete original archive if extraction succeeded
+                if ($?) {
+
+                    try {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Removing original archive: $zipFile"
+                        Microsoft.PowerShell.Management\Remove-Item -LiteralPath "$zipFile" -Force -ErrorAction silentlycontinue
+                    }
+                    catch {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Failed to remove original archive"
+                    }
+
+                    # if ExtractOutputToo is enabled, recursively extract archives in the output folder
+                    if ($ExtractOutputToo) {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Checking for nested archives in: $extractPath"
+
+                        do {
+                            # find all archives recursively in the extraction path
+                            $nestedArchives = Microsoft.PowerShell.Management\Get-ChildItem -Recurse -File "${extractPath}\*" -ErrorAction SilentlyContinue |
+                                Microsoft.PowerShell.Core\Where-Object {
+                                    $extensions -contains "*$($_.Extension)"
+                                }
+
+                            if ($nestedArchives.Count -eq 0) {
+                                Microsoft.PowerShell.Utility\Write-Verbose "No more nested archives found"
+                                break
+                            }
+
+                            Microsoft.PowerShell.Utility\Write-Verbose "Found $($nestedArchives.Count) nested archive(s)"
+
+                            $nestedDirectories = $nestedArchives | Microsoft.PowerShell.Core\ForEach-Object {
+                                [System.IO.Path]::GetDirectoryName($_.FullName)
+                            } | Microsoft.PowerShell.Utility\Select-Object -Unique
+
+                            $errorOccured = $false
+
+                            # process each nested archive in its own directory
+                            foreach ($nestedDirectory in $nestedDirectories) {
+
+                                Microsoft.PowerShell.Utility\Write-Verbose "Processing nested archive in: $nestedDirectory"
+
+                                try {
+                                    Microsoft.PowerShell.Management\Push-Location -LiteralPath $nestedDirectory
+                                    if ($Password) {
+                                        GenXdev\Invoke-Fasti -Password $Password -ExtractOutputToo
+                                    } else {
+                                        GenXdev\Invoke-Fasti -ExtractOutputToo
+                                    }
+                                }
+                                catch {
+                                    $errorOccured = $true
+                                    Microsoft.PowerShell.Utility\Write-Verbose "Error occurred while processing nested archive in: $nestedDirectory"
+                                }
+                                finally {
+                                    Microsoft.PowerShell.Management\Pop-Location
+                                }
+                            }
+                        } while (-not $errorOccured)
+                    }
+                }
+            }
+    }
+
+    end {
+    }
+}

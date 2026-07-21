@@ -1,0 +1,126 @@
+// ################################################################################
+// Part of PowerShell module : GenXdev.Helpers.Physics
+// Original cmdlet filename  : Get-DragForceByVelocityDensityAreaAndCoefficient.cs
+// Original author           : René Vaessen / GenXdev
+// Version                   : 3.26.2026
+// ################################################################################
+// Copyright (c) 2026 René Vaessen / GenXdev
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// ################################################################################
+
+
+
+using System.Management.Automation;
+
+namespace GenXdev.Helpers.Physics
+{
+    [System.ComponentModel.Description(@"
+.SYNOPSIS
+Calculates drag force.
+.DESCRIPTION
+Uses F = 1/2 C ρ A v².
+.EXAMPLE
+```powershell
+Get-DragForceByVelocityDensityAreaAndCoefficient -VelocityInMetersPerSecond 10 -DensityInKilogramsPerCubicMeter 1.225 -AreaInSquareMeters 1 -Coefficient 0.5 -As ""poundforce""
+```
+
+Calculates drag force using velocity 10 m/s, air density 1.225 kg/m³, area 1 m², and coefficient 0.5, outputting in poundforce.
+.EXAMPLE
+```powershell
+Get-DragForceByVelocityDensityAreaAndCoefficient 20 1.225 2 0.3
+```
+
+Calculates drag force using positional parameters: velocity 20 m/s, density 1.225 kg/m³, area 2 m², coefficient 0.3.
+")]
+    [Cmdlet(VerbsCommon.Get, "DragForceByVelocityDensityAreaAndCoefficient")]
+    [OutputType(typeof(double))]
+    public class GetDragForceByVelocityDensityAreaAndCoefficientCommand : PSGenXdevCmdlet
+    {
+        /// <summary>
+        /// Velocity in m/s
+        /// </summary>
+        [Parameter(
+            Mandatory = true,
+            Position = 0,
+            HelpMessage = "Velocity in m/s")]
+        public double VelocityInMetersPerSecond { get; set; }
+
+        /// <summary>
+        /// Fluid density in kg/m³
+        /// </summary>
+        [Parameter(
+            Mandatory = true,
+            Position = 1,
+            HelpMessage = "Fluid density in kg/m³")]
+        public double DensityInKilogramsPerCubicMeter { get; set; }
+
+        /// <summary>
+        /// Cross-sectional area in m²
+        /// </summary>
+        [Parameter(
+            Mandatory = true,
+            Position = 2,
+            HelpMessage = "Cross-sectional area in m²")]
+        public double AreaInSquareMeters { get; set; }
+
+        /// <summary>
+        /// Drag coefficient
+        /// </summary>
+        [Parameter(
+            Mandatory = true,
+            Position = 3,
+            HelpMessage = "Drag coefficient")]
+        public double Coefficient { get; set; }
+
+        /// <summary>
+        /// Output unit for force
+        /// </summary>
+        [Parameter(
+            Mandatory = false,
+            Position = 4,
+            HelpMessage = "Output unit for force")]
+        [ValidateSet("newtons", "poundforce")]
+        public string As { get; set; } = "newtons";
+
+        /// <summary>
+        /// Begin processing - initialization logic
+        /// </summary>
+        protected override void BeginProcessing()
+        {
+        }
+
+        /// <summary>
+        /// Process record - main cmdlet logic
+        /// </summary>
+        protected override void ProcessRecord()
+        {
+            // Calculate the drag force using the formula F = 1/2 C ρ A v²
+            double force = 0.5 * Coefficient * DensityInKilogramsPerCubicMeter * AreaInSquareMeters * VelocityInMetersPerSecond * VelocityInMetersPerSecond;
+
+            // Convert the force to the desired unit using the Convert-PhysicsUnit cmdlet
+            var script = $"GenXdev\\Convert-PhysicsUnit -Value {force} -FromUnit 'newtons' -ToUnit '{As}'";
+            var results = InvokeCommand.InvokeScript(script);
+
+            // Output the converted force value
+            WriteObject(results[0].BaseObject);
+        }
+
+        /// <summary>
+        /// End processing - cleanup logic
+        /// </summary>
+        protected override void EndProcessing()
+        {
+        }
+    }
+}

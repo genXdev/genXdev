@@ -1,0 +1,195 @@
+# Get-ModuleCmdletMetaData
+
+> **Module:** GenXdev.Coding.PowerShell.Modules | **Type:** Function | **Aliases:** —
+
+## Synopsis
+
+> Retrieves metadata for all cmdlets in a PowerShell module.
+
+## Description
+
+Retrieves full cmdlet metadata (synopsis, description, parameters,
+examples, outputs, and aliases) for every cmdlet in the specified
+module, adding SubModuleName and CmdletType properties to each result.
+
+Sub-module assignment uses two independent paths:
+
+- Script cmdlets (.ps1): source file matched against .psm1 dot-source
+  directory mappings (Functions\<SubModuleName>\FileName.ps1).
+- Compiled cmdlets (.dll): namespace from ImplementationType.Namespace
+  (e.g., GenXdev.FileSystem).
+
+## Syntax
+
+```powershell
+Get-ModuleCmdletMetaData -ModuleName <String> [-ApiEndpoint <String>] [-ApiKey <String>] [-Language <String>] [-Model <String>] [-NoSupportForJsonSchema <String>] [-SkipTranslation] [-TranslationInstructions <String>] [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-ModuleName` | String | ✅ | — | 0 | — | The name of the PowerShell module to retrieve cmdlet metadata for |
+| `-Language` | String | — | — | Named | — | BCP 47 language tag for translation (e.g., nl-NL, de-DE) |
+| `-Model` | String | — | — | Named | — | The model identifier or pattern to use for AI translations |
+| `-ApiEndpoint` | String | — | — | Named | — | The API endpoint URL for AI translations |
+| `-ApiKey` | String | — | — | Named | — | The API key for authenticated AI translations |
+| `-NoSupportForJsonSchema` | String | — | — | Named | — | Indicates that LLM has no support for JSON schemas |
+| `-TranslationInstructions` | String | — | — | Named | — | Custom AI translation instructions |
+| `-SkipTranslation` | SwitchParameter | — | — | Named | — | Skip LLM-based translation |
+
+## Examples
+
+### Get-ModuleCmdletMetaData -ModuleName 'GenXdev'
+
+```powershell
+Get-ModuleCmdletMetaData -ModuleName 'GenXdev'
+```
+
+Returns metadata for all cmdlets in the GenXdev module.
+
+### Get-ModuleCmdletMetaData -ModuleName 'GenXdev' -Language 'nl-NL'
+
+```powershell
+Get-ModuleCmdletMetaData -ModuleName 'GenXdev' -Language 'nl-NL'
+```
+
+Returns Dutch-translated metadata for all GenXdev cmdlets.
+
+## Parameter Details
+
+### `-ModuleName <String>`
+
+> The name of the PowerShell module to retrieve cmdlet metadata for
+
+| Property | Value |
+|:---|:---|
+| **Required?** | Yes |
+| **Position?** | 0 |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Language <String>`
+
+> BCP 47 language tag for translation (e.g., nl-NL, de-DE)
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-Model <String>`
+
+> The model identifier or pattern to use for AI translations
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ApiEndpoint <String>`
+
+> The API endpoint URL for AI translations
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-ApiKey <String>`
+
+> The API key for authenticated AI translations
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-NoSupportForJsonSchema <String>`
+
+> Indicates that LLM has no support for JSON schemas
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-TranslationInstructions <String>`
+
+> Custom AI translation instructions
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+### `-SkipTranslation`
+
+> Skip LLM-based translation
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | *(none)* |
+| **Accept pipeline input?** | False |
+| **Aliases** | *(none)* |
+| **Accept wildcard characters?** | No |
+
+<hr/>
+## Outputs
+
+- `Collections.Hashtable[]`
+
+## Related Links
+
+- [Assert-GenXdevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-GenXdevCmdlet.md)
+- [Assert-GenXdevCmdletTests](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-GenXdevCmdletTests.md)
+- [Assert-GenXdevDependencyUsage](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-GenXdevDependencyUsage.md)
+- [Assert-GenXdevTest](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-GenXdevTest.md)
+- [Assert-ModuleDefinition](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Assert-ModuleDefinition.md)
+- [EnsureCopilotKeyboardShortCut](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/EnsureCopilotKeyboardShortCut.md)
+- [EnsureDefaultGenXdevRefactors](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/EnsureDefaultGenXdevRefactors.md)
+- [Get-CmdletMetaData](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-CmdletMetaData.md)
+- [Get-GenXDevModule](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GenXDevModule.md)
+- [Get-GenXDevModuleInfo](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GenXDevModuleInfo.md)
+- [Get-GenXDevNewModulesInOrderOfDependency](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GenXDevNewModulesInOrderOfDependency.md)
+- [Invoke-GenXdevPSFormatter](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Invoke-GenXdevPSFormatter.md)
+- [Invoke-GenXdevScriptAnalyzer](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Invoke-GenXdevScriptAnalyzer.md)
+- [New-ModuleMarkdownHelp](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/New-ModuleMarkdownHelp.md)
+- [New-ModuleXmlHelp](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/New-ModuleXmlHelp.md)
+- [Search-GenXdevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Search-GenXdevCmdlet.md)
+- [Show-GenXdevCmdLetInIde](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Show-GenXdevCmdLetInIde.md)

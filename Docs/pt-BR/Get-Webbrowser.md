@@ -1,0 +1,129 @@
+# Get-Webbrowser
+
+> **Module:** GenXdev.Webbrowser | **Type:** Cmdlet | **Aliases:** —
+
+## Synopsis
+
+> Retorna uma coleção de navegadores web modernos instalados.
+
+## Description
+
+* Descobre e retorna detalhes sobre navegadores web modernos instalados no sistema.
+* Recupera informações incluindo nome, descrição, caminho do ícone, caminho do executável e status de navegador padrão consultando o registro do Windows.
+* Retorna apenas navegadores que possuem os recursos necessários registrados no Windows.
+
+## Syntax
+
+```powershell
+Get-Webbrowser [-Chrome] [-Chromium] [-Edge] [-Firefox] [<CommonParameters>]
+```
+
+## Parameters
+
+| Name | Type | Required | Pipeline | Position | Default | Description |
+|:---|:---|:---:|:---|:---:|:---|:---|
+| `-Edge` | SwitchParameter | — | — | Named | `False` | Seleciona instâncias do navegador Microsoft Edge *(Parameter set: )* |
+| `-Chrome` | SwitchParameter | — | — | Named | `False` | Seleciona instâncias do navegador Google Chrome *(Parameter set: )* |
+| `-Chromium` | SwitchParameter | — | — | Named | `False` | Seleciona o navegador padrão baseado em Chromium *(Parameter set: )* |
+| `-Firefox` | SwitchParameter | — | — | Named | `False` | Seleciona instâncias do navegador Firefox *(Parameter set: )* |
+
+## Examples
+
+### Example 1
+
+```powershell
+Get-Webbrowser | Select-Object Name, Description | Format-Table
+```
+
+Retorna uma coleção de todos os navegadores web modernos instalados.
+
+### Example 2
+
+```powershell
+Get-Webbrowser | Where-Object { $_.IsDefaultBrowser }
+```
+
+Filtros para mostrar apenas o navegador padrão do sistema.
+
+## Parameter Details
+
+### `-Edge`
+
+> Seleciona instâncias do navegador Microsoft Edge
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `e` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Specific |
+
+<hr/>
+### `-Chrome`
+
+> Seleciona instâncias do navegador Google Chrome
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ch` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Specific |
+
+<hr/>
+### `-Chromium`
+
+> Seleciona o navegador padrão baseado em Chromium
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `c` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Specific |
+
+<hr/>
+### `-Firefox`
+
+> Seleciona instâncias do navegador Firefox
+
+| Property | Value |
+|:---|:---|
+| **Required?** | No |
+| **Position?** | Named |
+| **Default value** | `False` |
+| **Accept pipeline input?** | False |
+| **Aliases** | `ff` |
+| **Accept wildcard characters?** | No |
+| **Parameter set** | Specific |
+
+<hr/>
+## Related Links
+
+- [Close-Webbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Close-Webbrowser.md)
+- [Close-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Close-WebbrowserTab.md)
+- [Export-BrowserBookmarks](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Export-BrowserBookmarks.md)
+- [Find-BrowserBookmark](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Find-BrowserBookmark.md)
+- [Get-BrowserBookmark](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-BrowserBookmark.md)
+- [Get-DefaultWebbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-DefaultWebbrowser.md)
+- [Get-PlaywrightSessionReference](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-PlaywrightSessionReference.md)
+- [Get-WebbrowserTabDomNodes](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Get-WebbrowserTabDomNodes.md)
+- [Import-BrowserBookmarks](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Import-BrowserBookmarks.md)
+- [Import-GenXdevBookmarkletMenu](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Import-GenXdevBookmarkletMenu.md)
+- [Invoke-WebbrowserEvaluation](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Invoke-WebbrowserEvaluation.md)
+- [Open-BrowserBookmarks](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Open-BrowserBookmarks.md)
+- [Open-Webbrowser](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Open-Webbrowser.md)
+- [Open-WebbrowserSideBySide](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Open-WebbrowserSideBySide.md)
+- [Select-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Select-WebbrowserTab.md)
+- [Set-BrowserVideoFullscreen](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Set-BrowserVideoFullscreen.md)
+- [Set-WebbrowserTabLocation](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Set-WebbrowserTabLocation.md)
+- [Show-WebsiteInAllBrowsers](https://github.com/genXdev/genXdev/blob/main/Docs/pt-BR/Show-WebsiteInAllBrowsers.md)
