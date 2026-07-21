@@ -510,9 +510,9 @@ Get-WireGuardPeers -NoDockerInitialize -ContainerName "custom_wireguard" `
 <hr/>
 ## Related Links
 
-- [Add-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Add-WireGuardPeer.md)
-- [EnsureWireGuard](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/EnsureWireGuard.md)
-- [Get-WireGuardPeerQRCode](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-WireGuardPeerQRCode.md)
-- [Get-WireGuardStatus](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-WireGuardStatus.md)
-- [Remove-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Remove-WireGuardPeer.md)
-- [Reset-WireGuardConfiguration](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Reset-WireGuardConfiguration.md)
+- [Add-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-WireGuardPeer.md)
+- [EnsureWireGuard](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureWireGuard.md)
+- [Get-WireGuardPeerQRCode](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardPeerQRCode.md)
+- [Get-WireGuardStatus](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardStatus.md)
+- [Remove-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-WireGuardPeer.md)
+- [Reset-WireGuardConfiguration](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Reset-WireGuardConfiguration.md)

@@ -191,4 +191,4 @@ Get-GenXDevCmdlet -OnlyReturnModuleNames
 
 ## Related Links
 
-- [Show-GenXdevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Show-GenXdevCmdlet.md)
+- [Show-GenXdevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Show-GenXdevCmdlet.md)

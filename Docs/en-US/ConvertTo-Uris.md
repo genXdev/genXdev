@@ -60,4 +60,4 @@ Pipes a text string to the cmdlet for URI parsing.
 <hr/>
 ## Related Links
 
-- [Open-AllPossibleQueries](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-AllPossibleQueries.md)
+- [Open-AllPossibleQueries](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-AllPossibleQueries.md)

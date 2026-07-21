@@ -253,4 +253,4 @@ Returns only unique module names
 
 ## Related Links
 
-- [Get-GenXDevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GenXDevCmdlet.md)
+- [Get-GenXDevCmdlet](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXDevCmdlet.md)

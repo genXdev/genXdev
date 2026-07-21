@@ -53,8 +53,8 @@ Connect-PlaywrightViaDebuggingPort `
 <hr/>
 ## Related Links
 
-- [Get-PlaywrightProfileDirectory](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-PlaywrightProfileDirectory.md)
-- [Open-PlayWrightBrowser](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-PlayWrightBrowser.md)
-- [Resume-WebbrowserTabVideo](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Resume-WebbrowserTabVideo.md)
-- [Stop-WebbrowserVideos](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Stop-WebbrowserVideos.md)
-- [Unprotect-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Unprotect-WebbrowserTab.md)
+- [Get-PlaywrightProfileDirectory](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PlaywrightProfileDirectory.md)
+- [Open-PlayWrightBrowser](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-PlayWrightBrowser.md)
+- [Resume-WebbrowserTabVideo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Resume-WebbrowserTabVideo.md)
+- [Stop-WebbrowserVideos](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Stop-WebbrowserVideos.md)
+- [Unprotect-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unprotect-WebbrowserTab.md)

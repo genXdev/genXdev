@@ -702,9 +702,9 @@ aibc "What is the capital of France?"
 <hr/>
 ## Related Links
 
-- [Open-ChatGPTQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-ChatGPTQuery.md)
-- [Open-CloudLLMChat](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-CloudLLMChat.md)
-- [Open-DeepSearchQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-DeepSearchQuery.md)
-- [Open-GithubCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GithubCopilotQuery.md)
-- [Open-GoogleGeminiQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GoogleGeminiQuery.md)
-- [Open-XGrokQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-XGrokQuery.md)
+- [Open-ChatGPTQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-ChatGPTQuery.md)
+- [Open-CloudLLMChat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-CloudLLMChat.md)
+- [Open-DeepSearchQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-DeepSearchQuery.md)
+- [Open-GithubCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GithubCopilotQuery.md)
+- [Open-GoogleGeminiQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GoogleGeminiQuery.md)
+- [Open-XGrokQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-XGrokQuery.md)

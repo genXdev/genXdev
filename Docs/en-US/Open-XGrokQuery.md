@@ -718,9 +718,9 @@ aixg "powershell function"
 <hr/>
 ## Related Links
 
-- [Open-BingCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-BingCopilotQuery.md)
-- [Open-ChatGPTQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-ChatGPTQuery.md)
-- [Open-CloudLLMChat](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-CloudLLMChat.md)
-- [Open-DeepSearchQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-DeepSearchQuery.md)
-- [Open-GithubCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GithubCopilotQuery.md)
-- [Open-GoogleGeminiQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GoogleGeminiQuery.md)
+- [Open-BingCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-BingCopilotQuery.md)
+- [Open-ChatGPTQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-ChatGPTQuery.md)
+- [Open-CloudLLMChat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-CloudLLMChat.md)
+- [Open-DeepSearchQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-DeepSearchQuery.md)
+- [Open-GithubCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GithubCopilotQuery.md)
+- [Open-GoogleGeminiQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GoogleGeminiQuery.md)

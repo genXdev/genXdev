@@ -31,8 +31,9 @@ Checks CPU instruction set support and returns AVX/AVX2 availability.
 
 ## Related Links
 
-- [Get-AudioDeviceNames](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-AudioDeviceNames.md)
-- [Get-CpuCore](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-CpuCore.md)
-- [Get-HasCapableGpu](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-HasCapableGpu.md)
-- [Get-MonitorCount](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-MonitorCount.md)
-- [Get-NumberOfCpuCores](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-NumberOfCpuCores.md)
+- [Get-AudioDeviceNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-AudioDeviceNames.md)
+- [Get-CpuCore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-CpuCore.md)
+- [Get-HasCapableGpu](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-HasCapableGpu.md)
+- [Get-MonitorCount](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-MonitorCount.md)
+- [Get-NumberOfCpuCores](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-NumberOfCpuCores.md)
+- [Out-Serial](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Out-Serial.md)

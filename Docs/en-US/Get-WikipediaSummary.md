@@ -55,4 +55,4 @@ wikitxt "PowerShell", "Typescript", "C#"
 <hr/>
 ## Related Links
 
-- [Get-NextAffirmation](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-NextAffirmation.md)
+- [Get-NextAffirmation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-NextAffirmation.md)

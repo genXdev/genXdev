@@ -535,9 +535,9 @@ Removes the peer using positional parameter syntax.
 <hr/>
 ## Related Links
 
-- [Add-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Add-WireGuardPeer.md)
-- [EnsureWireGuard](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/EnsureWireGuard.md)
-- [Get-WireGuardPeerQRCode](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-WireGuardPeerQRCode.md)
-- [Get-WireGuardPeers](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-WireGuardPeers.md)
-- [Get-WireGuardStatus](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-WireGuardStatus.md)
-- [Reset-WireGuardConfiguration](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Reset-WireGuardConfiguration.md)
+- [Add-WireGuardPeer](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-WireGuardPeer.md)
+- [EnsureWireGuard](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureWireGuard.md)
+- [Get-WireGuardPeerQRCode](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardPeerQRCode.md)
+- [Get-WireGuardPeers](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardPeers.md)
+- [Get-WireGuardStatus](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WireGuardStatus.md)
+- [Reset-WireGuardConfiguration](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Reset-WireGuardConfiguration.md)

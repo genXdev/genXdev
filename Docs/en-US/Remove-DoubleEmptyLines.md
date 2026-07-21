@@ -81,4 +81,4 @@ Removes double empty lines and applies additional formatting.
 
 ## Related Links
 
-- [Add-ArrayTemplate](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Add-ArrayTemplate.md)
+- [Add-ArrayTemplate](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-ArrayTemplate.md)

@@ -634,8 +634,8 @@ Restarts the browser with a 1280x720 viewport.
 
 ## Related Links
 
-- [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Connect-PlaywrightViaDebuggingPort.md)
-- [Get-PlaywrightProfileDirectory](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-PlaywrightProfileDirectory.md)
-- [Resume-WebbrowserTabVideo](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Resume-WebbrowserTabVideo.md)
-- [Stop-WebbrowserVideos](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Stop-WebbrowserVideos.md)
-- [Unprotect-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Unprotect-WebbrowserTab.md)
+- [Connect-PlaywrightViaDebuggingPort](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Connect-PlaywrightViaDebuggingPort.md)
+- [Get-PlaywrightProfileDirectory](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-PlaywrightProfileDirectory.md)
+- [Resume-WebbrowserTabVideo](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Resume-WebbrowserTabVideo.md)
+- [Stop-WebbrowserVideos](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Stop-WebbrowserVideos.md)
+- [Unprotect-WebbrowserTab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unprotect-WebbrowserTab.md)

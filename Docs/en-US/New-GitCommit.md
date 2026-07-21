@@ -58,5 +58,5 @@ Create a commit using the 'commit' alias with default message.
 <hr/>
 ## Related Links
 
-- [Get-GitChangedFiles](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GitChangedFiles.md)
-- [PermanentlyDeleteGitFolders](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/PermanentlyDeleteGitFolders.md)
+- [Get-GitChangedFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GitChangedFiles.md)
+- [PermanentlyDeleteGitFolders](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/PermanentlyDeleteGitFolders.md)

@@ -81,8 +81,9 @@ Retrieves detailed objects containing information about microphone devices.
 <hr/>
 ## Related Links
 
-- [Get-CpuCore](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-CpuCore.md)
-- [Get-HasCapableGpu](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-HasCapableGpu.md)
-- [Get-MonitorCount](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-MonitorCount.md)
-- [Get-NumberOfCpuCores](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-NumberOfCpuCores.md)
-- [Test-CpuAvx](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Test-CpuAvx.md)
+- [Get-CpuCore](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-CpuCore.md)
+- [Get-HasCapableGpu](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-HasCapableGpu.md)
+- [Get-MonitorCount](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-MonitorCount.md)
+- [Get-NumberOfCpuCores](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-NumberOfCpuCores.md)
+- [Out-Serial](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Out-Serial.md)
+- [Test-CpuAvx](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Test-CpuAvx.md)

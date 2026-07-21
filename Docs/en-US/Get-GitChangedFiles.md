@@ -61,5 +61,5 @@ Returns FileInfo objects for each changed file.
 
 ## Related Links
 
-- [New-GitCommit](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/New-GitCommit.md)
-- [PermanentlyDeleteGitFolders](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/PermanentlyDeleteGitFolders.md)
+- [New-GitCommit](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-GitCommit.md)
+- [PermanentlyDeleteGitFolders](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/PermanentlyDeleteGitFolders.md)

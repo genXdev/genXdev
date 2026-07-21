@@ -1,6 +1,6 @@
 # EnsureDeepStack
 
-> **Module:** GenXdev.AI.DeepStack | **Type:** Function | **Aliases:** —
+> **Module:** GenXdev.Software | **Type:** Function | **Aliases:** —
 
 ## Synopsis
 
@@ -488,13 +488,16 @@ EnsureDeepStack -Force -UseGPU
 
 ## Related Links
 
-- [Compare-ImageFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Compare-ImageFaces.md)
-- [Get-ImageDetectedFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ImageDetectedFaces.md)
-- [Get-ImageDetectedObjects](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ImageDetectedObjects.md)
-- [Get-ImageDetectedScenes](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ImageDetectedScenes.md)
-- [Get-RegisteredFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-RegisteredFaces.md)
-- [Invoke-ImageEnhancement](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-ImageEnhancement.md)
-- [Register-AllFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Register-AllFaces.md)
-- [Register-Face](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Register-Face.md)
-- [Unregister-AllFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unregister-AllFaces.md)
-- [Unregister-Face](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unregister-Face.md)
+- [EnsureDockerDesktop](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureDockerDesktop.md)
+- [EnsureGithubCLIInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureGithubCLIInstalled.md)
+- [EnsureHuggingFace](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureHuggingFace.md)
+- [EnsurePaintNet](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePaintNet.md)
+- [EnsurePester](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePester.md)
+- [EnsurePip](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePip.md)
+- [ensurePlaywright](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ensurePlaywright.md)
+- [EnsurePSTools](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePSTools.md)
+- [EnsurePython](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePython.md)
+- [EnsureSQLiteStudioInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureSQLiteStudioInstalled.md)
+- [EnsureSSMSInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureSSMSInstalled.md)
+- [EnsureVSCodeInstallation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureVSCodeInstallation.md)
+- [EnsureWinMergeInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureWinMergeInstalled.md)

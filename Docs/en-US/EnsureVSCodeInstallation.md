@@ -1,6 +1,6 @@
 # EnsureVSCodeInstallation
 
-> **Module:** GenXdev.Coding | **Type:** Function | **Aliases:** —
+> **Module:** GenXdev.Software | **Type:** Function | **Aliases:** —
 
 ## Synopsis
 
@@ -51,17 +51,16 @@ EnsureVSCodeInstallation
 <hr/>
 ## Related Links
 
-- [Add-FeatureLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-FeatureLineToREADME.md)
-- [Add-IdeaLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-IdeaLineToREADME.md)
-- [Add-IssueLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-IssueLineToREADME.md)
-- [Add-LineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-LineToREADME.md)
-- [Add-ReleaseNoteLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-ReleaseNoteLineToREADME.md)
-- [Add-TodoLineToREADME](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Add-TodoLineToREADME.md)
-- [Get-Features](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Features.md)
-- [Get-Ideas](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Ideas.md)
-- [Get-Issues](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Issues.md)
-- [Get-ReleaseNotes](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ReleaseNotes.md)
-- [Get-Todoos](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-Todoos.md)
-- [Open-SourceFileInIde](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-SourceFileInIde.md)
-- [Publish-ReleaseNotesToManifest](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Publish-ReleaseNotesToManifest.md)
-- [VSCode](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/VSCode.md)
+- [EnsureDeepStack](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureDeepStack.md)
+- [EnsureDockerDesktop](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureDockerDesktop.md)
+- [EnsureGithubCLIInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureGithubCLIInstalled.md)
+- [EnsureHuggingFace](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureHuggingFace.md)
+- [EnsurePaintNet](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePaintNet.md)
+- [EnsurePester](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePester.md)
+- [EnsurePip](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePip.md)
+- [ensurePlaywright](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ensurePlaywright.md)
+- [EnsurePSTools](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePSTools.md)
+- [EnsurePython](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePython.md)
+- [EnsureSQLiteStudioInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureSQLiteStudioInstalled.md)
+- [EnsureSSMSInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureSSMSInstalled.md)
+- [EnsureWinMergeInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureWinMergeInstalled.md)

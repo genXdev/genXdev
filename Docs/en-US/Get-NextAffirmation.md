@@ -59,4 +59,4 @@ Retrieves a random affirmation and speaks it using text-to-speech.
 <hr/>
 ## Related Links
 
-- [Get-WikipediaSummary](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-WikipediaSummary.md)
+- [Get-WikipediaSummary](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-WikipediaSummary.md)

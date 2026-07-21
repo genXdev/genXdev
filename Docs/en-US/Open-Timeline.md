@@ -923,8 +923,8 @@ Opens timeline in Chrome incognito mode in fullscreen.
 <hr/>
 ## Related Links
 
-- [Open-GameOfLife](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GameOfLife.md)
-- [Open-GenXdevAppCatalog](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GenXdevAppCatalog.md)
-- [Open-ViralSimulation](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-ViralSimulation.md)
-- [Open-Yab](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-Yab.md)
-- [Open-YabAIBattle](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-YabAIBattle.md)
+- [Open-GameOfLife](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GameOfLife.md)
+- [Open-GenXdevAppCatalog](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GenXdevAppCatalog.md)
+- [Open-ViralSimulation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-ViralSimulation.md)
+- [Open-Yab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-Yab.md)
+- [Open-YabAIBattle](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-YabAIBattle.md)

@@ -87,5 +87,5 @@ PermanentlyDeleteGitFolders `
 
 ## Related Links
 
-- [Get-GitChangedFiles](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GitChangedFiles.md)
-- [New-GitCommit](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/New-GitCommit.md)
+- [Get-GitChangedFiles](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GitChangedFiles.md)
+- [New-GitCommit](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-GitCommit.md)

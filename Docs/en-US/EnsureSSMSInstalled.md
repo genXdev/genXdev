@@ -1,6 +1,6 @@
 # EnsureSSMSInstalled
 
-> **Module:** GenXdev.Data.SqlServer | **Type:** Function | **Aliases:** —
+> **Module:** GenXdev.Software | **Type:** Function | **Aliases:** —
 
 ## Synopsis
 
@@ -52,16 +52,16 @@ Checks and ensures SSMS is installed and accessible.
 <hr/>
 ## Related Links
 
-- [Get-SQLServerSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerSchema.md)
-- [Get-SQLServerTableColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTableColumnData.md)
-- [Get-SQLServerTableData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTableData.md)
-- [Get-SQLServerTables](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTables.md)
-- [Get-SQLServerTableSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTableSchema.md)
-- [Get-SQLServerTransaction](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerTransaction.md)
-- [Get-SQLServerViewColumnData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViewColumnData.md)
-- [Get-SQLServerViewData](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViewData.md)
-- [Get-SQLServerViews](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViews.md)
-- [Get-SQLServerViewSchema](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-SQLServerViewSchema.md)
-- [Invoke-SQLServerQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-SQLServerQuery.md)
-- [Invoke-SSMS](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-SSMS.md)
-- [New-SQLServerDatabase](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/New-SQLServerDatabase.md)
+- [EnsureDeepStack](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureDeepStack.md)
+- [EnsureDockerDesktop](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureDockerDesktop.md)
+- [EnsureGithubCLIInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureGithubCLIInstalled.md)
+- [EnsureHuggingFace](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureHuggingFace.md)
+- [EnsurePaintNet](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePaintNet.md)
+- [EnsurePester](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePester.md)
+- [EnsurePip](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePip.md)
+- [ensurePlaywright](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ensurePlaywright.md)
+- [EnsurePSTools](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePSTools.md)
+- [EnsurePython](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsurePython.md)
+- [EnsureSQLiteStudioInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureSQLiteStudioInstalled.md)
+- [EnsureVSCodeInstallation](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureVSCodeInstallation.md)
+- [EnsureWinMergeInstalled](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/EnsureWinMergeInstalled.md)

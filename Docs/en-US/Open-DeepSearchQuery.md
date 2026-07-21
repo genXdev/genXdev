@@ -729,9 +729,9 @@ Opens DeepSeek in fullscreen mode on the primary monitor to search for
 <hr/>
 ## Related Links
 
-- [Open-BingCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-BingCopilotQuery.md)
-- [Open-ChatGPTQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-ChatGPTQuery.md)
-- [Open-CloudLLMChat](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-CloudLLMChat.md)
-- [Open-GithubCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GithubCopilotQuery.md)
-- [Open-GoogleGeminiQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GoogleGeminiQuery.md)
-- [Open-XGrokQuery](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-XGrokQuery.md)
+- [Open-BingCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-BingCopilotQuery.md)
+- [Open-ChatGPTQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-ChatGPTQuery.md)
+- [Open-CloudLLMChat](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-CloudLLMChat.md)
+- [Open-GithubCopilotQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GithubCopilotQuery.md)
+- [Open-GoogleGeminiQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GoogleGeminiQuery.md)
+- [Open-XGrokQuery](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-XGrokQuery.md)

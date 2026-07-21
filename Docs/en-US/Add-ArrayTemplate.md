@@ -151,4 +151,4 @@ Uses the FormatArray alias with indentation and a custom delimiter.
 
 ## Related Links
 
-- [Remove-DoubleEmptyLines](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Remove-DoubleEmptyLines.md)
+- [Remove-DoubleEmptyLines](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-DoubleEmptyLines.md)

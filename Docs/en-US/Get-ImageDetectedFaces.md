@@ -239,12 +239,12 @@ Recognizes faces using pipeline input.
 <hr/>
 ## Related Links
 
-- [Compare-ImageFaces](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Compare-ImageFaces.md)
-- [Get-ImageDetectedObjects](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-ImageDetectedObjects.md)
-- [Get-ImageDetectedScenes](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-ImageDetectedScenes.md)
-- [Get-RegisteredFaces](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-RegisteredFaces.md)
-- [Invoke-ImageEnhancement](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Invoke-ImageEnhancement.md)
-- [Register-AllFaces](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Register-AllFaces.md)
-- [Register-Face](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Register-Face.md)
-- [Unregister-AllFaces](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Unregister-AllFaces.md)
-- [Unregister-Face](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Unregister-Face.md)
+- [Compare-ImageFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Compare-ImageFaces.md)
+- [Get-ImageDetectedObjects](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ImageDetectedObjects.md)
+- [Get-ImageDetectedScenes](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-ImageDetectedScenes.md)
+- [Get-RegisteredFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-RegisteredFaces.md)
+- [Invoke-ImageEnhancement](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Invoke-ImageEnhancement.md)
+- [Register-AllFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Register-AllFaces.md)
+- [Register-Face](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Register-Face.md)
+- [Unregister-AllFaces](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unregister-AllFaces.md)
+- [Unregister-Face](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Unregister-Face.md)

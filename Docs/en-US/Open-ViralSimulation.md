@@ -763,8 +763,8 @@ fullscreen.
 <hr/>
 ## Related Links
 
-- [Open-GameOfLife](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GameOfLife.md)
-- [Open-GenXdevAppCatalog](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-GenXdevAppCatalog.md)
-- [Open-Timeline](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-Timeline.md)
-- [Open-Yab](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-Yab.md)
-- [Open-YabAIBattle](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Open-YabAIBattle.md)
+- [Open-GameOfLife](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GameOfLife.md)
+- [Open-GenXdevAppCatalog](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-GenXdevAppCatalog.md)
+- [Open-Timeline](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-Timeline.md)
+- [Open-Yab](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-Yab.md)
+- [Open-YabAIBattle](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Open-YabAIBattle.md)

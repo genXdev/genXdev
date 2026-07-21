@@ -115,9 +115,9 @@ Clears the session setting before retrieving the path.
 <hr/>
 ## Related Links
 
-- [Get-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GenXdevPreference.md)
-- [Get-GenXdevPreferenceNames](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Get-GenXdevPreferenceNames.md)
-- [Remove-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Remove-GenXdevPreference.md)
-- [Set-GenXdevDefaultPreference](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Set-GenXdevDefaultPreference.md)
-- [Set-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Set-GenXdevPreference.md)
-- [Set-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/Set-GenXdevPreferencesDatabasePath.md)
+- [Get-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevPreference.md)
+- [Get-GenXdevPreferenceNames](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Get-GenXdevPreferenceNames.md)
+- [Remove-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Remove-GenXdevPreference.md)
+- [Set-GenXdevDefaultPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevDefaultPreference.md)
+- [Set-GenXdevPreference](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevPreference.md)
+- [Set-GenXdevPreferencesDatabasePath](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/Set-GenXdevPreferencesDatabasePath.md)

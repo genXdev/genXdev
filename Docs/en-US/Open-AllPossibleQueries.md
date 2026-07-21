@@ -736,4 +736,4 @@ Opens all possible query types for the GitHub URL using alias and short paramete
 <hr/>
 ## Related Links
 
-- [ConvertTo-Uris](https://github.com/genXdev/genXdev/blob/main/Docs/ru-RU/ConvertTo-Uris.md)
+- [ConvertTo-Uris](https://github.com/genXdev/genXdev/blob/main/Docs/en-US/ConvertTo-Uris.md)
