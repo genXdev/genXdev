@@ -11,6 +11,17 @@
 [![GenXdev](https://img.shields.io/powershellgallery/v/GenXdev.svg?style=flat-square&label=GenXdev)](https://www.powershellgallery.com/packages/GenXdev/) [![License](https://img.shields.io/github/license/genXdev/GenXdev?style=flat-square)](./LICENSE)
 
 <hr/>
+### INSTALLATION
+```PowerShell
+Install-Module GenXdev
+
+cmds
+```
+### UPDATE
+```PowerShell
+Update-Module GenXdev
+```
+<hr/>
 
 ## APACHE 2.0 License
 
